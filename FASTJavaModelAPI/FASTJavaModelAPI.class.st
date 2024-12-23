@@ -23,9 +23,9 @@ FASTJavaModelAPI class >> creationOfJSONClass: aClassModel [
 
 arg1 := { 
 	('name' -> aClassModel name).
- }.
+ } asDictionary.
 
-^{((aClassModel name) -> arg1)}
+^{((aClassModel name) -> arg1)} asDictionary
 ]
 
 { #category : 'as yet unclassified' }
@@ -36,12 +36,10 @@ arg1 := {
 ('name' -> methodModel name).
 ('sourceCode' -> methodModel sourceCode).
 ('hasComment' -> methodModel hasComments).
-(methodModel hasComments) ifTrue: [ 
-	('comment'-> methodModel comments). ].
 ('parentClass' -> methodModel javaDeclarationOwner name).
- }.
+ } asDictionary.
 
-^ { ((methodModel name) -> arg1)}.
+^ { ((methodModel name) -> arg1)} asDictionary.
 ]
 
 { #category : 'as yet unclassified' }
@@ -51,7 +49,35 @@ FASTJavaModelAPI class >> fastModel [
 ]
 
 { #category : 'as yet unclassified' }
-FASTJavaModelAPI class >> retrieveClass [
+FASTJavaModelAPI class >> getRequest: arg1 param: arg2 as: arg3 [
+
+	^ ((arg1 isKindOf: TeaRequest)
+		   ifTrue: [ arg1 at: arg2 ]
+		   ifFalse: [ arg1 ]) perform: arg3
+
+]
+
+{ #category : 'command line' }
+FASTJavaModelAPI class >> hello [ 
+<REST_API: 'GET' versions: #('v1') pattern: 'hello'>
+
+^'Hello Marius'
+]
+
+{ #category : 'as yet unclassified' }
+FASTJavaModelAPI class >> retrieveClass: aRequest [
+| answer |
+"return all classes and some informations on them"
+<REST_API: 'GET' versions: #('v1') pattern: 'class'>
+
+answer := self fastModel allFASTJavaClassDeclaration collect: [ :class |
+	self creationOfJSONClass: class ].
+
+^ STONJSON toString: answer asArray.
+]
+
+{ #category : 'as yet unclassified' }
+FASTJavaModelAPI class >> retrieveClassWIthoutAPI [
 | answer |
 "return all classes and some informations on them"
 
@@ -62,24 +88,47 @@ answer := self fastModel allFASTJavaClassDeclaration collect: [ :class |
 ]
 
 { #category : 'as yet unclassified' }
-FASTJavaModelAPI class >> retrieveClass: aClassName [
-
+FASTJavaModelAPI class >> retrieveClassbyName: aRequest [
+<REST_API: 'GET' versions: #('v1') pattern: 'class/<aClassName>'>
 "SHOULD RETURN THE CLASS MATCHING THE NAME"
+| aClassName |
+
+aClassName :=  self getRequest: aRequest param: #aClassName as: #asString.
 
 self fastModel allFASTJavaClassDeclaration do: [ :class |
-	 (class name equalsTo: aClassName ) ifTrue: [^ self creationOfJSONClass: class ]].
+	 (class name equalsTo: aClassName ) ifTrue: [^ STONJSON toString: ((self creationOfJSONClass: class)asArray) ]].
 ]
 
 { #category : 'as yet unclassified' }
-FASTJavaModelAPI class >> retrieveMethod: aMethodName [
+FASTJavaModelAPI class >> retrieveMethod: aRequest [
+<REST_API: 'GET' versions: #('v1') pattern: 'method/<aMethodName>'>
 "retrieve a function by his name"
+| aMethodName |
+
+aMethodName :=  self getRequest: aRequest param: #aMethodName as: #asString.
 
 self fastModel allFASTJavaMethodEntity do: [ :method |
-	 (method name equalsTo: aMethodName) ifTrue: [^ self creationOfJSONMethod: method ]].
+	 (method name equalsTo: aMethodName) ifTrue: [^ STONJSON toString: ((self creationOfJSONMethod: method) asArray)]].
 ]
 
 { #category : 'as yet unclassified' }
-FASTJavaModelAPI class >> retrieveMethods [
+FASTJavaModelAPI class >> retrieveMethods: aRequest [
+<REST_API: 'GET' versions: #('v1') pattern: 'methods'>
+| model listMethods answer |
+"retrieve all methods and some informations on them"
+
+
+model := self fastModel.
+listMethods := model allFASTJavaMethodEntity.
+
+answer := listMethods collect: [ :method | self creationOfJSONMethod: method ].
+
+^STONJSON toString: answer asArray.
+
+]
+
+{ #category : 'as yet unclassified' }
+FASTJavaModelAPI class >> retrieveMethodsWithoutAPI [
 | model listMethods answer |
 "retrieve all methods and some informations on them"
 model := self fastModel.
@@ -87,6 +136,6 @@ listMethods := model allFASTJavaMethodEntity.
 
 answer := listMethods collect: [ :method | self creationOfJSONMethod: method ].
 
-^answer.
+^answer asArray.
 
 ]
