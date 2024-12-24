@@ -1,6 +1,9 @@
 Class {
 	#name : 'FASTJavaModelAPI',
 	#superclass : 'Object',
+	#classInstVars : [
+		'fastModel'
+	],
 	#category : 'FASTJavaModelAPI',
 	#package : 'FASTJavaModelAPI'
 }
@@ -11,7 +14,8 @@ FASTJavaModelAPI class >> creationModelFromString: aString [
 
 model := JavaSmaCCProgramNodeImporterVisitor new parseCodeString: aString.
 
-model installWithCache: false.
+"for testing in local"
+"model installWithCache: false."
 
 ^ model.
 ]
@@ -25,7 +29,7 @@ arg1 := {
 	('name' -> aClassModel name).
  } asDictionary.
 
-^{((aClassModel name) -> arg1)} asDictionary
+^arg1.
 ]
 
 { #category : 'as yet unclassified' }
@@ -35,17 +39,22 @@ FASTJavaModelAPI class >> creationOfJSONMethod: methodModel [
 arg1 := { 
 ('name' -> methodModel name).
 ('sourceCode' -> methodModel sourceCode).
-('hasComment' -> methodModel hasComments).
 ('parentClass' -> methodModel javaDeclarationOwner name).
  } asDictionary.
 
-^ { ((methodModel name) -> arg1)} asDictionary.
+^ arg1.
 ]
 
 { #category : 'as yet unclassified' }
 FASTJavaModelAPI class >> fastModel [
 
-	^MooseModel root at: 1.
+	^fastModel.
+]
+
+{ #category : 'accessing' }
+FASTJavaModelAPI class >> fastModel: anObject [
+
+	fastModel := anObject.
 ]
 
 { #category : 'as yet unclassified' }
@@ -82,7 +91,7 @@ FASTJavaModelAPI class >> retrieveClassWIthoutAPI [
 "return all classes and some informations on them"
 
 answer := self fastModel allFASTJavaClassDeclaration collect: [ :class |
-	self creationOfJSONClass: class ].
+	"self creationOfJSONClass: class" class].
 
 ^ answer.
 ]
@@ -100,15 +109,41 @@ self fastModel allFASTJavaClassDeclaration do: [ :class |
 ]
 
 { #category : 'as yet unclassified' }
-FASTJavaModelAPI class >> retrieveMethod: aRequest [
-<REST_API: 'GET' versions: #('v1') pattern: 'method/<aMethodName>'>
-"retrieve a function by his name"
-| aMethodName |
+FASTJavaModelAPI class >> retrieveCompleteJson: aRequest [
+<REST_API: 'GET' versions: #('v1') pattern: 'getJson/<aFilePath>'>
+"retrieve a complete JSON for each method and class of a Java file"
+| aFilePath content model classes allInfos |
 
-aMethodName :=  self getRequest: aRequest param: #aMethodName as: #asString.
+aFilePath := aRequest.
+"aFilePath :=  self getRequest: aRequest param: #aFilePath as: #asString."
+content := aFilePath asFileReference contents.
+model := self creationModelFromString: content.
+self fastModel: model. 
+
+classes := self retrieveClassWIthoutAPI. 
+
+allInfos := classes collect: [ :classDic | 
+    | filteredMethods |
+    filteredMethods := classDic declarations select: [ :method | method isKindOf: FASTJavaMethodEntity ].
+    {(classDic name -> ((filteredMethods collect: [ :method | self retrieveMethod: method name ])asArray) )} asDictionary
+].
+
+^ STONJSON toString: allInfos first. 
+
+
+]
+
+{ #category : 'as yet unclassified' }
+FASTJavaModelAPI class >> retrieveMethod: aRequest [
+"<REST_API: 'GET' versions: #('v1') pattern: 'method/<aMethodName>'>
+""retrieve a function by his name""
+| aMethodName |"
+
+"aMethodName :=  self getRequest: aRequest param: #aMethodName as: #asString."
 
 self fastModel allFASTJavaMethodEntity do: [ :method |
-	 (method name equalsTo: aMethodName) ifTrue: [^ STONJSON toString: ((self creationOfJSONMethod: method) asArray)]].
+	 (method name equalsTo: aRequest "aMethodName for API") ifTrue: [^ self creationOfJSONMethod: method]
+	].
 ]
 
 { #category : 'as yet unclassified' }
