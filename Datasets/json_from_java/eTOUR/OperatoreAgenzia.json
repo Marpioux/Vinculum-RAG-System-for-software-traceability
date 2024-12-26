@@ -1,0 +1,114 @@
+{
+    "OperatoreAgenzia": [
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "OperatoreAgenzia",
+            "sourceCode": "public OperatoreAgenzia() {\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "OperatoreAgenzia",
+            "sourceCode": "public OperatoreAgenzia() {\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setName",
+            "sourceCode": "public void setName(String name) {\r\n        this.name = name;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getName",
+            "sourceCode": "public String getName() {\r\n        return name;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setLastName",
+            "sourceCode": "public void setLastName(String lastName) {\r\n        this.lastName = lastName;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getLastName",
+            "sourceCode": "public String getLastName() {\r\n        return lastName;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setCityResidenza",
+            "sourceCode": "public void setCityResidenza(String cityResidenza) {\r\n        this.cityResidenza = cityResidenza;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getCityResidenza",
+            "sourceCode": "public String getCityResidenza() {\r\n        return cityResidenza;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setPhone",
+            "sourceCode": "public void setPhone(String phone) {\r\n        this.phone = phone;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getPhone",
+            "sourceCode": "public String getPhone() {\r\n        return phone;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setZip",
+            "sourceCode": "public void setZip(String zip) {\r\n        this.zip = zip;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getZip",
+            "sourceCode": "public String getZip() {\r\n        return zip;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setAddress",
+            "sourceCode": "public void setAddress(String address) {\r\n        this.address = address;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getAddress",
+            "sourceCode": "public String getAddress() {\r\n        return address;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setEmail",
+            "sourceCode": "public void setEmail(String email) {\r\n        this.email = email;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getEmail",
+            "sourceCode": "public String getEmail() {\r\n        return email;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setPassword",
+            "sourceCode": "public void setPassword(String password) {\r\n        this.password = password;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getPassword",
+            "sourceCode": "public String getPassword() {\r\n        return password;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setUsername",
+            "sourceCode": "public void setUsername(String username) {\r\n        this.username = username;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getUsername",
+            "sourceCode": "public String getUsername() {\r\n        return username;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "setDoB",
+            "sourceCode": "public void setDoB(Date doB) {\r\n        this.doB = doB;\r\n    }"
+        },
+        {
+            "parentClass": "OperatoreAgenzia",
+            "name": "getDoB",
+            "sourceCode": "public Date getDoB() {\r\n        return doB;\r\n    }"
+        }
+    ]
+}

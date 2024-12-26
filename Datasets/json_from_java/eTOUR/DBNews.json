@@ -1,0 +1,29 @@
+{
+    "DBNews": [
+        {
+            "parentClass": "DBNews",
+            "name": "cancellaNews",
+            "sourceCode": "public boolean cancellaNews(int pIdNews) throws SQLException {\r\n        if (NUM_TEST == 1) {\r\n            return true;\r\n        } else if (NUM_TEST == 2) {\r\n            throw new SQLException();\r\n        }\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBNews",
+            "name": "inserisciNews",
+            "sourceCode": "public boolean inserisciNews(BeanNews pNews) throws SQLException {\r\n        return NUM_TEST != 7;\r\n    }"
+        },
+        {
+            "parentClass": "DBNews",
+            "name": "modificaNews",
+            "sourceCode": "public boolean modificaNews(BeanNews pNews) throws SQLException {\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBNews",
+            "name": "ottieniNews",
+            "sourceCode": "public ArrayList<BeanNews> ottieniNews() throws SQLException {\r\n        ArrayList<BeanNews> toReturn = new ArrayList<>();\r\n\r\n        if (NUM_TEST == 5) {\r\n            for (int i = 1; i <= CostantiGlobali.MAX_NEWS_ATTIVE; i++) {\r\n                toReturn.add(new BeanNews());\r\n            }\r\n        } else {\r\n            toReturn.add(new BeanNews());\r\n        }\r\n        return toReturn;\r\n    }"
+        },
+        {
+            "parentClass": "DBNews",
+            "name": "setNUM_TEST",
+            "sourceCode": "public static void setNUM_TEST(int numTest) {\r\n        NUM_TEST = numTest;\r\n    }"
+        }
+    ]
+}

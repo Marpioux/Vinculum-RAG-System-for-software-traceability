@@ -1,0 +1,19 @@
+{
+    "PatientBaseAction": [
+        {
+            "parentClass": "PatientBaseAction",
+            "name": "PatientBaseAction",
+            "sourceCode": "public PatientBaseAction(DAOFactory factory, String pidString) throws iTrustException {\r\n\t\tthis.factory = factory;\r\n\t\tthis.pid = checkPatientID(pidString);\r\n\t}"
+        },
+        {
+            "parentClass": "PatientBaseAction",
+            "name": "checkPatientID",
+            "sourceCode": "private long checkPatientID(String input) throws iTrustException {\r\n\t\ttry {\r\n\t\t\tlong pid = Long.valueOf(input);\r\n\t\t\tif (factory.getPatientDAO().checkPatientExists(pid))\r\n\t\t\t\treturn pid;\r\n\t\t\telse\r\n\t\t\t\tthrow new iTrustException(\"Patient does not exist\");\r\n\t\t} catch (NumberFormatException e) {\r\n\t\t\tthrow new iTrustException(\"Patient ID is not a number: \" + HtmlEncoder.encode(input));\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PatientBaseAction",
+            "name": "getPid",
+            "sourceCode": "public long getPid() {\r\n\t\treturn pid;\r\n\t}"
+        }
+    ]
+}

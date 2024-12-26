@@ -1,0 +1,9 @@
+{
+  "IAutenticazione": [
+    {
+      "parentClass": "Authentication",
+      "name": "login",
+      "sourceCode": "int login(String pUsername, String pPassword, byte pTipologiaUtente) throws RemoteException;"
+    }
+  ]
+}

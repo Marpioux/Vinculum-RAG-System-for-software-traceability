@@ -1,0 +1,44 @@
+{
+    "GestioneTuristiAgenzia": [
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "GestioneTuristiAgenzia",
+            "sourceCode": "public GestioneTuristiAgenzia() throws RemoteException {\r\n        super();\r\n        try {\r\n            feedbackBC = new DBVisitaBC();\r\n            feedbackPR = new DBVisitaPR();\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "ottieniTuristi",
+            "sourceCode": "public ArrayList<BeanTurista> ottieniTuristi() throws RemoteException {\r\n        ArrayList<BeanTurista> toReturn;\r\n        try {\r\n            toReturn = turista.ottieniTuristi(\"\");\r\n            if (null == toReturn) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error in method ottieniTuristi: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            System.out.println(\"Error in method ottieniTuristi: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        if (null == toReturn) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n        }\r\n        return toReturn;\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "ottieniTuristi",
+            "sourceCode": "public ArrayList<BeanTurista> ottieniTuristi() throws RemoteException {\r\n        ArrayList<BeanTurista> toReturn;\r\n        try {\r\n            toReturn = turista.ottieniTuristi(\"\");\r\n            if (null == toReturn) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error in method ottieniTuristi: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            System.out.println(\"Error in method ottieniTuristi: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        if (null == toReturn) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n        }\r\n        return toReturn;\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "attivaTurista",
+            "sourceCode": "public boolean attivaTurista(int pIdTurista) throws RemoteException {\r\n        if (pIdTurista < 0) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        BeanTurista toChange;\r\n        try {\r\n            toChange = turista.ottieniTurista(pIdTurista);\r\n            if (toChange.isAttiva()) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n            }\r\n            toChange.setAttiva(true);\r\n            if (turista.modificaTurista(toChange)) {\r\n                return true;\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error in method attivaTurista: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            System.out.println(\"Error in method attivaTurista: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "disattivaTurista",
+            "sourceCode": "public boolean disattivaTurista(int pIdTurista) throws RemoteException {\r\n        if (pIdTurista < 0) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        BeanTurista toChange;\r\n        try {\r\n            toChange = turista.ottieniTurista(pIdTurista);\r\n            if (!toChange.isAttiva()) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n            }\r\n            toChange.setAttiva(false);\r\n            if (turista.modificaTurista(toChange)) {\r\n                return true;\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error in method disattivaTurista: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            System.out.println(\"Error in method disattivaTurista: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "delete",
+            "sourceCode": "public boolean delete(int pIdTurista) throws RemoteException {\r\n        if (pIdTurista < 0) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        try {\r\n            if (turista.cancellaTurista(pIdTurista)) {\r\n                return true;\r\n            }\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error in delete method: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            System.out.println(\"Error in delete method: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "ottieniFeedbackBC",
+            "sourceCode": "public ArrayList<BeanVisitaBC> ottieniFeedbackBC(int pIdTurista) throws RemoteException {\r\n        if (pIdTurista < 0) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        ArrayList<BeanVisitaBC> toReturn;\r\n        try {\r\n            toReturn = feedbackBC.ottieniListaVisitaBCTurista(pIdTurista);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error in method ottieniFeedbackBC: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            System.out.println(\"Error in method ottieniFeedbackBC: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        if (null == toReturn) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n        }\r\n        return toReturn;\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristiAgenzia",
+            "name": "ottieniFeedbackPR",
+            "sourceCode": "public ArrayList<BeanVisitaPR> ottieniFeedbackPR(int pIdTurista) throws RemoteException {\r\n        if (pIdTurista < 0) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        ArrayList<BeanVisitaPR> toReturn;\r\n        try {\r\n            toReturn = feedbackPR.ottieniListaVisitaPRTurista(pIdTurista);\r\n        } catch (SQLException e) {\r\n            System.out.println(\"Error in method ottieniFeedbackPR: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            System.out.println(\"Error in method ottieniFeedbackPR: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        if (null == toReturn) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n        }\r\n        return toReturn;\r\n    }"
+        }
+    ]
+}

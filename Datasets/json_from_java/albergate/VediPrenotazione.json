@@ -1,0 +1,14 @@
+{
+    "VediPrenotazione": [
+        {
+            "parentClass": "VediPrenotazione",
+            "name": "VediPrenotazione",
+            "sourceCode": "public VediPrenotazione(Prenotazione pren, Stanza room, RicercaPrenotazione papa)\n    {\n        super(room,\"\",\"\",\"Visualizzazione dei dati della prenotazione\",\"\",4, pren.getPensionamento());\n        p = pren;\n        parent = papa;\n        init();\n    }"
+        },
+        {
+            "parentClass": "VediPrenotazione",
+            "name": "init",
+            "sourceCode": "public void init()\n    {\n    \tFrame msg;\n    \t\n    \twriteDatiPren(p);\n    \tfor(int i=0; i<11; i++)\n    \t\ttesto[i].setEditable(false);\n    \tmyCheckbox.setEnabled(false);\n    \tmyCheckbox1.setEnabled(false);\n    \tfor (int i=0; i<checkboxes.length; i++)\n    \t\tcheckboxes[i].setEnabled(false);\n    \ttesto[9].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getDataPren())));\t    \n     \tpanel2.remove(Azione);\n    }"
+        }
+    ]
+}

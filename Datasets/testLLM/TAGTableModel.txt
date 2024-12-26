@@ -1,0 +1,44 @@
+{
+  "TAGTableModel": [
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "TAGTableModel",
+      "sourceCode": "public TAGTableModel(BeanTag[] tags) {\n    data = new Vector<>();\n    for (int i = 0; i < tags.length; i++) {\n        Object[] newRow = new Object[3];\n        newRow[0] = tags[i].getId();\n        newRow[1] = tags[i].getName();\n        newRow[2] = tags[i].getDescrizione();\n        data.add(newRow);\n    }\n}"
+    },
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "getColumnCount",
+      "sourceCode": "@Override\npublic int getColumnCount() {\n    return headers.length;\n}"
+    },
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "getRowCount",
+      "sourceCode": "@Override\npublic int getRowCount() {\n    return data.size();\n}"
+    },
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "getColumnName",
+      "sourceCode": "@Override\npublic String getColumnName(int pCol) {\n    return headers[pCol];\n}"
+    },
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "getValueAt",
+      "sourceCode": "@Override\npublic Object getValueAt(int pRow, int pCol) {\n    return data.get(pRow)[pCol];\n}"
+    },
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "getColumnClass",
+      "sourceCode": "@Override\npublic Class<?> getColumnClass(int pCol) {\n    return columnClasses[pCol];\n}"
+    },
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "isCellEditable",
+      "sourceCode": "@Override\npublic boolean isCellEditable(int row, int col) {\n    return false;\n}"
+    },
+    {
+      "parentClass": "AbstractTableModel",
+      "name": "setValueAt",
+      "sourceCode": "@Override\npublic void setValueAt(Object value, int row, int col) {\n}"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+    "DBVisitaBC": [
+        {
+            "parentClass": "DBVisitaBC",
+            "name": "inserisciVisitaBC",
+            "sourceCode": "public boolean inserisciVisitaBC(BeanVisitaBC PVIS) throws SQLException {\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "DBVisitaBC",
+            "name": "modificaVisitaBC",
+            "sourceCode": "public boolean modificaVisitaBC(BeanVisitaBC PVIS) throws SQLException {\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "DBVisitaBC",
+            "name": "ottieniListaVisitaBC",
+            "sourceCode": "public ArrayList<BeanVisitaBC> ottieniListaVisitaBC(int pIdBeneCulturale) throws SQLException {\r\n        ArrayList<BeanVisitaBC> finteVisite = new ArrayList<BeanVisitaBC>(0);\r\n\r\n        finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n        finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n\r\n        finteVisite.add(new BeanVisitaBC(5, 1, \"This show is not 'evil'\", 1, new Date(new Date().getTime() - 2591000000L)));\r\n        finteVisite.add(new BeanVisitaBC(3, 1, \"This show is not 'evil'\", 1, new Date(new Date().getTime() - 5182000000L)));\r\n\r\n        return finteVisite;\r\n    }"
+        },
+        {
+            "parentClass": "DBVisitaBC",
+            "name": "ottieniListaVisitaBCTurista",
+            "sourceCode": "public ArrayList<BeanVisitaBC> ottieniListaVisitaBCTurista(int pIdTurista) throws SQLException {\r\n        return null;\r\n    }"
+        },
+        {
+            "parentClass": "DBVisitaBC",
+            "name": "ottieniVisitaBC",
+            "sourceCode": "public BeanVisitaBC ottieniVisitaBC(int pIdBeneCulturale, int pIdTurista) throws SQLException {\r\n        return null;\r\n    }"
+        }
+    ]
+}

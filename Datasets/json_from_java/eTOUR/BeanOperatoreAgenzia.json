@@ -1,0 +1,64 @@
+{
+    "BeanOperatoreAgenzia": [
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "BeanOperatoreAgenzia",
+            "sourceCode": "public BeanOperatoreAgenzia(int pid, String pUsername, String pNome, String pCognome, String pPassword) {\r\n        setId(pid);\r\n        setUsername(pUsername);\r\n        setNome(pNome);\r\n        setCognome(pCognome);\r\n        setPassword(pPassword);\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "BeanOperatoreAgenzia",
+            "sourceCode": "public BeanOperatoreAgenzia(int pid, String pUsername, String pNome, String pCognome, String pPassword) {\r\n        setId(pid);\r\n        setUsername(pUsername);\r\n        setNome(pNome);\r\n        setCognome(pCognome);\r\n        setPassword(pPassword);\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "getCognome",
+            "sourceCode": "public String getCognome() {\r\n        return cognome;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "setCognome",
+            "sourceCode": "public void setCognome(String pCognome) {\r\n        this.cognome = pCognome;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "getName",
+            "sourceCode": "public String getName() {\r\n        return name;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "setNome",
+            "sourceCode": "public void setNome(String pNome) {\r\n        this.name = pNome;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "getPassword",
+            "sourceCode": "public String getPassword() {\r\n        return password;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "setPassword",
+            "sourceCode": "public void setPassword(String pPassword) {\r\n        this.password = pPassword;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "getUserName",
+            "sourceCode": "public String getUserName() {\r\n        return username;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "setUsername",
+            "sourceCode": "public void setUsername(String pUsername) {\r\n        this.username = pUsername;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "setId",
+            "sourceCode": "public void setId(int pid) {\r\n        this.id = pid;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatoreAgenzia",
+            "name": "getId",
+            "sourceCode": "public int getId() {\r\n        return id;\r\n    }"
+        }
+    ]
+}

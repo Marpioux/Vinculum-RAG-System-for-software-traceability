@@ -1,0 +1,14 @@
+{
+    "MailValidator": [
+        {
+            "parentClass": "MailValidator",
+            "name": "MailValidator",
+            "sourceCode": "public MailValidator(){\r\n\t\t\r\n\t}"
+        },
+        {
+            "parentClass": "MailValidator",
+            "name": "validateEmail",
+            "sourceCode": "public boolean validateEmail(String email) throws FormValidationException {\r\n\t\tMailValidator val = new MailValidator();\r\n\t\r\n\t\treturn val.isValid(email);\r\n\t\t\r\n\t}"
+        }
+    ]
+}

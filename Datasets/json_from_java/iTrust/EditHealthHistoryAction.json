@@ -1,0 +1,29 @@
+{
+    "EditHealthHistoryAction": [
+        {
+            "parentClass": "EditHealthHistoryAction",
+            "name": "EditHealthHistoryAction",
+            "sourceCode": "public EditHealthHistoryAction(DAOFactory factory, long loggedInMID, String pidString)\r\n\t\t\tthrows iTrustException {\r\n\t\tsuper(factory, pidString);\r\n\t\tthis.hrDAO = factory.getHealthRecordsDAO();\r\n\t\tthis.authDAO = factory.getAuthDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t}"
+        },
+        {
+            "parentClass": "EditHealthHistoryAction",
+            "name": "getPatientName",
+            "sourceCode": "public String getPatientName() throws DBException, iTrustException {\r\n\t\treturn authDAO.getUserName(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "EditHealthHistoryAction",
+            "name": "addHealthRecord",
+            "sourceCode": "public String addHealthRecord(long pid, HealthRecordForm hr) throws FormValidationException,\r\n\t\t\tiTrustException {\r\n\t\tvalidator.validate(hr);\r\n\t\tHealthRecord record = transferForm(pid, hr);\r\n\t\thrDAO.add(record);\r\n\t\ttransDAO.logTransaction(TransactionType.ENTER_EDIT_PHR, loggedInMID, pid, \"EditHealthHistory - Add Record\");\r\n\t\treturn \"Information Recorded\";\r\n\t}"
+        },
+        {
+            "parentClass": "EditHealthHistoryAction",
+            "name": "transferForm",
+            "sourceCode": "private HealthRecord transferForm(long pid, HealthRecordForm form) throws FormValidationException {\r\n\t\tHealthRecord record = new HealthRecord();\r\n\t\trecord.setPatientID(pid);\r\n\t\trecord.setPersonnelID(loggedInMID);\r\n\t\trecord.setBloodPressureD(Integer.valueOf(form.getBloodPressureD()));\r\n\t\trecord.setBloodPressureN(Integer.valueOf(form.getBloodPressureN()));\r\n\t\trecord.setCholesterolHDL(Integer.valueOf(form.getCholesterolHDL()));\r\n\t\trecord.setCholesterolLDL(Integer.valueOf(form.getCholesterolLDL()));\r\n\t\trecord.setCholesterolTri(Integer.valueOf(form.getCholesterolTri()));\r\n\t\tif (record.getTotalCholesterol() < 100 || record.getTotalCholesterol() > 600)\r\n\t\t\tthrow new FormValidationException(\"Total cholesterol must be in [100,600]\");\r\n\t\trecord.setHeight(Double.valueOf(form.getHeight()));\r\n\t\trecord.setWeight(Double.valueOf(form.getWeight()));\r\n\t\trecord.setSmoker(Boolean.valueOf(form.getIsSmoker()));\r\n\t\treturn record;\r\n\t}"
+        },
+        {
+            "parentClass": "EditHealthHistoryAction",
+            "name": "getAllHealthRecords",
+            "sourceCode": "public List<HealthRecord> getAllHealthRecords(long pid) throws iTrustException {\r\n\t\ttransDAO.logTransaction(TransactionType.VIEW_HEALTH_RECORDS, loggedInMID, pid, \"EditHealthHistory - View Records\");\r\n\t\treturn hrDAO.getAllHealthRecords(pid);\r\n\t}"
+        }
+    ]
+}

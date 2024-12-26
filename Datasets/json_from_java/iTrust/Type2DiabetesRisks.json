@@ -1,0 +1,24 @@
+{
+    "Type2DiabetesRisks": [
+        {
+            "parentClass": "Type2DiabetesRisks",
+            "name": "Type2DiabetesRisks",
+            "sourceCode": "public Type2DiabetesRisks(DAOFactory factory, long patientID) throws DBException,\r\n\t\t\tNoHealthRecordsException {\r\n\t\tsuper(factory, patientID);\r\n\t}"
+        },
+        {
+            "parentClass": "Type2DiabetesRisks",
+            "name": "qualifiesForDisease",
+            "sourceCode": "@Override\r\n\tpublic boolean qualifiesForDisease() {\r\n\t\treturn patient.getAge() >= 12;\r\n\t}"
+        },
+        {
+            "parentClass": "Type2DiabetesRisks",
+            "name": "getDiseaseRiskFactors",
+            "sourceCode": "@Override\r\n\tprotected List<PatientRiskFactor> getDiseaseRiskFactors() {\r\n\t\tList<PatientRiskFactor> factors = new ArrayList<PatientRiskFactor>();\r\n\t\tfactors.add(new AgeFactor(patient, 45));\r\n\t\tfactors.add(new EthnicityFactor(patient, Hispanic, AfricanAmerican, AmericanIndian, Asian));\r\n\t\tfactors.add(new WeightFactor(currentHealthRecord, 25));\r\n\t\tfactors.add(new HypertensionFactor(currentHealthRecord));\r\n\t\tfactors.add(new CholesterolFactor(currentHealthRecord));\r\n\t\tfactors.add(new PriorDiagnosisFactor(factory, patient.getMID(), 250.0, 251.0));\r\n\t\tfactors.add(new FamilyHistoryFactor(factory, patient.getMID(), 250.0, 251.0));\r\n\t\treturn factors;\r\n\t}"
+        },
+        {
+            "parentClass": "Type2DiabetesRisks",
+            "name": "getName",
+            "sourceCode": "@Override\r\n\tpublic String getName() {\r\n\t\treturn \"Type 2 Diabetes\";\r\n\t}"
+        }
+    ]
+}

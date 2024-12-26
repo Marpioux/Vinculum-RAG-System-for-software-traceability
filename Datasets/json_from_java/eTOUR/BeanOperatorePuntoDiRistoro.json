@@ -1,0 +1,84 @@
+{
+    "BeanOperatorePuntoDiRistoro": [
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "BeanOperatorePuntoDiRistoro",
+            "sourceCode": "public BeanOperatorePuntoDiRistoro(int pId, String pName, String pSurname,\r\n                                        String pUsername, String pPassword, String pEmail,\r\n                                        int pIdPuntoDiRistoro) {\r\n        setId(pId);\r\n        setName(pName);\r\n        setSurname(pSurname);\r\n        setUsername(pUsername);\r\n        setPassword(pPassword);\r\n        setEmail(pEmail);\r\n        setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "BeanOperatorePuntoDiRistoro",
+            "sourceCode": "public BeanOperatorePuntoDiRistoro(int pId, String pName, String pSurname,\r\n                                        String pUsername, String pPassword, String pEmail,\r\n                                        int pIdPuntoDiRistoro) {\r\n        setId(pId);\r\n        setName(pName);\r\n        setSurname(pSurname);\r\n        setUsername(pUsername);\r\n        setPassword(pPassword);\r\n        setEmail(pEmail);\r\n        setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "getSurname",
+            "sourceCode": "public String getSurname() {\r\n        return surname;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "setSurname",
+            "sourceCode": "public void setSurname(String pSurname) {\r\n        this.surname = pSurname;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "getEmail",
+            "sourceCode": "public String getEmail() {\r\n        return email;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "setEmail",
+            "sourceCode": "public void setEmail(String pEmail) {\r\n        this.email = pEmail;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "getName",
+            "sourceCode": "public String getName() {\r\n        return name;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "setName",
+            "sourceCode": "public void setName(String pName) {\r\n        this.name = pName;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "getPassword",
+            "sourceCode": "public String getPassword() {\r\n        return password;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "setPassword",
+            "sourceCode": "public void setPassword(String pPassword) {\r\n        this.password = pPassword;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "getUsername",
+            "sourceCode": "public String getUsername() {\r\n        return username;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "setUsername",
+            "sourceCode": "public void setUsername(String pUsername) {\r\n        this.username = pUsername;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "getIdPuntoDiRistoro",
+            "sourceCode": "public int getIdPuntoDiRistoro() {\r\n        return idPuntoDiRistoro;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "setIdPuntoDiRistoro",
+            "sourceCode": "public void setIdPuntoDiRistoro(int pIdPuntoDiRistoro) {\r\n        this.idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "getId",
+            "sourceCode": "public int getId() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "BeanOperatorePuntoDiRistoro",
+            "name": "setId",
+            "sourceCode": "public void setId(int pId) {\r\n        this.id = pId;\r\n    }"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "SubBeniServizi": [
+        {
+            "parentClass": "SubBeniServizi",
+            "name": "SubBeniServizi",
+            "sourceCode": "public SubBeniServizi()\n   {\n      super(\"Gestione dei Beni&Servizi\");\n      setup();\n      init();\n      pack();\n   }"
+        },
+        {
+            "parentClass": "SubBeniServizi",
+            "name": "setup",
+            "sourceCode": "void setup()\n   {  \n      this.setFont(ConfigurazioneSistema.font_sub);\n      panel0=new Panel();\n      panel0.setLayout(gridbag);\n      panel0.setBackground(Color.white);\n      //Caricamento di un'immagine scelta a caso tra quelle disponibili\n      Random rnd = new Random();\n      int num;\n      if ((num = (rnd.nextInt() % 5) ) < 0)\n      \t  num = num * -1;\n      num ++;\t   \n      String file_name = new String(\"servizi\"+num+\".jpg\");\n      Immagine  figura = new Immagine(file_name);\n      Etichetta etich = new Etichetta(\"Beni&Servizi.gif\");\n      Utils.constrain(panel0,etich, 0, 0, 2, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n      Utils.constrain(panel0,figura, 2, 0, 10, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n       \n      panel1 = new Panel();\n      panel1.setLayout(new GridLayout(5,1));\n      Inserimento = new Button(\" Inserimento \");\n      Modifica = new Button(\"Modifica\");\n      Cancellazione = new Button(\" Cancellazione \");\n      Ricerca = new Button(\"Ricerca...\");\n      Annulla = new Button(\"Indietro\");\n      panel1.add(Inserimento);\n      panel1.add(Modifica);\n      panel1.add(Cancellazione);\n      panel1.add(Ricerca);\n      panel1.add(Annulla);\n\n      this.setLayout(gridbag);\n      Utils.constrain(this,panel0, 0, 0, 12, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n      Utils.constrain(this,panel1, 12, 0, 1, 12,GridBagConstraints.BOTH,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n   }"
+        },
+        {
+            "parentClass": "SubBeniServizi",
+            "name": "init",
+            "sourceCode": "void init()\n   {\n      Annulla.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            dispose();\n            s.setEnabled(true);\n         }\n      });\n      \n      Inserimento.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            insBeneServizio();\n         }\n      });\n\n      Modifica.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            modBeneServizio();\n         }\n      });\n\n      Cancellazione.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            cancBeneServizio();\n         }\n      });\n      \n      Ricerca.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            vediBeneServizio();\n         }\n      });\n   }"
+        },
+        {
+            "parentClass": "SubBeniServizi",
+            "name": "insBeneServizio",
+            "sourceCode": "void insBeneServizio()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_1 = new InserisciBeniServizi(\"Inserimento di beni e servizi\");\n\t\tcall_1.padre = this;\n\t\tcall_1.setVisible(true);\n\t}"
+        },
+        {
+            "parentClass": "SubBeniServizi",
+            "name": "modBeneServizio",
+            "sourceCode": "void modBeneServizio()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_2 = new ModificaBeniServizi();\n\t\tcall_2.padre = this;\n\t\tcall_2.setVisible(true);\n\t}"
+        },
+        {
+            "parentClass": "SubBeniServizi",
+            "name": "cancBeneServizio",
+            "sourceCode": "void cancBeneServizio()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_3 = new CancellaBeniServizi();\n\t\tcall_3.padre = this;\n\t\tcall_3.setVisible(true);\n\t}"
+        },
+        {
+            "parentClass": "SubBeniServizi",
+            "name": "vediBeneServizio",
+            "sourceCode": "void vediBeneServizio()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_4 = new VediBeniServizi();\n\t\tcall_4.padre = this;\n\t\tcall_4.setVisible(true);\n\t}"
+        }
+    ]
+}

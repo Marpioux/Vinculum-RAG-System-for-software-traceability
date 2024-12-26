@@ -1,0 +1,24 @@
+{
+    "IGestioneTagOperatoreAgenzia": [
+        {
+            "parentClass": "IGestioneTagComune",
+            "name": "inserisciTag",
+            "sourceCode": "boolean inserisciTag(BeanTag pTagNuovo) throws RemoteException;"
+        },
+        {
+            "parentClass": "IGestioneTagComune",
+            "name": "cancellaTag",
+            "sourceCode": "boolean cancellaTag(int pTagID) throws RemoteException;"
+        },
+        {
+            "parentClass": "IGestioneTagComune",
+            "name": "modificaTag",
+            "sourceCode": "boolean modificaTag(BeanTag pTagModificato) throws RemoteException;"
+        },
+        {
+            "parentClass": "IGestioneTagComune",
+            "name": "ottieniTag",
+            "sourceCode": "BeanTag ottieniTag(int pTagID) throws RemoteException;"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "DrugInteractionAction": [
+        {
+            "parentClass": "DrugInteractionAction",
+            "name": "DrugInteractionAction",
+            "sourceCode": "public DrugInteractionAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.drugDAO = factory.getDrugInteractionDAO();\r\n\t\tthis.tranDAO = factory.getTransactionDAO();\r\n\t\tthis.validator = new DrugInteractionValidator();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t}"
+        },
+        {
+            "parentClass": "DrugInteractionAction",
+            "name": "reportInteraction",
+            "sourceCode": "public String reportInteraction(String firstDrug, String secondDrug, String description) throws iTrustException,FormValidationException{\r\n\t\tif (firstDrug.equals(secondDrug)){\r\n\t\t\treturn \"Interactions can only be recorded between two different drugs\";\r\n\t\t}\r\n\t\tDrugInteractionBean drugInt = new DrugInteractionBean();\r\n\t\tdrugInt.setFirstDrug(firstDrug);\r\n\t\tdrugInt.setSecondDrug(secondDrug);\r\n\t\tdrugInt.setDescription(description);\r\n\t\t\r\n\t\ttry {\r\n\t\t\tvalidator.validate(drugInt);\r\n\t\t\tif (drugDAO.reportInteraction(firstDrug,secondDrug,description)){\r\n\t\t\t\ttranDAO.logTransaction(TransactionType.DRUG_INTERACTION, loggedInMID);\r\n\t\t\t\treturn \"Interaction recorded successfully\";\r\n\t\t\t} else {\r\n\t\t\t\treturn \"Interaction could not be added\";\r\n\t\t\t}\r\n\t\t} catch (DBException e){\r\n\t\t\te.printStackTrace();\r\n\t\t\treturn e.getMessage();\r\n\t\t\t}\r\n\t\t}"
+        },
+        {
+            "parentClass": "DrugInteractionAction",
+            "name": "deleteInteraction",
+            "sourceCode": "public String deleteInteraction(String firstDrug,String secondDrug) throws iTrustException, FormValidationException{\r\n\t\tDrugInteractionBean drugInt = new DrugInteractionBean();\r\n\t\tdrugInt.setFirstDrug(firstDrug);\r\n\t\tdrugInt.setSecondDrug(secondDrug);\r\n\t\tdrugInt.setDescription(\"blank\");\r\n\t\t\r\n\t\ttry {\r\n\t\t\tvalidator.validate(drugInt);\r\n\t\t\tif (drugDAO.deleteInteraction(firstDrug,secondDrug)){\r\n\t\t\t\ttranDAO.logTransaction(TransactionType.DRUG_INTERACTION, loggedInMID);\r\n\t\t\t\treturn \"Interaction deleted successfully\";\r\n\t\t\t} else {\r\n\t\t\t\treturn \"Interaction could not be deleted\";\r\n\t\t\t}\r\n\t\t} catch (DBException e){\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new iTrustException(e.getMessage());\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "DrugInteractionAction",
+            "name": "getInteractions",
+            "sourceCode": "public List<DrugInteractionBean> getInteractions(String drugCode) throws iTrustException {\r\n\t\ttry {\r\n\t\t\treturn drugDAO.getInteractions(drugCode);\r\n\t\t} catch (DBException e){\r\n\t\t\tthrow new iTrustException(e.getMessage());\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

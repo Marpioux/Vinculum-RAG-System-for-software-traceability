@@ -1,0 +1,14 @@
+{
+    "AddPatientAction": [
+        {
+            "parentClass": "AddPatientAction",
+            "name": "AddPatientAction",
+            "sourceCode": "public AddPatientAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.authDAO = factory.getAuthDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "AddPatientAction",
+            "name": "addPatient",
+            "sourceCode": "public long addPatient(PatientBean p) throws DBException, FormValidationException {\r\n\t\tnew AddPatientValidator().validate(p);\r\n\t\tlong newMID = patientDAO.addEmptyPatient();\r\n\t\tp.setMID(newMID);\r\n\t\tString pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());\r\n\t\tp.setPassword(pwd);\r\n\t\tpatientDAO.editPatient(p);\r\n\t\ttransDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID, newMID, \"New Patient Added\");\r\n\t\treturn newMID;\r\n\t}"
+        }
+    ]
+}

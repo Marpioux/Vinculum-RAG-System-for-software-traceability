@@ -1,0 +1,24 @@
+{
+    "InserisciSoggiornante": [
+        {
+            "parentClass": "InserisciSoggiornante",
+            "name": "InserisciSoggiornante",
+            "sourceCode": "public InserisciSoggiornante(RicercaPrenotazione parent, Prenotazione p)\n   {\n      super(\"Inserimento dati\", \"Inserisci\", p.getPensionamento(), Flag.ADULTO);\n      padre = parent;\n      padre.setEnabled(false);\n      prenotazione = p;\n      inizializza();\n   }"
+        },
+        {
+            "parentClass": "InserisciSoggiornante",
+            "name": "inizializza",
+            "sourceCode": "public void inizializza()\n   {\n      testo1.setText(prenotazione.getNumStanza());\n      testo1.setEditable(false);\n      testo2.setText(prenotazione.getCognome());\n      testo3.setText(prenotazione.getNome());\n      testo7.setText(prenotazione.getNumTel());\n      testo13.setText(DateUtils.giveStringOfDate(prenotazione.getInizioSogg()));\n      testo13.setEditable(false);\n      testo14.setText(DateUtils.giveStringOfDate(prenotazione.getFineSogg()));\n      testo14.setEditable(false);\n      counter_tot = prenotazione.getNumPers();\n      if (prenotazione.getRichLettoAgg() == Const.SI)\n      \tcounter_tot++;\n      changeTitle(counter_ins, counter_tot);\n      \n      Conferma.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n\t\t\tstartConferma();\n         }\n      });\n      \n    }"
+        },
+        {
+            "parentClass": "InserisciSoggiornante",
+            "name": "startConferma",
+            "sourceCode": "void startConferma()\n\t{\n\t\tFrame msg;\n\t\t\n        if (!erroriLocale())\n        {\n\t\t\tSoggiornante sogg = readDatiSogg(prenotazione, counter_ins);\n\t\t\tint j;\n          \tif ( (j = (Principale.db).writeSoggiornante(sogg)) == DataBase.OK )\n          \t{\n\t\t\t\tAnnulla.setEnabled(false);\n\t\t\t\tcleanFields();\n\t\t\t\tif (counter_ins == counter_tot)\n\t\t\t\t{\n\t\t\t\t\taggiornaDisp(sogg, Flag.OCCUPATA );\n\t\t\t\t\tdispose();\n\t\t\t\t\tpadre.creaLista(1);\n\t\t\t\t\tpadre.setEnabled(true);\n\t\t\t\t}\n\t\t\t\tcounter_ins++;\n\t\t\t\tchangeTitle(counter_ins, counter_tot);\n           \t}\n\t\t\telse\n\t\t\t\tmsg = new MessageDialog(this, \"Problemi con il database: \"+DataBase.strErrore(j));\n       \t}\n\t}"
+        },
+        {
+            "parentClass": "InserisciSoggiornante",
+            "name": "erroriLocale",
+            "sourceCode": "boolean erroriLocale()\n\t{\n\t\tif (!errori())\n\t\t{\n\t\t\tif (counter_ins == 1)\n\t\t\t{\n\t\t\t\tFrame msg;\n\t\t\t\tif ( (testo2.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il cognome! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo3.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il nome! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo6.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero di documento! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo7.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero telefonico! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo8.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato l'indirizzo! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo9.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il C.A.P.! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo10.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il comune! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo11.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la citta! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t\tif ( (testo12.getText()).equals(\"\") )\n\t\t\t\t{\n\t\t\t\t\tmsg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la nazione! \");\n\t\t\t\t\treturn true;\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn false;\n\t\t}\n\t\treturn true;\n\t}"
+        }
+    ]
+}

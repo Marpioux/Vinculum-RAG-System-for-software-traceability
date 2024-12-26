@@ -1,0 +1,9 @@
+{
+    "ParameterUtil": [
+        {
+            "parentClass": "ParameterUtil",
+            "name": "convertMap",
+            "sourceCode": "@SuppressWarnings(\"unchecked\")\r\n\tpublic static HashMap<String, String> convertMap(Map params) {\r\n\t\tHashMap<String, String> myMap = new HashMap<String, String>();\r\n\t\tfor (Object key : params.keySet()) {\r\n\t\t\tString[] value = ((String[]) params.get(key));\r\n\t\t\tif (value != null)\r\n\t\t\t\tmyMap.put(key.toString(), value[0]);\r\n\t\t\telse\r\n\t\t\t\tmyMap.put(key.toString(), null);\r\n\t\t}\r\n\t\treturn myMap;\r\n\t}"
+        }
+    ]
+}

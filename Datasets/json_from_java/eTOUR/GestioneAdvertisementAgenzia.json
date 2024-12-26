@@ -1,0 +1,29 @@
+{
+    "GestioneAdvertisementAgenzia": [
+        {
+            "parentClass": "GestioneAdvertisementAgenzia",
+            "name": "GestioneAdvertisementAgenzia",
+            "sourceCode": "public GestioneAdvertisementAgenzia() throws RemoteException {\r\n        super();\r\n        dbNews = new DBNews();\r\n    }"
+        },
+        {
+            "parentClass": "GestioneAdvertisementAgenzia",
+            "name": "cancellaNews",
+            "sourceCode": "public boolean cancellaNews(int pNewsID) throws RemoteException {\r\n        try {\r\n            /* Check that the ID is valid */\r\n            if (pNewsID > 0) {\r\n                return (dbNews.cancellaNews(pNewsID));\r\n            } else {\r\n                return false;\r\n            }\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "GestioneAdvertisementAgenzia",
+            "name": "inserisciNews",
+            "sourceCode": "public boolean inserisciNews(BeanNews pNews) throws RemoteException {\r\n        try {\r\n            /* Check the data of the news */\r\n            if (!ControlloDati.checkBeanNews(pNews)) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n            }\r\n            /* Check that has not been exceeded the no. Max news presets */\r\n            int numNews = dbNews.ottieniNews().size();\r\n            if (numNews < CostantiGlobali.MAX_NEWS_ATTIVE) {\r\n                /* Possible inclusion */\r\n                return (dbNews.inserisciNews(pNews));\r\n            } else {\r\n                /* Insertion is not possible */\r\n                return false;\r\n            }\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "GestioneAdvertisementAgenzia",
+            "name": "modificaNews",
+            "sourceCode": "public boolean modificaNews(BeanNews pNews) throws RemoteException {\r\n        try {\r\n            /* Check the data of the news */\r\n            if (!ControlloDati.checkBeanNews(pNews)) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n            }\r\n            return (dbNews.modificaNews(pNews));\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "GestioneAdvertisementAgenzia",
+            "name": "ottieniAllNews",
+            "sourceCode": "public ArrayList<BeanNews> ottieniAllNews() throws RemoteException {\r\n        try {\r\n            return (dbNews.ottieniNews());\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\r\n        }\r\n    }"
+        }
+    ]
+}

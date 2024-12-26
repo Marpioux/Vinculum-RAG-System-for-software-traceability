@@ -1,0 +1,54 @@
+{
+    "Punto3D": [
+        {
+            "parentClass": "Punto3D",
+            "name": "Punto3D",
+            "sourceCode": "public Punto3D() {\r\n        latitude = longitude = altitude = 0;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "Punto3D",
+            "sourceCode": "public Punto3D() {\r\n        latitude = longitude = altitude = 0;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "getLatitudine",
+            "sourceCode": "public double getLatitudine() {\r\n        return latitude;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "setLatitudine",
+            "sourceCode": "public void setLatitudine(double pLatitudine) {\r\n        this.latitude = pLatitudine;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "getLongitudine",
+            "sourceCode": "public double getLongitudine() {\r\n        return longitude;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "setLongitudine",
+            "sourceCode": "public void setLongitudine(double pLongitudine) {\r\n        this.longitude = pLongitudine;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "getAltitudine",
+            "sourceCode": "public double getAltitudine() {\r\n        return altitude;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "setAltitudine",
+            "sourceCode": "public void setAltitudine(double pAltitudine) {\r\n        this.altitude = pAltitudine;\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "distance",
+            "sourceCode": "public double distance(Punto3D p) {\r\n        double differenzaLongitudine = this.longitude - p.longitude;\r\n        double p1 = Math.pow(Math.cos(p.latitude) * Math.sin(differenzaLongitudine), 2);\r\n        double p2 = Math.pow(Math.cos(latitude) * Math.sin(p.latitude) - Math.sin(latitude) * Math.cos(p.latitude) * Math.cos(differenzaLongitudine), 2);\r\n        double p3 = Math.sin(latitude) * Math.sin(p.latitude) + Math.cos(latitude) * Math.cos(p.latitude) * Math.cos(differenzaLongitudine);\r\n        return (Math.atan(Math.sqrt(p1 + p2) / p3) * EARTH_RADIUS);\r\n    }"
+        },
+        {
+            "parentClass": "Punto3D",
+            "name": "gradiRadianti",
+            "sourceCode": "public static Punto3D gradiRadianti(double pLatitudine, double pLongitudine, double pAltitudine) {\r\n        Punto3D point = new Punto3D();\r\n        point.setLatitudine(pLatitudine * Math.PI / 180);\r\n        point.setLongitudine(pLongitudine * Math.PI / 180);\r\n        point.setAltitudine(pAltitudine);\r\n        return point;\r\n    }"
+        }
+    ]
+}

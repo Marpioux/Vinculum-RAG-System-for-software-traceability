@@ -1,0 +1,74 @@
+{
+    "ViewMyMessagesAction": [
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "ViewMyMessagesAction",
+            "sourceCode": "public ViewMyMessagesAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.personnelDAO = factory.getPersonnelDAO();\r\n\t\tthis.messageDAO = factory.getMessageDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMyMessages",
+            "sourceCode": "public List<MessageBean> getAllMyMessages() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesFor(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMyMessagesTimeAscending",
+            "sourceCode": "public List<MessageBean> getAllMyMessagesTimeAscending() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesTimeAscending(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMyMessagesNameAscending",
+            "sourceCode": "public List<MessageBean> getAllMyMessagesNameAscending() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesNameAscending(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMyMessagesNameDescending",
+            "sourceCode": "public List<MessageBean> getAllMyMessagesNameDescending() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesNameDescending(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMySentMessages",
+            "sourceCode": "public List<MessageBean> getAllMySentMessages() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesFrom(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMySentMessagesTimeAscending",
+            "sourceCode": "public List<MessageBean> getAllMySentMessagesTimeAscending() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesFromTimeAscending(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMySentMessagesNameAscending",
+            "sourceCode": "public List<MessageBean> getAllMySentMessagesNameAscending() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesFromNameAscending(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getAllMySentMessagesNameDescending",
+            "sourceCode": "public List<MessageBean> getAllMySentMessagesNameDescending() throws SQLException {\r\n\t\t\r\n\t\treturn messageDAO.getMessagesFromNameDescending(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "validateAndCreateFilter",
+            "sourceCode": "public String validateAndCreateFilter(String filter) {\r\n\t\tString[] f = filter.split(\",\", -1);\r\n\t\t\r\n\t\tDateFormat format = new SimpleDateFormat(\"MM/dd/yyyy\");\r\n\t\tDate s = null;\r\n\t\tDate en = null;\r\n\t\ttry {\t\r\n\t\t\tif(!f[4].equals(\"\"))\r\n\t\t\t\ts = format.parse(f[4]);\r\n\t\t\tif(!f[5].equals(\"\"))\r\n\t\t\t\ten = format.parse(f[5]);\r\n\t\t\tif(s!=null && en!=null && en.before(s)) {\r\n\t\t\t\treturn \"Error: The end date cannot be before the start date.\";\r\n\t\t\t}\r\n\t\t} catch(Exception e) {\r\n\t\t\treturn \"Error: A date was not formatted correctly, please enter dates as MM/DD/YYYY\";\r\n\t\t}\r\n\t\t\r\n\t\tfor(int i=0; i<f.length; i++) {\r\n\t\t\tf[i]=f[i].replace(\"\\\"\", \"\");\r\n\t\t\tf[i]=f[i].replace(\"<\",\"\");\r\n\t\t\tf[i]=f[i].replace(\">\",\"\");\r\n\t\t}\r\n\t\t\r\n\t\tString nf = f[0]+\",\"+f[1]+\",\"+f[2]+\",\"+f[3]+\",\"+f[4]+\",\"+f[5];\r\n\t\t\r\n\t\treturn nf;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "filterMessages",
+            "sourceCode": "public List<MessageBean> filterMessages(List<MessageBean> messages, String filter) throws iTrustException, ParseException {\r\n\t\tList<MessageBean> filtered = new ArrayList<MessageBean>();\r\n\t\tString[] f = filter.split(\",\", -1);\r\n\t\tfor(MessageBean m : messages) {\r\n\t\t\t/**\r\n\t\t\t * Check the sender filter field.\r\n\t\t\t * Exclude if this MessageBean does not match the \r\n\t\t\t * requested sender, if one is specified.\r\n\t\t\t */\r\n\t\t\tif(!f[0].equals(\"\")) {\r\n\t\t\t\tif(!this.getName(m.getFrom()).equalsIgnoreCase(f[0]))\r\n\t\t\t\t\tcontinue;\r\n\t\t\t}\r\n\t\t\t/**\r\n\t\t\t * Check the subject filter field.\r\n\t\t\t * Exclude if this MessageBean does not match the \r\n\t\t\t * requested subject, if one is specified.\r\n\t\t\t */\r\n\t\t\tif(!f[1].equals(\"\")) {\r\n\t\t\t\tif(!m.getSubject().equalsIgnoreCase(f[1]))\r\n\t\t\t\t\tcontinue;\r\n\t\t\t}\r\n\t\t\t/**\r\n\t\t\t * Check the body of the message for certain words.\r\n\t\t\t * Exclude if this MessageBean if it does not contain \r\n\t\t\t * those words in the message body.\r\n\t\t\t */\r\n\t\t\tif(!f[2].equals(\"\")) {\r\n\t\t\t\tif(!m.getSubject().toLowerCase().contains(f[2].toLowerCase()) && !m.getBody().toLowerCase().contains(f[2].toLowerCase()))\r\n\t\t\t\t\tcontinue;\r\n\t\t\t}\r\n\t\t\t/**\r\n\t\t\t * Check the body of the message for certain words.\r\n\t\t\t * Exclude if this MessageBean if it does contain \r\n\t\t\t * those words in the message body.\r\n\t\t\t */\r\n\t\t\tif(!f[3].equals(\"\")) {\r\n\t\t\t\tif(m.getSubject().toLowerCase().contains(f[3].toLowerCase()) || m.getBody().toLowerCase().contains(f[3].toLowerCase()))\r\n\t\t\t\t\tcontinue;\r\n\t\t\t}\r\n\t\t\t/**\r\n\t\t\t * Check the start date filter field.\r\n\t\t\t * Exclude if this MessageBean was not sent after\r\n\t\t\t * this date.\r\n\t\t\t */\r\n\t\t\tif(!f[4].equals(\"\")) {\r\n\t\t\t\tDateFormat format = new SimpleDateFormat(\"MM/dd/yyyy\");\r\n\t\t\t\tDate s = format.parse(f[4]);\r\n\t\t\t\tif(s.after(m.getSentDate()))\r\n\t\t\t\t\t\tcontinue;\r\n\t\t\t\t\r\n\t\t\t}\r\n\t\t\t/**\r\n\t\t\t * Check the end date filter field.\r\n\t\t\t * Exclude if this MessageBean was not sent before\r\n\t\t\t * this date.\r\n\t\t\t */\r\n\t\t\tif(!f[5].equals(\"\")) {\r\n\t\t\t\tDateFormat format = new SimpleDateFormat(\"MM/dd/yyyy\");\r\n\t\t\t\tDate s = format.parse(f[5]);\r\n\t\t\t\tCalendar c = Calendar.getInstance();\r\n\t\t\t\tc.setTime(s);\r\n\t\t\t\tc.add(Calendar.DAY_OF_MONTH, 1);\r\n\t\t\t\ts = c.getTime();\r\n\t\t\t\tif(s.before(m.getSentDate()))\r\n\t\t\t\t\t\tcontinue;\r\n\t\t\t\t\r\n\t\t\t}\r\n\t\t\t/**\r\n\t\t\t * If the message has not been eliminated by any \r\n\t\t\t * of the filter fields, add it to the new list \r\n\t\t\t * of messages.\r\n\t\t\t */\r\n\t\t\tfiltered.add(m);\r\n\t\t}\r\n\t\t\r\n\t\treturn filtered;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getName",
+            "sourceCode": "public String getName(long mid) throws iTrustException {\r\n\t\tif(mid < 7000000000L)\r\n\t\t\treturn patientDAO.getName(mid);\r\n\t\telse\r\n\t\t\treturn personnelDAO.getName(mid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "getPersonnelName",
+            "sourceCode": "public String getPersonnelName(long mid) throws iTrustException {\r\n\t\treturn personnelDAO.getName(mid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyMessagesAction",
+            "name": "setRead",
+            "sourceCode": "public void setRead(MessageBean mBean) {\r\n\t\ttry {\r\n\t\t\tmessageDAO.updateRead(mBean);\r\n\t\t} catch (DBException e) {\r\n\t\t\t// TODO Auto-generated catch block\r\n\t\t\te.printStackTrace();\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

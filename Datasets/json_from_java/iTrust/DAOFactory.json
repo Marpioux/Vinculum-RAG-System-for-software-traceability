@@ -1,0 +1,159 @@
+{
+    "DAOFactory": [
+        {
+            "parentClass": "DAOFactory",
+            "name": "getProductionInstance",
+            "sourceCode": "public static DAOFactory getProductionInstance() {\r\n\t\tif (productionInstance == null)\r\n\t\t\tproductionInstance = new DAOFactory();\r\n\t\treturn productionInstance;\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "DAOFactory",
+            "sourceCode": "protected DAOFactory() {\r\n\t\tthis.driver = new ProductionConnectionDriver();\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getConnection",
+            "sourceCode": "public Connection getConnection() throws SQLException {\r\n\t\treturn driver.getConnection();\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getAccessDAO",
+            "sourceCode": "public AccessDAO getAccessDAO() {\r\n\t\treturn new AccessDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getAllergyDAO",
+            "sourceCode": "public AllergyDAO getAllergyDAO() {\r\n\t\treturn new AllergyDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getApptDAO",
+            "sourceCode": "public ApptDAO getApptDAO() {\r\n\t\treturn new ApptDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getApptTypeDAO",
+            "sourceCode": "public ApptTypeDAO getApptTypeDAO() {\r\n\t\treturn new ApptTypeDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getAuthDAO",
+            "sourceCode": "public AuthDAO getAuthDAO() {\r\n\t\treturn new AuthDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getCPTCodesDAO",
+            "sourceCode": "public CPTCodesDAO getCPTCodesDAO() {\r\n\t\treturn new CPTCodesDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getDrugInteractionDAO",
+            "sourceCode": "public DrugInteractionDAO getDrugInteractionDAO() {\r\n\t\treturn new DrugInteractionDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getFamilyDAO",
+            "sourceCode": "public FamilyDAO getFamilyDAO() {\r\n\t\treturn new FamilyDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getHealthRecordsDAO",
+            "sourceCode": "public HealthRecordsDAO getHealthRecordsDAO() {\r\n\t\treturn new HealthRecordsDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getHospitalsDAO",
+            "sourceCode": "public HospitalsDAO getHospitalsDAO() {\r\n\t\treturn new HospitalsDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getICDCodesDAO",
+            "sourceCode": "public ICDCodesDAO getICDCodesDAO() {\r\n\t\treturn new ICDCodesDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getNDCodesDAO",
+            "sourceCode": "public NDCodesDAO getNDCodesDAO() {\r\n\t\treturn new NDCodesDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getOfficeVisitDAO",
+            "sourceCode": "public OfficeVisitDAO getOfficeVisitDAO() {\r\n\t\treturn new OfficeVisitDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getPatientDAO",
+            "sourceCode": "public PatientDAO getPatientDAO() {\r\n\t\treturn new PatientDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getPersonnelDAO",
+            "sourceCode": "public PersonnelDAO getPersonnelDAO() {\r\n\t\treturn new PersonnelDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getReferralDAO",
+            "sourceCode": "public ReferralDAO getReferralDAO() {\r\n\t\treturn new ReferralDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getRiskDAO",
+            "sourceCode": "public RiskDAO getRiskDAO() {\r\n\t\treturn new RiskDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getTransactionDAO",
+            "sourceCode": "public TransactionDAO getTransactionDAO() {\r\n\t\treturn new TransactionDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getVisitRemindersDAO",
+            "sourceCode": "public VisitRemindersDAO getVisitRemindersDAO() {\r\n\t\treturn new VisitRemindersDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getFakeEmailDAO",
+            "sourceCode": "public FakeEmailDAO getFakeEmailDAO() {\r\n\t\treturn new FakeEmailDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getReportRequestDAO",
+            "sourceCode": "public ReportRequestDAO getReportRequestDAO() {\r\n\t\treturn new ReportRequestDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getSurveyDAO",
+            "sourceCode": "public SurveyDAO getSurveyDAO() {\r\n\t\treturn new SurveyDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getLabProcedureDAO",
+            "sourceCode": "public LabProcedureDAO getLabProcedureDAO() {\r\n\t\treturn new LabProcedureDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getLOINCDAO",
+            "sourceCode": "public LOINCDAO getLOINCDAO() {\r\n\t\treturn new LOINCDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getSurveyResultDAO",
+            "sourceCode": "public SurveyResultDAO getSurveyResultDAO() {\r\n\t\treturn new SurveyResultDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getMessageDAO",
+            "sourceCode": "public MessageDAO getMessageDAO() {\r\n\t\treturn new MessageDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getAdverseEventDAO",
+            "sourceCode": "public AdverseEventDAO getAdverseEventDAO() {\r\n\t\treturn new AdverseEventDAO(this);\r\n\t}"
+        },
+        {
+            "parentClass": "DAOFactory",
+            "name": "getRemoteMonitoringDAO",
+            "sourceCode": "public RemoteMonitoringDAO getRemoteMonitoringDAO() {\r\n\t\treturn new RemoteMonitoringDAO(this);\r\n\t}"
+        }
+    ]
+}

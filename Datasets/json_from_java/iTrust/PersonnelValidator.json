@@ -1,0 +1,14 @@
+{
+    "PersonnelValidator": [
+        {
+            "parentClass": "PersonnelValidator",
+            "name": "PersonnelValidator",
+            "sourceCode": "public PersonnelValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelValidator",
+            "name": "validate",
+            "sourceCode": "@Override\r\n\tpublic void validate(PersonnelBean p) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"First name\", p.getFirstName(), ValidationFormat.NAME, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Last name\", p.getLastName(), ValidationFormat.NAME, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Street Address 1\", p.getStreetAddress1(),\r\n\t\t\t\tValidationFormat.ADDRESS, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Street Address 2\", p.getStreetAddress2(),\r\n\t\t\t\tValidationFormat.ADDRESS, true));\r\n\t\terrorList.addIfNotNull(checkFormat(\"City\", p.getCity(), ValidationFormat.CITY, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"State\", p.getState(), ValidationFormat.STATE, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Zip Code\", p.getZip(), ValidationFormat.ZIPCODE, false));\r\n\t\terrorList\r\n\t\t\t\t.addIfNotNull(checkFormat(\"Phone Number\", p.getPhone(), ValidationFormat.PHONE_NUMBER, false));\r\n\t\terrorList\r\n\t\t.addIfNotNull(checkFormat(\"Email\", p.getEmail(), ValidationFormat.EMAIL, true));\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

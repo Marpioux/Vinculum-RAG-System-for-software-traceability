@@ -1,0 +1,14 @@
+{
+    "AllergyBeanValidator": [
+        {
+            "parentClass": "AllergyBeanValidator",
+            "name": "AllergyBeanValidator",
+            "sourceCode": "public AllergyBeanValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "AllergyBeanValidator",
+            "name": "validate",
+            "sourceCode": "@Override\r\n\tpublic void validate(AllergyBean m) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"Allergy Description\", m.getDescription(),\r\n\t\t\t\tValidationFormat.ALLERGY_DESCRIPTION, false));\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

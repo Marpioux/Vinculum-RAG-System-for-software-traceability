@@ -1,0 +1,14 @@
+{
+    "EmailUtil": [
+        {
+            "parentClass": "EmailUtil",
+            "name": "EmailUtil",
+            "sourceCode": "public EmailUtil(DAOFactory factory) {\r\n\t\tthis.factory = factory;\r\n\t}"
+        },
+        {
+            "parentClass": "EmailUtil",
+            "name": "sendEmail",
+            "sourceCode": "public void sendEmail(Email email) throws DBException {\r\n\t\tfactory.getFakeEmailDAO().sendEmailRecord(email);\r\n\t}"
+        }
+    ]
+}

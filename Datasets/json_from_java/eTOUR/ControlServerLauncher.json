@@ -1,0 +1,9 @@
+{
+    "ControlServerLauncher": [
+        {
+            "parentClass": "ControlServerLauncher",
+            "name": "main",
+            "sourceCode": "public static void main(String[] args) {\r\n        try {\r\n            // GestioneBeniCulturaliComune is the class that implements the interface IGestioneBeniCulturaliComune,\r\n            // this interface on both the client and the server\r\n            GestioneBeniCulturaliComune gBCC = new GestioneBeniCulturaliComune();\r\n\r\n            // Here you create the stub for the registry, making it clear to the RMI system you are exporting the object on a gBCC\r\n            // Anonymous port\r\n            IGestioneBeniCulturaliComune stubGBCC = (IGestioneBeniCulturaliComune) UnicastRemoteObject.exportObject(gBCC, 0);\r\n\r\n            // There shall call the register (default is on localhost) and \"bind\" (alloy)\r\n            Registry registry = LocateRegistry.getRegistry();\r\n            registry.bind(\"stubGBCC\", stubGBCC);\r\n        } catch (Exception e) {\r\n            System.out.println(\"Exception: \" + e.getLocalizedMessage());\r\n        }\r\n    }"
+        }
+    ]
+}

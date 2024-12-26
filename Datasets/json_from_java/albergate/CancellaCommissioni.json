@@ -1,0 +1,19 @@
+{
+    "CancellaCommissioni": [
+        {
+            "parentClass": "CancellaCommissioni",
+            "name": "CancellaCommissioni",
+            "sourceCode": "public CancellaCommissioni()\n   \t{\n      \tsuper(\"\",\"\",\"Cancella dati delle commissioni\",\"Cancella\", 3);\n      \tinit();\n   \t}"
+        },
+        {
+            "parentClass": "CancellaCommissioni",
+            "name": "init",
+            "sourceCode": "public void init()\n \t{     \t\n      \tnome_agenzia.setEditable(true);\n      \tnum_stanza.setEditable(false);\n      \tnum_tel_agenzia.setEditable(false);\n        inizio_comm.setEditable(false);\n        fine_comm.setEditable(false);\n        scadenza_comm.setEditable(false); \n       \tnum_stanza.setEditable(false);\n       \tAzione.setEnabled(false);\n      \t\n\t\tlista.addActionListener(new ActionListener()\n      \t{\n         \tpublic void actionPerformed(ActionEvent e)\n         \t{\n         \t\tcommissione = L.getCommissionamento((lista.getSelectedIndexes())[0]+1);\n\t\t\t\twriteDatiComm(commissione);\n\t\t\t\tAzione.setEnabled(true);\n\t\t\t\tpanel5.setVisible(false);\n\t\t\t\tpack();\n         \t}\n      \t});\n   \n\t\tnome_agenzia.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tcreaLista();\n\t\t\t}\t\t\t      \t\n\t\t});\n\t\t\n\t\tCerca.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tcreaLista();\n\t\t\t}\t\t\t      \t\n\t\t});\n\n\t   \tAzione.addActionListener(new ActionListener()\n   \t\t{\n    \t    public void actionPerformed(ActionEvent e)\n        \t{\n\t\t\t\tstartAzione();\n\t\t\t}\n\t\t});\t\n\t}"
+        },
+        {
+            "parentClass": "CancellaCommissioni",
+            "name": "startAzione",
+            "sourceCode": "void startAzione()\n\t{\n\t\tFrame msg;\n\t\t\n\t\tif ( !errori() )\n\t\t{\n\t\t\tint j;\n\t\t\tif ( (j = (Principale.db).delCommissionamento(commissione.getIdCommissionamento())) == DataBase.OK)\n\t\t\t{\t\n\t\t\t\taggiornaDisp(commissione, Flag.DISPONIBILE);\n\t\t\t\tnum_tel_agenzia.setEditable(false);\n\t\t\t\tscadenza_comm.setEditable(false);\n\t\t\t\tAzione.setEnabled(false);\t\t\t\t\t\t\n\t\t\t\tcleanFields();\n\t\t\t\tnome_agenzia.setEditable(true);\n\t\t\t}\n\t\t\telse\n\t\t\t\tmsg = new MessageDialog(this, \"Problemi con il database: \"+DataBase.strErrore(j));\n\t\t}\n\t}"
+        }
+    ]
+}

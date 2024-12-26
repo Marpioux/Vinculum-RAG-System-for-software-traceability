@@ -1,0 +1,24 @@
+{
+    "MedicationBeanLoader": [
+        {
+            "parentClass": "MedicationBeanLoader",
+            "name": "MedicationBeanLoader",
+            "sourceCode": "public MedicationBeanLoader() {\r\n\t}"
+        },
+        {
+            "parentClass": "MedicationBeanLoader",
+            "name": "loadList",
+            "sourceCode": "public List<MedicationBean> loadList(ResultSet rs) throws SQLException {\r\n\t\tArrayList<MedicationBean> list = new ArrayList<MedicationBean>();\r\n\t\twhile (rs.next()) {\r\n\t\t\tlist.add(loadSingle(rs));\r\n\t\t}\r\n\t\treturn list;\r\n\t}"
+        },
+        {
+            "parentClass": "MedicationBeanLoader",
+            "name": "loadSingle",
+            "sourceCode": "public MedicationBean loadSingle(ResultSet rs) throws SQLException {\r\n\t\t// MedicationBean med = new MedicationBean();\r\n\t\tMedicationBean med = new MedicationBean(rs.getString(\"Code\"));\r\n\t\tmed.setDescription(rs.getString(\"Description\"));\r\n\t\treturn med;\r\n\t}"
+        },
+        {
+            "parentClass": "MedicationBeanLoader",
+            "name": "loadParameters",
+            "sourceCode": "public PreparedStatement loadParameters(PreparedStatement ps, MedicationBean bean) throws SQLException {\r\n\t\tthrow new IllegalStateException(\"unimplemented!\");\r\n\t}"
+        }
+    ]
+}

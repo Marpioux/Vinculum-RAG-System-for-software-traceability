@@ -1,0 +1,39 @@
+{
+    "ViewVisitedHCPsAction": [
+        {
+            "parentClass": "ViewVisitedHCPsAction",
+            "name": "ViewVisitedHCPsAction",
+            "sourceCode": "public ViewVisitedHCPsAction(DAOFactory factory, long loggedInMID) {\r\n\t\tpatientMID = loggedInMID;\r\n\t\tdocDAO = factory.getPersonnelDAO();\r\n\t\tvisitDAO = factory.getOfficeVisitDAO();\r\n\t\tpatientDAO = factory.getPatientDAO();\r\n\t\t\r\n\t\tvisits = new ArrayList<HCPVisitBean>();\r\n\t\tdeclareAction = new DeclareHCPAction(factory, loggedInMID);\r\n\t\tfilterList = new ArrayList<PersonnelBean>();\r\n\t}"
+        },
+        {
+            "parentClass": "ViewVisitedHCPsAction",
+            "name": "processOfficeVisits",
+            "sourceCode": "private void processOfficeVisits() throws iTrustException {\r\n\t\t\r\n\t\ttry {\r\n\t\t\tList<OfficeVisitBean> ovlist = visitDAO.getAllOfficeVisits(patientMID);\r\n\t\t\tHCPVisitBean visitBean;\r\n\t\t\tList<PersonnelBean> dhcps = patientDAO.getDeclaredHCPs(patientMID);\r\n\t\t\tboolean tmp;\r\n\t\t\tPersonnelBean pb;\r\n\t\t\tArrayList<PersonnelBean> removeIDs = new ArrayList<PersonnelBean>();\r\n\t\t\t\r\n\t\t\tfor (OfficeVisitBean ov: ovlist) {\r\n\t\t\t\tvisitBean = new HCPVisitBean();\r\n\t\t\t\tpb = docDAO.getPersonnel(ov.getHcpID());\r\n\t\t\t\t\r\n\t\t\t\tvisitBean.setHCPMID(ov.getHcpID());\r\n\t\t\t\tvisitBean.setHCPName(pb.getFullName());\r\n\t\t\t\tvisitBean.setOVDate(ov.getVisitDateStr());\r\n\t\t\t\tvisitBean.setHCPSpecialty(pb.getSpecialty());\r\n\t\t\t\tvisitBean.setHCPAddr(pb.getStreetAddress1() +\" \"+ pb.getStreetAddress2() +\" \"+ pb.getCity() +\", \"+ pb.getState() +\" \"+ pb.getZip());\r\n\t\t\t\t\t\t\t\t\r\n\t\t\t\tif (true == (tmp = patientDAO.checkDeclaredHCP(patientMID, ov.getHcpID()))) {\r\n\t\t\t\t\tvisitBean.setDesignated(tmp);\r\n\t\t\t\t\tif (!dhcps.isEmpty()) {\r\n\t\t\t\t\t\tfor (PersonnelBean hcp : dhcps) {\r\n\t\t\t\t\t\t\tif (hcp.getMID() == ov.getHcpID()) {\r\n\t\t\t\t\t\t\t\tremoveIDs.add(hcp);\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t\tif (!removeIDs.isEmpty()) {\r\n\t\t\t\t\t\t\tfor (PersonnelBean pbean: removeIDs) {\r\n\t\t\t\t\t\t\t\tdhcps.remove(pbean);\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\t\r\n\t\t\t\tvisits.add(visitBean);\r\n\t\t\t\t\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tfor (PersonnelBean hcp : dhcps) {\r\n\t\t\t\tvisitBean = new HCPVisitBean();\r\n\t\t\t\tvisitBean.setHCPMID(hcp.getMID());\r\n\t\t\t\tvisitBean.setHCPName(hcp.getFullName());\r\n\t\t\t\tvisitBean.setOVDate(\"\");\r\n\t\t\t\tvisitBean.setHCPSpecialty(hcp.getSpecialty());\r\n\t\t\t\tvisitBean.setHCPAddr(hcp.getStreetAddress1() +\" \"+ hcp.getStreetAddress2() +\" \"+ hcp.getCity() +\", \"+ hcp.getState() +\" \"+ hcp.getZip());\r\n\t\t\t\tvisitBean.setDesignated(true);\r\n\t\t\t\tvisits.add(visitBean);\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\t\r\n\t\t}\r\n\t\tcatch (DBException dbe) {\r\n\t\t\tthrow new iTrustException(dbe.getMessage());\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "ViewVisitedHCPsAction",
+            "name": "getVisitedHCPs",
+            "sourceCode": "public List<HCPVisitBean> getVisitedHCPs() {\r\n\t\t\r\n\t\ttry {\r\n\t\t\tprocessOfficeVisits();\r\n\t\t\r\n\t\t\tfor(int i = 0; i<visits.size(); i++){\r\n\t\t\t\tfor(int j = i+1; j<visits.size(); j++){\r\n\t\t\t\t\tif(visits.get(i).getHCPMID()==visits.get(j).getHCPMID()){\r\n\t\t\t\t\t\tvisits.remove(visits.get(j));\r\n\t\t\t\t\t\tj--;\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (iTrustException ie) {\r\n\t\t\t\r\n\t\t}\r\n\t\t\t\r\n\t\treturn visits;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewVisitedHCPsAction",
+            "name": "undeclareHCP",
+            "sourceCode": "public String undeclareHCP(String name) throws iTrustException {\r\n\r\n\t\tHCPVisitBean remove = null;\r\n\t\t\r\n\t\tfor (HCPVisitBean visit: visits) {\r\n\t\t\tif (0 == visit.getHCPName().toLowerCase().compareTo(name.toLowerCase())) {\r\n\t\t\t\tLong mid = Long.valueOf(visit.getHCPMID());\r\n\r\n\t\t\t\t//if (patientDAO.checkDeclaredHCP(patientMID, visit.getHCPMID())) {\r\n\t\t\t\t\tdeclareAction.undeclareHCP(mid.toString());\r\n\t\t\t\t//}\r\n\t\t\t\tvisit.setDesignated(false);\r\n\t\t\t\t\r\n\t\t\t\tif (0 == visit.getOVDate().compareTo(\"\")) {\r\n\t\t\t\t\tremove = visit;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\t\r\n\t\tif (null != remove) {\r\n\t\t\tvisits.remove(remove);\r\n\t\t}\r\n\t\t\t\t\r\n\t\treturn \"\";\r\n\t}"
+        },
+        {
+            "parentClass": "ViewVisitedHCPsAction",
+            "name": "declareHCP",
+            "sourceCode": "public String declareHCP(String name) throws iTrustException {\r\n\t\tboolean match = false;\r\n\t\tfor (HCPVisitBean visit: visits) {\r\n\t\t\tif (0 == visit.getHCPName().toLowerCase().compareTo(name.toLowerCase())) {\r\n\t\t\t\tmatch = true;\r\n\t\t\t\tLong mid = Long.valueOf(visit.getHCPMID());\r\n\t\t\t\tif (!patientDAO.checkDeclaredHCP(patientMID, visit.getHCPMID())) {\r\n\t\t\t\t\tdeclareAction.declareHCP(mid.toString());\r\n\t\t\t\t}\r\n\t\t\t\tvisit.setDesignated(true);\r\n\t\t\t}\r\n\t\t}\r\n\t\t\r\n\t\tif (!match) {\r\n\t\t\t\tList<PersonnelBean> doclist = docDAO.getAllPersonnel();\r\n\t\t\t\tfor (PersonnelBean ele: doclist) {\r\n\t\t\t\t\tif (0 == name.compareTo(ele.getFullName())) {\r\n\t\t\t\t\t\tHCPVisitBean visitBean;\r\n\t\t\t\t\t\tvisitBean = new HCPVisitBean();\r\n\t\t\t\t\t\tvisitBean.setHCPMID(ele.getMID());\r\n\t\t\t\t\t\tvisitBean.setHCPName(ele.getFullName());\r\n\t\t\t\t\t\tvisitBean.setOVDate(\"\");\r\n\t\t\t\t\t\tvisitBean.setHCPSpecialty(ele.getSpecialty());\r\n\t\t\t\t\t\tvisitBean.setHCPAddr(ele.getStreetAddress1() +\" \"+ ele.getStreetAddress2() +\" \"+ ele.getCity() +\", \"+ ele.getState() +\" \"+ ele.getZip());\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\tvisitBean.setDesignated(true);\r\n\t\t\t\t\r\n\t\t\t\t\t\tLong mid = Long.valueOf(ele.getMID());\r\n\t\t\t\t\t\tif (!patientDAO.checkDeclaredHCP(patientMID, mid)) {\r\n\t\t\t\t\t\t\tdeclareAction.declareHCP(mid.toString());\r\n\t\t\t\t\t\t\tvisits.add(visitBean);\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t\r\n\t\t}\r\n\t\treturn \"\";\r\n\t}"
+        },
+        {
+            "parentClass": "ViewVisitedHCPsAction",
+            "name": "checkDeclared",
+            "sourceCode": "public boolean checkDeclared(long mid) {\r\n\t\t\r\n\t\ttry {\r\n\t\t\treturn patientDAO.checkDeclaredHCP(patientMID, mid);\r\n\t\t} catch (DBException dbe) {\r\n\t\t\treturn false;\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "ViewVisitedHCPsAction",
+            "name": "filterHCPList",
+            "sourceCode": "public List<PersonnelBean> filterHCPList(String doc, String specialty, String zip) {\r\n\t\tList<PersonnelBean> doclist;\r\n\t\t\t\r\n\t\ttry {\r\n\t\t\tdoclist = docDAO.getAllPersonnel();\r\n\t\t\tfor (PersonnelBean ele: doclist) {\r\n\t\t\t\tif (ele.getLastName().toLowerCase().contains(doc.toLowerCase())) {\r\n\t\t\t\t\tif (null != specialty && !specialty.equals(\"\")) {\r\n\t\t\t\t\t\tif (0 == specialty.toLowerCase().compareTo(ele.getSpecialty().toLowerCase())) {\r\n\t\t\t\t\t\t\tif (null != zip && !zip.equals(\"\")) {\r\n\t\t\t\t\t\t\t\tif (ele.getZip().contains(zip.substring(0, 2))) {\r\n\t\t\t\t\t\t\t\t\tfilterList.add(ele);\r\n\t\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t\telse {\t\r\n\t\t\t\t\t\t\t\tfilterList.add(ele);\r\n\t\t\t\t\t\t\t}\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse if (null != zip && !zip.equals(\"\")) {\r\n\t\t\t\t\t\tif (ele.getZip().contains(zip.substring(0, 2))) {\r\n\t\t\t\t\t\t\tfilterList.add(ele);\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t\telse {\r\n\t\t\t\t\t\tfilterList.add(ele);\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\tcatch (DBException dbe) {\r\n\t\t\t\r\n\t\t}\r\n\t\treturn filterList;\r\n\t}"
+        }
+    ]
+}

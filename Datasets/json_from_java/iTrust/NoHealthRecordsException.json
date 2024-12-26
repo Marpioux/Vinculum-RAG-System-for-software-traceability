@@ -1,0 +1,9 @@
+{
+    "NoHealthRecordsException": [
+        {
+            "parentClass": "NoHealthRecordsException",
+            "name": "NoHealthRecordsException",
+            "sourceCode": "public NoHealthRecordsException() {\r\n\t\tsuper(MESSAGE);\r\n\t}"
+        }
+    ]
+}

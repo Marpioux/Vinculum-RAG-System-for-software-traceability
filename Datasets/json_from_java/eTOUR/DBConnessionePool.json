@@ -1,0 +1,19 @@
+{
+    "DBConnessionePool": [
+        {
+            "parentClass": "DBConnessionePool",
+            "name": "ottieniConnessione",
+            "sourceCode": "public static synchronized Connection ottieniConnessione() throws SQLException {\r\n        Connection connection;\r\n\r\n        if (!connessioniLibere.isEmpty()) {\r\n            // Extract a connection from the free db connection queue\r\n            connection = connessioniLibere.get(0);\r\n            DBConnessionePool.connessioniLibere.remove(0);\r\n\r\n            try {\r\n                // If the connection is not valid, a new connection will be\r\n                // created\r\n                if (connection.isClosed()) {\r\n                    connection = DBConnessionePool.ottieniConnessione();\r\n                }\r\n            } catch (SQLException e) {\r\n                connection = DBConnessionePool.ottieniConnessione();\r\n            }\r\n        } else {\r\n            // The free db connection queue is empty, so a new connection will\r\n            // be created\r\n            connection = DBConnessionePool.creaDBConnessione();\r\n        }\r\n\r\n        return connection;\r\n    }"
+        },
+        {
+            "parentClass": "DBConnessionePool",
+            "name": "rilasciaConnessione",
+            "sourceCode": "public static void rilasciaConnessione(Connection pReleasedConnection) {\r\n        // Add the connection to the free db connection queue\r\n        DBConnessionePool.connessioniLibere.add(pReleasedConnection);\r\n    }"
+        },
+        {
+            "parentClass": "DBConnessionePool",
+            "name": "creaDBConnessione",
+            "sourceCode": "private static Connection creaDBConnessione() throws SQLException {\r\n        Connection nuovaConnessione = null;\r\n        // Create a new db connection using the db properties\r\n        nuovaConnessione = DriverManager.getConnection(urlConnessione);\r\n        nuovaConnessione.setAutoCommit(true);\r\n        return nuovaConnessione;\r\n    }"
+        }
+    ]
+}

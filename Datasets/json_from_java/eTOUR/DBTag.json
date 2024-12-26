@@ -1,0 +1,64 @@
+{
+    "DBTag": [
+        {
+            "parentClass": "DBTag",
+            "name": "DBTag",
+            "sourceCode": "public DBTag() {\r\n        b = new ArrayList<BeanTag>(0);\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "aggiungeTagBeneCulturale",
+            "sourceCode": "public boolean aggiungeTagBeneCulturale(int pIdBeneCulturale, int pIdTag) throws SQLException {\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "aggiungeTagPuntoDiRistoro",
+            "sourceCode": "public boolean aggiungeTagPuntoDiRistoro(int pIdPuntoDiRistoro, int pIdTag) throws SQLException {\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "cancellaTag",
+            "sourceCode": "public boolean cancellaTag(int pIdTag) throws SQLException {\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "cancellaTagBeneCulturale",
+            "sourceCode": "public boolean cancellaTagBeneCulturale(int pIdBeneCulturale, int pIdTag) throws SQLException {\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "cancellaTagPuntoDiRistoro",
+            "sourceCode": "public boolean cancellaTagPuntoDiRistoro(int pIdPuntoDiRistoro, int pIdTag) throws SQLException {\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "inserisciTag",
+            "sourceCode": "public boolean inserisciTag(BeanTag ptagi) throws SQLException {\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "modificaTag",
+            "sourceCode": "public boolean modificaTag(BeanTag ptagi) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "ottieniListaTag",
+            "sourceCode": "public ArrayList<BeanTag> ottieniListaTag() throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "ottieniTag",
+            "sourceCode": "public BeanTag ottieniTag(int pid) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "ottieniTagBeneCulturale",
+            "sourceCode": "public ArrayList<BeanTag> ottieniTagBeneCulturale(int pIdBeneCulturale) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        },
+        {
+            "parentClass": "DBTag",
+            "name": "ottieniTagPuntoDiRistoro",
+            "sourceCode": "public ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int pIdPuntoDiRistoro) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        }
+    ]
+}

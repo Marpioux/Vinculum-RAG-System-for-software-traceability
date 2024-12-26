@@ -1,0 +1,29 @@
+{
+    "NDCodesDAO": [
+        {
+            "parentClass": "NDCodesDAO",
+            "name": "NDCodesDAO",
+            "sourceCode": "public NDCodesDAO(DAOFactory factory) {\r\n\t\tthis.factory = factory;\r\n\t}"
+        },
+        {
+            "parentClass": "NDCodesDAO",
+            "name": "getAllNDCodes",
+            "sourceCode": "public List<MedicationBean> getAllNDCodes() throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM NDCodes ORDER BY CODE\");\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn medicationLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "NDCodesDAO",
+            "name": "getNDCode",
+            "sourceCode": "public MedicationBean getNDCode(String code) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM NDCodes WHERE Code = ?\");\r\n\t\t\tps.setString(1, code);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\tif (rs.next())\r\n\t\t\t\treturn medicationLoader.loadSingle(rs);\r\n\t\t\treturn null;\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "NDCodesDAO",
+            "name": "addNDCode",
+            "sourceCode": "public boolean addNDCode(MedicationBean med) throws DBException, iTrustException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"INSERT INTO NDCodes (Code, Description) \" + \"VALUES (?,?)\");\r\n\t\t\tps.setString(1, med.getNDCode());\r\n\t\t\tps.setString(2, med.getDescription());\r\n\t\t\treturn (1 == ps.executeUpdate());\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tif (1062 == e.getErrorCode())\r\n\t\t\t\tthrow new iTrustException(\"Error: Code already exists.\");\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "NDCodesDAO",
+            "name": "updateCode",
+            "sourceCode": "public int updateCode(MedicationBean med) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"UPDATE NDCodes SET Description = ? \" + \"WHERE Code = ?\");\r\n\t\t\tps.setString(1, med.getDescription());\r\n\t\t\tps.setString(2, med.getNDCode());\r\n\t\t\treturn ps.executeUpdate();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "EthnicityFactor": [
+        {
+            "parentClass": "EthnicityFactor",
+            "name": "EthnicityFactor",
+            "sourceCode": "public EthnicityFactor(PatientBean patient, Ethnicity... atRisks) {\r\n\t\tthis.atRisk = atRisks.clone();\r\n\t\tthis.patient = patient;\r\n\t}"
+        },
+        {
+            "parentClass": "EthnicityFactor",
+            "name": "getDescription",
+            "sourceCode": "public String getDescription() {\r\n\t\treturn \"Patient's ethnicity is \" + patient.getEthnicity();\r\n\t}"
+        },
+        {
+            "parentClass": "EthnicityFactor",
+            "name": "hasFactor",
+            "sourceCode": "public boolean hasFactor() {\r\n\t\tfor (Ethnicity ethnicity : atRisk) {\r\n\t\t\tif (patient.getEthnicity().equals(ethnicity) && !Ethnicity.NotSpecified.equals(ethnicity))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        }
+    ]
+}

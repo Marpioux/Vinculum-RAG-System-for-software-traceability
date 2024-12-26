@@ -1,0 +1,24 @@
+{
+    "CancellaStanze": [
+        {
+            "parentClass": "CancellaStanze",
+            "name": "CancellaStanze",
+            "sourceCode": "public CancellaStanze()\n\t{\n\t\tsuper(\"Cancellazione delle stanze\", \"Cancella\", 3);\n\t\tinit();\n\t}"
+        },
+        {
+            "parentClass": "CancellaStanze",
+            "name": "init",
+            "sourceCode": "public void init()\n\t{\n\t\ttesto1.setEditable(true);\n\t\ttesto2.setEditable(false);\n\t\ttesto3.setEditable(false);\n\t\ttesto4.setEditable(false);\n\t\tmycheckboxes.setEnabled(false);\n\t\tAzione.setEnabled(false);\n\n\t\tAzione.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tstartAzione();\n\t\t\t}\n\t\t});\n\t\t\n\t\ttesto1.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tstartTesto1();\n\t\t\t}\n\t\t});\n\t\t\n\t\tCerca.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tstartTesto1();\n\t\t\t}\n\t\t});\n\t}"
+        },
+        {
+            "parentClass": "CancellaStanze",
+            "name": "startAzione",
+            "sourceCode": "void startAzione()\n\t{\n\t\tMessageDialog msg;\n\t\t\n\t\tint j;\n\t\tif ( (j = (Principale.db).delStanza(testo1.getText())) != DataBase.OK )\n\t\t\tmsg = new MessageDialog(this, \"Problemi con il data base: \"+DataBase.strErrore(j));\n\t\telse\n\t\t{\n\t\t\tcleanFields();\n\t\t\tAzione.setEnabled(false);\n\t\t}\n\t\ttesto1.setEditable(true);\n\t}"
+        },
+        {
+            "parentClass": "CancellaStanze",
+            "name": "startTesto1",
+            "sourceCode": "void startTesto1()\n\t{\n\t\tMessageDialog msg;\n\t\t\n\t\tStanza room;\n\t\tif ((room = (Principale.db).readStanza(testo1.getText())) != null)\n\t\t{\n\t\t\twriteDatiStanza(room);\n\t\t\ttesto1.setEditable(false);\n\t\t\tAzione.setEnabled(true);\n\t\t}\n\t\telse\n\t\t\tmsg = new MessageDialog(this, \"Stanza inesistente!\");\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "ViewMyReportRequestsAction": [
+        {
+            "parentClass": "ViewMyReportRequestsAction",
+            "name": "ViewMyReportRequestsAction",
+            "sourceCode": "public ViewMyReportRequestsAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.reportRequestDAO = factory.getReportRequestDAO();\r\n\t\tthis.personnelDAO = factory.getPersonnelDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\t//this.factory = factory;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyReportRequestsAction",
+            "name": "getAllReportRequestsForRequester",
+            "sourceCode": "public List<ReportRequestBean> getAllReportRequestsForRequester() throws iTrustException {\r\n\t\treturn reportRequestDAO.getAllReportRequestsForRequester(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyReportRequestsAction",
+            "name": "addReportRequest",
+            "sourceCode": "public long addReportRequest(long patientMID) throws iTrustException {\r\n\t\tlong id = reportRequestDAO\r\n\t\t\t\t.addReportRequest(loggedInMID, patientMID, Calendar.getInstance().getTime());\r\n\t\ttransDAO.logTransaction(TransactionType.COMPREHENSIVE_REPORT_REQUEST, loggedInMID, patientMID,\r\n\t\t\t\t\"Added comprehensive report request\");\r\n\t\treturn id;\r\n\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyReportRequestsAction",
+            "name": "getReportRequest",
+            "sourceCode": "public ReportRequestBean getReportRequest(int ID) throws iTrustException {\r\n\t\treturn reportRequestDAO.getReportRequest(ID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyReportRequestsAction",
+            "name": "setViewed",
+            "sourceCode": "public void setViewed(int ID) throws iTrustException {\r\n//\t\tReportRequestBean rr = reportRequestDAO.getReportRequest(ID);\r\n\t\treportRequestDAO.setViewed(ID, Calendar.getInstance().getTime());\r\n\t\ttransDAO.logTransaction(TransactionType.COMPREHENSIVE_REPORT_REQUEST, loggedInMID, 0L,\r\n\t\t\t\t\"Viewed comprehensive report\");\r\n\t\t//new EmailUtil(factory).sendEmail(makeEmailView(rr.getApproverMID(), rr.getRequesterMID(), rr\r\n\t\t\t//\t.getPatientMID()));\r\n\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyReportRequestsAction",
+            "name": "getLongStatus",
+            "sourceCode": "public String getLongStatus(long id) throws iTrustException {\r\n\t\tStringBuilder s = new StringBuilder();\r\n\t\tReportRequestBean r = reportRequestDAO.getReportRequest(id);\r\n\t\tif (r.getStatus().equals(ReportRequestBean.Requested)) {\r\n\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n\t\t\ts.append(String.format(\"Request was requested on %s by %s\", r.getRequestedDateString(), p\r\n\t\t\t\t\t.getFullName()));\r\n\t\t}\r\n//\t\tif (r.getStatus().equals(ReportRequestBean.Approved)) {\r\n//\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n//\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n//\t\t\ts.append(String.format(\"Request was requested on %s by %s \", r.getRequestedDateString(), p\r\n//\t\t\t\t\t.getFullName()));\r\n//\t\t\ts.append(String.format(\"and approved on %s by %s\", r.getApprovedDateString(), p2.getFullName()));\r\n//\t\t}\r\n//\t\tif (r.getStatus().equals(ReportRequestBean.Rejected)) {\r\n//\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n//\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n//\t\t\ts.append(String.format(\"Request was requested on %s by %s \", r.getRequestedDateString(), p\r\n//\t\t\t\t\t.getFullName()));\r\n//\t\t\ts.append(String.format(\"and rejected on %s by %s\", r.getApprovedDateString(), p2.getFullName()));\r\n//\t\t}\r\n\t\tif (r.getStatus().equals(ReportRequestBean.Viewed)) {\r\n\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n//\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n\t\t\tString fullName = \"Unknown\";\r\n\t\t\tif(p != null){\r\n\t\t\t\tfullName = p.getFullName();\r\n\t\t\t\ts.append(String.format(\"Request was requested on %s by %s, \", r.getRequestedDateString(), p\r\n\t\t\t\t\t.getFullName()));\r\n\t\t\t}\r\n//\t\t\ts.append(String.format(\"approved on %s by %s, \", r.getApprovedDateString(), fullName));\r\n\t\t\ts.append(\"\");// removed \"<br />\" because it caused unit test to fail and seems to have no\r\n\t\t\t// purpose\r\n\t\t\ts.append(String.format(\"and viewed on %s by %s\", r.getViewedDateString(), fullName));\r\n\t\t}\r\n\r\n\t\treturn s.toString();\r\n\t}"
+        }
+    ]
+}

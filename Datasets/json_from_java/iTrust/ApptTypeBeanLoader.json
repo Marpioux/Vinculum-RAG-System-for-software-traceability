@@ -1,0 +1,19 @@
+{
+    "ApptTypeBeanLoader": [
+        {
+            "parentClass": "ApptTypeBeanLoader",
+            "name": "loadList",
+            "sourceCode": "public List<ApptTypeBean> loadList(ResultSet rs) throws SQLException {\r\n\t\tList<ApptTypeBean> list = new ArrayList<ApptTypeBean>();\r\n\t\twhile (rs.next())\r\n\t\t\tlist.add(loadSingle(rs));\r\n\t\treturn list;\r\n\t}"
+        },
+        {
+            "parentClass": "ApptTypeBeanLoader",
+            "name": "loadParameters",
+            "sourceCode": "public PreparedStatement loadParameters(PreparedStatement ps, ApptTypeBean apptType) throws SQLException {\r\n\t\tps.setString(1, apptType.getName());\r\n\t\tps.setInt(2, apptType.getDuration());\r\n\t\treturn ps;\r\n\t}"
+        },
+        {
+            "parentClass": "ApptTypeBeanLoader",
+            "name": "loadSingle",
+            "sourceCode": "public ApptTypeBean loadSingle(ResultSet rs) throws SQLException {\r\n\t\tApptTypeBean apptType = new ApptTypeBean();\r\n\t\tapptType.setName(rs.getString(\"appt_type\"));\r\n\t\tapptType.setDuration(rs.getInt(\"duration\"));\r\n\t\treturn apptType;\r\n\t}"
+        }
+    ]
+}

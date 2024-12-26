@@ -1,0 +1,74 @@
+{
+    "Search": [
+        {
+            "parentClass": "Search",
+            "name": "Search",
+            "sourceCode": "public Search() throws RemoteException {\r\n        super();\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "search",
+            "sourceCode": "public int search(int pIdTurista, String pParoleChiave, int[] pTagsId,\r\n                      double pRaggioMax, int pElementiPerPagina,\r\n                      Punto3D pPosizioneUtente, byte pTipologiaSito)\r\n            throws RemoteException {\r\n        // Reset the parameters of the previous search\r\n        azzeraParametri();\r\n\r\n        // Start checking the correctness of the search parameters\r\n        try {\r\n            this.pIdTurista = pIdTurista;\r\n            this.pTags = arrayToArrayListTag(pTagsId);\r\n            this.pParoleChiave = ControlloDati.correggiStringa(pParoleChiave,\r\n                    true, true, \"\", ControlloDati.LUNGHEZZA_MASSIMA);\r\n            this.pRaggioMax = pRaggioMax;\r\n            this.pPosizioneUtente = pPosizioneUtente;\r\n            this.pTipologiaSito = pTipologiaSito;\r\n\r\n            // If the parameters are valid, I get the number of results\r\n            if (pElementiPerPagina > 0 &&\r\n                ((pTipologiaSito == 0) || (pTipologiaSito == 1)) &&\r\n                pRaggioMax > 0 &&\r\n                pPosizioneUtente != null &&\r\n                (this.numeroElementiRicerca = ottieniNumeroElementiRicercaSpecializzato()) >= 0) {\r\n                \r\n                this.pElementiPerPagina = pElementiPerPagina;\r\n                this.numeroPagineRisultati = calcolaNumeroPagineRicerca();\r\n                return this.numeroElementiRicerca;\r\n            }\r\n\r\n            // Otherwise returns -1\r\n            else\r\n                return -1;\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ottieniPaginaRisultatiBeneCulturale",
+            "sourceCode": "public BeanBeneCulturale[] ottieniPaginaRisultatiBeneCulturale(int pPagina)\r\n            throws RemoteException {\r\n        // Check that the type of site is valid and that the page is in the range\r\n        if ((this.pTipologiaSito == BENE_CULTURALE) && controllaPagina(pPagina)) {\r\n            // Transform the list obtained in array\r\n            BeanBeneCulturale[] results = new BeanBeneCulturale[calcolaNumeroElementiPagina(pPagina)];\r\n            results = ricercaPerPagina(pPagina).toArray(results);\r\n            return results;\r\n        } else\r\n            return null;\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ottieniPaginaRisultatiPuntoDiRistoro",
+            "sourceCode": "public BeanPuntoDiRistoro[] ottieniPaginaRisultatiPuntoDiRistoro(int pPagina)\r\n            throws RemoteException {\r\n        // Check that the type of site is valid and that the page is in the range\r\n        if ((this.pTipologiaSito == PUNTO_DI_RISTORO) && controllaPagina(pPagina)) {\r\n            // Transform the list obtained in array\r\n            BeanPuntoDiRistoro[] results = new BeanPuntoDiRistoro[calcolaNumeroElementiPagina(pPagina)];\r\n            results = ricercaPerPagina(pPagina).toArray(results);\r\n            return results;\r\n        } else\r\n            return null;\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ottieniNumeroElementiRicerca",
+            "sourceCode": "public int ottieniNumeroElementiRicerca() throws RemoteException {\r\n        return numeroElementiRicerca;\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ottieniNumeroPagineRicerca",
+            "sourceCode": "public int ottieniNumeroPagineRicerca() throws RemoteException {\r\n        return numeroPagineRisultati;\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ottieniNumeroElementiRicercaSpecializzato",
+            "sourceCode": "private int ottieniNumeroElementiRicercaSpecializzato() throws SQLException {\r\n        // Check the type of site and gets the number of results\r\n        if (controllaIdTurista()) {\r\n            switch (pTipologiaSito) {\r\n                case BENE_CULTURALE:\r\n                    return pIdTurista > 0 ? BeneCulturale.ottieniNumeroElementiRicercaAvanzata(\r\n                            this.pIdTurista, this.pParoleChiave,\r\n                            this.pTags, this.pPosizioneUtente,\r\n                            this.pRaggioMax) : BeneCulturale.ottieniNumeroElementiRicerca(\r\n                            this.pParoleChiave,\r\n                            this.pTags, this.pPosizioneUtente,\r\n                            this.pRaggioMax);\r\n                case PUNTO_DI_RISTORO:\r\n                    return pIdTurista > 0 ? PuntoDiRistoro.ottieniNumeroElementiRicercaAvanzata(\r\n                            this.pIdTurista, this.pParoleChiave,\r\n                            this.pTags, this.pPosizioneUtente,\r\n                            this.pRaggioMax) : PuntoDiRistoro.ottieniNumeroElementiRicerca(\r\n                            this.pParoleChiave,\r\n                            this.pTags, this.pPosizioneUtente,\r\n                            this.pRaggioMax);\r\n            }\r\n        }\r\n        return -1;\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ricercaPerPagina",
+            "sourceCode": "private ArrayList<?> ricercaPerPagina(int pNumeroPagina)\r\n            throws RemoteException {\r\n\r\n        // Declare the list of sites related to the page input\r\n        ArrayList<?> risultatiPaginaCorrente = null;\r\n        try {\r\n            if (controllaIdTurista()) {\r\n                // Check the type of site\r\n                switch (pTipologiaSito) {\r\n                    case BENE_CULTURALE:\r\n                        // If the list has not already been obtained previously\r\n                        // Search\r\n                        if ((risultatiPaginaCorrente = risultatiRicercaBeniCulturali.get(pNumeroPagina)) == null) {\r\n                            risultatiPaginaCorrente = (ArrayList<?>) (pIdTurista > 0 ? BeneCulturale\r\n                                    .ricercaAvanzata(pIdTurista, pParoleChiave,\r\n                                            pTags, pNumeroPagina,\r\n                                            pElementiPerPagina,\r\n                                            pPosizioneUtente, pRaggioMax)\r\n                                    : BeneCulturale.ricerca(pParoleChiave,\r\n                                            pTags, pNumeroPagina,\r\n                                            pElementiPerPagina,\r\n                                            pPosizioneUtente, pRaggioMax));\r\n                            risultatiRicercaBeniCulturali.put(\r\n                                    pNumeroPagina,\r\n                                    (ArrayList<BeanBeneCulturale>) risultatiPaginaCorrente);\r\n                        }\r\n                        break;\r\n\r\n                    case PUNTO_DI_RISTORO:\r\n                        // If the list has not already been obtained previously\r\n                        // Search\r\n                        if ((risultatiPaginaCorrente = risultatiRicercaPuntiDiRistoro.get(pNumeroPagina)) == null) {\r\n                            risultatiPaginaCorrente = (ArrayList<?>) (pIdTurista > 0 ? PuntoDiRistoro\r\n                                    .ricercaAvanzata(pIdTurista, pParoleChiave,\r\n                                            pTags, pNumeroPagina,\r\n                                            pElementiPerPagina,\r\n                                            pPosizioneUtente, pRaggioMax)\r\n                                    : PuntoDiRistoro.ricerca(pParoleChiave,\r\n                                            pTags, pNumeroPagina,\r\n                                            pElementiPerPagina,\r\n                                            pPosizioneUtente, pRaggioMax));\r\n                            risultatiRicercaPuntiDiRistoro.put(\r\n                                    pNumeroPagina,\r\n                                    (ArrayList<BeanPuntoDiRistoro>) risultatiPaginaCorrente);\r\n                        }\r\n                        break;\r\n                }\r\n            }\r\n            // Return the results\r\n            return risultatiPaginaCorrente;\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "calcolaNumeroPagineRicerca",
+            "sourceCode": "private int calcolaNumeroPagineRicerca() {\r\n        // If the number of pages is greater than or equal to 0 returns the number of Pages\r\n        if (numeroPagineRisultati >= 0) return numeroPagineRisultati;\r\n        // If the number of elements is a multiple of the number of items per page\r\n        // Return their relationship\r\n        if ((numeroElementiRicerca % pElementiPerPagina == 0))\r\n            return (numeroElementiRicerca / pElementiPerPagina);\r\n        // Otherwise returns their relationship + 1\r\n        return (numeroElementiRicerca / pElementiPerPagina) + 1;\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "calcolaNumeroElementiPagina",
+            "sourceCode": "private int calcolaNumeroElementiPagina(int nPagina) {\r\n        // If page number is the last return their form\r\n        if (nPagina == (numeroPagineRisultati - 1))\r\n            return (numeroElementiRicerca % pElementiPerPagina);\r\n        // Otherwise returns the number of items per page\r\n        else\r\n            return (pElementiPerPagina);\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "controllaPagina",
+            "sourceCode": "private boolean controllaPagina(int pPagina) {\r\n        // If page number is in the range returns true\r\n        return (pPagina >= 0 && pPagina < numeroPagineRisultati);\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "controllaIdTurista",
+            "sourceCode": "private boolean controllaIdTurista() {\r\n        return ((pIdTurista > 0) || (pIdTurista == -1));\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "azzeraParametri",
+            "sourceCode": "private int azzeraParametri() {\r\n        // Clears all the search parameters\r\n        pIdTurista = -1;\r\n        pTipologiaSito = -1;\r\n        pElementiPerPagina = -1;\r\n        numeroElementiRicerca = -1;\r\n        numeroPagineRisultati = -1;\r\n\r\n        risultatiRicercaBeniCulturali.clear();\r\n        risultatiRicercaPuntiDiRistoro.clear();\r\n\r\n        return -1;\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "arrayToArrayListTag",
+            "sourceCode": "private ArrayList<BeanTag> arrayToArrayListTag(int[] pTagsId) throws SQLException {\r\n        // Initialize the list of Tags\r\n        ArrayList<BeanTag> pTags = new ArrayList<>();\r\n        // If the list of identifiers of the tag is empty I get the tags\r\n        if (pTagsId == null) {\r\n            BeanTag currentTag = null;\r\n            try {\r\n                // Loop for the insertion of tags found in the list\r\n                for (int i = 0; i < pTagsId.length; i++) {\r\n                    // If the identifier is greater than 0\r\n                    if (pTagsId[i] > 0) {\r\n                        currentTag = Tag.ottieniTag(pTagsId[i]);\r\n                        // Check correctness on tags\r\n                        if (ControlloDati.checkBeanTag(currentTag))\r\n                            pTags.add(currentTag);\r\n                    }\r\n                }\r\n            } catch (SQLException e) {\r\n                throw new SQLException(MessaggiErrore.ERRORE_DBMS);\r\n            }\r\n        }\r\n        // Return the list of tags\r\n        return pTags;\r\n    }"
+        }
+    ]
+}

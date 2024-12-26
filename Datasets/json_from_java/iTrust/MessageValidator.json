@@ -1,0 +1,14 @@
+{
+    "MessageValidator": [
+        {
+            "parentClass": "MessageValidator",
+            "name": "MessageValidator",
+            "sourceCode": "public MessageValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "MessageValidator",
+            "name": "validate",
+            "sourceCode": "public void validate(MessageBean mBean) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"body\", mBean.getBody(), ValidationFormat.MESSAGES_BODY, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"subject\", mBean.getSubject(), ValidationFormat.MESSAGES_SUBJECT, false));\r\n\t\t\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "GenerateCalendarAction": [
+        {
+            "parentClass": "GenerateCalendarAction",
+            "name": "GenerateCalendarAction",
+            "sourceCode": "public GenerateCalendarAction(DAOFactory factory, long loggedInMID) {\r\n\t\ta_action = new ViewMyApptsAction(factory, loggedInMID);\r\n\t\ttypes = new EditApptTypeAction(factory, loggedInMID);\r\n\t\tr_action = new ViewMyRecordsAction(factory, loggedInMID);\r\n\t\tsend = new ArrayList<ApptBean>();\r\n\t}"
+        },
+        {
+            "parentClass": "GenerateCalendarAction",
+            "name": "getSend",
+            "sourceCode": "public List<ApptBean> getSend() {\r\n\t\treturn send;\r\n\t}"
+        },
+        {
+            "parentClass": "GenerateCalendarAction",
+            "name": "getConflicts",
+            "sourceCode": "public boolean[] getConflicts() throws SQLException {\r\n\t\tboolean conflicts[] = new boolean[send.size()];\r\n\t\tfor(int i=0; i<send.size(); i++) {\r\n\t\t\tApptBean ab = send.get(i);\r\n\t\t\tlong t = ab.getDate().getTime();\r\n\t\t\tlong m = types.getDurationByType(ab.getApptType()) * 60L * 1000L;\r\n\t\t\tTimestamp time = new Timestamp(t+m);\r\n\t\t\tfor(int j=i+1; j<send.size(); j++) {\r\n\t\t\t\tif(send.get(j).getDate().before(time)) {\r\n\t\t\t\t\tconflicts[i] = true;\r\n\t\t\t\t\tconflicts[j] = true;\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn conflicts;\r\n\t}"
+        },
+        {
+            "parentClass": "GenerateCalendarAction",
+            "name": "getApptsTable",
+            "sourceCode": "public Hashtable<Integer, ArrayList<ApptBean>> getApptsTable(int thisMonth, int thisYear) throws SQLException {\r\n\t\tList<ApptBean> appts = a_action.getMyAppointments();\r\n\t\tHashtable<Integer, ArrayList<ApptBean>> atable = new Hashtable<Integer, ArrayList<ApptBean>>();\r\n\t\tCalendar a = Calendar.getInstance();\r\n\t\tfor(ApptBean b : appts) {\r\n\t\t\ta.setTimeInMillis(b.getDate().getTime());\r\n\t\t\tif(a.get(Calendar.MONTH) == thisMonth && a.get(Calendar.YEAR) == thisYear) {\r\n\t\t\t\tif(!atable.containsKey(a.get(Calendar.DAY_OF_MONTH)))\r\n\t\t\t\t\tatable.put(a.get(Calendar.DAY_OF_MONTH), new ArrayList<ApptBean>());\r\n\t\t\t\tArrayList<ApptBean> l = atable.get(a.get(Calendar.DAY_OF_MONTH));\r\n\t\t\t\tl.add(b);\r\n\t\t\t\tsend.add(b);\r\n\t\t\t\tatable.put(a.get(Calendar.DAY_OF_MONTH), l);\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn atable;\r\n\t}"
+        },
+        {
+            "parentClass": "GenerateCalendarAction",
+            "name": "getOfficeVisitsTable",
+            "sourceCode": "public Hashtable<Integer, ArrayList<OfficeVisitBean>> getOfficeVisitsTable(int thisMonth, int thisYear) throws iTrustException {\r\n\t\tList<OfficeVisitBean> officeVisits = r_action.getAllOfficeVisits();\r\n\t\tHashtable<Integer, ArrayList<OfficeVisitBean>> rtable = new Hashtable<Integer, ArrayList<OfficeVisitBean>>();\r\n\t\tCalendar a = Calendar.getInstance();\r\n\t\tfor(OfficeVisitBean b : officeVisits) {\r\n\t\t\ta.setTimeInMillis(b.getVisitDate().getTime());\r\n\t\t\tif(a.get(Calendar.MONTH) == thisMonth && a.get(Calendar.YEAR) == thisYear) {\r\n\t\t\t\tif(!rtable.containsKey(a.get(Calendar.DAY_OF_MONTH)))\r\n\t\t\t\t\trtable.put(a.get(Calendar.DAY_OF_MONTH), new ArrayList<OfficeVisitBean>());\r\n\t\t\t\tArrayList<OfficeVisitBean> l = rtable.get(a.get(Calendar.DAY_OF_MONTH));\r\n\t\t\t\tl.add(b);\r\n\t\t\t\trtable.put(a.get(Calendar.DAY_OF_MONTH), l);\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn rtable;\r\n\t}"
+        },
+        {
+            "parentClass": "GenerateCalendarAction",
+            "name": "getLabProceduresTable",
+            "sourceCode": "public Hashtable<Integer, ArrayList<LabProcedureBean>> getLabProceduresTable(int thisMonth, int thisYear) throws iTrustException {\r\n\t\tList<LabProcedureBean> procs = r_action.getLabs();\r\n\t\tHashtable<Integer, ArrayList<LabProcedureBean>> ptable = new Hashtable<Integer, ArrayList<LabProcedureBean>>();\r\n\t\tCalendar a = Calendar.getInstance();\r\n\t\tfor(LabProcedureBean b : procs) {\r\n\t\t\ta.setTimeInMillis(b.getTimestamp().getTime());\r\n\t\t\tif(a.get(Calendar.MONTH) == thisMonth && a.get(Calendar.YEAR) == thisYear) {\r\n\t\t\t\tif(!ptable.containsKey(a.get(Calendar.DAY_OF_MONTH)))\r\n\t\t\t\t\tptable.put(a.get(Calendar.DAY_OF_MONTH), new ArrayList<LabProcedureBean>());\r\n\t\t\t\tArrayList<LabProcedureBean> l = ptable.get(a.get(Calendar.DAY_OF_MONTH));\r\n\t\t\t\tl.add(b);\r\n\t\t\t\tptable.put(a.get(Calendar.DAY_OF_MONTH), l);\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn ptable;\r\n\t}"
+        }
+    ]
+}

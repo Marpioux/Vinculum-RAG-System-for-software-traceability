@@ -1,0 +1,14 @@
+{
+    "ChronicDiseaseMediator": [
+        {
+            "parentClass": "ChronicDiseaseMediator",
+            "name": "ChronicDiseaseMediator",
+            "sourceCode": "public ChronicDiseaseMediator(DAOFactory factory, long pid) throws DBException, NoHealthRecordsException {\r\n\t\triskCheckers = new ArrayList<RiskChecker>();\r\n\t\triskCheckers.add(new HeartDiseaseRisks(factory, pid));\r\n\t\triskCheckers.add(new Type1DiabetesRisks(factory, pid));\r\n\t\triskCheckers.add(new Type2DiabetesRisks(factory, pid));\r\n\t}"
+        },
+        {
+            "parentClass": "ChronicDiseaseMediator",
+            "name": "getDiseaseAtRisk",
+            "sourceCode": "public List<RiskChecker> getDiseaseAtRisk() {\r\n\t\tList<RiskChecker> diseases = new ArrayList<RiskChecker>();\r\n\t\tfor (RiskChecker diseaseChecker : riskCheckers) {\r\n\t\t\tif (diseaseChecker.isAtRisk())\r\n\t\t\t\tdiseases.add(diseaseChecker);\r\n\t\t}\r\n\t\treturn diseases;\r\n\t}"
+        }
+    ]
+}

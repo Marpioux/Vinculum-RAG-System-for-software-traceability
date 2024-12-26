@@ -1,0 +1,49 @@
+{
+    "ReportTableModel": [
+        {
+            "parentClass": "ReportTableModel",
+            "name": "ReportTableModel",
+            "sourceCode": "public ReportTableModel(BeanBeneCulturale[] bc, BeanPuntoDiRistoro[] pr) {\r\n        data = new Vector<>();\r\n        for (int i = 0; i < pr.length; i++) {\r\n            Object[] newRow = new Object[5];\r\n            newRow[0] = pr[i].getName();\r\n            newRow[1] = pr[i].getDescrizione();\r\n            newRow[2] = pr[i].getVar();\r\n            newRow[3] = pr[i].getCitta();\r\n            newRow[4] = pr[i].getProvincia();\r\n            data.add(newRow);\r\n        }\r\n        for (int i = 0; i < bc.length; i++) {\r\n            Object[] newRow = new Object[5];\r\n            newRow[0] = bc[i].getName();\r\n            newRow[1] = bc[i].getDescrizione();\r\n            newRow[2] = bc[i].getVar();\r\n            newRow[3] = bc[i].getCitta();\r\n            newRow[4] = bc[i].getProvincia();\r\n            data.add(newRow);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "getColumnCount",
+            "sourceCode": "public int getColumnCount() {\r\n        return headers.length;\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "getRowCount",
+            "sourceCode": "public int getRowCount() {\r\n        return data.size();\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "getColumnName",
+            "sourceCode": "public String getColumnName(int col) {\r\n        return headers[col];\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "getValueAt",
+            "sourceCode": "public Object getValueAt(int row, int col) {\r\n        return data.get(row)[col];\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "getColumnClass",
+            "sourceCode": "public Class<?> getColumnClass(int col) {\r\n        return columnClasses[col];\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "isCellEditable",
+            "sourceCode": "public boolean isCellEditable(int row, int col) {\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "setValueAt",
+            "sourceCode": "public void setValueAt(Object value, int row, int col) {\r\n        if (row >= getRowCount()) {\r\n            Object[] newRow = new Object[headers.length];\r\n            newRow[col] = value;\r\n            data.add(newRow);\r\n        } else {\r\n            data.get(row)[col] = value;\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "ReportTableModel",
+            "name": "setValueAt",
+            "sourceCode": "public void setValueAt(Object value, int row, int col) {\r\n        if (row >= getRowCount()) {\r\n            Object[] newRow = new Object[headers.length];\r\n            newRow[col] = value;\r\n            data.add(newRow);\r\n        } else {\r\n            data.get(row)[col] = value;\r\n        }\r\n    }"
+        }
+    ]
+}

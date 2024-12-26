@@ -1,0 +1,34 @@
+{
+    "ApptTypeBean": [
+        {
+            "parentClass": "ApptTypeBean",
+            "name": "ApptTypeBean",
+            "sourceCode": "public ApptTypeBean() {\r\n\t\tthis.name = null;\r\n\t\tthis.duration = 0;\r\n\t}"
+        },
+        {
+            "parentClass": "ApptTypeBean",
+            "name": "ApptTypeBean",
+            "sourceCode": "public ApptTypeBean() {\r\n\t\tthis.name = null;\r\n\t\tthis.duration = 0;\r\n\t}"
+        },
+        {
+            "parentClass": "ApptTypeBean",
+            "name": "getName",
+            "sourceCode": "public String getName() {\r\n\t\treturn name;\r\n\t}"
+        },
+        {
+            "parentClass": "ApptTypeBean",
+            "name": "setName",
+            "sourceCode": "public void setName(String name) {\r\n\t\tthis.name = name;\r\n\t}"
+        },
+        {
+            "parentClass": "ApptTypeBean",
+            "name": "getDuration",
+            "sourceCode": "public int getDuration() {\r\n\t\treturn duration;\r\n\t}"
+        },
+        {
+            "parentClass": "ApptTypeBean",
+            "name": "setDuration",
+            "sourceCode": "public void setDuration(int duration) {\r\n\t\tthis.duration = duration;\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "HelpManager": [
+        {
+            "parentClass": "HelpManager",
+            "name": "HelpManager",
+            "sourceCode": "public HelpManager(String pPercorso, JTextComponent pComponent) throws FileNotFoundException {\r\n        dictionary = new HashMap<>();\r\n        destination = pComponent;\r\n        File afil = null;\r\n        try {\r\n            afil = new File(getClass().getResource(pPercorso).toURI());\r\n        } catch (URISyntaxException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n        Scanner scan = new Scanner(new BufferedReader(new FileReader(afil)));\r\n        StringTokenizer tokenizer;\r\n        while (scan.hasNext()) {\r\n            tokenizer = new StringTokenizer(scan.nextLine(), \"##\");\r\n            dictionary.put(tokenizer.nextToken(), tokenizer.nextToken());\r\n        }\r\n        scan.close();\r\n    }"
+        },
+        {
+            "parentClass": "HelpManager",
+            "name": "mouseEntered",
+            "sourceCode": "public void mouseEntered(MouseEvent pMouseEnteredEvent) {\r\n        previousMessage = destination.getText();\r\n        JComponent component = (JComponent) pMouseEnteredEvent.getComponent();\r\n        String help = dictionary.get(component.getName());\r\n        destination.setText(help);\r\n        destination.repaint();\r\n    }"
+        },
+        {
+            "parentClass": "HelpManager",
+            "name": "mouseExited",
+            "sourceCode": "public void mouseExited(MouseEvent pMouseExitedEvent) {\r\n        destination.setText(previousMessage);\r\n        destination.repaint();\r\n    }"
+        }
+    ]
+}

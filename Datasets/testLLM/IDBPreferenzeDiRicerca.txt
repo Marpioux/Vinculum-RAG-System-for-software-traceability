@@ -1,0 +1,64 @@
+{
+  "IDBPreferenzeDiRicerca": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciPreferenzaDiRicerca",
+      "sourceCode": "boolean inserisciPreferenzaDiRicerca(BeanPreferenzaDiRicerca pPreferenza) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaPreferenzaDiRicerca",
+      "sourceCode": "boolean cancellaPreferenzaDiRicerca(int pIdPreferenza) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniPreferenzeDiRicercaDelTurista",
+      "sourceCode": "ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelTurista(int pIdTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniPreferenzeDiRicercaDelBC",
+      "sourceCode": "ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelBC(int pIdBeneCulturale) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniPreferenzeDiRicercaDelPR",
+      "sourceCode": "ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelPR(int pIdPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciPreferenzaDiRicercaDelBC",
+      "sourceCode": "boolean inserisciPreferenzaDiRicercaDelBC(int pIdBeneCulturale, int pIdPreferenzaDiRicerca) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciPreferenzaDiRicercaDelTurista",
+      "sourceCode": "boolean inserisciPreferenzaDiRicercaDelTurista(int pIdTurista, int pIdPreferenzaDiRicerca) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciPreferenzaDiRicercaDelPR",
+      "sourceCode": "boolean inserisciPreferenzaDiRicercaDelPR(int pIdPuntoDiRistoro, int pIdPreferenzaDiRicerca) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaPreferenzaDiRicercaTurista",
+      "sourceCode": "boolean cancellaPreferenzaDiRicercaTurista(int pIdTurista, int pIdPreferenza) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaPreferenzaDiRicercaBC",
+      "sourceCode": "boolean cancellaPreferenzaDiRicercaBC(int pIdBeneCulturale, int pIdPreferenzaDiRicerca) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaPreferenzaDiRicercaPR",
+      "sourceCode": "boolean cancellaPreferenzaDiRicercaPR(int pIdPuntoDiRistoro, int pIdPreferenza) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniPreferenzeDiRicerca",
+      "sourceCode": "ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicerca() throws SQLException;"
+    }
+  ]
+}

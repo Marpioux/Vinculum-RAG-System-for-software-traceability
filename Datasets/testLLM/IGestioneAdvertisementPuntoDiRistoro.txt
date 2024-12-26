@@ -1,0 +1,9 @@
+{
+  "IGestioneAdvertisement": [
+    {
+      "parentClass": "IGestioneAdvertisementPuntoDiRistoro",
+      "name": "IGestioneAdvertisement",
+      "sourceCode": "/**\n * Interface that provides management services for advertisements\n * in eating places.\n *\n * @author Fabio Palladino\n * @version 0.1\n *\n * 2007 eTour Project - Copyright by SE @ SA Lab DMI University of Salerno\n */\npackage unisa.gps.etour.control.GestioneAdvertisement;\n\npublic interface IGestioneAdvertisement extends IGestioneAdvertisementPuntoDiRistoro {\n    // Empty interface\n}"
+    }
+  ]
+}

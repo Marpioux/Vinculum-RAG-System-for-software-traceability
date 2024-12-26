@@ -1,0 +1,54 @@
+{
+    "ICD9CMLink": [
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "ICD9CMLink",
+            "sourceCode": "public ICD9CMLink() {\r\n\t\tsuper();\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "doStartTag",
+            "sourceCode": "public int doStartTag() throws JspException {\r\n\t\ttry {\r\n\t\t\tJspWriter out = pageContext.getOut();\r\n\t\t\tout.write(\"<a href=\\\"http://icd9cm.chrisendres.com/2007/index.php?srchtype=diseases&srchtext=\"\r\n\t\t\t\t\t+ code + \"&Submit=Search&action=search\\\">\" + code + \"</a>\");\r\n\t\t} catch (IOException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t}\r\n\t\treturn SKIP_BODY;\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "doEndTag",
+            "sourceCode": "public int doEndTag() throws JspException {\r\n\t\treturn SKIP_BODY;\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "release",
+            "sourceCode": "public void release() {\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "setPageContext",
+            "sourceCode": "public void setPageContext(PageContext pageContext) {\r\n\t\tthis.pageContext = pageContext;\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "setParent",
+            "sourceCode": "public void setParent(Tag parent) {\r\n\t\tthis.parent = parent;\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "getParent",
+            "sourceCode": "public Tag getParent() {\r\n\t\treturn parent;\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "getCode",
+            "sourceCode": "public String getCode() {\r\n\t\treturn code;\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "setCode",
+            "sourceCode": "public void setCode(String code) {\r\n\t\tthis.code = code;\r\n\t}"
+        },
+        {
+            "parentClass": "ICD9CMLink",
+            "name": "setCode",
+            "sourceCode": "public void setCode(String code) {\r\n\t\tthis.code = code;\r\n\t}"
+        }
+    ]
+}

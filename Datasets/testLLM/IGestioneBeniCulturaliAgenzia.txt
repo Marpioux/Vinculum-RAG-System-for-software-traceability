@@ -1,0 +1,34 @@
+{
+  "IGestioneBeniCulturali": [
+    {
+      "parentClass": "IGestioneBeniCulturaliAgenzia",
+      "name": "inserisciBeneCulturale",
+      "sourceCode": "boolean inserisciBeneCulturale(BeanBeneCulturale pBeneCulturale) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneBeniCulturaliAgenzia",
+      "name": "cancellaBeneCulturale",
+      "sourceCode": "boolean cancellaBeneCulturale(int pBeneCulturaleID) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneBeniCulturaliAgenzia",
+      "name": "ottieniBeniCulturali",
+      "sourceCode": "ArrayList<BeanBeneCulturale> ottieniBeniCulturali() throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneBeniCulturaliAgenzia",
+      "name": "modificaBeneCulturale",
+      "sourceCode": "boolean modificaBeneCulturale(BeanBeneCulturale pBeneCulturale) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneBeniCulturaliAgenzia",
+      "name": "aggiungiTagBeneCulturale",
+      "sourceCode": "boolean aggiungiTagBeneCulturale(int pBeneCulturaleID, int pTagID) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneBeniCulturaliAgenzia",
+      "name": "rimuoviTagBeneCulturale",
+      "sourceCode": "boolean rimuoviTagBeneCulturale(int pBeneCulturaleID, int pTagID) throws RemoteException;"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+    "SubRistorazione": [
+        {
+            "parentClass": "SubRistorazione",
+            "name": "SubRistorazione",
+            "sourceCode": "public SubRistorazione()\n   {\n      super(\"Ristorazione\");\n      setup();\n      init();\n      pack();\n   }"
+        },
+        {
+            "parentClass": "SubRistorazione",
+            "name": "setup",
+            "sourceCode": "void setup()\n   {\n      this.setFont(ConfigurazioneSistema.font_sub);\n   \t  panel0=new Panel();\n      panel0.setLayout(gridbag);\n      panel0.setBackground(Color.white);\n      Immagine  figura = new Immagine(\"ristorazione.jpg\");\n      Etichetta etich = new Etichetta(\"Ristorazione.gif\");\n      Utils.constrain(panel0,etich, 0, 0, 2, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n      Utils.constrain(panel0,figura, 2, 0, 10, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n       \n      panel1 = new Panel();\n      panel1.setLayout(new GridLayout(2,1));\n      Calcolo = new Button(\" Calcolo conto \");\n      Annulla = new Button(\" Indietro \");\n      panel1.add(Calcolo);\n      panel1.add(Annulla);\n\n      this.setLayout(gridbag);\n      Utils.constrain(this,panel0, 0, 0, 12, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n      Utils.constrain(this,panel1, 12, 0, 1, 12,GridBagConstraints.BOTH,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n   }"
+        },
+        {
+            "parentClass": "SubRistorazione",
+            "name": "init",
+            "sourceCode": "void init()\n   {\n      Annulla.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            dispose();\n            p.setEnabled(true);\n         }\n      });\n\n      Calcolo.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n\t\t\tstartCalcolo();\n         }\n      });\n   }"
+        },
+        {
+            "parentClass": "SubRistorazione",
+            "name": "startCalcolo",
+            "sourceCode": "void startCalcolo()\n   {\n   \t\tthis.setEnabled(false);\n\t\trist = new MascheraContoRistorazione(this);\n\t\trist.setVisible(true);\n\t\trist.padre = this;\n   }"
+        }
+    ]
+}

@@ -1,0 +1,64 @@
+{
+    "BeanVisitaPR": [
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "BeanVisitaPR",
+            "sourceCode": "public BeanVisitaPR(int pVoto, int pIdPuntoDiRistoro, String pCommento, int pIdTurista, Date pDataVisita) {\r\n        setVoto(pVoto);\r\n        setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n        setCommento(pCommento);\r\n        setIdTurista(pIdTurista);\r\n        setDataVisita(pDataVisita);\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "BeanVisitaPR",
+            "sourceCode": "public BeanVisitaPR(int pVoto, int pIdPuntoDiRistoro, String pCommento, int pIdTurista, Date pDataVisita) {\r\n        setVoto(pVoto);\r\n        setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n        setCommento(pCommento);\r\n        setIdTurista(pIdTurista);\r\n        setDataVisita(pDataVisita);\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "getCommento",
+            "sourceCode": "public String getCommento() {\r\n        return comment;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "setCommento",
+            "sourceCode": "public void setCommento(String pCommento) {\r\n        comment = pCommento;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "getDataVisita",
+            "sourceCode": "public Date getDataVisita() {\r\n        return dataVisita;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "setDataVisita",
+            "sourceCode": "public void setDataVisita(Date pDataVisita) {\r\n        dataVisita = pDataVisita;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "getIdPuntoDiRistoro",
+            "sourceCode": "public int getIdPuntoDiRistoro() {\r\n        return idPuntoDiRistoro;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "setIdPuntoDiRistoro",
+            "sourceCode": "public void setIdPuntoDiRistoro(int pIdPuntoDiRistoro) {\r\n        idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "getIdTurista",
+            "sourceCode": "public int getIdTurista() {\r\n        return idTurista;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "setIdTurista",
+            "sourceCode": "public void setIdTurista(int pIdTurista) {\r\n        idTurista = pIdTurista;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "getVoto",
+            "sourceCode": "public int getVoto() {\r\n        return rating;\r\n    }"
+        },
+        {
+            "parentClass": "BeanVisitaPR",
+            "name": "setVoto",
+            "sourceCode": "public void setVoto(int pVoto) {\r\n        rating = pVoto;\r\n    }"
+        }
+    ]
+}

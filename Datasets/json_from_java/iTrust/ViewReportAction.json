@@ -1,0 +1,34 @@
+{
+    "ViewReportAction": [
+        {
+            "parentClass": "ViewReportAction",
+            "name": "ViewReportAction",
+            "sourceCode": "public ViewReportAction(DAOFactory factory, long loggedInMID) {\r\n\t\tpatientDAO = factory.getPatientDAO();\r\n\t\tpersonnelDAO = factory.getPersonnelDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "ViewReportAction",
+            "name": "getDiagnoses",
+            "sourceCode": "public List<DiagnosisBean> getDiagnoses(long pid) throws iTrustException {\r\n\t\treturn patientDAO.getDiagnoses(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewReportAction",
+            "name": "getProcedures",
+            "sourceCode": "public List<ProcedureBean> getProcedures(long pid) throws iTrustException {\r\n\t\treturn patientDAO.getProcedures(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewReportAction",
+            "name": "getPrescriptions",
+            "sourceCode": "public List<PrescriptionBean> getPrescriptions(long pid) throws iTrustException {\r\n\t\treturn patientDAO.getCurrentPrescriptions(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewReportAction",
+            "name": "getDeclaredHCPs",
+            "sourceCode": "public List<PersonnelBean> getDeclaredHCPs(long pid) throws iTrustException {\r\n\t\treturn patientDAO.getDeclaredHCPs(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewReportAction",
+            "name": "getPersonnel",
+            "sourceCode": "public PersonnelBean getPersonnel(long mid) throws iTrustException {\r\n\t\treturn personnelDAO.getPersonnel(mid);\r\n\t}"
+        }
+    ]
+}

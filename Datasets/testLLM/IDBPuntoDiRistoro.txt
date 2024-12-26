@@ -1,0 +1,49 @@
+{
+  "IDBPuntoDiRistoro": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciPuntoDiRistoro",
+      "sourceCode": "boolean inserisciPuntoDiRistoro(BeanPuntoDiRistoro pPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "modificaPuntoDiRistoro",
+      "sourceCode": "boolean modificaPuntoDiRistoro(BeanPuntoDiRistoro pPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaPuntoDiRistoro",
+      "sourceCode": "boolean cancellaPuntoDiRistoro(int pIdPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniPuntoDiRistoro",
+      "sourceCode": "BeanPuntoDiRistoro ottieniPuntoDiRistoro(int pid) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ricercaAvanzata",
+      "sourceCode": "ArrayList<BeanPuntoDiRistoro> ricercaAvanzata(int pIdTurista, String pKeyword, ArrayList<BeanTag> pTags, int pNumeroPagina, int pNumeroElementiPerPagina, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniNumeroElementiRicercaAvanzata",
+      "sourceCode": "int ottieniNumeroElementiRicercaAvanzata(int pIdTurista, String pKeyword, ArrayList<BeanTag> pTags, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ricerca",
+      "sourceCode": "ArrayList<BeanPuntoDiRistoro> ricerca(String pKeyword, ArrayList<BeanTag> pTags, int pNumeroPagina, int pNumeroElementiPerPagina, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniNumeroElementiRicerca",
+      "sourceCode": "int ottieniNumeroElementiRicerca(String pKeyword, ArrayList<BeanTag> pTags, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniListaPR",
+      "sourceCode": "ArrayList<BeanPuntoDiRistoro> ottieniListaPR() throws SQLException;"
+    }
+  ]
+}

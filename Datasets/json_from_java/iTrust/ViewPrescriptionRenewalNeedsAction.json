@@ -1,0 +1,14 @@
+{
+    "ViewPrescriptionRenewalNeedsAction": [
+        {
+            "parentClass": "ViewPrescriptionRenewalNeedsAction",
+            "name": "ViewPrescriptionRenewalNeedsAction",
+            "sourceCode": "public ViewPrescriptionRenewalNeedsAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewPrescriptionRenewalNeedsAction",
+            "name": "getRenewalNeedsPatients",
+            "sourceCode": "public List<PatientBean> getRenewalNeedsPatients() {\r\n\t\r\n\t\ttry {\t\r\n\t\t\ttransDAO.logTransaction(TransactionType.VIEW_RENEWAL_NEEDS_PATIENTS, loggedInMID, \r\n\t\t\t\t\t0L, loggedInMID + Messages.getString(\"ViewPrescriptionRenewalNeedsAction.0\")); //$NON-NLS-1$\r\n\t\t\treturn patientDAO.getRenewalNeedsPatients(loggedInMID);\r\n\t\t}\r\n\t\tcatch (DBException e) {\r\n\t\t\tSystem.out.println(Messages.getString(\"ViewPrescriptionRenewalNeedsAction.1\")); //$NON-NLS-1$\r\n\t\t\tSystem.out.println(e);\r\n\t\t\treturn null;\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

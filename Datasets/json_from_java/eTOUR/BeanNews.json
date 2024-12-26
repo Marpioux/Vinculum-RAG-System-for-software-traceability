@@ -1,0 +1,64 @@
+{
+    "BeanNews": [
+        {
+            "parentClass": "BeanNews",
+            "name": "BeanNews",
+            "sourceCode": "public BeanNews(String Pnews, Date pDataPubblicazione, Date pDataScadenza, int pPriorita, int pid) {\r\n        setNews(Pnews);\r\n        setDataPubblicazione(pDataPubblicazione);\r\n        setDataScadenza(pDataScadenza);\r\n        setPriorita(pPriorita);\r\n        setId(pid);\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "BeanNews",
+            "sourceCode": "public BeanNews(String Pnews, Date pDataPubblicazione, Date pDataScadenza, int pPriorita, int pid) {\r\n        setNews(Pnews);\r\n        setDataPubblicazione(pDataPubblicazione);\r\n        setDataScadenza(pDataScadenza);\r\n        setPriorita(pPriorita);\r\n        setId(pid);\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "getDataPubblicazione",
+            "sourceCode": "public Date getDataPubblicazione() {\r\n        return dataPubblicazione;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "setDataPubblicazione",
+            "sourceCode": "public void setDataPubblicazione(Date pDataPubblicazione) {\r\n        dataPubblicazione = pDataPubblicazione;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "getDataScadenza",
+            "sourceCode": "public Date getDataScadenza() {\r\n        return dataScadenza;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "setDataScadenza",
+            "sourceCode": "public void setDataScadenza(Date pDataScadenza) {\r\n        dataScadenza = pDataScadenza;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "getNews",
+            "sourceCode": "public String getNews() {\r\n        return news;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "setNews",
+            "sourceCode": "public void setNews(String Pnews) {\r\n        news = Pnews;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "getPriorita",
+            "sourceCode": "public int getPriorita() {\r\n        return priority;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "setPriorita",
+            "sourceCode": "public void setPriorita(int pPriorita) {\r\n        priority = pPriorita;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "getId",
+            "sourceCode": "public int getId() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "BeanNews",
+            "name": "setId",
+            "sourceCode": "public void setId(int pid) {\r\n        id = pid;\r\n    }"
+        }
+    ]
+}

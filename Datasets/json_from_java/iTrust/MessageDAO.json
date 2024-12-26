@@ -1,0 +1,59 @@
+{
+    "MessageDAO": [
+        {
+            "parentClass": "MessageDAO",
+            "name": "MessageDAO",
+            "sourceCode": "public MessageDAO(DAOFactory factory) {\r\n\t\tthis.factory = factory;\r\n\t\tthis.mbLoader = new MessageBeanLoader();\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesFor",
+            "sourceCode": "public List<MessageBean> getMessagesFor(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tps = conn.prepareStatement(\"SELECT * FROM message WHERE to_id = ? ORDER BY sent_date DESC\");\r\n\t\tps.setLong(1, mid);\r\n\t\tResultSet rs = ps.executeQuery();\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesTimeAscending",
+            "sourceCode": "public List<MessageBean> getMessagesTimeAscending(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tps = conn.prepareStatement(\"SELECT * FROM message WHERE to_id = ? ORDER BY sent_date ASC\");\r\n\t\tps.setLong(1, mid);\r\n\t\tResultSet rs = ps.executeQuery();\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesNameAscending",
+            "sourceCode": "public List<MessageBean> getMessagesNameAscending(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\tResultSet rs;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tif(mid >= (long) 999999999){\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.from_id=patients.mid AND message.to_id=? ORDER BY patients.lastName ASC, patients.firstName ASC, message.sent_date ASC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\t\telse{\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.from_id=personnel.mid AND message.to_id=? ORDER BY personnel.lastName ASC, personnel.firstName ASC, message.sent_date ASC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesNameDescending",
+            "sourceCode": "public List<MessageBean> getMessagesNameDescending(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\tResultSet rs;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tif(mid >= (long) 999999999){\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.from_id=patients.mid AND message.to_id=? ORDER BY patients.lastName DESC, patients.firstName DESC, message.sent_date DESC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\t\telse{\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.from_id=personnel.mid AND message.to_id=? ORDER BY personnel.lastName DESC, personnel.firstName DESC, message.sent_date DESC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesFrom",
+            "sourceCode": "public List<MessageBean> getMessagesFrom(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tps = conn.prepareStatement(\"SELECT * FROM message WHERE from_id = ? ORDER BY sent_date DESC\");\r\n\t\tps.setLong(1, mid);\r\n\t\tResultSet rs = ps.executeQuery();\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesFromTimeAscending",
+            "sourceCode": "public List<MessageBean> getMessagesFromTimeAscending(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tps = conn.prepareStatement(\"SELECT * FROM message WHERE from_id = ? ORDER BY sent_date ASC\");\r\n\t\tps.setLong(1, mid);\r\n\t\tResultSet rs = ps.executeQuery();\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesFromNameAscending",
+            "sourceCode": "public List<MessageBean> getMessagesFromNameAscending(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\tResultSet rs;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tif(mid >= (long) 999999999){\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.to_id=patients.mid AND message.from_id=? ORDER BY patients.lastName ASC, patients.firstName ASC, message.sent_date ASC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\t\telse{\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.to_id=personnel.mid AND message.from_id=? ORDER BY personnel.lastName ASC, personnel.firstName ASC, message.sent_date ASC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "getMessagesFromNameDescending",
+            "sourceCode": "public List<MessageBean> getMessagesFromNameDescending(long mid) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\tResultSet rs;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tif(mid >= (long) 999999999){\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.to_id=patients.mid AND message.from_id=? ORDER BY patients.lastName DESC, patients.firstName DESC, message.sent_date DESC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\t\telse{\r\n\t\t\tps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.to_id=personnel.mid AND message.from_id=? ORDER BY personnel.lastName DESC, personnel.firstName DESC, message.sent_date DESC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\trs = ps.executeQuery();\r\n\t\t}\r\n\r\n\t\tList<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\r\n\t\treturn mbList;\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "addMessage",
+            "sourceCode": "public void addMessage(MessageBean mBean) throws SQLException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\tconn = factory.getConnection();\r\n\t\tif (mBean.getParentMessageId() == 0L) {\r\n\t\t\tps = conn.prepareStatement(\r\n\t\t\t\t\t\"INSERT INTO message (from_id, to_id, sent_date, message, subject, been_read) \"\r\n\t\t\t\t  + \"VALUES (?, ?, NOW(), ?, ?, ?)\");\r\n\t\t\tthis.mbLoader.loadParameters(ps, mBean);\r\n\t\t} else {\r\n\t\t\tps = conn.prepareStatement(\r\n\t\t\t\t\t\"INSERT INTO message (from_id, to_id, sent_date, message, subject, been_read, parent_msg_id) \"\r\n\t\t\t\t  + \"  VALUES (?, ?, NOW(), ?, ?, ?, ?)\");\r\n\t\t\tthis.mbLoader.loadParameters(ps, mBean);\r\n\t\t}\r\n\r\n\t\tps.executeUpdate();\r\n\r\n\t\tDBUtil.closeConnection(conn, ps);\r\n\t}"
+        },
+        {
+            "parentClass": "MessageDAO",
+            "name": "updateRead",
+            "sourceCode": "public void updateRead(MessageBean mBean) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"UPDATE message SET been_read=1 WHERE message_id=?\");\r\n\t\t\tps.setLong(1, mBean.getMessageId());\r\n\t\t\tps.executeUpdate();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

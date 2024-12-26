@@ -1,0 +1,44 @@
+{
+    "TAGTableModel": [
+        {
+            "parentClass": "TAGTableModel",
+            "name": "TAGTableModel",
+            "sourceCode": "public TAGTableModel(BeanTag[] tags) {\r\n        data = new Vector<>();\r\n        for (int i = 0; i < tags.length; i++) {\r\n            Object[] newRow = new Object[3];\r\n            newRow[0] = tags[i].getId();\r\n            newRow[1] = tags[i].getName();\r\n            newRow[2] = tags[i].getDescrizione();\r\n            data.add(newRow);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "TAGTableModel",
+            "name": "getColumnCount",
+            "sourceCode": "@Override\r\n    public int getColumnCount() {\r\n        return headers.length;\r\n    }"
+        },
+        {
+            "parentClass": "TAGTableModel",
+            "name": "getRowCount",
+            "sourceCode": "@Override\r\n    public int getRowCount() {\r\n        return data.size();\r\n    }"
+        },
+        {
+            "parentClass": "TAGTableModel",
+            "name": "getColumnName",
+            "sourceCode": "@Override\r\n    public String getColumnName(int pCol) {\r\n        return headers[pCol];\r\n    }"
+        },
+        {
+            "parentClass": "TAGTableModel",
+            "name": "getValueAt",
+            "sourceCode": "@Override\r\n    public Object getValueAt(int pRow, int pCol) {\r\n        return data.get(pRow)[pCol];\r\n    }"
+        },
+        {
+            "parentClass": "TAGTableModel",
+            "name": "getColumnClass",
+            "sourceCode": "@Override\r\n    public Class<?> getColumnClass(int pCol) {\r\n        return columnClasses[pCol];\r\n    }"
+        },
+        {
+            "parentClass": "TAGTableModel",
+            "name": "isCellEditable",
+            "sourceCode": "@Override\r\n    public boolean isCellEditable(int row, int col) {\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "TAGTableModel",
+            "name": "setValueAt",
+            "sourceCode": "@Override\r\n    public void setValueAt(Object value, int row, int col) {\r\n    }"
+        }
+    ]
+}

@@ -1,0 +1,69 @@
+{
+    "LabProcedureDAO": [
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "LabProcedureDAO",
+            "sourceCode": "public LabProcedureDAO(DAOFactory factory) {\r\n\t\tthis.factory = factory;\r\n\t\tlabProcedureLoader = new LabProcedureBeanLoader();\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getLabProceduresForPatient",
+            "sourceCode": "public List<LabProcedureBean> getLabProceduresForPatient(long id) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\ttry {\r\n\t\t\tif (id == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? AND Rights = ? ORDER BY UpdatedDate DESC\");\r\n\t\t\tps.setLong(1, id);\r\n\t\t\tps.setString(2, LabProcedureBean.Allow);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getLabProceduresForPatientForNextMonth",
+            "sourceCode": "public List<LabProcedureBean> getLabProceduresForPatientForNextMonth(long id) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\ttry {\r\n\t\t\tif (id == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? AND Rights = ? AND Status = ? AND (DateDiff(SYSDATE(),UpdatedDate) <= 30) ORDER BY UpdatedDate DESC\");\r\n\t\t\tps.setLong(1, id);\r\n\t\t\tps.setString(2, LabProcedureBean.Allow);\r\n\t\t\tps.setString(3, LabProcedureBean.Completed);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getLabProcedure",
+            "sourceCode": "public LabProcedureBean getLabProcedure(long id) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE LaboratoryProcedureID = ?\");\r\n\t\t\tps.setLong(1, id);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\trs.next();\r\n\t\t\treturn labProcedureLoader.loadSingle(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getAllLabProceduresDate",
+            "sourceCode": "public List<LabProcedureBean> getAllLabProceduresDate(long mid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\ttry {\r\n\t\t\tif (mid == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? ORDER BY UpdatedDate DESC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getAllLabProceduresForDocOV",
+            "sourceCode": "public List<LabProcedureBean> getAllLabProceduresForDocOV(long mid, long ovid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\ttry {\r\n\t\t\tif (mid == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? AND OfficeVisitID = ? ORDER BY UpdatedDate DESC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\tps.setLong(2, ovid);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getAllLabProceduresForDocOV",
+            "sourceCode": "public List<LabProcedureBean> getAllLabProceduresForDocOV(long mid, long ovid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\ttry {\r\n\t\t\tif (mid == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? AND OfficeVisitID = ? ORDER BY UpdatedDate DESC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\tps.setLong(2, ovid);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getAllLabProcedures",
+            "sourceCode": "public List<LabProcedureBean> getAllLabProcedures() throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure ORDER BY UpdatedDate ASC\");\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getLabProceduresForLHCPForNextMonth",
+            "sourceCode": "public List<LabProcedureBean> getLabProceduresForLHCPForNextMonth(long ovid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tif (ovid == 0L) throw new SQLException(\"OfficeVisitID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE OfficeVisitID = ? AND Status = ? AND (DateDiff(SYSDATE(),UpdatedDate) <= 30) ORDER BY UpdatedDate DESC\");\r\n\t\t\tps.setLong(1, ovid);\r\n\t\t\tps.setString(2, LabProcedureBean.Completed);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "addLabProcedure",
+            "sourceCode": "public long addLabProcedure(LabProcedureBean b) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tif (b.getPid() == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"INSERT INTO LabProcedure (PatientMID, LaboratoryProcedureCode, Status, Commentary, Results, OfficeVisitID, Rights) VALUES (?,?,?,?,?,?,?)\");\r\n\t\t\tps.setLong(1, b.getPid());\r\n\t\t\tps.setString(2, b.getLoinc());\r\n\t\t\tps.setString(3, b.getStatus());\r\n\t\t\tps.setString(4, b.getCommentary());\r\n\t\t\tps.setString(5, b.getResults());\r\n\t\t\tps.setLong(6, b.getOvID());\r\n\t\t\tps.setString(7, b.getRights());\r\n\t\t\tps.executeUpdate();\r\n\t\t\treturn DBUtil.getLastInsert(conn);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "updateLabProcedure",
+            "sourceCode": "public void updateLabProcedure(LabProcedureBean b) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tif (b.getPid() == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"UPDATE LabProcedure SET Status = ?, Commentary = ?, Results = ?, UpdatedDate = ? WHERE LaboratoryProcedureID=?\");\r\n\t\t\tps.setString(1, b.getStatus());\r\n\t\t\tps.setString(2, b.getCommentary());\r\n\t\t\tps.setString(3, b.getResults());\r\n\t\t\tps.setTimestamp(4, new java.sql.Timestamp(System.currentTimeMillis()));\r\n\t\t\tps.setLong(5, b.getProcedureID());\r\n\t\t\tps.executeUpdate();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "getAllLabProceduresLOINC",
+            "sourceCode": "public List<LabProcedureBean> getAllLabProceduresLOINC(long id) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\r\n\t\ttry {\r\n\t\t\tif (id == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? ORDER BY LaboratoryProcedureCode ASC\");\r\n\t\t\tps.setLong(1, id);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn labProcedureLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcedureDAO",
+            "name": "updateRights",
+            "sourceCode": "public void updateRights(LabProcedureBean b) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tif (b.getPid() == 0L) throw new SQLException(\"PatientMID cannot be null\");\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"UPDATE LabProcedure SET Rights = ?, UpdatedDate = ? WHERE LaboratoryProcedureID=?\");\r\n\t\t\tps.setString(1, b.getRights());\r\n\t\t\tps.setTimestamp(2, new java.sql.Timestamp(System.currentTimeMillis()));\r\n\t\t\tps.setLong(3, b.getProcedureID());\r\n\t\t\tps.executeUpdate();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

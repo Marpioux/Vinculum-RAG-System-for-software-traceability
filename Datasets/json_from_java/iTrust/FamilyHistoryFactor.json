@@ -1,0 +1,19 @@
+{
+    "FamilyHistoryFactor": [
+        {
+            "parentClass": "FamilyHistoryFactor",
+            "name": "FamilyHistoryFactor",
+            "sourceCode": "public FamilyHistoryFactor(DAOFactory factory, long patientID, double icdLower, double icdUpper) {\r\n\t\tthis.factory = factory;\r\n\t\tthis.patientID = patientID;\r\n\t\tthis.icdLower = icdLower;\r\n\t\tthis.icdUpper = icdUpper;\r\n\t}"
+        },
+        {
+            "parentClass": "FamilyHistoryFactor",
+            "name": "getDescription",
+            "sourceCode": "public String getDescription() {\r\n\t\treturn \"Patient has a family history of this disease\";\r\n\t}"
+        },
+        {
+            "parentClass": "FamilyHistoryFactor",
+            "name": "hasFactor",
+            "sourceCode": "public boolean hasFactor() {\r\n\t\ttry {\r\n\t\t\treturn factory.getRiskDAO().hasFamilyHistory(patientID, icdLower, icdUpper);\r\n\t\t} catch (DBException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\treturn false;\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

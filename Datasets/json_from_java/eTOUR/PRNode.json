@@ -1,0 +1,34 @@
+{
+    "PRNode": [
+        {
+            "parentClass": "PRNode",
+            "name": "PRNode",
+            "sourceCode": "public PRNode() {\r\n        super();\r\n    }"
+        },
+        {
+            "parentClass": "PRNode",
+            "name": "PRNode",
+            "sourceCode": "public PRNode() {\r\n        super();\r\n    }"
+        },
+        {
+            "parentClass": "PRNode",
+            "name": "getID",
+            "sourceCode": "public int getID() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "PRNode",
+            "name": "setID",
+            "sourceCode": "public void setID(int pid) {\r\n        id = pid;\r\n    }"
+        },
+        {
+            "parentClass": "PRNode",
+            "name": "getName",
+            "sourceCode": "public String getName() {\r\n        return (String) super.getUserObject();\r\n    }"
+        },
+        {
+            "parentClass": "PRNode",
+            "name": "setNome",
+            "sourceCode": "public void setNome(String pNome) throws IllegalArgumentException {\r\n        if (pNome == null || pNome.equals(\"\")) {\r\n            throw new IllegalArgumentException(\"Name of refreshment supplied invalid input.\");\r\n        }\r\n        setUserObject(pNome);\r\n    }"
+        }
+    ]
+}

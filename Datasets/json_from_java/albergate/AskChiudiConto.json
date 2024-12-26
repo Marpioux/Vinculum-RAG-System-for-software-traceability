@@ -1,0 +1,24 @@
+{
+    "AskChiudiConto": [
+        {
+            "parentClass": "AskChiudiConto",
+            "name": "AskChiudiConto",
+            "sourceCode": "public AskChiudiConto(MascheraVisualizzazioneConto parent)\n   \t{\n      \tsuper(\"Cosa devo fare?\");\n      \tpadre = parent;\n      \tpadre.setEnabled(false);\n      \tsetupPanel();\n      \tinit();\n      \tpack();\n      \tsetVisible(true);\n   }"
+        },
+        {
+            "parentClass": "AskChiudiConto",
+            "name": "setupPanel",
+            "sourceCode": "void setupPanel()\n\t{\n      \tmessage = new Label(\"ATTENZIONE: questa operazione comporta comporta la chiusura del soggiorno.\");\n      \tbutton1 = new Button(\" Annulla \");\n      \tbutton2 = new Button(\" Stampa e chiudi \");\n        this.setFont(ConfigurazioneSistema.font_titolo);\n        panel1 = new Panel();\n        panel1.setLayout(gridbag);\n        Utils.constrain(panel1, message, 0, 0, 4, 1, GridBagConstraints.NONE,\n                        GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\n      \t//Creo il pannello in basso con due pulsanti                  \n        panel2 = new Panel();\n        panel2.setLayout(gridbag);\n        Utils.constrain(panel2, button1, 0, 0, 1, 1, GridBagConstraints.NONE,\n        \t            GridBagConstraints.CENTER, 0.0, 0.0, 0, 0, 0, 15);\n            Utils.constrain(panel2, button2, 1, 0, 1, 1, GridBagConstraints.NONE,\n                        GridBagConstraints.CENTER, 0.0, 0.0, 0, 15, 0, 0);             \n        //Attacco i pannelli al frame\n        this.setLayout(gridbag);\n        Utils.constrain(this, panel1, 0, 1, 4, 2, GridBagConstraints.HORIZONTAL,\n                        GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\n        Utils.constrain(this, panel2, 0, 14, 4, 1, GridBagConstraints.HORIZONTAL,\n                        GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5); \n\t}"
+        },
+        {
+            "parentClass": "AskChiudiConto",
+            "name": "init",
+            "sourceCode": "public void init()\n   {\n      button1.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n         \tstartAzione();\n         }\n      });\n      \n      button2.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n\t\t\tpadre.startChiusura();\n\t\t\tstartAzione();\n         }\n      });\n   }"
+        },
+        {
+            "parentClass": "AskChiudiConto",
+            "name": "startAzione",
+            "sourceCode": "void startAzione()\n   {\n       \tsetVisible(false);\n        dispose();\n        padre.dispose();\n        padre.conto.setEnabled(true);\n   }"
+        }
+    ]
+}

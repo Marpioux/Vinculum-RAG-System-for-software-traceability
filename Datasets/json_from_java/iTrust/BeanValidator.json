@@ -1,0 +1,44 @@
+{
+    "BeanValidator": [
+        {
+            "parentClass": "BeanValidator",
+            "name": "validate",
+            "sourceCode": "abstract public void validate(T bean) throws FormValidationException;"
+        },
+        {
+            "parentClass": "BeanValidator",
+            "name": "checkFormat",
+            "sourceCode": "protected String checkFormat(String name, String value, ValidationFormat format, boolean isNullable) {\r\n\t\t \r\n\t\tString errorMessage = name + \": \" + format.getDescription();\r\n\t\t if (value == null || \"\".equals(value))\r\n\t\t\treturn isNullable ? \"\" : errorMessage;\r\n\t\telse if (format.getRegex().matcher(value).matches())\r\n\t\t\treturn \"\";\r\n\t\telse\r\n\t\t\treturn errorMessage;\r\n\t}"
+        },
+        {
+            "parentClass": "BeanValidator",
+            "name": "checkFormat",
+            "sourceCode": "protected String checkFormat(String name, String value, ValidationFormat format, boolean isNullable) {\r\n\t\t \r\n\t\tString errorMessage = name + \": \" + format.getDescription();\r\n\t\t if (value == null || \"\".equals(value))\r\n\t\t\treturn isNullable ? \"\" : errorMessage;\r\n\t\telse if (format.getRegex().matcher(value).matches())\r\n\t\t\treturn \"\";\r\n\t\telse\r\n\t\t\treturn errorMessage;\r\n\t}"
+        },
+        {
+            "parentClass": "BeanValidator",
+            "name": "checkFormat",
+            "sourceCode": "protected String checkFormat(String name, String value, ValidationFormat format, boolean isNullable) {\r\n\t\t \r\n\t\tString errorMessage = name + \": \" + format.getDescription();\r\n\t\t if (value == null || \"\".equals(value))\r\n\t\t\treturn isNullable ? \"\" : errorMessage;\r\n\t\telse if (format.getRegex().matcher(value).matches())\r\n\t\t\treturn \"\";\r\n\t\telse\r\n\t\t\treturn errorMessage;\r\n\t}"
+        },
+        {
+            "parentClass": "BeanValidator",
+            "name": "checkGender",
+            "sourceCode": "protected String checkGender(String name, Gender gen, ValidationFormat format, boolean isNullable) {\r\n\t\tString str = \"\";\r\n\t\tif (gen != null)\r\n\t\t\tstr = gen.toString();\r\n\t\treturn checkFormat(name, str, format, isNullable);\r\n\t}"
+        },
+        {
+            "parentClass": "BeanValidator",
+            "name": "checkInt",
+            "sourceCode": "protected String checkInt(String name, String value, int lower, int upper, boolean isNullable) {\r\n\t\tif (isNullable && (value == null || \"\".equals(value)))\r\n\t\t\treturn \"\";\r\n\t\ttry {\r\n\t\t\tint intValue = Integer.valueOf(value);\r\n\t\t\tif (lower <= intValue && intValue <= upper)\r\n\t\t\t\treturn \"\";\r\n\t\t} catch (NumberFormatException e) {\r\n\t\t\t// just fall through to returning the error message\r\n\t\t}\r\n\r\n\t\treturn name + \" must be an integer in [\" + lower + \",\" + upper + \"]\";\r\n\t}"
+        },
+        {
+            "parentClass": "BeanValidator",
+            "name": "checkDouble",
+            "sourceCode": "protected String checkDouble(String name, String value, double lower, double upper) {\r\n\t\ttry {\r\n\t\t\tdouble doubleValue = Double.valueOf(value);\r\n\t\t\tif (lower <= doubleValue && doubleValue < upper)\r\n\t\t\t\treturn \"\";\r\n\t\t} catch (NumberFormatException e) {\r\n\t\t\t// just fall through to returning the error message\r\n\t\t}\r\n\t\treturn name + \" must be a decimal in [\" + lower + \",\" + upper + \")\";\r\n\t}"
+        },
+        {
+            "parentClass": "BeanValidator",
+            "name": "checkBoolean",
+            "sourceCode": "protected String checkBoolean(String name, String value) {\r\n\t\tif (\"true\".equals(value) || \"false\".equals(value))\r\n\t\t\treturn \"\";\r\n\t\telse\r\n\t\t\treturn name + \" must be either 'true' or 'false'\";\r\n\t}"
+        }
+    ]
+}

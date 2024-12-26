@@ -1,0 +1,19 @@
+{
+    "AgeFactor": [
+        {
+            "parentClass": "AgeFactor",
+            "name": "AgeFactor",
+            "sourceCode": "public AgeFactor(PatientBean patient, int age) {\r\n\t\tthis.age = age;\r\n\t\tthis.patient = patient;\r\n\t}"
+        },
+        {
+            "parentClass": "AgeFactor",
+            "name": "getDescription",
+            "sourceCode": "public String getDescription() {\r\n\t\treturn \"Patient is over \" + age;\r\n\t}"
+        },
+        {
+            "parentClass": "AgeFactor",
+            "name": "hasFactor",
+            "sourceCode": "public boolean hasFactor() {\r\n\t\treturn patient.getAge() > age;\r\n\t}"
+        }
+    ]
+}

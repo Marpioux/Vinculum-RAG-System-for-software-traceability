@@ -1,0 +1,19 @@
+{
+    "Localization": [
+        {
+            "parentClass": "Localization",
+            "name": "Localization",
+            "sourceCode": "public Localization(){\r\n\t\tcurrentLocale = new Locale(\"en\",\"US\");\r\n\t}"
+        },
+        {
+            "parentClass": "Localization",
+            "name": "getCurrentLocale",
+            "sourceCode": "public Locale getCurrentLocale(){\r\n\t\treturn currentLocale;\r\n\t}"
+        },
+        {
+            "parentClass": "Localization",
+            "name": "instance",
+            "sourceCode": "public static Localization instance(){\r\n\t\tif(currentInstance == null){\r\n\t\t\tcurrentInstance = new Localization();\r\n\t\t}\r\n\t\treturn currentInstance;\r\n\t}"
+        }
+    ]
+}

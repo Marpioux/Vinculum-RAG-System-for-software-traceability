@@ -1,0 +1,39 @@
+{
+    "SubStanze": [
+        {
+            "parentClass": "SubStanze",
+            "name": "SubStanze",
+            "sourceCode": "public SubStanze()\n   {\n      super(\"Gestione delle stanze\");\n      setup();\n      init();\n      pack();\n   }"
+        },
+        {
+            "parentClass": "SubStanze",
+            "name": "setup",
+            "sourceCode": "void setup()\n   {\n      this.setFont(ConfigurazioneSistema.font_sub);\n\t  panel0=new Panel();\n      panel0.setLayout(gridbag);\n      panel0.setBackground(Color.white);\n      Immagine  figura = new Immagine(\"camera1.jpg\");\n      Etichetta etich = new Etichetta(\"Stanze.gif\");\n      Utils.constrain(panel0,etich, 0, 0, 2, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n      Utils.constrain(panel0,figura, 2, 0, 10, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n       \n      panel1 = new Panel();\n      panel1.setLayout(new GridLayout(5,1));\n      Inserimento = new Button(\"Inserimento\");\n      Modifica = new Button(\"Modifica\");\n      Cancellazione = new Button(\"Cancellazione\");\n      Ricerca = new Button(\"Ricerca...\");\n      Annulla = new Button(\"Indietro\");\n      panel1.add(Inserimento);\n      panel1.add(Modifica);\n      panel1.add(Cancellazione);\n      panel1.add(Ricerca);\n      panel1.add(Annulla);\n\n      this.setLayout(gridbag);\n      Utils.constrain(this,panel0, 0, 0, 12, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n      Utils.constrain(this,panel1, 12, 0, 1, 12,GridBagConstraints.BOTH,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n   }"
+        },
+        {
+            "parentClass": "SubStanze",
+            "name": "init",
+            "sourceCode": "void init()\n   {\n      Annulla.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            dispose();\n           \ts.setEnabled(true);\n         }\n      });\n      \n      Inserimento.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            insStanza();\n         }\n      });\n\n      Modifica.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            modStanza();\n         }\n      });\n\n      Cancellazione.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            cancStanza();\n         }\n      });\n      \n      Ricerca.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            vediStanza();\n         }\n      });\n   }"
+        },
+        {
+            "parentClass": "SubStanze",
+            "name": "insStanza",
+            "sourceCode": "void insStanza()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_1 = new InserisciStanze();\n\t\tcall_1.setVisible(true);\n\t\tcall_1.stanze = this;\n\t}"
+        },
+        {
+            "parentClass": "SubStanze",
+            "name": "modStanza",
+            "sourceCode": "void modStanza()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_2 = new ModificaStanze();\n\t\tcall_2.setVisible(true);\n\t\tcall_2.stanze = this;\n\t}"
+        },
+        {
+            "parentClass": "SubStanze",
+            "name": "cancStanza",
+            "sourceCode": "void cancStanza()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_3 = new CancellaStanze();\n\t\tcall_3.setVisible(true);\n\t\tcall_3.stanze = this;\n\t}"
+        },
+        {
+            "parentClass": "SubStanze",
+            "name": "vediStanza",
+            "sourceCode": "void vediStanza()\n\t{\n\t\tthis.setEnabled(false);\n\t\tcall_4 = new VediStanza();\n\t\tcall_4.setVisible(true);\n\t\tcall_4.stanze = this;\n\t}"
+        }
+    ]
+}

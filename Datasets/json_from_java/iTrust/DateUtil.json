@@ -1,0 +1,44 @@
+{
+    "DateUtil": [
+        {
+            "parentClass": "DateUtil",
+            "name": "yearsAgo",
+            "sourceCode": "public static String yearsAgo(long years) {\r\n\t\tlong time = System.currentTimeMillis();\r\n\t\treturn new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(time - years * YEAR_IN_MS));\r\n\t}"
+        },
+        {
+            "parentClass": "DateUtil",
+            "name": "isInMonthRange",
+            "sourceCode": "public static boolean isInMonthRange(java.util.Date date, int firstMonth, int secondMonth) {\r\n\t\tCalendar cal = new GregorianCalendar();\r\n\t\tcal.setTime(date);\r\n\t\tfirstMonth %= 12;\r\n\t\tsecondMonth %= 12;\r\n\t\tif (secondMonth >= firstMonth) {\r\n\t\t\treturn ((cal.get(Calendar.MONTH) >= firstMonth) && (cal.get(Calendar.MONTH) <= secondMonth));\r\n\t\t}\r\n\t\treturn ((cal.get(Calendar.MONTH) >= firstMonth) || (cal.get(Calendar.MONTH) <= secondMonth));\r\n\t}"
+        },
+        {
+            "parentClass": "DateUtil",
+            "name": "currentlyInMonthRange",
+            "sourceCode": "public static boolean currentlyInMonthRange(int firstMonth, int secondMonth) {\r\n\t\treturn isInMonthRange(new Date(), firstMonth, secondMonth);\r\n\t}"
+        },
+        {
+            "parentClass": "DateUtil",
+            "name": "getDateXyearsAgoFromNow",
+            "sourceCode": "public static Date getDateXyearsAgoFromNow(int years) {\r\n\t\tCalendar cal = new GregorianCalendar();\r\n\t\tcal.add(Calendar.YEAR, -years);\r\n\t\treturn cal.getTime();\r\n\t}"
+        },
+        {
+            "parentClass": "DateUtil",
+            "name": "getSQLdateXyearsAgoFromNow",
+            "sourceCode": "public static java.sql.Date getSQLdateXyearsAgoFromNow(int years) {\r\n\t\treturn new java.sql.Date(getDateXyearsAgoFromNow(years).getTime());\r\n\t}"
+        },
+        {
+            "parentClass": "DateUtil",
+            "name": "getDateXDaysAgoFromNow",
+            "sourceCode": "public static Date getDateXDaysAgoFromNow(int days) {\r\n\t\tCalendar cal = new GregorianCalendar();\r\n\t\tcal.add(Calendar.DAY_OF_YEAR, -days);\r\n\t\treturn cal.getTime();\r\n\t}"
+        },
+        {
+            "parentClass": "DateUtil",
+            "name": "getSQLdateXDaysAgoFromNow",
+            "sourceCode": "public static java.sql.Date getSQLdateXDaysAgoFromNow(int days) {\r\n\t\treturn new java.sql.Date(getDateXDaysAgoFromNow(days).getTime());\r\n\t}"
+        },
+        {
+            "parentClass": "DateUtil",
+            "name": "setSQLMonthRange",
+            "sourceCode": "public static void setSQLMonthRange(java.sql.Date month1, int monthValue1, int yearsAgo1,\r\n\t\t\tjava.sql.Date month2, int monthValue2, int yearsAgo2) {\r\n\t\tGregorianCalendar cal = new GregorianCalendar();\r\n\t\tcal.add(Calendar.YEAR, -yearsAgo1);\r\n\t\tcal.set(Calendar.MONTH, monthValue1);\r\n\t\tcal.set(Calendar.DAY_OF_MONTH, 1);\r\n\t\tmonth1.setTime(cal.getTimeInMillis());\r\n\t\tcal.add(Calendar.YEAR, yearsAgo1);\r\n\t\tcal.add(Calendar.YEAR, -yearsAgo2);\r\n\t\tcal.set(Calendar.MONTH, monthValue2);\r\n\t\tcal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));\r\n\t\tmonth2.setTime(cal.getTimeInMillis());\r\n\t}"
+        }
+    ]
+}

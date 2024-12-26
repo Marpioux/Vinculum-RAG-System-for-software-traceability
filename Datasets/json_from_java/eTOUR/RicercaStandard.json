@@ -1,0 +1,19 @@
+{
+    "Search": [
+        {
+            "parentClass": "Search",
+            "name": "Search",
+            "sourceCode": "public Search() {\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ottieniNumeroElementiRicercaSpecializzato",
+            "sourceCode": "protected int ottieniNumeroElementiRicercaSpecializzato() throws SQLException {\r\n        // Check the type of site and gets the number of results\r\n        switch (pTipologiaSito) {\r\n            case BENE_CULTURALE:\r\n                return BeneCulturale.ottieniNumeroElementiRicerca(\r\n                    this.pParoleChiave, this.pTags, this.pPosizioneUtente,\r\n                    this.pRaggioMax);\r\n            case PUNTO_DI_RISTORO:\r\n                return PuntoDiRistoro.ottieniNumeroElementiRicerca(\r\n                    this.pParoleChiave, this.pTags, this.pPosizioneUtente,\r\n                    this.pRaggioMax);\r\n            default:\r\n                return -1;\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "Search",
+            "name": "ricercaSpecializzataPerPagina",
+            "sourceCode": "protected ArrayList<?> ricercaSpecializzataPerPagina(int pNumeroPagina) throws SQLException {\r\n        // Check the type of site and search\r\n        switch (pTipologiaSito) {\r\n            case BENE_CULTURALE:\r\n                return BeneCulturale.ricerca(pParoleChiave, pTags,\r\n                    pNumeroPagina, numeroElementiPerPagina,\r\n                    pPosizioneUtente, pRaggioMax);\r\n            case PUNTO_DI_RISTORO:\r\n                return PuntoDiRistoro.ricerca(pParoleChiave, pTags,\r\n                    pNumeroPagina, numeroElementiPerPagina,\r\n                    pPosizioneUtente, pRaggioMax);\r\n            default:\r\n                return null;\r\n        }\r\n    }"
+        }
+    ]
+}

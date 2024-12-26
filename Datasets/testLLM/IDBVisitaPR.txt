@@ -1,0 +1,29 @@
+{
+  "IDBVisitaPR": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciVisitaPR",
+      "sourceCode": "boolean inserisciVisitaPR(BeanVisitaPR pVis) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "modificaVisitaPR",
+      "sourceCode": "boolean modificaVisitaPR(BeanVisitaPR pVis) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniListaVisitaPR",
+      "sourceCode": "ArrayList<BeanVisitaPR> ottieniListaVisitaPR(int pIdPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniVisitaPR",
+      "sourceCode": "BeanVisitaPR ottieniVisitaPR(int pIdPuntoDiRistoro, int pIdTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniListaVisitaPRTurista",
+      "sourceCode": "ArrayList<BeanVisitaPR> ottieniListaVisitaPRTurista(int pIdTurista) throws SQLException;"
+    }
+  ]
+}

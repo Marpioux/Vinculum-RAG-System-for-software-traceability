@@ -1,0 +1,29 @@
+{
+    "EditApptTypeAction": [
+        {
+            "parentClass": "EditApptTypeAction",
+            "name": "EditApptTypeAction",
+            "sourceCode": "public EditApptTypeAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.apptTypeDAO = factory.getApptTypeDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "EditApptTypeAction",
+            "name": "getApptTypes",
+            "sourceCode": "public List<ApptTypeBean> getApptTypes() throws SQLException {\r\n\t\treturn apptTypeDAO.getApptTypes();\r\n\t}"
+        },
+        {
+            "parentClass": "EditApptTypeAction",
+            "name": "addApptType",
+            "sourceCode": "public String addApptType(ApptTypeBean apptType) throws SQLException, FormValidationException {\r\n\t\tvalidator.validate(apptType);\r\n\t\t\r\n\t\tList<ApptTypeBean> list = this.getApptTypes();\r\n\t\tfor(ApptTypeBean a : list) {\r\n\t\t\tif(a.getName().equals(apptType.getName()))\r\n\t\t\t\treturn \"Appointment Type: \"+apptType.getName()+\" already exists.\";\r\n\t\t}\r\n\t\t\r\n\t\ttry {\r\n\t\t\tif (apptTypeDAO.addApptType(apptType)) {\r\n\t\t\t\ttransDAO.logTransaction(TransactionType.ADD_APPT_TYPE, loggedInMID, 0L,\r\n\t\t\t\t\t\t\"Added Appointment Type \" + apptType.getName());\r\n\t\t\t\treturn \"Success: \" + apptType.getName() + \" - Duration: \" + apptType.getDuration() + \" added\";\r\n\t\t\t} else\r\n\t\t\t\treturn \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n\t\t} catch (DBException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\treturn e.getMessage();\r\n\t\t} \r\n\t}"
+        },
+        {
+            "parentClass": "EditApptTypeAction",
+            "name": "editApptType",
+            "sourceCode": "public String editApptType(ApptTypeBean apptType) throws SQLException, FormValidationException {\r\n\t\tvalidator.validate(apptType);\r\n\t\t\r\n\t\tList<ApptTypeBean> list = this.getApptTypes();\r\n\t\tint flag = 0;\r\n\t\tfor(ApptTypeBean a : list) {\r\n\t\t\tif(a.getName().equals(apptType.getName())) {\r\n\t\t\t\tflag = 1;\r\n\t\t\t\tif(a.getDuration() == apptType.getDuration())\r\n\t\t\t\t\treturn \"Appointment Type: \"+apptType.getName()+\" already has a duration of \"+apptType.getDuration()+\" minutes.\";\r\n\t\t\t\tbreak;\r\n\t\t\t}\r\n\t\t}\r\n\t\tif(flag == 0) {\r\n\t\t\treturn \"Appointment Type: \"+apptType.getName()+\" you are trying to update does not exist.\";\r\n\t\t}\r\n\t\t\r\n\t\ttry {\r\n\t\t\tif (apptTypeDAO.editApptType(apptType)) {\r\n\t\t\t\ttransDAO.logTransaction(TransactionType.UPDATE_APPT_TYPE, loggedInMID, 0L,\r\n\t\t\t\t\t\t\"Updated Appointment Type \" + apptType.getName());\r\n\t\t\t\treturn \"Success: \" + apptType.getName() + \" - Duration: \" + apptType.getDuration() + \" updated\";\r\n\t\t\t} else\r\n\t\t\t\treturn \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n\t\t} catch (DBException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\treturn e.getMessage();\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "EditApptTypeAction",
+            "name": "getDurationByType",
+            "sourceCode": "public int getDurationByType(String at) throws SQLException {\r\n\t\tList<ApptTypeBean> list = this.getApptTypes();\r\n\t\tfor(ApptTypeBean a : list) {\r\n\t\t\tif(a.getName().equals(at))\r\n\t\t\t\treturn a.getDuration();\r\n\t\t}\r\n\t\treturn 0;\r\n\t}"
+        }
+    ]
+}

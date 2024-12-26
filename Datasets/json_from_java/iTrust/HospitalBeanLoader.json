@@ -1,0 +1,19 @@
+{
+    "HospitalBeanLoader": [
+        {
+            "parentClass": "HospitalBeanLoader",
+            "name": "loadList",
+            "sourceCode": "public List<HospitalBean> loadList(ResultSet rs) throws SQLException {\r\n\t\tArrayList<HospitalBean> list = new ArrayList<HospitalBean>();\r\n\t\twhile (rs.next()) {\r\n\t\t\tlist.add(loadSingle(rs));\r\n\t\t}\r\n\t\treturn list;\r\n\t}"
+        },
+        {
+            "parentClass": "HospitalBeanLoader",
+            "name": "loadSingle",
+            "sourceCode": "public HospitalBean loadSingle(ResultSet rs) throws SQLException {\r\n\t\t// HospitalBean hosp = new HospitalBean();\r\n\t\tHospitalBean hosp = new HospitalBean(rs.getString(\"HospitalID\"), rs.getString(\"HospitalName\"));\r\n\t\treturn hosp;\r\n\t}"
+        },
+        {
+            "parentClass": "HospitalBeanLoader",
+            "name": "loadParameters",
+            "sourceCode": "public PreparedStatement loadParameters(PreparedStatement ps, HospitalBean bean) throws SQLException {\r\n\t\tthrow new IllegalStateException(\"unimplemented!\");\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "DBBeneCulturale": [
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "DBBeneCulturale",
+            "sourceCode": "public DBBeneCulturale() {\r\n        b = new ArrayList<BeanBeneCulturale>(0);\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "cancellaBeneCulturale",
+            "sourceCode": "public boolean cancellaBeneCulturale(int pIdBene) throws SQLException {\r\n        boolean res = false;\r\n\r\n        for (int i = 0; i < b.size(); i++) {\r\n            if (b.get(i).getId() == pIdBene) {\r\n                b.remove(i);\r\n                res = true;\r\n            }\r\n        }\r\n\r\n        return res;\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "inserisciBeneCulturale",
+            "sourceCode": "public boolean inserisciBeneCulturale(BeanBeneCulturale pBene) throws SQLException {\r\n        return b.add(pBene);\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "modificaBeneCulturale",
+            "sourceCode": "public boolean modificaBeneCulturale(BeanBeneCulturale pBene) throws SQLException {\r\n        boolean res = false;\r\n\r\n        for (int i = 0; i < b.size(); i++) {\r\n            if (b.get(i).getId() == pBene.getId()) {\r\n                b.set(i, pBene);\r\n                return true;\r\n            }\r\n        }\r\n\r\n        return res;\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "ottieniBeneCulturale",
+            "sourceCode": "public BeanBeneCulturale ottieniBeneCulturale(int pid) throws SQLException {\r\n        BeanBeneCulturale res = null;\r\n\r\n        for (int i = 0; i < b.size(); i++) {\r\n            if (b.get(i).getId() == pid) {\r\n                res = b.get(i);\r\n            }\r\n        }\r\n\r\n        return res;\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "ottieniListaBC",
+            "sourceCode": "public ArrayList<BeanBeneCulturale> ottieniListaBC() throws SQLException {\r\n        return b;\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "ottieniNumeroElementiRicerca",
+            "sourceCode": "public int ottieniNumeroElementiRicerca(String pKeyword, ArrayList<BeanTag> pTags, Punto3D pPosizione, double pDistanzaMassima) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return 0;\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "ottieniNumeroElementiRicercaAvanzata",
+            "sourceCode": "public int ottieniNumeroElementiRicercaAvanzata(int pIdTurista, String pKeyword, ArrayList<BeanTag> pTags, Punto3D pPosizione, double pDistanzaMassima) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return 0;\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "search",
+            "sourceCode": "public ArrayList<BeanBeneCulturale> search(String pKeyword, ArrayList<BeanTag> pTags, int pNumPagina, int pNumeroElementiPerPagina, Punto3D pPosizione, double pDistanzaMassima) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        },
+        {
+            "parentClass": "DBBeneCulturale",
+            "name": "ricercaAvanzata",
+            "sourceCode": "public ArrayList<BeanBeneCulturale> ricercaAvanzata(int pIdTurista, String pKeyword, ArrayList<BeanTag> pTags, int pNumPagina, int pNumeroElementiPerPagina, Punto3D pPosizione, double pDistanzaMassima) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        }
+    ]
+}

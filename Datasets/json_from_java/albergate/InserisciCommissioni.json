@@ -1,0 +1,19 @@
+{
+    "InserisciCommissioni": [
+        {
+            "parentClass": "InserisciCommissioni",
+            "name": "InserisciCommissioni",
+            "sourceCode": "public InserisciCommissioni(Stanza stanza, String data1, String data2)\n   \t{\n      \tsuper(data1, data2, \"Inserimento dei dati delle commissioni\",\"Inserisci\",1);\n      \tinit(stanza, data1, data2);\n   \t}"
+        },
+        {
+            "parentClass": "InserisciCommissioni",
+            "name": "init",
+            "sourceCode": "public void init(Stanza stanza, String data1, String data2)\n \t{     \t\n      \tnum_stanza.setText(stanza.getNumStanza());\n        inizio_comm.setText(data1);\n        fine_comm.setText(data2);\n        num_stanza.setEditable(false);\n        inizio_comm.setEditable(false);\n        fine_comm.setEditable(false);\n\t\t\n      \tAnnulla.addActionListener(new ActionListener()\n      \t{\n         \tpublic void actionPerformed(ActionEvent e)\n         \t{\n\t\t\t\tdispose();\n\t\t\t\tmask_ricerca.setEnabled(true);\n\t\t\t}\n        });\n      \t\n      \tAzione.addActionListener(new ActionListener()\n      \t{\n         \tpublic void actionPerformed(ActionEvent e)\n         \t{\n\t\t\t\tstartAzione();\n\t\t\t}\n        });\n    }"
+        },
+        {
+            "parentClass": "InserisciCommissioni",
+            "name": "startAzione",
+            "sourceCode": "void startAzione()\n\t{\n\t\tFrame msg;\n\t\t\n\t\tif ( !errori() )\n\t\t{\n\t\t\tCommissionamento comm = readDatiComm();\n\t\t\tint j;\n\t\t\tif ( (j = (Principale.db).newIdCommissionamento()) == DataBase.OK )\n\t\t\t{\n\t\t\t\t(Principale.config).updateIdCommissionamento();\n\t\t\t\tif ((j = (Principale.db).writeCommissionamento(comm)) == DataBase.OK)\n\t\t\t\t{\n\t\t\t\t\taggiornaDisp(comm, Flag.COMMISSIONATA);\n\t\t\t\t\tdispose();\n\t\t\t\t\tmask_ricerca.restartAvvio();\n\t\t\t\t\tmask_ricerca.setEnabled(true);\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t\tmsg = new MessageDialog(this, \"Problemi con il database: \"+DataBase.strErrore(j) );\n\t\t\t}\n\t\t\telse\n\t\t\t\tmsg = new MessageDialog(this, \"Problemi con il database: \"+DataBase.strErrore(j) );\n\t\t}\n\t}"
+        }
+    ]
+}

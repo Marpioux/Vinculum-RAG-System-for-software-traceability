@@ -1,0 +1,24 @@
+{
+    "SessionTimeoutListener": [
+        {
+            "parentClass": "SessionTimeoutListener",
+            "name": "SessionTimeoutListener",
+            "sourceCode": "public SessionTimeoutListener() {\r\n\t\tthis.factory = DAOFactory.getProductionInstance();\r\n\t}"
+        },
+        {
+            "parentClass": "SessionTimeoutListener",
+            "name": "SessionTimeoutListener",
+            "sourceCode": "public SessionTimeoutListener() {\r\n\t\tthis.factory = DAOFactory.getProductionInstance();\r\n\t}"
+        },
+        {
+            "parentClass": "SessionTimeoutListener",
+            "name": "sessionCreated",
+            "sourceCode": "public void sessionCreated(HttpSessionEvent arg0) {\r\n\t\tHttpSession session = arg0.getSession();\r\n\t\tint mins = 20;\r\n\t\ttry {\r\n\t\t\tmins = factory.getAccessDAO().getSessionTimeoutMins();\r\n\t\t} catch (DBException e) {\r\n\t\t\tSystem.err.println(\"Unable to set session timeout, defaulting to 20 minutes\");\r\n\t\t\te.printStackTrace();\r\n\t\t}\r\n\t\tif (mins < 1)\r\n\t\t\tmins = 1;\r\n\t\tsession.setMaxInactiveInterval(mins * 60);\r\n\t}"
+        },
+        {
+            "parentClass": "SessionTimeoutListener",
+            "name": "sessionDestroyed",
+            "sourceCode": "public void sessionDestroyed(HttpSessionEvent arg0) {\r\n\t\t// nothing to do here\r\n\t}"
+        }
+    ]
+}

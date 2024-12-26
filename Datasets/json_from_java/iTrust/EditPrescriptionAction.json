@@ -1,0 +1,14 @@
+{
+    "EditPrescriptionAction": [
+        {
+            "parentClass": "EditPrescriptionAction",
+            "name": "EditPrescriptionAction",
+            "sourceCode": "public EditPrescriptionAction(DAOFactory factory) throws iTrustException {\r\n\t\tthis.ovDAO = factory.getOfficeVisitDAO();\r\n\r\n\t}"
+        },
+        {
+            "parentClass": "EditPrescriptionAction",
+            "name": "editPrescription",
+            "sourceCode": "public void editPrescription(PrescriptionBean pres) throws DBException {\r\n\t\t\r\n\t\tovDAO.editPrescription(pres);\r\n\t}"
+        }
+    ]
+}

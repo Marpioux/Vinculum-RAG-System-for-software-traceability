@@ -1,0 +1,154 @@
+{
+    "SurveyResultBean": [
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPMID",
+            "sourceCode": "public void setHCPMID(long mid) {\r\n\t\thcpMID = mid;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPMID",
+            "sourceCode": "public long getHCPMID() {\r\n\t\treturn hcpMID;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPFirstName",
+            "sourceCode": "public void setHCPFirstName(String firstName) {\r\n\t\tthis.hcpFirstName = firstName;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPFirstName",
+            "sourceCode": "public String getHCPFirstName() {\r\n\t\treturn hcpFirstName;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPLastName",
+            "sourceCode": "public void setHCPLastName(String lastName) {\r\n\t\tthis.hcpLastName = lastName;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPLastName",
+            "sourceCode": "public String getHCPLastName() {\r\n\t\treturn hcpLastName;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPaddress1",
+            "sourceCode": "public void setHCPaddress1(String address1) {\r\n\t\tthis.hcpAddress1 = address1;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPaddress1",
+            "sourceCode": "public String getHCPaddress1() {\r\n\t\treturn hcpAddress1;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPaddress2",
+            "sourceCode": "public void setHCPaddress2(String address2) {\r\n\t\tthis.hcpAddress2 = address2;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPaddress2",
+            "sourceCode": "public String getHCPaddress2() {\r\n\t\treturn hcpAddress2;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPcity",
+            "sourceCode": "public void setHCPcity(String city) {\r\n\t\tthis.hcpCity = city;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPcity",
+            "sourceCode": "public String getHCPcity() {\r\n\t\treturn hcpCity;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPstate",
+            "sourceCode": "public void setHCPstate(String state) {\r\n\t\tthis.hcpState = state;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPstate",
+            "sourceCode": "public String getHCPstate() {\r\n\t\treturn hcpState;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPzip",
+            "sourceCode": "public void setHCPzip(String zip) {\r\n\t\tthis.hcpZip = zip;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPzip",
+            "sourceCode": "public String getHCPzip() {\r\n\t\treturn hcpZip;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPspecialty",
+            "sourceCode": "public void setHCPspecialty(String specialty) {\r\n\t\tthis.hcpSpecialty = specialty;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPspecialty",
+            "sourceCode": "public String getHCPspecialty() {\r\n\t\treturn hcpSpecialty;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setHCPhospital",
+            "sourceCode": "public void setHCPhospital(String hospital) {\r\n\t\tthis.hcpHospitalID = hospital;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getHCPhospital",
+            "sourceCode": "public String getHCPhospital() {\r\n\t\treturn hcpHospitalID;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setAvgWaitingRoomMinutes",
+            "sourceCode": "public void setAvgWaitingRoomMinutes(float waitingRoomMinutes) {\r\n\t\tthis.avgWaitingRmMinutes = waitingRoomMinutes;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getAvgWaitingRoomMinutes",
+            "sourceCode": "public float getAvgWaitingRoomMinutes() {\r\n\t\treturn avgWaitingRmMinutes;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setAvgExamRoomMinutes",
+            "sourceCode": "public void setAvgExamRoomMinutes(float examRoomMinutes) {\r\n\t\tthis.avgExamRmMinutues = examRoomMinutes;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getAvgExamRoomMinutes",
+            "sourceCode": "public float getAvgExamRoomMinutes() {\r\n\t\treturn avgExamRmMinutues;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setAvgVisitSatisfaction",
+            "sourceCode": "public void setAvgVisitSatisfaction(float visitSatisfaction) {\r\n\t\tthis.avgVisitSatisfaction = visitSatisfaction;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getAvgVisitSatisfaction",
+            "sourceCode": "public float getAvgVisitSatisfaction() {\r\n\t\treturn avgVisitSatisfaction;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setAvgTreatmentSatisfaction",
+            "sourceCode": "public void setAvgTreatmentSatisfaction(float treatmentSatisfaction) {\r\n\t\tthis.avgTreatmentSatisfaction = treatmentSatisfaction;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getAvgTreatmentSatisfaction",
+            "sourceCode": "public float getAvgTreatmentSatisfaction() {\r\n\t\treturn avgTreatmentSatisfaction;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "setPercentSatisfactionResults",
+            "sourceCode": "public void setPercentSatisfactionResults (float percent) {\r\n\t\tthis.percentSatResultsAvailable= percent;\r\n\t}"
+        },
+        {
+            "parentClass": "SurveyResultBean",
+            "name": "getPercentSatisfactionResults",
+            "sourceCode": "public float getPercentSatisfactionResults() {\r\n\t\treturn percentSatResultsAvailable;\r\n\t}"
+        }
+    ]
+}

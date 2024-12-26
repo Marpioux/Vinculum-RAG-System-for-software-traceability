@@ -1,0 +1,19 @@
+{
+    "SmokingFactor": [
+        {
+            "parentClass": "SmokingFactor",
+            "name": "SmokingFactor",
+            "sourceCode": "public SmokingFactor(DAOFactory factory, long patientID) {\r\n\t\tthis.factory = factory;\r\n\t\tthis.patientID = patientID;\r\n\t}"
+        },
+        {
+            "parentClass": "SmokingFactor",
+            "name": "getDescription",
+            "sourceCode": "public String getDescription() {\r\n\t\treturn \"Patient is or was a smoker\";\r\n\t}"
+        },
+        {
+            "parentClass": "SmokingFactor",
+            "name": "hasFactor",
+            "sourceCode": "public boolean hasFactor() {\r\n\t\ttry {\r\n\t\t\treturn factory.getRiskDAO().hasSmoked(patientID);\r\n\t\t} catch (DBException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\treturn false;\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,39 @@
+{
+    "DBConvenzione": [
+        {
+            "parentClass": "DBConvenzione",
+            "name": "cancellaConvenzione",
+            "sourceCode": "@Override\r\n    public boolean cancellaConvenzione(int pIdConvenzione) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "DBConvenzione",
+            "name": "ottieniStoricoConvenzione",
+            "sourceCode": "@Override\r\n    public ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int idPuntoDiRistoro) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        },
+        {
+            "parentClass": "DBConvenzione",
+            "name": "inserisciConvenzione",
+            "sourceCode": "@Override\r\n    public boolean inserisciConvenzione(BeanConvenzione pConvenzione) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "DBConvenzione",
+            "name": "modificaConvenzione",
+            "sourceCode": "@Override\r\n    public boolean modificaConvenzione(BeanConvenzione pConvenzione) throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "DBConvenzione",
+            "name": "ottieniConvezioneAttiva",
+            "sourceCode": "@Override\r\n    public BeanConvenzione ottieniConvezioneAttiva(int pIdPuntoDiRistoro) throws SQLException {\r\n        BeanConvenzione convenzione = new BeanConvenzione();\r\n        convenzione.setAttiva(true);\r\n        convenzione.setDataFine(new Date());\r\n        convenzione.setDataInizio(new Date());\r\n        convenzione.setId(12);\r\n        convenzione.setIdPuntoDiRistoro(3);\r\n        convenzione.setPrezzo(100);\r\n\r\n        if (numTest == 1) {\r\n            /* Test banners allowed */\r\n            convenzione.setMaxBanner(4);\r\n            return convenzione;\r\n        } else if (numTest == 2) {\r\n            /* Test banners not allowed */\r\n            convenzione.setMaxBanner(3);\r\n            return convenzione;\r\n        } else {\r\n            return null;\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "DBConvenzione",
+            "name": "ottieniListaConvenzioneAttivaPR",
+            "sourceCode": "@Override\r\n    public ArrayList<BeanPuntoDiRistoro> ottieniListaConvenzioneAttivaPR() throws SQLException {\r\n        // TODO Auto-generated method stub\r\n        return null;\r\n    }"
+        },
+        {
+            "parentClass": "DBConvenzione",
+            "name": "setNumTest",
+            "sourceCode": "public static void setNumTest(int numTest) {\r\n        DBConvenzione.numTest = numTest;\r\n    }"
+        }
+    ]
+}

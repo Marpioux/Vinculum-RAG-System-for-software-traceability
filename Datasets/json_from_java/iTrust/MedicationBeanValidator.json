@@ -1,0 +1,14 @@
+{
+    "MedicationBeanValidator": [
+        {
+            "parentClass": "MedicationBeanValidator",
+            "name": "MedicationBeanValidator",
+            "sourceCode": "public MedicationBeanValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "MedicationBeanValidator",
+            "name": "validate",
+            "sourceCode": "@Override\r\n\tpublic void validate(MedicationBean m) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"ND Code\", m.getNDCode(), ValidationFormat.ND, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Description\", m.getDescription(),\r\n\t\t\t\tValidationFormat.ND_CODE_DESCRIPTION, false));\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

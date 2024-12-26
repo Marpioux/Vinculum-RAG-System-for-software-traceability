@@ -1,0 +1,129 @@
+{
+    "ViewMyRecordsAction": [
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "ViewMyRecordsAction",
+            "sourceCode": "public ViewMyRecordsAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.personnelDAO = factory.getPersonnelDAO();\r\n\t\tthis.allergyDAO = factory.getAllergyDAO();\r\n\t\tthis.familyDAO = factory.getFamilyDAO();\r\n\t\tthis.hrDAO = factory.getHealthRecordsDAO();\r\n\t\tthis.ovDAO = factory.getOfficeVisitDAO();\r\n\t\tthis.surveyDAO = factory.getSurveyDAO();\r\n\t\tthis.labDAO = factory.getLabProcedureDAO();\r\n\t\tthis.emailDAO = factory.getFakeEmailDAO();\r\n\t\tthis.reportRequestDAO = factory.getReportRequestDAO();\r\n\t\tthis.icdDAO = factory.getICDCodesDAO();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "representPatient",
+            "sourceCode": "public long representPatient(String input) throws iTrustException {\r\n\r\n\t\ttry {\r\n\t\t\tlong reppeeMID = Long.valueOf(input);\r\n\t\t\tif (patientDAO.represents(loggedInMID, reppeeMID)) {\r\n\t\t\t\tloggedInMID = reppeeMID;\r\n\t\t\t\treturn reppeeMID;\r\n\t\t\t} else\r\n\t\t\t\tthrow new iTrustException(\"You do not represent patient \" + reppeeMID);\r\n\t\t} catch (NumberFormatException e) {\r\n\t\t\tthrow new iTrustException(\"MID is not a number\");\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getPatient",
+            "sourceCode": "public PatientBean getPatient() throws iTrustException {\r\n\t\treturn patientDAO.getPatient(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getPatient",
+            "sourceCode": "public PatientBean getPatient() throws iTrustException {\r\n\t\treturn patientDAO.getPatient(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getPersonnel",
+            "sourceCode": "public PersonnelBean getPersonnel(long mid) throws iTrustException {\r\n\t\treturn personnelDAO.getPersonnel(mid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getEmailHistory",
+            "sourceCode": "public List<Email> getEmailHistory() throws iTrustException {\r\n\t\treturn emailDAO.getEmailsByPerson(getPatient().getEmail());\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getAllergies",
+            "sourceCode": "public List<AllergyBean> getAllergies() throws iTrustException {\r\n\t\treturn allergyDAO.getAllergies(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getFamily",
+            "sourceCode": "public List<FamilyMemberBean> getFamily() throws iTrustException {\r\n\t\tList<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\r\n\t\tList<FamilyMemberBean> parents = null;\r\n\t\ttry {\r\n\t\t\tparents = familyDAO.getParents(loggedInMID);\r\n\t\t\tfam.addAll(parents);\r\n\t\t\tfam.addAll(familyDAO.getSiblings(loggedInMID));\r\n\t\t\tfam.addAll(familyDAO.getChildren(loggedInMID));\r\n\t\t} catch (DBException e) {\r\n\t\t\tthrow new iTrustException(e.getMessage());\r\n\t\t}\r\n\t\t\r\n\t\tif(parents != null) {\r\n\t\t\tList<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\r\n\t\t\tfor(FamilyMemberBean parent : parents) {\r\n\t\t\t\ttry {\r\n\t\t\t\t\tgrandparents.addAll(familyDAO.getParents(parent.getMid()));\r\n\t\t\t\t} catch (DBException e) {\r\n\t\t\t\t\tthrow new iTrustException(e.getMessage());\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tfam.addAll(grandparents);\r\n\t\t\t\r\n\t\t\tfor(FamilyMemberBean gp : grandparents) {\r\n\t\t\t\tgp.setRelation(\"Grandparent\");\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn fam;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getFamilyHistory",
+            "sourceCode": "public List<FamilyMemberBean> getFamilyHistory() throws iTrustException {\r\n\t\tList<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\r\n\t\tList<FamilyMemberBean> parents = null;\r\n\t\ttry {\r\n\t\t\tparents = familyDAO.getParents(loggedInMID);\r\n\t\t\tfam.addAll(parents);\r\n\t\t\tfam.addAll(familyDAO.getSiblings(loggedInMID));\r\n\t\t} catch (DBException e) {\r\n\t\t\tthrow new iTrustException(e.getMessage());\r\n\t\t}\r\n\t\t\r\n\t\tif(parents != null) {\r\n\t\t\tList<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\r\n\t\t\tfor(FamilyMemberBean parent : parents) {\r\n\t\t\t\ttry {\r\n\t\t\t\t\tgrandparents.addAll(familyDAO.getParents(parent.getMid()));\r\n\t\t\t\t} catch (DBException e) {\r\n\t\t\t\t\tthrow new iTrustException(e.getMessage());\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tfam.addAll(grandparents);\r\n\t\t\t\r\n\t\t\tfor(FamilyMemberBean gp : grandparents) {\r\n\t\t\t\tgp.setRelation(\"Grandparent\");\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn fam;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getAllHealthRecords",
+            "sourceCode": "public List<HealthRecord> getAllHealthRecords() throws iTrustException {\r\n\t\treturn hrDAO.getAllHealthRecords(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getFamilyHealthRecords",
+            "sourceCode": "public List<HealthRecord> getFamilyHealthRecords(long mid) throws iTrustException {\r\n\t\treturn hrDAO.getAllHealthRecords(mid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getAllOfficeVisits",
+            "sourceCode": "public List<OfficeVisitBean> getAllOfficeVisits() throws iTrustException {\r\n\t\treturn ovDAO.getAllOfficeVisits(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getCompleteOfficeVisit",
+            "sourceCode": "public OfficeVisitBean getCompleteOfficeVisit(long visitID) throws iTrustException {\r\n\t\treturn ovDAO.getOfficeVisit(visitID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getRepresented",
+            "sourceCode": "public List<PatientBean> getRepresented() throws iTrustException {\r\n\t\treturn patientDAO.getRepresented(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getRepresenting",
+            "sourceCode": "public List<PatientBean> getRepresenting() throws iTrustException {\r\n\t\treturn patientDAO.getRepresenting(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "isSurveyCompleted",
+            "sourceCode": "public boolean isSurveyCompleted(long visitID) throws iTrustException {\r\n\t\treturn surveyDAO.isSurveyCompleted(visitID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getLabs",
+            "sourceCode": "public List<LabProcedureBean> getLabs() throws iTrustException {\r\n\t\treturn labDAO.getLabProceduresForPatient(loggedInMID);\r\n\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getReportRequests",
+            "sourceCode": "public List<ReportRequestBean> getReportRequests() throws iTrustException {\r\n\t\treturn reportRequestDAO.getAllReportRequestsForPatient(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "doesFamilyMemberHaveHighBP",
+            "sourceCode": "public boolean doesFamilyMemberHaveHighBP(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n\t\tif(records.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(HealthRecord record : records) {\r\n\t\t\tif(record.getBloodPressureSystolic() > 240 || record.getBloodPressureDiastolic() > 120 )\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "doesFamilyMemberHaveHighCholesterol",
+            "sourceCode": "public boolean doesFamilyMemberHaveHighCholesterol(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n\t\tif(records.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(HealthRecord record : records) {\r\n\t\t\tif(record.getCholesterolHDL() < 35 || record.getCholesterolLDL() > 250 )\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "doesFamilyMemberHaveDiabetes",
+            "sourceCode": "public boolean doesFamilyMemberHaveDiabetes(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n\t\tif(diagnoses.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(DiagnosisBean diag : diagnoses) {\r\n\t\t\tif(diag.getICDCode().startsWith(\"250\"))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "doesFamilyMemberHaveCancer",
+            "sourceCode": "public boolean doesFamilyMemberHaveCancer(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n\t\tif(diagnoses.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(DiagnosisBean diag : diagnoses) {\r\n\t\t\tif(diag.getICDCode().startsWith(\"199\"))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "doesFamilyMemberHaveHeartDisease",
+            "sourceCode": "public boolean doesFamilyMemberHaveHeartDisease(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n\t\tif(diagnoses.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(DiagnosisBean diag : diagnoses) {\r\n\t\t\tif(diag.getICDCode().startsWith(\"402\"))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "isFamilyMemberSmoker",
+            "sourceCode": "public boolean isFamilyMemberSmoker(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n\t\tif(records.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(HealthRecord record : records) {\r\n\t\t\tif(record.isSmoker())\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyRecordsAction",
+            "name": "getFamilyMemberCOD",
+            "sourceCode": "public String getFamilyMemberCOD(FamilyMemberBean member) throws iTrustException {\r\n\t\tPatientBean patient = patientDAO.getPatient(member.getMid());\r\n\t\tif(patient.getCauseOfDeath() == null)\r\n\t\t\treturn \"\";\r\n\t\tDiagnosisBean diag = icdDAO.getICDCode(patient.getCauseOfDeath());\r\n\t\tif(diag == null)\r\n\t\t\treturn \"\";\r\n\t\treturn diag.getDescription();\r\n\t}"
+        }
+    ]
+}

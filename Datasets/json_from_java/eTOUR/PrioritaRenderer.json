@@ -1,0 +1,14 @@
+{
+    "PrioritaRenderer": [
+        {
+            "parentClass": "PrioritaRenderer",
+            "name": "PrioritaRenderer",
+            "sourceCode": "public PrioritaRenderer() {\r\n        setOpaque(true);\r\n        setOrientation(HORIZONTAL);\r\n        setMinimum(1);\r\n        setMaximum(5);\r\n        setLabelTable(createStandardLabels(1));\r\n        setMajorTickSpacing(1);\r\n        setPaintTicks(true);\r\n    }"
+        },
+        {
+            "parentClass": "PrioritaRenderer",
+            "name": "getTableCellRendererComponent",
+            "sourceCode": "public Component getTableCellRendererComponent(JTable pTable, Object pValue,\r\n                                                  boolean pIsSelected, boolean pHasFocus,\r\n                                                  int pRow, int pColumn) throws IllegalArgumentException {\r\n        if (!(pValue instanceof Integer)) {\r\n            throw new IllegalArgumentException(\"unexpected value cell\");\r\n        }\r\n        int value = (Integer) pValue;\r\n        if (value < 1 || value > 5) {\r\n            throw new IllegalArgumentException(\"Illegal value cell.\");\r\n        }\r\n        if (pIsSelected) {\r\n            setBackground(pTable.getSelectionBackground());\r\n        } else {\r\n            setBackground(pTable.getBackground());\r\n        }\r\n        setValue(value);\r\n        return this;\r\n    }"
+        }
+    ]
+}

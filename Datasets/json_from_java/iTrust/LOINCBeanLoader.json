@@ -1,0 +1,19 @@
+{
+    "LOINCBeanLoader": [
+        {
+            "parentClass": "LOINCBeanLoader",
+            "name": "loadList",
+            "sourceCode": "public List<LOINCbean> loadList(ResultSet rs) throws SQLException {\r\n\t\tArrayList<LOINCbean> list = new ArrayList<LOINCbean>();\r\n\t\twhile (rs.next()) {\r\n\t\t\tlist.add(loadSingle(rs));\r\n\t\t}\r\n\t\treturn list;\r\n\t}"
+        },
+        {
+            "parentClass": "LOINCBeanLoader",
+            "name": "loadSingle",
+            "sourceCode": "public LOINCbean loadSingle(ResultSet rs) throws SQLException {\r\n\t\tLOINCbean LOINC = new LOINCbean();\r\n\t\tLOINC.setLabProcedureCode(rs.getString(\"LaboratoryProcedureCode\"));\r\n\t\tLOINC.setComponent(rs.getString(\"Component\"));\r\n\t\tLOINC.setKindOfProperty(rs.getString(\"KindOfProperty\"));\r\n\t\tLOINC.setTimeAspect(rs.getString(\"TimeAspect\"));\r\n\t\tLOINC.setSystem(rs.getString(\"System\"));\r\n\t\tLOINC.setScaleType(rs.getString(\"ScaleType\"));\r\n\t\tLOINC.setMethodType(rs.getString(\"MethodType\"));\r\n\t\treturn LOINC;\r\n\t}"
+        },
+        {
+            "parentClass": "LOINCBeanLoader",
+            "name": "loadParameters",
+            "sourceCode": "public PreparedStatement loadParameters(PreparedStatement ps, LOINCbean bean) throws SQLException {\r\n\t\tthrow new IllegalStateException(\"unimplemented!\");\r\n\t}"
+        }
+    ]
+}

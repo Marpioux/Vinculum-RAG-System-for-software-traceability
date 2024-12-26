@@ -1,0 +1,74 @@
+{
+    "FeedbackTableModel": [
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "FeedbackTableModel",
+            "sourceCode": "public FeedbackTableModel() {\r\n        data = new ArrayList<>();\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "FeedbackTableModel",
+            "sourceCode": "public FeedbackTableModel() {\r\n        data = new ArrayList<>();\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "getColumnCount",
+            "sourceCode": "public int getColumnCount() {\r\n        return headers.length;\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "getRowCount",
+            "sourceCode": "public int getRowCount() {\r\n        return data.size();\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "getColumnName",
+            "sourceCode": "public String getColumnName(int pColumn) throws IllegalArgumentException {\r\n        if (pColumn >= getColumnCount() || pColumn < 0) {\r\n            throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n        }\r\n        return headers[pColumn];\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "getValueAt",
+            "sourceCode": "public Object getValueAt(int pRow, int pColumn) throws IllegalArgumentException {\r\n        if (pRow >= getRowCount() || pRow < 0) {\r\n            throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n        }\r\n        if (pColumn >= getColumnCount() || pColumn < 0) {\r\n            throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n        }\r\n        return data.get(pRow)[pColumn];\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "getColumnClass",
+            "sourceCode": "public Class getColumnClass(int pColumn) throws IllegalArgumentException {\r\n        if (pColumn >= getColumnCount() || pColumn < 0) {\r\n            throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n        }\r\n        return columnClasses[pColumn];\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "isCellEditable",
+            "sourceCode": "public boolean isCellEditable(int pRow, int pColumn) throws IllegalArgumentException {\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "setValueAt",
+            "sourceCode": "public void setValueAt(Object value, int row, int col) {\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "insertVisitaBC",
+            "sourceCode": "public void insertVisitaBC(BeanVisitaBC pVisitaBC, String pUsername) throws IllegalArgumentException {\r\n        if (pVisitaBC == null || pUsername == null || pUsername.equals(\"\")) {\r\n            throw new IllegalArgumentException(\"Invalid parameters supplied input.\");\r\n        }\r\n        Object[] aRow = new Object[6];\r\n        aRow[0] = pVisitaBC.getVoto();\r\n        aRow[1] = pVisitaBC.getCommento();\r\n        aRow[2] = pVisitaBC.getDataVisita();\r\n        aRow[3] = pUsername;\r\n        aRow[4] = pVisitaBC.getIdBeneCulturale();\r\n        aRow[5] = pVisitaBC.getIdTurista();\r\n        data.add(aRow);\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "insertVisitaPR",
+            "sourceCode": "public void insertVisitaPR(BeanVisitaPR pVisitaPR, String pUsername) throws IllegalArgumentException {\r\n        if (pVisitaPR == null || pUsername == null || pUsername.equals(\"\")) {\r\n            throw new IllegalArgumentException(\"Invalid parameters supplied input.\");\r\n        }\r\n        Object[] aRow = new Object[6];\r\n        aRow[0] = pVisitaPR.getVoto();\r\n        aRow[1] = pVisitaPR.getCommento();\r\n        aRow[2] = pVisitaPR.getDataVisita();\r\n        aRow[3] = pUsername;\r\n        aRow[4] = pVisitaPR.getIdPuntoDiRistoro();\r\n        aRow[5] = pVisitaPR.getIdTurista();\r\n        data.add(aRow);\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "modificaCommento",
+            "sourceCode": "public void modificaCommento(String pNuovoCommento, int pRow) throws IllegalArgumentException {\r\n        if (pRow >= getRowCount() || pRow < 0) {\r\n            throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n        }\r\n        if (pNuovoCommento == null) {\r\n            throw new IllegalArgumentException(\"The new comment can not be null.\");\r\n        }\r\n        data.get(pRow)[1] = pNuovoCommento;\r\n        fireTableDataChanged();\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "getIDFeedback",
+            "sourceCode": "public int[] getIDFeedback(int pRow) throws IllegalArgumentException {\r\n        if (pRow >= getRowCount() || pRow < 0) {\r\n            throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n        }\r\n        int[] ids = new int[2];\r\n        ids[0] = (Integer) data.get(pRow)[4];\r\n        ids[1] = (Integer) data.get(pRow)[5];\r\n        return ids;\r\n    }"
+        },
+        {
+            "parentClass": "FeedbackTableModel",
+            "name": "removeFeedback",
+            "sourceCode": "public int[] removeFeedback(int pRow) throws IllegalArgumentException {\r\n        int[] ids = getIDFeedback(pRow);\r\n        data.remove(pRow);\r\n        return ids;\r\n    }"
+        }
+    ]
+}

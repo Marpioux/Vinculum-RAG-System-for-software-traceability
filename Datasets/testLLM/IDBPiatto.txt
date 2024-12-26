@@ -1,0 +1,24 @@
+{
+  "IDBPiatto": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciPiatto",
+      "sourceCode": "boolean inserisciPiatto(BeanPiatto pPiatto) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "modificaPiatto",
+      "sourceCode": "boolean modificaPiatto(BeanPiatto pPiatto) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaPiatto",
+      "sourceCode": "boolean cancellaPiatto(int pIdPiatto) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniPiatto",
+      "sourceCode": "ArrayList<BeanPiatto> ottieniPiatto(int pIdMenu) throws SQLException;"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+    "VediCommissione": [
+        {
+            "parentClass": "VediCommissione",
+            "name": "VediCommissione",
+            "sourceCode": "public VediCommissione()\n   \t{\n      \tsuper(\"\",\"\",\"Visualizzazione dati delle commissioni\",\" Cerca \",4);\n      \tinit();\n   \t}"
+        },
+        {
+            "parentClass": "VediCommissione",
+            "name": "init",
+            "sourceCode": "public void init()\n \t{     \t\n      \tnome_agenzia.setEditable(true);\n      \tnum_stanza.setEditable(false);\n      \tnum_tel_agenzia.setEditable(false);\n        inizio_comm.setEditable(false);\n        fine_comm.setEditable(false);\n        scadenza_comm.setEditable(false); \n       \tnum_stanza.setEditable(false);\n      \t\n\t\tlista.addActionListener(new ActionListener()\n      \t{\n         \tpublic void actionPerformed(ActionEvent e)\n         \t{\n         \t\tcommissione = L.getCommissionamento((lista.getSelectedIndexes())[0]+1);\n\t\t\t\twriteDatiComm(commissione);\n\t\t\t\tAzione.setEnabled(true);\n\t\t\t\tpack();\n         \t}\n      });\n   \n\t\tnome_agenzia.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tcreaLista();\n\t\t\t}\t\t\t      \t\n\t\t});\n\n\t   \tAzione.addActionListener(new ActionListener()\n   \t\t{\n    \t    public void actionPerformed(ActionEvent e)\n        \t{\n\t\t\t\tcreaLista();\n\t\t\t}\n\t\t});\t\n\t}"
+        }
+    ]
+}

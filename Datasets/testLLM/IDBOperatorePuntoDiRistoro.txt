@@ -1,0 +1,24 @@
+{
+  "IDBOperatorePuntoDiRistoro": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciOperatorePuntoDiRistoro",
+      "sourceCode": "boolean inserisciOperatorePuntoDiRistoro(BeanOperatorePuntoDiRistoro popera) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "modificaOperatorePuntoDiRistoro",
+      "sourceCode": "boolean modificaOperatorePuntoDiRistoro(BeanOperatorePuntoDiRistoro popera) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaOperatorePuntoDiRistoro",
+      "sourceCode": "boolean cancellaOperatorePuntoDiRistoro(int pIdOperatore) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniOperatorePuntoDiRistoro",
+      "sourceCode": "BeanOperatorePuntoDiRistoro ottieniOperatorePuntoDiRistoro(int pIdOperatore) throws SQLException;"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+    "GestioneAdvertisementPuntoDiRistoro": [
+        {
+            "parentClass": "GestioneAdvertisementPuntoDiRistoro",
+            "name": "GestioneAdvertisementPuntoDiRistoro",
+            "sourceCode": "public GestioneAdvertisementPuntoDiRistoro() throws RemoteException {\r\n        super();\r\n    }"
+        }
+    ]
+}

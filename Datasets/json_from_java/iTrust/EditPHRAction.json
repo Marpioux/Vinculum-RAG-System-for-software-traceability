@@ -1,0 +1,89 @@
+{
+    "EditPHRAction": [
+        {
+            "parentClass": "EditPHRAction",
+            "name": "EditPHRAction",
+            "sourceCode": "public EditPHRAction(DAOFactory factory, long loggedInMID, String pidString) throws iTrustException,\r\n\t\t\tDBException {\r\n\t\tsuper(factory, pidString);\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.allergyDAO = factory.getAllergyDAO();\r\n\t\tthis.familyDAO = factory.getFamilyDAO();\r\n\t\tthis.hrDAO = factory.getHealthRecordsDAO();\r\n\t\tthis.ovDAO = factory.getOfficeVisitDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\tthis.icdDAO = factory.getICDCodesDAO();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.personnelDAO = factory.getPersonnelDAO();\r\n\t\tthis.HCPUAP = personnelDAO.getPersonnel(loggedInMID);\r\n\t\tthis.patient = patientDAO.getPatient(pid);\r\n\t\temailutil = new EmailUtil(factory);\r\n\t\tthis.factory = factory;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "updateAllergies",
+            "sourceCode": "public String updateAllergies(long pid, String description) throws iTrustException {\r\n\t\t\r\n\t\temailutil.sendEmail(makeEmail());\r\n\t\t\r\n\t\tif (description != null && !description.equals(\"\")) {\r\n\t\t\ttry {\r\n\t\t\t\tAllergyBean bean = new AllergyBean();\r\n\t\t\t\tbean.setDescription(description);\r\n\t\t\t\tAllergyBeanValidator abv = new AllergyBeanValidator();\r\n\t\t\t\tabv.validate(bean);\r\n\t\t\t\tallergyDAO.addAllergy(pid, description);\r\n\t\t\t\ttransDAO.logTransaction(TransactionType.ENTER_EDIT_PHR, loggedInMID, pid, \"EditPHR - added allergy \" + description);\r\n\t\t\t\treturn \"Allergy Added\";\r\n\t\t\t} catch (FormValidationException e2) {\r\n\t\t\t\treturn \"<span class=error>Error: Invalid Fields--\" + e2.getErrorList() + \"</span><p />\";\r\n\t\t\t}\r\n\t\t} else\r\n\t\t\treturn \"\";\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getPatient",
+            "sourceCode": "public PatientBean getPatient() throws iTrustException {\r\n\t\ttransDAO.logTransaction(TransactionType.VIEW_RECORDS, loggedInMID, pid, \"EditPHR - view patient record \");\r\n\t\treturn patientDAO.getPatient(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getAllergies",
+            "sourceCode": "public List<AllergyBean> getAllergies() throws iTrustException {\r\n\t\treturn allergyDAO.getAllergies(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getFamily",
+            "sourceCode": "public List<FamilyMemberBean> getFamily() throws iTrustException {\r\n\t\tList<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\r\n\t\tList<FamilyMemberBean> parents = null;\r\n\t\tparents = familyDAO.getParents(pid);\r\n\t\tfam.addAll(parents);\r\n\t\tfam.addAll(familyDAO.getSiblings(pid));\r\n\t\tfam.addAll(familyDAO.getChildren(pid));\r\n\r\n\t\t\r\n\t\tif(parents != null) {\r\n\t\t\tList<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\r\n\t\t\tfor(FamilyMemberBean parent : parents) {\r\n\t\t\t\tgrandparents.addAll(familyDAO.getParents(parent.getMid()));\r\n\t\t\t}\r\n\t\t\t\r\n\t\t\tfam.addAll(grandparents);\r\n\t\t\t\r\n\t\t\tfor(FamilyMemberBean gp : grandparents) {\r\n\t\t\t\tgp.setRelation(\"Grandparent\");\r\n\t\t\t}\r\n\t\t}\r\n\t\ttransDAO.logTransaction(TransactionType.VIEW_RECORDS, loggedInMID, pid, \"EditPHR - view patient family information \");\r\n\t\treturn fam;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getAllHealthRecords",
+            "sourceCode": "public List<HealthRecord> getAllHealthRecords() throws iTrustException {\r\n\t\tList<HealthRecord> allHealthRecords = hrDAO.getAllHealthRecords(pid);\r\n\t\ttransDAO.logTransaction(TransactionType.VIEW_HEALTH_RECORDS, loggedInMID, pid, \"EditPHR - Viewed patient records\");\r\n\t\treturn allHealthRecords;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getAllOfficeVisits",
+            "sourceCode": "public List<OfficeVisitBean> getAllOfficeVisits() throws iTrustException {\r\n\t\ttransDAO.logTransaction(TransactionType.VIEW_OFFICE_VISIT, loggedInMID, pid, \"EditPHR - view patient office visits \");\r\n\t\treturn ovDAO.getAllOfficeVisits(pid);\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getCompleteOfficeVisit",
+            "sourceCode": "public OfficeVisitBean getCompleteOfficeVisit(long visitID) throws iTrustException {\r\n\t\treturn ovDAO.getOfficeVisit(visitID);\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getDiseasesAtRisk",
+            "sourceCode": "public List<RiskChecker> getDiseasesAtRisk() throws NoHealthRecordsException,iTrustException,DBException {\r\n\t\tthis.diseaseMediator = new ChronicDiseaseMediator(factory, pid);\r\n\t\ttransDAO.logTransaction(TransactionType.IDENTIFY_RISK_FACTORS, loggedInMID, pid, \"Check for risk factors\");\r\n\t\treturn diseaseMediator.getDiseaseAtRisk();\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "doesFamilyMemberHaveHighBP",
+            "sourceCode": "public boolean doesFamilyMemberHaveHighBP(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n\t\tif(records.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(HealthRecord record : records) {\r\n\t\t\tif(record.getBloodPressureSystolic() > 240 || record.getBloodPressureDiastolic() > 120 )\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "doesFamilyMemberHaveHighCholesterol",
+            "sourceCode": "public boolean doesFamilyMemberHaveHighCholesterol(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n\t\tif(records.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(HealthRecord record : records) {\r\n\t\t\tif(record.getCholesterolHDL() < 35 || record.getCholesterolLDL() > 250 )\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "doesFamilyMemberHaveDiabetes",
+            "sourceCode": "public boolean doesFamilyMemberHaveDiabetes(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n\t\tif(diagnoses.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(DiagnosisBean diag : diagnoses) {\r\n\t\t\tif(diag.getICDCode().startsWith(\"250\"))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "doesFamilyMemberHaveCancer",
+            "sourceCode": "public boolean doesFamilyMemberHaveCancer(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n\t\tif(diagnoses.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(DiagnosisBean diag : diagnoses) {\r\n\t\t\tif(diag.getICDCode().startsWith(\"199\"))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "doesFamilyMemberHaveHeartDisease",
+            "sourceCode": "public boolean doesFamilyMemberHaveHeartDisease(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n\t\tif(diagnoses.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(DiagnosisBean diag : diagnoses) {\r\n\t\t\tif(diag.getICDCode().startsWith(\"402\"))\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "isFamilyMemberSmoker",
+            "sourceCode": "public boolean isFamilyMemberSmoker(FamilyMemberBean member) throws iTrustException {\r\n\t\tList<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n\t\tif(records.size() == 0)\r\n\t\t\treturn false;\r\n\t\tfor(HealthRecord record : records) {\r\n\t\t\tif(record.isSmoker())\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "getFamilyMemberCOD",
+            "sourceCode": "public String getFamilyMemberCOD(FamilyMemberBean member) throws iTrustException {\r\n\t\tPatientBean patient = patientDAO.getPatient(member.getMid());\r\n\t\tif(patient.getCauseOfDeath() == null)\r\n\t\t\treturn \"\";\r\n\t\tDiagnosisBean diag = icdDAO.getICDCode(patient.getCauseOfDeath());\r\n\t\tif(diag == null)\r\n\t\t\treturn \"\";\r\n\t\treturn diag.getDescription();\r\n\t}"
+        },
+        {
+            "parentClass": "EditPHRAction",
+            "name": "makeEmail",
+            "sourceCode": "private Email makeEmail() throws DBException{\r\n\r\n\t\tEmail email = new Email();\r\n\t\tList<PatientBean> reps = patientDAO.getRepresenting(patient.getMID());\r\n\t\t\r\n\t\tList<String> toAddrs = new ArrayList<String>();\r\n\t\ttoAddrs.add(patient.getEmail());\r\n\t\tfor (PatientBean r: reps) {\r\n\t\t\ttoAddrs.add(r.getEmail());\r\n\t\t}\r\n\t\t\r\n\t\temail.setFrom(\"no-reply@itrust.com\");\r\n    \temail.setToList(toAddrs); // patient and personal representative\r\n    \temail.setSubject(String.format(\"Your medical records have been altered\"));\r\n    \temail.setBody(\"Health care professional \"+ HCPUAP.getFullName() +\" has altered your medical records. \" +\r\n    \t\t\t\t\"She is not on your list of designated health care professionals.\");\r\n\t\treturn email;\r\n\t}"
+        }
+    ]
+}

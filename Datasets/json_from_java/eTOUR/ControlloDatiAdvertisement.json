@@ -1,0 +1,14 @@
+{
+    "ControlloDatiAdvertisement": [
+        {
+            "parentClass": "ControlloDatiAdvertisement",
+            "name": "controlloBanner",
+            "sourceCode": "public static boolean controlloBanner(BeanBanner pBanner) {\r\n        boolean toReturn = false;\r\n\r\n        if (pBanner != null) {\r\n            toReturn = (pBanner.getId() > 0 && !pBanner.getPercorsoFile().isEmpty()\r\n                        && pBanner.getIdPuntoDiRistoro() > 0);\r\n        }\r\n\r\n        return toReturn;\r\n    }"
+        },
+        {
+            "parentClass": "ControlloDatiAdvertisement",
+            "name": "controlloNews",
+            "sourceCode": "public static boolean controlloNews(BeanNews pNews) {\r\n        boolean toReturn = false;\r\n\r\n        /* Check the validity of the general method parameter */\r\n        if (pNews != null) {\r\n            Date dataPubb = pNews.getDataPubblicazione(); // Release Date\r\n            Date dataScad = pNews.getDataScadenza(); // Due Date\r\n            String news = pNews.getNews(); // Text of News\r\n\r\n            /* Checking the validity of the fields */\r\n            if (dataPubb != null && dataScad != null && news != null) {\r\n                /* Check the consistency of the dates */\r\n                toReturn = dataPubb.before(dataScad);\r\n\r\n                /* Check that the text is not empty */\r\n                toReturn = toReturn && !news.isEmpty();\r\n\r\n                /* Check that the ID is greater than 0 */\r\n                toReturn = toReturn && (pNews.getId() > 0);\r\n\r\n                /* Check the priority value */\r\n            }\r\n        }\r\n\r\n        return toReturn;\r\n    }"
+        }
+    ]
+}

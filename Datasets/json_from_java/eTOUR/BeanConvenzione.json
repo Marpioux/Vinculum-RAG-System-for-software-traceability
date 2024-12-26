@@ -1,0 +1,84 @@
+{
+    "BeanConvenzione": [
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "BeanConvenzione",
+            "sourceCode": "public BeanConvenzione(int pId, int pMaxBanner, Date pDataInizio,\r\n                           Date pDataFine, double pPrezzo, boolean pActs,\r\n                           int pIdPuntoDiRistoro) {\r\n        setId(pId);\r\n        setMaxBanner(pMaxBanner);\r\n        setDataInizio(pDataInizio);\r\n        setDataFine(pDataFine);\r\n        setPrezzo(pPrezzo);\r\n        setAttiva(pActs);\r\n        setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "BeanConvenzione",
+            "sourceCode": "public BeanConvenzione(int pId, int pMaxBanner, Date pDataInizio,\r\n                           Date pDataFine, double pPrezzo, boolean pActs,\r\n                           int pIdPuntoDiRistoro) {\r\n        setId(pId);\r\n        setMaxBanner(pMaxBanner);\r\n        setDataInizio(pDataInizio);\r\n        setDataFine(pDataFine);\r\n        setPrezzo(pPrezzo);\r\n        setAttiva(pActs);\r\n        setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "isAttiva",
+            "sourceCode": "public boolean isAttiva() {\r\n        return active;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "setAttiva",
+            "sourceCode": "public void setAttiva(boolean pActs) {\r\n        active = pActs;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "getDataFine",
+            "sourceCode": "public Date getDataFine() {\r\n        return endDate;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "setDataFine",
+            "sourceCode": "public void setDataFine(Date pDataFine) {\r\n        endDate = pDataFine;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "getDataInizio",
+            "sourceCode": "public Date getDataInizio() {\r\n        return startDate;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "setDataInizio",
+            "sourceCode": "public void setDataInizio(Date pDataInizio) {\r\n        startDate = pDataInizio;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "getMaxBanner",
+            "sourceCode": "public int getMaxBanner() {\r\n        return maxBanner;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "setMaxBanner",
+            "sourceCode": "public void setMaxBanner(int pMaxBanner) {\r\n        maxBanner = pMaxBanner;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "getPrezzo",
+            "sourceCode": "public double getPrezzo() {\r\n        return price;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "setPrezzo",
+            "sourceCode": "public void setPrezzo(double pPrezzo) {\r\n        price = pPrezzo;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "getId",
+            "sourceCode": "public int getId() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "getIdPuntoDiRistoro",
+            "sourceCode": "public int getIdPuntoDiRistoro() {\r\n        return idPuntoDiRistoro;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "setId",
+            "sourceCode": "public void setId(int pId) {\r\n        id = pId;\r\n    }"
+        },
+        {
+            "parentClass": "BeanConvenzione",
+            "name": "setIdPuntoDiRistoro",
+            "sourceCode": "public void setIdPuntoDiRistoro(int pIdPuntoDiRistoro) {\r\n        idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n    }"
+        }
+    ]
+}

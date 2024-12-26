@@ -1,0 +1,19 @@
+{
+    "VediSoggiornante": [
+        {
+            "parentClass": "VediSoggiornante",
+            "name": "VediSoggiornante",
+            "sourceCode": "public VediSoggiornante(Frame p, Soggiornante sogg)\n   \t{\n      \tsuper(\"Visualizzazione dei dati del soggiornante\",\" Fine \", sogg.getPensionamento(), sogg.getStatus() );\n      \tpadre=p;\n      \tpadre.setEnabled(false);\n      \tinizializza(sogg);\n      \tpack();\n      \tthis.setVisible(true);\n   \t}"
+        },
+        {
+            "parentClass": "VediSoggiornante",
+            "name": "inizializza",
+            "sourceCode": "public void inizializza(Soggiornante sogg)\n   {\n      panel3.remove(Annulla);\n      disableFields();\n      writeDatiSogg(sogg);\n      \n      \n      Conferma.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            dispose();\n            padre.setEnabled(true);\n         }\n      });\n\t}"
+        },
+        {
+            "parentClass": "VediSoggiornante",
+            "name": "disableFields",
+            "sourceCode": "void disableFields()\n\t{\n\t\ttesto1.setEditable(false);\n\t\ttesto2.setEditable(false);\n\t\ttesto3.setEditable(false);\n\t\ttesto4.setEditable(false);\n\t\ttesto5.setEditable(false);\n\t\ttesto6.setEditable(false);\n\t\ttesto7.setEditable(false);\n\t\ttesto8.setEditable(false);\n\t\ttesto9.setEditable(false);\n\t\ttesto10.setEditable(false);\n\t\ttesto11.setEditable(false);\n\t\ttesto12.setEditable(false);\n\t\ttesto13.setEditable(false);\n\t\ttesto14.setEditable(false);\n\t\tfor (int i=0; i<checkboxes.length; i++)\n\t\t\tcheckboxes[i].setEnabled(false);\n\t\tfor (int i=0; i<checkboxes1.length; i++)\n\t\t\tcheckboxes1[i].setEnabled(false);\n\t}"
+        }
+    ]
+}

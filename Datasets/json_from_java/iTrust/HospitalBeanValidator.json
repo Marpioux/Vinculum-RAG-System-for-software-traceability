@@ -1,0 +1,14 @@
+{
+    "HospitalBeanValidator": [
+        {
+            "parentClass": "HospitalBeanValidator",
+            "name": "HospitalBeanValidator",
+            "sourceCode": "public HospitalBeanValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "HospitalBeanValidator",
+            "name": "validate",
+            "sourceCode": "@Override\r\n\tpublic void validate(HospitalBean h) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"Hospital ID\", h.getHospitalID(), ValidationFormat.HOSPITAL_ID,\r\n\t\t\t\tfalse));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Hospital Name\", h.getHospitalName(),\r\n\t\t\t\tValidationFormat.HOSPITAL_NAME, false));\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

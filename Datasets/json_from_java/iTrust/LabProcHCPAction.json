@@ -1,0 +1,29 @@
+{
+    "LabProcHCPAction": [
+        {
+            "parentClass": "LabProcHCPAction",
+            "name": "LabProcHCPAction",
+            "sourceCode": "public LabProcHCPAction(DAOFactory factory, long loggedInMID) {\r\n\t\tsuper(factory, loggedInMID);\r\n\t\ttransDAO = factory.getTransactionDAO();\r\n\t\tlpDAO = factory.getLabProcedureDAO();\r\n\t\tovDAO = factory.getOfficeVisitDAO();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tvalidator = new LabProcedureValidator();\r\n\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcHCPAction",
+            "name": "sortByLOINC",
+            "sourceCode": "public List<LabProcedureBean> sortByLOINC(long id) throws DBException {\r\n\t\treturn lpDAO.getAllLabProceduresLOINC(id);\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcHCPAction",
+            "name": "getLabProcForNextMonth",
+            "sourceCode": "public List<LabProcedureBean> getLabProcForNextMonth() throws DBException {\r\n\t\tList<LabProcedureBean> listLabProc = new ArrayList<LabProcedureBean>(0);\r\n\t\tList<OfficeVisitBean> listOV = ovDAO.getAllOfficeVisitsForLHCP(loggedInMID);\r\n\t\tfor (OfficeVisitBean ov : listOV) {\r\n\t\t\tif (listLabProc.isEmpty() == true) {\r\n\t\t\t\tlistLabProc = lpDAO.getLabProceduresForLHCPForNextMonth(ov.getID());\r\n\t\t\t}\r\n\t\t\telse {\r\n\t\t\t\tfor (LabProcedureBean lb : lpDAO.getLabProceduresForLHCPForNextMonth(ov.getID())) {\r\n\t\t\t\t\tlistLabProc.add(lb);\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn listLabProc;\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcHCPAction",
+            "name": "changePrivacy",
+            "sourceCode": "public void changePrivacy(long x) throws DBException, FormValidationException {\r\n\t\tLabProcedureBean pb = lpDAO.getLabProcedure(x);\r\n\t\tif (checkAccess(x)) {\r\n\t\t\tif (pb.getRights().equals(LabProcedureBean.Restrict)) {\r\n\t\t\t\tpb.allow();\r\n\t\t\t} else {\r\n\t\t\t\tpb.restrict();\r\n\t\t\t}\r\n\t\t\tvalidator.validate(pb);\r\n\t\t\tlpDAO.updateRights(pb);\r\n\t\t\ttransDAO.logTransaction(TransactionType.ENTER_EDIT_LAB_PROCEDURE, loggedInMID, pb.getPid(),\r\n\t\t\t\t\t\"Privacy Changed procedure id: \" + pb.getProcedureID());\r\n\t\t}\r\n\r\n\t}"
+        },
+        {
+            "parentClass": "LabProcHCPAction",
+            "name": "checkAccess",
+            "sourceCode": "public boolean checkAccess(long x) throws DBException, FormValidationException {\r\n\t\tLabProcedureBean pb = lpDAO.getLabProcedure(x);\r\n\t\tOfficeVisitBean ovbean = ovDAO.getOfficeVisit(pb.getOvID());\r\n\t\treturn (loggedInMID == ovbean.getHcpID());\r\n\r\n\t}"
+        }
+    ]
+}

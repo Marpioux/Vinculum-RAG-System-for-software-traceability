@@ -1,0 +1,19 @@
+{
+    "ChangeSessionTimeoutAction": [
+        {
+            "parentClass": "ChangeSessionTimeoutAction",
+            "name": "ChangeSessionTimeoutAction",
+            "sourceCode": "public ChangeSessionTimeoutAction(DAOFactory factory) {\r\n\t\tthis.accessDAO = factory.getAccessDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "ChangeSessionTimeoutAction",
+            "name": "changeSessionTimeout",
+            "sourceCode": "public void changeSessionTimeout(String minuteString) throws FormValidationException, DBException {\r\n\t\ttry {\r\n\t\t\tInteger minutes = Integer.valueOf(minuteString);\r\n\t\t\tif (minutes < 1)\r\n\t\t\t\tthrow new FormValidationException(\"Must be a number greater than 0\");\r\n\t\t\taccessDAO.setSessionTimeoutMins(minutes);\r\n\t\t} catch (NumberFormatException e) {\r\n\t\t\tthrow new FormValidationException(\"That is not a number\");\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "ChangeSessionTimeoutAction",
+            "name": "getSessionTimeout",
+            "sourceCode": "public int getSessionTimeout() throws DBException {\r\n\t\treturn accessDAO.getSessionTimeoutMins();\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,44 @@
+{
+    "BeanBanner": [
+        {
+            "parentClass": "BeanBanner",
+            "name": "BeanBanner",
+            "sourceCode": "public BeanBanner(int pid, String pPercorsoFile, int pidPuntoDiRistoro) {\r\n        setId(pid);\r\n        setPercorsoFile(pPercorsoFile);\r\n        setIdPuntoDiRistoro(pidPuntoDiRistoro);\r\n    }"
+        },
+        {
+            "parentClass": "BeanBanner",
+            "name": "BeanBanner",
+            "sourceCode": "public BeanBanner(int pid, String pPercorsoFile, int pidPuntoDiRistoro) {\r\n        setId(pid);\r\n        setPercorsoFile(pPercorsoFile);\r\n        setIdPuntoDiRistoro(pidPuntoDiRistoro);\r\n    }"
+        },
+        {
+            "parentClass": "BeanBanner",
+            "name": "getPercorsoFile",
+            "sourceCode": "public String getPercorsoFile() {\r\n        return filepath;\r\n    }"
+        },
+        {
+            "parentClass": "BeanBanner",
+            "name": "setPercorsoFile",
+            "sourceCode": "public void setPercorsoFile(String pPercorsoFile) {\r\n        filepath = pPercorsoFile;\r\n    }"
+        },
+        {
+            "parentClass": "BeanBanner",
+            "name": "getId",
+            "sourceCode": "public int getId() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "BeanBanner",
+            "name": "getIdPuntoDiRistoro",
+            "sourceCode": "public int getIdPuntoDiRistoro() {\r\n        return idPuntoDiRistoro;\r\n    }"
+        },
+        {
+            "parentClass": "BeanBanner",
+            "name": "setId",
+            "sourceCode": "public void setId(int pid) {\r\n        id = pid;\r\n    }"
+        },
+        {
+            "parentClass": "BeanBanner",
+            "name": "setIdPuntoDiRistoro",
+            "sourceCode": "public void setIdPuntoDiRistoro(int pIdPuntoDiRistoro) {\r\n        idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n    }"
+        }
+    ]
+}

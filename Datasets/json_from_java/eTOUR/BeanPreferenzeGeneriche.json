@@ -1,0 +1,64 @@
+{
+    "BeanPreferenzeGeneriche": [
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "BeanPreferenzeGeneriche",
+            "sourceCode": "public BeanPreferenzeGeneriche(int pId, int pDimensioneFont, String pFont, String pTema, int pIdTurista) {\r\n        setId(pId);\r\n        setDimensioneFont(pDimensioneFont);\r\n        setFont(pFont);\r\n        setTema(pTema);\r\n        setIdTurista(pIdTurista);\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "BeanPreferenzeGeneriche",
+            "sourceCode": "public BeanPreferenzeGeneriche(int pId, int pDimensioneFont, String pFont, String pTema, int pIdTurista) {\r\n        setId(pId);\r\n        setDimensioneFont(pDimensioneFont);\r\n        setFont(pFont);\r\n        setTema(pTema);\r\n        setIdTurista(pIdTurista);\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "getDimensioneFont",
+            "sourceCode": "public int getDimensioneFont() {\r\n        return dimensioneFont;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "setDimensioneFont",
+            "sourceCode": "public void setDimensioneFont(int pDimensioneFont) {\r\n        dimensioneFont = pDimensioneFont;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "getFont",
+            "sourceCode": "public String getFont() {\r\n        return font;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "setFont",
+            "sourceCode": "public void setFont(String pFont) {\r\n        font = pFont;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "getTema",
+            "sourceCode": "public String getTema() {\r\n        return tema;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "setTema",
+            "sourceCode": "public void setTema(String pTema) {\r\n        tema = pTema;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "getId",
+            "sourceCode": "public int getId() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "getIdTurista",
+            "sourceCode": "public int getIdTurista() {\r\n        return idTurista;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "setIdTurista",
+            "sourceCode": "public void setIdTurista(int pIdTurista) {\r\n        idTurista = pIdTurista;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzeGeneriche",
+            "name": "setId",
+            "sourceCode": "public void setId(int pId) {\r\n        id = pId;\r\n    }"
+        }
+    ]
+}

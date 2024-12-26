@@ -1,0 +1,19 @@
+{
+    "DBException": [
+        {
+            "parentClass": "DBException",
+            "name": "DBException",
+            "sourceCode": "public DBException(SQLException e) {\r\n\t\tsuper(\"A database exception has occurred. Please see the log in the console for stacktrace\");\r\n\t\tthis.sqlException = e;\r\n\t}"
+        },
+        {
+            "parentClass": "DBException",
+            "name": "getSQLException",
+            "sourceCode": "public SQLException getSQLException() {\r\n\t\treturn sqlException;\r\n\t}"
+        },
+        {
+            "parentClass": "DBException",
+            "name": "getExtendedMessage",
+            "sourceCode": "@Override\r\n\tpublic String getExtendedMessage() {\r\n\t\tif (sqlException != null)\r\n\t\t\treturn sqlException.getMessage();\r\n\t\telse\r\n\t\t\treturn super.getExtendedMessage();\r\n\t}"
+        }
+    ]
+}

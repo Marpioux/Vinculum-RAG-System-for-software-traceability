@@ -1,0 +1,29 @@
+{
+    "LOINCDAO": [
+        {
+            "parentClass": "LOINCDAO",
+            "name": "LOINCDAO",
+            "sourceCode": "public LOINCDAO(DAOFactory factory) {\r\n\t\tthis.factory = factory;\r\n\t\tLOINCLoader = new LOINCBeanLoader();\r\n\t}"
+        },
+        {
+            "parentClass": "LOINCDAO",
+            "name": "addLOINC",
+            "sourceCode": "public void addLOINC(LOINCbean hosp) throws DBException, iTrustException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"INSERT INTO LOINC (LaboratoryProcedureCode, Component, KindOfProperty, TimeAspect, System, ScaleType, MethodType) \" + \"VALUES (?,?,?,?,?,?,?)\");\r\n\t\t\tps.setString(1, hosp.getLabProcedureCode());\r\n\t\t\tps.setString(2, hosp.getComponent());\r\n\t\t\tps.setString(3, hosp.getKindOfProperty());\r\n\t\t\tps.setString(4, hosp.getTimeAspect());\r\n\t\t\tps.setString(5, hosp.getSystem());\r\n\t\t\tps.setString(6, hosp.getScaleType());\r\n\t\t\tps.setString(7, hosp.getMethodType());\r\n\t\t\tps.executeUpdate();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tif (1062 == e.getErrorCode())\r\n\t\t\t\tthrow new iTrustException(\"Error: LOINC already exists.\");\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LOINCDAO",
+            "name": "getProcedures",
+            "sourceCode": "public List<LOINCbean> getProcedures(String visitID) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"Select * From LOINC Where LaboratoryProcedureCode = ? \");\r\n\t\t\tps.setString(1, visitID);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn LOINCLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LOINCDAO",
+            "name": "update",
+            "sourceCode": "public int update(LOINCbean ov) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"UPDATE LOINC SET Component=?, KindOfProperty=?, TimeAspect=?, System=?, ScaleType=?, MethodType=? WHERE LaboratoryProcedureCode=?\");\r\n\t\t\tps.setString(1, ov.getComponent());\r\n\t\t\tps.setString(2, ov.getKindOfProperty());\r\n\t\t\tps.setString(3, ov.getTimeAspect());\r\n\t\t\tps.setString(4, ov.getSystem());\r\n\t\t\tps.setString(5, ov.getScaleType());\r\n\t\t\tps.setString(6, ov.getMethodType());\r\n\t\t\tps.setString(7, ov.getLabProcedureCode());\r\n\t\t\treturn ps.executeUpdate();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "LOINCDAO",
+            "name": "getAllLOINC",
+            "sourceCode": "public List<LOINCbean> getAllLOINC() throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM LOINC\");\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn LOINCLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

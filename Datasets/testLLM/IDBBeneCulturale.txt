@@ -1,0 +1,49 @@
+{
+  "IDBBeneCulturale": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciBeneCulturale",
+      "sourceCode": "boolean inserisciBeneCulturale(BeanBeneCulturale pBene) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "modificaBeneCulturale",
+      "sourceCode": "boolean modificaBeneCulturale(BeanBeneCulturale pBene) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaBeneCulturale",
+      "sourceCode": "boolean cancellaBeneCulturale(int pIdBene) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniBeneCulturale",
+      "sourceCode": "BeanBeneCulturale ottieniBeneCulturale(int pid) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "search",
+      "sourceCode": "ArrayList<BeanBeneCulturale> search(String pKeyword, ArrayList<BeanTag> pTags, int pNumPagina, int pNumeroElementiPerPagina, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ricercaAvanzata",
+      "sourceCode": "ArrayList<BeanBeneCulturale> ricercaAvanzata(int pIdTurista, String pKeyword, ArrayList<BeanTag> pTags, int pNumPagina, int pNumeroElementiPerPagina, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniNumeroElementiRicerca",
+      "sourceCode": "int ottieniNumeroElementiRicerca(String pKeyword, ArrayList<BeanTag> pTags, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniNumeroElementiRicercaAvanzata",
+      "sourceCode": "int ottieniNumeroElementiRicercaAvanzata(int pIdTurista, String pKeyword, ArrayList<BeanTag> pTags, Punto3D pPosizione, double pDistanzaMassima) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniListaBC",
+      "sourceCode": "ArrayList<BeanBeneCulturale> ottieniListaBC() throws SQLException;"
+    }
+  ]
+}

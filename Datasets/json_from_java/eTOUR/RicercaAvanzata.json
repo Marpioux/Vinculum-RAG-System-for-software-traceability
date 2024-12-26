@@ -1,0 +1,34 @@
+{
+    "RicercaAvanzata": [
+        {
+            "parentClass": "RicercaAvanzata",
+            "name": "RicercaAvanzata",
+            "sourceCode": "public RicercaAvanzata(int pIdTurista) {\r\n        // Constructor implementation\r\n    }"
+        },
+        {
+            "parentClass": "RicercaAvanzata",
+            "name": "ottieniNumeroElementiRicerca",
+            "sourceCode": "public int ottieniNumeroElementiRicerca() {\r\n        // Method implementation\r\n        return 0; // Placeholder return\r\n    }"
+        },
+        {
+            "parentClass": "RicercaAvanzata",
+            "name": "ottieniNumeroPagineRicerca",
+            "sourceCode": "public int ottieniNumeroPagineRicerca() {\r\n        // Method implementation\r\n        return 0; // Placeholder return\r\n    }"
+        },
+        {
+            "parentClass": "RicercaAvanzata",
+            "name": "ottieniPaginaRisultatiBeneCulturale",
+            "sourceCode": "public Object ottieniPaginaRisultatiBeneCulturale() {\r\n        // Method implementation\r\n        return null; // Placeholder return\r\n    }"
+        },
+        {
+            "parentClass": "RicercaAvanzata",
+            "name": "ottieniPaginaRisultatiPuntoDiRistoro",
+            "sourceCode": "public Object ottieniPaginaRisultatiPuntoDiRistoro() {\r\n        // Method implementation\r\n        return null; // Placeholder return\r\n    }"
+        },
+        {
+            "parentClass": "RicercaAvanzata",
+            "name": "search",
+            "sourceCode": "public void search() {\r\n        // Method implementation\r\n    }"
+        }
+    ]
+}

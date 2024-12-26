@@ -1,0 +1,54 @@
+{
+    "SubSoggiorno": [
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "SubSoggiorno",
+            "sourceCode": "public SubSoggiorno()\n   {\n      super(\"Soggiorno\");\n      setup();\n      init();\n      pack();\n   }"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "setup",
+            "sourceCode": "void setup()\n   {\n      this.setFont(ConfigurazioneSistema.font_sub);\n      panel0=new Panel();\n      panel0.setLayout(gridbag);\n      panel0.setBackground(Color.white);\n      \n      Random rnd = new Random();\n      int num;\n      if ((num = (rnd.nextInt() % 5) ) < 0)\n      \t  num = num * -1;\n      num ++;\t   \n      String file_name = new String(\"servizi\"+num+\".jpg\");\n      Immagine  figura = new Immagine(file_name);\n      Etichetta etich = new Etichetta(\"Soggiorno.gif\");\n      Utils.constrain(panel0,etich, 0, 0, 2, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n      Utils.constrain(panel0,figura, 2, 0, 10, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.CENTER, 0.5, 1.0,0,0,0,0);\n       \n      panel1 = new Panel();\n      panel1.setLayout(new GridLayout(8,1));\n      Arrivo = new Button(\" Arrivo clienti \");\n      Cambio = new Button(\" Cambio stanza \");\n      Addebito = new Button(\" Addebito spese \");\n      Telefonate = new Button(\" Telefonate \");\n      Calcolo = new Button(\" Calcolo conto \");\n      Ricerca = new Button(\" Ricerca... \");\n      BeniServizi = new Button(\" Beni & Servizi \");\n      Annulla = new Button(\" Indietro \");\n      panel1.add(Arrivo);\n      panel1.add(Addebito);\n      panel1.add(BeniServizi);\n      panel1.add(Telefonate);\n      panel1.add(Cambio);\n      panel1.add(Calcolo);\n      panel1.add(Ricerca);\n      panel1.add(Annulla);\n\n      this.setLayout(gridbag);\n      Utils.constrain(this,panel0, 0, 0, 12, 12,GridBagConstraints.VERTICAL,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n      Utils.constrain(this,panel1, 12, 0, 1, 12,GridBagConstraints.BOTH,\n                     GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n   }"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "init",
+            "sourceCode": "void init()\n   {\n      Annulla.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            dispose();\n            p.setEnabled(true);\n         }\n      });\n   \n   \tArrivo.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            insSoggiornante();\n         }\n      });\n    \n    Calcolo.addActionListener(new ActionListener()\n      {\n         public void actionPerformed(ActionEvent e)\n         {\n            calcoloConto();\n         }\n      });\n      \n   \tAddebito.addActionListener(new ActionListener()\n    {\n     \tpublic void actionPerformed(ActionEvent e)\n        {\n            addebitaBeneServizio();\n        }\n   \t});\n   \t\n   \tBeniServizi.addActionListener(new ActionListener()\n    {\n     \tpublic void actionPerformed(ActionEvent e)\n        {\n            visitaBeneServizio();\n        }\n   \t});\n   \t\n   \tTelefonate.addActionListener(new ActionListener()\n    {\n     \tpublic void actionPerformed(ActionEvent e)\n        {\n            ricercaTelefonate();\n        }\n   \t});\n   \t\n   \tCambio.addActionListener(new ActionListener()\n    {\n     \tpublic void actionPerformed(ActionEvent e)\n        {\n            cambiaStanza();\n        }\n   \t});  \n      \n   \tRicerca.addActionListener(new ActionListener()\n    {\n     \tpublic void actionPerformed(ActionEvent e)\n        {\n            startRicerca();\n        }\n   \t});  \n   }"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "insSoggiornante",
+            "sourceCode": "void insSoggiornante()\n\t{\n\t\tthis.setEnabled(false);\n\t\tric_pren = new RicercaPrenotazione(\"Arrivo clienti\",3);\n\t\tric_pren.setVisible(true);\n\t\tric_pren.padre = this;\n\t}"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "addebitaBeneServizio",
+            "sourceCode": "void addebitaBeneServizio()\n\t{\n\t\tfiglio = new MascheraAddebiti(this);\n\t}"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "visitaBeneServizio",
+            "sourceCode": "void visitaBeneServizio()\n\t{\n\t\tfiglio = new RicercaAddebiti(this);\n\t}"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "ricercaTelefonate",
+            "sourceCode": "void ricercaTelefonate()\n\t{\n\t\tfiglio = new RicercaTelefonate(this);\n\t}"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "calcoloConto",
+            "sourceCode": "void calcoloConto()\n\t{\n\t\tfiglio = new MascheraCalcoloConto(this);\n\t\tfiglio.setVisible(true);\n\t}"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "cambiaStanza",
+            "sourceCode": "void cambiaStanza()\n\t{\n\t\tfiglio = new MascheraCambio(this);\n\t}"
+        },
+        {
+            "parentClass": "SubSoggiorno",
+            "name": "startRicerca",
+            "sourceCode": "void startRicerca()\n\t{\n\t\tfiglio = new MascheraRicercaSoggiornante(this);\n\t}"
+        }
+    ]
+}

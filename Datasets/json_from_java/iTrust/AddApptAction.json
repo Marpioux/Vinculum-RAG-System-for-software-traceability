@@ -1,0 +1,19 @@
+{
+    "AddApptAction": [
+        {
+            "parentClass": "AddApptAction",
+            "name": "AddApptAction",
+            "sourceCode": "public AddApptAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.apptDAO = factory.getApptDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.personnelDAO = factory.getPersonnelDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "AddApptAction",
+            "name": "addAppt",
+            "sourceCode": "public String addAppt(ApptBean appt) throws FormValidationException, SQLException {\r\n\t\tvalidator.validate(appt);\r\n\t\tif(appt.getDate().before(new Timestamp(System.currentTimeMillis()))) {\r\n\t\t\treturn \"The scheduled date of this Appointment (\"+appt.getDate()+\") has already passed.\";\r\n\t\t}\r\n\t\t\r\n\t\ttry {\r\n\t\t\tapptDAO.scheduleAppt(appt);\r\n\t\t\ttransDAO.logTransaction(TransactionType.ADD_APPT, loggedInMID, 0L,\r\n\t\t\t\t\t\"Added Appointment \" + appt.getApptType());\r\n\t\t\treturn \"Success: \" + appt.getApptType() + \" for \" + appt.getDate() + \" added\";\r\n\t\t}\r\n\t\tcatch (DBException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\treturn e.getMessage();\r\n\t\t} \r\n\t}"
+        },
+        {
+            "parentClass": "AddApptAction",
+            "name": "getName",
+            "sourceCode": "public String getName(long mid) throws iTrustException {\r\n\t\tif(mid < 7000000000L)\r\n\t\t\treturn patientDAO.getName(mid);\r\n\t\telse\r\n\t\t\treturn personnelDAO.getName(mid);\r\n\t}"
+        }
+    ]
+}

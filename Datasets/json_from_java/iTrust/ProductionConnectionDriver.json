@@ -1,0 +1,9 @@
+{
+    "ProductionConnectionDriver": [
+        {
+            "parentClass": "ProductionConnectionDriver",
+            "name": "getConnection",
+            "sourceCode": "public Connection getConnection() throws SQLException {\r\n\t\ttry {\r\n\t\t\treturn ((DataSource) (((Context) new InitialContext().lookup(\"java:comp/env\")))\r\n\t\t\t\t\t.lookup(\"jdbc/itrust\")).getConnection();\r\n\t\t} catch (NamingException e) {\r\n\t\t\tthrow new SQLException((\"Context Lookup Naming Exception: \" + e.getMessage()));\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

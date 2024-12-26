@@ -1,0 +1,19 @@
+{
+    "GestioneTuristaComune": [
+        {
+            "parentClass": "GestioneTuristaComune",
+            "name": "GestioneTuristaComune",
+            "sourceCode": "public GestioneTuristaComune() throws RemoteException {\r\n        super();\r\n        // Connect to the Database\r\n        try {\r\n            tourist = new DBTurista();\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristaComune",
+            "name": "modificaTurista",
+            "sourceCode": "public boolean modificaTurista(BeanTurista pProfiloTurista) throws RemoteException {\r\n        // Check the validity of passed data\r\n        if (pProfiloTurista == null || !(pProfiloTurista instanceof BeanTurista)) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n        }\r\n        // Execution of the amendment\r\n        try {\r\n            // If the changes were made returns true\r\n            if (tourist.modificaTurista(pProfiloTurista)) {\r\n                return true;\r\n            }\r\n        } catch (SQLException e) {\r\n            // If the data layer sends an exception, throws the remote exception\r\n            System.out.println(\"Error in method modificaTurista: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            // Unexpected exception caused by other factors\r\n            System.out.println(\"Error in method modificaTurista: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        // If there were no exceptions but the changes are not made, returns false\r\n        return false;\r\n    }"
+        },
+        {
+            "parentClass": "GestioneTuristaComune",
+            "name": "ottieniTurista",
+            "sourceCode": "public BeanTurista ottieniTurista(int pIdTurista) throws RemoteException {\r\n        // Check the validity identifier\r\n        if (pIdTurista < 0) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        BeanTurista toReturn = null; // variable return\r\n        // Retrieve data\r\n        try {\r\n            // Are requested to return the bean layer on the tourist with id equal to pIdTurista\r\n            toReturn = tourist.ottieniTurista(pIdTurista);\r\n            if (toReturn == null) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n            }\r\n        } catch (SQLException e) {\r\n            // If the data layer sends an exception, throws the remote exception\r\n            System.out.println(\"Error in method ottieniTurista: \" + e.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception ee) {\r\n            // Unexpected exceptions caused by other factors\r\n            System.out.println(\"Error in method ottieniTurista: \" + ee.toString());\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n        // Return the result\r\n        return toReturn;\r\n    }"
+        }
+    ]
+}

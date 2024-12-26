@@ -1,0 +1,19 @@
+{
+    "HealthRecordsBeanLoader": [
+        {
+            "parentClass": "HealthRecordsBeanLoader",
+            "name": "loadList",
+            "sourceCode": "public List<HealthRecord> loadList(ResultSet rs) throws SQLException {\r\n\t\tArrayList<HealthRecord> list = new ArrayList<HealthRecord>();\r\n\t\twhile (rs.next()) {\r\n\t\t\tlist.add(loadSingle(rs));\r\n\t\t}\r\n\t\treturn list;\r\n\t}"
+        },
+        {
+            "parentClass": "HealthRecordsBeanLoader",
+            "name": "loadParameters",
+            "sourceCode": "public PreparedStatement loadParameters(PreparedStatement ps, HealthRecord bean) throws SQLException {\r\n\t\tint i = 1;\r\n\t\tps.setLong(i++, bean.getPatientID());\r\n\t\tps.setDouble(i++, bean.getHeight());\r\n\t\tps.setDouble(i++, bean.getWeight());\r\n\t\tps.setInt(i++, bean.isSmoker() ? 1 : 0);\r\n\t\tps.setInt(i++, bean.getBloodPressureN());\r\n\t\tps.setInt(i++, bean.getBloodPressureD());\r\n\t\tps.setInt(i++, bean.getCholesterolHDL());\r\n\t\tps.setInt(i++, bean.getCholesterolLDL());\r\n\t\tps.setInt(i++, bean.getCholesterolTri());\r\n\t\tps.setLong(i++, bean.getPersonnelID());\r\n\t\treturn ps;\r\n\t}"
+        },
+        {
+            "parentClass": "HealthRecordsBeanLoader",
+            "name": "loadSingle",
+            "sourceCode": "public HealthRecord loadSingle(ResultSet rs) throws SQLException {\r\n\t\tHealthRecord hr = new HealthRecord();\r\n\t\thr.setBloodPressureN(rs.getInt(\"BloodPressureN\"));\r\n\t\thr.setBloodPressureD(rs.getInt(\"BloodPressureD\"));\r\n\t\thr.setCholesterolHDL(rs.getInt(\"CholesterolHDL\"));\r\n\t\thr.setCholesterolLDL(rs.getInt(\"CholesterolLDL\"));\r\n\t\thr.setCholesterolTri(rs.getInt(\"CholesterolTri\"));\r\n\t\thr.setDateRecorded(rs.getTimestamp(\"AsOfDate\"));\r\n\t\thr.setSmoker(rs.getInt(\"Smoker\") == 1);\r\n\t\thr.setHeight(rs.getDouble(\"Height\"));\r\n\t\thr.setWeight(rs.getDouble(\"Weight\"));\r\n\t\thr.setPersonnelID(rs.getLong(\"HCPID\"));\r\n\t\thr.setPatientID(rs.getLong(\"PatientID\"));\r\n\t\treturn hr;\r\n\t}"
+        }
+    ]
+}

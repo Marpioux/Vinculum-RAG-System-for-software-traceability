@@ -1,0 +1,94 @@
+{
+  "IGestioneTuristaClient": [
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "inserisciTurista",
+      "sourceCode": "boolean inserisciTurista(BeanTurista pTurista) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "inserisciPreferenzeGeneriche",
+      "sourceCode": "boolean inserisciPreferenzeGeneriche(BeanPreferenzeGeneriche pPreferenzeGeneriche) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "ottieniPreferenzeGeneriche",
+      "sourceCode": "BeanPreferenzeGeneriche ottieniPreferenzeGeneriche(int pIdTurista) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "modificaPreferenzeGeneriche",
+      "sourceCode": "boolean modificaPreferenzeGeneriche(BeanPreferenzeGeneriche pPreferenzeGenericheNuove) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "cancellaPreferenzeGeneriche",
+      "sourceCode": "BeanPreferenzeGeneriche cancellaPreferenzeGeneriche(int pIdTurista) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "inserisciPreferenzaDiRicerca",
+      "sourceCode": "boolean inserisciPreferenzaDiRicerca(int pIdTurista, BeanPreferenzaDiRicerca pPreferenzaDiRicerca) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "ottieniPreferenzeDiRicerca",
+      "sourceCode": "BeanPreferenzaDiRicerca[] ottieniPreferenzeDiRicerca(int pIdTurista) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "cancellaPreferenzeDiRicerca",
+      "sourceCode": "BeanPreferenzaDiRicerca cancellaPreferenzeDiRicerca(int pIdTurista, int pIdPreferenzaDiRicerca) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "ottieniBeniCulturaliVisitati",
+      "sourceCode": "BeanVisitaBC[] ottieniBeniCulturaliVisitati(int pIdTurista) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "ottieniPuntiDiRistoroVisitati",
+      "sourceCode": "BeanVisitaPR[] ottieniPuntiDiRistoroVisitati(int pIdTurista) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "inserisciBeneCulturaleVisitato",
+      "sourceCode": "boolean inserisciBeneCulturaleVisitato(BeanVisitaBC pVisitaBC) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "inserisciPuntoDiRistoroVisitato",
+      "sourceCode": "boolean inserisciPuntoDiRistoroVisitato(BeanVisitaPR pVisitaPR) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "inserisciBeneCulturalePreferito",
+      "sourceCode": "boolean inserisciBeneCulturalePreferito(int pIdTurista, int pIdBeneCulturale) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "inserisciPuntoDiRistoroPreferito",
+      "sourceCode": "boolean inserisciPuntoDiRistoroPreferito(int pIdTurista, int pIdPuntoDiRistoro) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "cancellaBeneCulturalePreferito",
+      "sourceCode": "boolean cancellaBeneCulturalePreferito(int pIdTurista, int pIdBeneCulturale) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "cancellaPuntoDiRistoroPreferito",
+      "sourceCode": "boolean cancellaPuntoDiRistoroPreferito(int pIdTurista, int pIdPuntoDiRistoro) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "ottieniBeniCulturaliPreferiti",
+      "sourceCode": "BeanBeneCulturale[] ottieniBeniCulturaliPreferiti(int pIdTurista) throws RemoteException;"
+    },
+    {
+      "parentClass": "IGestioneTuristaComune",
+      "name": "ottieniPuntiDiRistoroPreferiti",
+      "sourceCode": "BeanPuntoDiRistoro[] ottieniPuntiDiRistoroPreferiti(int pIdTurista) throws RemoteException;"
+    }
+  ]
+}

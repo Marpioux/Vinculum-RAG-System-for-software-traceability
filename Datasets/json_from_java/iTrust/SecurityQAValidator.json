@@ -1,0 +1,9 @@
+{
+    "SecurityQAValidator": [
+        {
+            "parentClass": "SecurityQAValidator",
+            "name": "validate",
+            "sourceCode": "@Override\r\n\tpublic void validate(SecurityQA bean) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\tif (null == bean)\r\n\t\t\tthrow new FormValidationException(\"Null form\");\r\n\r\n\t\tif (null == bean.getConfirmAnswer())\r\n\t\t\tthrow new FormValidationException(\"Confirm answer cannot be empty\");\r\n\r\n\t\tif (!bean.getAnswer().equals(bean.getConfirmAnswer()))\r\n\t\t\tthrow new FormValidationException(\"Security answers do not match\");\r\n\r\n\t\terrorList.addIfNotNull(checkFormat(\"Security Question\", bean.getQuestion(),\r\n\t\t\t\tValidationFormat.QUESTION, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Security Answer\", bean.getAnswer(), ValidationFormat.ANSWER,\r\n\t\t\t\tfalse));\r\n\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

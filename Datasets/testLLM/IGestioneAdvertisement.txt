@@ -1,0 +1,24 @@
+{
+  "IGestioneAdvertisement": [
+    {
+      "parentClass": "Remote",
+      "name": "inserisciBanner",
+      "sourceCode": "boolean inserisciBanner(int pIdPuntoDiRistoro, ImageIcon pImmagineBanner) throws RemoteException;"
+    },
+    {
+      "parentClass": "Remote",
+      "name": "cancellaBanner",
+      "sourceCode": "boolean cancellaBanner(int pBannerID) throws RemoteException;"
+    },
+    {
+      "parentClass": "Remote",
+      "name": "modificaBanner",
+      "sourceCode": "boolean modificaBanner(int pBannerID, ImageIcon pImmagine) throws RemoteException;"
+    },
+    {
+      "parentClass": "Remote",
+      "name": "ottieniBannersDaID",
+      "sourceCode": "HashMap<BeanBanner, ImageIcon> ottieniBannersDaID(int pIdPuntoDiRistoro) throws RemoteException;"
+    }
+  ]
+}

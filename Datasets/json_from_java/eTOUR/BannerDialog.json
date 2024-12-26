@@ -1,0 +1,24 @@
+{
+    "BannerDialog": [
+        {
+            "parentClass": "BannerDialog",
+            "name": "BannerDialog",
+            "sourceCode": "public BannerDialog() {\r\n        super(null);\r\n        setPreferredSize(new Dimension(420, 160));\r\n        anteprima = new JLabel();\r\n        anteprima.setBounds(new Rectangle(40, 20, 250, 60));\r\n        anteprima.setBorder(BorderFactory.createTitledBorder(\r\n                BorderFactory.createLineBorder(new Color(51, 102, 255), 3),\r\n                \"Preview Banner\", TitledBorder.DEFAULT_JUSTIFICATION,\r\n                TitledBorder.DEFAULT_POSITION,\r\n                new Font(\"Dialog\", Font.BOLD, 12), new Color(0, 102, 204)));\r\n        btnCarica = new JButton();\r\n        btnCarica.setBounds(new Rectangle(320, 30, 50, 40));\r\n        btnCarica.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"ApriFile.png\")));\r\n        btnCarica.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent arg0) {\r\n                File f = apriFileDialog();\r\n                if (f == null) {\r\n                    return;\r\n                }\r\n\r\n                BufferedImage img = null;\r\n                try {\r\n                    img = ImageIO.read(f);\r\n                    if (img.getWidth() > BANNER_SIZE.width || img.getHeight() > BANNER_SIZE.height) {\r\n                        img = img.getSubimage(0, 0, BANNER_SIZE.width, BANNER_SIZE.height);\r\n                    }\r\n                } catch (IOException e) {\r\n                    e.printStackTrace();\r\n                }\r\n                ImageIcon n = new ImageIcon(img);\r\n                anteprima.setIcon(n);\r\n                anteprima.repaint();\r\n            }\r\n        });\r\n\r\n        JLabel txtAttenzione = new JLabel(\"Warning!\");\r\n        txtAttenzione.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"warning16.png\")));\r\n        txtAttenzione.setBounds(10, 85, 100, 30);\r\n        JLabel txtTesto = new JLabel(\"<html> <ul> <li> image for the banner can not exceed <b> <font color=\\\"red\\\">\"\r\n                + BANNER_SIZE.width + \"X\" + BANNER_SIZE.height\r\n                + \"</font> </b> pixels.\"\r\n                + \"<li> Images of magnitude larger will be resized. </ul> </html>\");\r\n        txtTesto.setBounds(0, 90, 420, 80);\r\n        add(txtTesto);\r\n        add(txtAttenzione);\r\n        add(anteprima);\r\n        add(btnCarica);\r\n    }"
+        },
+        {
+            "parentClass": "BannerDialog",
+            "name": "setSelectedBanner",
+            "sourceCode": "public void setSelectedBanner(ImageIcon pBanner) {\r\n        anteprima.setIcon(pBanner);\r\n    }"
+        },
+        {
+            "parentClass": "BannerDialog",
+            "name": "getSelectedBanner",
+            "sourceCode": "public ImageIcon getSelectedBanner() {\r\n        return (ImageIcon) anteprima.getIcon();\r\n    }"
+        },
+        {
+            "parentClass": "BannerDialog",
+            "name": "apriFileDialog",
+            "sourceCode": "private File apriFileDialog() {\r\n        JFileChooser apriFile = new JFileChooser();\r\n        apriFile.setDialogTitle(\"Select a new image\");\r\n        apriFile.setAcceptAllFileFilterUsed(false);\r\n        apriFile.setMultiSelectionEnabled(false);\r\n\r\n        // File Filter for the window to open the file.\r\n        apriFile.setFileFilter(new FileFilter() {\r\n            public boolean accept(File arg0) {\r\n                if (arg0.isDirectory()) {\r\n                    return true;\r\n                }\r\n                String name = arg0.getName().toLowerCase();\r\n                return name.endsWith(\"jpg\") || name.endsWith(\"gif\") || name.endsWith(\"png\");\r\n            }\r\n\r\n            public String getDescription() {\r\n                return \"Images (*.png, *.gif, *.jpg)\";\r\n            }\r\n        });\r\n        int returnVal = apriFile.showOpenDialog(this);\r\n        return returnVal == JFileChooser.APPROVE_OPTION ? apriFile.getSelectedFile() : null;\r\n    }"
+        }
+    ]
+}

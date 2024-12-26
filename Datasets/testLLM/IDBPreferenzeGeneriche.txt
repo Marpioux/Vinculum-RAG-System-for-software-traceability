@@ -1,0 +1,24 @@
+{
+  "IDBPreferenzeGeneriche": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciPreferenzaGenerica",
+      "sourceCode": "boolean inserisciPreferenzaGenerica(BeanPreferenzeGeneriche pPreferenza) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "modificaPreferenzaGenerica",
+      "sourceCode": "boolean modificaPreferenzaGenerica(BeanPreferenzeGeneriche pPreferenza) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaPreferenzaGenerica",
+      "sourceCode": "boolean cancellaPreferenzaGenerica(int pIdPreferenza) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniPreferenzaGenerica",
+      "sourceCode": "BeanPreferenzeGeneriche ottieniPreferenzaGenerica(int pIdTurista) throws SQLException;"
+    }
+  ]
+}

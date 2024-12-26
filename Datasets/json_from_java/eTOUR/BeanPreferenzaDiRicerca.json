@@ -1,0 +1,34 @@
+{
+    "BeanPreferenzaDiRicerca": [
+        {
+            "parentClass": "BeanPreferenzaDiRicerca",
+            "name": "BeanPreferenzaDiRicerca",
+            "sourceCode": "public BeanPreferenzaDiRicerca(int pId, String pNom) {\r\n        setId(pId);\r\n        setNome(pNom);\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzaDiRicerca",
+            "name": "BeanPreferenzaDiRicerca",
+            "sourceCode": "public BeanPreferenzaDiRicerca(int pId, String pNom) {\r\n        setId(pId);\r\n        setNome(pNom);\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzaDiRicerca",
+            "name": "getName",
+            "sourceCode": "public String getName() {\r\n        return name;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzaDiRicerca",
+            "name": "setNome",
+            "sourceCode": "public void setNome(String pNom) {\r\n        name = pNom;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzaDiRicerca",
+            "name": "getId",
+            "sourceCode": "public int getId() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "BeanPreferenzaDiRicerca",
+            "name": "setId",
+            "sourceCode": "public void setId(int pId) {\r\n        id = pId;\r\n    }"
+        }
+    ]
+}

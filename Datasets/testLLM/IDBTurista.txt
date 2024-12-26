@@ -1,0 +1,69 @@
+{
+  "nameClass": [
+    {
+      "parentClass": "IDBTurista",
+      "name": "inserisciTurista",
+      "sourceCode": "boolean inserisciTurista(BeanTurista pTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "modificaTurista",
+      "sourceCode": "boolean modificaTurista(BeanTurista pTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "delete",
+      "sourceCode": "boolean delete(int pIdTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "ottieniTurista",
+      "sourceCode": "BeanTurista ottieniTurista(String pUsername) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "inserisciBeneCulturalePreferito",
+      "sourceCode": "boolean inserisciBeneCulturalePreferito(int pIdTurista, int pIdBeneCulturale) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "inserisciPuntoDiRistoroPreferito",
+      "sourceCode": "boolean inserisciPuntoDiRistoroPreferito(int pIdTurista, int pIdPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "cancellaBeneCulturalePreferito",
+      "sourceCode": "boolean cancellaBeneCulturalePreferito(int pIdTurista, int pIdBeneCulturale) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "cancellaPuntoDiRistoroPreferito",
+      "sourceCode": "boolean cancellaPuntoDiRistoroPreferito(int pIdTurista, int pIdPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "ottieniTuristi",
+      "sourceCode": "ArrayList<BeanTurista> ottieniTuristi(String pUsernameTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "ottieniTuristi",
+      "sourceCode": "ArrayList<BeanTurista> ottieniTuristi(boolean condition) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "ottieniTurista",
+      "sourceCode": "BeanTurista ottieniTurista(int pIdTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "ottieniBeniCulturaliPreferiti",
+      "sourceCode": "ArrayList<BeanBeneCulturale> ottieniBeniCulturaliPreferiti(int pIdTurista) throws SQLException;"
+    },
+    {
+      "parentClass": "IDBTurista",
+      "name": "ottieniPuntoDiRistoroPreferiti",
+      "sourceCode": "ArrayList<BeanBeneCulturale> ottieniPuntoDiRistoroPreferiti(int pIdTurista) throws SQLException;"
+    }
+  ]
+}

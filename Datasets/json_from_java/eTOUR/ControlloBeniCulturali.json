@@ -1,0 +1,24 @@
+{
+    "ControlloBeniCulturali": [
+        {
+            "parentClass": "ControlloBeniCulturali",
+            "name": "controllaDatiBeneCulturale",
+            "sourceCode": "public static boolean controllaDatiBeneCulturale(BeanBeneCulturale PBC) {\r\n        // This method checks the input parameter in the cases\r\n        // Null reference or dynamic wrong\r\n        if (PBC == null || !(PBC instanceof BeanBeneCulturale)) {\r\n            return false;\r\n        }\r\n\r\n        // This method checks if the ID passed as a parameter BeanBeneCulturale\r\n        // is valid or not\r\n        if (!controllaIdBeneCulturale(PBC.getId())) {\r\n            return false;\r\n        }\r\n\r\n        // This method checks the objects contained in BeanBeneCulturale Date\r\n        // as such, a check is made null and reference checks\r\n        // on the dynamic.\r\n        if (!controllaDateBeneCulturale(PBC)) {\r\n            return false;\r\n        }\r\n\r\n        // This method checks all the fields in BeanBeneCulturale, research\r\n        // any null references\r\n        if (!controllaDatiNulli(PBC)) {\r\n            return false;\r\n        }\r\n\r\n        // Check the correct length of string; in this case, the CAP must\r\n        // be exactly five digits, while the province must be two.\r\n        // TODO: To be completed\r\n        if (PBC.getCap().length() != 5 || PBC.getProvincia().length() != 2) {\r\n            return false;\r\n        }\r\n\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "ControlloBeniCulturali",
+            "name": "controllaDatiNulli",
+            "sourceCode": "public static boolean controllaDatiNulli(BeanBeneCulturale PBC) {\r\n        if (PBC.getCap() == null || PBC.getCitta() == null || PBC.getDescrizione() == null || \r\n            PBC.getGiornoChiusura() == null || PBC.getLocalita() == null || \r\n            PBC.getNome() == null || PBC.getOrarioApertura() == null || \r\n            PBC.getOrarioChiusura() == null || PBC.getProvincia() == null || \r\n            PBC.getTelefono() == null || PBC.getVia() == null) {\r\n            return false;\r\n        }\r\n\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "ControlloBeniCulturali",
+            "name": "controllaDateBeneCulturale",
+            "sourceCode": "public static boolean controllaDateBeneCulturale(BeanBeneCulturale PBC) {\r\n        if (PBC.getOrarioApertura() == null || !(PBC.getOrarioApertura() instanceof Date) || \r\n            PBC.getOrarioChiusura() == null || !(PBC.getOrarioChiusura() instanceof Date)) {\r\n            return false;\r\n        }\r\n\r\n        return true;\r\n    }"
+        },
+        {
+            "parentClass": "ControlloBeniCulturali",
+            "name": "controllaIdBeneCulturale",
+            "sourceCode": "public static boolean controllaIdBeneCulturale(int pId) {\r\n        return (pId > 0);\r\n    }"
+        }
+    ]
+}

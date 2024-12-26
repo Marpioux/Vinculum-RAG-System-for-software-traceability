@@ -1,0 +1,14 @@
+{
+    "AdverseEventValidator": [
+        {
+            "parentClass": "AdverseEventValidator",
+            "name": "AdverseEventValidator",
+            "sourceCode": "public AdverseEventValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "AdverseEventValidator",
+            "name": "validate",
+            "sourceCode": "@Override\r\n\tpublic void validate(AdverseEventBean b) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();errorList.addIfNotNull(checkFormat(\"comment\", b.getDescription(), ValidationFormat.ADVERSE_EVENT_COMMENTS,false));\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

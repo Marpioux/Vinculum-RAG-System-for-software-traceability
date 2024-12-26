@@ -1,0 +1,34 @@
+{
+  "IDBConvenzione": [
+    {
+      "parentClass": "Authentication",
+      "name": "inserisciConvenzione",
+      "sourceCode": "boolean inserisciConvenzione(BeanConvenzione pConvenzione) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "modificaConvenzione",
+      "sourceCode": "boolean modificaConvenzione(BeanConvenzione pConvenzione) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "cancellaConvenzione",
+      "sourceCode": "boolean cancellaConvenzione(int pIdConvenzione) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniStoricoConvenzione",
+      "sourceCode": "ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int idPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniConvenzioneAttiva",
+      "sourceCode": "BeanConvenzione ottieniConvenzioneAttiva(int pIdPuntoDiRistoro) throws SQLException;"
+    },
+    {
+      "parentClass": "Authentication",
+      "name": "ottieniListaConvenzioneAttivaPR",
+      "sourceCode": "ArrayList<BeanPuntoDiRistoro> ottieniListaConvenzioneAttivaPR() throws SQLException;"
+    }
+  ]
+}

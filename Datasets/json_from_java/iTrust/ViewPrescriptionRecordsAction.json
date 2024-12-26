@@ -1,0 +1,29 @@
+{
+    "ViewPrescriptionRecordsAction": [
+        {
+            "parentClass": "ViewPrescriptionRecordsAction",
+            "name": "ViewPrescriptionRecordsAction",
+            "sourceCode": "public ViewPrescriptionRecordsAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.emailer = new EmailUtil(factory);\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.personnelDAO = factory.getPersonnelDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t}"
+        },
+        {
+            "parentClass": "ViewPrescriptionRecordsAction",
+            "name": "getPatient",
+            "sourceCode": "public PatientBean getPatient(long patientID) throws iTrustException {\r\n\t\treturn patientDAO.getPatient(patientID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewPrescriptionRecordsAction",
+            "name": "getRepresentees",
+            "sourceCode": "public List<PatientBean> getRepresentees() throws iTrustException {\r\n\t\treturn patientDAO.getRepresented(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewPrescriptionRecordsAction",
+            "name": "getPrescribingDoctor",
+            "sourceCode": "public PersonnelBean getPrescribingDoctor(PrescriptionBean prescription) throws iTrustException {\r\n\t\treturn personnelDAO.getPrescribingDoctor(prescription);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewPrescriptionRecordsAction",
+            "name": "getPrescriptionsForPatient",
+            "sourceCode": "public List<PrescriptionBean> getPrescriptionsForPatient(long patientID) throws iTrustException {\r\n\t\tPatientBean patient = patientDAO.getPatient(patientID);\r\n\t\tif (loggedInMID == patientID) {\r\n\t\t\ttransDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n\t\t\treturn patientDAO.getPrescriptions(patientID);\r\n\t\t}\r\n\t\t\r\n\t\tList<String> toList = new ArrayList<String>();\r\n\t\ttoList.add(patient.getEmail());\r\n\t\t\r\n\t\tList<PatientBean> representatives = patientDAO.getRepresenting(patientID);\r\n\t\tfor(PatientBean representative : representatives) {\r\n\t\t\tif (loggedInMID == representative.getMID()) {\r\n\t\t\t\ttransDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n\t\t\t\treturn patientDAO.getPrescriptions(patientID);\r\n\t\t\t}\r\n\t\t\ttoList.add(representative.getEmail());\r\n\t\t}\r\n\t\t\r\n\t\tList<PersonnelBean> dlhcps = patientDAO.getDeclaredHCPs(patientID);\r\n\t\tfor(PersonnelBean dlhcp : dlhcps) {\r\n\t\t\tif (loggedInMID == dlhcp.getMID()) {\r\n\t\t\t\ttransDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n\t\t\t\treturn patientDAO.getPrescriptions(patientID);\r\n\t\t\t}\r\n\t\t\tList<PersonnelBean> uaps = personnelDAO.getUAPsForHCP(dlhcp.getMID());\r\n\t\t\tfor(PersonnelBean uap : uaps) {\r\n\t\t\t\tif (loggedInMID == uap.getMID()) {\r\n\t\t\t\t\ttransDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n\t\t\t\t\treturn patientDAO.getPrescriptions(patientID);\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t\t\r\n\t\tEmail email = new Email();\r\n\t\temail.setToList(toList);\r\n\t\temail.setFrom(\"noreply@itrust.com\"); //$NON-NLS-1$\r\n\t\temail.setSubject(Messages.getString(\"ViewPrescriptionRecordsAction.1\")); //$NON-NLS-1$\r\n\t\temail.setBody(Messages.getString(\"ViewPrescriptionRecordsAction.2\")); //$NON-NLS-1$\r\n\t\temailer.sendEmail(email);\r\n\t\ttransDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n\t\treturn patientDAO.getPrescriptions(patientID);\r\n\t}"
+        }
+    ]
+}

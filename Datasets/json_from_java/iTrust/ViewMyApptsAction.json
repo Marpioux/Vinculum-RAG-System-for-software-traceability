@@ -1,0 +1,24 @@
+{
+    "ViewMyApptsAction": [
+        {
+            "parentClass": "ViewMyApptsAction",
+            "name": "ViewMyApptsAction",
+            "sourceCode": "public ViewMyApptsAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.apptDAO = factory.getApptDAO();\r\n\t\tthis.patientDAO = factory.getPatientDAO();\r\n\t\tthis.personnelDAO = factory.getPersonnelDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyApptsAction",
+            "name": "getMyAppointments",
+            "sourceCode": "public List<ApptBean> getMyAppointments() throws SQLException {\r\n\t\treturn apptDAO.getApptsFor(loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyApptsAction",
+            "name": "getName",
+            "sourceCode": "public String getName(long mid) throws iTrustException {\r\n\t\tif(mid < 7000000000L)\r\n\t\t\treturn patientDAO.getName(mid);\r\n\t\telse\r\n\t\t\treturn personnelDAO.getName(mid);\r\n\t}"
+        },
+        {
+            "parentClass": "ViewMyApptsAction",
+            "name": "getAllAppts",
+            "sourceCode": "public List<ApptBean> getAllAppts()  throws SQLException {\r\n\t\treturn apptDAO.getAllAppts();\r\n\t}"
+        }
+    ]
+}

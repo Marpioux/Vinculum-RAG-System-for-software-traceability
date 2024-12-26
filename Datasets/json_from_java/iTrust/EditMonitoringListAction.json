@@ -1,0 +1,29 @@
+{
+    "EditMonitoringListAction": [
+        {
+            "parentClass": "EditMonitoringListAction",
+            "name": "EditMonitoringListAction",
+            "sourceCode": "public EditMonitoringListAction(DAOFactory factory, long loggedInMID) {\r\n\t\tthis.loggedInMID = loggedInMID;\r\n\t\tthis.rmDAO = factory.getRemoteMonitoringDAO();\r\n\t\tthis.transDAO = factory.getTransactionDAO();\r\n\t\tthis.authDAO = factory.getAuthDAO();\r\n\t}"
+        },
+        {
+            "parentClass": "EditMonitoringListAction",
+            "name": "addToList",
+            "sourceCode": "public boolean addToList(long patientMID) throws DBException {\r\n\t\ttransDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID, patientMID, \"add\");\r\n\t\treturn rmDAO.addPatientToList(patientMID, loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "EditMonitoringListAction",
+            "name": "removeFromList",
+            "sourceCode": "public boolean removeFromList(long patientMID) throws DBException {\r\n\t\ttransDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID, patientMID, \"delete\");\r\n\t\treturn rmDAO.removePatientFromList(patientMID, loggedInMID);\r\n\t}"
+        },
+        {
+            "parentClass": "EditMonitoringListAction",
+            "name": "isPatientInList",
+            "sourceCode": "public boolean isPatientInList(long patientMID) throws DBException {\r\n\t\tList<RemoteMonitoringDataBean> dataset = rmDAO.getPatientsData(loggedInMID);\r\n\t\tfor(RemoteMonitoringDataBean d: dataset) {\r\n\t\t\tif(d.getPatientMID() == patientMID)\r\n\t\t\t\treturn true;\r\n\t\t}\r\n\t\treturn false;\r\n\t}"
+        },
+        {
+            "parentClass": "EditMonitoringListAction",
+            "name": "getPatientName",
+            "sourceCode": "public String getPatientName(long pid) throws DBException, iTrustException {\r\n\t\treturn authDAO.getUserName(pid);\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "ControllaPrenotazione": [
+        {
+            "parentClass": "ControllaPrenotazione",
+            "name": "ControllaPrenotazione",
+            "sourceCode": "public ControllaPrenotazione(Prenotazione pren, Stanza room, PrenotazioniScadute papa)\n    {\n        super(room,\"\",\"\",\"Controlla dei dati della prenotazione\",\" Rinnova \",5,pren.getPensionamento());\n        p = pren;\n        parent = papa;\n        init();\n    }"
+        },
+        {
+            "parentClass": "ControllaPrenotazione",
+            "name": "init",
+            "sourceCode": "public void init()\n    {\n    \twriteDatiPren(p);\n    \tfor(int i=0; i<11; i++)\n    \t\ttesto[i].setEditable(false);\n    \ttesto[9].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getDataPren())));\t    \n     \n    \n    \tAzione.addActionListener(new ActionListener()\n    \t{\n            public void actionPerformed(ActionEvent e)\n            {\n\t\t\t\tstartRinnova();\n            \tdispose();\n            \tparent.dispose();\n            \tstartUpdate();\n\n            }       \n    \t});\n    \t\n    \tCancella.addActionListener(new ActionListener()\n    \t{\n            public void actionPerformed(ActionEvent e)\n            {\n\t\t\t\tstartCancella();\n\t\t\t\tdispose();\n            \tparent.dispose();\n            \tstartUpdate();\n\n            }       \n    \t});\n\n    }"
+        },
+        {
+            "parentClass": "ControllaPrenotazione",
+            "name": "startUpdate",
+            "sourceCode": "void startUpdate()\n\t{\n          \tFrame supp = (parent.padre).p;\n           \t((Principale) supp).updateBloccate();\n\t}"
+        },
+        {
+            "parentClass": "ControllaPrenotazione",
+            "name": "startCancella",
+            "sourceCode": "void startCancella()\n\t{\n\t\tFrame msg;\n\t\tListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\n\t\tif (elenco_disp != null)\n\t\t{\n\t\t\t(Principale.db).delPrenotazione(p.getIdPrenotazione());\n    \t  \tUtils.aggiornaDisp(elenco_disp, p.getNumStanza(), p.getInizioSogg(), p.getFineSogg(), Flag.DISPONIBILE, Flag.BLOCCATA, true);\n       \t\tif (p.getTramiteAgenzia() == Const.SI)\n\t       \t\tUtils.restoreCommissioni(p.getNumStanza());\n    \t   \tdispose();\n       \t\tpadre.setEnabled(true);\n       \t}\n       \telse\n       \t\tmsg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita! \");\n\t}"
+        },
+        {
+            "parentClass": "ControllaPrenotazione",
+            "name": "startRinnova",
+            "sourceCode": "void startRinnova()\n\t{\n\t\tp.setDataPren(new Date());\n\t\t(Principale.db).changePrenotazione(p.getIdPrenotazione(), p.getNumStanza(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\tp.getNumPers(),p.getNome(),p.getCognome(), \n\t\t\t\t\t\t\t\t\t\t\t\t\t\tp.getNumTel(), p.getInizioSogg(), p.getFineSogg(), p.getDataPren(),\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tp.getCaparra(), p.getRichLettoAgg(), p.getPensionamento(),\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tp.getTramiteAgenzia(), p.getNomeAgenzia(), p.getRichParticolari());\t\n\t\tdispose();\n\t\tparent.setEnabled(true);\t\t\n\t\n\t}"
+        }
+    ]
+}

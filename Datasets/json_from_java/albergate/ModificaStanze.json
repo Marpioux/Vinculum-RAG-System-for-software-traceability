@@ -1,0 +1,24 @@
+{
+    "ModificaStanze": [
+        {
+            "parentClass": "ModificaStanze",
+            "name": "ModificaStanze",
+            "sourceCode": "public ModificaStanze()\n\t{\n\t\tsuper(\"Modifica dei dati delle stanze\", \"Modifica\", 2);\n\t\tinit();\n\t}"
+        },
+        {
+            "parentClass": "ModificaStanze",
+            "name": "init",
+            "sourceCode": "public void init()\n\t{\n\t\ttesto1.setEditable(true);\n\t\ttesto2.setEditable(false);\n\t\ttesto3.setEditable(false);\n\t\ttesto4.setEditable(false);\n\t\tmycheckboxes.setEnabled(false);\n\t\tAzione.setEnabled(false);\n\t\t\n\t\tAzione.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tstartAzione();\n\t\t\t}\n\t\t});\n      \n\t\ttesto1.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tstartTesto1();\n\t\t\t}\t\t\t      \t\n\t\t});\n\t\t\n\t\tCerca.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tstartTesto1();\n\t\t\t}\t\t\t      \t\n\t\t});\n    }"
+        },
+        {
+            "parentClass": "ModificaStanze",
+            "name": "startAzione",
+            "sourceCode": "void startAzione()\n\t{\n\t\tMessageDialog msg;\n\t\t\n\t\tif (!errori())\n\t\t{\n\t\t\tStanza room = readDatiStanza();\t\t\t\t\t\n\t\t\tint j;\n\t\t\tif( (j = (Principale.db).changeStanza(room.getNumStanza(), room.getPostiLetto(), \n\t\t\t\t\t\t\troom.getDispLettoAgg(), room.getPxBase(), \n\t\t\t\t\t\t\troom.getDescrizione())) == DataBase.OK)\n\t\t\t{\n\t\t\t\tcleanFields();\n\t\t\t\ttesto1.setEditable(true);\n\t\t\t\ttesto2.setEditable(false);\n\t\t\t\ttesto3.setEditable(false);\n\t\t\t\ttesto4.setEditable(false);\n\t\t\t\tmycheckboxes.setEnabled(false);\n\t\t\t\tAzione.setEnabled(false);\n\t\t\t}\n\t\t\telse\n\t\t\t\tmsg = new MessageDialog(this, \"Problemi con il data base: \"+DataBase.strErrore(j));\n\t\t}\n\t}"
+        },
+        {
+            "parentClass": "ModificaStanze",
+            "name": "startTesto1",
+            "sourceCode": "void startTesto1()\n\t{\n\t\tMessageDialog msg;\n\n\t\tStanza room;\n\t\tif ((room = (Principale.db).readStanza(testo1.getText())) != null)\n\t\t{\n\t\t\twriteDatiStanza(room);\n\t\t\ttesto1.setEditable(false);\n\t\t\ttesto2.setEditable(true);\n\t\t\ttesto3.setEditable(true);\n\t\t\ttesto4.setEditable(true);\n\t\t\tmycheckboxes.setEnabled(true);\n\t\t\tAzione.setEnabled(true);\n\t\t}\n\t\telse\n\t\t\tmsg = new MessageDialog(this, \"Stanza inesistente!\");\n\t}"
+        }
+    ]
+}

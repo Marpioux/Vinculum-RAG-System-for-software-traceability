@@ -1,0 +1,29 @@
+{
+    "ProcedureBeanLoader": [
+        {
+            "parentClass": "ProcedureBeanLoader",
+            "name": "ProcedureBeanLoader",
+            "sourceCode": "public ProcedureBeanLoader() {\r\n\t\tthis.loadOVProcedureID = false;\r\n\t}"
+        },
+        {
+            "parentClass": "ProcedureBeanLoader",
+            "name": "ProcedureBeanLoader",
+            "sourceCode": "public ProcedureBeanLoader() {\r\n\t\tthis.loadOVProcedureID = false;\r\n\t}"
+        },
+        {
+            "parentClass": "ProcedureBeanLoader",
+            "name": "loadList",
+            "sourceCode": "public List<ProcedureBean> loadList(ResultSet rs) throws SQLException {\r\n\t\tArrayList<ProcedureBean> list = new ArrayList<ProcedureBean>();\r\n\t\twhile (rs.next()) {\r\n\t\t\tlist.add(loadSingle(rs));\r\n\t\t}\r\n\t\treturn list;\r\n\t}"
+        },
+        {
+            "parentClass": "ProcedureBeanLoader",
+            "name": "loadSingle",
+            "sourceCode": "public ProcedureBean loadSingle(ResultSet rs) throws SQLException {\r\n\t\tProcedureBean procedure = new ProcedureBean(rs.getString(\"Code\"));\r\n\t\tprocedure.setDescription(rs.getString(\"Description\"));\r\n\t\tprocedure.setAttribute(rs.getString(\"Attribute\"));\r\n\t\tif (loadOVProcedureID) {\r\n\t\t\tprocedure.setOvProcedureID(rs.getLong(\"ID\"));\r\n\t\t\tprocedure.setDate(rs.getDate(\"visitDate\"));\r\n\t\t}\r\n\t\t\r\n\t\treturn procedure;\r\n\r\n\t}"
+        },
+        {
+            "parentClass": "ProcedureBeanLoader",
+            "name": "loadParameters",
+            "sourceCode": "public PreparedStatement loadParameters(PreparedStatement ps, ProcedureBean bean) throws SQLException {\r\n\t\tps.setString(1, bean.getDescription());\r\n\t\treturn ps;\r\n\t}"
+        }
+    ]
+}

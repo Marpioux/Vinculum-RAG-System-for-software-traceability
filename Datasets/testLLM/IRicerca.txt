@@ -1,0 +1,29 @@
+{
+  "IRicerca": [
+    {
+      "parentClass": "Remote",
+      "name": "search",
+      "sourceCode": "int search(int pIdTurista, String pParoleChiave, int[] pTagsId, double pRaggioMax, int pElementiPerPagina, Punto3D pPosizioneUtente, byte pTipologiaSito) throws RemoteException;"
+    },
+    {
+      "parentClass": "Remote",
+      "name": "ottieniPaginaRisultatiBeneCulturale",
+      "sourceCode": "BeanBeneCulturale[] ottieniPaginaRisultatiBeneCulturale(int pPagina) throws RemoteException;"
+    },
+    {
+      "parentClass": "Remote",
+      "name": "ottieniPaginaRisultatiPuntoDiRistoro",
+      "sourceCode": "BeanPuntoDiRistoro[] ottieniPaginaRisultatiPuntoDiRistoro(int pPagina) throws RemoteException;"
+    },
+    {
+      "parentClass": "Remote",
+      "name": "ottieniNumeroElementiRicerca",
+      "sourceCode": "int ottieniNumeroElementiRicerca() throws RemoteException;"
+    },
+    {
+      "parentClass": "Remote",
+      "name": "ottieniNumeroPagineRicerca",
+      "sourceCode": "int ottieniNumeroPagineRicerca() throws RemoteException;"
+    }
+  ]
+}

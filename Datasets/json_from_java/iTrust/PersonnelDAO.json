@@ -1,0 +1,59 @@
+{
+    "PersonnelDAO": [
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "PersonnelDAO",
+            "sourceCode": "public PersonnelDAO(DAOFactory factory) {\r\n\t\tthis.factory = factory;\r\n\t\tpersonnelLoader = new PersonnelLoader();\r\n\t\thospitalBeanLoader = new HospitalBeanLoader();\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "getName",
+            "sourceCode": "public String getName(long mid) throws iTrustException, DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement pstmt = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tpstmt = conn.prepareStatement(\"SELECT firstName, lastName FROM Personnel WHERE MID=?\");\r\n\t\t\tpstmt.setLong(1, mid);\r\n\t\t\tResultSet rs;\r\n\r\n\t\t\trs = pstmt.executeQuery();\r\n\t\t\tif (rs.next()) {\r\n\t\t\t\treturn rs.getString(\"firstName\") + \" \" + rs.getString(\"lastName\");\r\n\t\t\t} else {\r\n\t\t\t\tthrow new iTrustException(\"User does not exist\");\r\n\t\t\t}\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, pstmt);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "addEmptyPersonnel",
+            "sourceCode": "public long addEmptyPersonnel(Role role) throws DBException, iTrustException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\tlong newID;\r\n\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"INSERT INTO Personnel(Role) VALUES(?)\");\r\n\t\t\tps.setString(1, role.name());\r\n\t\t\tps.executeUpdate();\r\n\t\t\tnewID = DBUtil.getLastInsert(conn);\r\n\t\t\treturn newID;\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "getPersonnel",
+            "sourceCode": "public PersonnelBean getPersonnel(long mid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID = ?\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\tif (rs.next()) {\r\n\t\t\t\treturn personnelLoader.loadSingle(rs);\r\n\t\t\t} else\r\n\t\t\t\treturn null;\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "editPersonnel",
+            "sourceCode": "public void editPersonnel(PersonnelBean p) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"UPDATE Personnel SET AMID=?,firstName=?,lastName=?,\"\r\n\t\t\t\t\t+ \"phone1=?,phone2=?,phone3=?, address1=?,address2=?,city=?, state=?, zip=?, zip1=?, zip2=?, email=?, MessageFilter=?\"\r\n\t\t\t\t\t+ \" WHERE MID=?\");\r\n\t\t\tpersonnelLoader.loadParameters(ps, p);\r\n\t\t\tps.setLong(16, p.getMID());\r\n\t\t\tps.executeUpdate();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "checkPersonnelExists",
+            "sourceCode": "public boolean checkPersonnelExists(long pid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID=?\");\r\n\t\t\tps.setLong(1, pid);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn rs.next();\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "getHospitals",
+            "sourceCode": "public List<HospitalBean> getHospitals(long mid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM HCPAssignedHos hah,Hospitals h \"\r\n\t\t\t\t\t+ \"WHERE hah.HCPID=? AND hah.HosID=h.HospitalID ORDER BY HospitalName ASC\");\r\n\t\t\tps.setLong(1, mid);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn hospitalBeanLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "getAllPersonnel",
+            "sourceCode": "public List<PersonnelBean> getAllPersonnel() throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM personnel where role in ('hcp','uap','er') \");\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn personnelLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "getUAPsForHCP",
+            "sourceCode": "public List<PersonnelBean> getUAPsForHCP(long hcpid) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID IN (SELECT UAP FROM HCPRelations WHERE HCP=?)\");\r\n\t\t\tps.setLong(1, hcpid);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn personnelLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "getPrescribingDoctor",
+            "sourceCode": "public PersonnelBean getPrescribingDoctor(PrescriptionBean prescription) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID IN (SELECT HCPID FROM OfficeVisits WHERE ID=?)\");\r\n\t\t\tps.setLong(1, prescription.getVisitID());\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn personnelLoader.loadList(rs).get(0);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        },
+        {
+            "parentClass": "PersonnelDAO",
+            "name": "searchForPersonnelWithName",
+            "sourceCode": "public List<PersonnelBean> searchForPersonnelWithName(String first, String last) throws DBException {\r\n\t\tConnection conn = null;\r\n\t\tPreparedStatement ps = null;\r\n\t\t\r\n\t\tif (first.equals(\"%\") && last.equals(\"%\")) return new Vector<PersonnelBean>();\r\n\t\t\r\n\t\ttry {\r\n\t\t\tconn = factory.getConnection();\r\n\t\t\t\r\n\t\t\tps = conn.prepareStatement(\"SELECT * FROM personnel WHERE firstName LIKE ? AND lastName LIKE ?\");\r\n\t\t\tps.setString(1, first);\r\n\t\t\tps.setString(2, last);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\treturn personnelLoader.loadList(rs);\r\n\t\t} catch (SQLException e) {\r\n\t\t\te.printStackTrace();\r\n\t\t\tthrow new DBException(e);\r\n\t\t} finally {\r\n\t\t\tDBUtil.closeConnection(conn, ps);\r\n\t\t}\r\n\t}"
+        }
+    ]
+}

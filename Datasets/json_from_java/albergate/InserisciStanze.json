@@ -1,0 +1,19 @@
+{
+    "InserisciStanze": [
+        {
+            "parentClass": "InserisciStanze",
+            "name": "InserisciStanze",
+            "sourceCode": "public InserisciStanze()\n\t{\n\t\tsuper(\"Inserimento dei dati delle stanze\", \"Inserisci\",1);\n\t\tinit();\n\t}"
+        },
+        {
+            "parentClass": "InserisciStanze",
+            "name": "init",
+            "sourceCode": "public void init()\n\t{\n\t\tCerca.setEnabled(false);\n\t\t\n\t\tAzione.addActionListener(new ActionListener()\n\t\t{\n\t\t\tpublic void actionPerformed(ActionEvent e)\n\t\t\t{\n\t\t\t\tstartAzione();\n\t\t\t}\n\t\t});\n\t}"
+        },
+        {
+            "parentClass": "InserisciStanze",
+            "name": "startAzione",
+            "sourceCode": "void startAzione()\n\t{\n\t\tFrame msg;\n\t\tListaStanze L_st = (Principale.db).elencoStanze();\n\t\tif ( L_st.length() < (Principale.config).getNumStanze() ) \n\t\t{\t\n\t\t\tif ( !errori() )\n\t\t\t{\n\t\t\t\tStanza room = readDatiStanza();\n\t\t\t\tint j;\n\t\t\t\tif ((j = (Principale.db).writeStanza(room)) == DataBase.OK)\n\t\t\t\t{\n\t\t\t\t\tcleanFields();\n\t\t\t\t}\n\t\t\t\telse\n\t\t\t\t\tmsg = new MessageDialog(this, \"Problemi con il data base: \"+DataBase.strErrore(j));\n\t\t\t}\n\t\t}\n\t\telse\n\t\t\tmsg = new AvvisoDialog(this, \"Impossibile inserire la stanza: e' stato raggiunto il numero massimo di stanze gestibile\");\t\t\t\n\t}"
+        }
+    ]
+}

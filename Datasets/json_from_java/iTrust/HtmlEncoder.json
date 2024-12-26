@@ -1,0 +1,14 @@
+{
+    "HtmlEncoder": [
+        {
+            "parentClass": "HtmlEncoder",
+            "name": "encode",
+            "sourceCode": "public static String encode(String input) {\r\n\t\tif (input == null)\r\n\t\t\treturn input;\r\n\t\tString str = input.replaceAll(\"<\", \"&lt;\");\r\n\t\tstr = str.replaceAll(\">\", \"&gt;\");\r\n\t\tstr = str.replaceAll(\"\\n\", \"<br />\");\r\n\t\treturn str;\r\n\t}"
+        },
+        {
+            "parentClass": "HtmlEncoder",
+            "name": "URLOnSite",
+            "sourceCode": "public static boolean URLOnSite(String input) {\r\n\t\treturn !(input.contains(\"http://\"));\r\n\t}"
+        }
+    ]
+}

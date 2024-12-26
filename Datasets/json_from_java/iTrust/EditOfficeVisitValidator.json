@@ -1,0 +1,19 @@
+{
+    "EditOfficeVisitValidator": [
+        {
+            "parentClass": "EditOfficeVisitValidator",
+            "name": "EditOfficeVisitValidator",
+            "sourceCode": "public EditOfficeVisitValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "EditOfficeVisitValidator",
+            "name": "EditOfficeVisitValidator",
+            "sourceCode": "public EditOfficeVisitValidator() {\r\n\t}"
+        },
+        {
+            "parentClass": "EditOfficeVisitValidator",
+            "name": "validate",
+            "sourceCode": "@Override\r\n\tpublic void validate(EditOfficeVisitForm form) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"HCP ID\", form.getHcpID(), ValidationFormat.MID, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Hospital ID\", form.getHospitalID(), ValidationFormat.HOSPITAL_ID,\r\n\t\t\t\ttrue));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Notes\", form.getNotes(), ValidationFormat.NOTES, true));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Patient ID\", form.getPatientID(), ValidationFormat.MID, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Visit Date\", form.getVisitDate(), ValidationFormat.DATE, false));\r\n\t\tif (validatePrescription) {\r\n\t\t\terrorList.addIfNotNull(checkFormat(\"Start Date\", form.getStartDate(), ValidationFormat.DATE,\r\n\t\t\t\t\tfalse));\r\n\t\t\terrorList.addIfNotNull(checkFormat(\"End Date\", form.getEndDate(), ValidationFormat.DATE, false));\r\n\t\t\terrorList.addIfNotNull(checkFormat(\"Instructions\", form.getInstructions(),\r\n\t\t\t\t\tValidationFormat.NOTES, true));\r\n\t\t\terrorList.addIfNotNull(checkInt(\"Dosage\", form.getDosage(), 0, 9999, false));\r\n\t\t\tif ((checkFormat(\"Start Date\", form.getStartDate(), ValidationFormat.DATE, false)) == \"\"\r\n\t\t\t\t\t&& (checkFormat(\"End Date\", form.getEndDate(), ValidationFormat.DATE, false)) == \"\") {\r\n\t\t\t\tDate sd = null;\r\n\t\t\t\tDate ed = null;\r\n\t\t\t\ttry {\r\n\t\t\t\t\tsd = new SimpleDateFormat(\"MM/dd/yyyy\").parse(form.getStartDate());\r\n\t\t\t\t\ted = new SimpleDateFormat(\"MM/dd/yyyy\").parse(form.getEndDate());\r\n\t\t\t\t\tString dateError = null;\r\n\t\t\t\t\tif (sd.after(ed)) {\r\n\t\t\t\t\t\tdateError = \"The start date of the prescription must be before the end date.\";\r\n\t\t\t\t\t}\r\n\t\t\t\t\terrorList.addIfNotNull(dateError);\r\n\t\t\t\t} catch (ParseException e) {\r\n\t\t\t\t\terrorList.addIfNotNull(ValidationFormat.DATE.getDescription());\r\n\t\t\t\t}\r\n\r\n\t\t\t}\r\n\t\t}\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "ApptBeanValidator": [
+        {
+            "parentClass": "ApptBeanValidator",
+            "name": "validate",
+            "sourceCode": "public void validate(ApptBean bean) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\tif(bean.getComment() == null)\r\n\t\t\treturn;\r\n\t\terrorList.addIfNotNull(checkFormat(\"Appointment Comment\", bean.getComment(), ValidationFormat.APPT_COMMENT, false));\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
+        }
+    ]
+}

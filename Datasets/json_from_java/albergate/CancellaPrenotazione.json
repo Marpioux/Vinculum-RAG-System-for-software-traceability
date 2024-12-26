@@ -1,0 +1,19 @@
+{
+    "CancellaPrenotazione": [
+        {
+            "parentClass": "CancellaPrenotazione",
+            "name": "CancellaPrenotazione",
+            "sourceCode": "public CancellaPrenotazione(Prenotazione pren, Stanza room, RicercaPrenotazione papa)\n    {\n        super(room,\"\",\"\",\"Cancellazione della prenotazione\",\"Cancella\",3, pren.getPensionamento());\n        p = pren;\n        parent = papa;\n        init();\n    }"
+        },
+        {
+            "parentClass": "CancellaPrenotazione",
+            "name": "init",
+            "sourceCode": "public void init()\n    {\n    \twriteDatiPren(p);\n    \tfor(int i=0; i<11; i++)\n    \t\ttesto[i].setEditable(false);\n    \tmyCheckbox.setEnabled(false);\n    \tmyCheckbox1.setEnabled(false);\n    \tfor (int i=0; i<checkboxes.length; i++)\n    \t\tcheckboxes[i].setEnabled(false);\n    \ttesto[9].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getDataPren())));\t    \n     \n    \n    \tAzione.addActionListener(new ActionListener()\n    \t{\n            public void actionPerformed(ActionEvent e)\n            {\n\t\t\t\tstartCancella();\n            }       \n    \t});\n\n    }"
+        },
+        {
+            "parentClass": "CancellaPrenotazione",
+            "name": "startCancella",
+            "sourceCode": "void startCancella()\n\t{\n\t\tFrame msg;\n\t\t(Principale.db).delPrenotazione(p.getIdPrenotazione());\t\n       \taggiornaDisp(p, Flag.DISPONIBILE);\n       \tUtils.restoreCommissioni(p.getNumStanza());\n       \tparent.creaLista(1);\n        dispose();\n        padre.setEnabled(true);\n\t}"
+        }
+    ]
+}

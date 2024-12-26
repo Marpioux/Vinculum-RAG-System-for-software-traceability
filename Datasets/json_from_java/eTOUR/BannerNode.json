@@ -1,0 +1,39 @@
+{
+    "BannerNode": [
+        {
+            "parentClass": "BannerNode",
+            "name": "BannerNode",
+            "sourceCode": "public BannerNode() {\r\n        super();\r\n    }"
+        },
+        {
+            "parentClass": "BannerNode",
+            "name": "BannerNode",
+            "sourceCode": "public BannerNode() {\r\n        super();\r\n    }"
+        },
+        {
+            "parentClass": "BannerNode",
+            "name": "getParent",
+            "sourceCode": "public PRNode getParent() {\r\n        return (PRNode) super.getParent();\r\n    }"
+        },
+        {
+            "parentClass": "BannerNode",
+            "name": "getID",
+            "sourceCode": "public int getID() {\r\n        return id;\r\n    }"
+        },
+        {
+            "parentClass": "BannerNode",
+            "name": "setID",
+            "sourceCode": "public void setID(int pid) {\r\n        id = pid;\r\n    }"
+        },
+        {
+            "parentClass": "BannerNode",
+            "name": "getBanner",
+            "sourceCode": "public ImageIcon getBanner() {\r\n        return (ImageIcon) getUserObject();\r\n    }"
+        },
+        {
+            "parentClass": "BannerNode",
+            "name": "setBanner",
+            "sourceCode": "public void setBanner(ImageIcon pImmagine) throws IllegalArgumentException {\r\n        if (pImmagine == null) {\r\n            throw new IllegalArgumentException(\"Image is invalid.\");\r\n        }\r\n        setUserObject(pImmagine);\r\n    }"
+        }
+    ]
+}
