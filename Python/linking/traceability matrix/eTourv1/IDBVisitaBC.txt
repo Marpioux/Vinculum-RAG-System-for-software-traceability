@@ -1,0 +1,2 @@
+IDBVisitaBC -> UC50.TXT  
+IDBVisitaBC -> UC53.TXT

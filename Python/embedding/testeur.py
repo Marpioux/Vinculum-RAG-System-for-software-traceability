@@ -1,17 +1,22 @@
-from langchain_community.vectorstores.redis import Redis
-from langchain_openai import OpenAIEmbeddings
-import os
-import getpass
+import redis
+from langchain_core.documents import Document
 
-if not os.environ.get("OPENAI_API_KEY"):
-  os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter API key for OpenAI: ")
+# Connexion à Redis
+redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
 
-vector_store = Redis(
-    redis_url="redis://localhost:8001",
-    embedding=OpenAIEmbeddings(),
-    index_name="doc",
-)
+# Fonction pour rechercher un document par son contenu
+def find_name_by_page_content(page_content):
+    # Recherche le contenu dans Redis (par exemple avec un hash ou une clé préfixée)
+    search_key = f"document:{page_content[:50]}"  # Utilisez une partie du contenu pour former une clé unique
 
-results = vector_store.similarity_search(query="MediaVotiRenderer",k=1)
-for doc in results:
-    print(f"* {doc.page_content} [{doc.metadata}]")
+    # Récupère le nom du fichier associé
+    document_name = redis_client.hget(search_key, "text")  # Recherche du 'name' dans les métadonnées
+    if document_name:
+        return document_name
+    else:
+        return "Document not found"
+
+# Exemple de récupération du name pour un page_content donné
+page_content_example = "Use case name VISUALIZZASTORICOCONVENZIONI"
+document_name = find_name_by_page_content(page_content_example)
+print(f"Document name: {document_name}")

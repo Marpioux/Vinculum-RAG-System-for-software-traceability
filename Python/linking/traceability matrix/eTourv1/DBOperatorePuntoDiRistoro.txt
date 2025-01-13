@@ -1,0 +1,2 @@
+DBOperatorePuntoDiRistoro -> UC6.TXT  
+DBOperatorePuntoDiRistoro -> UC43.TXT

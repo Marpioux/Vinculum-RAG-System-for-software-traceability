@@ -1,0 +1,2 @@
+BannerDialog -> UC17.TXT  
+BannerDialog -> UC39.TXT

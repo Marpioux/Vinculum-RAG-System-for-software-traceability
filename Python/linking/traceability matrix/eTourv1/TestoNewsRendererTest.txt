@@ -1,0 +1,1 @@
+TestoNewsRendererTest -> UC22.TXT

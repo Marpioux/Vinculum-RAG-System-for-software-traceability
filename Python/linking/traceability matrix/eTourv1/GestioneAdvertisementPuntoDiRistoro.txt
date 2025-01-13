@@ -1,0 +1,2 @@
+GestioneAdvertisementPuntoDiRistoro -> UC19.TXT  
+GestioneAdvertisementPuntoDiRistoro -> UC40.TXT

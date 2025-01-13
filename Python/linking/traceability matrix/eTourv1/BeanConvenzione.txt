@@ -1,0 +1,2 @@
+BeanConvenzione -> UC7.TXT  
+BeanConvenzione -> UC11.TXT
