@@ -1,2 +1,0 @@
-GestionePuntiDiRistoroAgenzia -> UC6.TXT  
-GestionePuntiDiRistoroAgenzia -> UC8.TXT

@@ -1,2 +1,0 @@
-GestionePuntiDiRistoroComune -> UC6.TXT  
-GestionePuntiDiRistoroComune -> UC8.TXT

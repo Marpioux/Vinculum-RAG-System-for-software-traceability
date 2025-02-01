@@ -1,2 +1,0 @@
-BannerRenderer -> UC17.TXT  
-BannerRenderer -> UC39.TXT

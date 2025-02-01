@@ -1,1 +1,0 @@
-`NewsTableModelTest -> UC23.TXT`

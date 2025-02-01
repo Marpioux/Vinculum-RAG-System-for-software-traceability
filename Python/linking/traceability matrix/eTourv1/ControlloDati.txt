@@ -1,1 +1,0 @@
-ControlloDati -> UC18.TXT

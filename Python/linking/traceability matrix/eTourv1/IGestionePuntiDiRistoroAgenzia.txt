@@ -1,2 +1,0 @@
-IGestionePuntiDiRistoro -> UC6.TXT  
-IGestionePuntiDiRistoro -> UC8.TXT

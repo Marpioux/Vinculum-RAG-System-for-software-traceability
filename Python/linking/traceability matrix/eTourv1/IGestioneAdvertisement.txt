@@ -1,2 +1,0 @@
-IGestioneAdvertisement -> UC19.TXT  
-IGestioneAdvertisement -> UC17.TXT

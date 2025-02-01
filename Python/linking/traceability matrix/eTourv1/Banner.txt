@@ -1,2 +1,0 @@
-JInternalFrame -> UC20.TXT  
-JInternalFrame -> UC17.TXT

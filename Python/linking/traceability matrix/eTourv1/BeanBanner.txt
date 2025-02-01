@@ -1,2 +1,0 @@
-BeanBanner -> UC20.TXT  
-BeanBanner -> UC38.TXT

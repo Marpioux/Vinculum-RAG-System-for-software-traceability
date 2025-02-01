@@ -1,2 +1,0 @@
-FeedbackTableModel -> UC26.TXT  
-FeedbackTableModel -> UC53.TXT

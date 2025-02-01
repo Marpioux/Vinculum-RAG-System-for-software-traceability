@@ -1,2 +1,0 @@
-IDBTag -> UC28.TXT  
-IDBTag -> UC30.TXT

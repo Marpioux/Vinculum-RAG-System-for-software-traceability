@@ -1,2 +1,0 @@
-GestioneTuristiAgenzia -> UC14.TXT  
-GestioneTuristiAgenzia -> UC16.TXT

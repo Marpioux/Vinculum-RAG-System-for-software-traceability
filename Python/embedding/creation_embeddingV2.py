@@ -10,7 +10,7 @@ if not os.environ.get("OPENAI_API_KEY"):
     os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter API key for OpenAI: ")
 os.environ["PYDANTIC_V2"] = "1"
 
-index_name = "eTOURv1.1"
+index_name = "iTrustv1"
 redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
 keys = redis_client.keys(f"{index_name}:*")
 if keys:
@@ -37,7 +37,9 @@ def find_name_by_page_content(page_content):
     return None
 
 documents = []
-data_directory = "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/requirements/eTOUR"
+#data_directory = "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/requirements/eTOUR"
+#data_directory = "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/requirements/Albergate"
+data_directory = "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/requirements/iTrust"
 
 # Ajout des documents dans Redis
 for racine, repertoires, fichiers in os.walk(data_directory):

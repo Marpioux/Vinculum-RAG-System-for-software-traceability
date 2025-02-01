@@ -1,2 +1,0 @@
-DBBeneCulturale -> UC1.TXT  
-DBBeneCulturale -> UC3.TXT

@@ -1,2 +1,0 @@
-DBConnessionePool -> UC14.TXT  
-DBConnessionePool -> UC49.TXT

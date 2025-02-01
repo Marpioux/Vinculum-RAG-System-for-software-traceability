@@ -1,2 +1,0 @@
-TuristiTableModel -> UC15.TXT  
-TuristiTableModel -> UC16.TXT

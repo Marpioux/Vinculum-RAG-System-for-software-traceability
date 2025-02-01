@@ -1,2 +1,0 @@
-IGestioneBeniCulturali -> UC1.TXT  
-IGestioneBeniCulturali -> UC2.TXT
