@@ -1,9 +1,0 @@
-{
-  "IGestioneTagComune": [
-    {
-      "parentClass": "Remote",
-      "name": "ottieniTags",
-      "sourceCode": "ArrayList<BeanTag> ottieniTags() throws RemoteException;"
-    }
-  ]
-}

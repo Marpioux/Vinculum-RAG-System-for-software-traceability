@@ -1,9 +1,0 @@
-{
-    "SurveySearchValidator": [
-        {
-            "parentClass": "SurveySearchValidator",
-            "name": "validate",
-            "sourceCode": "@Override\r\n\tpublic void validate(SurveyResultBean bean) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"Zip Code\", bean.getHCPzip(), ValidationFormat.ZIPCODE, false));\r\n\t\t\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
-        }
-    ]
-}

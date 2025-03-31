@@ -1,9 +1,0 @@
-{
-    "Punto3DRenderer": [
-        {
-            "parentClass": "Punto3DRenderer",
-            "name": "getTableCellRendererComponent",
-            "sourceCode": "public Component getTableCellRendererComponent(JTable pTable,\r\n            Object pValue, boolean pSelected, boolean pHasFocus, int pRow,\r\n            int pColumn) {\r\n        if (!(pValue instanceof Punto3D)) {\r\n            throw new IllegalArgumentException(\"Value Cella unexpected.\");\r\n        }\r\n        Punto3D punto = (Punto3D) pValue;\r\n        String point = punto.getLatitudine() + \";\" + punto.getLongitudine() + \";\" + punto.getAltitudine();\r\n        JLabel aLabel = new JLabel(point, SwingConstants.CENTER);\r\n        if (pSelected) {\r\n            aLabel.setForeground(pTable.getSelectionForeground());\r\n            aLabel.setBackground(pTable.getSelectionBackground());\r\n        }\r\n        return aLabel;\r\n    }"
-        }
-    ]
-}

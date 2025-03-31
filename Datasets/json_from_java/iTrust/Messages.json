@@ -1,9 +1,0 @@
-{
-    "Messages": [
-        {
-            "parentClass": "Messages",
-            "name": "getString",
-            "sourceCode": "public static String getString(String key) {\r\n\t\ttry {\r\n\t\t\treturn RESOURCE_BUNDLE.getString(key);\r\n\t\t} catch (MissingResourceException e) {\r\n\t\t\treturn '!' + key + '!';\r\n\t\t}\r\n\t}"
-        }
-    ]
-}

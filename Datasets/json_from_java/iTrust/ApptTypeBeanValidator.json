@@ -1,9 +1,0 @@
-{
-    "ApptTypeBeanValidator": [
-        {
-            "parentClass": "ApptTypeBeanValidator",
-            "name": "validate",
-            "sourceCode": "@Override\r\n\tpublic void validate(ApptTypeBean a) throws FormValidationException {\r\n\t\tErrorList errorList = new ErrorList();\r\n\t\terrorList.addIfNotNull(checkFormat(\"Appointment Type Name\", a.getName(), ValidationFormat.APPT_TYPE_NAME, false));\r\n\t\terrorList.addIfNotNull(checkFormat(\"Appointment Type Duration\", a.getDuration()+\"\", ValidationFormat.APPT_TYPE_DURATION, false));\r\n\t\tif (errorList.hasErrors())\r\n\t\t\tthrow new FormValidationException(errorList);\r\n\t}"
-        }
-    ]
-}

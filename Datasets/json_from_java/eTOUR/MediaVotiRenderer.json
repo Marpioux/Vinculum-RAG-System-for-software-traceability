@@ -1,9 +1,0 @@
-{
-    "MediaVotiRenderer": [
-        {
-            "parentClass": "MediaVotiRenderer",
-            "name": "getTableCellRendererComponent",
-            "sourceCode": "public Component getTableCellRendererComponent(JTable pTable,\r\n            Object pValue, boolean pSelected, boolean pFocus, int pRow,\r\n            int pColumn) throws IllegalArgumentException {\r\n        if (!(pValue instanceof Double || pValue instanceof Integer)) {\r\n            throw new IllegalArgumentException(\"Value cell unexpected.\");\r\n        }\r\n        double rating = 0;\r\n        if (pValue instanceof Double) {\r\n            rating = (Double) pValue;\r\n        } else {\r\n            rating += (Integer) pValue;\r\n        }\r\n\r\n        JLabel aLabel = new JLabel(\"\");\r\n        aLabel.setHorizontalAlignment(JLabel.CENTER);\r\n\r\n        if (rating > 4) {\r\n            aLabel.setIcon(new ImageIcon(getClass().getResource(\r\n                    Home.URL_IMAGES + \"stella5.gif\")));\r\n        } else if (rating <= 4 && rating > 3) {\r\n            aLabel.setIcon(new ImageIcon(getClass().getResource(\r\n                    Home.URL_IMAGES + \"stella4.gif\")));\r\n        } else if (rating <= 3 && rating > 2) {\r\n            aLabel.setIcon(new ImageIcon(getClass().getResource(\r\n                    Home.URL_IMAGES + \"stella3.gif\")));\r\n        } else if (rating <= 2 && rating > 1) {\r\n            aLabel.setIcon(new ImageIcon(getClass().getResource(\r\n                    Home.URL_IMAGES + \"stella2.gif\")));\r\n        } else {\r\n            aLabel.setIcon(new ImageIcon(getClass().getResource(\r\n                    Home.URL_IMAGES + \"stella1.gif\")));\r\n        }\r\n        return aLabel;\r\n    }"
-        }
-    ]
-}
