@@ -2,4 +2,6 @@ Datasets/*
 Pythonv1/*
 FASTJavaModelAPI/*
 test
+.properties
+.project
 requirements.txt
