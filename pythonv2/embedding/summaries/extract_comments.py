@@ -1,5 +1,7 @@
 # First step
-# Verify if its a java file and if its a class with methods
+def exctract_comments(java_file_content):
+    return True
+    
 
 # Second step
 # Extract the summaries of the methods and store them
