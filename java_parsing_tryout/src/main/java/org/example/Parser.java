@@ -2,6 +2,9 @@ package org.example;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
@@ -16,23 +19,43 @@ public class Parser {
         }
         return null;
     }
-    public static void retrieveClass(CompilationUnit cu){
+    public static List<ParsedClass> retrieveClass(CompilationUnit cu){
         //retrieve the class of a file
-        cu.findAll(ClassOrInterfaceDeclaration.class).forEach(clazz ->
-                System.out.println("Class found: " + clazz.getNameAsString())
+        List<ParsedClass> classList = new ArrayList<>();
+        cu.findAll(ClassOrInterfaceDeclaration.class).forEach(clazz -> {
+                System.out.println("Class found: " + clazz.getNameAsString());
+                classList.add(new ParsedClass(retrieveMethods(cu),clazz.getNameAsString()));
+        }
         );
+        return classList;
     }
 
     /* Retrieve
     the
     methods of the class
      */
-    public static void retrieveMethods(CompilationUnit cu){
+    public static List<Method> retrieveMethods(CompilationUnit cu) {
+        List<Method> classMethods = new ArrayList<>();
+
         cu.findAll(MethodDeclaration.class).forEach(method -> {
-                    System.out.println("Method found: " + method.getNameAsString());
-                    System.out.println("Method has comment: " + method.getComment().isPresent());
-                    System.out.println("Method inner methods: " + method.getBody().get().getAllContainedComments());
-                }
-        );
+            boolean hasInnerComments = method.getBody()
+                    .map(body -> !body.getAllContainedComments().isEmpty())
+                    .orElse(false);
+
+            Method parsedMethod = new Method(
+                    method.getBody().toString(),
+                    method.getComment().isPresent(),
+                    hasInnerComments,
+                    method.getDeclarationAsString(true, false, false)
+            );
+
+            System.out.println("Method found: " + method.getNameAsString());
+            System.out.println("Method has comment: " + method.getComment().isPresent());
+            System.out.println("Method inner methods: " + hasInnerComments);
+
+            classMethods.add(parsedMethod);
+        });
+
+        return classMethods;
     }
 }
