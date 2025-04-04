@@ -9,7 +9,9 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.ConstructorDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
 
 public class Parser {
     public static CompilationUnit parseFile(File aFile){
@@ -25,11 +27,55 @@ public class Parser {
         List<ParsedClass> classList = new ArrayList<>();
         cu.findAll(ClassOrInterfaceDeclaration.class).forEach(clazz -> {
                 System.out.println("Class found: " + clazz.getNameAsString());
-                classList.add(new ParsedClass(retrieveMethods(cu),clazz.getNameAsString()));
+                classList.add(new ParsedClass(retrieveMethods(cu),clazz.getNameAsString(), retrieveConstructors(cu), retrieveFields(cu)));
         }
         );
         // Another comment
         return classList;
+    }
+
+    public static List<String> retrieveFields(CompilationUnit cu) {
+        List<String> classFields = new ArrayList<>();
+
+        cu.findAll(FieldDeclaration.class).forEach(field -> {
+            String modifiers = field.getModifiers().toString(); // e.g., [private, static]
+            String type = field.getElementType().asString();    // e.g., int
+
+            field.getVariables().forEach(var -> {
+                String fieldLine = String.join(" ",
+                        modifiers.replaceAll("[\\[\\],]", "").trim(),
+                        type,
+                        var.getNameAsString()
+                );
+                classFields.add(fieldLine);
+            });
+        });
+
+        return classFields;
+    }
+
+
+    public static List<Constructor> retrieveConstructors(CompilationUnit cu){
+        List<Constructor> classConstructor = new ArrayList<>();
+        cu.findAll(ConstructorDeclaration.class).forEach(constructor -> {
+            boolean hasInnerComments = constructor.getBody() != null && !constructor.getBody().getAllContainedComments().isEmpty();
+
+            String comment = constructor.getComment().isPresent() ? constructor.getComment().toString() : null;
+            String innerComments = hasInnerComments ? constructor.getBody().getAllContainedComments().toString() : null;
+
+            Constructor parsedConstructor = new Constructor(
+                    constructor.getBody().toString(),
+                    constructor.getComment().isPresent(),
+                    comment,
+                    hasInnerComments,
+                    constructor.getDeclarationAsString(true, false, false),
+                    innerComments
+            );
+
+            System.out.println("Constructor found: " + constructor.getNameAsString());
+            classConstructor.add(parsedConstructor);
+        });
+        return classConstructor;
     }
 
     /* Retrieve
