@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.Node;
 import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
 
@@ -27,6 +28,7 @@ public class Parser {
                 classList.add(new ParsedClass(retrieveMethods(cu),clazz.getNameAsString()));
         }
         );
+        // Another comment
         return classList;
     }
 
@@ -42,12 +44,16 @@ public class Parser {
                     .map(body -> !body.getAllContainedComments().isEmpty())
                     .orElse(false);
 
+            String comment =  method.getComment().isPresent() ? method.getComment().toString() : null;
+            String innerComments = hasInnerComments ? method.getBody().map(Node::getAllContainedComments).toString() : null;
             Method parsedMethod = new Method(
-                    method.getBody().toString(),
-                    method.getComment().isPresent(),
-                    hasInnerComments,
-                    method.getDeclarationAsString(true, false, false)
-            );
+                        method.getBody().toString(),
+                        method.getComment().isPresent(),
+                        comment,
+                        hasInnerComments,
+                        method.getDeclarationAsString(true, false, false),
+                        innerComments
+                );
 
             System.out.println("Method found: " + method.getNameAsString());
             System.out.println("Method has comment: " + method.getComment().isPresent());
