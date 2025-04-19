@@ -2,7 +2,7 @@ import getpass
 import os
 import redis
 from langchain_openai import OpenAIEmbeddings
-from langchain_redis import RedisVectorStore
+from langchain_community.vectorstores import Redis as RedisVectorStore
 from langchain_core.documents import Document
 
 
@@ -37,7 +37,7 @@ def create_embedding_from_folder(folder_path: str, index_name: str):
     # Initialisation du Vector Store
     vector_store = RedisVectorStore(
         index_name=index_name,
-        embeddings=embeddings,
+        embedding=embeddings,
         redis_url="redis://localhost:6379",
     )
 
@@ -69,3 +69,9 @@ def create_embedding_from_folder(folder_path: str, index_name: str):
         print("[WARNING] No documents found or added.")
 
     return vector_store
+
+
+create_embedding_from_folder(
+    folder_path="C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/requirements/eTOUR",
+    index_name="eTour"
+)

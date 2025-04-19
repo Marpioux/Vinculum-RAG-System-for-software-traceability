@@ -1,14 +1,17 @@
-#First step
-# Go in JSON file, extract the comments and the methods
+from utilities import log, save_response, clean_llm_output, find_name_by_page_content
+from langchain_openai import ChatOpenAI
+import os
+from langchain_community.vectorstores import Redis as RedisVectorStore
+import os
+import redis
 
-# Second step
-# Pass the all thing to the rewritter 
-
-# Third step 
-# Go retrieve the document
-
-# Fourh step
-# Pass the document to the LLM and generate a link
-
-# Fifth step
-# Normalize the output and save it in a file
+def run_traceability_pipeline_all(code_folder: str, output_file: str):
+    log("🔎 Starting traceability analysis...")
+    
+    for files in os.walk(code_folder):
+        with open(files, 'r', encoding="json") as json:
+            data = json.load(json)
+            methods = data['methods']
+            for method in methods:
+                method_name = method['signature']
+                method_code = method['body']
