@@ -4,12 +4,6 @@ from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 
-# Charge les variables du fichier .env
-load_dotenv()
-
-# Récupère la clé d'API
-openai_key = os.getenv("OPENAI_API_KEY")
-
 def enrich_json_with_gpt_comments(json_folder_path: str, model_temperature: float = 0.3):
     """
     Parcourt tous les fichiers JSON dans un dossier, détecte les méthodes ou constructeurs sans commentaires
@@ -19,14 +13,18 @@ def enrich_json_with_gpt_comments(json_folder_path: str, model_temperature: floa
     :param model_temperature: Température du modèle GPT (0.0 = très factuel, 1.0 = créatif)
     """
 
+    # Charge les variables du fichier .env
+    load_dotenv()
+
+    # Récupère la clé d'API
+    openai_key = os.getenv("OPENAI_API_KEY")
+
     # Initialisation du modèle GPT via LangChain
     llm = ChatOpenAI(temperature=model_temperature)
 
     # Prompt de base
     prompt_template = ChatPromptTemplate.from_template(
-        "Voici la signature d'une méthode Java :\n{signature}\n"
-        "Et son corps :\n{body}\n"
-        "Peux-tu générer un commentaire JavaDoc pertinent pour cette méthode ?"
+        "Here is the signature of a Java method: {signature} And its body: {body} Can you generate a clear and relevant JavaDoc comment that accurately describes this method, its parameters, its behavior, and its return value if applicable?"
     )
 
     # Parcours de tous les fichiers .json du dossier
@@ -56,7 +54,7 @@ def enrich_json_with_gpt_comments(json_folder_path: str, model_temperature: floa
                             generated_comment = response.content.strip()
 
                             # Ajout dans le JSON
-                            element["commentedComment"] = generated_comment
+                            element["generated_comment"] = generated_comment
                             modified = True
 
                         except Exception as e:
