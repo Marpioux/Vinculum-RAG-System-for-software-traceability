@@ -3,6 +3,7 @@ import os
 import redis
 
 from utilities.utilities import log, clean_llm_output, save_response, initialize_system, find_name_by_page_content
+from prompts.prompt_builder import prompt_rewriter_with_only_code
 
 from langchain.chat_models import ChatOpenAI
 from langchain.embeddings import OpenAIEmbeddings
@@ -22,6 +23,8 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     prompt_method = "{method_name} {method_code}\n"
     prompt_constructor = "{constructor_name} {constructor_code}\n"
     prompt_variable = "{variable_name}\n"
+
+    links = []
 
     for root, dirs, files in os.walk(code_folder):
         for file in files:
@@ -68,16 +71,23 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
                                 document_name = find_name_by_page_content(req.page_content, redis_client, index_name)
                                 reqs.append({"name": document_name, "content": req.page_content})
 
-                            response = model.invoke(f"Here is a Java class {fichier}: {contenu}, and a list of requirements from a RAG: {reqs}. A Java class can correspond to zero or one requirement. Can you analyze the code and the requirements, and link each Java class to its corresponding requirement if there's a match? I want the output in the following format: JavaClassName.java -> RequirementName.txt AND only that no other things")
+                            prompt = prompt_rewriter_with_only_code(reqs=reqs, prompt_code=final_prompt_vector, class_name=entry.get("signature", "UnknownClass"))
+                            response = model.invoke(prompt)
                             response = clean_llm_output(response.content)
-                            save_response_as_file(response)
+                            for line in response.splitlines():
+                                if line.strip():
+                                    links.append(line.strip())
+
+                
 
                 except Exception as e:
                     log(f"❌ Error processing {file_path}: {str(e)}", level="ERROR")
+    links = "\n".join(links)
+    save_response(links, os.path.join(output_file, f"{index_name}.txt"))
 
 
 linking_with_only_code(
     "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/json/eTour",
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Python/linking/traceability matrix/iTrust",
+    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/prompt_rewriter_with_only_code",
     "eTour"
 )
