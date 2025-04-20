@@ -73,3 +73,9 @@ def find_name_by_page_content(page_content, redis_client, index_name):
             document_name = redis_client.hget(key, "name")
             return document_name
     return None
+
+def lire_lignes_du_fichier(chemin_fichier):
+    with open(chemin_fichier, 'r', encoding='utf-8') as fichier:
+        lignes = [ligne.strip() for ligne in fichier]
+    return lignes
+
