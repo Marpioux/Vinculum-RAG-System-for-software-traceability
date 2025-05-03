@@ -1,0 +1,25 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    boolean toReturn = false;\r\n    if (pBanner != null) {\r\n        toReturn = (pBanner.getId() > 0 && !pBanner.getPercorsoFile().isEmpty() && pBanner.getIdPuntoDiRistoro() > 0);\r\n    }\r\n    return toReturn;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean controlloBanner(BeanBanner)",
+                "comments": "Optional[/**\r\n * Please formal control and consistency on\r\n * data content of the banner in the bean passed by parameter.\r\n *\r\n * @param pBanner bean contains the data of the banner.\r\n * @return true if the banner data is consistent, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    boolean toReturn = false;\r\n    /* Check the validity of the general method parameter */\r\n    if (pNews != null) {\r\n        // Release Date\r\n        Date dataPubb = pNews.getDataPubblicazione();\r\n        // Due Date\r\n        Date dataScad = pNews.getDataScadenza();\r\n        // Text of News\r\n        String news = pNews.getNews();\r\n        /* Checking the validity of the fields */\r\n        if (dataPubb != null && dataScad != null && news != null) {\r\n            /* Check the consistency of the dates */\r\n            toReturn = dataPubb.before(dataScad);\r\n            /* Check that the text is not empty */\r\n            toReturn = toReturn && !news.isEmpty();\r\n            /* Check that the ID is greater than 0 */\r\n            toReturn = toReturn && (pNews.getId() > 0);\r\n            /* Check the priority value */\r\n        }\r\n    }\r\n    return toReturn;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public static boolean controlloNews(BeanNews)",
+                "comments": "Optional[/**\r\n * Method that performs consistency checks and\r\n * correctness of the information contained in the bean passed\r\n * per parameter, in particular check that the dates\r\n * publication and expiration of the news are consistent,\r\n * or that the second is the later.\r\n *\r\n * @param pNews bean containing data news\r\n * @return true if the bean contains consistent data, false otherwise\r\n */\r\n]",
+                "innerComments": "Optional[[/* Check the validity of the general method parameter */\r\n, // Release Date\r\n, // Due Date\r\n, // Text of News\r\n, /* Checking the validity of the fields */\r\n, /* Check the priority value */\r\n, /* Check the consistency of the dates */\r\n, /* Check that the text is not empty */\r\n, /* Check that the ID is greater than 0 */\r\n]]"
+            }
+        ],
+        "constructors": [],
+        "signature": "ControlloDatiAdvertisement",
+        "variables": []
+    }
+]

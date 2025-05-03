@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<MessageBean> list = new ArrayList<MessageBean>();\r\n    while (rs.next()) list.add(loadSingle(rs));\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ps.setLong(1, message.getFrom());\r\n    ps.setLong(2, message.getTo());\r\n    ps.setString(3, message.getBody());\r\n    ps.setString(4, message.getSubject());\r\n    ps.setInt(5, message.getRead());\r\n    if (message.getParentMessageId() != 0L) {\r\n        ps.setLong(6, message.getParentMessageId());\r\n    }\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, MessageBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MessageBean message = new MessageBean();\r\n    message.setMessageId(rs.getLong(\"message_id\"));\r\n    message.setFrom(rs.getLong(\"from_id\"));\r\n    message.setTo(rs.getLong(\"to_id\"));\r\n    message.setSubject(rs.getString(\"subject\"));\r\n    message.setBody(rs.getString(\"message\"));\r\n    message.setSentDate(rs.getTimestamp(\"sent_date\"));\r\n    message.setRead(rs.getInt(\"been_read\"));\r\n    message.setParentMessageId(rs.getLong(\"parent_msg_id\"));\r\n    return message;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MessageBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "MessageBeanLoader",
+        "variables": []
+    }
+]

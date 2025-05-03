@@ -1,0 +1,57 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (isPrescription) {\r\n        transactionDAO.logTransaction(TransactionType.ADVERSE_EVENT, loggedInMID, 0L, \"Adverse Prescription Reports Requested.\");\r\n        return adverseEventDAO.getPerscriptions(start, end);\r\n    } else {\r\n        //is Immunization\r\n        transactionDAO.logTransaction(TransactionType.ADVERSE_EVENT, loggedInMID, 0L, \"Adverse Immunization Report Requested.\");\r\n        return adverseEventDAO.getImmunizations(start, end);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<AdverseEventBean> getReports(boolean, String, String)",
+                "comments": "Optional[/**\r\n * Returns a list of reports between specified dates\r\n * @param isPrescription Boolean to return prescriptions or immunizations\r\n * @param start The starting date\r\n * @param end The ending date\r\n * @return the list of events\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n * @throws SQLException\r\n * @throws ParseException\r\n */\r\n]",
+                "innerComments": "Optional[[//is Immunization\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return patientDAO.getName(MID);\r\n    } catch (DBException e) {\r\n        return \"\";\r\n    } catch (iTrustException e) {\r\n        return \"Patient no longer exists\";\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName(long)",
+                "comments": "Optional[/**\r\n * Returns the patient's name\r\n * @param MID the MID of the patient to return the name for.\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String rValue;\r\n    List<String> toList = new ArrayList<String>();\r\n    PatientBean receiver = patientDAO.getPatient(patientMID);\r\n    toList.add(receiver.getEmail());\r\n    Email mail = new Email();\r\n    mail.setBody(message);\r\n    mail.setFrom(loggedInMID + \"\");\r\n    mail.setToList(toList);\r\n    emailer.sendEmail(mail);\r\n    transactionDAO.logTransaction(TransactionType.ADVERSE_EVENT, loggedInMID, 0L, \"Requested more information\");\r\n    rValue = \"\" + mail.getFrom() + \" \" + mail.getBody();\r\n    return rValue;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String sendEmail(long, String)",
+                "comments": "Optional[/**\r\n * Sends an e-mail to a patient requesting more information\r\n * @param patientMID The patient to receive the message\r\n * @param message The message\r\n * @return string for testing purposes\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    long HCPMID;\r\n    try {\r\n        AdverseEventBean aeBean = adverseEventDAO.getReport(id);\r\n        adverseEventDAO.removeReport(id);\r\n        HCPMID = adverseEventDAO.getHCPMID(id);\r\n        MessageBean mBeanTwo = new MessageBean();\r\n        MessageBean mBeanOne = new MessageBean();\r\n        String body = \"An adverse event for \" + aeBean.getDrug() + \" perscribed to \" + patientDAO.getName(Long.parseLong(aeBean.getMID())) + \" with description: (\" + aeBean.getDescription() + \") was removed.\";\r\n        mBeanOne.setTo(Long.parseLong(aeBean.getMID()));\r\n        mBeanTwo.setTo(HCPMID);\r\n        mBeanOne.setSubject(\"Subject\");\r\n        mBeanTwo.setSubject(\"Subject\");\r\n        mBeanOne.setBody(body);\r\n        mBeanTwo.setBody(body);\r\n        mBeanOne.setFrom(loggedInMID);\r\n        mBeanTwo.setFrom(loggedInMID);\r\n        messenger.sendMessage(mBeanOne);\r\n        messenger.sendMessage(mBeanTwo);\r\n        transactionDAO.logTransaction(TransactionType.ADVERSE_EVENT, loggedInMID, 0L, \"Adverse Event Report Removed\");\r\n    } catch (SQLException e) {\r\n        throw new DBException(e);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void remove(int)",
+                "comments": "Optional[/**\r\n * Method used to remove an adverse event report\r\n *\r\n * @param id the id of the report to be removed\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.transactionDAO = factory.getTransactionDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.emailer = new EmailUtil(factory);\r\n    this.adverseEventDAO = factory.getAdverseEventDAO();\r\n    this.messenger = new SendMessageAction(factory, loggedInMID);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public MonitorAdverseEventAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Constructor\r\n * @param factory\r\n * @param loggedInMID\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "MonitorAdverseEventAction",
+        "variables": [
+            "private long loggedInMID",
+            "private EmailUtil emailer",
+            "private PatientDAO patientDAO",
+            "private AdverseEventDAO adverseEventDAO",
+            "private TransactionDAO transactionDAO",
+            "private SendMessageAction messenger"
+        ]
+    }
+]

@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<PrescriptionReportBean> list = new ArrayList<PrescriptionReportBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionReportBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PrescriptionReportBean pres = new PrescriptionReportBean();\r\n    pres.setOfficeVisit(ovLoader.loadSingle(rs));\r\n    pres.setPrescription(presLoader.loadSingle(rs));\r\n    return pres;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PrescriptionReportBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, PrescriptionReportBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    ovLoader = new OfficeVisitLoader();\r\n    presLoader = new PrescriptionBeanLoader();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PrescriptionReportBeanLoader()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "PrescriptionReportBeanLoader",
+        "variables": [
+            "private PrescriptionBeanLoader presLoader",
+            "private OfficeVisitLoader ovLoader"
+        ]
+    }
+]

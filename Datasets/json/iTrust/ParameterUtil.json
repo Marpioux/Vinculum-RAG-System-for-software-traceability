@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    HashMap<String, String> myMap = new HashMap<String, String>();\r\n    for (Object key : params.keySet()) {\r\n        String[] value = ((String[]) params.get(key));\r\n        if (value != null)\r\n            myMap.put(key.toString(), value[0]);\r\n        else\r\n            myMap.put(key.toString(), null);\r\n    }\r\n    return myMap;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static HashMap<String, String> convertMap(Map)",
+                "comments": "Optional[/**\r\n * Provides a utility method that converts the \"Map\" from the JSP container to a type-checked hashmap\r\n * @param params Map to convert\r\n * @return converted Map\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ParameterUtil",
+        "variables": []
+    }
+]

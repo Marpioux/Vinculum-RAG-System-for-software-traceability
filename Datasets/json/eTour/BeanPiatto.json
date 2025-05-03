@@ -1,0 +1,96 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    name = Pnom;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setNome(String)",
+                "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param Pnom New value for name.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return price;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public double getPrezzo()",
+                "comments": "Optional[/**\r\n * Returns the value of price\r\n *\r\n * @return value of price.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    price = pPrezzo;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPrezzo(double)",
+                "comments": "Optional[/**\r\n * Sets the new value of price\r\n *\r\n * @param pPrezzo New value for price.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value of id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idMenu;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdMenu()",
+                "comments": "Optional[/**\r\n * Returns the value of idMenu\r\n *\r\n * @return value of idMenu.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    id = pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid New value for id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    idMenu = pIdMenu;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdMenu(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idMenu\r\n *\r\n * @param pIdMenu New idMenu.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setId(pid);\r\n    setNome(Pnom);\r\n    setPrezzo(pPrezzo);\r\n    setIdMenu(pIdMenu);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanPiatto(int, String, double, int)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param Pnom\r\n * @param pPrezzo\r\n * @param pIdMenu\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanPiatto()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanPiatto",
+        "variables": [
+            "private int id",
+            "private String name",
+            "private double price",
+            "private int idMenu",
+            "private  static  final long serialVersionUID"
+        ]
+    }
+]

@@ -1,0 +1,48 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    validator.validate(b);\r\n    //need to check if status is what's being changed - if new status!=old status send email\r\n    if (!b.getStatus().equals(lpDAO.getLabProcedure(b.getProcedureID()).getStatus())) {\r\n        new EmailUtil(factory).sendEmail(makeEmail(b));\r\n    }\r\n    lpDAO.updateLabProcedure(b);\r\n    transDAO.logTransaction(TransactionType.ENTER_EDIT_LAB_PROCEDURE, loggedInMID, b.getPid(), \"UAP updated procedure id: \" + b.getProcedureID());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void updateProcedure(LabProcedureBean)",
+                "comments": "Optional[/**\r\n * Updates a lab procedure\r\n *\r\n * @param b the procedure to update\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": "Optional[[//need to check if status is what's being changed - if new status!=old status send email\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    PatientBean p = new PatientDAO(factory).getPatient(b.getPid());\r\n    Email email = new Email();\r\n    email.setFrom(\"no-reply@itrust.com\");\r\n    email.setToList(Arrays.asList(p.getEmail()));\r\n    email.setSubject(\"A Lab Procedure Was Updated\");\r\n    email.setBody(String.format(\"Dear %s, \\n Your Lab Procedure (%s) has a new updated status of %s. Log on to iTrust to view.\", p.getFullName(), b.getLoinc(), b.getStatus()));\r\n    return email;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private Email makeEmail(LabProcedureBean)",
+                "comments": "Optional[/**\r\n * Sends an e-mail informing the patient that their procedure has been updated\r\n *\r\n * @param b the procedure that was updated\r\n * @return an e-mail to the patient with the notice\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.VIEW_LAB_PROCEDURE, loggedInMID, id, \"UAP viewed procedures\");\r\n    return lpDAO.getAllLabProceduresDate(id);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> viewProcedures(long)",
+                "comments": "Optional[/**\r\n * Returns a list of all the lab procedures\r\n *\r\n * @param id MID of the UAP viewing the procedures\r\n * @return a list of all the lab procedures for that UAP\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    transDAO = factory.getTransactionDAO();\r\n    lpDAO = factory.getLabProcedureDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    validator = new LabProcedureValidator();\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public LabProcUAPAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Setup\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID UAP who is logged in\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "LabProcUAPAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private LabProcedureDAO lpDAO",
+            " long loggedInMID",
+            "private LabProcedureValidator validator",
+            "private DAOFactory factory"
+        ]
+    }
+]

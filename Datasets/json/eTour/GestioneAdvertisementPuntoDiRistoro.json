@@ -1,0 +1,19 @@
+[
+    {
+        "methods": [],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public GestioneAdvertisementPuntoDiRistoro()",
+                "comments": "Optional[/**\r\n * Constructor, call the constructor of the superclass.\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "GestioneAdvertisementPuntoDiRistoro",
+        "variables": [
+            "private  static  final long serialVersionUID"
+        ]
+    }
+]

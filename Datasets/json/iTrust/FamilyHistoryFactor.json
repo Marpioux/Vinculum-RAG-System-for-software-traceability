@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient has a family history of this disease\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hasFamilyHistory(patientID, icdLower, icdUpper);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.patientID = patientID;\r\n    this.icdLower = icdLower;\r\n    this.icdUpper = icdUpper;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public FamilyHistoryFactor(DAOFactory, long, double, double)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "FamilyHistoryFactor",
+        "variables": [
+            "private long patientID",
+            "private DAOFactory factory",
+            "private double icdUpper",
+            "private double icdLower"
+        ]
+    }
+]

@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciOperatorePuntoDiRistoro(BeanOperatorePuntoDiRistoro)",
+                "comments": "Optional[/**\r\n * Adds an operator refreshment\r\n *\r\n * @param popera Additional operating\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaOperatorePuntoDiRistoro(BeanOperatorePuntoDiRistoro)",
+                "comments": "Optional[/**\r\n * Modify an operator in the database\r\n *\r\n * @param popera New data Operator\r\n * @throws SQLException\r\n * @return True if there was a modification, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaOperatorePuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Delete an operator\r\n *\r\n * @param pIdOperatore Operator ID to delete\r\n * @throws SQLException\r\n * @return True if it was deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanOperatorePuntoDiRistoro ottieniOperatorePuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Returns data operator\r\n *\r\n * @param pIdOperatore Operator ID\r\n * @throws SQLException\r\n * @return Operator refreshment\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBOperatorePuntoDiRistoro",
+        "variables": []
+    }
+]

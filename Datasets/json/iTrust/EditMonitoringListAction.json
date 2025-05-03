@@ -1,0 +1,55 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID, patientMID, \"add\");\r\n    return rmDAO.addPatientToList(patientMID, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addToList(long)",
+                "comments": "Optional[/**\r\n * Adds a patient to the current HCP's remote monitoring list\r\n *\r\n * @param patientMID the patient\r\n * @return true if added successfully. False if already in list.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID, patientMID, \"delete\");\r\n    return rmDAO.removePatientFromList(patientMID, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean removeFromList(long)",
+                "comments": "Optional[/**\r\n * Removes a patient from the current HCP's remote monitoring list\r\n *\r\n * @param patientMID the patient\r\n * @return true if removed successfully. False if not in list.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<RemoteMonitoringDataBean> dataset = rmDAO.getPatientsData(loggedInMID);\r\n    for (RemoteMonitoringDataBean d : dataset) {\r\n        if (d.getPatientMID() == patientMID)\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean isPatientInList(long)",
+                "comments": "Optional[/**\r\n * Returns whether a patient is in an HCP's list already\r\n * @param patientMID the patient\r\n * @return true if in DB, false otherwise\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return authDAO.getUserName(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPatientName(long)",
+                "comments": "Optional[/**\r\n * returns the patient name\r\n *\r\n * @return patient name\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.rmDAO = factory.getRemoteMonitoringDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EditMonitoringListAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Constructor\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the HCP editing their monitoring list.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "EditMonitoringListAction",
+        "variables": [
+            "private RemoteMonitoringDAO rmDAO",
+            "private TransactionDAO transDAO",
+            "private AuthDAO authDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

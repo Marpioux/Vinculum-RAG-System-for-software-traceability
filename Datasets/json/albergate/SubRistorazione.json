@@ -1,0 +1,67 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_sub);\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    panel0.setBackground(Color.white);\r\n    Immagine figura = new Immagine(\"ristorazione.jpg\");\r\n    Etichetta etich = new Etichetta(\"Ristorazione.gif\");\r\n    Utils.constrain(panel0, etich, 0, 0, 2, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, figura, 2, 0, 10, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(new GridLayout(2, 1));\r\n    Calcolo = new Button(\" Calcolo conto \");\r\n    Annulla = new Button(\" Indietro \");\r\n    panel1.add(Calcolo);\r\n    panel1.add(Annulla);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 12, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(this, panel1, 12, 0, 1, 12, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Calcolo.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCalcolo();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startCalcolo();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    rist = new MascheraContoRistorazione(this);\r\n    rist.setVisible(true);\r\n    rist.padre = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startCalcolo()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Ristorazione\");\r\n    setup();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SubRistorazione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "SubRistorazione",
+        "variables": [
+            " Label label",
+            " Panel panel0",
+            " Panel panel1",
+            " Button Calcolo",
+            " Button Annulla",
+            " GridBagLayout gridbag",
+            " Frame p",
+            " MascheraContoRistorazione rist"
+        ]
+    }
+]

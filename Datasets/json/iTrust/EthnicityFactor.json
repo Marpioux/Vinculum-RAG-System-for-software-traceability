@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient's ethnicity is \" + patient.getEthnicity();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    for (Ethnicity ethnicity : atRisk) {\r\n        if (patient.getEthnicity().equals(ethnicity) && !Ethnicity.NotSpecified.equals(ethnicity))\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.atRisk = atRisks.clone();\r\n    this.patient = patient;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public EthnicityFactor(PatientBean, Ethnicity)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "EthnicityFactor",
+        "variables": [
+            "private Ethnicity atRisk",
+            "private PatientBean patient"
+        ]
+    }
+]

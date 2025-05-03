@@ -1,0 +1,138 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return labProcedureCode;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLabProcedureCode()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    labProcedureCode = aLabProcedureCode;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLabProcedureCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return component;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getComponent()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    component = aComponent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setComponent(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return kindOfProperty;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getKindOfProperty()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    kindOfProperty = aKindOfProperty;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setKindOfProperty(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return timeAspect;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getTimeAspect()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    timeAspect = aTimeAspect;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTimeAspect(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return system;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getSystem()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    system = aSystem;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSystem(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return scaleType;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getScaleType()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    scaleType = aScaleType;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setScaleType(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return methodType;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getMethodType()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    methodType = aMethodType;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setMethodType(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LOINCbean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "LOINCbean",
+        "variables": [
+            "private String labProcedureCode",
+            "private String component",
+            "private String kindOfProperty",
+            "private String timeAspect",
+            "private String system",
+            "private String scaleType",
+            "private String methodType"
+        ]
+    }
+]

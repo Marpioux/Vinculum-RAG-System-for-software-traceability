@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    validator.validate(appt);\r\n    if (appt.getDate().before(new Timestamp(System.currentTimeMillis()))) {\r\n        return \"The scheduled date of this Appointment (\" + appt.getDate() + \") has already passed.\";\r\n    }\r\n    try {\r\n        apptDAO.scheduleAppt(appt);\r\n        transDAO.logTransaction(TransactionType.ADD_APPT, loggedInMID, 0L, \"Added Appointment \" + appt.getApptType());\r\n        return \"Success: \" + appt.getApptType() + \" for \" + appt.getDate() + \" added\";\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String addAppt(ApptBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (mid < 7000000000L)\r\n        return patientDAO.getName(mid);\r\n    else\r\n        return personnelDAO.getName(mid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName(long)",
+                "comments": "Optional[/**\r\n * Gets a users's name from their MID\r\n *\r\n * @param mid the MID of the user\r\n * @return the user's name\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.apptDAO = factory.getApptDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AddApptAction(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "AddApptAction",
+        "variables": [
+            "private long loggedInMID",
+            "private ApptDAO apptDAO",
+            "private TransactionDAO transDAO",
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO",
+            "private ApptBeanValidator validator"
+        ]
+    }
+]

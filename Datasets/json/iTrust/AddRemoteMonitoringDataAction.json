@@ -1,0 +1,57 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    //Validation - Only need to validate the three integer parameters\r\n    RemoteMonitoringDataBean m = new RemoteMonitoringDataBean();\r\n    m.setGlucoseLevel(glucoseLevel);\r\n    m.setDiastolicBloodPressure(60);\r\n    m.setSystolicBloodPressure(60);\r\n    validator.validate(m);\r\n    m.setDiastolicBloodPressure(-1);\r\n    m.setSystolicBloodPressure(-1);\r\n    //Log transaction\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID);\r\n    String role;\r\n    if (loggedInMID == patientMID) {\r\n        role = \"self-reported\";\r\n    } else if (authDAO.getUserRole(loggedInMID).getUserRolesString().equals(\"uap\")) {\r\n        role = \"case-manager\";\r\n    } else {\r\n        role = \"patient representative\";\r\n    }\r\n    //Store in DB\r\n    rmDAO.storePatientData(patientMID, glucoseLevel, role, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void addRemoteMonitoringData(int)",
+                "comments": "Optional[/**\r\n * Adds a patients remote monitoring data to the database.\r\n *\r\n * @param glucoseLevel\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//Validation - Only need to validate the three integer parameters\r\n, //Log transaction\r\n, //Store in DB\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    //Validation - Only need to validate the three integer parameters\r\n    RemoteMonitoringDataBean m = new RemoteMonitoringDataBean();\r\n    m.setSystolicBloodPressure(systolicBloodPressure);\r\n    m.setDiastolicBloodPressure(diastolicBloodPressure);\r\n    validator.validate(m);\r\n    //Log transaction\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID);\r\n    String role;\r\n    if (loggedInMID == patientMID) {\r\n        role = \"self-reported\";\r\n    } else if (authDAO.getUserRole(loggedInMID).getUserRolesString().equals(\"uap\")) {\r\n        role = \"case-manager\";\r\n    } else {\r\n        role = \"patient representative\";\r\n    }\r\n    //Store in DB\r\n    rmDAO.storePatientData(patientMID, systolicBloodPressure, diastolicBloodPressure, role, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void addRemoteMonitoringData(int, int)",
+                "comments": "Optional[/**\r\n * Adds a patients remote monitoring data to the database.\r\n *\r\n * @param systolicBloodPressure\r\n * @param diastolicBloodPressure\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//Validation - Only need to validate the three integer parameters\r\n, //Log transaction\r\n, //Store in DB\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    //Validation - Only need to validate the three integer parameters\r\n    RemoteMonitoringDataBean m = new RemoteMonitoringDataBean();\r\n    m.setSystolicBloodPressure(systolicBloodPressure);\r\n    m.setDiastolicBloodPressure(diastolicBloodPressure);\r\n    m.setGlucoseLevel(glucoseLevel);\r\n    validator.validate(m);\r\n    //Log transaction\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID);\r\n    String role;\r\n    if (loggedInMID == patientMID) {\r\n        role = \"self-reported\";\r\n    } else if (authDAO.getUserRole(loggedInMID).getUserRolesString().equals(\"uap\")) {\r\n        role = \"case-manager\";\r\n    } else {\r\n        role = \"patient representative\";\r\n    }\r\n    //Store in DB\r\n    rmDAO.storePatientData(patientMID, systolicBloodPressure, diastolicBloodPressure, glucoseLevel, role, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void addRemoteMonitoringData(int, int, int)",
+                "comments": "Optional[/**\r\n * Adds a patients remote monitoring data to the database.\r\n *\r\n * @param systolicBloodPressure\r\n * @param diastolicBloodPressure\r\n * @param glucoseLevel\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//Validation - Only need to validate the three integer parameters\r\n, //Log transaction\r\n, //Store in DB\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return authDAO.getUserName(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPatientName(long)",
+                "comments": "Optional[/**\r\n * returns the patient name\r\n *\r\n * @return patient name\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.rmDAO = factory.getRemoteMonitoringDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n    this.patientMID = patientMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AddRemoteMonitoringDataAction(DAOFactory, long, long)",
+                "comments": "Optional[/**\r\n * Constructor\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person recording the patient's data.\r\n * @param patientMID The MID of the patient\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AddRemoteMonitoringDataAction",
+        "variables": [
+            "private RemoteMonitoringDataBeanValidator validator",
+            "private RemoteMonitoringDAO rmDAO",
+            "private TransactionDAO transDAO",
+            "private AuthDAO authDAO",
+            "private long loggedInMID",
+            "private long patientMID"
+        ]
+    }
+]

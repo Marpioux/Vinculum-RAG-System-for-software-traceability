@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<VisitReminderReturnForm> list = new ArrayList<VisitReminderReturnForm>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<VisitReminderReturnForm> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int i = 0;\r\n    return new // hcpid\r\n    VisitReminderReturnForm(// hcpid\r\n    rs.getLong(++i), // patient ID\r\n    rs.getLong(++i), // last name\r\n    rs.getString(++i), // first\r\n    rs.getString(++i), // phone1\r\n    rs.getString(++i), // phone2\r\n    rs.getString(++i), // ,// phone3\r\n    rs.getString(++i));\r\n    // \"diagnosis: \" + rs.getString(++i),\r\n    // \"last visit: \" + rs.getString(++i));\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public VisitReminderReturnForm loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": "Optional[[// \"diagnosis: \" + rs.getString(++i),\r\n, // \"last visit: \" + rs.getString(++i));\r\n, // hcpid\r\n, // hcpid\r\n, // patient ID\r\n, // last name\r\n, // first\r\n, // phone1\r\n, // phone2\r\n, // ,// phone3\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, VisitReminderReturnForm)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "VisitReminderReturnFormLoader",
+        "variables": []
+    }
+]

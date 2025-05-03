@@ -1,0 +1,170 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_sub);\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    panel0.setBackground(Color.white);\r\n    Random rnd = new Random();\r\n    int num;\r\n    if ((num = (rnd.nextInt() % 5)) < 0)\r\n        num = num * -1;\r\n    num++;\r\n    String file_name = new String(\"servizi\" + num + \".jpg\");\r\n    Immagine figura = new Immagine(file_name);\r\n    Etichetta etich = new Etichetta(\"Soggiorno.gif\");\r\n    Utils.constrain(panel0, etich, 0, 0, 2, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, figura, 2, 0, 10, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(new GridLayout(8, 1));\r\n    Arrivo = new Button(\" Arrivo clienti \");\r\n    Cambio = new Button(\" Cambio stanza \");\r\n    Addebito = new Button(\" Addebito spese \");\r\n    Telefonate = new Button(\" Telefonate \");\r\n    Calcolo = new Button(\" Calcolo conto \");\r\n    Ricerca = new Button(\" Ricerca... \");\r\n    BeniServizi = new Button(\" Beni & Servizi \");\r\n    Annulla = new Button(\" Indietro \");\r\n    panel1.add(Arrivo);\r\n    panel1.add(Addebito);\r\n    panel1.add(BeniServizi);\r\n    panel1.add(Telefonate);\r\n    panel1.add(Cambio);\r\n    panel1.add(Calcolo);\r\n    panel1.add(Ricerca);\r\n    panel1.add(Annulla);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 12, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(this, panel1, 12, 0, 1, 12, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Arrivo.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            insSoggiornante();\r\n        }\r\n    });\r\n    Calcolo.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            calcoloConto();\r\n        }\r\n    });\r\n    Addebito.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            addebitaBeneServizio();\r\n        }\r\n    });\r\n    BeniServizi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            visitaBeneServizio();\r\n        }\r\n    });\r\n    Telefonate.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            ricercaTelefonate();\r\n        }\r\n    });\r\n    Cambio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            cambiaStanza();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startRicerca();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    insSoggiornante();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    calcoloConto();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    addebitaBeneServizio();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    visitaBeneServizio();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ricercaTelefonate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    cambiaStanza();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startRicerca();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    ric_pren = new RicercaPrenotazione(\"Arrivo clienti\", 3);\r\n    ric_pren.setVisible(true);\r\n    ric_pren.padre = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void insSoggiornante()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new MascheraAddebiti(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void addebitaBeneServizio()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new RicercaAddebiti(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void visitaBeneServizio()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new RicercaTelefonate(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void ricercaTelefonate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new MascheraCalcoloConto(this);\r\n    figlio.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void calcoloConto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new MascheraCambio(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void cambiaStanza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new MascheraRicercaSoggiornante(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startRicerca()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Soggiorno\");\r\n    setup();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SubSoggiorno()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "SubSoggiorno",
+        "variables": [
+            " Label label",
+            " Panel panel0",
+            " Panel panel1",
+            " Button Arrivo",
+            " Button Cambio",
+            " Button Addebito",
+            " Button Telefonate",
+            " Button Calcolo",
+            " Button Ricerca",
+            " Button BeniServizi",
+            " Button Annulla",
+            " GridBagLayout gridbag",
+            " Frame p",
+            " RicercaPrenotazione ric_pren",
+            " Frame figlio"
+        ]
+    }
+]

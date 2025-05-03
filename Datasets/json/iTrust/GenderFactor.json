@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient is \" + patient.getGender().toString().toLowerCase();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return gender.equals(patient.getGender()) && !gender.equals(Gender.NotSpecified);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.patient = patient;\r\n    this.gender = gender;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public GenderFactor(PatientBean, Gender)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "GenderFactor",
+        "variables": [
+            "private PatientBean patient",
+            "private Gender gender"
+        ]
+    }
+]

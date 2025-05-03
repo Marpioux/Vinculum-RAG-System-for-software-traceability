@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"SELECT * FROM appointmenttype\");\r\n    ResultSet rs = ps.executeQuery();\r\n    List<ApptTypeBean> atList = this.atLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return atList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ApptTypeBean> getApptTypes()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"INSERT INTO appointmenttype (appt_type, duration) \" + \"VALUES (?, ?)\");\r\n    this.atLoader.loadParameters(ps, apptType);\r\n    int x = ps.executeUpdate();\r\n    DBUtil.closeConnection(conn, ps);\r\n    if (x > 0)\r\n        return true;\r\n    else\r\n        return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean addApptType(ApptTypeBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"UPDATE appointmenttype SET duration=? WHERE appt_type=?\");\r\n    ps.setInt(1, apptType.getDuration());\r\n    ps.setString(2, apptType.getName());\r\n    int x = ps.executeUpdate();\r\n    DBUtil.closeConnection(conn, ps);\r\n    if (x > 0)\r\n        return true;\r\n    else\r\n        return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean editApptType(ApptTypeBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.atLoader = new ApptTypeBeanLoader();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptTypeDAO(DAOFactory)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ApptTypeDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private ApptTypeBeanLoader atLoader"
+        ]
+    }
+]

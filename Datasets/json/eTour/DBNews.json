@@ -1,0 +1,51 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (NUM_TEST == 1) {\r\n        return true;\r\n    } else if (NUM_TEST == 2) {\r\n        throw new SQLException();\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaNews(int)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#cancellaNews(int)\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return NUM_TEST != 7;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciNews(BeanNews)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#inserisciNews(unisa.gps.etour.bean.BeanNews)\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean modificaNews(BeanNews)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#modificaNews(unisa.gps.etour.bean.BeanNews)\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ArrayList<BeanNews> toReturn = new ArrayList<>();\r\n    if (NUM_TEST == 5) {\r\n        for (int i = 1; i <= CostantiGlobali.MAX_NEWS_ATTIVE; i++) {\r\n            toReturn.add(new BeanNews());\r\n        }\r\n    } else {\r\n        toReturn.add(new BeanNews());\r\n    }\r\n    return toReturn;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ArrayList<BeanNews> ottieniNews()",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#ottieniNews()\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    NUM_TEST = numTest;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static void setNUM_TEST(int)",
+                "comments": "Optional[/**\r\n * Set the number of tests in progress\r\n *\r\n * @param numTest\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DBNews",
+        "variables": [
+            "private  static int NUM_TEST"
+        ]
+    }
+]

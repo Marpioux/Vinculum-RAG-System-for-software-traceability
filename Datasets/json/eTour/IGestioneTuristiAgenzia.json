@@ -1,0 +1,65 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean delete(int)",
+                "comments": "Optional[/**\r\n * Method for the cancellation of a tourist from the Database\r\n *\r\n * @param pIdTurista Identifier Tourist delete\r\n * @return true if the operation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean attivaTurista(int)",
+                "comments": "Optional[/**\r\n * Method to activate a registered tourist\r\n *\r\n * @param pIdTurista ID to activate the Tourist\r\n * @return true if the operation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean disattivaTurista(int)",
+                "comments": "Optional[/**\r\n * Method to disable an active tourist\r\n *\r\n * @param pIdTurista Identifier Tourist to disable\r\n * @return true if the operation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTurista> ottieniTuristi()",
+                "comments": "Optional[/**\r\n * Method to obtain a collection of Tourists\r\n *\r\n * @return ArrayList of BeanTurista\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTurista> ottieniTuristi(boolean)",
+                "comments": "Optional[/**\r\n * Method to obtain a collection of active tourists or not\r\n *\r\n * @param statoAccount boolean indicating tourists status\r\n * @return ArrayList of BeanTurista\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanVisitaPR> ottieniFeedbackPR(int)",
+                "comments": "Optional[/**\r\n * Method to get all the feedback issued by a tourist for the points\r\n * Refreshments\r\n *\r\n * @param pIdTurista ID to pick up the tourists in Feedback\r\n * @return ArrayList containing all the beans Feedback released\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanVisitaBC> ottieniFeedbackBC(int)",
+                "comments": "Optional[/**\r\n * Method to get all the feedback issued by a tourist for Heritage\r\n * Cultural\r\n *\r\n * @param pIdTurista ID to pick up the tourists in Feedback\r\n * @return ArrayList containing all the beans Feedback released\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneTuristiAgenzia",
+        "variables": []
+    }
+]

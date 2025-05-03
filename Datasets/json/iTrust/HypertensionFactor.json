@@ -1,0 +1,38 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient has hypertension\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (record.getBloodPressureSystolic() > systolicThreshold) || (record.getBloodPressureDiastolic() > diastolicThreshold);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.record = currentHealthRecord;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HypertensionFactor(HealthRecord)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "HypertensionFactor",
+        "variables": [
+            "private  static  final int systolicThreshold",
+            "private  static  final int diastolicThreshold",
+            "private HealthRecord record"
+        ]
+    }
+]

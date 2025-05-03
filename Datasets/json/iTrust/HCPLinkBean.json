@@ -1,0 +1,78 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return checked;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean isChecked()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.checked = checked;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setChecked(boolean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCode()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.code = code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return prescriberMID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getPrescriberMID()",
+                "comments": "Optional[/**\r\n * @return the patient MID\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    prescriberMID = mID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPrescriberMID(long)",
+                "comments": "Optional[/**\r\n * @param mID the patients MID\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return drug;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDrug()",
+                "comments": "Optional[/**\r\n * @return the drug the event is being reported for\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.drug = drug;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDrug(String)",
+                "comments": "Optional[/**\r\n * @param drug sets the drug the event is being reported for\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "HCPLinkBean",
+        "variables": [
+            " long prescriberMID",
+            " String drug",
+            " boolean checked",
+            " String code"
+        ]
+    }
+]

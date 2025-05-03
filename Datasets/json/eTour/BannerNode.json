@@ -1,0 +1,68 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return (PRNode) super.getParent();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PRNode getParent()",
+                "comments": "Optional[/**\r\n * Returns the node type PRNode father.\r\n *\r\n * @return PRNode - the parent node.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getID()",
+                "comments": "Optional[/**\r\n * Returns the id of the banner for which information\r\n * are stored in this node.\r\n *\r\n * @return int - the id of the banner.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    id = pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setID(int)",
+                "comments": "Optional[/**\r\n * Stores the id of the banner supplied input.\r\n *\r\n * @param pid int - an ID of a banner.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (ImageIcon) getUserObject();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ImageIcon getBanner()",
+                "comments": "Optional[/**\r\n * Returns the banner image.\r\n *\r\n * @return ImageIcon - the image.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pImmagine == null) {\r\n        throw new IllegalArgumentException(\"Image is invalid.\");\r\n    }\r\n    setUserObject(pImmagine);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setBanner(ImageIcon)",
+                "comments": "Optional[/**\r\n * Save the image provided as input.\r\n *\r\n * @param pImmagine ImageIcon - the image to be stored.\r\n * @throws IllegalArgumentException - if the supplied parameter is null.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BannerNode()",
+                "comments": "Optional[/**\r\n * This is the default constructor.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super();\r\n    if (pBanner == null) {\r\n        throw new IllegalArgumentException(\"Image is invalid.\");\r\n    }\r\n    setUserObject(pBanner);\r\n    id = pid;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BannerNode(ImageIcon, int)",
+                "comments": "Optional[/**\r\n * Create a node with the image of the banner and\r\n * your id supplied as parameters.\r\n *\r\n * @param pBanner ImageIcon - the image of the banner.\r\n * @param pid int - the id of the banner.\r\n * @throws IllegalArgumentException - if the image provided as input is invalid.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BannerNode",
+        "variables": [
+            "private int id"
+        ]
+    }
+]

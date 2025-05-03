@@ -1,0 +1,157 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement pstmt = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        pstmt = conn.prepareStatement(\"INSERT INTO Users (MID, PASSWORD, ROLE, sQuestion, sAnswer) VALUES (?,?,?,?,?)\");\r\n        pstmt.setLong(1, mid);\r\n        pstmt.setString(2, password);\r\n        pstmt.setString(3, role.toString());\r\n        pstmt.setString(4, \"Enter the random password given in your account email\");\r\n        String pwd = RandomPassword.getRandomPassword();\r\n        pstmt.setString(5, pwd);\r\n        pstmt.executeUpdate();\r\n        return pwd;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, pstmt);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String addUser(Long, Role, String)",
+                "comments": "Optional[/**\r\n * Add a particular user to the system. Does not add user-specific information (e.g. Patient or HCP).\r\n * Initially sets security question to a random set of characters, so that nobody should be able to guess\r\n * its value.\r\n *\r\n * @param mid The user's MID as a Long.\r\n * @param role The role of the user as a Role enum {@link Role}\r\n * @param password The password for the new user.\r\n * @return A string representing the newly added randomly-generated password.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement pstmt = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        pstmt = conn.prepareStatement(\"UPDATE Users SET sQuestion = ?, sAnswer = ? WHERE MID = ?\");\r\n        pstmt.setString(1, question);\r\n        pstmt.setString(2, answer);\r\n        pstmt.setLong(3, mid);\r\n        pstmt.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, pstmt);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setSecurityQuestionAnswer(String, String, long)",
+                "comments": "Optional[/**\r\n * Reset the security question and answer for a particular user\r\n *\r\n * @param question The security question as a string.\r\n * @param answer The security answer as a string.\r\n * @param mid The MID of the user as a long.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Role role = getUserRole(mid);\r\n    switch(role) {\r\n        case HCP:\r\n        case PHA:\r\n        case ADMIN:\r\n        case UAP:\r\n        case ER:\r\n            return factory.getPersonnelDAO().getName(mid);\r\n        case PATIENT:\r\n            return factory.getPatientDAO().getName(mid);\r\n        case TESTER:\r\n            return String.valueOf(mid);\r\n        default:\r\n            throw new iTrustException(\"Role \" + role + \" not supported\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getUserName(long)",
+                "comments": "Optional[/**\r\n * Returns the user name of a user from just the MID\r\n *\r\n * @param mid The MID of the user to get the name of.\r\n * @return The user's name as a String.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement pstmt = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        pstmt = conn.prepareStatement(\"SELECT role FROM Users WHERE MID=?\");\r\n        pstmt.setLong(1, mid);\r\n        ResultSet rs;\r\n        rs = pstmt.executeQuery();\r\n        if (rs.next()) {\r\n            return Role.parse(rs.getString(\"role\"));\r\n        } else {\r\n            throw new iTrustException(\"User does not exist\");\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, pstmt);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Role getUserRole(long)",
+                "comments": "Optional[/**\r\n * Returns the role of a particular MID\r\n *\r\n * @param mid The MID of the user to look up.\r\n * @return The {@link Role} of the user as an enum.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE Users SET password=? WHERE MID=?\");\r\n        ps.setString(1, password);\r\n        ps.setLong(2, mid);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void resetPassword(long, String)",
+                "comments": "Optional[/**\r\n * Change the password of a particular user\r\n *\r\n * @param mid The MID of the user whose password we are changing.\r\n * @param password The new password.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT sQuestion FROM Users WHERE MID=?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet r = ps.executeQuery();\r\n        if (r.next())\r\n            return r.getString(\"sQuestion\");\r\n        else\r\n            throw new iTrustException(\"No security question set for MID: \" + mid);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getSecurityQuestion(long)",
+                "comments": "Optional[/**\r\n * Return the security question for a particular user.\r\n *\r\n * @param mid The MID of the user we are looking up.\r\n * @return The security question of the user we are looking up.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT sAnswer FROM Users WHERE MID=?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet r = ps.executeQuery();\r\n        if (r.next())\r\n            return r.getString(\"sAnswer\");\r\n        else\r\n            throw new iTrustException(\"No security answer set for MID \" + mid);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getSecurityAnswer(long)",
+                "comments": "Optional[/**\r\n * Return the security answer of a particular user\r\n *\r\n * @param mid The MID of the user we are looking up.\r\n * @return The security answer as a String.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE LoginFailures SET FailureCount=FailureCount+1, lastFailure=CURRENT_TIMESTAMP WHERE IPAddress=?\");\r\n        //.prepareStatement(\"INSERT INTO LoginFailures VALUES(?,?,?)\");\r\n        ps.setString(1, ipAddr);\r\n        //ps.setInt(2, failures);\r\n        //ps.setDate(3, Calendar.getInstance().getTime());\r\n        int numUpdated = ps.executeUpdate();\r\n        if (// if there wasn't an empty row to begin with\r\n        numUpdated == 0)\r\n            // now they have a row AND a strike against\r\n            insertLoginFailureRow(ipAddr, 1, conn);\r\n        // 'em\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void recordLoginFailure(String)",
+                "comments": "Optional[/**\r\n * Record a login failure, which blacklists the ipAddress. Uses the database table like a hash table where\r\n * the key is the user's IP address. If the user's IP address is not in the table, a row with \"1\" is\r\n * added.\r\n *\r\n * @param ipAddr The IP address of the user as a String.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//ps.setInt(2, failures);\r\n, // 'em\r\n, //.prepareStatement(\"INSERT INTO LoginFailures VALUES(?,?,?)\");\r\n, //ps.setDate(3, Calendar.getInstance().getTime());\r\n, // if there wasn't an empty row to begin with\r\n, // now they have a row AND a strike against\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE ResetPasswordFailures SET failurecount=failurecount+1 WHERE ipaddress=?\");\r\n        ps.setString(1, ipAddr);\r\n        int numUpdated = ps.executeUpdate();\r\n        if (// if there wasn't an empty row to begin with\r\n        numUpdated == 0)\r\n            // now they have a row AND a strike against\r\n            insertResetPasswordRow(ipAddr, 1, conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void recordResetPasswordFailure(String)",
+                "comments": "Optional[/**\r\n * Record a reset password failure, which blacklists the ipAddress. Uses the database table like a hash\r\n * table where the key is the user's IP address. If the user's IP address is not in the table, a row with\r\n * \"1\" is added.\r\n *\r\n * @param ipAddr The IP address of the user as a String.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// if there wasn't an empty row to begin with\r\n, // now they have a row AND a strike against\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ResetPasswordFailures WHERE IPADDRESS=?\");\r\n        ps.setString(1, ipAddr);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next()) {\r\n            // if we're more than X minutes out, clear the failure count\r\n            if (System.currentTimeMillis() - rs.getTimestamp(\"lastFailure\").getTime() > LOGIN_TIMEOUT) {\r\n                updateResetFailuresToZero(ipAddr, conn);\r\n                return 0;\r\n            } else {\r\n                return rs.getInt(\"failureCount\");\r\n            }\r\n        } else {\r\n            insertResetPasswordRow(ipAddr, 0, conn);\r\n            return 0;\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public int getResetPasswordFailures(String)",
+                "comments": "Optional[/**\r\n * Return the number of failures from resetting a password, given an IP address.\r\n *\r\n * @param ipAddr An IP address for the associated attempt as a String.\r\n * @return An int representing the number of failures.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// if we're more than X minutes out, clear the failure count\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LoginFailures WHERE IPADDRESS=?\");\r\n        ps.setString(1, ipAddr);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next()) {\r\n            // if we're more than X minutes out, clear the failure count\r\n            if (System.currentTimeMillis() - rs.getTimestamp(\"lastFailure\").getTime() > LOGIN_TIMEOUT) {\r\n                updateFailuresToZero(ipAddr, conn);\r\n                return 0;\r\n            } else {\r\n                return rs.getInt(\"failureCount\");\r\n            }\r\n        } else {\r\n            insertLoginFailureRow(ipAddr, 0, conn);\r\n            return 0;\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public int getLoginFailures(String)",
+                "comments": "Optional[/**\r\n * Return the number of failures from login failures a password, given an IP address.\r\n *\r\n * @param ipAddr The IP address for this attempt as a String.\r\n * @return An int representing the number of failures which have occured.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// if we're more than X minutes out, clear the failure count\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    PreparedStatement ps = conn.prepareStatement(\"INSERT INTO LoginFailures(IPAddress, failureCount) VALUES(?,?)\");\r\n    ps.setString(1, ipAddr);\r\n    ps.setInt(2, failureCount);\r\n    ps.executeUpdate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void insertLoginFailureRow(String, int, Connection)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PreparedStatement ps = conn.prepareStatement(\"INSERT INTO ResetPasswordFailures(IPAddress, failureCount) VALUES(?,?)\");\r\n    ps.setString(1, ipAddr);\r\n    ps.setInt(2, failureCount);\r\n    ps.executeUpdate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void insertResetPasswordRow(String, int, Connection)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PreparedStatement ps = conn.prepareStatement(\"UPDATE LoginFailures SET failureCount=0 WHERE IPAddress=?\");\r\n    ps.setString(1, ipAddr);\r\n    ps.executeUpdate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void updateFailuresToZero(String, Connection)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE LoginFailures SET failureCount=0 WHERE IPAddress=?\");\r\n        ps.setString(1, ipAddr);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void resetLoginFailuresToZero(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PreparedStatement ps = conn.prepareStatement(\"UPDATE ResetPasswordFailures SET failureCount=0 WHERE IPAddress=?\");\r\n    ps.setString(1, ipAddr);\r\n    ps.executeUpdate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void updateResetFailuresToZero(String, Connection)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Users WHERE MID=?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return rs.next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean checkUserExists(long)",
+                "comments": "Optional[/**\r\n * Check that a user actually exists.\r\n *\r\n * @param mid\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AuthDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AuthDAO",
+        "variables": [
+            "public  static  final long LOGIN_TIMEOUT",
+            "private DAOFactory factory"
+        ]
+    }
+]

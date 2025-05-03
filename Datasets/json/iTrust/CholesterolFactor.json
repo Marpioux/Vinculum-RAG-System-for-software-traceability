@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient has bad cholesterol\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (record.getCholesterolHDL() < hdlThreshold) || (record.getCholesterolLDL() > ldlThreshold) || (record.getCholesterolTri() > triThreshold);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.record = currentHealthRecord;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CholesterolFactor(HealthRecord)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "CholesterolFactor",
+        "variables": [
+            "private  static  final int hdlThreshold",
+            "private  static  final int ldlThreshold",
+            "private  static  final int triThreshold",
+            "private HealthRecord record"
+        ]
+    }
+]

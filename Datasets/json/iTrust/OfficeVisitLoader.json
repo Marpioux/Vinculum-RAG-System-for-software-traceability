@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<OfficeVisitBean> list = new ArrayList<OfficeVisitBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<OfficeVisitBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OfficeVisitBean ov = new OfficeVisitBean(rs.getInt(\"ID\"));\r\n    ov.setHcpID(rs.getLong(\"HCPID\"));\r\n    ov.setNotes(rs.getString(\"Notes\"));\r\n    ov.setPatientID(rs.getLong(\"PatientID\"));\r\n    ov.setHospitalID(rs.getString(\"HospitalID\"));\r\n    ov.setVisitDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(rs.getDate(\"VisitDate\").getTime())));\r\n    return ov;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public OfficeVisitBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, OfficeVisitBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "OfficeVisitLoader",
+        "variables": []
+    }
+]

@@ -1,0 +1,212 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    scelta_piatto[4].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[4].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.DESSERT);\r\n                p();\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[5].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[5].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.FRUTTA);\r\n                p();\r\n            }\r\n        }\r\n    });\r\n    scelta_servizio[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_servizio[0].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.RICREATIVI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_servizio[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_servizio[1].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.ALTRO);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_bevanda[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bevanda[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.CAFFETTERIA);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_bevanda[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bevanda[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.ANALCOLICI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_bevanda[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bevanda[2].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.ALCOLICI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_cibo[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_cibo[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.DOLCI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_cibo[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_cibo[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.SALATI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_antipasto[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_antipasto[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.FREDDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_antipasto[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_antipasto[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.CALDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_primo[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_primo[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.SOLIDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_primo[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_primo[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.LIQUIDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_secondo[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_secondo[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.CARNE);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_secondo[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_secondo[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.PESCE);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_contorno[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_contorno[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.VERDURA_COTTA);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_contorno[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_contorno[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.VERDURA_CRUDA);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_contorno[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_contorno[2].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.FORMAGGIO);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma(padre);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void initialize()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_piatto[4].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.DESSERT);\r\n        p();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_piatto[5].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.FRUTTA);\r\n        p();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_servizio[0].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.RICREATIVI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_servizio[1].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.ALTRO);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_bevanda[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.CAFFETTERIA);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_bevanda[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.ANALCOLICI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_bevanda[2].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.ALCOLICI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_cibo[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.DOLCI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_cibo[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.SALATI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_antipasto[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.FREDDI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_antipasto[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.CALDI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_primo[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.SOLIDI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_primo[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.LIQUIDI);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_secondo[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.CARNE);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_secondo[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.PESCE);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_contorno[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.VERDURA_COTTA);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_contorno[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.VERDURA_CRUDA);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_contorno[2].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.FORMAGGIO);\r\n        o();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma(padre);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MessageDialog msg;\r\n    if (!errore()) {\r\n        Float px = Float.valueOf(testo4.getText());\r\n        extra = new BeneServizio((new String(codice)) + tornaCodId((Principale.config).getIdBeneservizio()), testo3.getText(), px.floatValue());\r\n        int j;\r\n        if ((j = (Principale.db).newIdBeneservizio()) == DataBase.OK) {\r\n            (Principale.config).updateIdBeneservizio();\r\n            if ((j = (Principale.db).writeBeneServizio(extra)) == DataBase.OK) {\r\n                if (padre instanceof MascheraAddebiti) {\r\n                    // questo serve in quanto l'AggiungiBeneServizio e' una estensione di questa classe\r\n                    dispose();\r\n                    padre.setEnabled(true);\r\n                    ((MascheraAddebiti) padre).inizExtra();\r\n                } else {\r\n                    // questo serve in quanto AggiungiBeneServizio e' una estensione di questa\r\n                    // classe ed e' utilizzata dalla maschera del conto ristorazione\r\n                    if (padre instanceof MascheraContoRistorazione) {\r\n                        dispose();\r\n                        padre.setEnabled(true);\r\n                        ((MascheraContoRistorazione) padre).inizExtra();\r\n                    } else {\r\n                        testo3.setText(\"\");\r\n                        testo4.setText(\"\");\r\n                        panel[10].setVisible(true);\r\n                    }\r\n                }\r\n            } else\r\n                msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void startConferma(Frame)",
+                "comments": null,
+                "innerComments": "Optional[[// questo serve in quanto l'AggiungiBeneServizio e' una estensione di questa classe\r\n, // questo serve in quanto AggiungiBeneServizio e' una estensione di questa\r\n, // classe ed e' utilizzata dalla maschera del conto ristorazione\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    completeCode();\r\n    this.add(panel[10]);\r\n    panel[10].setVisible(true);\r\n    testo3.setText(\"\");\r\n    testo4.setText(\"\");\r\n    setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void o()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    completeCode();\r\n    if (panel[1].isVisible())\r\n        remove(panel[1]);\r\n    for (int i = 3; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    o();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void p()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    completeCode();\r\n    String str_id = Long.toString(id);\r\n    while (str_id.length() < 5) str_id = new String(\"0\" + str_id);\r\n    return str_id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " String tornaCodId(long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(title);\r\n    initialize();\r\n    setSize(350, 520);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public InserisciBeniServizi(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "InserisciBeniServizi",
+        "variables": [
+            " BeneServizio extra"
+        ]
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public abstract Connection getConnection()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IConnectionDriver",
+        "variables": []
+    }
+]

@@ -1,0 +1,97 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciTag(BeanTag)",
+                "comments": "Optional[/**\r\n * Add a tag\r\n *\r\n * @param ptagi Tag to add\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaTag(BeanTag)",
+                "comments": "Optional[/**\r\n * Modify the data in a tag\r\n *\r\n * @param ptagi Tag to modify\r\n * @throws SQLException\r\n * @return True if changed, otherwise false\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaTag(int)",
+                "comments": "Optional[/**\r\n * Delete a tag from the database\r\n *\r\n * @param pIdTag ID Tag to be deleted\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTag> ottieniListaTag()",
+                "comments": "Optional[/**\r\n * Returns the list of tags in the database\r\n *\r\n * @throws SQLException\r\n * @return List containing the tags\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanTag ottieniTag(int)",
+                "comments": "Optional[/**\r\n * Returns a single tag\r\n *\r\n * @param pid ID tag\r\n * @throws SQLException\r\n * @return Tag\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean aggiungeTagBeneCulturale(int, int)",
+                "comments": "Optional[/**\r\n * Tag with immovable cultural\r\n *\r\n * @param pIdBeneCulturale ID of Cultural Heritage\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean aggiungeTagPuntoDiRistoro(int, int)",
+                "comments": "Optional[/**\r\n * Tag to a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro Point identification Refreshments\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTag> ottieniTagBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Returns the list of tags of a cultural\r\n *\r\n * @param pIdBeneCulturale ID of Cultural Heritage\r\n * @throws SQLException\r\n * @return List of tags\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Returns a list of tags of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro Point identification Refreshments\r\n * @throws SQLException\r\n * @return List of tags\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaTagBeneCulturale(int, int)",
+                "comments": "Optional[/**\r\n * Delete a tag from a cultural\r\n *\r\n * @param pIdBeneCulturale ID of Cultural Heritage\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaTagPuntoDiRistoro(int, int)",
+                "comments": "Optional[/**\r\n * Delete a tag from a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro ID\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBTag",
+        "variables": []
+    }
+]

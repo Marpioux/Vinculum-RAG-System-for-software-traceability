@@ -1,0 +1,153 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciTurista(BeanTurista)",
+                "comments": "Optional[/**\r\n * Method for the insertion of a Tourist\r\n *\r\n * @param pTurista container for all data relating to tourism by Insert\r\n * @return Boolean: True if the insertion is successful, False otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPreferenzeGeneriche(BeanPreferenzeGeneriche)",
+                "comments": "Optional[/**\r\n * Method for including the General Preferences Tourist\r\n *\r\n * @param pPreferenzeGeneriche General Preferences for inclusion\r\n * @return Boolean: True if the insertion is successful, False otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPreferenzeGeneriche ottieniPreferenzeGeneriche(int)",
+                "comments": "Optional[/**\r\n * Method for the extraction Preferences generously given Tourists\r\n *\r\n * @param pIdTurista Identifier Turista which you want to Get the General Preferences\r\n * @return Preferences General information relating to tourism\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaPreferenzeGeneriche(BeanPreferenzeGeneriche)",
+                "comments": "Optional[/**\r\n * Method for changing the Preferences generously given Tourists\r\n *\r\n * @param pPreferenzeGenericheNuove The Preferenze General for inclusion\r\n * @return Boolean: True if the modification is successful, False otherwise\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPreferenzeGeneriche cancellaPreferenzeGeneriche(int)",
+                "comments": "Optional[/**\r\n * Method for the removal of preferences associated with the General Tourist\r\n *\r\n * @param pIdTurista of tourists for whom you want to Delete the General Preferences\r\n * @return Preferences General erased\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPreferenzaDiRicerca(int, BeanPreferenzaDiRicerca)",
+                "comments": "Optional[/**\r\n * Method to insert a Search Preferences\r\n *\r\n * @param pIdTurista of tourists for which you intend to Insert a Search Preferences\r\n * @param pPreferenzaDiRicerca Search Preferences to be included\r\n * @return Boolean: True if the insertion is successful, False otherwise\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPreferenzaDiRicerca[] ottieniPreferenzeDiRicerca(int)",
+                "comments": "Optional[/**\r\n * Method for extracting the set of Search Preferences given Tourist\r\n *\r\n * @param pIdTurista of tourists for whom you want to Extract search preferences\r\n * @return the search preferences associated with the Tourist information\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPreferenzaDiRicerca cancellaPreferenzeDiRicerca(int, int)",
+                "comments": "Optional[/**\r\n * Method for deleting a Search Preference given its ID and Tourists\r\n *\r\n * @param pIdTurista of tourists for whom you want to Delete a Search Preferences\r\n * @param pIdPreferenzaDiRicerca Search Preferences to cancel\r\n * @return The preference of search Deleted\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanVisitaBC[] ottieniBeniCulturaliVisitati(int)",
+                "comments": "Optional[/**\r\n * Method to extract the list references to the Cultural Heritage Visited by a tourist\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return list of references to the Cultural Heritage Visited\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanVisitaPR[] ottieniPuntiDiRistoroVisitati(int)",
+                "comments": "Optional[/**\r\n * Method for the extraction of the list when making reference to Refreshments Visited by a tourist\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return list of references to Refreshments Visited\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciBeneCulturaleVisitato(BeanVisitaBC)",
+                "comments": "Optional[/**\r\n * Method for the insertion of a cultural Visited\r\n *\r\n * @param pVisitaBC package containing all information relating to Visit\r\n * @return true if the item is added successfully, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPuntoDiRistoroVisitato(BeanVisitaPR)",
+                "comments": "Optional[/**\r\n * Method for inserting a refreshment Visited\r\n *\r\n * @param pVisitaPR package containing all information relating to Visit\r\n * @return true if the item is added successfully, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciBeneCulturalePreferito(int, int)",
+                "comments": "Optional[/**\r\n * Method for the insertion of a cultural object in the list of Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdBeneCulturale of Cultural Heritage\r\n * @return true if the insertion is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPuntoDiRistoroPreferito(int, int)",
+                "comments": "Optional[/**\r\n * Method for inserting a refreshment to my Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdPuntoDiRistoro point identification Refreshment\r\n * @return true if the insertion is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaBeneCulturalePreferito(int, int)",
+                "comments": "Optional[/**\r\n * Method for the cancellation of a cultural object from the list of Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdBeneCulturale of Cultural Heritage\r\n * @return true if the cancellation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPuntoDiRistoroPreferito(int, int)",
+                "comments": "Optional[/**\r\n * Method for deleting a refreshment from the list of Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdPuntoDiRistoro point identification Refreshment\r\n * @return true if the cancellation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanBeneCulturale[] ottieniBeniCulturaliPreferiti(int)",
+                "comments": "Optional[/**\r\n * Method to extract the list of Cultural Heritage Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return List of Cultural Heritage Favorites\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPuntoDiRistoro[] ottieniPuntiDiRistoroPreferiti(int)",
+                "comments": "Optional[/**\r\n * Method to extract the list of Refreshments\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return list of eateries Favorites\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneTuristaClient",
+        "variables": []
+    }
+]

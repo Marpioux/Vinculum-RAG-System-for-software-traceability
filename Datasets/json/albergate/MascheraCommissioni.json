@@ -1,0 +1,118 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo le etichette\r\n    etichetta3 = new Label(\"Inserimento dati della commissione\");\r\n    etichetta3.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich1 = new Label(\"Nome Agenzia\");\r\n    etich2 = new Label(\"Numero Stanza\");\r\n    etich3 = new Label(\"Data inizio Commissione\");\r\n    etich4 = new Label(\"Data fine Commissione\");\r\n    etich5 = new Label(\"Data scadenza Commissione\");\r\n    etich6 = new Label(\"Numero telefonico Agenzia\");\r\n    etich7 = new Label(\"Risultato della ricerca\");\r\n    etich7.setFont(ConfigurazioneSistema.font_titolo);\r\n    //Creo i TextField e ne rendo  alcuni non editabili\r\n    nome_agenzia = new TextField(\"\", 20);\r\n    num_stanza = new TextField(\"\", 4);\r\n    inizio_comm = new TextField(\"\", 12);\r\n    fine_comm = new TextField(\"\", 12);\r\n    scadenza_comm = new TextField(\"\", 12);\r\n    num_tel_agenzia = new TextField(\"\", 16);\r\n    //Creo i pulsanti\r\n    Annulla = new Button(\" Fine \");\r\n    Azione = new Button(caption);\r\n    Cerca = new Button(\" Cerca \");\r\n    //Creo il pannello\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, etichetta3, 0, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel3, etich1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, nome_agenzia, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etich2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, num_stanza, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etich3, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, inizio_comm, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etich4, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, fine_comm, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etich5, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, scadenza_comm, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etich6, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, num_tel_agenzia, 1, 4, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 15);\r\n    Utils.constrain(panel4, Azione, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    if ((caller == 2) || (caller == 3))\r\n        Utils.constrain(panel4, Cerca, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    lista = new List(10, false);\r\n    lista.setFont(ConfigurazioneSistema.font_allineato);\r\n    panel5 = new Panel();\r\n    panel5.setLayout(gridbag);\r\n    Utils.constrain(panel5, etich7, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel5, lista, 0, 1, 4, 3, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 3.0, 3.0, 0, 0, 0, 0);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel3, 0, 0, 6, 5, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 5, 6, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel5, 0, 6, 6, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel5.setVisible(false);\r\n    pack();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels(String, String, String)",
+                "comments": null,
+                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Commissionamento comm = new Commissionamento();\r\n    comm.setIdCommissionamento((Principale.config).getIdCommissionamento());\r\n    comm.setNomeAgenzia(nome_agenzia.getText());\r\n    comm.setNumStanza(num_stanza.getText());\r\n    comm.setInizioComm(DateUtils.convertDate(inizio_comm.getText()));\r\n    comm.setFineComm(DateUtils.convertDate(fine_comm.getText()));\r\n    comm.setScadenzaComm(DateUtils.convertDate(scadenza_comm.getText()));\r\n    comm.setNumTel(num_tel_agenzia.getText());\r\n    return comm;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " Commissionamento readDatiComm()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    nome_agenzia.setText(comm.getNomeAgenzia());\r\n    num_stanza.setText(comm.getNumStanza());\r\n    inizio_comm.setText(DateUtils.giveStringOfDate(comm.getInizioComm()));\r\n    fine_comm.setText(DateUtils.giveStringOfDate(comm.getFineComm()));\r\n    scadenza_comm.setText(DateUtils.giveStringOfDate(comm.getScadenzaComm()));\r\n    num_tel_agenzia.setText(comm.getNumTel());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void writeDatiComm(Commissionamento)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!((num_stanza.getText()).length() <= 4)) {\r\n        msg = new MessageDialog(this, \" Il numero della stanza deve avere al piu' 4 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((num_stanza.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il numero di stanza! \");\r\n        return true;\r\n    }\r\n    if ((nome_agenzia.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il nome dell'agenzia! \");\r\n        return true;\r\n    }\r\n    if (!((nome_agenzia.getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il nome dell'agenzia deve avere al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((scadenza_comm.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca la data di scadenza! \");\r\n        return true;\r\n    }\r\n    if (!(DateUtils.dataCorretta(scadenza_comm.getText()))) {\r\n        msg = new MessageDialog(this, \" La data di scadenza e' non corretta! \");\r\n        return true;\r\n    }\r\n    if ((num_tel_agenzia.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il numero di telefono! \");\r\n        return true;\r\n    }\r\n    if (!((num_tel_agenzia.getText()).length() <= 16)) {\r\n        msg = new MessageDialog(this, \" Il numero di telefono deve avere al piu' 16 caratteri! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected boolean errori()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    nome_agenzia.setText(\"\");\r\n    num_stanza.setText(\"\");\r\n    inizio_comm.setText(\"\");\r\n    fine_comm.setText(\"\");\r\n    scadenza_comm.setText(\"\");\r\n    num_tel_agenzia.setText(\"\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void cleanFields()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    Commissionamento c;\r\n    L = (Principale.db).foundCommissionamenti(new String(nome_agenzia.getText()));\r\n    if (L != null) {\r\n        if (lista.getItemCount() > 0)\r\n            lista.removeAll();\r\n        if (!L.isEmpty()) {\r\n            panel5.setVisible(true);\r\n            pack();\r\n            for (int i = 1; i <= L.length(); i++) lista.addItem((L.getCommissionamento(i)).toString());\r\n        } else\r\n            msg = new AvvisoDialog(this, \"Agenzia \" + nome_agenzia.getText() + \" non trovata!\");\r\n    } else\r\n        msg = new MessageDialog(this, \"Problemi con il database!\");\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " void creaLista()",
+                "comments": "Optional[// procedura utilizzata da Modifica e Cancella\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Disponibilita disp_da_cambiare = new Disponibilita();\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        Frame msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    disp_da_cambiare = Utils.getDispOfRoom(elenco_disp, comm.getNumStanza(), true);\r\n    if (tipo == Flag.COMMISSIONATA)\r\n        disp_da_cambiare.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), tipo, Flag.DISPONIBILE);\r\n    else\r\n        disp_da_cambiare.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), tipo, Flag.COMMISSIONATA);\r\n    (Principale.db).changeDisponibilita(disp_da_cambiare.getNumStanza(), disp_da_cambiare.getDispAnnoCorr(), disp_da_cambiare.getDispAnnoProx());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void aggiornaDisp(Commissionamento, char)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(title);\r\n    caller = c;\r\n    setupPanels(data1, data2, caption);\r\n    inizializza();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraCommissioni(String, String, String, String, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraCommissioni",
+        "variables": [
+            " TextField num_stanza",
+            " TextField nome_agenzia",
+            " TextField inizio_comm",
+            " TextField fine_comm",
+            " TextField scadenza_comm",
+            " TextField num_tel_agenzia",
+            " Label etichetta3",
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Label etich7",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " Panel panel5",
+            " List lista",
+            " Button Annulla",
+            " Button Azione",
+            " Button Cerca",
+            " GridBagLayout gridbag",
+            " SubCommissioni padre",
+            " ListaCommissionamenti L",
+            " int caller"
+        ]
+    }
+]

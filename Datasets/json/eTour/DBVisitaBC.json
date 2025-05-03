@@ -1,0 +1,49 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciVisitaBC(BeanVisitaBC)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean modificaVisitaBC(BeanVisitaBC)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ArrayList<BeanVisitaBC> finteVisite = new ArrayList<BeanVisitaBC>(0);\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(5, 1, \"This show is not 'evil'\", 1, new Date(new Date().getTime() - 2591000000L)));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"This show is not 'evil'\", 1, new Date(new Date().getTime() - 5182000000L)));\r\n    return finteVisite;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ArrayList<BeanVisitaBC> ottieniListaVisitaBC(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ArrayList<BeanVisitaBC> ottieniListaVisitaBCTurista(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public BeanVisitaBC ottieniVisitaBC(int, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DBVisitaBC",
+        "variables": []
+    }
+]

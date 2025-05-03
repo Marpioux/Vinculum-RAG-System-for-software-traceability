@@ -1,0 +1,102 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement pstmt = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        pstmt = conn.prepareStatement(\"SELECT firstName, lastName FROM Personnel WHERE MID=?\");\r\n        pstmt.setLong(1, mid);\r\n        ResultSet rs;\r\n        rs = pstmt.executeQuery();\r\n        if (rs.next()) {\r\n            return rs.getString(\"firstName\") + \" \" + rs.getString(\"lastName\");\r\n        } else {\r\n            throw new iTrustException(\"User does not exist\");\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, pstmt);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName(long)",
+                "comments": "Optional[/**\r\n * Returns the name for a given MID\r\n *\r\n * @param mid The MID of the personnel in question.\r\n * @return A String representing the name of the personnel.\r\n * @throws iTrustException\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    long newID;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO Personnel(Role) VALUES(?)\");\r\n        ps.setString(1, role.name());\r\n        ps.executeUpdate();\r\n        newID = DBUtil.getLastInsert(conn);\r\n        return newID;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addEmptyPersonnel(Role)",
+                "comments": "Optional[/**\r\n * Adds an empty personnel, and returns the MID.\r\n *\r\n * @return A long indicating the new MID.\r\n * @param role A {@link Role} enum indicating the personnel's specific role.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID = ?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next()) {\r\n            return personnelLoader.loadSingle(rs);\r\n        } else\r\n            return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PersonnelBean getPersonnel(long)",
+                "comments": "Optional[/**\r\n * Retrieves a PersonnelBean with all of the specific information for a given employee.\r\n *\r\n * @param mid The MID of the personnel in question.\r\n * @return A PersonnelBean representing the employee.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE Personnel SET AMID=?,firstName=?,lastName=?,\" + \"phone1=?,phone2=?,phone3=?, address1=?,address2=?,city=?, state=?, zip=?, zip1=?, zip2=?, email=?, MessageFilter=?\" + \" WHERE MID=?\");\r\n        personnelLoader.loadParameters(ps, p);\r\n        ps.setLong(16, p.getMID());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void editPersonnel(PersonnelBean)",
+                "comments": "Optional[/**\r\n * Updates the demographics for a personnel.\r\n *\r\n * @param p The personnel bean with the updated information.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID=?\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return rs.next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean checkPersonnelExists(long)",
+                "comments": "Optional[/**\r\n * Indicates whether a certain personnel is in the database.\r\n *\r\n * @param pid The MID of the personnel in question.\r\n * @return A boolean indicating whether this personnel exists.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM HCPAssignedHos hah,Hospitals h \" + \"WHERE hah.HCPID=? AND hah.HosID=h.HospitalID ORDER BY HospitalName ASC\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return hospitalBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<HospitalBean> getHospitals(long)",
+                "comments": "Optional[/**\r\n * Returns all of the hospitals this LHCP is associated with.\r\n *\r\n * @param mid The MID of the personnel in question.\r\n * @return A java.util.List of HospitalBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM personnel where role in ('hcp','uap','er') \");\r\n        ResultSet rs = ps.executeQuery();\r\n        return personnelLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> getAllPersonnel()",
+                "comments": "Optional[/**\r\n * Returns all personnel in the database.\r\n *\r\n * @return A java.util.List of personnel.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID IN (SELECT UAP FROM HCPRelations WHERE HCP=?)\");\r\n        ps.setLong(1, hcpid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return personnelLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> getUAPsForHCP(long)",
+                "comments": "Optional[/**\r\n * Returns a list of UAPs who work for this LHCP.\r\n *\r\n * @param hcpid The MID of the personnel in question.\r\n * @return A java.util.List of UAPs.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Personnel WHERE MID IN (SELECT HCPID FROM OfficeVisits WHERE ID=?)\");\r\n        ps.setLong(1, prescription.getVisitID());\r\n        ResultSet rs = ps.executeQuery();\r\n        return personnelLoader.loadList(rs).get(0);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PersonnelBean getPrescribingDoctor(PrescriptionBean)",
+                "comments": "Optional[/**\r\n * Given a prescription that has been given, this method returns all the information for the\r\n * doctor who authorized that prescription.\r\n *\r\n * @param prescription The PrescriptionBean describing the prescription in question.\r\n * @return The PersonnelBean describing the doctor who authorized it.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    if (first.equals(\"%\") && last.equals(\"%\"))\r\n        return new Vector<PersonnelBean>();\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM personnel WHERE firstName LIKE ? AND lastName LIKE ?\");\r\n        ps.setString(1, first);\r\n        ps.setString(2, last);\r\n        ResultSet rs = ps.executeQuery();\r\n        return personnelLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> searchForPersonnelWithName(String, String)",
+                "comments": "Optional[/**\r\n * Matches all personnel who have names LIKE (as in SQL) the first and last names passed in.\r\n *\r\n * @param first The first name to be searched for.\r\n * @param last The last name to be searched for.\r\n * @return A java.util.List of personnel who match these names.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    personnelLoader = new PersonnelLoader();\r\n    hospitalBeanLoader = new HospitalBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PersonnelDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "PersonnelDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private PersonnelLoader personnelLoader",
+            "private HospitalBeanLoader hospitalBeanLoader"
+        ]
+    }
+]

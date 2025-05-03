@@ -1,0 +1,67 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean cancellaConvenzione(int)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#cancellaConvenzione(int)\r\n     */\r\n]",
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#getStoricoConvenzione(int)\r\n     */\r\n]",
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciConvenzione(BeanConvenzione)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#inserisciConvenzione(unisa.gps.etour.bean.BeanConvenzione)\r\n     */\r\n]",
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean modificaConvenzione(BeanConvenzione)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#modificaConvenzione(unisa.gps.etour.bean.BeanConvenzione)\r\n     */\r\n]",
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    BeanConvenzione convenzione = new BeanConvenzione();\r\n    convenzione.setAttiva(true);\r\n    convenzione.setDataFine(new Date());\r\n    convenzione.setDataInizio(new Date());\r\n    convenzione.setId(12);\r\n    convenzione.setIdPuntoDiRistoro(3);\r\n    convenzione.setPrezzo(100);\r\n    if (numTest == 1) {\r\n        /* Test banners allowed */\r\n        convenzione.setMaxBanner(4);\r\n        return convenzione;\r\n    } else if (numTest == 2) {\r\n        /* Test banners not allowed */\r\n        convenzione.setMaxBanner(3);\r\n        return convenzione;\r\n    } else {\r\n        return null;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanConvenzione ottieniConvezioneAttiva(int)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#ottieniConvezioneAttiva(int)\r\n     */\r\n]",
+                "innerComments": "Optional[[/* Test banners allowed */\r\n, /* Test banners not allowed */\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanPuntoDiRistoro> ottieniListaConvenzioneAttivaPR()",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#ottieniListaConvenzioneAttivaPR()\r\n     */\r\n]",
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    DBConvenzione.numTest = numTest;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static void setNumTest(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DBConvenzione",
+        "variables": [
+            "private  static int numTest"
+        ]
+    }
+]

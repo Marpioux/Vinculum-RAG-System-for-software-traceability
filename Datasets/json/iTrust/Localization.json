@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return currentLocale;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Locale getCurrentLocale()",
+                "comments": "Optional[/**\r\n * Returns the current locale\r\n * @return the current locale\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (currentInstance == null) {\r\n        currentInstance = new Localization();\r\n    }\r\n    return currentInstance;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static Localization instance()",
+                "comments": "Optional[/**\r\n * singleton method, may want to make this thread safe, as far as I know\r\n * iTrust doesn't do any multithreading though...\r\n * @return Localization instance\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    currentLocale = new Locale(\"en\", \"US\");\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Localization()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "Localization",
+        "variables": [
+            "private Locale currentLocale",
+            "static Localization currentInstance"
+        ]
+    }
+]

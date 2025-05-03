@@ -1,0 +1,92 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    boolean res = false;\r\n    for (int i = 0; i < b.size(); i++) {\r\n        if (b.get(i).getId() == pIdBene) {\r\n            b.remove(i);\r\n            res = true;\r\n        }\r\n    }\r\n    return res;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaBeneCulturale(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return b.add(pBene);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciBeneCulturale(BeanBeneCulturale)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    boolean res = false;\r\n    for (int i = 0; i < b.size(); i++) {\r\n        if (b.get(i).getId() == pBene.getId()) {\r\n            b.set(i, pBene);\r\n            return true;\r\n        }\r\n    }\r\n    return res;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean modificaBeneCulturale(BeanBeneCulturale)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    BeanBeneCulturale res = null;\r\n    for (int i = 0; i < b.size(); i++) {\r\n        if (b.get(i).getId() == pid) {\r\n            res = b.get(i);\r\n        }\r\n    }\r\n    return res;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public BeanBeneCulturale ottieniBeneCulturale(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return b;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ArrayList<BeanBeneCulturale> ottieniListaBC()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return 0;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int ottieniNumeroElementiRicerca(String, ArrayList<BeanTag>, Punto3D, double)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return 0;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int ottieniNumeroElementiRicercaAvanzata(int, String, ArrayList<BeanTag>, Punto3D, double)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanBeneCulturale> search(String, ArrayList<BeanTag>, int, int, Punto3D, double)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanBeneCulturale> ricercaAvanzata(int, String, ArrayList<BeanTag>, int, int, Punto3D, double)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    b = new ArrayList<BeanBeneCulturale>(0);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DBBeneCulturale()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "DBBeneCulturale",
+        "variables": [
+            "private ArrayList<BeanBeneCulturale> b"
+        ]
+    }
+]

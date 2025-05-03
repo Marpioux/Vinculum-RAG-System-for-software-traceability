@@ -1,0 +1,55 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    NewsTableModel aModel = (NewsTableModel) aTable.getModel();\r\n    aModel.insertNews(aNewsAttiva);\r\n    aModel.insertNews(aNewsScaduta);\r\n    // Test the renderer with a news active.\r\n    JTextArea aArea = (JTextArea) renderer.getTableCellRendererComponent(aTable, \"Here's a news active\", true, true, 0, 0);\r\n    assertEquals(aNewsAttiva.getNews(), aArea.getText());\r\n    // Test the renderer with a news expired.\r\n    aArea = (JTextArea) renderer.getTableCellRendererComponent(aTable, \"Here's a news expired\", true, true, 0, 0);\r\n    assertEquals(aNewsScaduta.getNews(), aArea.getText());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void testGetTableCellRendererParametriCorretti()",
+                "comments": "Optional[/*\r\n     * Verify the behavior of the method with the correct parameters.\r\n     */\r\n]",
+                "innerComments": "Optional[[// Test the renderer with a news active.\r\n, // Test the renderer with a news expired.\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    JTable anotherTable = new JTable();\r\n    try {\r\n        renderer.getTableCellRendererComponent(anotherTable, \"Here's a news\", true, true, 0, 0);\r\n        fail(\"Should be thrown.\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void testGetTableCellRendererNoNewsModel()",
+                "comments": "Optional[/*\r\n     * Verification comparing the table with a table without NewsTableModel\r\n     * associated.\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        renderer.getTableCellRendererComponent(aTable, null, true, true, 0, 0);\r\n        fail(\"Should be thrown.\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void testGetTableCellRendererParametroNull()",
+                "comments": "Optional[/*\r\n     * Verify the behavior of the method with a parameter as null.\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        renderer.getTableCellRendererComponent(aTable, 12, true, true, 0, 0);\r\n        fail(\"Should be thrown.\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void testGetTableCellRendererTipoInatteso()",
+                "comments": "Optional[/*\r\n     * Verify the behavior of the method with an unexpected data type.\r\n     */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n    renderer = new TestoNewsRenderer();\r\n    aNewsAttiva = new BeanNews(\"Here's a news active\", new Date(), new Date(120, 1, 1), 5, 0);\r\n    aNewsScaduta = new BeanNews(\"Here's a news expired\", new Date(), new Date(), 5, 0);\r\n    aTable = new JTable(new NewsTableModel());\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public TestoNewsRendererTest()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "TestoNewsRendererTest",
+        "variables": [
+            "private TestoNewsRenderer renderer",
+            "private BeanNews aNewsAttiva",
+            "private BeanNews aNewsScaduta",
+            "private JTable aTable"
+        ]
+    }
+]

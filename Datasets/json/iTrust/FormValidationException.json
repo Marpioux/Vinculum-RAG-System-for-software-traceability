@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return errorList.getMessageList();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<String> getErrorList()",
+                "comments": "Optional[/**\r\n * Returns the error list as a java.util.List of Strings.\r\n * @return The error list\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return \"This form has not been validated correctly. The following field are not properly filled in: \" + errorList.toString();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getMessage()",
+                "comments": "Optional[/**\r\n * The error message will be displayed at the top of the iTrust page as in other iTrust Exceptions.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    out.print(\"<h2>Information not valid</h2><div class=\\\"errorList\\\">\");\r\n    for (String errorMessage : errorList) {\r\n        out.print(errorMessage + \"<br />\");\r\n    }\r\n    out.print(\"</div>\");\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void printHTML(JspWriter)",
+                "comments": "Optional[/**\r\n * The special formatting for error messages is then kept in one place.\r\n * @param out The output writer (in this case a JSPWriter) where the formatted list will go.\r\n * @throws IOException If the writer is incorrect.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    errorList = new ErrorList();\r\n    for (String msg : errorMessages) {\r\n        errorList.addIfNotNull(msg);\r\n    }\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public FormValidationException(String)",
+                "comments": "Optional[/**\r\n * Constructor with error messages passed as a list of parameters to the method.\r\n * @param errorMessages The list of error messages to be returned in the special form validation box.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.errorList = errorList;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public FormValidationException(ErrorList)",
+                "comments": "Optional[/**\r\n * Constructor with error messages as a special ErrorList data type.\r\n * @param errorList An ErrorList object which contains the list of error messages.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "FormValidationException",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private ErrorList errorList"
+        ]
+    }
+]

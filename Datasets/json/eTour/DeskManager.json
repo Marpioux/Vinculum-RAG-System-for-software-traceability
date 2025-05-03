@@ -1,0 +1,139 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (component instanceof JInternalFrame) {\r\n        JInternalFrame frame = (JInternalFrame) component;\r\n        if (frame.isIcon()) {\r\n            x = frame.getLocation().x;\r\n            y = frame.getLocation().y;\r\n        } else {\r\n            JDesktopPane desk = frame.getDesktopPane();\r\n            Dimension d = desk.getSize();\r\n            if (x < 0) {\r\n                x = 0;\r\n            } else if (x + frame.getWidth() > d.width) {\r\n                x = d.width - frame.getWidth();\r\n            }\r\n            if (y < 0) {\r\n                y = 0;\r\n            } else if (y + frame.getHeight() > d.height) {\r\n                y = d.height - frame.getHeight();\r\n            }\r\n        }\r\n    }\r\n    super.dragFrame(component, x, y);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void dragFrame(JComponent, int, int)",
+                "comments": "Optional[/**\r\n * Manages the movement of JInternalFrame inside the area of\r\n * JDesktopPane, preventing the frames from being moved out of the visible area.\r\n *\r\n * @param component JComponent - the component of which\r\n *                  to manage the move.\r\n * @param x - x coordinate of the point where the component was moved\r\n * @param y - y coordinate of the point where the component was moved\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        JDesktopPane desk = frame.getDesktopPane();\r\n        Dimension d = desk.getSize();\r\n        frame.setClosable(false);\r\n        frame.setMaximizable(true);\r\n        frame.setIconifiable(false);\r\n        Rectangle features;\r\n        if (frame.isMaximum()) {\r\n            features = frame.getNormalBounds();\r\n        } else {\r\n            features = frame.getBounds();\r\n        }\r\n        frame.setSize(200, 30);\r\n        setPreviousBounds(frame, features);\r\n        if (iconifiedFrames.isEmpty()) {\r\n            locationX = 0;\r\n        } else {\r\n            locationX += 200;\r\n        }\r\n        if (locationY == -1) {\r\n            locationY = d.height - 30;\r\n        }\r\n        if (locationX + 200 > d.width) {\r\n            locationX = 0;\r\n            locationY -= 30;\r\n        }\r\n        frame.setLocation(locationX, locationY);\r\n        frame.setResizable(false);\r\n        iconifiedFrames.add(frame);\r\n    } catch (Exception ex) {\r\n        ex.printStackTrace();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void iconifyFrame(JInternalFrame)",
+                "comments": "Optional[/**\r\n * Customize the action of reducing the JInternalFrame to an icon.\r\n *\r\n * @param frame JInternalFrame - a frame inside a JDesktopPane.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        JDesktopPane desk = frame.getDesktopPane();\r\n        Dimension deskSize = desk.getSize();\r\n        iconifiedFrames.remove(frame);\r\n        Rectangle features = getPreviousBounds(frame);\r\n        if (features.width > deskSize.width) {\r\n            features.width = deskSize.width;\r\n            features.x = 0;\r\n        }\r\n        if (features.width + features.x > deskSize.width) {\r\n            features.x = (deskSize.width - features.width) / 2;\r\n        }\r\n        if (features.height > deskSize.height) {\r\n            features.height = deskSize.height;\r\n            features.y = 0;\r\n        }\r\n        if (features.height + features.y > deskSize.height) {\r\n            features.y = (deskSize.height - features.height) / 2;\r\n        }\r\n        frame.setSize(features.width, features.height);\r\n        frame.setLocation(features.x, features.y);\r\n        frame.setIconifiable(true);\r\n        frame.setClosable(true);\r\n        if (frame instanceof IScheda) {\r\n            frame.setMaximizable(false);\r\n            frame.setResizable(false);\r\n        } else {\r\n            frame.setMaximizable(true);\r\n            frame.setResizable(true);\r\n        }\r\n        locationX -= 200;\r\n        if (locationX < 0) {\r\n            locationX = deskSize.width / 200 - 200;\r\n            if (locationY != deskSize.height - 30) {\r\n                locationY -= 30;\r\n            }\r\n        }\r\n        repaintIconifiedFrames(desk);\r\n    } catch (Exception ex) {\r\n        ex.printStackTrace();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void deiconifyFrame(JInternalFrame)",
+                "comments": "Optional[/**\r\n * Restore the frame from being minimized, resetting the\r\n * position and size it had before.\r\n *\r\n * @param frame JInternalFrame - a frame inside a JDesktopPane.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        if (frame.isIcon()) {\r\n            frame.setIcon(false);\r\n        }\r\n        frame.setSelected(true);\r\n        super.activateFrame(frame);\r\n    } catch (PropertyVetoException e) {\r\n        e.printStackTrace();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void activateFrame(JInternalFrame)",
+                "comments": "Optional[/**\r\n * Return the focus to a selected frame, and, if the frame\r\n * is iconified, it deiconifies it.\r\n *\r\n * @param frame JInternalFrame - a frame within a JDesktopPane\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    JDesktopPane desk = frame.getDesktopPane();\r\n    Dimension d = desk.getSize();\r\n    Dimension f = frame.getSize();\r\n    frame.setLocation(d.width / 2 - f.width / 2, d.height / 2 - f.height / 2);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void centerFrame(JInternalFrame)",
+                "comments": "Optional[/**\r\n * Center the frame supplied as a parameter in JDesktopPane.\r\n *\r\n * @param frame JInternalFrame - a frame inside a JDesktopPane.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (desk.getDesktopManager() != this) {\r\n        throw new IllegalArgumentException(\"No DeskManager associated with the provided JDesktopPane.\");\r\n    }\r\n    Iterator<JInternalFrame> iconificati = iconifiedFrames.iterator();\r\n    int i = 0;\r\n    int xLocation;\r\n    int yLocation = desk.getHeight() - 30;\r\n    while (iconificati.hasNext()) {\r\n        JInternalFrame current = iconificati.next();\r\n        xLocation = 200 * i;\r\n        if (xLocation + 200 >= desk.getWidth()) {\r\n            xLocation = 0;\r\n            yLocation -= 30;\r\n            i = 0;\r\n        }\r\n        current.setLocation(xLocation, yLocation);\r\n        i++;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void repaintIconifiedFrames(JDesktopPane)",
+                "comments": "Optional[/**\r\n * Redraw the frames in the desktop that are iconified.\r\n *\r\n * @param desk JDesktopPane - a desktop pane associated with a\r\n *              DeskManager.\r\n * @throws IllegalArgumentException - if the supplied parameter is not\r\n *                                    associated with a DeskManager.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (desk.getDesktopManager() != this) {\r\n        throw new IllegalArgumentException(\"No DeskManager associated with the provided JDesktopPane.\");\r\n    }\r\n    JInternalFrame[] frames = desk.getAllFrames();\r\n    Dimension deskSize = desk.getSize();\r\n    for (int i = 0; i < frames.length; i++) {\r\n        JInternalFrame current = frames[i];\r\n        if (!current.isIcon()) {\r\n            Rectangle frameBounds = current.getBounds();\r\n            if (frameBounds.width > deskSize.width) {\r\n                frameBounds.width = deskSize.width;\r\n            }\r\n            if (frameBounds.height > deskSize.height) {\r\n                frameBounds.height = deskSize.height;\r\n            }\r\n            if (frameBounds.x + frameBounds.width > deskSize.width) {\r\n                frameBounds.x = deskSize.width - frameBounds.width;\r\n            }\r\n            if (frameBounds.y + frameBounds.height > deskSize.height) {\r\n                frameBounds.y = deskSize.height - frameBounds.height;\r\n            }\r\n            current.setBounds(frameBounds);\r\n        }\r\n    }\r\n    repaintIconifiedFrames(desk);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void repaintAllFrames(JDesktopPane)",
+                "comments": "Optional[/**\r\n * Redraw (and resize if necessary) all the frames contained in a\r\n * given JDesktopPane.\r\n *\r\n * @param desk JDesktopPane - a desktop pane.\r\n * @throws IllegalArgumentException - if the supplied desktop pane is not\r\n *                                    associated with a DeskManager.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!JInternalFrame.class.isAssignableFrom(clazz)) {\r\n        throw new IllegalArgumentException(\"The provided class does not extend javax.swing.JInternalFrame.\");\r\n    }\r\n    try {\r\n        JInternalFrame[] frames = desk.getAllFrames();\r\n        int i;\r\n        for (i = 0; i < frames.length; i++) {\r\n            if (frames[i].getClass().equals(clazz)) {\r\n                break;\r\n            }\r\n        }\r\n        if (i == frames.length) {\r\n            JInternalFrame newFrame = (JInternalFrame) clazz.getDeclaredConstructor().newInstance();\r\n            desk.add(newFrame, Integer.MAX_VALUE);\r\n            Dimension frameSize = newFrame.getPreferredSize();\r\n            newFrame.setSize(frameSize);\r\n            Dimension deskSize = desk.getSize();\r\n            Point posNuovo = new Point(10, 10);\r\n            for (i = frames.length - 1; i >= 0; i--) {\r\n                if (frames[i].getLocation().equals(posNuovo)) {\r\n                    posNuovo.x = frames[i].getLocation().x + 30;\r\n                    posNuovo.y = frames[i].getLocation().y + 30;\r\n                }\r\n            }\r\n            if ((posNuovo.x + frameSize.width > deskSize.width) || (posNuovo.y + frameSize.height > deskSize.height)) {\r\n                centerFrame(newFrame);\r\n            } else {\r\n                newFrame.setLocation(posNuovo);\r\n            }\r\n            newFrame.setVisible(true);\r\n        } else {\r\n            activateFrame(frames[i]);\r\n        }\r\n    } catch (Exception ex) {\r\n        ex.printStackTrace();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void openFrame(Class<?>, JDesktopPane)",
+                "comments": "Optional[/**\r\n * Open a frame of the specified class using the display.\r\n * If a frame of the given class already exists, it activates that frame.\r\n *\r\n * @param clazz Class - a class type that extends JInternalFrame.\r\n * @param desk JDesktopPane - a desktop pane.\r\n * @throws IllegalArgumentException - if the provided class does not extend JInternalFrame.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (desk.getDesktopManager() != this) {\r\n        throw new IllegalArgumentException(\"No DeskManager associated with the provided JDesktopPane.\");\r\n    }\r\n    ripristinaTutti.setEnabled(true);\r\n    closeAll.setEnabled(true);\r\n    riduciTutti.setEnabled(true);\r\n    JInternalFrame[] frames = desk.getAllFrames();\r\n    if (frames.length == 0) {\r\n        ripristinaTutti.setEnabled(false);\r\n        closeAll.setEnabled(false);\r\n        riduciTutti.setEnabled(false);\r\n    }\r\n    if (iconifiedFrames.size() == 0) {\r\n        ripristinaTutti.setEnabled(false);\r\n    }\r\n    if (iconifiedFrames.size() == frames.length) {\r\n        riduciTutti.setEnabled(false);\r\n    }\r\n    deskMenu.show(desk, point.x, point.y);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void showPopupMenu(Point, JDesktopPane)",
+                "comments": "Optional[/**\r\n * Displays a popup menu with options for frames of a desktop pane\r\n * at the selected location.\r\n *\r\n * @param point Point - the point where to place the menu.\r\n * @param desk JDesktopPane - a JDesktopPane that is associated with a DeskManager.\r\n * @throws IllegalArgumentException - if the supplied parameter is not associated with a DeskManager.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (iconifiedFrames.size() != 0) {\r\n        Vector<JInternalFrame> copy = (Vector<JInternalFrame>) iconifiedFrames.clone();\r\n        Iterator<JInternalFrame> frames = copy.iterator();\r\n        while (frames.hasNext()) {\r\n            try {\r\n                frames.next().setIcon(false);\r\n            } catch (PropertyVetoException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n        copy = null;\r\n        iconifiedFrames.removeAllElements();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void deiconifyAll()",
+                "comments": "Optional[/**\r\n * Deiconifies all frames previously iconified.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (desk.getDesktopManager() != this) {\r\n        throw new IllegalArgumentException(\"No DeskManager associated with the provided JDesktopPane.\");\r\n    }\r\n    JInternalFrame[] frames = desk.getAllFrames();\r\n    for (int i = 0; i < frames.length; i++) {\r\n        try {\r\n            frames[i].setIcon(true);\r\n        } catch (PropertyVetoException e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void iconifyAll(JDesktopPane)",
+                "comments": "Optional[/**\r\n * Minimize all frames of a provided JDesktopPane that is associated with a DeskManager.\r\n *\r\n * @param desk JDesktopPane - a desktop pane.\r\n * @throws IllegalArgumentException - if the supplied parameter is not associated with a DeskManager.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (desk.getDesktopManager() != this) {\r\n        throw new IllegalArgumentException(\"No DeskManager associated with the provided JDesktopPane.\");\r\n    }\r\n    JInternalFrame[] frames = desk.getAllFrames();\r\n    if (frames.length != 0) {\r\n        for (int i = 0; i < frames.length; i++) {\r\n            frames[i].dispose();\r\n        }\r\n        iconifiedFrames.removeAllElements();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void closeAll(JDesktopPane)",
+                "comments": "Optional[/**\r\n * Close all frames in a given JDesktopPane.\r\n *\r\n * @param desk JDesktopPane - a desktop pane associated with a DeskManager.\r\n * @throws IllegalArgumentException - if the supplied parameter is not associated with a DeskManager.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    deskMenu = new JPopupMenu();\r\n    riduciTutti = new JMenuItem(\"Collapse All\");\r\n    riduciTutti.setIcon(new ImageIcon(getClass().getResource(URL_IMAGES + \"reduceAll.png\")));\r\n    ripristinaTutti = new JMenuItem(\"Reset All\");\r\n    ripristinaTutti.setIcon(new ImageIcon(getClass().getResource(URL_IMAGES + \"activateall.png\")));\r\n    closeAll = new JMenuItem(\"Close All\");\r\n    closeAll.setIcon(new ImageIcon(getClass().getResource(URL_IMAGES + \"closeall.png\")));\r\n    deskMenu.add(riduciTutti);\r\n    deskMenu.addSeparator();\r\n    deskMenu.add(ripristinaTutti);\r\n    deskMenu.addSeparator();\r\n    deskMenu.add(closeAll);\r\n    ActionListener menuListener = new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent aEvent) {\r\n            if (aEvent.getSource() == ripristinaTutti) {\r\n                deiconifyAll();\r\n            }\r\n            if (aEvent.getSource() == closeAll) {\r\n                closeAll((JDesktopPane) deskMenu.getInvoker());\r\n            }\r\n            if (aEvent.getSource() == riduciTutti) {\r\n                iconifyAll((JDesktopPane) deskMenu.getInvoker());\r\n            }\r\n        }\r\n    };\r\n    riduciTutti.addActionListener(menuListener);\r\n    ripristinaTutti.addActionListener(menuListener);\r\n    closeAll.addActionListener(menuListener);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void initializeDeskMenu()",
+                "comments": "Optional[/**\r\n * Initialize the DeskMenu.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (aEvent.getSource() == ripristinaTutti) {\r\n        deiconifyAll();\r\n    }\r\n    if (aEvent.getSource() == closeAll) {\r\n        closeAll((JDesktopPane) deskMenu.getInvoker());\r\n    }\r\n    if (aEvent.getSource() == riduciTutti) {\r\n        iconifyAll((JDesktopPane) deskMenu.getInvoker());\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n    iconifiedFrames = new Vector<>();\r\n    initializeDeskMenu();\r\n    locationX = 0;\r\n    locationY = -1;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DeskManager()",
+                "comments": "Optional[/**\r\n * Default Constructor.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "DeskManager",
+        "variables": [
+            "private  static  final String URL_IMAGES",
+            "private JPopupMenu deskMenu",
+            "private JMenuItem riduciTutti",
+            "private JMenuItem ripristinaTutti",
+            "private JMenuItem closeAll",
+            "private Vector<JInternalFrame> iconifiedFrames",
+            "private int locationX",
+            "private int locationY"
+        ]
+    }
+]

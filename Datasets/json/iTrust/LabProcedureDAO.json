@@ -1,0 +1,117 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (id == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? AND Rights = ? ORDER BY UpdatedDate DESC\");\r\n        ps.setLong(1, id);\r\n        ps.setString(2, LabProcedureBean.Allow);\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getLabProceduresForPatient(long)",
+                "comments": "Optional[/**\r\n * Get a list of the lab procedures associated with a given patient.\r\n * @param id The MID of the patient as a long.\r\n * @return A java.util.List of LabProcedureBeans\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (id == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? AND Rights = ? AND Status = ? AND (DateDiff(SYSDATE(),UpdatedDate) <= 30) ORDER BY UpdatedDate DESC\");\r\n        ps.setLong(1, id);\r\n        ps.setString(2, LabProcedureBean.Allow);\r\n        ps.setString(3, LabProcedureBean.Completed);\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getLabProceduresForPatientForNextMonth(long)",
+                "comments": "Optional[/**\r\n * Gets all the lab procedures for a given patient that occur within the next month.\r\n * @param id The MID of the patient as a long.\r\n * @return A java.util.List of LabProcedureBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE LaboratoryProcedureID = ?\");\r\n        ps.setLong(1, id);\r\n        ResultSet rs = ps.executeQuery();\r\n        rs.next();\r\n        return labProcedureLoader.loadSingle(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public LabProcedureBean getLabProcedure(long)",
+                "comments": "Optional[/**\r\n * Gets an individual lab procedure.\r\n * @param id The ID of the lab procedure.\r\n * @return A LabProcedureBean representing the procedure.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (mid == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? ORDER BY UpdatedDate DESC\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getAllLabProceduresDate(long)",
+                "comments": "Optional[/**\r\n * Gets all procedures for Patient\r\n * @param mid patient id\r\n * @return A java.util.List of LabProcedureBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (mid == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? AND OfficeVisitID = ? ORDER BY UpdatedDate DESC\");\r\n        ps.setLong(1, mid);\r\n        ps.setLong(2, ovid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getAllLabProceduresForDocOV(long, long)",
+                "comments": "Optional[/**\r\n * This gets all the procedures for a particular patient on a particular office visit\r\n * @param mid The MID of the patient.\r\n * @param ovid The Office Visit ID.\r\n * @return A java.util.List of LabProcedureBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE OfficeVisitID = ? \");\r\n        ps.setLong(1, ovid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getAllLabProceduresForDocOV(long)",
+                "comments": "Optional[/**\r\n * This gets all the procedures for a particular patient on a particular office visit\r\n * @param mid The MID of the patient.\r\n * @param ovid The Office Visit ID.\r\n * @return A java.util.List of LabProcedureBeans\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure ORDER BY UpdatedDate ASC\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getAllLabProcedures()",
+                "comments": "Optional[/**\r\n * Gets all lab procedures, period.\r\n * @return A java.util.List of LabProcedureBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (ovid == 0L)\r\n            throw new SQLException(\"OfficeVisitID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE OfficeVisitID = ? AND Status = ? AND (DateDiff(SYSDATE(),UpdatedDate) <= 30) ORDER BY UpdatedDate DESC\");\r\n        ps.setLong(1, ovid);\r\n        ps.setString(2, LabProcedureBean.Completed);\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getLabProceduresForLHCPForNextMonth(long)",
+                "comments": "Optional[/**\r\n * Gets the lab procedures for a given LHCP that occur within the next month.\r\n * @param ovid The Office Visit ID conducted by the LHCP in question.\r\n * @return A java.util.List of LabProcedureBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (b.getPid() == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO LabProcedure (PatientMID, LaboratoryProcedureCode, Status, Commentary, Results, OfficeVisitID, Rights) VALUES (?,?,?,?,?,?,?)\");\r\n        ps.setLong(1, b.getPid());\r\n        ps.setString(2, b.getLoinc());\r\n        ps.setString(3, b.getStatus());\r\n        ps.setString(4, b.getCommentary());\r\n        ps.setString(5, b.getResults());\r\n        ps.setLong(6, b.getOvID());\r\n        ps.setString(7, b.getRights());\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addLabProcedure(LabProcedureBean)",
+                "comments": "Optional[/**\r\n * Inserts a lab procedure into the database.\r\n * @param b The LabProcedureBean to be inserted.\r\n * @return A long containing the ID of the newly inserted lab procedure bean.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (b.getPid() == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE LabProcedure SET Status = ?, Commentary = ?, Results = ?, UpdatedDate = ? WHERE LaboratoryProcedureID=?\");\r\n        ps.setString(1, b.getStatus());\r\n        ps.setString(2, b.getCommentary());\r\n        ps.setString(3, b.getResults());\r\n        ps.setTimestamp(4, new java.sql.Timestamp(System.currentTimeMillis()));\r\n        ps.setLong(5, b.getProcedureID());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void updateLabProcedure(LabProcedureBean)",
+                "comments": "Optional[/**\r\n * Updates an existing lab procedure.\r\n * @param b The LabProcedureBean representing the procedure to be updated.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (id == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LabProcedure WHERE PatientMID = ? ORDER BY LaboratoryProcedureCode ASC\");\r\n        ps.setLong(1, id);\r\n        ResultSet rs = ps.executeQuery();\r\n        return labProcedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getAllLabProceduresLOINC(long)",
+                "comments": "Optional[/**\r\n * Gets all the lab procedures that correspond to a particular LOINC.\r\n * @param id The LOINC in question.\r\n * @return A java.util.List of LabProcedureBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (b.getPid() == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE LabProcedure SET Rights = ?, UpdatedDate = ? WHERE LaboratoryProcedureID=?\");\r\n        ps.setString(1, b.getRights());\r\n        ps.setTimestamp(2, new java.sql.Timestamp(System.currentTimeMillis()));\r\n        ps.setLong(3, b.getProcedureID());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void updateRights(LabProcedureBean)",
+                "comments": "Optional[/**\r\n * Updates the rights of a user on a given lab procedure.\r\n * @param b The LabProcedureBean in question.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    labProcedureLoader = new LabProcedureBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public LabProcedureDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "LabProcedureDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private LabProcedureBeanLoader labProcedureLoader"
+        ]
+    }
+]

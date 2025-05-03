@@ -1,0 +1,47 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    validator.validate(proc);\r\n    try {\r\n        if (cptDAO.addCPTCode(proc)) {\r\n            transDAO.logTransaction(TransactionType.MANAGE_PROCEDURE_CODE, loggedInMID, 0L, \"added CPT code \" + proc.getCPTCode());\r\n            return \"Success: \" + proc.getCPTCode() + \" - \" + proc.getDescription() + \" added\";\r\n        } else\r\n            return \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    } catch (iTrustException e) {\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String addCPTCode(ProcedureBean)",
+                "comments": "Optional[/**\r\n * Adds a new cpt code (med procedure)\r\n *\r\n * @param proc\r\n *            ProcedureBean that holds the new cpt code\r\n * @return status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(proc);\r\n    try {\r\n        int rows = updateCode(proc);\r\n        if (0 == rows) {\r\n            return \"Error: Code not found. To edit an actual code, \" + \"change the description and add a new code with the old description\";\r\n        } else {\r\n            transDAO.logTransaction(TransactionType.MANAGE_PROCEDURE_CODE, loggedInMID, 0L, \"updated CPT code \" + proc.getCPTCode());\r\n            return \"Success: \" + rows + \" row(s) updated\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String updateInformation(ProcedureBean)",
+                "comments": "Optional[/**\r\n * Updates a procedure with new information from the ProcedureBean\r\n *\r\n * @param proc\r\n *            ProcedureBean with new information (but same CPT code)\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cptDAO.updateCode(proc);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private int updateCode(ProcedureBean)",
+                "comments": "Optional[/**\r\n * Updates the cpt code\r\n *\r\n * @param proc the code to be updated\r\n * @return updated code\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.cptDAO = factory.getCPTCodesDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public UpdateCPTCodeListAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the administrator who is updating the CPTs.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "UpdateCPTCodeListAction",
+        "variables": [
+            "private long loggedInMID",
+            "private TransactionDAO transDAO",
+            "private CPTCodesDAO cptDAO",
+            "private ProcedureBeanValidator validator"
+        ]
+    }
+]

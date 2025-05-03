@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<RemoteMonitoringDataBean> list = new ArrayList<RemoteMonitoringDataBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<RemoteMonitoringDataBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, RemoteMonitoringDataBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    RemoteMonitoringDataBean d = new RemoteMonitoringDataBean();\r\n    d.setLoggedInMID(rs.getLong(\"PatientID\"));\r\n    d.setSystolicBloodPressure(rs.getInt(\"systolicBloodPressure\"));\r\n    d.setDiastolicBloodPressure(rs.getInt(\"diastolicBloodPressure\"));\r\n    d.setGlucoseLevel(rs.getInt(\"glucoseLevel\"));\r\n    d.setTime(rs.getTimestamp(\"timeLogged\"));\r\n    d.setReporterRole(rs.getString(\"ReporterRole\"));\r\n    d.setReporterMID(rs.getLong(\"ReporterID\"));\r\n    return d;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public RemoteMonitoringDataBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "RemoteMonitoringDataBeanLoader",
+        "variables": []
+    }
+]

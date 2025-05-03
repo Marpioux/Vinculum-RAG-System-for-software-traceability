@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (message == null)\r\n        return \"An error has occurred. Please see log for details.\";\r\n    return message;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getMessage()",
+                "comments": "Optional[/**\r\n * For messages which are displayed to the user. Usually, this is a very general message for security\r\n * reasons.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return \"No extended information.\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getExtendedMessage()",
+                "comments": "Optional[/**\r\n * For exceptions which show a lot of technical detail, usually delegated to a subclass\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.message = message;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public iTrustException(String)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param message A message to be displayed to the screen.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "iTrustException",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            " String message"
+        ]
+    }
+]

@@ -1,0 +1,42 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return patient.getAge() >= 12;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean qualifiesForDisease()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<PatientRiskFactor> factors = new ArrayList<PatientRiskFactor>();\r\n    factors.add(new AgeFactor(patient, 45));\r\n    factors.add(new EthnicityFactor(patient, Hispanic, AfricanAmerican, AmericanIndian, Asian));\r\n    factors.add(new WeightFactor(currentHealthRecord, 25));\r\n    factors.add(new HypertensionFactor(currentHealthRecord));\r\n    factors.add(new CholesterolFactor(currentHealthRecord));\r\n    factors.add(new PriorDiagnosisFactor(factory, patient.getMID(), 250.0, 251.0));\r\n    factors.add(new FamilyHistoryFactor(factory, patient.getMID(), 250.0, 251.0));\r\n    return factors;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected List<PatientRiskFactor> getDiseaseRiskFactors()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return \"Type 2 Diabetes\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, patientID);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Type2DiabetesRisks(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "Type2DiabetesRisks",
+        "variables": []
+    }
+]

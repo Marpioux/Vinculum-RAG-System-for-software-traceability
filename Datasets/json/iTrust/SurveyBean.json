@@ -1,0 +1,129 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    visitID = iD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setVisitID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return visitID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getVisitID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.surveyDate = (surveyDate == null ? null : (Date) surveyDate.clone());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSurveyDate(Date)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        setSurveyDate(new SimpleDateFormat(dateFormat).parse(s));\r\n    } catch (ParseException ex) {\r\n        System.out.println(ex.getMessage());\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSurveyDateString(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (surveyDate == null ? null : (Date) surveyDate.clone());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getSurveyDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (surveyDate == null)\r\n        return \"\";\r\n    return new SimpleDateFormat(dateFormat).format(getSurveyDate());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getSurveyDateString()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.waitingRoomMinutes = waitingRoomMinutes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setWaitingRoomMinutes(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return waitingRoomMinutes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getWaitingRoomMinutes()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.examRoomMinutes = examRoomMinutes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setExamRoomMinutes(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return examRoomMinutes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getExamRoomMinutes()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.visitSatisfaction = visitSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setVisitSatisfaction(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return visitSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getVisitSatisfaction()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.treatmentSatisfaction = treatmentSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTreatmentSatisfaction(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return treatmentSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getTreatmentSatisfaction()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "SurveyBean",
+        "variables": [
+            "private long visitID",
+            "private Date surveyDate",
+            "private int waitingRoomMinutes",
+            "private int examRoomMinutes",
+            "private int visitSatisfaction",
+            "private int treatmentSatisfaction",
+            "public  final  static String dateFormat"
+        ]
+    }
+]

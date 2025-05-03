@@ -1,0 +1,810 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ((JComponent) actionEvent.getSource()).transferFocus();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (fe.getSource() instanceof JTextField) {\r\n        JTextField textbox = (JTextField) fe.getSource();\r\n        text = textbox.getText();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void focusGained(FocusEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (fe.getSource() instanceof JTextField) {\r\n        JTextField textbox = (JTextField) fe.getSource();\r\n        if (!text.equals(textbox.getText())) {\r\n            text = textbox.getText();\r\n            if (text.equals(\"\")) {\r\n                textbox.setBackground(ERROR_BACKGROUND);\r\n                Rectangle bounds = textbox.getBounds();\r\n                JLabel newLabel = new JLabel();\r\n                newLabel.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/images/error.png\")));\r\n                newLabel.setBounds(bounds.x - 24, bounds.y, 24, 24);\r\n                newLabel.setToolTipText(\"Field \" + textbox.getName() + \" cannot be empty!\");\r\n                datiPR.add(newLabel, null);\r\n                datiPR.repaint();\r\n            }\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void focusLost(FocusEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setIconifiable(true);\r\n    this.setBounds(new Rectangle(0, 0, 600, 540));\r\n    this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);\r\n    this.setFrameIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/scheda.png\")));\r\n    this.setClosable(true);\r\n    this.setContentPane(getJContentPane());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void initialize()",
+                "comments": "Optional[/**\r\n * Method called by the constructor\r\n *\r\n * @return void\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Component[] components = datiPR.getComponents();\r\n    for (int i = 0; i < components.length; i++) {\r\n        Component current = components[i];\r\n        if (current instanceof JTextField) {\r\n            JTextField textbox = (JTextField) current;\r\n            textbox.setEditable(!textbox.isEditable());\r\n            textbox.setBackground(Color.white);\r\n        } else if (current instanceof JComboBox) {\r\n            JComboBox<?> combo = (JComboBox<?>) current;\r\n            combo.setEnabled(!combo.isEnabled());\r\n        }\r\n    }\r\n    descrizionePR.setEditable(!descrizionePR.isEditable());\r\n    pannelloTag.attivaDisattiva();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void makeEditable()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jContentPane == null) {\r\n        jContentPane = new JPanel();\r\n        jContentPane.setLayout(new BorderLayout());\r\n        jContentPane.add(getJTabbedPane(), BorderLayout.CENTER);\r\n        jContentPane.add(getToolbarSchedaPR(), BorderLayout.NORTH);\r\n    }\r\n    return jContentPane;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getJContentPane()",
+                "comments": "Optional[/**\r\n * Method which initializes a jContentPane\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnModifica == null) {\r\n        btnModifica = new JToggleButton();\r\n        btnModifica.setText(\"Change Data\");\r\n        btnModifica.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/modifica.png\")));\r\n        btnModifica.addActionListener(new ActionListener() {\r\n\r\n            public void actionPerformed(ActionEvent arg0) {\r\n                makeEditable();\r\n                btnSalva.setVisible(btnModifica.isSelected());\r\n                btnAnnulla.setVisible(btnModifica.isSelected());\r\n            }\r\n        });\r\n    }\r\n    return btnModifica;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JToggleButton getBtnModifica()",
+                "comments": "Optional[/**\r\n * This method initializes the button (ToggleButton) the alteration\r\n * Data for puntoDiRistoro\r\n *\r\n * @return javax.swing.JToggleButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    makeEditable();\r\n    btnSalva.setVisible(btnModifica.isSelected());\r\n    btnAnnulla.setVisible(btnModifica.isSelected());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnSalva == null) {\r\n        btnSalva = new JButton();\r\n        btnSalva.setText(\"Save\");\r\n        btnSalva.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/salva.png\")));\r\n        btnSalva.setVisible(false);\r\n    }\r\n    return btnSalva;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnSalva()",
+                "comments": "Optional[/**\r\n * Method to initialize the Save button (btnSalva)\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnAnnulla == null) {\r\n        btnAnnulla = new JButton();\r\n        btnAnnulla.setText(\"Cancel\");\r\n        btnAnnulla.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/annulla.png\")));\r\n        btnAnnulla.setVisible(false);\r\n    }\r\n    return btnAnnulla;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnAnnulla()",
+                "comments": "Optional[/**\r\n * Method to initialize the Cancel button (btnAnnulla)\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnModificaCommento == null) {\r\n        btnModificaCommento = new JButton();\r\n        btnModificaCommento.setText(\"Edit Comment\");\r\n        btnModificaCommento.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/modificaCommento.png\")));\r\n        btnModificaCommento.setVisible(false);\r\n    }\r\n    return btnModificaCommento;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnModificaCommento()",
+                "comments": "Optional[/**\r\n * Method to initialize the button for\r\n * Changing a comment (btnModificaCommento)\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jTabbedPane == null) {\r\n        jTabbedPane = new JTabbedPane();\r\n        jTabbedPane.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));\r\n        jTabbedPane.addTab(\"Data Refreshment\", new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/dati.png\")), getDatiPR(), null);\r\n        jTabbedPane.addTab(\"MenuTuristico\", new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/stat24.png\")), null, null);\r\n        jTabbedPane.addTab(\"Statistics\", new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/stat24.png\")), getStatistiche(), null);\r\n        jTabbedPane.addTab(\"Feedback received\", new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/feedback.png\")), getFeedback(), null);\r\n    }\r\n    return jTabbedPane;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTabbedPane getJTabbedPane()",
+                "comments": "Optional[/**\r\n * Create and initialize a JTabbedPane\r\n *\r\n * @return javax.swing.JTabbedPane\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (datiPR == null) {\r\n        datiPR = new JPanel();\r\n        datiPR.setLayout(new GridBagLayout());\r\n        datiPR.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));\r\n        GridBagConstraints gridBagConstraints = new GridBagConstraints();\r\n        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;\r\n        gridBagConstraints.insets = new Insets(5, 5, 5, 5);\r\n        gridBagConstraints.gridx = 0;\r\n        gridBagConstraints.gridy = 0;\r\n        txtNome = new JLabel(\"Name Refreshment\");\r\n        txtIndirizzo = new JLabel(\"Address\");\r\n        txtCitta = new JLabel(\"City\");\r\n        txtLocalità = new JLabel(\"Location\");\r\n        txtCAP = new JLabel(\"CAP\");\r\n        txtProvincia = new JLabel(\"Province\");\r\n        txtPos = new JLabel(\"Geographic Position\");\r\n        txtTel = new JLabel(\"Phone\");\r\n        txtOraAp = new JLabel(\"Opening Hours\");\r\n        txtOraCh = new JLabel(\"Closing Time\");\r\n        datiPR.add(txtNome, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtIndirizzo, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtCitta, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtLocalità, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtCAP, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtProvincia, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtPos, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtTel, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtOraAp, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtOraCh, gridBagConstraints);\r\n    }\r\n    return datiPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getDatiPR()",
+                "comments": "Optional[/**\r\n * Method to initialize a panel (datiPR)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (statistics == null) {\r\n        statistics = new JPanel();\r\n        statistics.setLayout(new GridBagLayout());\r\n        GridBagConstraints gridBagConstraints = new GridBagConstraints();\r\n        gridBagConstraints.gridx = 0;\r\n        gridBagConstraints.gridwidth = 1;\r\n        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;\r\n        gridBagConstraints.insets = new Insets(20, 0, 0, 0);\r\n        gridBagConstraints.gridy = 0;\r\n        mediaVotoPR = new JLabel(\"Average Vote\");\r\n        statistics.add(mediaVotoPR, gridBagConstraints);\r\n    }\r\n    return statistics;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getStatistiche()",
+                "comments": "Optional[/**\r\n * Method for initializing a panel (statistics)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (feedback == null) {\r\n        feedback = new JPanel();\r\n        feedback.setLayout(new GridBagLayout());\r\n        GridBagConstraints gridBagConstraints = new GridBagConstraints();\r\n        gridBagConstraints.fill = GridBagConstraints.BOTH;\r\n        gridBagConstraints.gridy = 0;\r\n        gridBagConstraints.weightx = 1.0;\r\n        gridBagConstraints.weighty = 1.0;\r\n        gridBagConstraints.gridx = 0;\r\n        feedback.add(getJScrollPane2(), gridBagConstraints);\r\n    }\r\n    return feedback;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getFeedback()",
+                "comments": "Optional[/**\r\n * Method to initialize a panel (feedback)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (indirizzoPR == null) {\r\n        indirizzoPR = new JTextField();\r\n        indirizzoPR.setColumns(12);\r\n        indirizzoPR.addActionListener(campoCompilato);\r\n    }\r\n    return indirizzoPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getIndirizzoPR()",
+                "comments": "Optional[/**\r\n * Initialize a JTextField (indirizzoPR)\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (indirizzoPR1 == null) {\r\n        indirizzoPR1 = new JComboBox<>();\r\n        indirizzoPR1.setPreferredSize(new Dimension(60, 20));\r\n        indirizzoPR1.setMinimumSize(new Dimension(60, 25));\r\n        indirizzoPR1.addItem(\"Via\");\r\n        indirizzoPR1.addItem(\"P.zza\");\r\n        indirizzoPR1.addItem(\"V.le\");\r\n        indirizzoPR1.addItem(\"V.co\");\r\n        indirizzoPR1.addItem(\"Largo\");\r\n        indirizzoPR1.addItem(\"Corso\");\r\n    }\r\n    return indirizzoPR1;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getIndirizzoPR1()",
+                "comments": "Optional[/**\r\n * Method to initialize the type field address (indirizzoPR)\r\n * Or via, piazza ....\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (cittaPR == null) {\r\n        cittaPR = new JTextField();\r\n        cittaPR.setColumns(12);\r\n        cittaPR.addActionListener(campoCompilato);\r\n    }\r\n    return cittaPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getCittaPR()",
+                "comments": "Optional[/**\r\n * Initialize a JTextField for entering a city CittaPR\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (localitaPR == null) {\r\n        localitaPR = new JComboBox<>();\r\n        localitaPR.setMinimumSize(new Dimension(80, 25));\r\n        localitaPR.setPreferredSize(new Dimension(80, 20));\r\n        localitaPR.addActionListener(campoCompilato);\r\n    }\r\n    return localitaPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getLocalitaPR()",
+                "comments": "Optional[/**\r\n * This method initializes localitaPR\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (capPR == null) {\r\n        capPR = new JTextField();\r\n        capPR.setColumns(8);\r\n        capPR.addActionListener(campoCompilato);\r\n    }\r\n    return capPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getCapPR()",
+                "comments": "Optional[/**\r\n * Code of refreshment. Definition capPR JTextField\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jScrollPane == null) {\r\n        jScrollPane = new JScrollPane();\r\n        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);\r\n        jScrollPane.setViewportView(getDescrizionePR());\r\n    }\r\n    return jScrollPane;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JScrollPane getJScrollPane()",
+                "comments": "Optional[/**\r\n * Creation JScrollPane\r\n *\r\n * @return javax.swing.JScrollPane\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (descrizionePR == null) {\r\n        descrizionePR = new JTextArea();\r\n        descrizionePR.setColumns(12);\r\n        descrizionePR.setCursor(new Cursor(Cursor.TEXT_CURSOR));\r\n    }\r\n    return descrizionePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextArea getDescrizionePR()",
+                "comments": "Optional[/**\r\n * Method to create JTextArea's whole descrizionePR\r\n *\r\n * @return javax.swing.JTextArea\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (telefonoPR == null) {\r\n        telefonoPR = new JTextField();\r\n        telefonoPR.setColumns(12);\r\n        telefonoPR.addActionListener(campoCompilato);\r\n    }\r\n    return telefonoPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getTelefonoPR()",
+                "comments": "Optional[/**\r\n * Method to create the JTextField telefonoPR\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioAPOrePR == null) {\r\n        orarioAPOrePR = new JComboBox<>();\r\n        orarioAPOrePR.setPreferredSize(new Dimension(40, 20));\r\n        for (int i = 0; i < 24; i++) {\r\n            if (i < 10) {\r\n                orarioAPOrePR.addItem(\"0\" + i);\r\n            } else {\r\n                orarioAPOrePR.addItem(i);\r\n            }\r\n        }\r\n        orarioAPOrePR.addActionListener(campoCompilato);\r\n    }\r\n    return orarioAPOrePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioAPOrePR()",
+                "comments": "Optional[/**\r\n * method to initialize a JComboBox with the hours (orarioAPOrePR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioApMinPR == null) {\r\n        orarioApMinPR = new JComboBox<>();\r\n        orarioApMinPR.setPreferredSize(new Dimension(40, 20));\r\n        orarioApMinPR.addItem(\"00\");\r\n        orarioApMinPR.addItem(\"15\");\r\n        orarioApMinPR.addItem(\"30\");\r\n        orarioApMinPR.addItem(\"45\");\r\n        orarioApMinPR.addActionListener(campoCompilato);\r\n    }\r\n    return orarioApMinPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioApMinPR()",
+                "comments": "Optional[/**\r\n * Method to initialize a JComboBox with the minutes (orarioApMinPR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioCHMinPR == null) {\r\n        orarioCHMinPR = new JComboBox<>();\r\n        orarioCHMinPR.setPreferredSize(new Dimension(40, 20));\r\n        orarioCHMinPR.addItem(\"00\");\r\n        orarioCHMinPR.addItem(\"15\");\r\n        orarioCHMinPR.addItem(\"30\");\r\n        orarioCHMinPR.addItem(\"45\");\r\n        orarioCHMinPR.addActionListener(campoCompilato);\r\n    }\r\n    return orarioCHMinPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioCHMinPR()",
+                "comments": "Optional[/**\r\n * Method to initialize a JComboBox with the minutes (orarioCHMinPR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (provPR == null) {\r\n        final String[] province = { \"AG\", \"AL\", \"AN\", \"AO\", \"AQ\", \"AR\", \"AP\", \"AT\", \"AV\", \"BA\", \"BL\", \"BN\", \"BG\", \"BI\", \"BO\", \"BR\", \"BS\", \"BZ\", \"CA\", \"CB\", \"CE\", \"CH\", \"CI\", \"CL\", \"CN\", \"CO\", \"CR\", \"CS\", \"KR\", \"EN\", \"FC\", \"FE\", \"FI\", \"FG\", \"FR\", \"GE\", \"GO\", \"GR\", \"IM\", \"IS\", \"LC\", \"LE\", \"LI\", \"LO\", \"LT\", \"LU\", \"MC\", \"ME\", \"MF\", \"MN\", \"MO\", \"MS\", \"MT\", \"NA\", \"NO\", \"NU\", \"OG\", \"OR\", \"OT\", \"PA\", \"PC\", \"PD\", \"PE\", \"PG\", \"PO\", \"PR\", \"PU\", \"R\", \"RA\", \"RC\", \"RE\", \"RG\", \"RI\", \"RM\", \"RN\", \"RO\", \"SA\", \"SI\", \"SO\", \"SP\", \"SS\", \"SV\", \"TA\", \"TE\", \"TN\", \"TP\", \"TR\", \"TS\", \"TV\", \"UD\", \"VA\", \"VB\", \"VC\", \"VE\", \"VI\", \"VR\", \"VS\", \"VT\", \"VV\" };\r\n        provPR = new JComboBox<>();\r\n        for (String provincia : province) {\r\n            provPR.addItem(provincia);\r\n        }\r\n        provPR.addActionListener(campoCompilato);\r\n    }\r\n    return provPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getProvPR()",
+                "comments": "Optional[/**\r\n * Create and initialize a JComboBox with all the provinces (provPR)\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pStr == null) {\r\n        return;\r\n    }\r\n    if ((getLength() + pStr.length()) <= limit) {\r\n        super.insertString(pOffset, pStr, attr);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void insertString(int, String, AttributeSet)",
+                "comments": "Optional[/**\r\n * Initialization and management position\r\n *\r\n * @param pOffset\r\n * @param pStr\r\n * @param attr\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (nomePR == null) {\r\n        nomePR = new JTextField();\r\n        nomePR.setColumns(12);\r\n        nomePR.setPreferredSize(new Dimension(180, 20));\r\n        nomePR.addActionListener(campoCompilato);\r\n        nomePR.addFocusListener(validating);\r\n        nomePR.setDocument(new DocumentoNumerico(20));\r\n    }\r\n    return nomePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getNomePR()",
+                "comments": "Optional[/**\r\n * Initialization of a data point of the snack (nomePR)\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jPanel == null) {\r\n        jPanel = new JPanel();\r\n        jPanel.setLayout(new BorderLayout());\r\n        jPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(), \"Tag the 'Search\", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), Color.black));\r\n        BeanTag[] test = new BeanTag[8];\r\n        test[0] = new BeanTag(0, \"castle\", \"really a castle\");\r\n        test[1] = new BeanTag(1, \"stronghold\", \"really a hostel\");\r\n        test[2] = new BeanTag(2, \"statue\", \"really a basket\");\r\n        test[3] = new BeanTag(3, \"column\", \"really a basket\");\r\n        test[4] = new BeanTag(4, \"internal\", \"really a basket\");\r\n        test[5] = new BeanTag(5, \"external\", \"really a basket\");\r\n        test[6] = new BeanTag(6, \"eight hundred\", \"really a basket\");\r\n        test[7] = new BeanTag(7, \"Novecento\", \"really a basket\");\r\n        pannelloTag = new TagPanel(test);\r\n        jPanel.add(pannelloTag, BorderLayout.CENTER);\r\n    }\r\n    return jPanel;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getJPanel()",
+                "comments": "Optional[/**\r\n * Initialize and create a panel (JPanel)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jScrollPane2 == null) {\r\n        jScrollPane2 = new JScrollPane();\r\n        jScrollPane2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);\r\n        jScrollPane2.setViewportView(getFeedbackTable());\r\n    }\r\n    return jScrollPane2;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JScrollPane getJScrollPane2()",
+                "comments": "Optional[/**\r\n * Creating a JScrollPane (jScrollPane2)\r\n *\r\n * @return javax.swing.JScrollPane\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (feedbackTable == null) {\r\n        feedbackTable = new JTable();\r\n    }\r\n    return feedbackTable;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTable getFeedbackTable()",
+                "comments": "Optional[/**\r\n * Create a JTable (feedbackTable)\r\n *\r\n * @return javax.swing.JTable\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (statisticheMeseCorrente == null) {\r\n        statisticheMeseCorrente = new JPanel();\r\n        statisticheMeseCorrente.setLayout(new GridBagLayout());\r\n        statisticheMeseCorrente.setPreferredSize(new Dimension(500, 120));\r\n    }\r\n    return statisticheMeseCorrente;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getStatisticheMeseCorrente()",
+                "comments": "Optional[/**\r\n * Creation of a panel (statisticheMeseCorrente)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (statisticheTotali == null) {\r\n        statisticheTotali = new JPanel();\r\n        statisticheTotali.setLayout(new GridBagLayout());\r\n        statisticheTotali.setPreferredSize(new Dimension(500, 120));\r\n    }\r\n    return statisticheTotali;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getStatisticheTotali()",
+                "comments": "Optional[/**\r\n * Creation of a panel (statisticheTotali)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (toolbarSchedaPR == null) {\r\n        toolbarSchedaPR = new JToolBar();\r\n        toolbarSchedaPR.setFloatable(false);\r\n        toolbarSchedaPR.add(getBtnModifica());\r\n        toolbarSchedaPR.addSeparator();\r\n        toolbarSchedaPR.add(getBtnSalva());\r\n        toolbarSchedaPR.addSeparator();\r\n        toolbarSchedaPR.add(getBtnAnnulla());\r\n        toolbarSchedaPR.addSeparator();\r\n        toolbarSchedaPR.add(getBtnModificaCommento());\r\n        toolbarSchedaPR.addSeparator();\r\n    }\r\n    return toolbarSchedaPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JToolBar getToolbarSchedaPR()",
+                "comments": "Optional[/**\r\n * Method for creating a toolbar (ToolbarSchedaPR)\r\n *\r\n * @return javax.swing.JToolBar\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (posGeoX == null) {\r\n        posGeoX = new JTextField();\r\n    }\r\n    return posGeoX;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getPosGeoX()",
+                "comments": "Optional[/**\r\n * Method to initialize posGeoX\r\n * The X position of the GPS\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (posGeoY == null) {\r\n        posGeoY = new JTextField();\r\n    }\r\n    return posGeoY;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getPosGeoY()",
+                "comments": "Optional[/**\r\n * Method to initialize posGeoY\r\n * The Y position of the GPS\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (posGeoZ == null) {\r\n        posGeoZ = new JTextField();\r\n    }\r\n    return posGeoZ;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getPosGeoZ()",
+                "comments": "Optional[/**\r\n * Method to initialize posGeoZ\r\n * The Z position of the GPS\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioCHOrePR == null) {\r\n        orarioCHOrePR = new JComboBox<>();\r\n        orarioCHOrePR.setPreferredSize(new Dimension(40, 20));\r\n    }\r\n    return orarioCHOrePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioCHOrePR()",
+                "comments": "Optional[/**\r\n * Method to initialize a JComboBox with the hours (orarioCHOrePR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"New Refreshment\");\r\n    campoCompilato = new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent actionEvent) {\r\n            ((JComponent) actionEvent.getSource()).transferFocus();\r\n        }\r\n    };\r\n    validating = new FocusListener() {\r\n\r\n        private final Color ERROR_BACKGROUND = new Color(255, 215, 215);\r\n\r\n        private final Color WARNING_BACKGROUND = new Color(255, 235, 205);\r\n\r\n        private String text;\r\n\r\n        public void focusGained(FocusEvent fe) {\r\n            if (fe.getSource() instanceof JTextField) {\r\n                JTextField textbox = (JTextField) fe.getSource();\r\n                text = textbox.getText();\r\n            }\r\n        }\r\n\r\n        public void focusLost(FocusEvent fe) {\r\n            if (fe.getSource() instanceof JTextField) {\r\n                JTextField textbox = (JTextField) fe.getSource();\r\n                if (!text.equals(textbox.getText())) {\r\n                    text = textbox.getText();\r\n                    if (text.equals(\"\")) {\r\n                        textbox.setBackground(ERROR_BACKGROUND);\r\n                        Rectangle bounds = textbox.getBounds();\r\n                        JLabel newLabel = new JLabel();\r\n                        newLabel.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/images/error.png\")));\r\n                        newLabel.setBounds(bounds.x - 24, bounds.y, 24, 24);\r\n                        newLabel.setToolTipText(\"Field \" + textbox.getName() + \" cannot be empty!\");\r\n                        datiPR.add(newLabel, null);\r\n                        datiPR.repaint();\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    };\r\n    initialize();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SchedaPR()",
+                "comments": "Optional[/**\r\n * The default constructor for inclusion of the interface model\r\n * A new refreshment.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this();\r\n    nomePR.setText(pr.getNome());\r\n    setTitle(pr.getNome());\r\n    capPR.setText(pr.getCap());\r\n    cittaPR.setText(pr.getCitta());\r\n    descrizionePR.setText(pr.getDescrizione());\r\n    StringTokenizer tokenizer = new StringTokenizer(pr.getVia());\r\n    String[] via = { \"Via\", \"P.zza\", \"V.le\", \"V.co\", \"Largo\", \"Corso\" };\r\n    String string = tokenizer.nextToken();\r\n    int i;\r\n    for (i = 0; i < via.length; i++) {\r\n        if (string.equalsIgnoreCase(via[i])) {\r\n            break;\r\n        }\r\n    }\r\n    this.indirizzoPR1.setSelectedIndex(i);\r\n    while (tokenizer.hasMoreTokens()) {\r\n        this.indirizzoPR.setText(indirizzoPR.getText() + \" \" + tokenizer.nextToken());\r\n    }\r\n    this.provPR.setSelectedItem(pr.getProvincia());\r\n    Punto3D pos = pr.getPosizione();\r\n    this.posGeoX.setText(\"\" + pos.getX());\r\n    this.posGeoY.setText(\"\" + pos.getY());\r\n    this.posGeoZ.setText(\"\" + pos.getZ());\r\n    this.telefonoPR.setText(pr.getTelefono());\r\n    int minutes = pr.getOrarioApertura().getMinutes();\r\n    if (minutes == 0) {\r\n        this.orarioApMinPR.setSelectedIndex(0);\r\n    } else {\r\n        this.orarioApMinPR.setSelectedItem(minutes);\r\n    }\r\n    int hours = pr.getOrarioApertura().getHours();\r\n    if (hours < 10) {\r\n        this.orarioAPOrePR.setSelectedItem(\"0\" + hours);\r\n    } else {\r\n        this.orarioAPOrePR.setSelectedItem(hours);\r\n    }\r\n    this.orarioCHMinPR.setSelectedItem(pr.getOrarioChiusura().getMinutes());\r\n    this.orarioAPOrePR.setSelectedItem(pr.getOrarioApertura().getHours());\r\n    this.orarioCHOrePR.setSelectedItem(pr.getOrarioChiusura().getHours());\r\n    if (edit) {\r\n        btnModifica.setSelected(true);\r\n    } else {\r\n        makeEditable();\r\n    }\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SchedaPR(BeanPuntoDiRistoro, boolean)",
+                "comments": "Optional[/**\r\n * This interface models the manufacturer regarding modification of data and\r\n * Display board a refreshment.\r\n *\r\n * @param pr    the bean contains the data of PuntoDiRistoro selected.\r\n * @param edit  indicates whether the fields should be editable, so if\r\n *              You are viewing a card or change the cultural property.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.limit = limit;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DocumentoNumerico(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "SchedaPR",
+        "variables": [
+            "private JPanel jContentPane",
+            "private JToolBar toolbarSchedaBC",
+            "private JToggleButton btnModifica",
+            "private JButton btnSalva",
+            "private JButton btnAnnulla",
+            "private JButton btnModificaCommento",
+            "private JTabbedPane jTabbedPane",
+            "private JPanel statistics",
+            "private JPanel feedback",
+            "private JLabel txtNome",
+            "private JLabel txtIndirizzo",
+            "private JLabel txtCAP",
+            "private JLabel txtCitta",
+            "private JLabel txtLocalità",
+            "private JLabel txtProvincia",
+            "private JLabel txtPos",
+            "private JLabel txtTel",
+            "private JLabel txtOraAp",
+            "private JLabel txtOraCh",
+            "private JLabel jLabel",
+            "private JTextField indirizzoPR",
+            "private JComboBox<String> indirizzoPR1",
+            "private JTextField cittaPR",
+            "private JComboBox<String> localitaPR",
+            "private JTextField capPR",
+            "private JScrollPane jScrollPane",
+            "private JTextArea descrizionePR",
+            "private JTextField telefonoPR",
+            "private JComboBox<String> orarioAPOrePR",
+            "private JLabel jLabel1",
+            "private JComboBox<String> orarioApMinPR",
+            "private TagPanel pannelloTag",
+            "private JTextField costoBC",
+            "private JLabel jLabel3",
+            "private JComboBox<String> orarioCHMinPR",
+            "private JComboBox<String> provPR",
+            "private JPanel datiPR",
+            "private JTextField nomePR",
+            "private JPanel jPanel",
+            "private JScrollPane jScrollPane2",
+            "private JTable feedbackTable",
+            "private JLabel txtNomeBene",
+            "private JLabel mediaVotoPR",
+            "private JPanel statisticheMeseCorrente",
+            "private JPanel statisticheTotali",
+            "private JLabel jLabel4",
+            "private JLabel jLabel41",
+            "private ActionListener campoCompilato",
+            "private FocusListener validating",
+            "private JToolBar toolbarSchedaPR",
+            "private JTextField posGeoX",
+            "private JTextField posGeoY",
+            "private JTextField posGeoZ",
+            "private JLabel jLabel2",
+            "private JComboBox<String> orarioCHOrePR",
+            "private  final Color ERROR_BACKGROUND",
+            "private  final Color WARNING_BACKGROUND",
+            "private String text",
+            "private int limit"
+        ]
+    },
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ((JComponent) actionEvent.getSource()).transferFocus();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (fe.getSource() instanceof JTextField) {\r\n        JTextField textbox = (JTextField) fe.getSource();\r\n        text = textbox.getText();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void focusGained(FocusEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (fe.getSource() instanceof JTextField) {\r\n        JTextField textbox = (JTextField) fe.getSource();\r\n        if (!text.equals(textbox.getText())) {\r\n            text = textbox.getText();\r\n            if (text.equals(\"\")) {\r\n                textbox.setBackground(ERROR_BACKGROUND);\r\n                Rectangle bounds = textbox.getBounds();\r\n                JLabel newLabel = new JLabel();\r\n                newLabel.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/images/error.png\")));\r\n                newLabel.setBounds(bounds.x - 24, bounds.y, 24, 24);\r\n                newLabel.setToolTipText(\"Field \" + textbox.getName() + \" cannot be empty!\");\r\n                datiPR.add(newLabel, null);\r\n                datiPR.repaint();\r\n            }\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void focusLost(FocusEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setIconifiable(true);\r\n    this.setBounds(new Rectangle(0, 0, 600, 540));\r\n    this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);\r\n    this.setFrameIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/scheda.png\")));\r\n    this.setClosable(true);\r\n    this.setContentPane(getJContentPane());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void initialize()",
+                "comments": "Optional[/**\r\n * Method called by the constructor\r\n *\r\n * @return void\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Component[] components = datiPR.getComponents();\r\n    for (int i = 0; i < components.length; i++) {\r\n        Component current = components[i];\r\n        if (current instanceof JTextField) {\r\n            JTextField textbox = (JTextField) current;\r\n            textbox.setEditable(!textbox.isEditable());\r\n            textbox.setBackground(Color.white);\r\n        } else if (current instanceof JComboBox) {\r\n            JComboBox<?> combo = (JComboBox<?>) current;\r\n            combo.setEnabled(!combo.isEnabled());\r\n        }\r\n    }\r\n    descrizionePR.setEditable(!descrizionePR.isEditable());\r\n    pannelloTag.attivaDisattiva();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void makeEditable()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jContentPane == null) {\r\n        jContentPane = new JPanel();\r\n        jContentPane.setLayout(new BorderLayout());\r\n        jContentPane.add(getJTabbedPane(), BorderLayout.CENTER);\r\n        jContentPane.add(getToolbarSchedaPR(), BorderLayout.NORTH);\r\n    }\r\n    return jContentPane;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getJContentPane()",
+                "comments": "Optional[/**\r\n * Method which initializes a jContentPane\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnModifica == null) {\r\n        btnModifica = new JToggleButton();\r\n        btnModifica.setText(\"Change Data\");\r\n        btnModifica.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/modifica.png\")));\r\n        btnModifica.addActionListener(new ActionListener() {\r\n\r\n            public void actionPerformed(ActionEvent arg0) {\r\n                makeEditable();\r\n                btnSalva.setVisible(btnModifica.isSelected());\r\n                btnAnnulla.setVisible(btnModifica.isSelected());\r\n            }\r\n        });\r\n    }\r\n    return btnModifica;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JToggleButton getBtnModifica()",
+                "comments": "Optional[/**\r\n * This method initializes the button (ToggleButton) the alteration\r\n * Data for puntoDiRistoro\r\n *\r\n * @return javax.swing.JToggleButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    makeEditable();\r\n    btnSalva.setVisible(btnModifica.isSelected());\r\n    btnAnnulla.setVisible(btnModifica.isSelected());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnSalva == null) {\r\n        btnSalva = new JButton();\r\n        btnSalva.setText(\"Save\");\r\n        btnSalva.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/salva.png\")));\r\n        btnSalva.setVisible(false);\r\n    }\r\n    return btnSalva;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnSalva()",
+                "comments": "Optional[/**\r\n * Method to initialize the Save button (btnSalva)\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnAnnulla == null) {\r\n        btnAnnulla = new JButton();\r\n        btnAnnulla.setText(\"Cancel\");\r\n        btnAnnulla.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/annulla.png\")));\r\n        btnAnnulla.setVisible(false);\r\n    }\r\n    return btnAnnulla;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnAnnulla()",
+                "comments": "Optional[/**\r\n * Method to initialize the Cancel button (btnAnnulla)\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnModificaCommento == null) {\r\n        btnModificaCommento = new JButton();\r\n        btnModificaCommento.setText(\"Edit Comment\");\r\n        btnModificaCommento.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/modificaCommento.png\")));\r\n        btnModificaCommento.setVisible(false);\r\n    }\r\n    return btnModificaCommento;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnModificaCommento()",
+                "comments": "Optional[/**\r\n * Method to initialize the button for\r\n * Changing a comment (btnModificaCommento)\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jTabbedPane == null) {\r\n        jTabbedPane = new JTabbedPane();\r\n        jTabbedPane.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));\r\n        jTabbedPane.addTab(\"Data Refreshment\", new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/dati.png\")), getDatiPR(), null);\r\n        jTabbedPane.addTab(\"MenuTuristico\", new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/stat24.png\")), null, null);\r\n        jTabbedPane.addTab(\"Statistics\", new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/stat24.png\")), getStatistiche(), null);\r\n        jTabbedPane.addTab(\"Feedback received\", new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/feedback.png\")), getFeedback(), null);\r\n    }\r\n    return jTabbedPane;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTabbedPane getJTabbedPane()",
+                "comments": "Optional[/**\r\n * Create and initialize a JTabbedPane\r\n *\r\n * @return javax.swing.JTabbedPane\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (datiPR == null) {\r\n        datiPR = new JPanel();\r\n        datiPR.setLayout(new GridBagLayout());\r\n        datiPR.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));\r\n        GridBagConstraints gridBagConstraints = new GridBagConstraints();\r\n        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;\r\n        gridBagConstraints.insets = new Insets(5, 5, 5, 5);\r\n        gridBagConstraints.gridx = 0;\r\n        gridBagConstraints.gridy = 0;\r\n        txtNome = new JLabel(\"Name Refreshment\");\r\n        txtIndirizzo = new JLabel(\"Address\");\r\n        txtCitta = new JLabel(\"City\");\r\n        txtLocalità = new JLabel(\"Location\");\r\n        txtCAP = new JLabel(\"CAP\");\r\n        txtProvincia = new JLabel(\"Province\");\r\n        txtPos = new JLabel(\"Geographic Position\");\r\n        txtTel = new JLabel(\"Phone\");\r\n        txtOraAp = new JLabel(\"Opening Hours\");\r\n        txtOraCh = new JLabel(\"Closing Time\");\r\n        datiPR.add(txtNome, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtIndirizzo, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtCitta, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtLocalità, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtCAP, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtProvincia, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtPos, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtTel, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtOraAp, gridBagConstraints);\r\n        gridBagConstraints.gridy++;\r\n        datiPR.add(txtOraCh, gridBagConstraints);\r\n    }\r\n    return datiPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getDatiPR()",
+                "comments": "Optional[/**\r\n * Method to initialize a panel (datiPR)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (statistics == null) {\r\n        statistics = new JPanel();\r\n        statistics.setLayout(new GridBagLayout());\r\n        GridBagConstraints gridBagConstraints = new GridBagConstraints();\r\n        gridBagConstraints.gridx = 0;\r\n        gridBagConstraints.gridwidth = 1;\r\n        gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;\r\n        gridBagConstraints.insets = new Insets(20, 0, 0, 0);\r\n        gridBagConstraints.gridy = 0;\r\n        mediaVotoPR = new JLabel(\"Average Vote\");\r\n        statistics.add(mediaVotoPR, gridBagConstraints);\r\n    }\r\n    return statistics;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getStatistiche()",
+                "comments": "Optional[/**\r\n * Method for initializing a panel (statistics)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (feedback == null) {\r\n        feedback = new JPanel();\r\n        feedback.setLayout(new GridBagLayout());\r\n        GridBagConstraints gridBagConstraints = new GridBagConstraints();\r\n        gridBagConstraints.fill = GridBagConstraints.BOTH;\r\n        gridBagConstraints.gridy = 0;\r\n        gridBagConstraints.weightx = 1.0;\r\n        gridBagConstraints.weighty = 1.0;\r\n        gridBagConstraints.gridx = 0;\r\n        feedback.add(getJScrollPane2(), gridBagConstraints);\r\n    }\r\n    return feedback;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getFeedback()",
+                "comments": "Optional[/**\r\n * Method to initialize a panel (feedback)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (indirizzoPR == null) {\r\n        indirizzoPR = new JTextField();\r\n        indirizzoPR.setColumns(12);\r\n        indirizzoPR.addActionListener(campoCompilato);\r\n    }\r\n    return indirizzoPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getIndirizzoPR()",
+                "comments": "Optional[/**\r\n * Initialize a JTextField (indirizzoPR)\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (indirizzoPR1 == null) {\r\n        indirizzoPR1 = new JComboBox<>();\r\n        indirizzoPR1.setPreferredSize(new Dimension(60, 20));\r\n        indirizzoPR1.setMinimumSize(new Dimension(60, 25));\r\n        indirizzoPR1.addItem(\"Via\");\r\n        indirizzoPR1.addItem(\"P.zza\");\r\n        indirizzoPR1.addItem(\"V.le\");\r\n        indirizzoPR1.addItem(\"V.co\");\r\n        indirizzoPR1.addItem(\"Largo\");\r\n        indirizzoPR1.addItem(\"Corso\");\r\n    }\r\n    return indirizzoPR1;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getIndirizzoPR1()",
+                "comments": "Optional[/**\r\n * Method to initialize the type field address (indirizzoPR)\r\n * Or via, piazza ....\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (cittaPR == null) {\r\n        cittaPR = new JTextField();\r\n        cittaPR.setColumns(12);\r\n        cittaPR.addActionListener(campoCompilato);\r\n    }\r\n    return cittaPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getCittaPR()",
+                "comments": "Optional[/**\r\n * Initialize a JTextField for entering a city CittaPR\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (localitaPR == null) {\r\n        localitaPR = new JComboBox<>();\r\n        localitaPR.setMinimumSize(new Dimension(80, 25));\r\n        localitaPR.setPreferredSize(new Dimension(80, 20));\r\n        localitaPR.addActionListener(campoCompilato);\r\n    }\r\n    return localitaPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getLocalitaPR()",
+                "comments": "Optional[/**\r\n * This method initializes localitaPR\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (capPR == null) {\r\n        capPR = new JTextField();\r\n        capPR.setColumns(8);\r\n        capPR.addActionListener(campoCompilato);\r\n    }\r\n    return capPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getCapPR()",
+                "comments": "Optional[/**\r\n * Code of refreshment. Definition capPR JTextField\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jScrollPane == null) {\r\n        jScrollPane = new JScrollPane();\r\n        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);\r\n        jScrollPane.setViewportView(getDescrizionePR());\r\n    }\r\n    return jScrollPane;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JScrollPane getJScrollPane()",
+                "comments": "Optional[/**\r\n * Creation JScrollPane\r\n *\r\n * @return javax.swing.JScrollPane\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (descrizionePR == null) {\r\n        descrizionePR = new JTextArea();\r\n        descrizionePR.setColumns(12);\r\n        descrizionePR.setCursor(new Cursor(Cursor.TEXT_CURSOR));\r\n    }\r\n    return descrizionePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextArea getDescrizionePR()",
+                "comments": "Optional[/**\r\n * Method to create JTextArea's whole descrizionePR\r\n *\r\n * @return javax.swing.JTextArea\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (telefonoPR == null) {\r\n        telefonoPR = new JTextField();\r\n        telefonoPR.setColumns(12);\r\n        telefonoPR.addActionListener(campoCompilato);\r\n    }\r\n    return telefonoPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getTelefonoPR()",
+                "comments": "Optional[/**\r\n * Method to create the JTextField telefonoPR\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioAPOrePR == null) {\r\n        orarioAPOrePR = new JComboBox<>();\r\n        orarioAPOrePR.setPreferredSize(new Dimension(40, 20));\r\n        for (int i = 0; i < 24; i++) {\r\n            if (i < 10) {\r\n                orarioAPOrePR.addItem(\"0\" + i);\r\n            } else {\r\n                orarioAPOrePR.addItem(i);\r\n            }\r\n        }\r\n        orarioAPOrePR.addActionListener(campoCompilato);\r\n    }\r\n    return orarioAPOrePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioAPOrePR()",
+                "comments": "Optional[/**\r\n * method to initialize a JComboBox with the hours (orarioAPOrePR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioApMinPR == null) {\r\n        orarioApMinPR = new JComboBox<>();\r\n        orarioApMinPR.setPreferredSize(new Dimension(40, 20));\r\n        orarioApMinPR.addItem(\"00\");\r\n        orarioApMinPR.addItem(\"15\");\r\n        orarioApMinPR.addItem(\"30\");\r\n        orarioApMinPR.addItem(\"45\");\r\n        orarioApMinPR.addActionListener(campoCompilato);\r\n    }\r\n    return orarioApMinPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioApMinPR()",
+                "comments": "Optional[/**\r\n * Method to initialize a JComboBox with the minutes (orarioApMinPR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioCHMinPR == null) {\r\n        orarioCHMinPR = new JComboBox<>();\r\n        orarioCHMinPR.setPreferredSize(new Dimension(40, 20));\r\n        orarioCHMinPR.addItem(\"00\");\r\n        orarioCHMinPR.addItem(\"15\");\r\n        orarioCHMinPR.addItem(\"30\");\r\n        orarioCHMinPR.addItem(\"45\");\r\n        orarioCHMinPR.addActionListener(campoCompilato);\r\n    }\r\n    return orarioCHMinPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioCHMinPR()",
+                "comments": "Optional[/**\r\n * Method to initialize a JComboBox with the minutes (orarioCHMinPR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (provPR == null) {\r\n        final String[] province = { \"AG\", \"AL\", \"AN\", \"AO\", \"AQ\", \"AR\", \"AP\", \"AT\", \"AV\", \"BA\", \"BL\", \"BN\", \"BG\", \"BI\", \"BO\", \"BR\", \"BS\", \"BZ\", \"CA\", \"CB\", \"CE\", \"CH\", \"CI\", \"CL\", \"CN\", \"CO\", \"CR\", \"CS\", \"KR\", \"EN\", \"FC\", \"FE\", \"FI\", \"FG\", \"FR\", \"GE\", \"GO\", \"GR\", \"IM\", \"IS\", \"LC\", \"LE\", \"LI\", \"LO\", \"LT\", \"LU\", \"MC\", \"ME\", \"MF\", \"MN\", \"MO\", \"MS\", \"MT\", \"NA\", \"NO\", \"NU\", \"OG\", \"OR\", \"OT\", \"PA\", \"PC\", \"PD\", \"PE\", \"PG\", \"PO\", \"PR\", \"PU\", \"R\", \"RA\", \"RC\", \"RE\", \"RG\", \"RI\", \"RM\", \"RN\", \"RO\", \"SA\", \"SI\", \"SO\", \"SP\", \"SS\", \"SV\", \"TA\", \"TE\", \"TN\", \"TP\", \"TR\", \"TS\", \"TV\", \"UD\", \"VA\", \"VB\", \"VC\", \"VE\", \"VI\", \"VR\", \"VS\", \"VT\", \"VV\" };\r\n        provPR = new JComboBox<>();\r\n        for (String provincia : province) {\r\n            provPR.addItem(provincia);\r\n        }\r\n        provPR.addActionListener(campoCompilato);\r\n    }\r\n    return provPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getProvPR()",
+                "comments": "Optional[/**\r\n * Create and initialize a JComboBox with all the provinces (provPR)\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pStr == null) {\r\n        return;\r\n    }\r\n    if ((getLength() + pStr.length()) <= limit) {\r\n        super.insertString(pOffset, pStr, attr);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void insertString(int, String, AttributeSet)",
+                "comments": "Optional[/**\r\n * Initialization and management position\r\n *\r\n * @param pOffset\r\n * @param pStr\r\n * @param attr\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (nomePR == null) {\r\n        nomePR = new JTextField();\r\n        nomePR.setColumns(12);\r\n        nomePR.setPreferredSize(new Dimension(180, 20));\r\n        nomePR.addActionListener(campoCompilato);\r\n        nomePR.addFocusListener(validating);\r\n        nomePR.setDocument(new DocumentoNumerico(20));\r\n    }\r\n    return nomePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getNomePR()",
+                "comments": "Optional[/**\r\n * Initialization of a data point of the snack (nomePR)\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jPanel == null) {\r\n        jPanel = new JPanel();\r\n        jPanel.setLayout(new BorderLayout());\r\n        jPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEmptyBorder(), \"Tag the 'Search\", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), Color.black));\r\n        BeanTag[] test = new BeanTag[8];\r\n        test[0] = new BeanTag(0, \"castle\", \"really a castle\");\r\n        test[1] = new BeanTag(1, \"stronghold\", \"really a hostel\");\r\n        test[2] = new BeanTag(2, \"statue\", \"really a basket\");\r\n        test[3] = new BeanTag(3, \"column\", \"really a basket\");\r\n        test[4] = new BeanTag(4, \"internal\", \"really a basket\");\r\n        test[5] = new BeanTag(5, \"external\", \"really a basket\");\r\n        test[6] = new BeanTag(6, \"eight hundred\", \"really a basket\");\r\n        test[7] = new BeanTag(7, \"Novecento\", \"really a basket\");\r\n        pannelloTag = new TagPanel(test);\r\n        jPanel.add(pannelloTag, BorderLayout.CENTER);\r\n    }\r\n    return jPanel;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getJPanel()",
+                "comments": "Optional[/**\r\n * Initialize and create a panel (JPanel)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (jScrollPane2 == null) {\r\n        jScrollPane2 = new JScrollPane();\r\n        jScrollPane2.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);\r\n        jScrollPane2.setViewportView(getFeedbackTable());\r\n    }\r\n    return jScrollPane2;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JScrollPane getJScrollPane2()",
+                "comments": "Optional[/**\r\n * Creating a JScrollPane (jScrollPane2)\r\n *\r\n * @return javax.swing.JScrollPane\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (feedbackTable == null) {\r\n        feedbackTable = new JTable();\r\n    }\r\n    return feedbackTable;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTable getFeedbackTable()",
+                "comments": "Optional[/**\r\n * Create a JTable (feedbackTable)\r\n *\r\n * @return javax.swing.JTable\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (statisticheMeseCorrente == null) {\r\n        statisticheMeseCorrente = new JPanel();\r\n        statisticheMeseCorrente.setLayout(new GridBagLayout());\r\n        statisticheMeseCorrente.setPreferredSize(new Dimension(500, 120));\r\n    }\r\n    return statisticheMeseCorrente;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getStatisticheMeseCorrente()",
+                "comments": "Optional[/**\r\n * Creation of a panel (statisticheMeseCorrente)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (statisticheTotali == null) {\r\n        statisticheTotali = new JPanel();\r\n        statisticheTotali.setLayout(new GridBagLayout());\r\n        statisticheTotali.setPreferredSize(new Dimension(500, 120));\r\n    }\r\n    return statisticheTotali;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JPanel getStatisticheTotali()",
+                "comments": "Optional[/**\r\n * Creation of a panel (statisticheTotali)\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (toolbarSchedaPR == null) {\r\n        toolbarSchedaPR = new JToolBar();\r\n        toolbarSchedaPR.setFloatable(false);\r\n        toolbarSchedaPR.add(getBtnModifica());\r\n        toolbarSchedaPR.addSeparator();\r\n        toolbarSchedaPR.add(getBtnSalva());\r\n        toolbarSchedaPR.addSeparator();\r\n        toolbarSchedaPR.add(getBtnAnnulla());\r\n        toolbarSchedaPR.addSeparator();\r\n        toolbarSchedaPR.add(getBtnModificaCommento());\r\n        toolbarSchedaPR.addSeparator();\r\n    }\r\n    return toolbarSchedaPR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JToolBar getToolbarSchedaPR()",
+                "comments": "Optional[/**\r\n * Method for creating a toolbar (ToolbarSchedaPR)\r\n *\r\n * @return javax.swing.JToolBar\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (posGeoX == null) {\r\n        posGeoX = new JTextField();\r\n    }\r\n    return posGeoX;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getPosGeoX()",
+                "comments": "Optional[/**\r\n * Method to initialize posGeoX\r\n * The X position of the GPS\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (posGeoY == null) {\r\n        posGeoY = new JTextField();\r\n    }\r\n    return posGeoY;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getPosGeoY()",
+                "comments": "Optional[/**\r\n * Method to initialize posGeoY\r\n * The Y position of the GPS\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (posGeoZ == null) {\r\n        posGeoZ = new JTextField();\r\n    }\r\n    return posGeoZ;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JTextField getPosGeoZ()",
+                "comments": "Optional[/**\r\n * Method to initialize posGeoZ\r\n * The Z position of the GPS\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orarioCHOrePR == null) {\r\n        orarioCHOrePR = new JComboBox<>();\r\n        orarioCHOrePR.setPreferredSize(new Dimension(40, 20));\r\n    }\r\n    return orarioCHOrePR;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JComboBox<String> getOrarioCHOrePR()",
+                "comments": "Optional[/**\r\n * Method to initialize a JComboBox with the hours (orarioCHOrePR)\r\n *\r\n * @return javax.swing.JComboBox\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"New Refreshment\");\r\n    campoCompilato = new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent actionEvent) {\r\n            ((JComponent) actionEvent.getSource()).transferFocus();\r\n        }\r\n    };\r\n    validating = new FocusListener() {\r\n\r\n        private final Color ERROR_BACKGROUND = new Color(255, 215, 215);\r\n\r\n        private final Color WARNING_BACKGROUND = new Color(255, 235, 205);\r\n\r\n        private String text;\r\n\r\n        public void focusGained(FocusEvent fe) {\r\n            if (fe.getSource() instanceof JTextField) {\r\n                JTextField textbox = (JTextField) fe.getSource();\r\n                text = textbox.getText();\r\n            }\r\n        }\r\n\r\n        public void focusLost(FocusEvent fe) {\r\n            if (fe.getSource() instanceof JTextField) {\r\n                JTextField textbox = (JTextField) fe.getSource();\r\n                if (!text.equals(textbox.getText())) {\r\n                    text = textbox.getText();\r\n                    if (text.equals(\"\")) {\r\n                        textbox.setBackground(ERROR_BACKGROUND);\r\n                        Rectangle bounds = textbox.getBounds();\r\n                        JLabel newLabel = new JLabel();\r\n                        newLabel.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/images/error.png\")));\r\n                        newLabel.setBounds(bounds.x - 24, bounds.y, 24, 24);\r\n                        newLabel.setToolTipText(\"Field \" + textbox.getName() + \" cannot be empty!\");\r\n                        datiPR.add(newLabel, null);\r\n                        datiPR.repaint();\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    };\r\n    initialize();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SchedaPR()",
+                "comments": "Optional[/**\r\n * The default constructor for inclusion of the interface model\r\n * A new refreshment.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this();\r\n    nomePR.setText(pr.getNome());\r\n    setTitle(pr.getNome());\r\n    capPR.setText(pr.getCap());\r\n    cittaPR.setText(pr.getCitta());\r\n    descrizionePR.setText(pr.getDescrizione());\r\n    StringTokenizer tokenizer = new StringTokenizer(pr.getVia());\r\n    String[] via = { \"Via\", \"P.zza\", \"V.le\", \"V.co\", \"Largo\", \"Corso\" };\r\n    String string = tokenizer.nextToken();\r\n    int i;\r\n    for (i = 0; i < via.length; i++) {\r\n        if (string.equalsIgnoreCase(via[i])) {\r\n            break;\r\n        }\r\n    }\r\n    this.indirizzoPR1.setSelectedIndex(i);\r\n    while (tokenizer.hasMoreTokens()) {\r\n        this.indirizzoPR.setText(indirizzoPR.getText() + \" \" + tokenizer.nextToken());\r\n    }\r\n    this.provPR.setSelectedItem(pr.getProvincia());\r\n    Punto3D pos = pr.getPosizione();\r\n    this.posGeoX.setText(\"\" + pos.getX());\r\n    this.posGeoY.setText(\"\" + pos.getY());\r\n    this.posGeoZ.setText(\"\" + pos.getZ());\r\n    this.telefonoPR.setText(pr.getTelefono());\r\n    int minutes = pr.getOrarioApertura().getMinutes();\r\n    if (minutes == 0) {\r\n        this.orarioApMinPR.setSelectedIndex(0);\r\n    } else {\r\n        this.orarioApMinPR.setSelectedItem(minutes);\r\n    }\r\n    int hours = pr.getOrarioApertura().getHours();\r\n    if (hours < 10) {\r\n        this.orarioAPOrePR.setSelectedItem(\"0\" + hours);\r\n    } else {\r\n        this.orarioAPOrePR.setSelectedItem(hours);\r\n    }\r\n    this.orarioCHMinPR.setSelectedItem(pr.getOrarioChiusura().getMinutes());\r\n    this.orarioAPOrePR.setSelectedItem(pr.getOrarioApertura().getHours());\r\n    this.orarioCHOrePR.setSelectedItem(pr.getOrarioChiusura().getHours());\r\n    if (edit) {\r\n        btnModifica.setSelected(true);\r\n    } else {\r\n        makeEditable();\r\n    }\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SchedaPR(BeanPuntoDiRistoro, boolean)",
+                "comments": "Optional[/**\r\n * This interface models the manufacturer regarding modification of data and\r\n * Display board a refreshment.\r\n *\r\n * @param pr    the bean contains the data of PuntoDiRistoro selected.\r\n * @param edit  indicates whether the fields should be editable, so if\r\n *              You are viewing a card or change the cultural property.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.limit = limit;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DocumentoNumerico(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "DocumentoNumerico",
+        "variables": [
+            "private JPanel jContentPane",
+            "private JToolBar toolbarSchedaBC",
+            "private JToggleButton btnModifica",
+            "private JButton btnSalva",
+            "private JButton btnAnnulla",
+            "private JButton btnModificaCommento",
+            "private JTabbedPane jTabbedPane",
+            "private JPanel statistics",
+            "private JPanel feedback",
+            "private JLabel txtNome",
+            "private JLabel txtIndirizzo",
+            "private JLabel txtCAP",
+            "private JLabel txtCitta",
+            "private JLabel txtLocalità",
+            "private JLabel txtProvincia",
+            "private JLabel txtPos",
+            "private JLabel txtTel",
+            "private JLabel txtOraAp",
+            "private JLabel txtOraCh",
+            "private JLabel jLabel",
+            "private JTextField indirizzoPR",
+            "private JComboBox<String> indirizzoPR1",
+            "private JTextField cittaPR",
+            "private JComboBox<String> localitaPR",
+            "private JTextField capPR",
+            "private JScrollPane jScrollPane",
+            "private JTextArea descrizionePR",
+            "private JTextField telefonoPR",
+            "private JComboBox<String> orarioAPOrePR",
+            "private JLabel jLabel1",
+            "private JComboBox<String> orarioApMinPR",
+            "private TagPanel pannelloTag",
+            "private JTextField costoBC",
+            "private JLabel jLabel3",
+            "private JComboBox<String> orarioCHMinPR",
+            "private JComboBox<String> provPR",
+            "private JPanel datiPR",
+            "private JTextField nomePR",
+            "private JPanel jPanel",
+            "private JScrollPane jScrollPane2",
+            "private JTable feedbackTable",
+            "private JLabel txtNomeBene",
+            "private JLabel mediaVotoPR",
+            "private JPanel statisticheMeseCorrente",
+            "private JPanel statisticheTotali",
+            "private JLabel jLabel4",
+            "private JLabel jLabel41",
+            "private ActionListener campoCompilato",
+            "private FocusListener validating",
+            "private JToolBar toolbarSchedaPR",
+            "private JTextField posGeoX",
+            "private JTextField posGeoY",
+            "private JTextField posGeoZ",
+            "private JLabel jLabel2",
+            "private JComboBox<String> orarioCHOrePR",
+            "private  final Color ERROR_BACKGROUND",
+            "private  final Color WARNING_BACKGROUND",
+            "private String text",
+            "private int limit"
+        ]
+    }
+]

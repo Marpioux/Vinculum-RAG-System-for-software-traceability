@@ -1,0 +1,79 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return headers.length;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getColumnCount()",
+                "comments": "Optional[/**\r\n * Returns the number of columns\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return data.size();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getRowCount()",
+                "comments": "Optional[/**\r\n * Returns the number of rows\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return headers[pCol];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getColumnName(int)",
+                "comments": "Optional[/**\r\n * Returns the column heading i_esima\r\n *\r\n * @param pCol\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return data.get(pRow)[pCol];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Object getValueAt(int, int)",
+                "comments": "Optional[/**\r\n * Returns the coordinates given by the pair of row, column\r\n *\r\n * @param pRow\r\n * @param pCol\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return columnClasses[pCol];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Class<?> getColumnClass(int)",
+                "comments": "Optional[/**\r\n * Returns the column pCol\r\n *\r\n * @param pCol\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean isCellEditable(int, int)",
+                "comments": "Optional[/**\r\n * Always returns false because the cells in the table are not editable\r\n *\r\n * @param row\r\n * @param col\r\n * @return false\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setValueAt(Object, int, int)",
+                "comments": "Optional[/**\r\n * This method is empty.\r\n * Can not be included an element within a cell\r\n *\r\n * @deprecated\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    data = new Vector<>();\r\n    for (int i = 0; i < tags.length; i++) {\r\n        Object[] newRow = new Object[3];\r\n        newRow[0] = tags[i].getId();\r\n        newRow[1] = tags[i].getName();\r\n        newRow[2] = tags[i].getDescrizione();\r\n        data.add(newRow);\r\n    }\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public TAGTableModel(BeanTag[])",
+                "comments": "Optional[/**\r\n * Constructor for class TagTableModel\r\n *\r\n * @param tags BeanTag[]\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "TAGTableModel",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private  static  final String headers",
+            "private  static  final Class<?> columnClasses",
+            "private Vector<Object[]> data"
+        ]
+    }
+]

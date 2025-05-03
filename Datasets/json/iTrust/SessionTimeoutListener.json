@@ -1,0 +1,44 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    HttpSession session = arg0.getSession();\r\n    int mins = 20;\r\n    try {\r\n        mins = factory.getAccessDAO().getSessionTimeoutMins();\r\n    } catch (DBException e) {\r\n        System.err.println(\"Unable to set session timeout, defaulting to 20 minutes\");\r\n        e.printStackTrace();\r\n    }\r\n    if (mins < 1)\r\n        mins = 1;\r\n    session.setMaxInactiveInterval(mins * 60);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void sessionCreated(HttpSessionEvent)",
+                "comments": "Optional[/**\r\n * Called when the HttpSession is created, this method pulls the pre-specified limit from the\r\n * database and sets it as a property of the HttpSession.\r\n * @param arg0 The HttpSessionEven which just occurred.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // nothing to do here\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void sessionDestroyed(HttpSessionEvent)",
+                "comments": "Optional[/**\r\n * Must be declared for compliance with the interface. Not implemented.\r\n */\r\n]",
+                "innerComments": "Optional[[// nothing to do here\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = DAOFactory.getProductionInstance();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SessionTimeoutListener()",
+                "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SessionTimeoutListener(DAOFactory)",
+                "comments": "Optional[/**\r\n * The specialized constructor, which takes a particular DAOFactory to be used when checking for the pre-specified\r\n * timeout limit.\r\n * @param factory The DAOFactory to be used.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SessionTimeoutListener",
+        "variables": [
+            "private DAOFactory factory"
+        ]
+    }
+]

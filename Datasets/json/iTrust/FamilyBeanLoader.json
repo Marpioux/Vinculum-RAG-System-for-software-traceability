@@ -1,0 +1,44 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<FamilyMemberBean> list = new ArrayList<FamilyMemberBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<FamilyMemberBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, FamilyMemberBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    FamilyMemberBean fam = new FamilyMemberBean();\r\n    fam.setRelation(relation);\r\n    fam.setFirstName(rs.getString(\"FirstName\"));\r\n    fam.setLastName(rs.getString(\"LastName\"));\r\n    fam.setMid(rs.getInt(\"MID\"));\r\n    return fam;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public FamilyMemberBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.relation = relation;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public FamilyBeanLoader(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "FamilyBeanLoader",
+        "variables": [
+            "private String relation"
+        ]
+    }
+]

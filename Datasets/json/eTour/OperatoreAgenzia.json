@@ -1,0 +1,197 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.name = name;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cityResidenza = cityResidenza;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCityResidenza(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cityResidenza;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCityResidenza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.phone = phone;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPhone(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return phone;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPhone()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.zip = zip;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setZip(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return zip;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getZip()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.address = address;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddress(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return address;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddress()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.email = email;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setEmail(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return email;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getEmail()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.password = password;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPassword(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return password;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPassword()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.username = username;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setUsername(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return username;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getUsername()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.doB = doB;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDoB(Date)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return doB;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getDoB()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public OperatoreAgenzia()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.name = name;\r\n    this.lastName = lastName;\r\n    this.cityResidenza = city;\r\n    this.phone = phone;\r\n    this.zip = zip;\r\n    this.address = address;\r\n    this.email = email;\r\n    this.password = pass;\r\n    this.username = user;\r\n    this.doB = date;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public OperatoreAgenzia(String, String, String, String, String, String, String, String, String, Date)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "OperatoreAgenzia",
+        "variables": [
+            "private String name",
+            "private String lastName",
+            "private String cityResidenza",
+            "private String phone",
+            "private String zip",
+            "private String address",
+            "private String email",
+            "private String password",
+            "private String username",
+            "private Date doB"
+        ]
+    }
+]

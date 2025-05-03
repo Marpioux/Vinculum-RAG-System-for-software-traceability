@@ -1,0 +1,26 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    errorList.addIfNotNull(checkFormat(\"Systolic Blood Pressure\", \"\" + m.getSystolicBloodPressure(), ValidationFormat.SYSTOLIC_BLOOD_PRESSURE, false));\r\n    errorList.addIfNotNull(checkFormat(\"Diastolic Blood Pressure\", \"\" + m.getDiastolicBloodPressure(), ValidationFormat.DIASTOLIC_BLOOD_PRESSURE, false));\r\n    errorList.addIfNotNull(checkFormat(\"Glucose Level\", \"\" + m.getGlucoseLevel(), ValidationFormat.GLUCOSE_LEVEL, false));\r\n    if (errorList.hasErrors()) {\r\n        throw new FormValidationException(errorList);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void validate(RemoteMonitoringDataBean)",
+                "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public RemoteMonitoringDataBeanValidator()",
+                "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "RemoteMonitoringDataBeanValidator",
+        "variables": []
+    }
+]

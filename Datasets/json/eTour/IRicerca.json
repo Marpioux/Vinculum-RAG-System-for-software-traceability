@@ -1,0 +1,52 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int search(int, String, int[], double, int, Punto3D, byte)",
+                "comments": "Optional[/**\r\n * Initialization method for research\r\n *\r\n * @param pIdTurista       ID of the tourist. Pass -1 in case of a Guest\r\n * @param pParoleChiave    Together keyword search\r\n * @param pTagsId          Search Tags\r\n * @param pRaggioMax       Maximum distance between the user and the site\r\n * @param pElementiPerPagina number of items to look for in a search session\r\n * @param pPosizioneUtente detected by the GPS user position\r\n * @param pTipologiaSito   site search\r\n * @return number of elements emerged from the research. On error returns -1\r\n * @throws RemoteException the remote exception\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanBeneCulturale[] ottieniPaginaRisultatiBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Method for returning the list of emerging from the Cultural Heritage\r\n * Research, in a given interval\r\n *\r\n * @param pPagina range of items to be included in the results\r\n * @return entirety of cultural property related to the range of results\r\n *         selected search. In case of error returns null\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPuntoDiRistoro[] ottieniPaginaRisultatiPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Method to return the list of eateries have emerged from\r\n * Research related to a specific interval\r\n *\r\n * @param pPagina range of items to be included in the results\r\n * @return set of points relating to the range of refreshment\r\n *         selected search results. In case of error returns null\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int ottieniNumeroElementiRicerca()",
+                "comments": "Optional[/**\r\n * Method for returning the number of elements results from\r\n * Search\r\n *\r\n * @return number of elements emerged in the research phase. Where no\r\n *         is initialized the search returns -1\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int ottieniNumeroPagineRicerca()",
+                "comments": "Optional[/**\r\n * Method for returning the number of pages appear in results\r\n *\r\n * @return number of pages that have emerged in the research phase. Where no\r\n *         is initialized the search returns -1\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IRicerca",
+        "variables": [
+            " byte BENE_CULTURALE",
+            " byte PUNTO_DI_RISTORO"
+        ]
+    }
+]

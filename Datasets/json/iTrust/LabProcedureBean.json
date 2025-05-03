@@ -1,0 +1,217 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getPid()",
+                "comments": "Optional[/**\r\n * Unique 10-digit number that does not start with 9\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.pid = pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPid(long)",
+                "comments": "Optional[/**\r\n * Unique 10-digit number that does not start with 9\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return procedureID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getProcedureID()",
+                "comments": "Optional[/**\r\n * Unique identifier for a laboratory procedure of a patient\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.procedureID = procedureID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setProcedureID(long)",
+                "comments": "Optional[/**\r\n * Unique identifier for a laboratory procedure of a patient\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return loinc;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getLoinc()",
+                "comments": "Optional[/**\r\n * Digits of the format nnnnn-n\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.loinc = loinc;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setLoinc(String)",
+                "comments": "Optional[/**\r\n * Digits of the format nnnnn-n\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return status;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getStatus()",
+                "comments": "Optional[/**\r\n * One of (NOT YET RECEIVED, PENDING, COMPLETED)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.status = status;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setStatus(String)",
+                "comments": "Optional[/**\r\n * One of (NOT YET RECEIVED, PENDING, COMPLETED)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return commentary;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getCommentary()",
+                "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.commentary = commentary;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setCommentary(String)",
+                "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return results;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getResults()",
+                "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.results = results;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setResults(String)",
+                "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ovID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getOvID()",
+                "comments": "Optional[/**\r\n * Office VisitID\tIdentifier that specifies the office visit in\r\n * which the laboratory procedure was ordered\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.ovID = ovID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setOvID(long)",
+                "comments": "Optional[/**\r\n * Office VisitID\tIdentifier that specifies the office visit in\r\n * which the laboratory procedure was ordered\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return timestamp;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Timestamp getTimestamp()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.timestamp = timestamp;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTimestamp(Timestamp)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return rights;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getRights()",
+                "comments": "Optional[/**\r\n * permission granted by lhcp who ordered test:\r\n * \"ALLOWED\", \"RESTRICTED\"\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.rights = rights;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setRights(String)",
+                "comments": "Optional[/**\r\n * permission granted by lhcp who ordered test:\r\n * \"ALLOWED\", \"RESTRICTED\"\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.rights = Allow;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void allow()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.rights = Restrict;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void restrict()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.status = Completed;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void statusComplete()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.status = Pending;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void statusPending()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.status = Not_Received;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void statusNotReceived()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LabProcedureBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "LabProcedureBean",
+        "variables": [
+            "public  final  static String Not_Received",
+            "public  final  static String Pending",
+            "public  final  static String Completed",
+            "public  final  static String Allow",
+            "public  final  static String Restrict",
+            "private long pid",
+            "private long procedureID",
+            "private String loinc",
+            "private String status",
+            "private String commentary",
+            "private String results",
+            "private long ovID",
+            "private Timestamp timestamp",
+            "private String rights"
+        ]
+    }
+]

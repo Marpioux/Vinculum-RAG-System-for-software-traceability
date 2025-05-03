@@ -1,0 +1,66 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return type;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getType()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.type = type;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setType(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return value;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getValue()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.value = value;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setValue(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.type = type;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VisitFlag(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.type = type;\r\n    this.value = value;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VisitFlag(String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "VisitFlag",
+        "variables": [
+            "public  static  final String DIAGNOSED",
+            "public  static  final String MISSED_MEDICATION",
+            "public  static  final String MISSING_MEDICATION",
+            "public  static  final String LAST_VISIT",
+            "public  static  final String IMMUNIZATION",
+            "private String type",
+            "private String value"
+        ]
+    }
+]

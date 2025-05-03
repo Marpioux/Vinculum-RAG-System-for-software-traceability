@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient is over \" + age;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patient.getAge() > age;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.age = age;\r\n    this.patient = patient;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AgeFactor(PatientBean, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "AgeFactor",
+        "variables": [
+            "private PatientBean patient",
+            "private int age"
+        ]
+    }
+]

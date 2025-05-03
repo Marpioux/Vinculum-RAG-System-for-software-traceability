@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    if (bean.getComment() == null)\r\n        return;\r\n    errorList.addIfNotNull(checkFormat(\"Appointment Comment\", bean.getComment(), ValidationFormat.APPT_COMMENT, false));\r\n    if (errorList.hasErrors())\r\n        throw new FormValidationException(errorList);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void validate(ApptBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ApptBeanValidator",
+        "variables": []
+    }
+]

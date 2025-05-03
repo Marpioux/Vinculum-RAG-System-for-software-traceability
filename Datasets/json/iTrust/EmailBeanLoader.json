@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<Email> list = new ArrayList<Email>();\r\n    while (rs.next()) list.add(loadSingle(rs));\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<Email> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ps.setString(1, email.getToListStr());\r\n    ps.setString(2, email.getFrom());\r\n    ps.setString(3, email.getSubject());\r\n    ps.setString(4, email.getBody());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, Email)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Email email = new Email();\r\n    email.setFrom(rs.getString(\"FromAddr\"));\r\n    email.setToList(Arrays.asList(rs.getString(\"ToAddr\").split(\",\")));\r\n    email.setBody(rs.getString(\"Body\"));\r\n    email.setSubject(rs.getString(\"Subject\"));\r\n    email.setTimeAdded(rs.getTimestamp(\"AddedDate\"));\r\n    return email;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Email loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "EmailBeanLoader",
+        "variables": []
+    }
+]

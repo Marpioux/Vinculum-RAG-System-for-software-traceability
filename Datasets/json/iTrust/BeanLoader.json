@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public abstract List<T> loadList(ResultSet)",
+                "comments": "Optional[/**\r\n * Loads a list of the bean of type T from a result set.  Typically makes iterated calls\r\n * to loadSingle.\r\n * @param rs The java.sql.ResultSet we are extracting.\r\n * @return A java.util.List<T> where T is the type for this loader.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public abstract T loadSingle(ResultSet)",
+                "comments": "Optional[/**\r\n * Contains the instructions for mapping the rows in this java.sql.ResultSet into\r\n * beans of type <T>.\r\n * @param rs The java.sql.ResultSet to be loaded.\r\n * @return A Bean of type T containing the loaded information, typically of the first (or next) item in the result set.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public abstract PreparedStatement loadParameters(PreparedStatement, T)",
+                "comments": "Optional[/**\r\n * Used for an insert or update, this method contains the instructions for mapping the fields within\r\n * a bean of type T into a prepared statement which modifies the appropriate table.\r\n * @param ps The prepared statement to be loaded.\r\n * @param bean The bean containing the data to be placed.\r\n * @return A prepared statement with the appropriately loaded parameters.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "BeanLoader",
+        "variables": []
+    }
+]

@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ICDCodes ORDER BY CODE\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return diagnosisLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DiagnosisBean> getAllICDCodes()",
+                "comments": "Optional[/**\r\n * Returns all ICD9CM codes sorted by code\r\n *\r\n * @return java.util.List of DiagnosisBeans\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ICDCodes WHERE Code = ?\");\r\n        ps.setString(1, code);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return diagnosisLoader.loadSingle(rs);\r\n        return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DiagnosisBean getICDCode(String)",
+                "comments": "Optional[/**\r\n * Returns a particular description for a given code\r\n *\r\n * @param code The String representation of the code.\r\n * @return A DiagnosisBean of the code.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO ICDCodes (Code, Description, Chronic) \" + \"VALUES (?,?,?)\");\r\n        ps.setString(1, diag.getICDCode());\r\n        ps.setString(2, diag.getDescription());\r\n        ps.setString(3, diag.getClassification());\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: Code already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addICDCode(DiagnosisBean)",
+                "comments": "Optional[/**\r\n * Adds an ICD9CM code. Returns whether or not the change was made.\r\n *\r\n * @param diag The DiagnosisBean representing the changes.\r\n * @return A boolean indicating success.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int rows;\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE ICDCodes SET Description = ?, Chronic = ? WHERE Code = ?\");\r\n        ps.setString(1, diag.getDescription());\r\n        ps.setString(2, diag.getClassification());\r\n        ps.setString(3, diag.getICDCode());\r\n        rows = ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n    return rows;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int updateCode(DiagnosisBean)",
+                "comments": "Optional[/**\r\n * Changes a the description of a particular code.\r\n *\r\n * @param diag A DiagnosisBean representing the changes.\r\n * @return A boolean indicating the number of updated rows.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ICDCodesDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ICDCodesDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private DiagnosisBeanLoader diagnosisLoader"
+        ]
+    }
+]

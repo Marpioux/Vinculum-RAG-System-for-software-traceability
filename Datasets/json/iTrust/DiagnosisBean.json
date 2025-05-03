@@ -1,0 +1,112 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return icdCode;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getICDCode()",
+                "comments": "Optional[/**\r\n * Gets the ICD Code for this procedure\r\n *\r\n * @return The ICD Code for this procedure\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    icdCode = code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setICDCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return classification;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getClassification()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return description;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": "Optional[/**\r\n * Gets the ICD Description for this procedure\r\n *\r\n * @return The ICD Description for this procedure\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.description = description;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDescription(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return description + \"(\" + icdCode + \")\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFormattedDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ovDiagnosisID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getOvDiagnosisID()",
+                "comments": "Optional[/**\r\n * Optional - for use with editing an office visit\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.ovDiagnosisID = ovDiagnosisID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setOvDiagnosisID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    visitID = vid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setVisitID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return visitID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getVisitID()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DiagnosisBean()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.icdCode = code;\r\n    this.description = description;\r\n    if (null != classification && classification.equals(\"yes\")) {\r\n        this.classification = classification;\r\n    } else {\r\n        this.classification = \"no\";\r\n    }\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DiagnosisBean(String, String, String)",
+                "comments": "Optional[/**\r\n * This functionality will be moved elsewhere.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "DiagnosisBean",
+        "variables": [
+            "private long ovDiagnosisID",
+            "private String icdCode",
+            "private String description",
+            "private String classification",
+            "private long visitID"
+        ]
+    }
+]

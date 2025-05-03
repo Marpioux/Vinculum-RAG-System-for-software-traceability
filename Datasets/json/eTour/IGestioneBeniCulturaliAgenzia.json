@@ -1,0 +1,57 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciBeneCulturale(BeanBeneCulturale)",
+                "comments": "Optional[/**\r\n * Method for the insertion of a new cultural\r\n *\r\n * @param pBeneCulturale The raw bean to be included in the database\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Method for the cancellation of a cultural object by id\r\n *\r\n * @param pBeneCulturaleID the bean to be deleted\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanBeneCulturale> ottieniBeniCulturali()",
+                "comments": "Optional[/**\r\n * Method for the return of all cultural property in the\r\n * Database\r\n *\r\n * @return ArrayList all the beans in the database\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaBeneCulturale(BeanBeneCulturale)",
+                "comments": "Optional[/**\r\n * Method for updating (or changing) the data of a cultural\r\n *\r\n * @param pBeneCulturale The bean with the new information of the cultural\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean aggiungiTagBeneCulturale(int, int)",
+                "comments": "Optional[/**\r\n * Method for setting a tag to a certain cultural\r\n *\r\n * @param pBeneCulturaleID The identifier of the cultural object to which to add a tag\r\n * @param pTagID The ID tag to add to the cultural indicated\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean rimuoviTagBeneCulturale(int, int)",
+                "comments": "Optional[/**\r\n * Method for removing a tag from a certain cultural\r\n * To ensure that the operation is successful it is necessary that the cultural property has\r\n * actually set the specified tag\r\n *\r\n * @param pBeneCulturaleID The identifier of the cultural object from which to remove the tag\r\n * @param pTagID The ID tag to be removed from the cultural indicated\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneBeniCulturali",
+        "variables": []
+    }
+]

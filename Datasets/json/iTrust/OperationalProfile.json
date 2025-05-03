@@ -1,0 +1,129 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    HashMap<TransactionType, Integer> map = new HashMap<TransactionType, Integer>(TransactionType.values().length);\r\n    for (TransactionType type : TransactionType.values()) {\r\n        map.put(type, 0);\r\n    }\r\n    return map;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private HashMap<TransactionType, Integer> createEmptyMap()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return totalCount;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HashMap<TransactionType, Integer> getTotalCount()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.totalCount = totalCount;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTotalCount(HashMap<TransactionType, Integer>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return personnelCount;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HashMap<TransactionType, Integer> getPersonnelCount()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.personnelCount = personnelCount;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPersonnelCount(HashMap<TransactionType, Integer>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientCount;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HashMap<TransactionType, Integer> getPatientCount()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientCount = patientCount;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientCount(HashMap<TransactionType, Integer>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.numTotalTransactions = numTransactions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setNumTotalTransactions(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return numTotalTransactions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getNumTotalTransactions()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return numPatientTransactions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getNumPatientTransactions()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.numPatientTransactions = numPatientTransactions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setNumPatientTransactions(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return numPersonnelTransactions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getNumPersonnelTransactions()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.numPersonnelTransactions = numPersonnelTransactions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setNumPersonnelTransactions(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    totalCount = createEmptyMap();\r\n    personnelCount = createEmptyMap();\r\n    patientCount = createEmptyMap();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public OperationalProfile()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "OperationalProfile",
+        "variables": [
+            "private int numTotalTransactions",
+            "private int numPatientTransactions",
+            "private int numPersonnelTransactions",
+            "private HashMap<TransactionType,Integer> totalCount",
+            "private HashMap<TransactionType,Integer> personnelCount",
+            "private HashMap<TransactionType,Integer> patientCount"
+        ]
+    }
+]

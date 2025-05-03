@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    SecurityQAValidator sqav = new SecurityQAValidator();\r\n    sqav.validate(a);\r\n    authDAO.setSecurityQuestionAnswer(a.getQuestion(), a.getAnswer(), loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void updateInformation(SecurityQA)",
+                "comments": "Optional[/**\r\n * Updates information in the database from the information held in the SecurityQA bean passed as a param\r\n *\r\n * @param a\r\n *            SecurityQuestionBean that holds new information\r\n * @throws Exception\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    SecurityQA toRet = new SecurityQA();\r\n    toRet.setAnswer(authDAO.getSecurityAnswer(loggedInMID));\r\n    toRet.setQuestion(authDAO.getSecurityQuestion(loggedInMID));\r\n    return toRet;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SecurityQA retrieveInformation()",
+                "comments": "Optional[/**\r\n * Returns a SecurityQA bean holding the security info for the currently logged in user\r\n *\r\n * @return SecurityQA for loggedInMid\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!authDAO.checkUserExists(mid))\r\n        throw new iTrustException(\"MID \" + mid + \" is not a user!\");\r\n    return mid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private long checkMID(long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.authDAO = factory.getAuthDAO();\r\n    loggedInMID = checkMID(rLoggedInMID);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SetSecurityQuestionAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Sets up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param rLoggedInMID The MID of the user who is setting their security question.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SetSecurityQuestionAction",
+        "variables": [
+            "private AuthDAO authDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

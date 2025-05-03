@@ -1,0 +1,42 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<MedicationBean> list = new ArrayList<MedicationBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<MedicationBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // MedicationBean med = new MedicationBean();\r\n    MedicationBean med = new MedicationBean(rs.getString(\"Code\"));\r\n    med.setDescription(rs.getString(\"Description\"));\r\n    return med;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public MedicationBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": "Optional[[// MedicationBean med = new MedicationBean();\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, MedicationBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MedicationBeanLoader()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MedicationBeanLoader",
+        "variables": []
+    }
+]

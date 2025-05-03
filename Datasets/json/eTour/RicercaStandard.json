@@ -1,0 +1,34 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // Check the type of site and gets the number of results\r\n    switch(pTipologiaSito) {\r\n        case BENE_CULTURALE:\r\n            return BeneCulturale.ottieniNumeroElementiRicerca(this.pParoleChiave, this.pTags, this.pPosizioneUtente, this.pRaggioMax);\r\n        case PUNTO_DI_RISTORO:\r\n            return PuntoDiRistoro.ottieniNumeroElementiRicerca(this.pParoleChiave, this.pTags, this.pPosizioneUtente, this.pRaggioMax);\r\n        default:\r\n            return -1;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "protected int ottieniNumeroElementiRicercaSpecializzato()",
+                "comments": null,
+                "innerComments": "Optional[[// Check the type of site and gets the number of results\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Check the type of site and search\r\n    switch(pTipologiaSito) {\r\n        case BENE_CULTURALE:\r\n            return BeneCulturale.ricerca(pParoleChiave, pTags, pNumeroPagina, numeroElementiPerPagina, pPosizioneUtente, pRaggioMax);\r\n        case PUNTO_DI_RISTORO:\r\n            return PuntoDiRistoro.ricerca(pParoleChiave, pTags, pNumeroPagina, numeroElementiPerPagina, pPosizioneUtente, pRaggioMax);\r\n        default:\r\n            return null;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "protected ArrayList<?> ricercaSpecializzataPerPagina(int)",
+                "comments": null,
+                "innerComments": "Optional[[// Check the type of site and search\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Search()",
+                "comments": "Optional[/**\r\n * Constructor of the class\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "Search",
+        "variables": []
+    }
+]

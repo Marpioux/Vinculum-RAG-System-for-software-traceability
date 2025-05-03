@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient's body mass index is over \" + bmiThreshold;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    double bmi = currentHealthRecord.getBodyMassIndex();\r\n    return bmi > bmiThreshold && !Double.isInfinite(bmi);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.currentHealthRecord = currentHealthRecord;\r\n    this.bmiThreshold = bmiThreshold;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public WeightFactor(HealthRecord, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "WeightFactor",
+        "variables": [
+            "private HealthRecord currentHealthRecord",
+            "private int bmiThreshold"
+        ]
+    }
+]

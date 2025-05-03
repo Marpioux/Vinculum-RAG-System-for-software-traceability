@@ -1,0 +1,29 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (null == pStringa) {\r\n        return;\r\n    }\r\n    // Note: the content is always a newline at the end\r\n    int capacity = maxLength + 1 - getContent().length();\r\n    // If the maximum length is greater than or equal to the string, the part.\r\n    if (capacity >= pStringa.length()) {\r\n        super.insertString(pOffset, pStringa, pAttribute);\r\n    } else // Otherwise add what may\r\n    {\r\n        if (capacity > 0) {\r\n            super.insertString(pOffset, pStringa.substring(0, capacity), pAttribute);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void insertString(int, String, AttributeSet)",
+                "comments": null,
+                "innerComments": "Optional[[// Note: the content is always a newline at the end\r\n, // If the maximum length is greater than or equal to the string, the part.\r\n, // Otherwise add what may\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    maxLength = pMaxLength;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LimitedDocument(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "LimitedDocument",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int maxLength"
+        ]
+    }
+]

@@ -1,0 +1,101 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"SELECT * FROM message WHERE to_id = ? ORDER BY sent_date DESC\");\r\n    ps.setLong(1, mid);\r\n    ResultSet rs = ps.executeQuery();\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesFor(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"SELECT * FROM message WHERE to_id = ? ORDER BY sent_date ASC\");\r\n    ps.setLong(1, mid);\r\n    ResultSet rs = ps.executeQuery();\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesTimeAscending(long)",
+                "comments": "Optional[/**\r\n * Gets all the messages for a certain user MID sorted by ascending time.\r\n * @param mid The MID of the user to be looked up.\r\n * @return A java.util.List of MessageBeans.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs;\r\n    conn = factory.getConnection();\r\n    if (mid >= (long) 999999999) {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.from_id=patients.mid AND message.to_id=? ORDER BY patients.lastName ASC, patients.firstName ASC, message.sent_date ASC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    } else {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.from_id=personnel.mid AND message.to_id=? ORDER BY personnel.lastName ASC, personnel.firstName ASC, message.sent_date ASC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    }\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesNameAscending(long)",
+                "comments": "Optional[/**\r\n * Gets all the messages for a certain user MID sorted by name ascending.\r\n * @param mid The MID of the user to be looked up.\r\n * @return A java.util.List of MessageBeans.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs;\r\n    conn = factory.getConnection();\r\n    if (mid >= (long) 999999999) {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.from_id=patients.mid AND message.to_id=? ORDER BY patients.lastName DESC, patients.firstName DESC, message.sent_date DESC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    } else {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.from_id=personnel.mid AND message.to_id=? ORDER BY personnel.lastName DESC, personnel.firstName DESC, message.sent_date DESC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    }\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesNameDescending(long)",
+                "comments": "Optional[/**\r\n * Gets all the messages for a certain user MID sorted by name descending.\r\n * @param mid The MID of the user to be looked up.\r\n * @return A java.util.List of MessageBeans.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"SELECT * FROM message WHERE from_id = ? ORDER BY sent_date DESC\");\r\n    ps.setLong(1, mid);\r\n    ResultSet rs = ps.executeQuery();\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesFrom(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"SELECT * FROM message WHERE from_id = ? ORDER BY sent_date ASC\");\r\n    ps.setLong(1, mid);\r\n    ResultSet rs = ps.executeQuery();\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesFromTimeAscending(long)",
+                "comments": "Optional[/**\r\n * Gets all the messages for a certain user MID sorted by ascending time.\r\n * @param mid The MID of the user to be looked up.\r\n * @return A java.util.List of MessageBeans.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs;\r\n    conn = factory.getConnection();\r\n    if (mid >= (long) 999999999) {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.to_id=patients.mid AND message.from_id=? ORDER BY patients.lastName ASC, patients.firstName ASC, message.sent_date ASC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    } else {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.to_id=personnel.mid AND message.from_id=? ORDER BY personnel.lastName ASC, personnel.firstName ASC, message.sent_date ASC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    }\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesFromNameAscending(long)",
+                "comments": "Optional[/**\r\n * Gets all the messages for a certain user MID sorted by name ascending.\r\n * @param mid The MID of the user to be looked up.\r\n * @return A java.util.List of MessageBeans.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs;\r\n    conn = factory.getConnection();\r\n    if (mid >= (long) 999999999) {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, patients WHERE message.to_id=patients.mid AND message.from_id=? ORDER BY patients.lastName DESC, patients.firstName DESC, message.sent_date DESC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    } else {\r\n        ps = conn.prepareStatement(\"SELECT message.* FROM message, personnel WHERE message.to_id=personnel.mid AND message.from_id=? ORDER BY personnel.lastName DESC, personnel.firstName DESC, message.sent_date DESC\");\r\n        ps.setLong(1, mid);\r\n        rs = ps.executeQuery();\r\n    }\r\n    List<MessageBean> mbList = this.mbLoader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return mbList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getMessagesFromNameDescending(long)",
+                "comments": "Optional[/**\r\n * Gets all the messages for a certain user MID sorted by name descending.\r\n * @param mid The MID of the user to be looked up.\r\n * @return A java.util.List of MessageBeans.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    if (mBean.getParentMessageId() == 0L) {\r\n        ps = conn.prepareStatement(\"INSERT INTO message (from_id, to_id, sent_date, message, subject, been_read) \" + \"VALUES (?, ?, NOW(), ?, ?, ?)\");\r\n        this.mbLoader.loadParameters(ps, mBean);\r\n    } else {\r\n        ps = conn.prepareStatement(\"INSERT INTO message (from_id, to_id, sent_date, message, subject, been_read, parent_msg_id) \" + \"  VALUES (?, ?, NOW(), ?, ?, ?, ?)\");\r\n        this.mbLoader.loadParameters(ps, mBean);\r\n    }\r\n    ps.executeUpdate();\r\n    DBUtil.closeConnection(conn, ps);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addMessage(MessageBean)",
+                "comments": "Optional[/**\r\n * Adds a message to the database.\r\n * @param mBean A bean representing the message to be added.\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE message SET been_read=1 WHERE message_id=?\");\r\n        ps.setLong(1, mBean.getMessageId());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void updateRead(MessageBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.mbLoader = new MessageBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public MessageDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "MessageDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private MessageBeanLoader mbLoader"
+        ]
+    }
+]

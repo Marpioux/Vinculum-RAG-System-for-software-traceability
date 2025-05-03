@@ -1,0 +1,135 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    for (int i = 0; i < conto.testo.length - 1; i++) conto.testo[i].setText(\"\");\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    etichetta = new Label(\"Intestazione\");\r\n    etichetta.setFont(ConfigurazioneSistema.font_titolo);\r\n    label1 = new Label(\"Stanza numero\");\r\n    label2 = new Label(\"Cognome\");\r\n    label3 = new Label(\"Nome\");\r\n    label4 = new Label(\"Lista stanze\");\r\n    Stampa = new Button(\"  Stampa  \");\r\n    OK = new Button(\" Indietro \");\r\n    Partenza = new Button(\" Chiudi conto \");\r\n    testo1 = new TextField(\"\", 4);\r\n    testo2 = new TextField(\"\", 20);\r\n    testo3 = new TextField(\"\", 20);\r\n    testo4 = new TextField(\"\", 30);\r\n    testo1.setText(t0 + t3);\r\n    testo2.setText(t1);\r\n    testo3.setText(t2);\r\n    testo4.setText(t4);\r\n    testo1.setEditable(false);\r\n    testo2.setEditable(false);\r\n    testo3.setEditable(false);\r\n    testo4.setEditable(false);\r\n    text = new TextArea(25, 50);\r\n    text.setEditable(false);\r\n    text.setFont(ConfigurazioneSistema.font_allineato);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 5, 0);\r\n    Utils.constrain(panel1, label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(panel1, testo1, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(panel1, label2, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(panel1, testo2, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(panel1, label3, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(panel1, testo3, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(panel1, label4, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(panel1, testo4, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 0, 5, 0);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, text, 0, 0, 4, 4, GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST, 1.0, 1.0, 5, 0, 5, 0);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, Stampa, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.SOUTHEAST, 0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Partenza, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, OK, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.SOUTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 0, 4, 3, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 10, 10, 10, 10);\r\n    Utils.constrain(this, panel2, 0, 3, 4, 6, GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST, 1.0, 1.0, 10, 10, 10, 10);\r\n    Utils.constrain(this, panel3, 0, 9, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.SOUTHWEST, 1.0, 0.0, 10, 10, 10, 10);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setup(String, String, String, String, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            conto.setEnabled(true);\r\n        }\r\n    });\r\n    Stampa.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startStampa();\r\n        }\r\n    });\r\n    Partenza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startChiudiConto();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    conto.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startStampa();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startChiudiConto();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    DataInputStream inStream;\r\n    try {\r\n        inStream = new DataInputStream(new FileInputStream(\"conto.abg\"));\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \" Errore nell'apertura del file del conto! \");\r\n        return;\r\n    }\r\n    try {\r\n        String newText = \"\";\r\n        String line;\r\n        while ((line = inStream.readLine()) != null) newText = newText + line + \"\\n\";\r\n        text.setText(newText);\r\n        inStream.close();\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \" Errore durante la lettura del file del conto! \");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void readConto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    AskChiudiConto ask;\r\n    Date today = new Date();\r\n    Date fine_effettiva;\r\n    if (conto.checkboxes[3].getState())\r\n        fine_effettiva = conto.fine_sogg_anticipato;\r\n    else\r\n        fine_effettiva = conto.data_fine_magg;\r\n    if (Utils.data1MinoreData2(fine_effettiva, today))\r\n        ask = new AskChiudiConto(this);\r\n    else {\r\n        msg = new AvvisoDialog(this, \" Non e' possibile chiudere il conto fino al giorno della partenza! \");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startChiudiConto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    switch(chiusura) {\r\n        case 1:\r\n            chiudiStanza(testo1.getText(), conto.date_inizio[0], conto.date_fine[0], 1);\r\n            break;\r\n        case 2:\r\n            chiudiSingolo();\r\n            break;\r\n        case 3:\r\n            chiudiComitiva();\r\n            break;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startChiusura()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    long id;\r\n    Soggiornante sogg;\r\n    ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(stanza, false);\r\n    id = (L_sogg.getSoggiornante(1)).getIdPrenotazione();\r\n    ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n    Frame msg;\r\n    if (L_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    // cancellazione della prenotazione\r\n    (Principale.db).delPrenotazione(id);\r\n    // spostamento nello storico e cancellazione dei soggiornanti\r\n    for (int i = 1; i <= L_sogg.length(); i++) {\r\n        sogg = L_sogg.getSoggiornante(i);\r\n        if (!(sogg.getCognome()).equals(\"\") && !(sogg.getNome()).equals(\"\") && !(sogg.getIndirizzo()).equals(\"\") && !(sogg.getComune()).equals(\"\") && !(sogg.getCitta()).equals(\"\") && !(sogg.getNumTel()).equals(\"\") && !(sogg.getCap()).equals(\"\") && !(sogg.getNumDoc()).equals(\"\")) {\r\n            int j = (Principale.db).writeStorico(sogg.toCliente());\r\n            if (j != DataBase.OK) {\r\n                msg = new MessageDialog(this, \" Problemi con il database nella scrittura nello storico! \");\r\n                return;\r\n            }\r\n        }\r\n        (Principale.db).delSoggiornante(stanza, sogg.getIdSoggiornante());\r\n    }\r\n    // cancellazione degli addebiti\r\n    (Principale.db).delAddebito(stanza);\r\n    // cancellazione dei supp e rid dai beni/servizi\r\n    (Principale.db).delSuppRid(stanza);\r\n    // cancellazione delle telefonate\r\n    (Principale.db).delTelefonate(stanza);\r\n    // aggiornamento delle disponibilita: questo devono essere fatto affinche'\r\n    // le informazioni riportate dalla machera di visualizzazione delle disponibilita'\r\n    // sia coerente\r\n    if (conto.qualcuno_tramite_agenzia) {\r\n        Utils.aggiornaDisp(L_disp, stanza, data_inizio, data_fine, Flag.DISPONIBILE, Flag.OCCUPATA, true);\r\n        Utils.restoreCommissioni(stanza);\r\n    } else {\r\n        Disponibilita disp = (Principale.db).readDisponibilita(stanza);\r\n        if (disp != null) {\r\n            disp.setDisponibilita(data_inizio, data_fine, Flag.DISPONIBILE, Flag.OCCUPATA);\r\n            (Principale.db).changeDisponibilita(disp.getNumStanza(), disp.getDispAnnoCorr(), disp.getDispAnnoProx());\r\n        }\r\n    }\r\n    if (caller == 1)\r\n        startStampa();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void chiudiStanza(String, Date, Date, int)",
+                "comments": null,
+                "innerComments": "Optional[[// aggiornamento delle disponibilita: questo devono essere fatto affinche'\r\n, // le informazioni riportate dalla machera di visualizzazione delle disponibilita'\r\n, // cancellazione della prenotazione\r\n, // spostamento nello storico e cancellazione dei soggiornanti\r\n, // cancellazione degli addebiti\r\n, // cancellazione dei supp e rid dai beni/servizi\r\n, // cancellazione delle telefonate\r\n, // sia coerente\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (conto.checkboxes[3].getState()) {\r\n        (Principale.db).anticipaFineSogg(conto.sogg_x_conto_sing.getNumStanza(), conto.sogg_x_conto_sing.getIdSoggiornante(), conto.fine_sogg_anticipato);\r\n    }\r\n    (Principale.db).reversePagato(conto.sogg_x_conto_sing.getNumStanza(), conto.sogg_x_conto_sing.getIdSoggiornante());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void chiudiSingolo()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    for (int i = 0; i < conto.L_st.length; i++) chiudiStanza(conto.L_st[i], conto.date_inizio[i], conto.date_fine[i], 2);\r\n    startStampa();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void chiudiComitiva()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Properties prop = new Properties();\r\n    Toolkit tk = Toolkit.getDefaultToolkit();\r\n    PrintJob pj = tk.getPrintJob(this, \"Stampa del conto\", prop);\r\n    if (pj != null) {\r\n        Graphics g = pj.getGraphics();\r\n        text.printAll(g);\r\n        g.dispose();\r\n        pj.end();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startStampa()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Visualizzazione del conto\");\r\n    chiusura = tipo;\r\n    setup(t0, t1, t2, t3, t4);\r\n    readConto();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraVisualizzazioneConto(String, String, String, String, String, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraVisualizzazioneConto",
+        "variables": [
+            " Button Stampa",
+            " Button OK",
+            " Button Partenza",
+            " TextField testo1",
+            " TextField testo2",
+            " TextField testo3",
+            " TextField testo4",
+            " Label etichetta",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " Label label4",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " GridBagLayout gridbag",
+            " TextArea text",
+            " BufferedReader inStream",
+            " int chiusura",
+            " MascheraCalcoloConto conto"
+        ]
+    }
+]

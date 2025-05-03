@@ -1,0 +1,68 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    nome_agenzia.setEditable(true);\r\n    num_stanza.setEditable(false);\r\n    num_tel_agenzia.setEditable(false);\r\n    inizio_comm.setEditable(false);\r\n    fine_comm.setEditable(false);\r\n    scadenza_comm.setEditable(false);\r\n    num_stanza.setEditable(false);\r\n    Azione.setEnabled(false);\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            commissione = L.getCommissionamento((lista.getSelectedIndexes())[0] + 1);\r\n            writeDatiComm(commissione);\r\n            Azione.setEnabled(true);\r\n            panel5.setVisible(false);\r\n            pack();\r\n        }\r\n    });\r\n    nome_agenzia.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista();\r\n        }\r\n    });\r\n    Cerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista();\r\n        }\r\n    });\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    commissione = L.getCommissionamento((lista.getSelectedIndexes())[0] + 1);\r\n    writeDatiComm(commissione);\r\n    Azione.setEnabled(true);\r\n    panel5.setVisible(false);\r\n    pack();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAzione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        int j;\r\n        if ((j = (Principale.db).delCommissionamento(commissione.getIdCommissionamento())) == DataBase.OK) {\r\n            aggiornaDisp(commissione, Flag.DISPONIBILE);\r\n            num_tel_agenzia.setEditable(false);\r\n            scadenza_comm.setEditable(false);\r\n            Azione.setEnabled(false);\r\n            cleanFields();\r\n            nome_agenzia.setEditable(true);\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAzione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"\", \"\", \"Cancella dati delle commissioni\", \"Cancella\", 3);\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CancellaCommissioni()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "CancellaCommissioni",
+        "variables": [
+            " Commissionamento commissione"
+        ]
+    }
+]

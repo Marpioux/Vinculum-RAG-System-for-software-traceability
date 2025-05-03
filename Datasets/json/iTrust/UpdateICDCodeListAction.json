@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    validator.validate(diagn);\r\n    try {\r\n        if (icdDAO.addICDCode(diagn)) {\r\n            transDAO.logTransaction(TransactionType.MANAGE_DIAGNOSIS_CODE, performerID, 0L, \"added ICD code \" + diagn.getICDCode());\r\n            return \"Success: \" + diagn.getICDCode() + \" - \" + diagn.getDescription() + \" added\";\r\n        } else\r\n            return \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    } catch (iTrustException e) {\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String addICDCode(DiagnosisBean)",
+                "comments": "Optional[/**\r\n * Adds a new ICD code (diagnosis) based on the DiagnosisBean passed as a param\r\n *\r\n * @param diagn\r\n *            The new diagnosis (ICD code)\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(diagn);\r\n    try {\r\n        int rows = icdDAO.updateCode(diagn);\r\n        if (0 == rows) {\r\n            return \"Error: Code not found.\";\r\n        } else {\r\n            transDAO.logTransaction(TransactionType.MANAGE_DIAGNOSIS_CODE, performerID, 0L, \"updated ICD code \" + diagn.getICDCode());\r\n            return \"Success: \" + rows + \" row(s) updated\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String updateInformation(DiagnosisBean)",
+                "comments": "Optional[/**\r\n * Updates a diagnosis with new information from the DiagnosisBean passed as a param\r\n *\r\n * @param diagn\r\n *            new information to update (but same code)\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.performerID = performerID;\r\n    transDAO = factory.getTransactionDAO();\r\n    icdDAO = factory.getICDCodesDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public UpdateICDCodeListAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param performerID The MID of the person udpating the ICDs.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "UpdateICDCodeListAction",
+        "variables": [
+            "private long performerID",
+            "private ICDCodesDAO icdDAO",
+            "private TransactionDAO transDAO",
+            "private DiagnosisBeanValidator validator"
+        ]
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        return ((DataSource) (((Context) new InitialContext().lookup(\"java:comp/env\"))).lookup(\"jdbc/itrust\")).getConnection();\r\n    } catch (NamingException e) {\r\n        throw new SQLException((\"Context Lookup Naming Exception: \" + e.getMessage()));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Connection getConnection()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ProductionConnectionDriver",
+        "variables": []
+    }
+]

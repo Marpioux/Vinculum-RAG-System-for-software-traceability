@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO OVSurvey (VisitID, SurveyDate) VALUES (?,?)\");\r\n        ps.setLong(1, surveyBean.getVisitID());\r\n        ps.setTimestamp(2, new java.sql.Timestamp(date.getTime()));\r\n        ps.executeUpdate();\r\n        if (surveyBean.getWaitingRoomMinutes() > 0) {\r\n            ps = conn.prepareStatement(\"update OVSurvey set WaitingRoomMinutes = ? where VisitID = ?\");\r\n            ps.setFloat(1, surveyBean.getWaitingRoomMinutes());\r\n            ps.setLong(2, surveyBean.getVisitID());\r\n            ps.executeUpdate();\r\n        }\r\n        if (surveyBean.getExamRoomMinutes() > 0) {\r\n            ps = conn.prepareStatement(\"update OVSurvey set ExamRoomMinutes = ? where VisitID = ?\");\r\n            ps.setFloat(1, surveyBean.getExamRoomMinutes());\r\n            ps.setLong(2, surveyBean.getVisitID());\r\n            ps.executeUpdate();\r\n        }\r\n        if (surveyBean.getVisitSatisfaction() > 0) {\r\n            ps = conn.prepareStatement(\"update OVSurvey set VisitSatisfaction = ? where VisitID = ?\");\r\n            ps.setFloat(1, surveyBean.getVisitSatisfaction());\r\n            ps.setLong(2, surveyBean.getVisitID());\r\n            ps.executeUpdate();\r\n        }\r\n        if (surveyBean.getTreatmentSatisfaction() > 0) {\r\n            ps = conn.prepareStatement(\"update OVSurvey set TreatmentSatisfaction = ? where VisitID = ?\");\r\n            ps.setFloat(1, surveyBean.getTreatmentSatisfaction());\r\n            ps.setLong(2, surveyBean.getVisitID());\r\n            ps.executeUpdate();\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addCompletedSurvey(SurveyBean, Date)",
+                "comments": "Optional[/**\r\n * Insert survey data into database.\r\n * @param surveyBean The Bean representing the user's responses which will be inserted.\r\n * @param date The date the survey was completed.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OVSurvey WHERE VisitID = ?\");\r\n        ps.setLong(1, id);\r\n        ResultSet rs = ps.executeQuery();\r\n        rs.next();\r\n        return surveyLoader.loadSingle(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SurveyBean getSurveyData(long)",
+                "comments": "Optional[/**\r\n * Gets survey data from the database by the office visit id. Creates an instance of an\r\n * SurveyBean with data and returns it.\r\n *\r\n * @param id The unique ID of the survey in question.\r\n * @return A bean containing the SurveyBean.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT count(*) FROM OVSurvey WHERE VisitID = ?\");\r\n        ps.setLong(1, visitID);\r\n        ResultSet rs = ps.executeQuery();\r\n        rs.next();\r\n        return (rs.getInt(1) == 0) ? false : true;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean isSurveyCompleted(long)",
+                "comments": "Optional[/**\r\n * Has this survey been completed?\r\n *\r\n * @param visitID The unique ID of the office visit we are wondering about.\r\n * @return boolean indicating whether this survey is completed.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.surveyLoader = new SurveyLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SurveyDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SurveyDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private SurveyLoader surveyLoader"
+        ]
+    }
+]

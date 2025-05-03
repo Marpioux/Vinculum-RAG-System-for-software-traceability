@@ -1,0 +1,81 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPuntoDiRistoro(BeanPuntoDiRistoro)",
+                "comments": "Optional[/**\r\n * Method for inserting a new Refreshment\r\n *\r\n * @param pPuntoDiRistoro containing all the data from the Refreshment\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Method for deleting a refreshment bar with ID\r\n *\r\n * @param pPuntoDiRistoroID for the unique identification of point\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPuntoDiRistoro> ottieniPuntiDiRistoro()",
+                "comments": "Optional[/**\r\n * Method to return all the refreshment of the DataBase\r\n *\r\n * @return ArrayList containing all the beans of the present Refreshments\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPuntoDiRistoro> ottieniPuntiDiRistoro(boolean)",
+                "comments": "Optional[/**\r\n * Method to return all the refreshment with convention Active or not\r\n *\r\n * @param statoConvenzione for the type of eateries by\r\n * @return ArrayList containing all the beans of the present Refreshments\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean attivaConvenzione(int, BeanConvenzione)",
+                "comments": "Optional[/**\r\n * Method for inserting a new convention for a certain point Refreshments\r\n *\r\n * @param pPuntoDiRistoroID integer that uniquely identifies the point\r\n * @param pConv Convention that will enable\r\n * @return boolean for confirmation of operation\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract HashMap<BeanVisitaPR, String> ottieniFeedbackPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Method to get all the feedback associated to a certain point Refreshments\r\n *\r\n * @param pPuntoDiRistoroID unique identifier of the Refreshment\r\n * @return HashMap containing the bean as the key value of feedback and how\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaPuntoDiRistoro(BeanPuntoDiRistoro)",
+                "comments": "Optional[/**\r\n * Method for updating (or changing) the data of a Refreshment\r\n *\r\n * @param pPuntoDiRistoroAggiornato containing the new data to be saved\r\n * @return boolean value - true if the operation went successfully,\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciTagPuntoDiRistoro(int, int)",
+                "comments": "Optional[/**\r\n * Method which allows you to insert a tag to search for a useful point Refreshments\r\n *\r\n * @param pPuntoDiRistoroId unique identifier of Refreshment\r\n * @param pTagId unique ID tags to be inserted\r\n * @return boolean value - true if the operation went successfully,\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaTagPuntoDiRistoro(int, int)",
+                "comments": "Optional[/**\r\n * Method which allows you to delete a tag to search for a useful point Refreshments\r\n *\r\n * @param pPuntoDiRistoroId unique identifier of Refreshment\r\n * @param pTagId unique ID tags to be inserted\r\n * @return boolean value - true if the operation went successfully,\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestionePuntiDiRistoro",
+        "variables": []
+    }
+]

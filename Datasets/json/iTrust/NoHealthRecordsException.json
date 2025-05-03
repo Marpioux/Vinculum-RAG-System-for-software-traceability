@@ -1,0 +1,20 @@
+[
+    {
+        "methods": [],
+        "constructors": [
+            {
+                "body": "{\r\n    super(MESSAGE);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public NoHealthRecordsException()",
+                "comments": "Optional[/**\r\n * The default constructor, which just passes a pre-specified message to an iTrustException.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "NoHealthRecordsException",
+        "variables": [
+            "public  static  final String MESSAGE",
+            "private  static  final long serialVersionUID"
+        ]
+    }
+]

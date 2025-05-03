@@ -1,0 +1,49 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciVisitaPR(BeanVisitaPR)",
+                "comments": "Optional[/**\r\n * Add a visit to a refreshment\r\n *\r\n * @param pVis visit to add\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaVisitaPR(BeanVisitaPR)",
+                "comments": "Optional[/**\r\n * Modify a visit\r\n *\r\n * @param pVis Visit to edit\r\n * @return True if changed, otherwise false\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanVisitaPR> ottieniListaVisitaPR(int)",
+                "comments": "Optional[/**\r\n * Extract the list of visits to a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @return List of visits\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanVisitaPR ottieniVisitaPR(int, int)",
+                "comments": "Optional[/**\r\n * Extract a visit by a tourist at a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @param pIdTurista tourists\r\n * @return visit\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanVisitaPR> ottieniListaVisitaPRTurista(int)",
+                "comments": "Optional[/**\r\n * Extract the list of visits of a tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @return List of visits\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBVisitaPR",
+        "variables": []
+    }
+]

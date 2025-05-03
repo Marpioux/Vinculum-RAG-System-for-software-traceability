@@ -1,0 +1,26 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    errorList.addIfNotNull(checkFormat(\"body\", m.getBody(), ValidationFormat.EMAILS, false));\r\n    if (errorList.hasErrors())\r\n        throw new FormValidationException(errorList);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void validate(MessageBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EMailValidator()",
+                "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "EMailValidator",
+        "variables": []
+    }
+]

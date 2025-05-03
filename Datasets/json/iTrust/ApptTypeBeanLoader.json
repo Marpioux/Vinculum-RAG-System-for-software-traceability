@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<ApptTypeBean> list = new ArrayList<ApptTypeBean>();\r\n    while (rs.next()) list.add(loadSingle(rs));\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ApptTypeBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ps.setString(1, apptType.getName());\r\n    ps.setInt(2, apptType.getDuration());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, ApptTypeBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ApptTypeBean apptType = new ApptTypeBean();\r\n    apptType.setName(rs.getString(\"appt_type\"));\r\n    apptType.setDuration(rs.getInt(\"duration\"));\r\n    return apptType;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptTypeBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ApptTypeBeanLoader",
+        "variables": []
+    }
+]

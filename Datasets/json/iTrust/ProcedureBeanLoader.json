@@ -1,0 +1,52 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<ProcedureBean> list = new ArrayList<ProcedureBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ProcedureBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ProcedureBean procedure = new ProcedureBean(rs.getString(\"Code\"));\r\n    procedure.setDescription(rs.getString(\"Description\"));\r\n    procedure.setAttribute(rs.getString(\"Attribute\"));\r\n    if (loadOVProcedureID) {\r\n        procedure.setOvProcedureID(rs.getLong(\"ID\"));\r\n        procedure.setDate(rs.getDate(\"visitDate\"));\r\n    }\r\n    return procedure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ps.setString(1, bean.getDescription());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, ProcedureBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loadOVProcedureID = false;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBeanLoader()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.loadOVProcedureID = loadOVProcedureID;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBeanLoader(boolean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ProcedureBeanLoader",
+        "variables": [
+            "private boolean loadOVProcedureID"
+        ]
+    }
+]

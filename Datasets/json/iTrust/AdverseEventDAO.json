@@ -1,0 +1,93 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM AdverseEvents WHERE PatientMID = ?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        List<AdverseEventBean> aeList = this.aeLoader.loadList(rs);\r\n        return aeList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<AdverseEventBean> getReportsFor(long)",
+                "comments": "Optional[/**\r\n * Gets all the adverse event reports for a certain user MID.\r\n * @param mid The MID of the user to be looked up.\r\n * @return A java.util.List of AdverseEventBeans.\r\n * @throws SQLException\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO AdverseEvents (PatientMID, PresImmu, Code, Comment, Prescriber, Status) \" + \"VALUES (?, ?, ?, ?, ?, ?)\");\r\n        ps.setString(1, aeBean.getMID());\r\n        ps.setString(2, aeBean.getDrug());\r\n        ps.setString(3, aeBean.getCode());\r\n        ps.setString(4, aeBean.getDescription());\r\n        ps.setLong(5, hcpmid);\r\n        ps.setString(6, \"Active\");\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addReport(AdverseEventBean, long)",
+                "comments": "Optional[/**\r\n * Adds a message to the database.\r\n * @param mBean A bean representing the message to be added.\r\n * @throws SQLException\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM AdverseEvents WHERE id=?\");\r\n        ps.setInt(1, id);\r\n        ResultSet rs = ps.executeQuery();\r\n        long hcpMID = 0;\r\n        if (rs.next()) {\r\n            hcpMID = rs.getLong(\"Prescriber\");\r\n        }\r\n        return hcpMID;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getHCPMID(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM AdverseEvents WHERE id=?\");\r\n        ps.setInt(1, id);\r\n        ResultSet rs = ps.executeQuery();\r\n        List<AdverseEventBean> aeList = aeLoader.loadList(rs);\r\n        return aeList.get(0);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AdverseEventBean getReport(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE AdverseEvents SET Status = ? WHERE id = ?\");\r\n        String removed = \"removed\";\r\n        ps.setString(1, removed);\r\n        ps.setInt(2, id);\r\n        ps.executeUpdate();\r\n        long a = DBUtil.getLastInsert(conn);\r\n        return a;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long removeReport(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM adverseevents WHERE code=? AND status=?\");\r\n        ps.setString(1, code);\r\n        ps.setString(2, \"Active\");\r\n        ResultSet rs;\r\n        rs = ps.executeQuery();\r\n        return aeLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<AdverseEventBean> getUnremovedAdverseEventsByCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT PresImmu FROM adverseevents WHERE code=?\");\r\n        ps.setString(1, code);\r\n        ResultSet rs;\r\n        rs = ps.executeQuery();\r\n        if (rs.next()) {\r\n            return rs.getString(\"PresImmu\");\r\n        }\r\n        return \"Name not Found\";\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getNameForCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        SimpleDateFormat fmt = new SimpleDateFormat(\"MM/dd/yyy\");\r\n        Date beginning = fmt.parse(start);\r\n        Date ending = fmt.parse(end);\r\n        conn = factory.getConnection();\r\n        //AND NDCodes.Code=AdverseEvents.Code\r\n        ps = conn.prepareStatement(\"SELECT * FROM AdverseEvents,NDCodes WHERE AdverseEvents.TimeLogged >= ? AND AdverseEvents.TimeLogged <= ? AND NDCodes.Code=AdverseEvents.Code ORDER BY AdverseEvents.Code, AdverseEvents.TimeLogged DESC\");\r\n        ps.setTimestamp(1, new Timestamp(beginning.getTime()));\r\n        ps.setTimestamp(2, new Timestamp(ending.getTime() + 1000L * 60L * 60 * 24L));\r\n        ResultSet rs = ps.executeQuery();\r\n        List<AdverseEventBean> aeList = aeLoader.loadList(rs);\r\n        return aeList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public List<AdverseEventBean> getPerscriptions(String, String)",
+                "comments": null,
+                "innerComments": "Optional[[//AND NDCodes.Code=AdverseEvents.Code\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        SimpleDateFormat fmt = new SimpleDateFormat(\"MM/dd/yyy\");\r\n        Date beginning = fmt.parse(start);\r\n        Date ending = fmt.parse(end);\r\n        conn = factory.getConnection();\r\n        //AND NDCodes.Code=AdverseEvents.Code\r\n        ps = conn.prepareStatement(\"SELECT * FROM AdverseEvents,CPTCodes WHERE AdverseEvents.TimeLogged >= ? AND AdverseEvents.TimeLogged <= ? AND CPTCodes.Code=AdverseEvents.Code ORDER BY AdverseEvents.Code, AdverseEvents.TimeLogged DESC\");\r\n        ps.setTimestamp(1, new Timestamp(beginning.getTime()));\r\n        ps.setTimestamp(2, new Timestamp(ending.getTime() + 1000L * 60L * 60 * 24L));\r\n        ResultSet rs = ps.executeQuery();\r\n        List<AdverseEventBean> aeList = aeLoader.loadList(rs);\r\n        return aeList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public List<AdverseEventBean> getImmunizations(String, String)",
+                "comments": null,
+                "innerComments": "Optional[[//AND NDCodes.Code=AdverseEvents.Code\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.aeLoader = new AdverseEventBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AdverseEventDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AdverseEventDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private AdverseEventBeanLoader aeLoader"
+        ]
+    }
+]

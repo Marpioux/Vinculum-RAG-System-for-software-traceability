@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.View_HCP_SURVEY_RESULTS, loggedInMID, 0, \"searched results by HCP hospital ID\");\r\n    return surveyResultDAO.getSurveyResultsForHospital(bean.getHCPhospital(), bean.getHCPspecialty());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<SurveyResultBean> getSurveyResultsForHospital(SurveyResultBean)",
+                "comments": "Optional[/**\r\n * Retrieves survey results for a whole hospital.\r\n * @param bean The SurveyResultBean containing the survey result specs.\r\n * @return A java.util.List of Survey Results.\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(bean);\r\n    transDAO.logTransaction(TransactionType.View_HCP_SURVEY_RESULTS, loggedInMID, 0, \"searched results by HCP zip code\");\r\n    return surveyResultDAO.getSurveyResultsForZip(bean.getHCPzip(), bean.getHCPspecialty());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<SurveyResultBean> getSurveyResultsForZip(SurveyResultBean)",
+                "comments": "Optional[/**\r\n * Retrieves survey results for a given zip code.\r\n * @param bean The SurveyResultBean containing the survey result specs.\r\n * @return A java.util.List of Survey Results.\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    transDAO = factory.getTransactionDAO();\r\n    surveyResultDAO = factory.getSurveyResultDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    validator = new SurveySearchValidator();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewSurveyResultAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults.\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person retrieving survey results.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewSurveyResultAction",
+        "variables": [
+            "private SurveyResultDAO surveyResultDAO",
+            "private TransactionDAO transDAO",
+            "private SurveySearchValidator validator",
+            " long loggedInMID"
+        ]
+    }
+]

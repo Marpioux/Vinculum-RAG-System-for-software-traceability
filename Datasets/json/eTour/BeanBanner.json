@@ -1,0 +1,79 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return filepath;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPercorsoFile()",
+                "comments": "Optional[/**\r\n * Returns the value of FilePath\r\n *\r\n * @return value of FilePath.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    filepath = pPercorsoFile;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPercorsoFile(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of filepath\r\n *\r\n * @param pPercorsoFile New value filepath.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdPuntoDiRistoro()",
+                "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    id = pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid New value for id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro New idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setId(pid);\r\n    setPercorsoFile(pPercorsoFile);\r\n    setIdPuntoDiRistoro(pidPuntoDiRistoro);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanBanner(int, String, int)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pid\r\n * @param pPercorsoFile\r\n * @param pidPuntoDiRistoro\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanBanner()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanBanner",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int id",
+            "private int idPuntoDiRistoro",
+            "private String filepath"
+        ]
+    }
+]

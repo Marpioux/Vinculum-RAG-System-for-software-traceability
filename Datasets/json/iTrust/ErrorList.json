@@ -1,0 +1,60 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (errorMessage != null && !\"\".equals(errorMessage))\r\n        errorList.add(errorMessage);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addIfNotNull(String)",
+                "comments": "Optional[/**\r\n * Adds a message to the list if it's not a Java null or empty string.\r\n *\r\n * @param errorMessage\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return errorList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<String> getMessageList()",
+                "comments": "Optional[/**\r\n * Returns the list of error messages\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return errorList.size() != 0;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean hasErrors()",
+                "comments": "Optional[/**\r\n * Returns true if the list has any errors\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return errorList.toString();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String toString()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return errorList.iterator();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Iterator<String> iterator()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    errorList = new ArrayList<String>();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ErrorList()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ErrorList",
+        "variables": [
+            "private List<String> errorList"
+        ]
+    }
+]

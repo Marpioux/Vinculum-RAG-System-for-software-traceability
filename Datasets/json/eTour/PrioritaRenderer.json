@@ -1,0 +1,26 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (!(pValue instanceof Integer)) {\r\n        throw new IllegalArgumentException(\"unexpected value cell\");\r\n    }\r\n    int value = (Integer) pValue;\r\n    if (value < 1 || value > 5) {\r\n        throw new IllegalArgumentException(\"Illegal value cell.\");\r\n    }\r\n    if (pIsSelected) {\r\n        setBackground(pTable.getSelectionBackground());\r\n    } else {\r\n        setBackground(pTable.getBackground());\r\n    }\r\n    setValue(value);\r\n    return this;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Component getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)",
+                "comments": "Optional[/**\r\n * This method returns the display component of the cell identified\r\n * from the row and column provided input.\r\n *\r\n * @param pTable JTable - the table.\r\n * @param pValue Object - the object contained in the selected cell.\r\n * @param pIsSelected boolean - true if the object selected.\r\n *                        False otherwise.\r\n * @param pHasFocus boolean - true if the object has the focus.\r\n *                        False otherwise.\r\n * @param pRow int - the row index.\r\n * @param pColumn int - the index of the column.\r\n * @return Component - the component to display\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setOpaque(true);\r\n    setOrientation(HORIZONTAL);\r\n    setMinimum(1);\r\n    setMaximum(5);\r\n    setLabelTable(createStandardLabels(1));\r\n    setMajorTickSpacing(1);\r\n    setPaintTicks(true);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PrioritaRenderer()",
+                "comments": "Optional[/**\r\n * This default constructor.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "PrioritaRenderer",
+        "variables": []
+    }
+]

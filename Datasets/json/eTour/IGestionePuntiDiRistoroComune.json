@@ -1,0 +1,49 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPuntoDiRistoro ottieniPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Method to return a particular Refreshment\r\n *\r\n * @param pPuntoDiRistoroID to identify the Refreshment\r\n * @return Bean contains the data of Refreshment concerned\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Method which returns the tags to some refreshment\r\n *\r\n * @param pPuntoDiRistoroID point identification Refreshment\r\n * @return structure containing all BeanTag associated with the point Refreshments passed as parameter\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract String[] ottieniUltimiCommenti(int)",
+                "comments": "Optional[/**\r\n * Method which returns the last 10 comments made for a Refreshment\r\n *\r\n * @param pPuntoDiRistoroID ID for the point of rest in Question\r\n * @return Array of strings containing 10 items\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<Integer> ottieniStatistichePuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Returns for the Refreshment specified, an array where each Location contains the number of ratings corresponding to the value\r\n * Index of the array more 'one. The calculation and 'made in the period 30 days and today.\r\n *\r\n * @param pPuntoDiRistoroID unique identifier of Refreshment\r\n * @return ArrayList containing the counters as explained above\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaFeedbackPuntoDiRistoro(int, BeanVisitaPR)",
+                "comments": "Optional[/**\r\n * Method which allows you to change the comment issued for a Refreshment\r\n *\r\n * @param pPuntoDiRistoroId unique identifier of Refreshment\r\n * @param nuovaVisita Bean containing new comment\r\n * @return Boolean value-true if the operation went successfully, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestionePuntiDiRistoroComune",
+        "variables": []
+    }
+]

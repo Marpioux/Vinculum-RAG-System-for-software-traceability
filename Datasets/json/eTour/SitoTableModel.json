@@ -1,0 +1,63 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return cells.length;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getRowCount()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return columnNames.length;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getColumnCount()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (c < columnNames.length - 1) {\r\n        return cells[r][c];\r\n    } else {\r\n        double value = myLocation.distanza(posizioneSito);\r\n        return Double.valueOf(value);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Object getValueAt(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return columnNames[c];\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getColumnName(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n    this.myLocation = myLocation;\r\n    cells = new Object[pr.length][3];\r\n    for (int i = 0; i < pr.length; i++) {\r\n        cells[i][0] = pr[i].getName();\r\n        cells[i][1] = pr[i].getCitta();\r\n    }\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SitoTableModel(BeanPuntoDiRistoro[], Punto3D)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super();\r\n    this.myLocation = myLocation;\r\n    cells = new Object[bc.length][3];\r\n    for (int i = 0; i < bc.length; i++) {\r\n        cells[i][0] = bc[i].getName();\r\n        cells[i][1] = bc[i].getCitta();\r\n    }\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SitoTableModel(BeanBeneCulturale[], Punto3D)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "SitoTableModel",
+        "variables": [
+            "private String columnNames",
+            "private Object cells",
+            "private Punto3D posizioneSito",
+            "private Punto3D myLocation"
+        ]
+    }
+]

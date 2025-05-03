@@ -1,0 +1,42 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Cerca.setEnabled(false);\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAzione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    ListaStanze L_st = (Principale.db).elencoStanze();\r\n    if (L_st.length() < (Principale.config).getNumStanze()) {\r\n        if (!errori()) {\r\n            Stanza room = readDatiStanza();\r\n            int j;\r\n            if ((j = (Principale.db).writeStanza(room)) == DataBase.OK) {\r\n                cleanFields();\r\n            } else\r\n                msg = new MessageDialog(this, \"Problemi con il data base: \" + DataBase.strErrore(j));\r\n        }\r\n    } else\r\n        msg = new AvvisoDialog(this, \"Impossibile inserire la stanza: e' stato raggiunto il numero massimo di stanze gestibile\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAzione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Inserimento dei dati delle stanze\", \"Inserisci\", 1);\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public InserisciStanze()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "InserisciStanze",
+        "variables": []
+    }
+]

@@ -1,0 +1,261 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (productionInstance == null)\r\n        productionInstance = new DAOFactory();\r\n    return productionInstance;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static DAOFactory getProductionInstance()",
+                "comments": "Optional[/**\r\n * @return A production instance of the DAOFactory, to be used in deployment (by Tomcat).\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return driver.getConnection();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Connection getConnection()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new AccessDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AccessDAO getAccessDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new AllergyDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AllergyDAO getAllergyDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new ApptDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptDAO getApptDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new ApptTypeDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptTypeDAO getApptTypeDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new AuthDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AuthDAO getAuthDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new CPTCodesDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CPTCodesDAO getCPTCodesDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new DrugInteractionDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DrugInteractionDAO getDrugInteractionDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new FamilyDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public FamilyDAO getFamilyDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new HealthRecordsDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HealthRecordsDAO getHealthRecordsDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new HospitalsDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HospitalsDAO getHospitalsDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new ICDCodesDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ICDCodesDAO getICDCodesDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new NDCodesDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public NDCodesDAO getNDCodesDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new OfficeVisitDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public OfficeVisitDAO getOfficeVisitDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new PatientDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PatientDAO getPatientDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new PersonnelDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PersonnelDAO getPersonnelDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new ReferralDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReferralDAO getReferralDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new RiskDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public RiskDAO getRiskDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new TransactionDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public TransactionDAO getTransactionDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new VisitRemindersDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VisitRemindersDAO getVisitRemindersDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new FakeEmailDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public FakeEmailDAO getFakeEmailDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new ReportRequestDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReportRequestDAO getReportRequestDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new SurveyDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SurveyDAO getSurveyDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new LabProcedureDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LabProcedureDAO getLabProcedureDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new LOINCDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LOINCDAO getLOINCDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new SurveyResultDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SurveyResultDAO getSurveyResultDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new MessageDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MessageDAO getMessageDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new AdverseEventDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AdverseEventDAO getAdverseEventDAO()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new RemoteMonitoringDAO(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public RemoteMonitoringDAO getRemoteMonitoringDAO()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.driver = new ProductionConnectionDriver();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected DAOFactory()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "DAOFactory",
+        "variables": [
+            "private  static DAOFactory productionInstance",
+            "private IConnectionDriver driver"
+        ]
+    }
+]

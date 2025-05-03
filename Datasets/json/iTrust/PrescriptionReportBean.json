@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return prescription;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PrescriptionBean getPrescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.prescription = prescription;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPrescription(PrescriptionBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return officeVisit;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public OfficeVisitBean getOfficeVisit()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.officeVisit = officeVisit;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setOfficeVisit(OfficeVisitBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PrescriptionReportBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "PrescriptionReportBean",
+        "variables": [
+            " PrescriptionBean prescription",
+            " OfficeVisitBean officeVisit"
+        ]
+    }
+]

@@ -1,0 +1,161 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return map.get(name);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static ReminderType getReminderType(String)",
+                "comments": "Optional[/**\r\n * Gets the ReminderType for the name passed as a param\r\n *\r\n * @param name\r\n * @return the ReminderType associated with the name\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return typeName;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getTypeName()",
+                "comments": "Optional[/**\r\n * Returns the type name as a string\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null == type)\r\n        throw new iTrustException(\"Reminder Type DNE\");\r\n    transDAO.logTransaction(TransactionType.PATIENT_REMINDERS, loggedInMID, 0l, type.getTypeName());\r\n    switch(type) {\r\n        case DIAGNOSED_CARE_NEEDERS:\r\n            return stripDupes(visitReminderDAO.getDiagnosedVisitNeeders(loggedInMID));\r\n        case FLU_SHOT_NEEDERS:\r\n            return visitReminderDAO.getFluShotDelinquents(loggedInMID);\r\n        case IMMUNIZATION_NEEDERS:\r\n            return getImmunizationNeeders(loggedInMID);\r\n        default:\r\n            throw new iTrustException(\"Reminder Type DNE\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<VisitReminderReturnForm> getVisitReminders(ReminderType)",
+                "comments": "Optional[/**\r\n * Returns a list of VisitReminderReturnForms for the type passed in as a param\r\n *\r\n * @param type\r\n *            the ReminderType\r\n * @return the list of VisitReminderReturnForms\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<VisitReminderReturnForm> formList;\r\n    List<VisitReminderReturnForm> needList = new ArrayList<VisitReminderReturnForm>();\r\n    String reason = \"\";\r\n    // Get list of patients that designate this HCP\r\n    formList = visitReminderDAO.getPatients(mid);\r\n    for (VisitReminderReturnForm r : formList) {\r\n        reason = checkImmunizations(r.getPatientID());\r\n        if (0 < reason.length()) {\r\n            needList.add(r);\r\n            r.addVisitFlag(new VisitFlag(VisitFlag.IMMUNIZATION, reason));\r\n        }\r\n    }\r\n    return needList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "private List<VisitReminderReturnForm> getImmunizationNeeders(long)",
+                "comments": null,
+                "innerComments": "Optional[[// Get list of patients that designate this HCP\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    List<ProcedureBean> procs = patientDAO.getProcedures(pid);\r\n    PatientBean patient = patientDAO.getPatient(pid);\r\n    long patientAge = patient.getAgeInWeeks();\r\n    Gender gen = patient.getGender();\r\n    int hepB = 0;\r\n    long hepBTime = 0;\r\n    int rota = 0;\r\n    long rotaTime = 0;\r\n    int diptet = 0;\r\n    long deptetTime = 0;\r\n    int haemoflu = 0;\r\n    long haemofluTime = 0;\r\n    long haemofluTimeFirst = 0;\r\n    int pneumo = 0;\r\n    long pneumoTime = 0;\r\n    long pneumofluTimeFirst = 0;\r\n    int polio = 0;\r\n    long polioTime = 0;\r\n    int measles = 0;\r\n    long measlesTime = 0;\r\n    int varicella = 0;\r\n    long varicellaTime = 0;\r\n    int hepA = 0;\r\n    long hepATime = 0;\r\n    int hpv = 0;\r\n    long hpvTime = 0;\r\n    for (ProcedureBean proc : procs) {\r\n        String cpt = proc.getCPTCode();\r\n        // Hep B (90371)\r\n        if (cpt.equals(\"90371\")) {\r\n            hepB++;\r\n            hepBTime = proc.getDate().getTime();\r\n        } else // Rotavirus (90681)\r\n        if (cpt.equals(\"90681\")) {\r\n            rota++;\r\n            rotaTime = proc.getDate().getTime();\r\n        } else // Diptheria, Tetanus, Pertussis (90696)\r\n        if (cpt.equals(\"90696\")) {\r\n            diptet++;\r\n            deptetTime = proc.getDate().getTime();\r\n        } else // Haemophilus influenza (90645)\r\n        if (cpt.equals(\"90645\")) {\r\n            if (0 == haemoflu)\r\n                haemofluTimeFirst = proc.getDate().getTime();\r\n            haemoflu++;\r\n            haemofluTime = proc.getDate().getTime();\r\n        } else // Pneumococcal (90669)\r\n        if (cpt.equals(\"90669\")) {\r\n            if (0 == pneumo)\r\n                pneumofluTimeFirst = proc.getDate().getTime();\r\n            pneumo++;\r\n            pneumoTime = proc.getDate().getTime();\r\n        } else // Poliovirus (90712)\r\n        if (cpt.equals(\"90712\")) {\r\n            polio++;\r\n            polioTime = proc.getDate().getTime();\r\n        } else // Measles, Mumps, Rubella (90707)\r\n        if (cpt.equals(\"90707\")) {\r\n            measles++;\r\n            measlesTime = proc.getDate().getTime();\r\n        } else // Varicella (90396)\r\n        if (cpt.equals(\"90396\")) {\r\n            varicella++;\r\n            varicellaTime = proc.getDate().getTime();\r\n        } else // Hep A (90633)\r\n        if (cpt.equals(\"90633\")) {\r\n            hepA++;\r\n            hepATime = proc.getDate().getTime();\r\n        } else // Human Papillomaavirus (90649)\r\n        if (cpt.equals(\"90649\")) {\r\n            hpv++;\r\n            hpvTime = proc.getDate().getTime();\r\n        }\r\n    }\r\n    if (3 > hepB) {\r\n        reason += testHepB(hepB, patientAge, hepBTime);\r\n    }\r\n    if (3 > rota) {\r\n        reason += testRotaVirus(rota, patientAge, rotaTime);\r\n    }\r\n    if (6 > diptet) {\r\n        reason += testDipTet(diptet, patientAge, deptetTime);\r\n    }\r\n    if (3 > haemoflu) {\r\n        reason += testHaemoFlu(haemoflu, patientAge, haemofluTime, haemofluTimeFirst);\r\n    }\r\n    if (4 > pneumo) {\r\n        reason += testPneumo(pneumo, patientAge, pneumoTime, pneumofluTimeFirst);\r\n    }\r\n    if (3 > polio) {\r\n        reason += testPolio(polio, patientAge, polioTime);\r\n    }\r\n    if (2 > measles) {\r\n        reason += testMeasles(measles, patientAge, measlesTime);\r\n    }\r\n    if (2 > varicella) {\r\n        reason += testVaricella(varicella, patientAge, varicellaTime);\r\n    }\r\n    if (2 > hepA) {\r\n        reason += testHepA(hepA, patientAge, hepATime);\r\n    }\r\n    if (3 > hpv && gen.getName().equals(\"Female\")) {\r\n        reason += testHPV(hpv, patientAge, hpvTime);\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private String checkImmunizations(long)",
+                "comments": "Optional[/**\r\n * Checks a patient to see what immunizations they need\r\n *\r\n * @param pid patient to be checked\r\n * @return patient list of those lacking immunizations according to the schedule\r\n */\r\n]",
+                "innerComments": "Optional[[// Hep B (90371)\r\n, // Rotavirus (90681)\r\n, // Diptheria, Tetanus, Pertussis (90696)\r\n, // Haemophilus influenza (90645)\r\n, // Pneumococcal (90669)\r\n, // Poliovirus (90712)\r\n, // Measles, Mumps, Rubella (90707)\r\n, // Varicella (90396)\r\n, // Hep A (90633)\r\n, // Human Papillomaavirus (90649)\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (468 <= patientAge)\r\n            reason += \"90649 Human Papillomavirus (9 years) \";\r\n    } else if (1 == count) {\r\n        if (476 <= patientAge && 8 <= weeks)\r\n            reason += \"90649 Human Papillomavirus (9 years, 2 months) \";\r\n    } else if (2 == count) {\r\n        if (494 <= patientAge && 16 <= weeks)\r\n            reason += \"90649 Human Papillomavirus (9 years, 6 months) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testHPV(int, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the HPV immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (52 <= patientAge)\r\n            reason += \"90633 Hepatits A (12 months) \";\r\n    } else if (1 == count) {\r\n        if (78 <= patientAge && 26 <= weeks)\r\n            reason += \"90633 Hepatits A (18 months) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testHepA(int, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Hepatits A immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (52 <= patientAge)\r\n            reason += \"90396 Varicella (12 months) \";\r\n    } else if (1 == count) {\r\n        if (208 <= patientAge && 12 <= weeks)\r\n            reason += \"90396 Varicella (4 years) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testVaricella(int, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Varicella immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (52 <= patientAge)\r\n            reason += \"90707 Measles, Mumps, Rubekka (12 months) \";\r\n    } else if (1 == count) {\r\n        if (208 <= patientAge && 12 <= weeks)\r\n            reason += \"90707 Measles, Mumps, Rubekka (4 years) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testMeasles(int, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Measles, Mumps, and Rubekka immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (6 <= patientAge)\r\n            reason += \"90712 Poliovirus (6 weeks) \";\r\n    } else if (1 == count) {\r\n        if (16 <= patientAge && 4 <= weeks)\r\n            reason += \"90712 Poliovirus (4 months) \";\r\n    } else if (2 == count) {\r\n        if (26 <= patientAge)\r\n            reason += \"90712 Poliovirus (6 months) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testPolio(int, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Polio immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    long ageFirst = patientAge - (firstDoseTime / (1000 * 60 * 60 * 24 * 7));\r\n    if (0 == count) {\r\n        if (6 <= patientAge)\r\n            reason += \"90669 Pneumococcal (6 weeks) \";\r\n    } else if (1 == count) {\r\n        if (16 <= patientAge && 52 > ageFirst && 4 <= weeks)\r\n            reason += \"90669 Pneumococcal (4 months) \";\r\n        else if (16 <= patientAge && 52 <= ageFirst && 60 >= ageFirst && 8 <= weeks)\r\n            reason += \"90669 Pneumococcal (4 months) \";\r\n    } else if (2 == count) {\r\n        if (26 <= patientAge && 4 <= weeks && 52 >= ageFirst)\r\n            reason += \"90669 Pneumococcal (6 months) \";\r\n    } else if (3 == count) {\r\n        if (52 <= patientAge && 8 <= weeks && 52 >= ageFirst)\r\n            reason += \"90669 Pneumococcal (12 months) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testPneumo(int, long, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Pneumococcal immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    long ageFirst = patientAge - (firstDoseTime / (1000 * 60 * 60 * 24 * 7));\r\n    if (0 == count) {\r\n        if (6 <= patientAge)\r\n            reason += \"90645 Haemophilus influenzae (6 weeks) \";\r\n    } else if (1 == count) {\r\n        if (16 <= patientAge && 52 > ageFirst && 4 <= weeks)\r\n            reason += \"90645 Haemophilus influenzae (4 months) \";\r\n        else if (16 <= patientAge && 52 <= ageFirst && 60 >= ageFirst && 8 <= weeks)\r\n            reason += \"90645 Haemophilus influenzae (4 months) \";\r\n    } else if (2 == count) {\r\n        if (26 <= patientAge && 4 <= weeks && 52 > ageFirst)\r\n            reason += \"90645 Haemophilus influenzae (6 months) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testHaemoFlu(int, long, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Haemophilus Infulenzae immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (6 <= patientAge)\r\n            reason += \"90696 Diphtheria, Tetanus, Pertussis (6 weeks) \";\r\n    } else if (1 == count) {\r\n        if (16 <= patientAge && 4 <= weeks)\r\n            reason += \"90696 Diphtheria, Tetanus, Pertussis (4 months) \";\r\n    } else if (2 == count) {\r\n        if (26 <= patientAge && 4 <= weeks)\r\n            reason += \"90696 Diphtheria, Tetanus, Pertussis (6 months) \";\r\n    } else if (3 == count) {\r\n        if (15 <= patientAge && 26 <= weeks)\r\n            reason += \"90696 Diphtheria, Tetanus, Pertussis (15 weeks) \";\r\n    } else if (4 == count) {\r\n        if (208 <= patientAge && 26 <= weeks)\r\n            reason += \"90696 Diphtheria, Tetanus, Pertussis (4 years) \";\r\n    } else if (5 == count) {\r\n        if (572 <= patientAge && 260 <= weeks)\r\n            reason += \"90696 Diphtheria, Tetanus, Pertussis (11 years) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testDipTet(int, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Diphtheria, Tetanus, Pertussis immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (6 <= patientAge)\r\n            reason += \"90681 Rotavirus (6 weeks) \";\r\n    } else if (1 == count) {\r\n        if (16 <= patientAge && 4 <= weeks)\r\n            reason += \"90681 Rotavirus (4 months) \";\r\n    } else if (2 == count) {\r\n        if (26 <= patientAge && 4 <= weeks)\r\n            reason += \"90681 Rotavirus (6 months) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static String testRotaVirus(int, long, long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String reason = \"\";\r\n    long weeks = (Calendar.getInstance().getTimeInMillis() - time) / (1000 * 60 * 60 * 24 * 7);\r\n    if (0 == count) {\r\n        if (0 < patientAge)\r\n            reason += \"90371 Hepatitis B (birth) \";\r\n    } else if (1 == count) {\r\n        if (4 <= patientAge && 4 <= weeks)\r\n            reason += \"90371 Hepatitis B (1 month) \";\r\n    } else if (2 == count) {\r\n        if (26 <= patientAge && 8 <= weeks)\r\n            reason += \"90371 Hepatitis B (6 months) \";\r\n    }\r\n    return reason;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String testHepB(int, long, long)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient needs the Hepatitis B immunization\r\n *\r\n * @param count which immunization they are on\r\n * @param patientAge how old the patient is\r\n * @param time what the current date is\r\n * @return when the immunization should be given\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null == patients)\r\n        return null;\r\n    if (0 == patients.size())\r\n        return patients;\r\n    List<VisitReminderReturnForm> retPatients = new ArrayList<VisitReminderReturnForm>();\r\n    VisitReminderReturnForm temp = patients.get(0);\r\n    retPatients.add(temp);\r\n    for (VisitReminderReturnForm vr : patients) {\r\n        if (vr.getPatientID() != temp.getPatientID())\r\n            retPatients.add(vr);\r\n        temp = vr;\r\n    }\r\n    return retPatients;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private List<VisitReminderReturnForm> stripDupes(List<VisitReminderReturnForm>)",
+                "comments": "Optional[/**\r\n * Removes duplicates from a list of VisitReminderReturnForms\r\n *\r\n * @param patients list of visit remindersto be cleaned up\r\n * @return cleaned up list of visit reminders\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.typeName = typeName;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private ReminderType(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    visitReminderDAO = factory.getVisitRemindersDAO();\r\n    patientDAO = factory.getPatientDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public GetVisitRemindersAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID MID of the person who is logged in\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "GetVisitRemindersAction",
+        "variables": [
+            "private String typeName",
+            "private  static  final HashMap<String,ReminderType> map",
+            "private TransactionDAO transDAO",
+            "private VisitRemindersDAO visitReminderDAO",
+            "private PatientDAO patientDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

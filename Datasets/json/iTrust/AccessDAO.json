@@ -1,0 +1,44 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT Value FROM GlobalVariables WHERE Name='Timeout'\");\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return rs.getInt(\"Value\");\r\n        else {\r\n            insertDefaultTimeout(conn, 20);\r\n            return 20;\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getSessionTimeoutMins()",
+                "comments": "Optional[/**\r\n * Returns the number of minutes it would take for a session to time out. This is done by effectively\r\n * using the database table as a hash table. If a row in GlobalVariables does not exist, one is inserted\r\n * with the default value '20'.\r\n *\r\n * @return An int for the number of minutes.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE GlobalVariables SET Value=? WHERE Name='Timeout'\");\r\n        ps.setInt(1, mins);\r\n        int numUpdated = ps.executeUpdate();\r\n        if (// no value in the table\r\n        numUpdated == 0)\r\n            insertDefaultTimeout(conn, mins);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void setSessionTimeoutMins(int)",
+                "comments": "Optional[/**\r\n * Sets the number of minutes it would take for a session to timeout.\r\n *\r\n * @param mins An int specifying the number of minutes\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// no value in the table\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    PreparedStatement ps = null;\r\n    ps = conn.prepareStatement(\"INSERT INTO GlobalVariables(Name,Value) VALUES ('Timeout', ?)\");\r\n    ps.setInt(1, mins);\r\n    ps.executeUpdate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void insertDefaultTimeout(Connection, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AccessDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AccessDAO",
+        "variables": [
+            "private DAOFactory factory"
+        ]
+    }
+]

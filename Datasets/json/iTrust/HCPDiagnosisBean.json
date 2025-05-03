@@ -1,0 +1,139 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return HCPID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getHCP()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    HCPID = hcp;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCP(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return HCPname;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    HCPname = name;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return numPatients;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getNumPatients()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    numPatients++;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void incNumPatients()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return medList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<MedicationBean> getMedList()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    medList = medlist;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setMedList(List<MedicationBean>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return labList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getLabList()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    labList = lablist;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLabList(List<LabProcedureBean>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (visitSat != 0 && surveyCount != 0) ? Double.toString(((double) visitSat / (double) surveyCount)) : \"no results available\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getVisitSatisfaction()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    visitSat += sat;\r\n    surveyCount++;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setVisitSat(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (treatmentSat != 0 && surveyCount != 0) ? Double.toString((double) treatmentSat / (double) surveyCount) : \"no results available\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getTreatmentSatisfaction()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    treatmentSat += sat;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTreatmentSat(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    numPatients = 0;\r\n    visitSat = 0;\r\n    treatmentSat = 0;\r\n    surveyCount = 0;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HCPDiagnosisBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "HCPDiagnosisBean",
+        "variables": [
+            "private long HCPID",
+            "private String HCPname",
+            "private long numPatients",
+            "private List<MedicationBean> medList",
+            "private List<LabProcedureBean> labList",
+            "private int visitSat",
+            "private int treatmentSat",
+            "private int surveyCount"
+        ]
+    }
+]

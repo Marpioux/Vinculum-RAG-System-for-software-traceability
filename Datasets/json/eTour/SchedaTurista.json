@@ -1,0 +1,173 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (btnModifica.isSelected()) {\r\n        JPanel root = new JPanel(new BorderLayout());\r\n        JLabel message = new JLabel(\"Are you sure you want to close the tab of this tourist?\");\r\n        message.setFont(new Font(\"Dialog\", Font.BOLD, 14));\r\n        JLabel alert = new JLabel(\"Warning! Unsaved data will be lost.\", SwingConstants.CENTER);\r\n        alert.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/warning16.png\")));\r\n        root.add(message, BorderLayout.NORTH);\r\n        root.add(alert, BorderLayout.CENTER);\r\n        String[] options = { \"Close\", \"Cancel\" };\r\n        int choice = JOptionPane.showInternalOptionDialog(jContentPane, root, \"Confirm closing Tourist Card \" + tourist.getNome() + \" \" + tourist.getCognome(), JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, getFrameIcon(), options, options[1]);\r\n        if (choice == JOptionPane.OK_OPTION) {\r\n            parent.closeScheda((SchedaTurista) pEvent.getInternalFrame());\r\n        }\r\n    } else {\r\n        parent.closeScheda((SchedaTurista) pEvent.getInternalFrame());\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void internalFrameClosing(InternalFrameEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    jContentPane = new JPanel();\r\n    jContentPane.setLayout(new BorderLayout());\r\n    jContentPane.add(getToolbarscheda(), BorderLayout.CENTER);\r\n    jTabbedPane = new JTabbedPane();\r\n    jTabbedPane.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));\r\n    jTabbedPane.addTab(\"Tourist Information\", getFrameIcon(), getDatiTuristaForm(), null);\r\n    jContentPane.add(jTabbedPane, BorderLayout.CENTER);\r\n    setContentPane(jContentPane);\r\n    caricaDatiForm();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void initialize()",
+                "comments": "Optional[/**\r\n * This method initializes the interface card for tourists.\r\n *\r\n * @return void\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setTitle(\"Profile Tourist - \" + tourist.getNome() + \" \" + tourist.getCognome());\r\n    name.setText(tourist.getNome());\r\n    ch.setText(tourist.getCognome());\r\n    Date dob = tourist.getDataNascita();\r\n    day.setSelectedIndex(dob.getDate() - 1);\r\n    month.setSelectedIndex(dob.getMonth());\r\n    year.setSelectedIndex(dob.getYear() + 1900);\r\n    StringTokenizer tokenizer = new StringTokenizer(tourist.getVia());\r\n    String string = tokenizer.nextToken();\r\n    address1.setSelectedItem(string);\r\n    address2.setText(tourist.getVia().substring(string.length()));\r\n    luogoNascita.setText(tourist.getCittaNascita());\r\n    phone.setText(tourist.getTelefono());\r\n    city.setText(tourist.getCittaResidenza());\r\n    password.setText(tourist.getPassword());\r\n    province.setSelectedItem(tourist.getProvincia());\r\n    username.setText(tourist.getUsername());\r\n    ch.setText(tourist.getCap());\r\n    dataRegistrazione.setText(Data.toEstesa(tourist.getDataRegistrazione()));\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void caricaDatiForm()",
+                "comments": "Optional[/**\r\n * This method loads the bean data provided tourist camps\r\n * of the form.\r\n *\r\n * @return void\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Iterator<JLabel> s = suggestions.iterator();\r\n    while (s.hasNext()) {\r\n        JLabel current = s.next();\r\n        current.setVisible(!current.isVisible());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void mostraNascondiSuggerimenti()",
+                "comments": "Optional[/**\r\n * This method shows or hides the suggestions relating to the form fields.\r\n *\r\n * @return void\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Component[] components = datiTurista.getComponents();\r\n    for (Component component : components) {\r\n        if (component instanceof JTextField) {\r\n            JTextField textbox = (JTextField) component;\r\n            textbox.setEditable(!textbox.isEditable());\r\n            textbox.setBackground(Color.white);\r\n        } else if (component instanceof JComboBox) {\r\n            JComboBox<?> combo = (JComboBox<?>) component;\r\n            combo.setEnabled(!combo.isEnabled());\r\n        }\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void attivaDisattivaEdit()",
+                "comments": "Optional[/**\r\n * This method makes it or not editable form fields.\r\n *\r\n * @return void\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (toolbarscheda == null) {\r\n        toolbarscheda = new JToolBar();\r\n        toolbarscheda.setFloatable(false);\r\n        toolbarscheda.add(getBtnModifica());\r\n        toolbarscheda.addSeparator();\r\n        toolbarscheda.add(getBtnSalva());\r\n        toolbarscheda.addSeparator();\r\n        toolbarscheda.add(getBtnReimposta());\r\n        toolbarscheda.addSeparator();\r\n    }\r\n    return toolbarscheda;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JToolBar getToolbarscheda()",
+                "comments": "Optional[/**\r\n * This method initializes the toolbar for the functionality of the card\r\n * Tourist.\r\n *\r\n * @return javax.swing.JToolBar\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnModifica == null) {\r\n        btnModifica = new JToggleButton();\r\n        btnModifica.setText(\"Change Data\");\r\n        btnModifica.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/ModificaTurista32.png\")));\r\n        btnModifica.setToolTipText(\"Enable or disable data modification tourists selected.\");\r\n        btnModifica.addActionListener(new ActionListener() {\r\n\r\n            public void actionPerformed(ActionEvent arg0) {\r\n                mostraNascondiSuggerimenti();\r\n                attivaDisattivaEdit();\r\n                btnSalva.setVisible(btnModifica.isSelected());\r\n                btnReimposta.setVisible(btnModifica.isSelected());\r\n            }\r\n        });\r\n    }\r\n    return btnModifica;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JToggleButton getBtnModifica()",
+                "comments": "Optional[/**\r\n * This method initializes the button for editing data.\r\n *\r\n * @return javax.swing.JToggleButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    mostraNascondiSuggerimenti();\r\n    attivaDisattivaEdit();\r\n    btnSalva.setVisible(btnModifica.isSelected());\r\n    btnReimposta.setVisible(btnModifica.isSelected());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnSalva == null) {\r\n        btnSalva = new JButton();\r\n        btnSalva.setText(\"Save\");\r\n        btnSalva.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/salva.png\")));\r\n        btnSalva.setToolTipText(\"Save changes to the tourist profile selected.\");\r\n        btnSalva.setVisible(false);\r\n        btnSalva.addActionListener(new ActionListener() {\r\n\r\n            public void actionPerformed(ActionEvent pEvent) {\r\n                JPanel root = new JPanel(new BorderLayout());\r\n                JLabel message = new JLabel(\"Updating the tourist profile of \" + tourist.getNome() + \" \" + tourist.getCognome() + \" with data form?\");\r\n                message.setFont(new Font(\"Dialog\", Font.BOLD, 14));\r\n                JLabel alert = new JLabel(\"The previous data can not be more recovered.\", SwingConstants.CENTER);\r\n                alert.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/warning16.png\")));\r\n                root.add(message, BorderLayout.NORTH);\r\n                root.add(alert, BorderLayout.CENTER);\r\n                String[] options = { \"Edit\", \"Cancel\" };\r\n                int choice = JOptionPane.showInternalOptionDialog(jContentPane, root, \"Commit Changes tourist figures\", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/ModificaTurista48.png\")), options, options[1]);\r\n                if (choice == JOptionPane.YES_OPTION) {\r\n                    tourist.setNome(name.getText());\r\n                    tourist.setCognome(ch.getText());\r\n                    tourist.setCap(ch.getText());\r\n                    tourist.setCittaNascita(luogoNascita.getText());\r\n                    tourist.setDataNascita(new Date(year.getSelectedIndex() + 1900, month.getSelectedIndex(), day.getSelectedIndex() + 1));\r\n                    tourist.setCittaResidenza(city.getText());\r\n                    tourist.setUsername(username.getText());\r\n                    tourist.setEmail(email.getText());\r\n                    tourist.setTelefono(phone.getText());\r\n                    tourist.setVia(address1.getSelectedItem().toString() + \" \" + address2.getText());\r\n                    tourist.setProvincia(province.getSelectedItem().toString());\r\n                    String pass = \"\";\r\n                    char[] passwordChars = password.getPassword();\r\n                    for (char passwordChar : passwordChars) {\r\n                        pass += passwordChar;\r\n                    }\r\n                    tourist.setPassword(pass);\r\n                    caricaDatiForm();\r\n                    attivaDisattivaEdit();\r\n                    btnSalva.setVisible(false);\r\n                    btnReimposta.setVisible(false);\r\n                    btnModifica.setSelected(false);\r\n                    mostraNascondiSuggerimenti();\r\n                    parent.updateTableModel(tourist);\r\n                    JOptionPane.showInternalMessageDialog(jContentPane, \"The data of tourists have been updated successfully.\", \"Modified Profile Tourist!\", JOptionPane.OK_OPTION, new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/ok48.png\")));\r\n                }\r\n            }\r\n        });\r\n    }\r\n    return btnSalva;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnSalva()",
+                "comments": "Optional[/**\r\n * This method initializes the button to save the changes\r\n * made to the data of the tourist.\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    JPanel root = new JPanel(new BorderLayout());\r\n    JLabel message = new JLabel(\"Updating the tourist profile of \" + tourist.getNome() + \" \" + tourist.getCognome() + \" with data form?\");\r\n    message.setFont(new Font(\"Dialog\", Font.BOLD, 14));\r\n    JLabel alert = new JLabel(\"The previous data can not be more recovered.\", SwingConstants.CENTER);\r\n    alert.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/warning16.png\")));\r\n    root.add(message, BorderLayout.NORTH);\r\n    root.add(alert, BorderLayout.CENTER);\r\n    String[] options = { \"Edit\", \"Cancel\" };\r\n    int choice = JOptionPane.showInternalOptionDialog(jContentPane, root, \"Commit Changes tourist figures\", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/ModificaTurista48.png\")), options, options[1]);\r\n    if (choice == JOptionPane.YES_OPTION) {\r\n        tourist.setNome(name.getText());\r\n        tourist.setCognome(ch.getText());\r\n        tourist.setCap(ch.getText());\r\n        tourist.setCittaNascita(luogoNascita.getText());\r\n        tourist.setDataNascita(new Date(year.getSelectedIndex() + 1900, month.getSelectedIndex(), day.getSelectedIndex() + 1));\r\n        tourist.setCittaResidenza(city.getText());\r\n        tourist.setUsername(username.getText());\r\n        tourist.setEmail(email.getText());\r\n        tourist.setTelefono(phone.getText());\r\n        tourist.setVia(address1.getSelectedItem().toString() + \" \" + address2.getText());\r\n        tourist.setProvincia(province.getSelectedItem().toString());\r\n        String pass = \"\";\r\n        char[] passwordChars = password.getPassword();\r\n        for (char passwordChar : passwordChars) {\r\n            pass += passwordChar;\r\n        }\r\n        tourist.setPassword(pass);\r\n        caricaDatiForm();\r\n        attivaDisattivaEdit();\r\n        btnSalva.setVisible(false);\r\n        btnReimposta.setVisible(false);\r\n        btnModifica.setSelected(false);\r\n        mostraNascondiSuggerimenti();\r\n        parent.updateTableModel(tourist);\r\n        JOptionPane.showInternalMessageDialog(jContentPane, \"The data of tourists have been updated successfully.\", \"Modified Profile Tourist!\", JOptionPane.OK_OPTION, new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/ok48.png\")));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (btnReimposta == null) {\r\n        btnReimposta = new JButton();\r\n        btnReimposta.setText(\"Reset\");\r\n        btnReimposta.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/Annulla32.png\")));\r\n        btnReimposta.setToolTipText(\"Reload the selected tourist information.\");\r\n        btnReimposta.setVisible(false);\r\n        btnReimposta.addActionListener(new ActionListener() {\r\n\r\n            public void actionPerformed(ActionEvent arg0) {\r\n                caricaDatiForm();\r\n            }\r\n        });\r\n    }\r\n    return btnReimposta;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private JButton getBtnReimposta()",
+                "comments": "Optional[/**\r\n * This method initializes the button to reset the data of the tourist\r\n * in the form.\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    caricaDatiForm();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (datiTurista == null) {\r\n        datiTurista = new JPanel(null);\r\n        datiTurista.setBorder(new SoftBevelBorder(SoftBevelBorder.LOWERED));\r\n        // Creation Tips\r\n        String[] txts = { \"Name\", \"Surname\", \"Date of Birth\", \"Place of Birth\", \"Phone\", \"Address\", \"City\", \"CAP\", \"Province\", \"E-Mail\", \"Username\", \"Password\", \"Save\" };\r\n        for (int i = 0; i < help.length; i++) {\r\n            JLabel newLabel = new JLabel();\r\n            newLabel.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/images/Info16.png\")));\r\n            newLabel.setBounds(145, 8 + 30 * i, 24, 24);\r\n            newLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));\r\n            newLabel.setToolTipText(help[i]);\r\n            suggestions.add(newLabel);\r\n            datiTurista.add(newLabel);\r\n        }\r\n        for (int i = 0; i < txts.length; i++) {\r\n            JLabel newLabel = new JLabel(txts[i], SwingConstants.RIGHT);\r\n            newLabel.setBounds(25, 10 + 30 * i, 120, 20);\r\n            datiTurista.add(newLabel, null);\r\n        }\r\n        // Name\r\n        name = new JTextField(12);\r\n        name.setBounds(185, 10, 136, 20);\r\n        name.setName(\"Name\");\r\n        datiTurista.add(name, null);\r\n        // Surname\r\n        ch = new JTextField(12);\r\n        ch.setBounds(185, 40, 136, 20);\r\n        ch.setName(\"Surname\");\r\n        datiTurista.add(ch, null);\r\n        // Date of Birth\r\n        day = new JComboBox<>();\r\n        day.setBounds(185, 70, 40, 20);\r\n        for (int i = 1; i <= 31; i++) {\r\n            day.addItem(i);\r\n        }\r\n        month = new JComboBox<>();\r\n        month.addActionListener(new ActionListener() {\r\n\r\n            public void actionPerformed(ActionEvent pEvent) {\r\n                int number = day.getItemCount();\r\n                switch(month.getSelectedIndex()) {\r\n                    case 0:\r\n                    case 2:\r\n                    case 4:\r\n                    case 6:\r\n                    case 7:\r\n                    case 9:\r\n                    case 11:\r\n                        for (int i = number + 1; i <= 31; i++) {\r\n                            day.addItem(i);\r\n                        }\r\n                        break;\r\n                    case 1:\r\n                        int yearIndex = (Integer) year.getSelectedItem();\r\n                        boolean leap = ((yearIndex % 4 == 0 && yearIndex % 100 != 0) || (yearIndex % 400 == 0));\r\n                        if (number != 28) {\r\n                            for (int i = number - 1; i > 27; i--) {\r\n                                day.removeItemAt(i);\r\n                            }\r\n                        }\r\n                        if (leap && number != 29) {\r\n                            day.addItem(\"29\");\r\n                        }\r\n                        break;\r\n                    case 3:\r\n                    case 5:\r\n                    case 8:\r\n                    case 10:\r\n                        if (number == 31) {\r\n                            day.removeItemAt(30);\r\n                        } else {\r\n                            for (int i = number + 1; i <= 30; i++) {\r\n                                day.addItem(i);\r\n                            }\r\n                        }\r\n                        break;\r\n                }\r\n            }\r\n        });\r\n        month.setBounds(245, 70, 40, 20);\r\n        for (int i = 1; i <= 12; i++) {\r\n            month.addItem(i);\r\n        }\r\n        year = new JComboBox<>();\r\n        year.addActionListener(new ActionListener() {\r\n\r\n            public void actionPerformed(ActionEvent arg0) {\r\n                if (month.getSelectedIndex() == 1) {\r\n                    int yearIndex = (Integer) year.getSelectedItem();\r\n                    boolean leap = ((yearIndex % 4 == 0 && yearIndex % 100 != 0) || (yearIndex % 400 == 0));\r\n                    int number = day.getItemCount();\r\n                    if (leap && number != 29) {\r\n                        day.addItem(\"29\");\r\n                    } else if (leap && number == 29) {\r\n                        day.removeItemAt(28);\r\n                    }\r\n                }\r\n            }\r\n        });\r\n        year.setBounds(305, 70, 80, 20);\r\n        Date today = new Date();\r\n        for (int i = 0; i <= today.getYear() - 14; i++) {\r\n            year.addItem(1900 + i);\r\n        }\r\n        datiTurista.add(day, null);\r\n        datiTurista.add(month, null);\r\n        datiTurista.add(year, null);\r\n        // Place of Birth\r\n        luogoNascita = new JTextField(12);\r\n        luogoNascita.setBounds(185, 100, 136, 20);\r\n        luogoNascita.setName(\"Birth Place\");\r\n        datiTurista.add(luogoNascita, null);\r\n        // Phone\r\n        phone = new JTextField(12);\r\n        phone.setBounds(185, 130, 136, 20);\r\n        phone.setName(\"Phone\");\r\n        datiTurista.add(phone, null);\r\n        // Address\r\n        address2 = new JTextField(12);\r\n        address2.setBounds(270, 160, 136, 20);\r\n        address1 = new JComboBox<>();\r\n        address1.setSelectedIndex(-1);\r\n        address1.setBounds(185, 160, 60, 20);\r\n        datiTurista.add(address2, null);\r\n        datiTurista.add(address1, null);\r\n        // City\r\n        city = new JTextField(12);\r\n        city.setBounds(185, 190, 136, 20);\r\n        city.setName(\"City\");\r\n        datiTurista.add(city, null);\r\n        // CAP\r\n        ch = new JTextField(8);\r\n        ch.setBounds(185, 220, 92, 20);\r\n        datiTurista.add(ch, null);\r\n        // State\r\n        province = new JComboBox<>();\r\n        province.setSelectedIndex(-1);\r\n        province.setBounds(185, 250, 50, 20);\r\n        datiTurista.add(province, null);\r\n        // E-Mail\r\n        email = new JTextField();\r\n        email.setBounds(185, 280, 200, 20);\r\n        email.setName(\"E-Mail\");\r\n        datiTurista.add(email, null);\r\n        // Username\r\n        username = new JTextField();\r\n        username.setBounds(185, 310, 136, 20);\r\n        username.setName(\"Username\");\r\n        datiTurista.add(username, null);\r\n        // Password\r\n        password = new JPasswordField(12);\r\n        password.setBounds(185, 340, 136, 20);\r\n        password.setName(\"Password\");\r\n        datiTurista.add(password, null);\r\n        // Data entry\r\n        dataRegistrazione = new JLabel();\r\n        dataRegistrazione.setBounds(185, 370, 140, 20);\r\n        datiTurista.add(dataRegistrazione, null);\r\n    }\r\n    return datiTurista;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private JPanel getDatiTuristaForm()",
+                "comments": "Optional[/**\r\n * This method initializes the form containing data of the tourist.\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
+                "innerComments": "Optional[[// Creation Tips\r\n, // Name\r\n, // Surname\r\n, // Date of Birth\r\n, // Place of Birth\r\n, // Phone\r\n, // Address\r\n, // City\r\n, // CAP\r\n, // State\r\n, // E-Mail\r\n, // Username\r\n, // Password\r\n, // Data entry\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    int number = day.getItemCount();\r\n    switch(month.getSelectedIndex()) {\r\n        case 0:\r\n        case 2:\r\n        case 4:\r\n        case 6:\r\n        case 7:\r\n        case 9:\r\n        case 11:\r\n            for (int i = number + 1; i <= 31; i++) {\r\n                day.addItem(i);\r\n            }\r\n            break;\r\n        case 1:\r\n            int yearIndex = (Integer) year.getSelectedItem();\r\n            boolean leap = ((yearIndex % 4 == 0 && yearIndex % 100 != 0) || (yearIndex % 400 == 0));\r\n            if (number != 28) {\r\n                for (int i = number - 1; i > 27; i--) {\r\n                    day.removeItemAt(i);\r\n                }\r\n            }\r\n            if (leap && number != 29) {\r\n                day.addItem(\"29\");\r\n            }\r\n            break;\r\n        case 3:\r\n        case 5:\r\n        case 8:\r\n        case 10:\r\n            if (number == 31) {\r\n                day.removeItemAt(30);\r\n            } else {\r\n                for (int i = number + 1; i <= 30; i++) {\r\n                    day.addItem(i);\r\n                }\r\n            }\r\n            break;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (month.getSelectedIndex() == 1) {\r\n        int yearIndex = (Integer) year.getSelectedItem();\r\n        boolean leap = ((yearIndex % 4 == 0 && yearIndex % 100 != 0) || (yearIndex % 400 == 0));\r\n        int number = day.getItemCount();\r\n        if (leap && number != 29) {\r\n            day.addItem(\"29\");\r\n        } else if (leap && number == 29) {\r\n            day.removeItemAt(28);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return tourist.getId();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * This method returns the id of the tourist who is viewing /\r\n * edit.\r\n *\r\n * @return int - the id of the tourist.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n    this.parent = pParent;\r\n    setIconifiable(true);\r\n    setSize(560, 520);\r\n    suggestions = new Vector<>();\r\n    setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);\r\n    setClosable(true);\r\n    tourist = pTurista;\r\n    if (tourist.isAttiva()) {\r\n        setFrameIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/eTour/gui/operatoreagenzia/images/tab_turista.png\")));\r\n    } else {\r\n        setFrameIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/DisattivaTurista32.png\")));\r\n    }\r\n    initialize();\r\n    if (pModifica) {\r\n        btnModifica.setSelected(true);\r\n        btnSalva.setVisible(true);\r\n        btnReimposta.setVisible(true);\r\n    } else {\r\n        mostraNascondiSuggerimenti();\r\n        attivaDisattivaEdit();\r\n    }\r\n    addInternalFrameListener(new InternalFrameAdapter() {\r\n\r\n        public void internalFrameClosing(InternalFrameEvent pEvent) {\r\n            if (btnModifica.isSelected()) {\r\n                JPanel root = new JPanel(new BorderLayout());\r\n                JLabel message = new JLabel(\"Are you sure you want to close the tab of this tourist?\");\r\n                message.setFont(new Font(\"Dialog\", Font.BOLD, 14));\r\n                JLabel alert = new JLabel(\"Warning! Unsaved data will be lost.\", SwingConstants.CENTER);\r\n                alert.setIcon(new ImageIcon(getClass().getResource(\"/unisa/gps/etour/gui/operatoreagenzia/images/warning16.png\")));\r\n                root.add(message, BorderLayout.NORTH);\r\n                root.add(alert, BorderLayout.CENTER);\r\n                String[] options = { \"Close\", \"Cancel\" };\r\n                int choice = JOptionPane.showInternalOptionDialog(jContentPane, root, \"Confirm closing Tourist Card \" + tourist.getNome() + \" \" + tourist.getCognome(), JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, getFrameIcon(), options, options[1]);\r\n                if (choice == JOptionPane.OK_OPTION) {\r\n                    parent.closeScheda((SchedaTurista) pEvent.getInternalFrame());\r\n                }\r\n            } else {\r\n                parent.closeScheda((SchedaTurista) pEvent.getInternalFrame());\r\n            }\r\n        }\r\n    });\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SchedaTurista(Turisti, BeanTurista, boolean)",
+                "comments": "Optional[/**\r\n * The only card manufacturer model of a tourist or modification of data\r\n * from the bean.\r\n *\r\n * @param pParent unisa.gps.etour.gui.operatoreagenzia.Turisti - the window \"father.\"\r\n * @param pTurista unisa.gps.etour.bean.BeanTurista - the bean containing data\r\n *                 of the tourist.\r\n * @param pModifica <ul> <li>true - if amendments are made to the\r\n *                  data. <li>false - if you are viewing the card.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SchedaTurista",
+        "variables": [
+            "private  static  final String help",
+            "private JPanel jContentPane",
+            "private JToolBar toolbarscheda",
+            "private JToggleButton btnModifica",
+            "private JButton btnSalva",
+            "private JButton btnReimposta",
+            "private JTabbedPane jTabbedPane",
+            "private JTextField address2",
+            "private JComboBox<String> address1",
+            "private JTextField city",
+            "private JTextField ch",
+            "private JTextField phone",
+            "private JComboBox<String> province",
+            "private JPanel datiTurista",
+            "private JTextField name",
+            "private Vector<JLabel> suggestions",
+            "private BeanTurista tourist",
+            "private JComboBox<String> day",
+            "private JComboBox<String> month",
+            "private JComboBox<String> year",
+            "private JTextField luogoNascita",
+            "private JTextField email",
+            "private JTextField username",
+            "private JPasswordField password",
+            "private JLabel dataRegistrazione",
+            "private Tourists parent"
+        ]
+    }
+]

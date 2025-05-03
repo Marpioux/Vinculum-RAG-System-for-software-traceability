@@ -1,0 +1,126 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    super.setUp();\r\n    tableModel = new NewsTableModel();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected void setUp()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ArrayList<BeanNews> test = new ArrayList<>();\r\n    for (int i = 0; i < 10; i++) {\r\n        test.add(new BeanNews(\"text\" + i, new Date(), new Date(), 5, i));\r\n    }\r\n    tableModel = new NewsTableModel(test);\r\n    for (int i = 0; i < 10; i++) {\r\n        assertSame(test.get(i).getId(), tableModel.getID(i));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testCostruttoreConArrayList()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    tableModel = new NewsTableModel(null);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testCostruttoreConArrayListNull()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    tableModel = new NewsTableModel(new ArrayList<BeanNews>());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testCostruttoreConArrayListVuoto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    tableModel.insertNews(aNewsModificata);\r\n    assertSame(aNews.getNews(), tableModel.getValueAt(0, 0));\r\n    assertSame(aNews.getPriorita(), tableModel.getValueAt(0, 1));\r\n    assertSame(aNewsModificata.getNews(), tableModel.getValueAt(1, 0));\r\n    assertSame(aNewsModificata.getPriorita(), tableModel.getValueAt(1, 1));\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testGetValueAtParametriCorretti()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        tableModel.getValueAt(12, 0);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testGetValueAtRigaSballata()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        tableModel.getValueAt(0, -121334);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testGetValueAtColonnaSballata()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    assertSame(aNews.getId(), tableModel.getID(0));\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testInsertNewsParametroCorretto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        tableModel.insertNews(null);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testInsertNewsParametroNull()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    tableModel.updateNews(aNewsModificata);\r\n    assertSame(aNewsModificata.getNews(), tableModel.getValueAt(0, 0));\r\n    assertSame(aNewsModificata.getPriorita(), tableModel.getValueAt(0, 1));\r\n    assertSame(aNewsModificata.getId(), tableModel.getID(0));\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testUpdateNewsParametroCorretto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        tableModel.updateNews(null);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testUpdateNewsParametroNull()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    assertSame(aNews.getId(), tableModel.removeNews(0));\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testRemoveNewsParametroCorretto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        tableModel.removeNews(-1231);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void testRemoveNewsRigaSballata()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(pName);\r\n    aNews = new BeanNews(\"An example of news\", new Date(), new Date(), 2, 1);\r\n    aNewsModificata = new BeanNews(\"A news amended sample\", new Date(), new Date(), 3, 1);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public NewsTableModelTest(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "NewsTableModelTest",
+        "variables": [
+            "private NewsTableModel tableModel",
+            "private BeanNews aNews",
+            "private BeanNews aNewsModificata"
+        ]
+    }
+]

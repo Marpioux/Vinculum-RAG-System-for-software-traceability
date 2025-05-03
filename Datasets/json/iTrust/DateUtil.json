@@ -1,0 +1,75 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    long time = System.currentTimeMillis();\r\n    return new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(time - years * YEAR_IN_MS));\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String yearsAgo(long)",
+                "comments": "Optional[/**\r\n * Returns a MM/dd/yyyy format of the date for the given years ago\r\n *\r\n * @param years\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Calendar cal = new GregorianCalendar();\r\n    cal.setTime(date);\r\n    firstMonth %= 12;\r\n    secondMonth %= 12;\r\n    if (secondMonth >= firstMonth) {\r\n        return ((cal.get(Calendar.MONTH) >= firstMonth) && (cal.get(Calendar.MONTH) <= secondMonth));\r\n    }\r\n    return ((cal.get(Calendar.MONTH) >= firstMonth) || (cal.get(Calendar.MONTH) <= secondMonth));\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean isInMonthRange(java.util.Date, int, int)",
+                "comments": "Optional[/**\r\n * Checks to see if a given date is within a range of months <strong>INCLUSIVELY</strong>, agnostic of\r\n * the year. <br />\r\n * <br />\r\n *\r\n * The range \"wraps\" so that if the first month is after the second month, then the definition of \"is in\r\n * month range\" is:<br />\r\n * the date falls outside of secondMonth, firstMonth, but including secondMonth and firstMonth.\r\n *\r\n * Modular arithmetic is used to adjust month values into the valid range.\r\n *\r\n * @param date\r\n * @param firstMonth\r\n * @param secondMonth\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return isInMonthRange(new Date(), firstMonth, secondMonth);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean currentlyInMonthRange(int, int)",
+                "comments": "Optional[/**\r\n * Same as isInMonthRange but uses the current date as the date value.\r\n *\r\n * @see DateUtil#isInMonthRange(Date, int, int)\r\n * @param firstMonth\r\n * @param secondMonth\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Calendar cal = new GregorianCalendar();\r\n    cal.add(Calendar.YEAR, -years);\r\n    return cal.getTime();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static Date getDateXyearsAgoFromNow(int)",
+                "comments": "Optional[/**\r\n * Returns the date a certain number of years ago\r\n * @param years how many years ago\r\n * @return the date it was however many years ago\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new java.sql.Date(getDateXyearsAgoFromNow(years).getTime());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static java.sql.Date getSQLdateXyearsAgoFromNow(int)",
+                "comments": "Optional[/**\r\n * Returns the date a certain number of years ago\r\n * @param years how many years ago\r\n * @return the date it was however many years ago\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Calendar cal = new GregorianCalendar();\r\n    cal.add(Calendar.DAY_OF_YEAR, -days);\r\n    return cal.getTime();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static Date getDateXDaysAgoFromNow(int)",
+                "comments": "Optional[/**\r\n * Returns the date a certain number of days ago\r\n * @param days how many days ago\r\n * @return the date it was however many days ago\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new java.sql.Date(getDateXDaysAgoFromNow(days).getTime());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static java.sql.Date getSQLdateXDaysAgoFromNow(int)",
+                "comments": "Optional[/**\r\n * Returns the date a certain number of days ago\r\n * @param days how many days ago\r\n * @return the date it was however many days ago\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    GregorianCalendar cal = new GregorianCalendar();\r\n    cal.add(Calendar.YEAR, -yearsAgo1);\r\n    cal.set(Calendar.MONTH, monthValue1);\r\n    cal.set(Calendar.DAY_OF_MONTH, 1);\r\n    month1.setTime(cal.getTimeInMillis());\r\n    cal.add(Calendar.YEAR, yearsAgo1);\r\n    cal.add(Calendar.YEAR, -yearsAgo2);\r\n    cal.set(Calendar.MONTH, monthValue2);\r\n    cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));\r\n    month2.setTime(cal.getTimeInMillis());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static void setSQLMonthRange(java.sql.Date, int, int, java.sql.Date, int, int)",
+                "comments": "Optional[/**\r\n * <!--Pass in INSTANTIATED sql date objects and they will be set to the specified range, ie, FROM\r\n * <current year> - yearsAgo1/monthValue1/01 TO <current year> - yearsAgo2/monthValue2/<last day of\r\n * month2>--> Pass in INSTANTIATED sql date objects and they will be set to the specified range, ie, FROM\r\n * &lt;current year&gt; - yearsAgo1/monthValue1/01 TO &lt;current year&gt; -\r\n * yearsAgo2/monthValue2/&lt;last day of month2&gt;\r\n *\r\n * @param month1\r\n *            First sql.Date object to be set\r\n * @param monthValue1\r\n * @param yearsAgo1\r\n * @param month2\r\n *            Second sql.Date object to be set\r\n * @param monthValue2\r\n * @param yearsAgo2\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DateUtil",
+        "variables": [
+            "public  static  final long YEAR_IN_MS"
+        ]
+    }
+]

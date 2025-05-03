@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        long pid = Long.valueOf(input);\r\n        if (factory.getPersonnelDAO().checkPersonnelExists(pid))\r\n            return pid;\r\n        else\r\n            throw new iTrustException(\"Personnel does not exist\");\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"Personnel ID is not a number: \" + e.getMessage());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private long checkPersonnelID(String)",
+                "comments": "Optional[/**\r\n * Asserts whether the input is a valid, existing personnel's MID.\r\n *\r\n * @param input\r\n *            The presumed MID\r\n * @return The existing personnel's ID as a long.\r\n * @throws iTrustException\r\n *             If the personnel does not exist or there is a DB Problem.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getPid()",
+                "comments": "Optional[/**\r\n * Retrieves the identifier of the patient as a long.\r\n *\r\n * @return The patient's MID.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.pid = checkPersonnelID(pidString);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PersonnelBaseAction(DAOFactory, String)",
+                "comments": "Optional[/**\r\n * The default constructor.\r\n *\r\n * @param factory\r\n *            A factory to create a database access object.\r\n * @param pidString\r\n *            The personnel's ID to associate with this action.\r\n * @throws iTrustException\r\n *             If the personnel's ID is incorrect or there is a DB problem.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "PersonnelBaseAction",
+        "variables": [
+            "private DAOFactory factory",
+            "protected long pid"
+        ]
+    }
+]

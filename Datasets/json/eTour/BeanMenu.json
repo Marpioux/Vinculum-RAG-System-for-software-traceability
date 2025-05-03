@@ -1,0 +1,79 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return day;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getGiorno()",
+                "comments": "Optional[/**\r\n * Returns the value of days\r\n *\r\n * @return Value of the day.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    day = pGiorno;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setGiorno(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of days\r\n *\r\n * @param pGiorno New pGiorno day.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdPuntoDiRistoro()",
+                "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    id = pId;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro New idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setId(pId);\r\n    setGiorno(pGiorno);\r\n    setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanMenu(int, String, int)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pGiorno\r\n * @param pIdPuntoDiRistoro\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanMenu()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanMenu",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int id",
+            "private String day",
+            "private int idPuntoDiRistoro"
+        ]
+    }
+]

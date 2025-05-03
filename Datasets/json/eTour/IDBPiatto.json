@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPiatto(BeanPiatto)",
+                "comments": "Optional[/**\r\n * Add a dish\r\n *\r\n * @param pPiatto plate to add\r\n * @return true if the dish was added, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaPiatto(BeanPiatto)",
+                "comments": "Optional[/**\r\n * Modify the data in a dish in the database\r\n *\r\n * @param pPiatto data of the dish to be modified in the database\r\n * @return true if there was a modification, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPiatto(int)",
+                "comments": "Optional[/**\r\n * Delete a dish from the database\r\n *\r\n * @param pIdPiatto ID of the dish to delete\r\n * @return true if it was deleted, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPiatto> ottieniPiatto(int)",
+                "comments": "Optional[/**\r\n * Returns a list of dishes on a menu\r\n *\r\n * @param pIdMenu ID of the menu\r\n * @return list of dishes in the menu\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBPiatto",
+        "variables": []
+    }
+]

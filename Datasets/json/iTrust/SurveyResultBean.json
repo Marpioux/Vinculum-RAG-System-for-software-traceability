@@ -1,0 +1,271 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    hcpMID = mid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getHCPMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpFirstName = firstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPFirstName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpFirstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPFirstName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpLastName = lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPLastName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpLastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPLastName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpAddress1 = address1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPaddress1(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpAddress1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPaddress1()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpAddress2 = address2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPaddress2(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpAddress2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPaddress2()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpCity = city;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPcity(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpCity;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPcity()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpState = state;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPstate(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpState;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPstate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpZip = zip;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPzip(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpZip;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPzip()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpSpecialty = specialty;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPspecialty(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpSpecialty;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPspecialty()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpHospitalID = hospital;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPhospital(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpHospitalID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPhospital()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.avgWaitingRmMinutes = waitingRoomMinutes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAvgWaitingRoomMinutes(float)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return avgWaitingRmMinutes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public float getAvgWaitingRoomMinutes()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.avgExamRmMinutues = examRoomMinutes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAvgExamRoomMinutes(float)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return avgExamRmMinutues;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public float getAvgExamRoomMinutes()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.avgVisitSatisfaction = visitSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAvgVisitSatisfaction(float)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return avgVisitSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public float getAvgVisitSatisfaction()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.avgTreatmentSatisfaction = treatmentSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAvgTreatmentSatisfaction(float)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return avgTreatmentSatisfaction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public float getAvgTreatmentSatisfaction()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.percentSatResultsAvailable = percent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPercentSatisfactionResults(float)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return percentSatResultsAvailable;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public float getPercentSatisfactionResults()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "SurveyResultBean",
+        "variables": [
+            "private long hcpMID",
+            "private String hcpFirstName",
+            "private String hcpLastName",
+            "private String hcpAddress1",
+            "private String hcpAddress2",
+            "private String hcpCity",
+            "private String hcpState",
+            "private String hcpZip",
+            "private String hcpSpecialty",
+            "private String hcpHospitalID",
+            "private float avgWaitingRmMinutes",
+            "private float avgExamRmMinutues",
+            "private float avgVisitSatisfaction",
+            "private float avgTreatmentSatisfaction",
+            "private float percentSatResultsAvailable",
+            "public  final  static String GENERAL_SPECIALTY",
+            "public  final  static String SURGEON_SPECIALTY",
+            "public  final  static String HEART_SPECIALTY",
+            "public  final  static String PEDIATRICIAN_SPECIALTY",
+            "public  final  static String OBGYN_SPECIALTY",
+            "public  final  static String ANY_SPECIALTY"
+        ]
+    }
+]

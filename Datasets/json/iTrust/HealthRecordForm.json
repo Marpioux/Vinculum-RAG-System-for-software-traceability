@@ -1,0 +1,155 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return bloodPressureD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getBloodPressureD()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.bloodPressureD = bloodPressureD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setBloodPressureD(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return bloodPressureN;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getBloodPressureN()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.bloodPressureN = bloodPressureN;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setBloodPressureN(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cholesterolHDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCholesterolHDL()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cholesterolHDL = cholesterolHDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCholesterolHDL(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cholesterolLDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCholesterolLDL()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cholesterolLDL = cholesterolLDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCholesterolLDL(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cholesterolTri;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCholesterolTri()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cholesterolTri = cholesterolTri;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCholesterolTri(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return height;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHeight()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.height = height;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHeight(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return isSmoker;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getIsSmoker()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.isSmoker = isSmoker;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setIsSmoker(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return weight;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getWeight()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.weight = weight;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setWeight(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HealthRecordForm()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "HealthRecordForm",
+        "variables": [
+            "private String height",
+            "private String weight",
+            "private String isSmoker",
+            "private String bloodPressureN",
+            "private String bloodPressureD",
+            "private String cholesterolHDL",
+            "private String cholesterolLDL",
+            "private String cholesterolTri"
+        ]
+    }
+]

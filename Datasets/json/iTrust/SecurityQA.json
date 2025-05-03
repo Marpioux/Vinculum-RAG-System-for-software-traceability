@@ -1,0 +1,61 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return question;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getQuestion()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.question = question;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setQuestion(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return answer;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAnswer()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.answer = answer;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAnswer(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return confirmAnswer;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getConfirmAnswer()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.confirmAnswer = confirmAnswer;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setConfirmAnswer(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "SecurityQA",
+        "variables": [
+            " String question",
+            " String answer",
+            " String confirmAnswer"
+        ]
+    }
+]

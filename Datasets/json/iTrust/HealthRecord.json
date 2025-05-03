@@ -1,0 +1,262 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return bloodPressureD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getBloodPressureD()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.bloodPressureD = bloodPressureD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setBloodPressureD(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.bloodPressureN = bloodPressure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setBloodPressureSystolic(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.bloodPressureD = bloodPressure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setBloodPressureDiastolic(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return bloodPressureN;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getBloodPressureN()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return bloodPressureN;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getBloodPressureSystolic()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return bloodPressureD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getBloodPressureDiastolic()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.bloodPressureN = bloodPressureN;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setBloodPressureN(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return getBloodPressureN() + \"/\" + getBloodPressureD();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getBloodPressure()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cholesterolHDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getCholesterolHDL()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cholesterolHDL = cholesterolHDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCholesterolHDL(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cholesterolLDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getCholesterolLDL()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cholesterolLDL = cholesterolLDL;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCholesterolLDL(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cholesterolTri;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getCholesterolTri()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cholesterolTri = cholesterolTri;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCholesterolTri(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return getCholesterolHDL() + getCholesterolLDL() + getCholesterolTri();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getTotalCholesterol()",
+                "comments": "Optional[/**\r\n * Note that this is a simplistic view. See the Wikipedia article on cholesterol.\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return dateRecorded;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getDateRecorded()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.dateRecorded = dateRecorded;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDateRecorded(Timestamp)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return Math.round(height * 10000) / 10000D;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public double getHeight()",
+                "comments": "Optional[// Rounds the height off here because MySQL won't return the *exact* value you put in it\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.height = height;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHeight(double)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getPatientID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return personnelID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getPersonnelID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.personnelID = personnelID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPersonnelID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return isSmoker;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean isSmoker()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.isSmoker = smoker;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSmoker(boolean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return Math.round(weight * 10000) / 10000D;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public double getWeight()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.weight = weight;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setWeight(double)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return 703 * (weight / (height * height));\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public double getBodyMassIndex()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HealthRecord()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "HealthRecord",
+        "variables": [
+            "private long patientID",
+            "private double height",
+            "private double weight",
+            "private boolean isSmoker",
+            "private int bloodPressureN",
+            "private int bloodPressureD",
+            "private int cholesterolHDL",
+            "private int cholesterolLDL",
+            "private int cholesterolTri",
+            "private long personnelID",
+            "private Timestamp dateRecorded"
+        ]
+    }
+]

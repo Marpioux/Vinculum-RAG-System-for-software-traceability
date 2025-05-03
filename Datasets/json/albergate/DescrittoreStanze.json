@@ -1,0 +1,93 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo  le etichette\r\n    etichetta = new Label(\"Informazioni sulle stanze\");\r\n    etichetta.setFont(ConfigurazioneSistema.font_titolo);\r\n    label1 = new Label(\"Numero di stanza\");\r\n    label2 = new Label(\"Numero di posti letto\");\r\n    label3 = new Label(\"Prezzo base della stanza \" + (Principale.config).getValuta() + \".\");\r\n    label4 = new Label(\"Descrizione delle caratteristiche peculiari della stanza\");\r\n    //Creo i TextField\r\n    testo1 = new TextField(\"\", 4);\r\n    testo2 = new TextField(\"\", 4);\r\n    testo3 = new TextField(\"\", 10);\r\n    testo4 = new TextField(\"\", 50);\r\n    //Creo i bottoni\r\n    Annulla = new Button(\" Fine \");\r\n    Azione = new Button(caption);\r\n    Cerca = new Button(\" Cerca \");\r\n    mycheckboxes = new Checkbox(\" Letto aggiuntivo\", null, false);\r\n    //Creo il pannello in alto contenente i dati del cliente\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo1, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 25);\r\n    Utils.constrain(panel1, testo2, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label3, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo3, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, mycheckboxes, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label4, 0, 3, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo4, 2, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    //Creo il pannello in basso con due pulsanti\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, Azione, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0.0, 5, 5, 5, 5);\r\n    if ((caller == 2) || (caller == 3))\r\n        Utils.constrain(panel2, Cerca, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0, 0.0, 5, 5, 5, 5);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 0, 4, 4, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTH, 1.0, 1.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 4, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels(String)",
+                "comments": null,
+                "innerComments": "Optional[[//Creo  le etichette\r\n, //Creo i TextField\r\n, //Creo i bottoni\r\n, //Creo il pannello in alto contenente i dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            stanze.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    stanze.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Stanza room = new Stanza();\r\n    room.setNumStanza(testo1.getText());\r\n    room.setPostiLetto(Integer.parseInt(testo2.getText()));\r\n    Float f = Float.valueOf(testo3.getText());\r\n    room.setPxBase(f.floatValue());\r\n    room.setDescrizione(testo4.getText());\r\n    if (mycheckboxes.getState())\r\n        room.setDispLettoAgg(Const.SI);\r\n    return room;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected Stanza readDatiStanza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    testo1.setText(room.getNumStanza());\r\n    testo2.setText(\"\" + room.getPostiLetto());\r\n    testo3.setText(\"\" + room.getPxBase());\r\n    testo4.setText(room.getDescrizione());\r\n    if (room.getDispLettoAgg() == Const.SI)\r\n        mycheckboxes.setState(true);\r\n    else\r\n        mycheckboxes.setState(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected void writeDatiStanza(Stanza)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    testo1.setText(\"\");\r\n    testo2.setText(\"\");\r\n    testo3.setText(\"\");\r\n    testo4.setText(\"\");\r\n    mycheckboxes.setState(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected void cleanFields()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!((testo1.getText()).length() <= 4)) {\r\n        msg = new MessageDialog(this, \" Il numero della stanza deve essere composto da al piu' 4 caratteri! \");\r\n        return true;\r\n    }\r\n    if (((testo1.getText()).equals(\"\"))) {\r\n        msg = new MessageDialog(this, \" Manca il numero della stanza! \");\r\n        return true;\r\n    }\r\n    if (((testo2.getText()).equals(\"\"))) {\r\n        msg = new MessageDialog(this, \" Manca il numero di posti letto! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(testo2.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di posti deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (((testo3.getText()).equals(\"\"))) {\r\n        msg = new MessageDialog(this, \" Manca il prezzo della stanza! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(testo3.getText())) {\r\n        msg = new MessageDialog(this, \" Il prezzo della stanza deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!((testo4.getText()).length() <= 52)) {\r\n        msg = new MessageDialog(this, \" La descrizione deve essere composta da al piu' 52 caratteri! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected boolean errori()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(title);\r\n    caller = c;\r\n    setupPanels(caption);\r\n    inizializza();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DescrittoreStanze(String, String, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "DescrittoreStanze",
+        "variables": [
+            " Label etichetta",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " Label label4",
+            " TextField testo1",
+            " TextField testo2",
+            " TextField testo3",
+            " TextField testo4",
+            " Button Annulla",
+            " Button Azione",
+            " Button Cerca",
+            " Panel panel1",
+            " Panel panel2",
+            " GridBagLayout gridbag",
+            " Checkbox mycheckboxes",
+            " SubStanze stanze",
+            " int caller"
+        ]
+    }
+]

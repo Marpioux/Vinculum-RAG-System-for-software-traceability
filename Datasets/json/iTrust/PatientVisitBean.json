@@ -1,0 +1,155 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return LastOVDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastOVDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LastOVDate = lastOVDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastOVDate(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return LastOVDateM;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastOVDateM()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LastOVDateM = lastOVDateM;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastOVDateM(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return LastOVDateD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastOVDateD()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LastOVDateD = lastOVDateD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastOVDateD(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return LastOVDateY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastOVDateY()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LastOVDateY = lastOVDateY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastOVDateY(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return PatientName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPatientName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PatientName = patientName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return Address1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddress1()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Address1 = address1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddress1(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return Address2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddress2()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Address2 = address2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddress2(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patient;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PatientBean getPatient()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patient = patient;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatient(PatientBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PatientVisitBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "PatientVisitBean",
+        "variables": [
+            "private PatientBean patient",
+            "private String PatientName",
+            "private String Address1",
+            "private String Address2",
+            "private String LastOVDateM",
+            "private String LastOVDateD",
+            "private String LastOVDateY",
+            "private String LastOVDate"
+        ]
+    }
+]

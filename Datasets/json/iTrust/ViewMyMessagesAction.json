@@ -1,0 +1,127 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesFor(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMyMessages()",
+                "comments": "Optional[/**\r\n * Gets all the messages for the logged in user\r\n *\r\n * @return a list of all the user's messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesTimeAscending(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMyMessagesTimeAscending()",
+                "comments": "Optional[/**\r\n * Gets all the messages for the logged in user and sorts by ascending time\r\n *\r\n * @return a list of all the user's messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesNameAscending(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMyMessagesNameAscending()",
+                "comments": "Optional[/**\r\n * Gets all the messages for the logged in user and sorts names in ascending order\r\n *\r\n * @return a list of all the user's messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesNameDescending(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMyMessagesNameDescending()",
+                "comments": "Optional[/**\r\n * Gets all the messages for the logged in user and sorts name in descending order\r\n *\r\n * @return a list of all the user's messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesFrom(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMySentMessages()",
+                "comments": "Optional[/**\r\n * Gets all the sent messages for the logged in user\r\n *\r\n * @return a list of all the user's sent messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesFromTimeAscending(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMySentMessagesTimeAscending()",
+                "comments": "Optional[/**\r\n * Gets all the messages for the logged in user and sorts by ascending time\r\n *\r\n * @return a list of all the user's messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesFromNameAscending(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMySentMessagesNameAscending()",
+                "comments": "Optional[/**\r\n * Gets all the messages for the logged in user and sorts names in ascending order\r\n *\r\n * @return a list of all the user's messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return messageDAO.getMessagesFromNameDescending(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MessageBean> getAllMySentMessagesNameDescending()",
+                "comments": "Optional[/**\r\n * Gets all the messages for the logged in user and sorts name in descending order\r\n *\r\n * @return a list of all the user's messages\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String[] f = filter.split(\",\", -1);\r\n    DateFormat format = new SimpleDateFormat(\"MM/dd/yyyy\");\r\n    Date s = null;\r\n    Date en = null;\r\n    try {\r\n        if (!f[4].equals(\"\"))\r\n            s = format.parse(f[4]);\r\n        if (!f[5].equals(\"\"))\r\n            en = format.parse(f[5]);\r\n        if (s != null && en != null && en.before(s)) {\r\n            return \"Error: The end date cannot be before the start date.\";\r\n        }\r\n    } catch (Exception e) {\r\n        return \"Error: A date was not formatted correctly, please enter dates as MM/DD/YYYY\";\r\n    }\r\n    for (int i = 0; i < f.length; i++) {\r\n        f[i] = f[i].replace(\"\\\"\", \"\");\r\n        f[i] = f[i].replace(\"<\", \"\");\r\n        f[i] = f[i].replace(\">\", \"\");\r\n    }\r\n    String nf = f[0] + \",\" + f[1] + \",\" + f[2] + \",\" + f[3] + \",\" + f[4] + \",\" + f[5];\r\n    return nf;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String validateAndCreateFilter(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<MessageBean> filtered = new ArrayList<MessageBean>();\r\n    String[] f = filter.split(\",\", -1);\r\n    for (MessageBean m : messages) {\r\n        /**\r\n         * Check the sender filter field.\r\n         * Exclude if this MessageBean does not match the\r\n         * requested sender, if one is specified.\r\n         */\r\n        if (!f[0].equals(\"\")) {\r\n            if (!this.getName(m.getFrom()).equalsIgnoreCase(f[0]))\r\n                continue;\r\n        }\r\n        /**\r\n         * Check the subject filter field.\r\n         * Exclude if this MessageBean does not match the\r\n         * requested subject, if one is specified.\r\n         */\r\n        if (!f[1].equals(\"\")) {\r\n            if (!m.getSubject().equalsIgnoreCase(f[1]))\r\n                continue;\r\n        }\r\n        /**\r\n         * Check the body of the message for certain words.\r\n         * Exclude if this MessageBean if it does not contain\r\n         * those words in the message body.\r\n         */\r\n        if (!f[2].equals(\"\")) {\r\n            if (!m.getSubject().toLowerCase().contains(f[2].toLowerCase()) && !m.getBody().toLowerCase().contains(f[2].toLowerCase()))\r\n                continue;\r\n        }\r\n        /**\r\n         * Check the body of the message for certain words.\r\n         * Exclude if this MessageBean if it does contain\r\n         * those words in the message body.\r\n         */\r\n        if (!f[3].equals(\"\")) {\r\n            if (m.getSubject().toLowerCase().contains(f[3].toLowerCase()) || m.getBody().toLowerCase().contains(f[3].toLowerCase()))\r\n                continue;\r\n        }\r\n        /**\r\n         * Check the start date filter field.\r\n         * Exclude if this MessageBean was not sent after\r\n         * this date.\r\n         */\r\n        if (!f[4].equals(\"\")) {\r\n            DateFormat format = new SimpleDateFormat(\"MM/dd/yyyy\");\r\n            Date s = format.parse(f[4]);\r\n            if (s.after(m.getSentDate()))\r\n                continue;\r\n        }\r\n        /**\r\n         * Check the end date filter field.\r\n         * Exclude if this MessageBean was not sent before\r\n         * this date.\r\n         */\r\n        if (!f[5].equals(\"\")) {\r\n            DateFormat format = new SimpleDateFormat(\"MM/dd/yyyy\");\r\n            Date s = format.parse(f[5]);\r\n            Calendar c = Calendar.getInstance();\r\n            c.setTime(s);\r\n            c.add(Calendar.DAY_OF_MONTH, 1);\r\n            s = c.getTime();\r\n            if (s.before(m.getSentDate()))\r\n                continue;\r\n        }\r\n        /**\r\n         * If the message has not been eliminated by any\r\n         * of the filter fields, add it to the new list\r\n         * of messages.\r\n         */\r\n        filtered.add(m);\r\n    }\r\n    return filtered;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<MessageBean> filterMessages(List<MessageBean>, String)",
+                "comments": "Optional[/**\r\n * Gets a list of messages for a user based on their filter criteria.\r\n *\r\n * @param messages List of all of a user's MessageBeans\r\n * @param filter String containing a user's filter criteria.\r\n * @return a List of MessageBeans that meet the criteria of the filter.\r\n * @throws iTrustException\r\n * @throws ParseException\r\n */\r\n]",
+                "innerComments": "Optional[[/**\r\n * Check the sender filter field.\r\n * Exclude if this MessageBean does not match the\r\n * requested sender, if one is specified.\r\n */\r\n, /**\r\n * Check the subject filter field.\r\n * Exclude if this MessageBean does not match the\r\n * requested subject, if one is specified.\r\n */\r\n, /**\r\n * Check the body of the message for certain words.\r\n * Exclude if this MessageBean if it does not contain\r\n * those words in the message body.\r\n */\r\n, /**\r\n * Check the body of the message for certain words.\r\n * Exclude if this MessageBean if it does contain\r\n * those words in the message body.\r\n */\r\n, /**\r\n * Check the start date filter field.\r\n * Exclude if this MessageBean was not sent after\r\n * this date.\r\n */\r\n, /**\r\n * Check the end date filter field.\r\n * Exclude if this MessageBean was not sent before\r\n * this date.\r\n */\r\n, /**\r\n * If the message has not been eliminated by any\r\n * of the filter fields, add it to the new list\r\n * of messages.\r\n */\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (mid < 7000000000L)\r\n        return patientDAO.getName(mid);\r\n    else\r\n        return personnelDAO.getName(mid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName(long)",
+                "comments": "Optional[/**\r\n * Gets a patient's name from their MID\r\n *\r\n * @param mid the MID of the patient\r\n * @return the patient's name\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return personnelDAO.getName(mid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPersonnelName(long)",
+                "comments": "Optional[/**\r\n * Gets a personnel's name from their MID\r\n *\r\n * @param mid the MID of the personnel\r\n * @return the personnel's name\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        messageDAO.updateRead(mBean);\r\n    } catch (DBException e) {\r\n        // TODO Auto-generated catch block\r\n        e.printStackTrace();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void setRead(MessageBean)",
+                "comments": "Optional[/**\r\n * Set the state of the MessageBean to read, after\r\n * it is read by a user.\r\n * @param mBean MessageBean to be read\r\n */\r\n]",
+                "innerComments": "Optional[[// TODO Auto-generated catch block\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.messageDAO = factory.getMessageDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewMyMessagesAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user who is viewing their messages.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewMyMessagesAction",
+        "variables": [
+            "private long loggedInMID",
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO",
+            "private MessageDAO messageDAO"
+        ]
+    }
+]

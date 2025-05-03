@@ -1,0 +1,28 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    factory.getFakeEmailDAO().sendEmailRecord(email);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void sendEmail(Email)",
+                "comments": "Optional[// If you want to know how to send emails from Java, just Google it on your own time.\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public EmailUtil(DAOFactory)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "EmailUtil",
+        "variables": [
+            "private DAOFactory factory"
+        ]
+    }
+]

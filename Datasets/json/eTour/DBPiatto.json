@@ -1,0 +1,50 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query cancellation\r\n        String query = \"DELETE FROM courses WHERE ID =\" + pIdPiatto;\r\n        // You run the query Cancellation\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the Connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean cancellaPiatto(int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query cancellation\r\n, // You run the query Cancellation\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the Connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query for the insertion\r\n        String query = \"INSERT INTO courses (Name, Price, IdMenu) VALUES ('\" + pPiatto.getNome() + \"', \" + pPiatto.getPrezzo() + \", \" + pPiatto.getIdMenu() + \")\";\r\n        // You run the insert query\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the Connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciPiatto(BeanPiatto)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query for the insertion\r\n, // You run the insert query\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the Connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query for amendment\r\n        String query = \"UPDATE courses SET Name = '\" + pPiatto.getNome() + \"', Price = \" + pPiatto.getPrezzo() + \", IdMenu = \" + pPiatto.getIdMenu() + \" WHERE Id =\" + pPiatto.getId();\r\n        // You run the query for Change\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the Connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean modificaPiatto(BeanPiatto)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query for amendment\r\n, // You run the query for Change\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the Connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    // Variable for the query results\r\n    ResultSet result = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query to extract the list of dishes given the id of the Menu\r\n        String query = \"SELECT * FROM courses WHERE IdMenu =\" + pIdMenu;\r\n        // The query is executed\r\n        result = stat.executeQuery(query);\r\n        // List that contains all the plates obtained\r\n        ArrayList<BeanPiatto> list = new ArrayList<BeanPiatto>();\r\n        // We extract the results from the result set and moves in List\r\n        // To be returned\r\n        while (result.next()) {\r\n            // Add the list BeanPiatto\r\n            list.add(new BeanPiatto(result.getInt(\"Price\"), result.getString(\"Name\"), result.getInt(\"IdMenu\"), result.getInt(\"Id\")));\r\n        }\r\n        return list;\r\n    } finally {\r\n        // Always runs and takes care to close the Result, the Statement and Connection\r\n        if (result != null) {\r\n            result.close();\r\n        }\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanPiatto> ottieniPiatto(int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Variable for the query results\r\n, // We extract the results from the result set and moves in List\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query to extract the list of dishes given the id of the Menu\r\n, // The query is executed\r\n, // List that contains all the plates obtained\r\n, // To be returned\r\n, // Add the list BeanPiatto\r\n, // Always runs and takes care to close the Result, the Statement and Connection\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DBPiatto()",
+                "comments": "Optional[// Empty constructor\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "DBPiatto",
+        "variables": []
+    }
+]

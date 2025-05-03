@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient is or was a smoker\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hasSmoked(patientID);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.patientID = patientID;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SmokingFactor(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "SmokingFactor",
+        "variables": [
+            "private long patientID",
+            "private DAOFactory factory"
+        ]
+    }
+]

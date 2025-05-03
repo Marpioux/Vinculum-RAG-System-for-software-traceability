@@ -1,0 +1,241 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO OfficeVisits (VisitDate, Notes, HCPID, PatientID, HospitalID) VALUES (?,?,?,?,?)\");\r\n        setValues(ps, ov);\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long add(OfficeVisitBean)",
+                "comments": "Optional[/**\r\n * Adds an visit and return its ID\r\n *\r\n * @param ov The OfficeVisitBean to be added.\r\n * @return A long indicating the unique ID for the office visit.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ps.setDate(1, new java.sql.Date(ov.getVisitDate().getTime()));\r\n    ps.setString(2, ov.getNotes());\r\n    ps.setLong(3, ov.getHcpID());\r\n    ps.setLong(4, ov.getPatientID());\r\n    ps.setString(5, ov.getHospitalID());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void setValues(PreparedStatement, OfficeVisitBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE OfficeVisits SET VisitDate=?, Notes=?, HCPID=?, \" + \"PatientID=?, HospitalID=? WHERE ID=?\");\r\n        setValues(ps, ov);\r\n        ps.setLong(6, ov.getID());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void update(OfficeVisitBean)",
+                "comments": "Optional[/**\r\n * Updates the information in a particular office visit.\r\n *\r\n * @param ov The Office Visit bean representing the changes.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OfficeVisits Where ID = ?\");\r\n        ps.setLong(1, visitID);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return loadFullOfficeVist(rs, visitID);\r\n        else\r\n            return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public OfficeVisitBean getOfficeVisit(long)",
+                "comments": "Optional[/**\r\n * Returns a particular office visit given an ID\r\n *\r\n * @param visitID The unique ID of the office visit.\r\n * @return An OfficeVisitBean with the specifics for that office visit.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OfficeVisitBean ov = new OfficeVisitBean(visitID);\r\n    ov.setVisitDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(rs.getDate(\"VisitDate\").getTime())));\r\n    ov.setHcpID(rs.getLong(\"HCPID\"));\r\n    ov.setNotes(rs.getString(\"notes\"));\r\n    ov.setPatientID(rs.getLong(\"PatientID\"));\r\n    ov.setHospitalID(rs.getString(\"HospitalID\"));\r\n    ov.setDiagnoses(getDiagnoses(visitID));\r\n    ov.setPrescriptions(getPrescriptions(visitID));\r\n    ov.setProcedures(getProcedures(visitID));\r\n    return ov;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private OfficeVisitBean loadFullOfficeVist(ResultSet, long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    List<ProcedureBean> procs;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"select * from ovprocedure ovp, officevisits ov, cptcodes cpt where ov.id=? and ovp.visitid=? and cpt.code=ovp.cptcode\");\r\n        ps.setLong(1, visitID);\r\n        ps.setLong(2, visitID);\r\n        ResultSet rs = ps.executeQuery();\r\n        procs = procedureBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n    return procs;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ProcedureBean> getProcedures(long)",
+                "comments": "Optional[/**\r\n * Returns all of the procedures associated with the given office visit\r\n *\r\n * @param visitID The unique ID of the office visit.\r\n * @return A java.util.List of procedures.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OVMedication,NDCodes Where OVMedication.VisitID = ? \" + \"AND NDCodes.Code=OVMedication.NDCode\");\r\n        ps.setLong(1, visitID);\r\n        ResultSet rs = ps.executeQuery();\r\n        return prescriptionLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getPrescriptions(long)",
+                "comments": "Optional[/**\r\n * Returns all of the prescriptions associated with the given office visit\r\n *\r\n * @param visitID The ID of the office visit.\r\n * @return A java.util.List of prescriptions.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OVDiagnosis,ICDCodes Where OVDiagnosis.VisitID = ? \" + \"AND ICDCodes.Code=OVDiagnosis.ICDCode\");\r\n        ps.setLong(1, visitID);\r\n        ResultSet rs = ps.executeQuery();\r\n        return diagnosisLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DiagnosisBean> getDiagnoses(long)",
+                "comments": "Optional[/**\r\n * Returns all of the diagnoses associated with the given office visit\r\n *\r\n * @param visitID The unique ID of the office visit.\r\n * @return A java.util.List of diagnoses.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO OVProcedure (CPTCode,VisitID,HCPID) VALUES (?,?,?)\");\r\n        ps.setString(1, cptCode);\r\n        ps.setLong(2, visitID);\r\n        ps.setString(3, hcpid);\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addProcedureToOfficeVisit(String, long, String)",
+                "comments": "Optional[/**\r\n * Adds the given CPT codes to the given office visit\r\n *\r\n * @param cptCode\r\n * @param visitID\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM OVProcedure WHERE ID=? \");\r\n        ps.setLong(1, ovProcedureID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void removeProcedureFromOfficeVisit(long)",
+                "comments": "Optional[/**\r\n * Removes the given procedure from its office visit\r\n *\r\n * @param ovProcedureID The unique ID of the office visit procedure.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO OVMedication (VisitID,NDCode,StartDate,EndDate,Dosage,Instructions) VALUES (?,?,?,?,?,?)\");\r\n        prescriptionLoader.loadParameters(ps, pres);\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addPrescription(PrescriptionBean)",
+                "comments": "Optional[/**\r\n * Adds a prescription bean to the database.\r\n * @param pres The prescription bean to be added.\r\n * @return The unique ID of the newly added bean.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        //ps = conn.prepareStatement(\"UPDATE OVMedication (VisitID,NDCode,StartDate,EndDate,Dosage,Instructions) VALUES (?,?,?,?,?,?)\");\r\n        String statement = \"UPDATE OVMedication \" + \"SET VisitID=?, NDCode=?, StartDate=?, EndDate=?, Dosage=?, Instructions=? \" + \"WHERE ID=?\";\r\n        ps = conn.prepareStatement(statement);\r\n        prescriptionLoader.loadParameters(ps, pres);\r\n        ps.setLong(7, pres.getId());\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public long editPrescription(PrescriptionBean)",
+                "comments": "Optional[/**\r\n * Edits an existing prescription bean.\r\n *\r\n * @param pres The newly updated prescription bean.\r\n * @return A long indicating the ID of the newly updated prescription bean.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//ps = conn.prepareStatement(\"UPDATE OVMedication (VisitID,NDCode,StartDate,EndDate,Dosage,Instructions) VALUES (?,?,?,?,?,?)\");\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM OVMedication WHERE ID=? \");\r\n        ps.setLong(1, ovMedicationID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void removePrescription(long)",
+                "comments": "Optional[/**\r\n * Removes the given medication from its office visit\r\n *\r\n * @param ovMedicationID The unique ID of the medication to be removed.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO OVDiagnosis (ICDCode,VisitID) VALUES (?,?)\");\r\n        ps.setDouble(1, icd);\r\n        ps.setLong(2, visitID);\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addDiagnosisToOfficeVisit(double, long)",
+                "comments": "Optional[/**\r\n * Adds the given CPT codes to the given office visit\r\n * @param icd A double representing the ICD code to be added.\r\n * @param visitID The ID of the office visit we are adding the code to.\r\n * @return A long for the new ICD code's ID.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM OVDiagnosis WHERE ID=? \");\r\n        ps.setLong(1, ovDiagnosisID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void removeDiagnosisFromOfficeVisit(long)",
+                "comments": "Optional[/**\r\n * Removes a particular diagnosis from its office visit\r\n *\r\n * @param ovDiagnosisID The ID for the office visit diagnosis to be removed.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO LabProcedure (LaboratoryProcedureCode,OfficeVisitID,\" + \"Commentary, Results, PatientMID, Status, Rights) VALUES (?,?,?,?,?,?,?)\");\r\n        ps.setString(1, LOINCCode);\r\n        ps.setLong(2, visitID);\r\n        ps.setString(3, \"\");\r\n        ps.setString(4, \"\");\r\n        ps.setLong(5, pid);\r\n        ps.setString(6, LabProcedureBean.Not_Received);\r\n        ps.setString(7, \"ALLOWED\");\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addLabProcedureToOfficeVisit(String, long, long)",
+                "comments": "Optional[/**\r\n * Adds a LOINCCode to an office visit.\r\n *\r\n * @param LOINCCode A string of the code being added.\r\n * @param visitID The ID of the office visit the code is being added to.\r\n * @param pid The patient's MID associated with this transaction.\r\n * @return The unique ID of the code that was added.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM LabProcedure WHERE LaboratoryProcedureID=?\");\r\n        ps.setLong(1, labProcedureID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void removeLabProcedureFromOfficeVisit(long)",
+                "comments": "Optional[/**\r\n * Removes a given lab procedure.\r\n *\r\n * @param labProcedureID The unique ID of the lab procedure.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OfficeVisits WHERE ID=? AND PatientID=?\");\r\n        ps.setLong(1, ovID);\r\n        ps.setLong(2, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return rs.next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean checkOfficeVisitExists(long, long)",
+                "comments": "Optional[/**\r\n * Returns whether or not an office visit actually exists\r\n *\r\n * @param ovID The ID of the office visit to be checked.\r\n * @param pid The MID of the patient associated with this transaction.\r\n * @return A boolean indicating its existence.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OfficeVisits WHERE PatientID=? ORDER BY VisitDate DESC\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return officeVisitLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<OfficeVisitBean> getAllOfficeVisits(long)",
+                "comments": "Optional[/**\r\n * Returns a list of all office visits for a given patient\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of OfficeVisitBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (mid == 0L)\r\n            throw new SQLException(\"HCPID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OfficeVisits WHERE HCPID=? ORDER BY VisitDate DESC\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return officeVisitLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<OfficeVisitBean> getAllOfficeVisitsForLHCP(long)",
+                "comments": "Optional[/**\r\n * Returns a list of all office visits for a given patient\r\n *\r\n * @param mid The MID of the LHCP you are looking up.\r\n * @return A java.util.List of Office Visits.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OfficeVisits where id not in (select visitid from OVSurvey) and PatientID = ? ORDER BY VisitDate DESC\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return officeVisitLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<OfficeVisitBean> getOfficeVisitsWithNoSurvey(long)",
+                "comments": "Optional[/**\r\n * Returns a list of all office visits for a given patient\r\n *\r\n * @param pid The MID of the patient.\r\n * @return A java.util.List of Office Visits.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM NDCodes, OVMedication, OfficeVisits \" + \"WHERE NDCodes.Code=OVMedication.NDCode AND OVMedication.VisitID=OfficeVisits.ID \" + \"AND PatientID=? AND ((DATE(?) < OVMedication.EndDate AND DATE(?) > OVMedication.StartDate)\" + \"OR (DATE(?) > OVMedication.StartDate  AND DATE(?) < OVMedication.EndDate ) OR \" + \"(DATE(?) <= OVMedication.StartDate AND DATE(?) >= OVMedication.StartDate)) \" + \"ORDER BY VisitDate DESC\");\r\n        ps.setLong(1, patientID);\r\n        ps.setString(2, startDate);\r\n        ps.setString(3, startDate);\r\n        ps.setString(4, endDate);\r\n        ps.setString(5, endDate);\r\n        ps.setString(6, startDate);\r\n        ps.setString(7, endDate);\r\n        ResultSet rs = ps.executeQuery();\r\n        return prescriptionReportBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionReportBean> getPrescriptionReportsByDate(long, String, String)",
+                "comments": "Optional[/**\r\n * Returns a list of information related to prescription reports given all of the office visits and the\r\n * patient ID. The patient ID is necessary in case the office visit IDs are for different patients (the\r\n * disambiguation is for security reasons).\r\n *\r\n * @param ovIDs A java.util.List of Longs for the office visits.\r\n * @param patientID A long representing the MID of the patient in question.\r\n * @return A java.util.List of prescription reports.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        String preps = buildPreps(ovIDs.size());\r\n        ps = conn.prepareStatement(\"SELECT * FROM NDCodes, OVMedication, OfficeVisits \" + \"WHERE NDCodes.Code=OVMedication.NDCode AND OVMedication.VisitID=OfficeVisits.ID \" + \"AND PatientID=? AND VisitID IN(\" + preps + \") ORDER BY VisitDate DESC\");\r\n        ps.setLong(1, patientID);\r\n        prepareOVIDs(ps, ovIDs);\r\n        ResultSet rs = ps.executeQuery();\r\n        return prescriptionReportBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionReportBean> getPrescriptionReports(List<Long>, long)",
+                "comments": "Optional[/**\r\n * Returns a list of information related to prescription reports given all of the office visits and the\r\n * patient ID. The patient ID is necessary in case the office visit IDs are for different patients (the\r\n * disambiguation is for security reasons).\r\n *\r\n * @param ovIDs A java.util.List of Longs for the office visits.\r\n * @param patientID A long representing the MID of the patient in question.\r\n * @return A java.util.List of prescription reports.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    for (int i = 0; i < ovIDs.size(); i++) {\r\n        ps.setLong(i + 2, ovIDs.get(i));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void prepareOVIDs(PreparedStatement, List<Long>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String prep = \"\";\r\n    for (int i = 0; i < size; i++) {\r\n        prep += \"?,\";\r\n    }\r\n    if (prep.length() > 0)\r\n        return prep.substring(0, prep.length() - 1);\r\n    else\r\n        return prep;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private String buildPreps(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM officevisits WHERE hospitalID = ? ORDER BY ID DESC\");\r\n        ps.setString(1, hospitalID);\r\n        ResultSet rs = ps.executeQuery();\r\n        return officeVisitLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<OfficeVisitBean> getOfficeVisitsFromHospital(String)",
+                "comments": "Optional[/**\r\n * Returns a list of all office visits at a given hospital\r\n * @param hospitalID the id of the hospital\r\n * @return a list of the OfficeVisitBeans that hold the office visits\r\n * @throws DBException in the event of a database error\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<DiagnosisBean> diags = null;\r\n    List<OfficeVisitBean> ovs = new ArrayList<OfficeVisitBean>();\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs = null;\r\n    try {\r\n        if (icdcode == null)\r\n            throw new SQLException(\"icdcode cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ovdiagnosis ovd, icdcodes icd WHERE ovd.ICDCode=? and icd.Code=?\");\r\n        ps.setString(1, icdcode);\r\n        ps.setString(2, icdcode);\r\n        rs = ps.executeQuery();\r\n        diags = diagnosisLoader.loadList(rs);\r\n        rs.close();\r\n        ps.close();\r\n        ps = null;\r\n        rs = null;\r\n        for (DiagnosisBean bean : diags) {\r\n            ps = conn.prepareStatement(\"SELECT * FROM officevisits ov WHERE ov.ID=?\");\r\n            ps.setInt(1, (int) bean.getVisitID());\r\n            rs = ps.executeQuery();\r\n            if (rs.next()) {\r\n                ovs.add(loadFullOfficeVist(rs, bean.getVisitID()));\r\n            }\r\n            rs.close();\r\n            ps.close();\r\n        }\r\n        return ovs;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<OfficeVisitBean> getAllOfficeVisitsForDiagnosis(String)",
+                "comments": "Optional[/**\r\n * Gets all office visits corresponding to a particular ICD diagnosis.\r\n *\r\n * @param icdcode A string represnting the ICD diagnosis to look up.\r\n * @return A java.util.List of Office visits.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public OfficeVisitDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "OfficeVisitDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private OfficeVisitLoader officeVisitLoader",
+            "private DiagnosisBeanLoader diagnosisLoader",
+            "private PrescriptionBeanLoader prescriptionLoader",
+            "private PrescriptionReportBeanLoader prescriptionReportBeanLoader",
+            "private ProcedureBeanLoader procedureBeanLoader"
+        ]
+    }
+]

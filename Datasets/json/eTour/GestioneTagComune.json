@@ -1,0 +1,29 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // ArrayList to fill with the tags to return\r\n    ArrayList<BeanTag> toReturn;\r\n    // Retrieve data from Database\r\n    try {\r\n        // Get the information from the Database\r\n        toReturn = tag.ottieniListaTag();\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Error in method ottieniTags: \" + e.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception ee) {\r\n        System.out.println(\"Error in method ottieniTags: \" + ee.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n    // Check the data back in order not to return null values\r\n    if (toReturn == null) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n    }\r\n    return toReturn;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanTag> ottieniTags()",
+                "comments": "Optional[// Method that returns all tags\r\n]",
+                "innerComments": "Optional[[// ArrayList to fill with the tags to return\r\n, // Retrieve data from Database\r\n, // Get the information from the Database\r\n, // Check the data back in order not to return null values\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n    // Connect to the Database\r\n    try {\r\n        tag = new DBTag();\r\n    } catch (Exception e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public GestioneTagComune()",
+                "comments": null,
+                "innerComments": "[// Connect to the Database\r\n]"
+            }
+        ],
+        "signature": "GestioneTagComune",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "protected IDBTag tag"
+        ]
+    }
+]

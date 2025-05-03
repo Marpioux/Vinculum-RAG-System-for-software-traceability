@@ -1,0 +1,16 @@
+[
+    {
+        "methods": [],
+        "constructors": [],
+        "signature": "MessaggiErrore",
+        "variables": [
+            "public  static  final String ERRORE_CONNESSIONE_DBMS",
+            "public  static  final String ERRORE_DBMS",
+            "public  static  final String ERRORE_SCONOSCIUTO",
+            "public  static  final String ERRORE_FORMATO_BEAN",
+            "public  static  final String ERRORE_DATI",
+            "public  static  final String ERRORE_FILE",
+            "public  static  final String ERRORE_NUM_BANNER"
+        ]
+    }
+]

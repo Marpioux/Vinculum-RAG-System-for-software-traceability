@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        if (\"\".equals(firstName))\r\n            firstName = \"%\";\r\n        if (\"\".equals(lastName))\r\n            lastName = \"%\";\r\n        return personnelDAO.searchForPersonnelWithName(firstName, lastName);\r\n    } catch (DBException e) {\r\n        System.out.println(\"DB Exception from SearchUsersAction\");\r\n        e.printStackTrace();\r\n        return null;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> searchForPersonnelWithName(String, String)",
+                "comments": "Optional[/**\r\n * Searches for all personnel with the first name and last name specified in the parameter list.\r\n * @param firstName The first name to be searched.\r\n * @param lastName The last name to be searched.\r\n * @return A java.util.List of PersonnelBeans for the users who matched.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        if (\"\".equals(firstName))\r\n            firstName = \"%\";\r\n        if (\"\".equals(lastName))\r\n            lastName = \"%\";\r\n        return patientDAO.searchForPatientsWithName(firstName, lastName);\r\n    } catch (DBException e) {\r\n        System.out.println(\"DB Exception from SearchUsersAction\");\r\n        e.printStackTrace();\r\n        return null;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> searchForPatientsWithName(String, String)",
+                "comments": "Optional[/**\r\n * Search for all patients with first name and last name given in parameters.\r\n * @param firstName The first name of the patient being searched.\r\n * @param lastName The last name of the patient being searched.\r\n * @return A java.util.List of PatientBeans\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SearchUsersAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user who is performing the search.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SearchUsersAction",
+        "variables": [
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO"
+        ]
+    }
+]

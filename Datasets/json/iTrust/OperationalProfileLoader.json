@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<OperationalProfile> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, OperationalProfile)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OperationalProfile op = new OperationalProfile();\r\n    int grandTotal = 0;\r\n    int grandPatient = 0;\r\n    int grandPersonnel = 0;\r\n    while (rs.next()) {\r\n        TransactionType type = TransactionType.parse(rs.getInt(\"TransactionCode\"));\r\n        int totalCount = rs.getInt(\"TotalCount\");\r\n        int patientCount = rs.getInt(\"PatientCount\");\r\n        int personnelCount = rs.getInt(\"PersonnelCount\");\r\n        op.getTotalCount().put(type, totalCount);\r\n        op.getPatientCount().put(type, patientCount);\r\n        op.getPersonnelCount().put(type, personnelCount);\r\n        grandTotal += totalCount;\r\n        grandPatient += patientCount;\r\n        grandPersonnel += personnelCount;\r\n    }\r\n    op.setNumTotalTransactions(grandTotal);\r\n    op.setNumPatientTransactions(grandPatient);\r\n    op.setNumPersonnelTransactions(grandPersonnel);\r\n    return op;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public OperationalProfile loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "OperationalProfileLoader",
+        "variables": []
+    }
+]

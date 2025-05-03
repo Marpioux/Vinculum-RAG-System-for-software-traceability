@@ -1,0 +1,28 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<RiskChecker> diseases = new ArrayList<RiskChecker>();\r\n    for (RiskChecker diseaseChecker : riskCheckers) {\r\n        if (diseaseChecker.isAtRisk())\r\n            diseases.add(diseaseChecker);\r\n    }\r\n    return diseases;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<RiskChecker> getDiseaseAtRisk()",
+                "comments": "Optional[/**\r\n * @return A list of diseases that this patient is at risk for\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    riskCheckers = new ArrayList<RiskChecker>();\r\n    riskCheckers.add(new HeartDiseaseRisks(factory, pid));\r\n    riskCheckers.add(new Type1DiabetesRisks(factory, pid));\r\n    riskCheckers.add(new Type2DiabetesRisks(factory, pid));\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ChronicDiseaseMediator(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Given a factory and patient ID, and sets up a list of all risk checkers\r\n *\r\n * @param factory The DAOFactory to be used in creating the necessary DAOs to perform the checks.\r\n * @param pid The MID of the patient in question.\r\n * @throws DBException\r\n * @throws NoHealthRecordsException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ChronicDiseaseMediator",
+        "variables": [
+            "private List<RiskChecker> riskCheckers"
+        ]
+    }
+]

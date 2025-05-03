@@ -1,0 +1,40 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    personnelForm.setMID(pid);\r\n    validator.validate(personnelForm);\r\n    personnelDAO.editPersonnel(personnelForm);\r\n    transDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void updateInformation(PersonnelBean)",
+                "comments": "Optional[/**\r\n * Takes information from the personnelForm param and updates the patient\r\n *\r\n * @param personnelForm\r\n *            PersonnelBean with new information\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PersonnelBean b = personnelDAO.getPersonnel(this.getPid());\r\n    b.setMessageFilter(filter);\r\n    this.updateInformation(b);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void editMessageFilter(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, pidString);\r\n    this.authDAO = factory.getAuthDAO();\r\n    long pidlong = Long.parseLong(pidString);\r\n    Role editor = authDAO.getUserRole(loggedInMID);\r\n    Role editing = authDAO.getUserRole(pidlong);\r\n    if (editor == editing && pidlong != loggedInMID)\r\n        throw new iTrustException(\"You can only edit your own demographics!\");\r\n    else if (editor == Role.HCP && editing == Role.ADMIN || editor == Role.UAP && editing == Role.HCP || editor == Role.ADMIN && editing == Role.UAP)\r\n        throw new iTrustException(\"You are not authorized to edit this record!\");\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EditPersonnelAction(DAOFactory, long, String)",
+                "comments": "Optional[/**\r\n * Super class validates the patient id\r\n *\r\n * @param factory The DAOFactory used to create the DAOs for this action.\r\n * @param loggedInMID The MID of the user editing this personnel.\r\n * @param pidString The ID of the user being edited.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "EditPersonnelAction",
+        "variables": [
+            "private long loggedInMID",
+            "private PersonnelDAO personnelDAO",
+            "private TransactionDAO transDAO",
+            "private AuthDAO authDAO",
+            "private PersonnelValidator validator"
+        ]
+    }
+]

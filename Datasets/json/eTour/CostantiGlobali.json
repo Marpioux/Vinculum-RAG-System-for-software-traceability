@@ -1,0 +1,15 @@
+[
+    {
+        "methods": [],
+        "constructors": [],
+        "signature": "CostantiGlobali",
+        "variables": [
+            "public  static  final int MAX_PRIORITY_NEWS",
+            "public  static  final int MIN_PRIORITY_NEWS",
+            "public  static  final int MAX_NEWS_ATTIVE",
+            "public  static  final String SERVER_IMAGE_PATH",
+            "public  static  final String SERVER_URL",
+            "public  static  final long TRENTA_GIORNI"
+        ]
+    }
+]

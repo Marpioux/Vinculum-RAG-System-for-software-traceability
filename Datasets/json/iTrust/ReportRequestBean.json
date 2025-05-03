@@ -1,0 +1,156 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ID = iD;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.requesterMID = requesterMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRequesterMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return requesterMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getRequesterMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientMID = patientMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getPatientMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.requestedDate = (requestedDate == null ? null : (Date) requestedDate.clone());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRequestedDate(Date)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        setRequestedDate(new SimpleDateFormat(dateFormat).parse(s));\r\n    } catch (ParseException ex) {\r\n        System.out.println(ex.getMessage());\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRequestedDateString(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (requestedDate == null ? null : (Date) requestedDate.clone());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getRequestedDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (requestedDate == null)\r\n        //$NON-NLS-1$\r\n        return \"\";\r\n    return new SimpleDateFormat(dateFormat).format(requestedDate);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public String getRequestedDateString()",
+                "comments": null,
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    this.viewedDate = (viewedDate == null ? null : (Date) viewedDate.clone());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setViewedDate(Date)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        setViewedDate(new SimpleDateFormat(dateFormat).parse(s));\r\n    } catch (ParseException ex) {\r\n        System.out.println(ex.getMessage());\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setViewedDateString(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (viewedDate == null ? null : (Date) viewedDate.clone());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getViewedDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (viewedDate == null)\r\n        //$NON-NLS-1$\r\n        return \"\";\r\n    //DateFormat dateFormatter = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,Localization.instance().getCurrentLocale());\r\n    //return dateFormatter.format(viewedDate);\r\n    return new SimpleDateFormat(dateFormat).format(viewedDate);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public String getViewedDateString()",
+                "comments": null,
+                "innerComments": "Optional[[//DateFormat dateFormatter = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,Localization.instance().getCurrentLocale());\r\n, //$NON-NLS-1$\r\n, //return dateFormatter.format(viewedDate);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    this.status = status;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setStatus(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return status;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getStatus()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReportRequestBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ReportRequestBean",
+        "variables": [
+            "private long ID",
+            "private long requesterMID",
+            "private long patientMID",
+            "private Date requestedDate",
+            "private Date viewedDate",
+            "private String status",
+            "public  final  static String dateFormat",
+            "public  final  static String Requested",
+            "public  final  static String Viewed"
+        ]
+    }
+]

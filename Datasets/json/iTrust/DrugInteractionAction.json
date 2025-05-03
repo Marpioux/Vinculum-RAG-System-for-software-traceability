@@ -1,0 +1,47 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (firstDrug.equals(secondDrug)) {\r\n        return \"Interactions can only be recorded between two different drugs\";\r\n    }\r\n    DrugInteractionBean drugInt = new DrugInteractionBean();\r\n    drugInt.setFirstDrug(firstDrug);\r\n    drugInt.setSecondDrug(secondDrug);\r\n    drugInt.setDescription(description);\r\n    try {\r\n        validator.validate(drugInt);\r\n        if (drugDAO.reportInteraction(firstDrug, secondDrug, description)) {\r\n            tranDAO.logTransaction(TransactionType.DRUG_INTERACTION, loggedInMID);\r\n            return \"Interaction recorded successfully\";\r\n        } else {\r\n            return \"Interaction could not be added\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String reportInteraction(String, String, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    DrugInteractionBean drugInt = new DrugInteractionBean();\r\n    drugInt.setFirstDrug(firstDrug);\r\n    drugInt.setSecondDrug(secondDrug);\r\n    drugInt.setDescription(\"blank\");\r\n    try {\r\n        validator.validate(drugInt);\r\n        if (drugDAO.deleteInteraction(firstDrug, secondDrug)) {\r\n            tranDAO.logTransaction(TransactionType.DRUG_INTERACTION, loggedInMID);\r\n            return \"Interaction deleted successfully\";\r\n        } else {\r\n            return \"Interaction could not be deleted\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        throw new iTrustException(e.getMessage());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String deleteInteraction(String, String)",
+                "comments": "Optional[/**\r\n * Method to delete an interaction\r\n * @param firstDrug\r\n * @param secondDrug\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return drugDAO.getInteractions(drugCode);\r\n    } catch (DBException e) {\r\n        throw new iTrustException(e.getMessage());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DrugInteractionBean> getInteractions(String)",
+                "comments": "Optional[/**\r\n * Method to return a list of drug interactions for a given drug\r\n * @param drugCode - The ND Code of the drug\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.drugDAO = factory.getDrugInteractionDAO();\r\n    this.tranDAO = factory.getTransactionDAO();\r\n    this.validator = new DrugInteractionValidator();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DrugInteractionAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Sets up defaults\r\n *\r\n * @param factory The DAO factory to be used for generating the DAOs for this action.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "DrugInteractionAction",
+        "variables": [
+            "private DrugInteractionDAO drugDAO",
+            "private TransactionDAO tranDAO",
+            "private DrugInteractionValidator validator",
+            " long loggedInMID"
+        ]
+    }
+]

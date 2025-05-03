@@ -1,0 +1,58 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // Method implementation\r\n    // Placeholder return\r\n    return 0;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public int ottieniNumeroElementiRicerca()",
+                "comments": "Optional[// Method declarations\r\n]",
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Method implementation\r\n    // Placeholder return\r\n    return 0;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int ottieniNumeroPagineRicerca()",
+                "comments": null,
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Method implementation\r\n    // Placeholder return\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public Object ottieniPaginaRisultatiBeneCulturale()",
+                "comments": null,
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Method implementation\r\n    // Placeholder return\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public Object ottieniPaginaRisultatiPuntoDiRistoro()",
+                "comments": null,
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Method implementation\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void search()",
+                "comments": null,
+                "innerComments": "Optional[[// Method implementation\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    // Constructor implementation\r\n}",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public RicercaAvanzata(int)",
+                "comments": "Optional[// Class constructor\r\n]",
+                "innerComments": "[// Constructor implementation\r\n]"
+            }
+        ],
+        "signature": "RicercaAvanzata",
+        "variables": []
+    }
+]

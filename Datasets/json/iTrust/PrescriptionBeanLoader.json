@@ -1,0 +1,44 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<PrescriptionBean> list = new ArrayList<PrescriptionBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PrescriptionBean pres = new PrescriptionBean();\r\n    pres.setId(rs.getLong(\"ID\"));\r\n    pres.setVisitID((long) rs.getInt(\"VisitID\"));\r\n    pres.setStartDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new java.util.Date(rs.getDate(\"StartDate\").getTime())));\r\n    pres.setEndDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new java.util.Date(rs.getDate(\"EndDate\").getTime())));\r\n    pres.setDosage(rs.getInt(\"Dosage\"));\r\n    pres.setInstructions(rs.getString(\"Instructions\"));\r\n    pres.setMedication(medLoader.loadSingle(rs));\r\n    return pres;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PrescriptionBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ps.setLong(1, pres.getVisitID());\r\n    ps.setString(2, pres.getMedication().getNDCode());\r\n    ps.setDate(3, new java.sql.Date(pres.getStartDate().getTime()));\r\n    ps.setDate(4, new java.sql.Date(pres.getEndDate().getTime()));\r\n    ps.setInt(5, pres.getDosage());\r\n    ps.setString(6, pres.getInstructions());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, PrescriptionBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    medLoader = new MedicationBeanLoader();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PrescriptionBeanLoader()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "PrescriptionBeanLoader",
+        "variables": [
+            "private MedicationBeanLoader medLoader"
+        ]
+    }
+]

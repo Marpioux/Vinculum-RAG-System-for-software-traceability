@@ -1,0 +1,49 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanBeneCulturale ottieniBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Method to return a particular Cultural Heritage\r\n *\r\n * @param pBeneCulturaleID The identifier of the cultural property to be returned\r\n * @return BeanBeneCulturale Contains data required of Cultural Heritage\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTag> ottieniTagBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Returns the list of tags of a cultural\r\n *\r\n * @param pBeneCulturaleID ID of Cultural Heritage\r\n * @return ArrayList<BeanTag> of the cultural tags specified\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract HashMap<BeanVisitaBC, String> ottieniFeedbackBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Returns a list of feedback to the cultural specified\r\n *\r\n * @param pBeneCulturaleID ID of Cultural Heritage\r\n * @return HashMap<BeanVisitaBC, String> The feedback of Cultural Heritage\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<Integer> ottieniStatisticheBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Returns for the cultural property specified, an array where each position contains the number of\r\n * feedback corresponding to the value of the array more than 'one.\r\n * The calculation is made in the period between 30 days and today.\r\n *\r\n * @param pBeneCulturaleID ID of Cultural Heritage\r\n * @return ArrayList<Integer> The statistics of last thirty days\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaFeedbackBeneCulturale(int, BeanVisitaBC)",
+                "comments": "Optional[/**\r\n * Method for updating (or modification) of a feedback for a certain good\r\n * Cultural. The method has the burden of\r\n *\r\n * @param pBeneCulturaleID The identifier of the cultural change which the feedback\r\n * @param pBeanVisitaBC The new feedback to the cultural indicated\r\n * @return boolean The result of the operation; true if was successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneBeniCulturaliComune",
+        "variables": []
+    }
+]

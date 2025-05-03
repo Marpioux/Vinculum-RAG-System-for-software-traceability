@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<SurveyBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, SurveyBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    SurveyBean survey = new SurveyBean();\r\n    survey.setVisitID(rs.getLong(\"VisitID\"));\r\n    survey.setSurveyDate(rs.getTimestamp(\"SurveyDate\"));\r\n    survey.setExamRoomMinutes(rs.getInt(\"ExamRoomMinutes\"));\r\n    survey.setWaitingRoomMinutes(rs.getInt(\"WaitingRoomMinutes\"));\r\n    survey.setTreatmentSatisfaction(rs.getInt(\"TreatmentSatisfaction\"));\r\n    survey.setVisitSatisfaction(rs.getInt(\"VisitSatisfaction\"));\r\n    return survey;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SurveyBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "SurveyLoader",
+        "variables": []
+    }
+]

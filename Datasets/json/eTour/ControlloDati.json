@@ -1,0 +1,165 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (pStringa == null) {\r\n        return false;\r\n    }\r\n    int lunghezzaStringa = pStringa.length();\r\n    char carattereCorrente;\r\n    if (lunghezzaStringa < numeroCaratteriMin || lunghezzaStringa > numeroCaratteriMax) {\r\n        return false;\r\n    }\r\n    if (caratteriNecessari != null && !caratteriNecessari.isEmpty()) {\r\n        for (int i = 0; i < caratteriNecessari.length(); i++) {\r\n            carattereCorrente = caratteriNecessari.charAt(i);\r\n            if (!pStringa.contains(Character.toString(carattereCorrente))) {\r\n                return false;\r\n            }\r\n        }\r\n    }\r\n    String stringaCaratteriPermessi = caratteriPermessi + (letterePermesse ? LETTERS : \"\") + (numeriPermessi ? NUMBERS : \"\");\r\n    for (int i = 0; i < lunghezzaStringa; i++) {\r\n        carattereCorrente = pStringa.charAt(i);\r\n        if (!stringaCaratteriPermessi.contains(Character.toString(carattereCorrente))) {\r\n            return false;\r\n        }\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean controllaStringa(String, boolean, boolean, String, String, int, int)",
+                "comments": "Optional[/**\r\n * Static method for verifying correctness of a string\r\n *\r\n * @param pStringa           string to check\r\n * @param letterePermesse    Boolean: True if it is allowed to be present\r\n *                           Letters in the string, False otherwise\r\n * @param numeriPermessi     Boolean: True if it is allowed to be present\r\n *                           Numbers in the string, False otherwise\r\n * @param caratteriPermessi   string containing all characters\r\n *                           Allowed in the string\r\n * @param caratteriNecessari  string containing all required characters\r\n *                           Must be present in the string\r\n * @param numeroCaratteriMin integer representing the minimum number of\r\n *                           Characters allowed in string\r\n * @param numeroCaratteriMax integer representing the maximum number of\r\n *                           Characters allowed in string\r\n * @return Boolean: True if the string meets the conditions, False\r\n * otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pStringa == null) {\r\n        return null;\r\n    }\r\n    String stringaCaratteriPermessi = caratteriPermessi + (letterePermesse ? LETTERS : \"\") + (numeriPermessi ? NUMBERS : \"\");\r\n    char carattereCorrente;\r\n    int lunghezzaStringa = pStringa.length();\r\n    int i = 0;\r\n    while (i < lunghezzaStringa) {\r\n        carattereCorrente = pStringa.charAt(i);\r\n        if (!stringaCaratteriPermessi.contains(Character.toString(carattereCorrente))) {\r\n            pStringa = pStringa.replaceAll(\"\\\\\\\\\" + Character.toString(carattereCorrente), \"\");\r\n            lunghezzaStringa = pStringa.length();\r\n        } else {\r\n            i++;\r\n        }\r\n    }\r\n    if (lunghezzaStringa > numeroCaratteriMax) {\r\n        pStringa = pStringa.substring(0, numeroCaratteriMax);\r\n    }\r\n    return pStringa;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static String correggiStringa(String, boolean, boolean, String, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean controllaData(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pDataInizio != null && pDataFine != null) {\r\n        return pDataInizio.before(pDataFine);\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean controllaDate(Date, Date)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pTurista != null && pTurista instanceof BeanTurista;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanTurista(BeanTurista)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pPreferenzaDiRicerca != null && pPreferenzaDiRicerca instanceof BeanPreferenzaDiRicerca;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanPreferenzaDiRicerca(BeanPreferenzaDiRicerca)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pPreferenzeGeneriche != null && pPreferenzeGeneriche instanceof BeanPreferenzeGeneriche;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanPreferenzeGeneriche(BeanPreferenzeGeneriche)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pBeneCulturale != null && pBeneCulturale instanceof BeanBeneCulturale;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanBeneCulturale(BeanBeneCulturale)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pPuntoDiRistoro != null && pPuntoDiRistoro instanceof BeanPuntoDiRistoro;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanPuntoDiRistoro(BeanPuntoDiRistoro)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pOperatorePuntoDiRistoro != null && pOperatorePuntoDiRistoro instanceof BeanOperatorePuntoDiRistoro;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanOperatorePuntoDiRistoro(BeanOperatorePuntoDiRistoro)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pBanner != null && pBanner instanceof BeanBanner) {\r\n        return pBanner.getId() > 0 && !pBanner.getPercorsoFile().isEmpty() && pBanner.getIdPuntoDiRistoro() > 0;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanBanner(BeanBanner)",
+                "comments": "Optional[/**\r\n * Please formal control and consistency on the data of the banner\r\n * Content in the bean passed by parameter.\r\n *\r\n * @author Fabio Palladino\r\n * @param pBanner bean contains the data of the banner.\r\n * @return True if the data of the banner is correct false otherwise.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return image != null && (image.getImage() instanceof BufferedImage);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkImmagine(ImageIcon)",
+                "comments": "Optional[/**\r\n * Method which controls the image contained in the object ImageIcon passed\r\n * per parameter.\r\n *\r\n * @author Fabio Palladino\r\n * @param image ImageIcon object containing the image to be checked\r\n * @return true if the image contained in the object is an instance of BufferedImage.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pNews != null) {\r\n        Date dataPubb = pNews.getDataPubblicazione();\r\n        Date dataScad = pNews.getDataScadenza();\r\n        String news = pNews.getNews();\r\n        int priority = pNews.getPriorita();\r\n        if (dataPubb != null && dataScad != null && news != null) {\r\n            boolean toReturn = dataPubb.before(dataScad);\r\n            toReturn = toReturn && !news.isEmpty();\r\n            toReturn = toReturn && (pNews.getId() > 0);\r\n            toReturn = toReturn && (priority <= CostantiGlobali.MAX_PRIORITY_NEWS) && (priority >= CostantiGlobali.MIN_PRIORITY_NEWS);\r\n            return toReturn;\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanNews(BeanNews)",
+                "comments": "Optional[/**\r\n * Function that checks the data in a news;\r\n *\r\n * @author Fabio Palladino\r\n * @param pNews containing details of a news.\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ptagi != null && ptagi instanceof BeanTag;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanTag(BeanTag)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pConvenzione != null && pConvenzione instanceof BeanConvenzione;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanConvenzione(BeanConvenzione)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pMenu != null && pMenu instanceof BeanMenu;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanMenu(BeanMenu)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pPiatto != null && pPiatto instanceof BeanPiatto;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanPiatto(BeanPiatto)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pVisitaBC != null && pVisitaBC instanceof BeanVisitaBC;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanVisitaBC(BeanVisitaBC)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return pVisitaPR != null && pVisitaPR instanceof BeanVisitaPR;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static boolean checkBeanVisitaPR(BeanVisitaPR)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ControlloDati",
+        "variables": [
+            "private  static  final String LETTERS",
+            "private  static  final String NUMBERS",
+            "public  static  final int MAX_LENGTH"
+        ]
+    }
+]

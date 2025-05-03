@@ -1,0 +1,75 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    messVal.validate(mBean);\r\n    emailVal.validate(mBean);\r\n    messageDAO.addMessage(mBean);\r\n    Email email = new Email();\r\n    String senderName;\r\n    String fromEmail;\r\n    email.setFrom(\"noreply@itrust.com\");\r\n    List<String> toList = new ArrayList<String>();\r\n    if (8999999999L < mBean.getFrom() && 8999999999L < mBean.getTo()) {\r\n        PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);\r\n        PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());\r\n        toList.add(receiver.getEmail());\r\n        senderName = sender.getFullName();\r\n        fromEmail = sender.getEmail();\r\n    } else {\r\n        if (6999999999L < mBean.getFrom()) {\r\n            PersonnelBean sender = personnelDAO.getPersonnel(loggedInMID);\r\n            if (6999999999L < mBean.getTo()) {\r\n                PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());\r\n                toList.add(receiver.getEmail());\r\n            } else {\r\n                PatientBean receiver = patientDAO.getPatient(mBean.getTo());\r\n                toList.add(receiver.getEmail());\r\n            }\r\n            senderName = sender.getFullName();\r\n            fromEmail = sender.getEmail();\r\n        } else {\r\n            PatientBean sender = patientDAO.getPatient(loggedInMID);\r\n            if (6999999999L < mBean.getTo()) {\r\n                PersonnelBean receiver = personnelDAO.getPersonnel(mBean.getTo());\r\n                toList.add(receiver.getEmail());\r\n            } else {\r\n                PatientBean receiver = patientDAO.getPatient(mBean.getTo());\r\n                toList.add(receiver.getEmail());\r\n            }\r\n            senderName = sender.getFullName();\r\n            fromEmail = sender.getEmail();\r\n        }\r\n    }\r\n    email.setToList(toList);\r\n    email.setFrom(fromEmail);\r\n    email.setSubject(String.format(\"A new message from %s\", senderName));\r\n    email.setBody(String.format(\"You have received a new message from %s in iTrust. To view it, log in to iTrust and go to \\\"View My Messages\\\"\", senderName));\r\n    emailer.sendEmail(email);\r\n    transactionDAO.logTransaction(TransactionType.SEND_MESSAGE, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void sendMessage(MessageBean)",
+                "comments": "Optional[/**\r\n * Sends a message\r\n *\r\n * @param mBean message to be sent\r\n * @throws iTrustException\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientDAO.getName(mid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPatientName(long)",
+                "comments": "Optional[/**\r\n * Returns the patient's name\r\n *\r\n * @param mid MId of the patient\r\n * @return the name of the patient\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return personnelDAO.getName(mid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPersonnelName(long)",
+                "comments": "Optional[/**\r\n * Returns the personnel's name\r\n *\r\n * @param mid MId of the personnel\r\n * @return the name of the personnel\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<PatientBean> representees = new ArrayList<PatientBean>();\r\n    try {\r\n        representees = patientDAO.getRepresented(loggedInMID);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n    }\r\n    return representees;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> getMyRepresentees()",
+                "comments": "Optional[/**\r\n * Returns a list of the patients that the logged in HCP represents\r\n *\r\n * @return list of the patients that the logged in HCP represents\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return getDLHCPsFor(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> getMyDLHCPs()",
+                "comments": "Optional[/**\r\n * Returns the designated HCPs for the logged in patient.\r\n *\r\n * @return designated HCPs for the logged in patient.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<PersonnelBean> dlhcps = new ArrayList<PersonnelBean>();\r\n    try {\r\n        dlhcps = patientDAO.getDeclaredHCPs(pid);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n    }\r\n    return dlhcps;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> getDLHCPsFor(long)",
+                "comments": "Optional[/**\r\n * Returns the designated HCPs for the given patient.\r\n *\r\n * @return designated HCPs for the given patient.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.emailer = new EmailUtil(factory);\r\n    this.messageDAO = factory.getMessageDAO();\r\n    this.transactionDAO = factory.getTransactionDAO();\r\n    this.emailVal = new EMailValidator();\r\n    this.messVal = new MessageValidator();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SendMessageAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Sets up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user sending the message.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SendMessageAction",
+        "variables": [
+            "private long loggedInMID",
+            "private EmailUtil emailer",
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO",
+            "private MessageDAO messageDAO",
+            "private TransactionDAO transactionDAO",
+            "private EMailValidator emailVal",
+            "private MessageValidator messVal"
+        ]
+    }
+]

@@ -1,0 +1,162 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return (other != null) && this.getClass().equals(other.getClass()) && this.equals((ReferralBean) other);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean equals(Object)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (id == other.id && senderID == other.senderID && receiverID == other.receiverID && referralDetails.equals(other.referralDetails) && consultationDetails.equals(other.consultationDetails) && status.equals(other.status));\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private boolean equals(ReferralBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int hashCode()",
+                "comments": null,
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getId()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.id = id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setId(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return senderID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getSenderID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.senderID = senderID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSenderID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return receiverID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getReceiverID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.receiverID = receiverID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setReceiverID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return referralDetails;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getReferralDetails()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.referralDetails = referralDetails;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setReferralDetails(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return consultationDetails;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getConsultationDetails()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.consultationDetails = consultationDetails;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setConsultationDetails(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return status;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReferralStatus getStatus()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.status = status;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setStatus(ReferralStatus)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getPatientID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientID(long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReferralBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ReferralBean",
+        "variables": [
+            "private long id",
+            "private long patientID",
+            "private long senderID",
+            "private long receiverID",
+            "private String referralDetails",
+            "private String consultationDetails",
+            "private ReferralStatus status"
+        ]
+    }
+]

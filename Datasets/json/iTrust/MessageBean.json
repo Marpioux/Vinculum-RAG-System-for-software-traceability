@@ -1,0 +1,146 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return to;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getTo()",
+                "comments": "Optional[/**\r\n * Gets the MIDs of the recipients for this Message\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.to = to;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setTo(long)",
+                "comments": "Optional[/**\r\n * Sets the MIDs of the recipients for this Message\r\n * @param to\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getMessageId()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.id = id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setMessageId(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return this.parentMsgId;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getParentMessageId()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.parentMsgId = parentMsgId;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setParentMessageId(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return from;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getFrom()",
+                "comments": "Optional[/**\r\n * Gets the MID of the sender for this message\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.from = from;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setFrom(long)",
+                "comments": "Optional[/**\r\n * Sets the MID of the sender for this message\r\n * @param from\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return subject;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getSubject()",
+                "comments": "Optional[/**\r\n * Gets the subject of this message\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.subject = subject;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setSubject(String)",
+                "comments": "Optional[/**\r\n * Sets the subject of this message\r\n * @param subject\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return body;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getBody()",
+                "comments": "Optional[/**\r\n * Gets the body of this message\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.body = body;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setBody(String)",
+                "comments": "Optional[/**\r\n * Sets the body of this message\r\n * @param body\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return this.timestamp;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Timestamp getSentDate()",
+                "comments": "Optional[/**\r\n * Gets the time for this message\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.timestamp = timestamp;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setSentDate(Timestamp)",
+                "comments": "Optional[/**\r\n * Sets the time for this message\r\n * @param timestamp\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return this.read;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getRead()",
+                "comments": "Optional[/**\r\n * Gets read for this message\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.read = read;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setRead(int)",
+                "comments": "Optional[/**\r\n * Sets read for this message\r\n * @param read\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "MessageBean",
+        "variables": [
+            "private long to",
+            "private long from",
+            "private long id",
+            "private long parentMsgId",
+            "private String subject",
+            "private String body",
+            "private Timestamp timestamp",
+            "private int read"
+        ]
+    }
+]

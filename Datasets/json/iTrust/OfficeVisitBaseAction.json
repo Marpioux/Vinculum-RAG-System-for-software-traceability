@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        encode(input);\r\n        long ovID = Long.valueOf(input);\r\n        if (ovDAO.checkOfficeVisitExists(ovID, pid))\r\n            return ovID;\r\n        else\r\n            throw new iTrustException(\"Office Visit \" + ovID + \" with Patient MID \" + pid + \" does not exist\");\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"Office Visit ID is not a number: \" + e.getMessage());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private long checkOfficeVisitID(String)",
+                "comments": "Optional[/**\r\n * Asserts whether this unique office visit identifier both exists and is associated with the patient in\r\n * the database.\r\n *\r\n * @param input\r\n *            The presumed identifier as a String.\r\n * @return The same identifier as a long of the existing office visit.\r\n * @throws iTrustException\r\n *             If the visit does not exist or if there is a DB problem.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ovID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getOvID()",
+                "comments": "Optional[/**\r\n * For obtaining the unique identifier of the office visit this action is associated with.\r\n *\r\n * @return A long of the identifier.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String str = input.replaceAll(\"<\", \"&lt;\");\r\n    str = str.replaceAll(\">\", \"&gt;\");\r\n    str = str.replaceAll(\"\\n\", \"<br />\");\r\n    return str;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String encode(String)",
+                "comments": "Optional[/**\r\n * Converts all characters of the input string to their HTML special characters equivalent representation.\r\n * Explicitly, the less than symbol becomes lt, the greater than symbol becomes gt and a newline feed\r\n * becomes br.\r\n *\r\n * @param input\r\n *            The string to encode.\r\n * @return The encoded string.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, pidString);\r\n    this.ovDAO = factory.getOfficeVisitDAO();\r\n    this.ovID = checkOfficeVisitID(ovIDString);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public OfficeVisitBaseAction(DAOFactory, String, String)",
+                "comments": "Optional[/**\r\n * The default constructor.\r\n *\r\n * @param factory\r\n *            A database access object factory for supplying a runtime context.\r\n * @param pidString\r\n *            The patient's MID as a String, to be passed to the super constructor (for PatientBaseAction)\r\n * @param ovIDString\r\n *            The unique identifier of the office visit as a String.\r\n * @throws iTrustException\r\n *             If any of the supplied parameters is incorrect or there is a DB problem.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "OfficeVisitBaseAction",
+        "variables": [
+            "private OfficeVisitDAO ovDAO",
+            "protected long ovID"
+        ]
+    }
+]

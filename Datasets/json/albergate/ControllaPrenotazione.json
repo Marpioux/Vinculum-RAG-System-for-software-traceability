@@ -1,0 +1,69 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    writeDatiPren(p);\r\n    for (int i = 0; i < 11; i++) testo[i].setEditable(false);\r\n    testo[9].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getDataPren())));\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startRinnova();\r\n            dispose();\r\n            parent.dispose();\r\n            startUpdate();\r\n        }\r\n    });\r\n    Cancella.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCancella();\r\n            dispose();\r\n            parent.dispose();\r\n            startUpdate();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startRinnova();\r\n    dispose();\r\n    parent.dispose();\r\n    startUpdate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startCancella();\r\n    dispose();\r\n    parent.dispose();\r\n    startUpdate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame supp = (parent.padre).p;\r\n    ((Principale) supp).updateBloccate();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startUpdate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp != null) {\r\n        (Principale.db).delPrenotazione(p.getIdPrenotazione());\r\n        Utils.aggiornaDisp(elenco_disp, p.getNumStanza(), p.getInizioSogg(), p.getFineSogg(), Flag.DISPONIBILE, Flag.BLOCCATA, true);\r\n        if (p.getTramiteAgenzia() == Const.SI)\r\n            Utils.restoreCommissioni(p.getNumStanza());\r\n        dispose();\r\n        padre.setEnabled(true);\r\n    } else\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita! \");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startCancella()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    p.setDataPren(new Date());\r\n    (Principale.db).changePrenotazione(p.getIdPrenotazione(), p.getNumStanza(), p.getNumPers(), p.getNome(), p.getCognome(), p.getNumTel(), p.getInizioSogg(), p.getFineSogg(), p.getDataPren(), p.getCaparra(), p.getRichLettoAgg(), p.getPensionamento(), p.getTramiteAgenzia(), p.getNomeAgenzia(), p.getRichParticolari());\r\n    dispose();\r\n    parent.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startRinnova()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(room, \"\", \"\", \"Controlla dei dati della prenotazione\", \" Rinnova \", 5, pren.getPensionamento());\r\n    p = pren;\r\n    parent = papa;\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ControllaPrenotazione(Prenotazione, Stanza, PrenotazioniScadute)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ControllaPrenotazione",
+        "variables": [
+            " Prenotazione p",
+            " PrenotazioniScadute parent"
+        ]
+    }
+]

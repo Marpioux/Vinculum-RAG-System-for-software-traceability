@@ -1,0 +1,61 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.name = name;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return duration;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getDuration()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.duration = duration;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDuration(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.name = null;\r\n    this.duration = 0;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptTypeBean()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.name = name;\r\n    this.duration = duration;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptTypeBean(String, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ApptTypeBean",
+        "variables": [
+            "private String name",
+            "private int duration"
+        ]
+    }
+]

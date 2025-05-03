@@ -1,0 +1,49 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciBanner(BeanBanner)",
+                "comments": "Optional[/**\r\n * Add a banner to the database\r\n *\r\n * @param pBanner bean containing the information of the banner\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaBanner(BeanBanner)",
+                "comments": "Optional[/**\r\n * Modify the contents of the advertisement, and returns the contents before\r\n * edit\r\n *\r\n * @param pBanner Bean that contains the new information of the banner\r\n * @return True if there was a modification, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaBanner(int)",
+                "comments": "Optional[/**\r\n * Delete a banner from the database and returns\r\n *\r\n * @param pIdBanner ID of BeanBanner\r\n * @return True if it was deleted, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanBanner> ottieniBanner(int)",
+                "comments": "Optional[/**\r\n * Returns a list of banners for a refreshment point; if the id of\r\n * refreshment is equal to -1, it will return the complete list\r\n * of banners\r\n *\r\n * @param pIdPuntoDiRistoro of refreshment point from which to obtain the list\r\n * @return list of banners linked to refreshment\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanBanner ottieniBannerDaID(int)",
+                "comments": "Optional[/**\r\n * Method which returns a banner given its id\r\n *\r\n * @param pIdBanner the banner to return\r\n * @return Banner found in the database, null if there is no match\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBBanner",
+        "variables": []
+    }
+]

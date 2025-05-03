@@ -1,0 +1,153 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return CPTCode;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getCPTCode()",
+                "comments": "Optional[/**\r\n * Gets the CPT Code for this procedure\r\n *\r\n * @return The CPT Code for this procedure\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    CPTCode = code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCPTCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return description;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": "Optional[/**\r\n * Gets the CPT Description for this procedure\r\n *\r\n * @return The CPT Description for this procedure\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.description = description;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDescription(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getHcpid()",
+                "comments": "Optional[/**\r\n * Gets the HCP ID of the HCP administering the immunization\r\n * @return String\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpid = hcpid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHcpid(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return attribute;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getAttribute()",
+                "comments": "Optional[/**\r\n * Gets the CPT attribute, used to determine if this is an immunization\r\n * @return String\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    attribute = attrib;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setAttribute(String)",
+                "comments": "Optional[/**\r\n * Sets the CPT attribute, used to determine if this is an immunization\r\n * @param String\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ovProcedureID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getOvProcedureID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.ovProcedureID = ovProcedureID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setOvProcedureID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return date;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    date = d;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDate(Date)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBean()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    CPTCode = code;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBean(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    CPTCode = code;\r\n    this.description = description;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBean(String, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    CPTCode = code;\r\n    this.description = description;\r\n    this.attribute = attribute;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBean(String, String, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    CPTCode = code;\r\n    this.description = description;\r\n    this.attribute = attribute;\r\n    this.hcpid = hcpid;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBean(String, String, String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ProcedureBean",
+        "variables": [
+            "private long ovProcedureID",
+            "private String CPTCode",
+            "private String description",
+            "private String attribute",
+            "private Date date",
+            "private String hcpid"
+        ]
+    }
+]

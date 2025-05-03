@@ -1,0 +1,101 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return NDCode;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getNDCode()",
+                "comments": "Optional[/**\r\n * Gets the ND Code for this procedure\r\n *\r\n * @return The ND Code for this procedure\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    NDCode = code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setNDCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return description;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": "Optional[/**\r\n * Gets the ND Description for this procedure\r\n *\r\n * @return The ND Description for this procedure\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.description = description;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDescription(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String code = getNDCode();\r\n    if (code.length() > 5)\r\n        return code.substring(0, 5) + \"-\" + code.substring(5);\r\n    else\r\n        return code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getNDCodeFormatted()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (other != null) && this.getClass().equals(other.getClass()) && this.equals((MedicationBean) other);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean equals(Object)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int hashCode()",
+                "comments": null,
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return description.equals(other.description) && NDCode.equals(other.NDCode);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private boolean equals(MedicationBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MedicationBean()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    NDCode = code;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MedicationBean(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    NDCode = code;\r\n    this.description = description;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MedicationBean(String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MedicationBean",
+        "variables": [
+            "private String NDCode",
+            "private String description"
+        ]
+    }
+]

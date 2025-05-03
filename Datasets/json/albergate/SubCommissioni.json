@@ -1,0 +1,121 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_sub);\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    panel0.setBackground(Color.white);\r\n    Immagine figura = new Immagine(\"camera2.jpg\");\r\n    Etichetta etich = new Etichetta(\"Commissioni.gif\");\r\n    Utils.constrain(panel0, etich, 0, 0, 2, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, figura, 2, 0, 10, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(new GridLayout(5, 1));\r\n    Inserimento = new Button(\" Inserimento \");\r\n    Modifica = new Button(\" Modifica \");\r\n    Cancellazione = new Button(\" Cancellazione \");\r\n    Ricerca = new Button(\" Ricerca... \");\r\n    Annulla = new Button(\" Indietro \");\r\n    panel1.add(Inserimento);\r\n    panel1.add(Modifica);\r\n    panel1.add(Cancellazione);\r\n    panel1.add(Ricerca);\r\n    panel1.add(Annulla);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 12, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(this, panel1, 12, 0, 1, 12, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Inserimento.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startRic();\r\n        }\r\n    });\r\n    Modifica.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startMod();\r\n        }\r\n    });\r\n    Cancellazione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCanc();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startVis();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startRic();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startMod();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startCanc();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startVis();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_ric = new MascheraRicercaStanza(\"Ricerca stanze per commissioni\", 1);\r\n    mask_ric.setVisible(true);\r\n    mask_ric.padre = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startRic()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_mod = new ModificaCommissioni();\r\n    mask_mod.setVisible(true);\r\n    mask_mod.padre = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startMod()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_canc = new CancellaCommissioni();\r\n    mask_canc.setVisible(true);\r\n    mask_canc.padre = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startCanc()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_vis = new VediCommissione();\r\n    mask_vis.setVisible(true);\r\n    mask_vis.padre = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startVis()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Commissioni\");\r\n    setup();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SubCommissioni()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "SubCommissioni",
+        "variables": [
+            " Label label",
+            " Panel panel0",
+            " Panel panel1",
+            " Button Inserimento",
+            " Button Modifica",
+            " Button Cancellazione",
+            " Button Ricerca",
+            " Button Annulla",
+            " GridBagLayout gridbag",
+            " Frame p",
+            " MascheraRicercaStanza mask_ric",
+            " ModificaCommissioni mask_mod",
+            " CancellaCommissioni mask_canc",
+            " VediCommissione mask_vis"
+        ]
+    }
+]

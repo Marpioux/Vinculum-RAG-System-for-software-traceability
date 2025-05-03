@@ -1,0 +1,56 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // for security reasons\r\n    p.setMID(pid);\r\n    validator.validate(p);\r\n    patientDAO.editPatient(p);\r\n    transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, pid, \"EditPatient - Made Changes\");\r\n    emailutil.sendEmail(makeEmail());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void updateInformation(PatientBean)",
+                "comments": "Optional[/**\r\n * Takes the information out of the PatientBean param and updates the patient's information\r\n *\r\n * @param p\r\n *            the new patient information\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": "Optional[[// for security reasons\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, pid, \"EditPatient - View Patient\");\r\n    return patientDAO.getPatient(this.getPid());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PatientBean getPatient()",
+                "comments": "Optional[/**\r\n * Returns a PatientBean for the patient\r\n *\r\n * @return the PatientBean\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Email email = new Email();\r\n    List<PatientBean> reps = patientDAO.getRepresenting(pid);\r\n    PatientBean pb = patientDAO.getPatient(pid);\r\n    List<String> toAddrs = new ArrayList<String>();\r\n    toAddrs.add(pb.getEmail());\r\n    for (PatientBean r : reps) {\r\n        toAddrs.add(r.getEmail());\r\n    }\r\n    email.setFrom(\"no-reply@itrust.com\");\r\n    // patient and personal representative\r\n    email.setToList(toAddrs);\r\n    email.setSubject(String.format(\"Patient Information Updated\"));\r\n    email.setBody(\"Dear \" + pb.getFullName() + \",\\n\\tYour patient record information has been updated. \" + \"Please login to iTrust to see who has viewed your records.\");\r\n    return email;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private Email makeEmail()",
+                "comments": "Optional[/**\r\n *  Creates and e-mail to inform the patient that their information has been updated.\r\n *\r\n * @return the email with the notice\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// patient and personal representative\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    PatientBean b = this.getPatient();\r\n    b.setMessageFilter(filter);\r\n    this.updateInformation(b);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void editMessageFilter(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, pidString);\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    emailutil = new EmailUtil(factory);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EditPatientAction(DAOFactory, long, String)",
+                "comments": "Optional[/**\r\n * The super class validates the patient id\r\n *\r\n * @param factory The DAOFactory used to create the DAOs for this action.\r\n * @param loggedInMID The MID of the user who is authorizing this action.\r\n * @param pidString The MID of the patient being edited.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "EditPatientAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private PatientValidator validator",
+            "private PatientDAO patientDAO",
+            "private long loggedInMID",
+            "private EmailUtil emailutil"
+        ]
+    }
+]

@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<LOINCbean> list = new ArrayList<LOINCbean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<LOINCbean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LOINCbean LOINC = new LOINCbean();\r\n    LOINC.setLabProcedureCode(rs.getString(\"LaboratoryProcedureCode\"));\r\n    LOINC.setComponent(rs.getString(\"Component\"));\r\n    LOINC.setKindOfProperty(rs.getString(\"KindOfProperty\"));\r\n    LOINC.setTimeAspect(rs.getString(\"TimeAspect\"));\r\n    LOINC.setSystem(rs.getString(\"System\"));\r\n    LOINC.setScaleType(rs.getString(\"ScaleType\"));\r\n    LOINC.setMethodType(rs.getString(\"MethodType\"));\r\n    return LOINC;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LOINCbean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, LOINCbean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "LOINCBeanLoader",
+        "variables": []
+    }
+]

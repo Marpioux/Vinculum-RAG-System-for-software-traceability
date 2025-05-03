@@ -1,0 +1,121 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_sub);\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    panel0.setBackground(Color.white);\r\n    //Caricamento di un'immagine scelta a caso tra quelle disponibili\r\n    Random rnd = new Random();\r\n    int num;\r\n    if ((num = (rnd.nextInt() % 5)) < 0)\r\n        num = num * -1;\r\n    num++;\r\n    String file_name = new String(\"servizi\" + num + \".jpg\");\r\n    Immagine figura = new Immagine(file_name);\r\n    Etichetta etich = new Etichetta(\"Beni&Servizi.gif\");\r\n    Utils.constrain(panel0, etich, 0, 0, 2, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, figura, 2, 0, 10, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(new GridLayout(5, 1));\r\n    Inserimento = new Button(\" Inserimento \");\r\n    Modifica = new Button(\"Modifica\");\r\n    Cancellazione = new Button(\" Cancellazione \");\r\n    Ricerca = new Button(\"Ricerca...\");\r\n    Annulla = new Button(\"Indietro\");\r\n    panel1.add(Inserimento);\r\n    panel1.add(Modifica);\r\n    panel1.add(Cancellazione);\r\n    panel1.add(Ricerca);\r\n    panel1.add(Annulla);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 12, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(this, panel1, 12, 0, 1, 12, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": "Optional[[//Caricamento di un'immagine scelta a caso tra quelle disponibili\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            s.setEnabled(true);\r\n        }\r\n    });\r\n    Inserimento.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            insBeneServizio();\r\n        }\r\n    });\r\n    Modifica.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            modBeneServizio();\r\n        }\r\n    });\r\n    Cancellazione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            cancBeneServizio();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            vediBeneServizio();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    s.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    insBeneServizio();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    modBeneServizio();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    cancBeneServizio();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    vediBeneServizio();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_1 = new InserisciBeniServizi(\"Inserimento di beni e servizi\");\r\n    call_1.padre = this;\r\n    call_1.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void insBeneServizio()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_2 = new ModificaBeniServizi();\r\n    call_2.padre = this;\r\n    call_2.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void modBeneServizio()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_3 = new CancellaBeniServizi();\r\n    call_3.padre = this;\r\n    call_3.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void cancBeneServizio()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_4 = new VediBeniServizi();\r\n    call_4.padre = this;\r\n    call_4.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void vediBeneServizio()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Gestione dei Beni&Servizi\");\r\n    setup();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SubBeniServizi()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "SubBeniServizi",
+        "variables": [
+            " Label label",
+            " Panel panel0",
+            " Panel panel1",
+            " Button Inserimento",
+            " Button Modifica",
+            " Button Cancellazione",
+            " Button Ricerca",
+            " Button Annulla",
+            " GridBagLayout gridbag",
+            " SubGestione s",
+            " CancellaBeniServizi call_3",
+            " ModificaBeniServizi call_2",
+            " InserisciBeniServizi call_1",
+            " VediBeniServizi call_4"
+        ]
+    }
+]

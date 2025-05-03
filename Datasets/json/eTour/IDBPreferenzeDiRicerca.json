@@ -1,0 +1,105 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPreferenzaDiRicerca(BeanPreferenzaDiRicerca)",
+                "comments": "Optional[/**\r\n * Add a preference of Search\r\n *\r\n * @param pPreferenza Search Preferences\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPreferenzaDiRicerca(int)",
+                "comments": "Optional[/**\r\n * Delete a preference for research\r\n *\r\n * @param pIdPreferenza preference to eliminate\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelTurista(int)",
+                "comments": "Optional[/**\r\n * Returns the list of preferences to find a tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @throws SQLException\r\n * @return List of Search Preferences\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelBC(int)",
+                "comments": "Optional[/**\r\n * Returns the list of preferences for research of a cultural\r\n *\r\n * @param pIdBeneCulturale ID of the cultural\r\n * @throws SQLException\r\n * @return list of search preferences.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelPR(int)",
+                "comments": "Optional[/**\r\n * Returns the list of preferences to find a resting spot\r\n *\r\n * @param pIdPuntoDiRistoro a refreshment\r\n * @throws SQLException\r\n * @return list of search preferences.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPreferenzaDiRicercaDelBC(int, int)",
+                "comments": "Optional[/**\r\n * Add a preference for a cultural\r\n *\r\n * @param pIdBeneCulturale ID of the cultural\r\n * @param pIdPreferenzaDiRicerca ID PreferenzaDiRicerca\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPreferenzaDiRicercaDelTurista(int, int)",
+                "comments": "Optional[/**\r\n * Add a search preference to a tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @param pIdPreferenzaDiRicerca ID PreferenzeDiRicerca\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPreferenzaDiRicercaDelPR(int, int)",
+                "comments": "Optional[/**\r\n * Add a preference research to a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @param pIdPreferenzaDiRicerca ID PreferenzaDiRicerca\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPreferenzaDiRicercaTurista(int, int)",
+                "comments": "Optional[/**\r\n * Deletes a preference to find a Tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @param pIdPreferenza Search Preferences\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPreferenzaDiRicercaBC(int, int)",
+                "comments": "Optional[/**\r\n * Deletes a preference for research of a cultural\r\n *\r\n * @param pIdBeneCulturale ID of the cultural\r\n * @param pIdPreferenzaDiRicerca Search Preferences\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPreferenzaDiRicercaPR(int, int)",
+                "comments": "Optional[/**\r\n * Deletes a preference to find a resting spot\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @param pIdPreferenza Search Preferences\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicerca()",
+                "comments": "Optional[/**\r\n * Returns a list of all search preferences in the DB\r\n *\r\n * @throws SQLException\r\n * @return List of search preferences in the DB\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBPreferenzeDiRicerca",
+        "variables": []
+    }
+]

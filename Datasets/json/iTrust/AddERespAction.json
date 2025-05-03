@@ -1,0 +1,31 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    new AddPersonnelValidator().validate(p);\r\n    long newMID = personnelDAO.addEmptyPersonnel(Role.ER);\r\n    p.setMID(newMID);\r\n    personnelDAO.editPersonnel(p);\r\n    String pwd = authDAO.addUser(newMID, Role.ER, RandomPassword.getRandomPassword());\r\n    p.setPassword(pwd);\r\n    transDAO.logTransaction(TransactionType.CREATE_DISABLE_ER, loggedInMID, newMID, \"Added New \" + p.getRole().name());\r\n    return newMID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long add(PersonnelBean)",
+                "comments": "Optional[/**\r\n * Adds the new user.  Event is logged.\r\n *\r\n * @param p bean containing the information for the new user\r\n * @return MID of the new user.\r\n * @throws FormValidationException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AddERespAction(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "AddERespAction",
+        "variables": [
+            "private PersonnelDAO personnelDAO",
+            "private AuthDAO authDAO",
+            "private TransactionDAO transDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // This method checks the input parameter in the cases\r\n    // Null reference or dynamic wrong\r\n    if (PBC == null || !(PBC instanceof BeanBeneCulturale)) {\r\n        return false;\r\n    }\r\n    // This method checks if the ID passed as a parameter BeanBeneCulturale\r\n    // is valid or not\r\n    if (!controllaIdBeneCulturale(PBC.getId())) {\r\n        return false;\r\n    }\r\n    // This method checks the objects contained in BeanBeneCulturale Date\r\n    // as such, a check is made null and reference checks\r\n    // on the dynamic.\r\n    if (!controllaDateBeneCulturale(PBC)) {\r\n        return false;\r\n    }\r\n    // This method checks all the fields in BeanBeneCulturale, research\r\n    // any null references\r\n    if (!controllaDatiNulli(PBC)) {\r\n        return false;\r\n    }\r\n    // Check the correct length of string; in this case, the CAP must\r\n    // be exactly five digits, while the province must be two.\r\n    // TODO: To be completed\r\n    if (PBC.getCap().length() != 5 || PBC.getProvincia().length() != 2) {\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public static boolean controllaDatiBeneCulturale(BeanBeneCulturale)",
+                "comments": "Optional[/**\r\n * Please consistency check by calling the appropriate methods.\r\n * This method wraps all other methods of control with a single call.\r\n * At the first false value the flow is interrupted.\r\n *\r\n * @param PBC The PBC of the cultural object to be inspected\r\n * @return boolean The result of the check: true if OK, false otherwise\r\n */\r\n]",
+                "innerComments": "Optional[[// This method checks the input parameter in the cases\r\n, // This method checks if the ID passed as a parameter BeanBeneCulturale\r\n, // This method checks the objects contained in BeanBeneCulturale Date\r\n, // as such, a check is made null and reference checks\r\n, // This method checks all the fields in BeanBeneCulturale, research\r\n, // Check the correct length of string; in this case, the CAP must\r\n, // be exactly five digits, while the province must be two.\r\n, // Null reference or dynamic wrong\r\n, // is valid or not\r\n, // on the dynamic.\r\n, // any null references\r\n, // TODO: To be completed\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (PBC.getCap() == null || PBC.getCitta() == null || PBC.getDescrizione() == null || PBC.getGiornoChiusura() == null || PBC.getLocalita() == null || PBC.getNome() == null || PBC.getOrarioApertura() == null || PBC.getOrarioChiusura() == null || PBC.getProvincia() == null || PBC.getTelefono() == null || PBC.getVia() == null) {\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean controllaDatiNulli(BeanBeneCulturale)",
+                "comments": "Optional[/**\r\n * Check for null data in a bean cultural property.\r\n * The check is performed on all fields of the bean.\r\n *\r\n * @param PBC The PBC cultural property to be checked\r\n * @return boolean The result of the check: true if there are no null references, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (PBC.getOrarioApertura() == null || !(PBC.getOrarioApertura() instanceof Date) || PBC.getOrarioChiusura() == null || !(PBC.getOrarioChiusura() instanceof Date)) {\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean controllaDateBeneCulturale(BeanBeneCulturale)",
+                "comments": "Optional[/**\r\n * Check the consistency of dates within this BeanBeneCulturale.\r\n * The check is performed only on objects, while not carried out\r\n * no validity check on a date as a cultural object may also have\r\n * dates later than today (see for example on open exhibitions).\r\n *\r\n * @param PBC BeanBeneCulturale which check the dates\r\n * @return boolean The result of the check: true if the dates have consistency; false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (pId > 0);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean controllaIdBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Check the ID of BeanBeneCulturale\r\n *\r\n * @param pId Id BeanBeneCulturale be checked\r\n * @return boolean The result of the check: true if the ID is correct, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ControlloBeniCulturali",
+        "variables": []
+    }
+]

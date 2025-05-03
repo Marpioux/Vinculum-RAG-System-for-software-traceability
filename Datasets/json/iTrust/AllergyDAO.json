@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Allergies WHERE PatientID=? ORDER BY FirstFound DESC\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return allergyBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<AllergyBean> getAllergies(long)",
+                "comments": "Optional[/**\r\n * Returns a list of patient's allergies.\r\n * @param pid A long for the MID of the patient we are looking up.\r\n * @return A java.util.List of AllergyBeans associated with this patient.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO Allergies(PatientID, Description) VALUES (?,?)\");\r\n        ps.setLong(1, pid);\r\n        ps.setString(2, description);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addAllergy(long, String)",
+                "comments": "Optional[/**\r\n * Adds an allergy to this patient's list.\r\n * @param pid The MID of the patient whose allergy we are adding.\r\n * @param description The name of the allergen.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AllergyDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AllergyDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private AllergyBeanLoader allergyBeanLoader"
+        ]
+    }
+]

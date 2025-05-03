@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        long mid = Long.valueOf(input);\r\n        PersonnelBean personnel = personnelDAO.getPersonnel(mid);\r\n        if (personnel != null) {\r\n            transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, mid, //$NON-NLS-1$\r\n            Messages.getString(\"ViewPersonnelAction.0\") + mid);\r\n            return personnel;\r\n        } else\r\n            //$NON-NLS-1$\r\n            throw new iTrustException(Messages.getString(\"ViewPersonnelAction.1\"));\r\n    } catch (NumberFormatException e) {\r\n        e.printStackTrace();\r\n        //$NON-NLS-1$\r\n        throw new iTrustException(Messages.getString(\"ViewPersonnelAction.2\"));\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public PersonnelBean getPersonnel(String)",
+                "comments": "Optional[/**\r\n * Retrieves a PersonnelBean for the mid passed as a param\r\n *\r\n * @param input\r\n *            the mid for which the PersonnelBean will be returned\r\n * @return PersonnelBean\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return emailDAO.getEmailsByPerson(personnelDAO.getPersonnel(loggedInMID).getEmail());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<Email> getEmailHistory()",
+                "comments": "Optional[/**\r\n * Returns a PatientBean for the currently logged in personnel\r\n *\r\n * @return The PatientBean\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.emailDAO = factory.getFakeEmailDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewPersonnelAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person retrieving personnel beans.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewPersonnelAction",
+        "variables": [
+            "private PersonnelDAO personnelDAO",
+            "private TransactionDAO transDAO",
+            "private FakeEmailDAO emailDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

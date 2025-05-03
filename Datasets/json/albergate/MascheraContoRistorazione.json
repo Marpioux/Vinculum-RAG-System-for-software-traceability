@@ -1,0 +1,127 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    MessageDialog msg;\r\n    elenco_extra = (Principale.db).menuRistorante();\r\n    if (elenco_extra != null) {\r\n        if (extra.getItemCount() > 0)\r\n            extra.removeAll();\r\n        int i = 1;\r\n        while (i <= elenco_extra.length()) {\r\n            extra.addItem((elenco_extra.getBeneServizio(i)).toString());\r\n            i++;\r\n        }\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " void inizExtra()",
+                "comments": "Optional[// Travaso dati degli extra nelle strutture dati apposite\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    num_coperti = new TextField(\"\", 4);\r\n    num_coperti.setEditable(true);\r\n    // creo le label\r\n    etich1 = new Label(\"Gestione degli addebiti              \");\r\n    etich1.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich2 = new Label(\"Scegliere l'extra da addebitare \");\r\n    etich3 = new Label(\"Numero di coperti \");\r\n    // creo pannello di sinistra\r\n    this.remove(panel1);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etich1, 0, 0, 6, 1);\r\n    Utils.constrain(panel1, etich2, 0, 1, 6, 1, 10, 0, 0, 0);\r\n    Utils.constrain(panel1, extra, 0, 2, 6, 4, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 20, 0, 20);\r\n    // creo pannello per coperti\r\n    this.remove(panel4);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, etich3, 0, 0, 1, 1, 5, 5, 5, 5);\r\n    Utils.constrain(panel4, num_coperti, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // aggiungo il pannello appena creato al resto\r\n    Utils.constrain(this, panel1, 0, 0, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 2, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": " void setupPanello()",
+                "comments": "Optional[// Creazione della finestra\r\n]",
+                "innerComments": "Optional[[// creo le label\r\n, // creo pannello di sinistra\r\n, // creo pannello per coperti\r\n, // aggiungo il pannello appena creato al resto\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            stampaConto();\r\n        }\r\n    });\r\n    addebita.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                aggiornaAvideo(true);\r\n            }\r\n        }\r\n    });\r\n    deaddebita.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                aggiornaAvideo(false);\r\n            }\r\n        }\r\n    });\r\n    extra.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                aggiornaAvideo(true);\r\n            }\r\n        }\r\n    });\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " void inizializza()",
+                "comments": "Optional[// Per la gestione degli eventi della finestra\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    stampaConto();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!errore()) {\r\n        aggiornaAvideo(true);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!errore()) {\r\n        aggiornaAvideo(false);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!errore()) {\r\n        aggiornaAvideo(true);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if ((num_coperti.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \"Inserire il numero di coperti!\");\r\n        return true;\r\n    } else if (!Utils.isIntPos(num_coperti.getText())) {\r\n        msg = new MessageDialog(this, \"Il numero dei coperti deve essere un numero intero!\");\r\n        return true;\r\n    } else if (extra.getSelectedIndex() == -1) {\r\n        msg = new MessageDialog(this, \"Manca selezione!\");\r\n        return true;\r\n    } else\r\n        return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " boolean errore()",
+                "comments": "Optional[// mancanza dei dati necessari per l'addebito: coperti e extra.\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    for (int i = 1; i <= elenco_addebiti.length(); i++) if (((elenco_addebiti.getAddebito(i)).getCodExtra()).equals(b.getCodExtra()))\r\n        return i;\r\n    return -1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " int posExtraInAddebiti(BeneServizio)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    int[] supp;\r\n    BeneServizio extra_scelto = elenco_extra.getBeneServizio(extra.getSelectedIndex() + 1);\r\n    int pos;\r\n    if ((pos = posExtraInAddebiti(extra_scelto)) < 0 && addebito) {\r\n        Addebito a = new Addebito(\"RIST\", extra_scelto.getCodExtra(), 0, 0);\r\n        elenco_addebiti.addAddebito(a);\r\n        elenco_extra_addebitati.addBeneServizio(extra_scelto);\r\n        // allungo l'array delle quantita' modificate\r\n        supp = new int[elenco_addebiti.length()];\r\n        for (int i = 0; i < quantita_mod.length; i++) supp[i] = quantita_mod[i];\r\n        supp[supp.length - 1] = 1;\r\n        quantita_mod = supp;\r\n        pos = quantita_mod.length;\r\n        extra_add.setText(extra.getSelectedItem());\r\n        continuaAggiornamento();\r\n    } else {\r\n        if (pos < 0) {\r\n            // sto cercando di togliere da un addebito inesistente\r\n            msg = new AvvisoDialog(this, \"Stai cercando di togliere da un addebito ormai inesistente!\");\r\n        } else {\r\n            // aggiorno tale array per contenere l'addebito appena effettuato\r\n            if (addebito) {\r\n                quantita_mod[pos - 1]++;\r\n                extra_add.setText(extra.getSelectedItem());\r\n                continuaAggiornamento();\r\n            } else if (quantita_mod[pos - 1] > 0) {\r\n                quantita_mod[pos - 1]--;\r\n                extra_add.setText(extra.getSelectedItem());\r\n                continuaAggiornamento();\r\n            } else\r\n                msg = new AvvisoDialog(this, \"Stai cercando di togliere da un addebito ormai inesistente!\");\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void aggiornaAvideo(boolean)",
+                "comments": null,
+                "innerComments": "Optional[[// allungo l'array delle quantita' modificate\r\n, // sto cercando di togliere da un addebito inesistente\r\n, // aggiorno tale array per contenere l'addebito appena effettuato\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    int i = 1;\r\n    BeneServizio e;\r\n    float conto = 0;\r\n    float conto_di_questo_extra;\r\n    if (addebiti.getItemCount() > 0)\r\n        addebiti.removeAll();\r\n    while (i <= elenco_addebiti.length()) {\r\n        if (quantita_mod[i - 1] != 0) {\r\n            e = elenco_extra_addebitati.getBeneServizio(i);\r\n            conto_di_questo_extra = quantita_mod[i - 1] * e.getPxUnitario();\r\n            if (Integer.parseInt(e.getCodExtra()) >= 40000000 && Integer.parseInt(e.getCodExtra()) < 50000000)\r\n                addebiti.addItem(\"S \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\r\n            else if (Integer.parseInt(e.getCodExtra()) >= 50000000)\r\n                addebiti.addItem(\"R \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\r\n            else\r\n                addebiti.addItem(Utils.completaStringa(e.getDescrizione(), 10) + Utils.completaStringa(\" x \" + quantita_mod[i - 1], 5) + (Principale.config).getValuta() + \".\" + conto_di_questo_extra);\r\n            conto = conto + conto_di_questo_extra;\r\n        }\r\n        i++;\r\n    }\r\n    totale.setText((Principale.config).getValuta() + \".\" + conto);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void continuaAggiornamento()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!errore()) {\r\n        writeFile();\r\n        dispose();\r\n        padre.setEnabled(true);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void stampaConto()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    float costo_coperti;\r\n    DataOutputStream outStream;\r\n    try {\r\n        outStream = new DataOutputStream(new FileOutputStream(\"conto.abg\"));\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \"Errore nell'apertura del file del conto\");\r\n        return;\r\n    }\r\n    try {\r\n        outStream.writeBytes((Principale.config).getNomeAlbergo() + \"\\n\");\r\n        outStream.writeBytes(\"\\n\");\r\n        outStream.writeBytes((Principale.config).getRagSoc() + \"\\n\");\r\n        outStream.writeBytes((Principale.config).getIndirizzoAlb() + \"\\n\");\r\n        outStream.writeBytes((Principale.config).getComuneAlb() + \"\\n\");\r\n        outStream.writeBytes((Principale.config).getCittaAlb() + \"\\n\");\r\n        outStream.writeBytes(\"\\n\");\r\n        BeneServizio extra;\r\n        Addebito a;\r\n        int num;\r\n        String supporto;\r\n        float conto_totale;\r\n        for (int i = 1; i <= elenco_addebiti.length(); i++) {\r\n            if (quantita_mod[i - 1] != 0) {\r\n                a = elenco_addebiti.getAddebito(i);\r\n                extra = elenco_extra_addebitati.getBeneServizio(i);\r\n                num = quantita_mod[i - 1];\r\n                if ((extra.getCodExtra()).compareTo(\"40000000\") < 0)\r\n                    supporto = new String(extra.getDescrizione() + \" x \" + num + \" \");\r\n                else if ((extra.getCodExtra()).compareTo(\"50000000\") < 0)\r\n                    supporto = new String(\"Supplemento per \" + extra.getDescrizione() + \" \");\r\n                else\r\n                    supporto = new String(\"Riduzione per \" + extra.getDescrizione() + \" \");\r\n                while (supporto.length() < 52) supporto = new String(supporto + \" \");\r\n                outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + num * extra.getPxUnitario() + \"\\n\");\r\n            }\r\n        }\r\n        supporto = new String(\"Coperto x \" + num_coperti.getText());\r\n        while (supporto.length() < 52) supporto = new String(supporto + \" \");\r\n        costo_coperti = Integer.parseInt(num_coperti.getText()) * (Principale.config).getCoperto();\r\n        outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + costo_coperti + \"\\n\");\r\n        outStream.writeBytes(\"\\n\");\r\n        supporto = new String(\"Totale\");\r\n        while (supporto.length() < 52) supporto = new String(supporto + \" \");\r\n        conto_totale = (Float.valueOf(new String((totale.getText()).substring(2)))).floatValue() + costo_coperti;\r\n        outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + conto_totale);\r\n        outStream.close();\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \"Errore nella scrittura del file del conto\");\r\n        return;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void writeFile()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Servizio ristorazione\", \"Stampa del conto\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    inizExtra();\r\n    setupPanello();\r\n    inizializza();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraContoRistorazione(Frame)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraContoRistorazione",
+        "variables": [
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " TextField num_coperti"
+        ]
+    }
+]

@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<HospitalBean> list = new ArrayList<HospitalBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<HospitalBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // HospitalBean hosp = new HospitalBean();\r\n    HospitalBean hosp = new HospitalBean(rs.getString(\"HospitalID\"), rs.getString(\"HospitalName\"));\r\n    return hosp;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public HospitalBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": "Optional[[// HospitalBean hosp = new HospitalBean();\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, HospitalBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "HospitalBeanLoader",
+        "variables": []
+    }
+]

@@ -1,0 +1,113 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return comment;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getCommento()",
+                "comments": "Optional[/**\r\n * Returns the value of comment\r\n *\r\n * @return value of comment.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    comment = pCommento;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setCommento(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of comment\r\n *\r\n * @param pCommento New comment.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return dataVisita;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Date getDataVisita()",
+                "comments": "Optional[/**\r\n * Returns the value of dataVisita\r\n *\r\n * @return value dataVisita.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dataVisita = pDataVisita;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDataVisita(Date)",
+                "comments": "Optional[/**\r\n * Sets the new value of dataVisita\r\n *\r\n * @param pDataVisita New dataVisita.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idBeneCulturale;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdBeneCulturale()",
+                "comments": "Optional[/**\r\n * Returns the value of idBeneCulturale\r\n *\r\n * @return value idBeneCulturale.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    idBeneCulturale = pIdBeneCulturale;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idBeneCulturale\r\n *\r\n * @param pIdBeneCulturale New idBeneCulturale.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idTurista;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdTurista()",
+                "comments": "Optional[/**\r\n * Returns the value of idTurista\r\n *\r\n * @return value idTurista.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    idTurista = pIdTurista;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdTurista(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idTurista\r\n *\r\n * @param pIdTurista New idTurista.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return rating;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getVoto()",
+                "comments": "Optional[/**\r\n * Returns the value of rating\r\n *\r\n * @return value of rating.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    rating = pVoto;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setVoto(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of rating\r\n *\r\n * @param pVoto New value for rating.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setVoto(pVoto);\r\n    setIdBeneCulturale(pIdBeneCulturale);\r\n    setCommento(pCommento);\r\n    setIdTurista(pIdTurista);\r\n    setDataVisita(pDataVisita);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanVisitaBC(int, int, String, int, Date)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pVoto\r\n * @param pIdBeneCulturale\r\n * @param pCommento\r\n * @param pIdTurista\r\n * @param pDataVisita\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanVisitaBC()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanVisitaBC",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int rating",
+            "private int idBeneCulturale",
+            "private String comment",
+            "private int idTurista",
+            "private Date dataVisita"
+        ]
+    }
+]

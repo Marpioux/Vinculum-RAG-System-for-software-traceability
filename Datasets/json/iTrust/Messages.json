@@ -1,0 +1,20 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        return RESOURCE_BUNDLE.getString(key);\r\n    } catch (MissingResourceException e) {\r\n        return '!' + key + '!';\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static String getString(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "Messages",
+        "variables": [
+            "private  static  final String BUNDLE_NAME",
+            "private  static  final ResourceBundle RESOURCE_BUNDLE"
+        ]
+    }
+]

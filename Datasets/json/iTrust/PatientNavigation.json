@@ -1,0 +1,88 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        JspWriter out = pageContext.getOut();\r\n        out.write(\"<span class=\\\"navigation\\\">\");\r\n        for (int i = 0; i < pageTitles.length; i++) {\r\n            if (pageTitles[i].equals(thisTitle)) {\r\n                out.write(pageTitles[i]);\r\n            } else\r\n                out.write(\"<a href=\\\"/iTrust/auth/hcp-uap/\" + pageURLs[i] + \"\\\">\" + pageTitles[i] + \"</a>\");\r\n            out.write(\" | \");\r\n        }\r\n        out.write(\"<a href=\\\"/iTrust/auth/hcp-uap/editPHR.jsp?switch=true\\\">Switch Patient</a>\");\r\n        out.write(\"<br /></span>\");\r\n    } catch (IOException e) {\r\n        e.printStackTrace();\r\n    }\r\n    return SKIP_BODY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int doStartTag()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return SKIP_BODY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int doEndTag()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void release()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.pageContext = pageContext;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPageContext(PageContext)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.parent = parent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setParent(Tag)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return parent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Tag getParent()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return thisTitle;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getThisTitle()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.thisTitle = thisPage;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setThisTitle(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PatientNavigation()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "PatientNavigation",
+        "variables": [
+            "private PageContext pageContext",
+            "private Tag parent",
+            "private String pageTitles",
+            "private String pageURLs",
+            "private String thisTitle"
+        ]
+    }
+]

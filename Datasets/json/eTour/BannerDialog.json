@@ -1,0 +1,70 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    File f = apriFileDialog();\r\n    if (f == null) {\r\n        return;\r\n    }\r\n    BufferedImage img = null;\r\n    try {\r\n        img = ImageIO.read(f);\r\n        if (img.getWidth() > BANNER_SIZE.width || img.getHeight() > BANNER_SIZE.height) {\r\n            img = img.getSubimage(0, 0, BANNER_SIZE.width, BANNER_SIZE.height);\r\n        }\r\n    } catch (IOException e) {\r\n        e.printStackTrace();\r\n    }\r\n    ImageIcon n = new ImageIcon(img);\r\n    anteprima.setIcon(n);\r\n    anteprima.repaint();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    anteprima.setIcon(pBanner);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setSelectedBanner(ImageIcon)",
+                "comments": "Optional[/**\r\n * This method initializes the image contained in the preview.\r\n *\r\n * @param pBanner ImageIcon - an image of a banner.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (ImageIcon) anteprima.getIcon();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ImageIcon getSelectedBanner()",
+                "comments": "Optional[/**\r\n * This method returns the image contained in the preview.\r\n *\r\n * @return ImageIcon - the image of the banner.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    JFileChooser apriFile = new JFileChooser();\r\n    apriFile.setDialogTitle(\"Select a new image\");\r\n    apriFile.setAcceptAllFileFilterUsed(false);\r\n    apriFile.setMultiSelectionEnabled(false);\r\n    // File Filter for the window to open the file.\r\n    apriFile.setFileFilter(new FileFilter() {\r\n\r\n        public boolean accept(File arg0) {\r\n            if (arg0.isDirectory()) {\r\n                return true;\r\n            }\r\n            String name = arg0.getName().toLowerCase();\r\n            return name.endsWith(\"jpg\") || name.endsWith(\"gif\") || name.endsWith(\"png\");\r\n        }\r\n\r\n        public String getDescription() {\r\n            return \"Images (*.png, *.gif, *.jpg)\";\r\n        }\r\n    });\r\n    int returnVal = apriFile.showOpenDialog(this);\r\n    return returnVal == JFileChooser.APPROVE_OPTION ? apriFile.getSelectedFile() : null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private File apriFileDialog()",
+                "comments": "Optional[/**\r\n * This method opens the dialog for selecting a file from disk.\r\n *\r\n * @return\r\n * <ul>\r\n * <li> File - the selected file.\r\n * <li> Null - if you have not selected any files.\r\n * </ul>\r\n */\r\n]",
+                "innerComments": "Optional[[// File Filter for the window to open the file.\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (arg0.isDirectory()) {\r\n        return true;\r\n    }\r\n    String name = arg0.getName().toLowerCase();\r\n    return name.endsWith(\"jpg\") || name.endsWith(\"gif\") || name.endsWith(\"png\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean accept(File)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return \"Images (*.png, *.gif, *.jpg)\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(null);\r\n    setPreferredSize(new Dimension(420, 160));\r\n    anteprima = new JLabel();\r\n    anteprima.setBounds(new Rectangle(40, 20, 250, 60));\r\n    anteprima.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(51, 102, 255), 3), \"Preview Banner\", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), new Color(0, 102, 204)));\r\n    btnCarica = new JButton();\r\n    btnCarica.setBounds(new Rectangle(320, 30, 50, 40));\r\n    btnCarica.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"ApriFile.png\")));\r\n    btnCarica.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent arg0) {\r\n            File f = apriFileDialog();\r\n            if (f == null) {\r\n                return;\r\n            }\r\n            BufferedImage img = null;\r\n            try {\r\n                img = ImageIO.read(f);\r\n                if (img.getWidth() > BANNER_SIZE.width || img.getHeight() > BANNER_SIZE.height) {\r\n                    img = img.getSubimage(0, 0, BANNER_SIZE.width, BANNER_SIZE.height);\r\n                }\r\n            } catch (IOException e) {\r\n                e.printStackTrace();\r\n            }\r\n            ImageIcon n = new ImageIcon(img);\r\n            anteprima.setIcon(n);\r\n            anteprima.repaint();\r\n        }\r\n    });\r\n    JLabel txtAttenzione = new JLabel(\"Warning!\");\r\n    txtAttenzione.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"warning16.png\")));\r\n    txtAttenzione.setBounds(10, 85, 100, 30);\r\n    JLabel txtTesto = new JLabel(\"<html> <ul> <li> image for the banner can not exceed <b> <font color=\\\"red\\\">\" + BANNER_SIZE.width + \"X\" + BANNER_SIZE.height + \"</font> </b> pixels.\" + \"<li> Images of magnitude larger will be resized. </ul> </html>\");\r\n    txtTesto.setBounds(0, 90, 420, 80);\r\n    add(txtTesto);\r\n    add(txtAttenzione);\r\n    add(anteprima);\r\n    add(btnCarica);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BannerDialog()",
+                "comments": "Optional[/**\r\n * This is the default constructor.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BannerDialog",
+        "variables": [
+            "private  static  final Dimension BANNER_SIZE",
+            "private JLabel anteprima",
+            "private JButton btnCarica"
+        ]
+    }
+]

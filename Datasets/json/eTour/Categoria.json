@@ -1,0 +1,86 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return terms;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Hashtable<String, float[]> getTermini()",
+                "comments": "Optional[/**\r\n * Returns the output Hashtable containing the terms\r\n * with the respective values of frequency, relevance and distance\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the name of the output category\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (esisteTermine(pTermine)) {\r\n        return terms.get(pTermine);\r\n    }\r\n    return null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public float[] getVal(String)",
+                "comments": "Optional[/**\r\n * Get the string as a parameter representing the term\r\n * of which you want to pick the values of frequency, range and bearing\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    terms.put(pTermine, new float[3]);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addTermine(String)",
+                "comments": "Optional[/**\r\n * Adds a term to the category dictionary\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if ((pVal == null) || (pTermine.equals(\"\"))) {\r\n        return false;\r\n    }\r\n    terms.put(pTermine, pVal);\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addTermine(String, float[])",
+                "comments": "Optional[/**\r\n * Adds a term to the category dictionary\r\n * with the values of frequency, distance and relevance\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (esisteTermine(pTermine)) {\r\n        terms.put(pTermine, pVal);\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean setValTermine(String, float[])",
+                "comments": "Optional[/**\r\n * Sets the values for the term pTermine\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    terms = pTermini;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTermini(Hashtable<String, float[]>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        float[] ret = terms.get(pTermine);\r\n        if (ret != null) {\r\n            return true;\r\n        }\r\n    } catch (NullPointerException e) {\r\n        return false;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean esisteTermine(String)",
+                "comments": "Optional[/**\r\n * Returns true if the term is present in\r\n * the dictionary of Category, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    name = pNom;\r\n    terms = new Hashtable<>();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Category(String)",
+                "comments": "Optional[/**\r\n * Constructor: Get the category name as a parameter to create\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "Category",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private String name",
+            "private Hashtable<String,float[]> terms"
+        ]
+    }
+]

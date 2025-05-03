@@ -1,0 +1,282 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return cap;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getCap()",
+                "comments": "Optional[/**\r\n * Returns the value of cap\r\n *\r\n * @return value cap.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cap = pCap;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setCap(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of cap\r\n *\r\n * @param pCap value cap.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cittaNascita;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getCittaNascita()",
+                "comments": "Optional[/**\r\n * Returns the value of cittaNascita\r\n *\r\n * @return value cittaNascita.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cittaNascita = pCittaNascita;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setCittaNascita(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of cittaNascita\r\n *\r\n * @param pCittaNascita new cittaNascita.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return cittaResidenza;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getCittaResidenza()",
+                "comments": "Optional[/**\r\n * Returns the value of cittaResidenza\r\n *\r\n * @return value cittaResidenza.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.cittaResidenza = pCittaResidenza;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setCittaResidenza(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of cittaResidenza\r\n *\r\n * @param pCittaResidenza new cittaResidenza.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getCognome()",
+                "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.name = pCognome;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setCognome(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of name\r\n *\r\n * @param pCognome new value of surname.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return dob;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Date getDataNascita()",
+                "comments": "Optional[/**\r\n * Returns the value of dob\r\n *\r\n * @return value dob.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.dob = pDataNascita;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDataNascita(Date)",
+                "comments": "Optional[/**\r\n * Sets the new value of dob\r\n *\r\n * @param pDataNascita new value of dob.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return dataRegistrazione;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Date getDataRegistrazione()",
+                "comments": "Optional[/**\r\n * Returns the value of dataRegistrazione\r\n *\r\n * @return value dataRegistrazione.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.dataRegistrazione = pDataRegistrazione;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDataRegistrazione(Date)",
+                "comments": "Optional[/**\r\n * Sets the new value of dataRegistrazione\r\n *\r\n * @param pDataRegistrazione new dataRegistrazione.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return email;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getEmail()",
+                "comments": "Optional[/**\r\n * Returns the value of email\r\n *\r\n * @return value of email.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.email = pEmail;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setEmail(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of email\r\n *\r\n * @param pEmail new value of email.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.name = pNome;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setNome(String)",
+                "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param pNome new value.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return password;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPassword()",
+                "comments": "Optional[/**\r\n * Returns the value of password\r\n *\r\n * @return value of password.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.password = pPassword;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPassword(String)",
+                "comments": "Optional[/**\r\n * Sets the new password value\r\n *\r\n * @param pPassword new password value.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return province;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getProvincia()",
+                "comments": "Optional[/**\r\n * Returns the value of the province\r\n *\r\n * @return value of the province.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.province = pProvincia;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setProvincia(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of the province\r\n *\r\n * @param pProvincia new value for the province.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return phone;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getTelefono()",
+                "comments": "Optional[/**\r\n * Returns the value of telephone\r\n *\r\n * @return value of the phone.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.phone = pTelefono;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setTelefono(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of telephone\r\n *\r\n * @param pTelefono new value of phone.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return street;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getVar()",
+                "comments": "Optional[/**\r\n * Returns the value of street\r\n *\r\n * @return value of street.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.street = pVia;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setVar(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of street\r\n *\r\n * @param pVia new value of street.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return username;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getUserName()",
+                "comments": "Optional[/**\r\n * Returns the value of username\r\n *\r\n * @return value of username.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return active;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean isAttiva()",
+                "comments": "Optional[/**\r\n * Returns whether the tourist is active or not\r\n *\r\n * @return value of activation.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.active = pAttiva;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setAttiva(boolean)",
+                "comments": "Optional[/**\r\n * Sets the new value of active\r\n *\r\n * @param pAttiva new value for active.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.username = pUsername;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setUsername(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of username\r\n *\r\n * @param pUsername new value for username.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.id = pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid new value of id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value of id.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setId(pid);\r\n    setUsername(pUsername);\r\n    setNome(pNome);\r\n    setCognome(pCognome);\r\n    setCittaNascita(pCittaNascita);\r\n    setCittaResidenza(pCittaResidenza);\r\n    setTelefono(pTelefono);\r\n    setCap(pCap);\r\n    setVar(pVia);\r\n    setProvincia(pProvincia);\r\n    setEmail(pEmail);\r\n    setPassword(pPassword);\r\n    setDataNascita(pDataNascita);\r\n    setDataRegistrazione(pDataRegistrazione);\r\n    setAttiva(pAttiva);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanTurista(int, String, String, String, String, String, String, String, String, String, String, String, Date, Date, boolean)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pid\r\n * @param pUsername\r\n * @param pNome\r\n * @param pCognome\r\n * @param pCittaNascita\r\n * @param pCittaResidenza\r\n * @param pTelefono\r\n * @param pCap\r\n * @param pVia\r\n * @param pProvincia\r\n * @param pEmail\r\n * @param pPassword\r\n * @param pDataNascita\r\n * @param pDataRegistrazione\r\n * @param pAttiva\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanTurista()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanTurista",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int id",
+            "private String username",
+            "private String name",
+            "private String cittaNascita",
+            "private String cittaResidenza",
+            "private String phone",
+            "private String cap",
+            "private String street",
+            "private String province",
+            "private String email",
+            "private String password",
+            "private Date dob",
+            "private Date dataRegistrazione",
+            "private boolean active"
+        ]
+    }
+]

@@ -1,0 +1,36 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        Integer minutes = Integer.valueOf(minuteString);\r\n        if (minutes < 1)\r\n            throw new FormValidationException(\"Must be a number greater than 0\");\r\n        accessDAO.setSessionTimeoutMins(minutes);\r\n    } catch (NumberFormatException e) {\r\n        throw new FormValidationException(\"That is not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void changeSessionTimeout(String)",
+                "comments": "Optional[/**\r\n * Changes the session timeout, the complicated logic of this is somewhat regrettably in the DAO,\r\n * {@link AccessDAO}\r\n *\r\n * @param minuteString\r\n *            Pass the number of minutes in the form of a string, greater than 0.\r\n * @throws FormValidationException\r\n * @throws DBException\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return accessDAO.getSessionTimeoutMins();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getSessionTimeout()",
+                "comments": "Optional[/**\r\n * Returns the current session timeout in minutes, as reflected in the database\r\n *\r\n * @return the number of minutes it would take for an inactive session to timeout\r\n * @throws DBException\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.accessDAO = factory.getAccessDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ChangeSessionTimeoutAction(DAOFactory)",
+                "comments": "Optional[/**\r\n * Sets up defualts.\r\n *\r\n * @param factory\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ChangeSessionTimeoutAction",
+        "variables": [
+            "private AccessDAO accessDAO"
+        ]
+    }
+]

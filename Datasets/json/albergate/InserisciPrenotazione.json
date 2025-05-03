@@ -1,0 +1,61 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    testo[0].setText(room.getNumStanza());\r\n    testo[0].setEditable(false);\r\n    testo[4].setText(DateUtils.parseDate(data_i));\r\n    testo[5].setText(DateUtils.parseDate(data_f));\r\n    testo[4].setEditable(false);\r\n    testo[5].setEditable(false);\r\n    testo[7].setText(room.getDescrizione());\r\n    testo[9].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(new Date())));\r\n    testo[8].setText(agenzia);\r\n    testo[8].setEditable(false);\r\n    if (!agenzia.equals(\"\")) {\r\n        testo[6].setEditable(false);\r\n        myCheckbox1.setState(true);\r\n    }\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            mask_ricerca.setEnabled(true);\r\n        }\r\n    });\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init(Stanza, String, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    mask_ricerca.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAzione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    AskDialog ask;\r\n    int answer = 0;\r\n    if (!errori()) {\r\n        Prenotazione pren = readDatiPren();\r\n        pren.setDataPren(new Date());\r\n        int j;\r\n        if ((j = (Principale.db).newIdPrenotazione()) == DataBase.OK) {\r\n            (Principale.config).updateIdPrenotazione();\r\n            if ((j = (Principale.db).writePrenotazione(pren)) == DataBase.OK) {\r\n                if (!myCheckbox1.getState())\r\n                    ask = new AskDialog(this, \" Assegnare la stanza o Bloccarla fino al ricevimento della caparra? \", \" Assegnare \", \" Bloccare \", pren);\r\n                else\r\n                    startAggiornaDisp(pren, Flag.ASSEGNATA);\r\n            } else\r\n                msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAzione()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    aggiornaDisp(p, tipo);\r\n    dispose();\r\n    mask_ricerca.restartAvvio();\r\n    mask_ricerca.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAggiornaDisp(Prenotazione, char)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(room, data_i, data_f, \"Inserimento dei dati della prenotazione\", \"Inserisci\", 1, Flag.PENSIONE_COMPLETA);\r\n    agenzia = new String(nome_ag);\r\n    init(room, data_i, data_f);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public InserisciPrenotazione(Stanza, String, String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "InserisciPrenotazione",
+        "variables": [
+            " MascheraRicercaStanza mask_ricerca",
+            " String agenzia"
+        ]
+    }
+]

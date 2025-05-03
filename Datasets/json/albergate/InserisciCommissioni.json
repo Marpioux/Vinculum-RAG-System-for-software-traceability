@@ -1,0 +1,52 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    num_stanza.setText(stanza.getNumStanza());\r\n    inizio_comm.setText(data1);\r\n    fine_comm.setText(data2);\r\n    num_stanza.setEditable(false);\r\n    inizio_comm.setEditable(false);\r\n    fine_comm.setEditable(false);\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            mask_ricerca.setEnabled(true);\r\n        }\r\n    });\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init(Stanza, String, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    mask_ricerca.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAzione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        Commissionamento comm = readDatiComm();\r\n        int j;\r\n        if ((j = (Principale.db).newIdCommissionamento()) == DataBase.OK) {\r\n            (Principale.config).updateIdCommissionamento();\r\n            if ((j = (Principale.db).writeCommissionamento(comm)) == DataBase.OK) {\r\n                aggiornaDisp(comm, Flag.COMMISSIONATA);\r\n                dispose();\r\n                mask_ricerca.restartAvvio();\r\n                mask_ricerca.setEnabled(true);\r\n            } else\r\n                msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAzione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(data1, data2, \"Inserimento dei dati delle commissioni\", \"Inserisci\", 1);\r\n    init(stanza, data1, data2);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public InserisciCommissioni(Stanza, String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "InserisciCommissioni",
+        "variables": [
+            " MascheraRicercaStanza mask_ricerca"
+        ]
+    }
+]

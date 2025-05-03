@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return sqlException;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SQLException getSQLException()",
+                "comments": "Optional[/**\r\n * @return The SQL Exception that was responsible for this error.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (sqlException != null)\r\n        return sqlException.getMessage();\r\n    else\r\n        return super.getExtendedMessage();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getExtendedMessage()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"A database exception has occurred. Please see the log in the console for stacktrace\");\r\n    this.sqlException = e;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DBException(SQLException)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "DBException",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private SQLException sqlException"
+        ]
+    }
+]

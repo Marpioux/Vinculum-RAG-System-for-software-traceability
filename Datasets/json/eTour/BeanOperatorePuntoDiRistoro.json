@@ -1,0 +1,147 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return surname;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getSurname()",
+                "comments": "Optional[/**\r\n * Returns the value of surname\r\n *\r\n * @return value of surname.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.surname = pSurname;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setSurname(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of surname\r\n *\r\n * @param pSurname New surname.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return email;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getEmail()",
+                "comments": "Optional[/**\r\n * Returns the value of email\r\n *\r\n * @return value of email.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.email = pEmail;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setEmail(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of email\r\n *\r\n * @param pEmail New value of email.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.name = pName;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setName(String)",
+                "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param pName New value name.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return password;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPassword()",
+                "comments": "Optional[/**\r\n * Returns the value of password\r\n *\r\n * @return value of password.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.password = pPassword;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPassword(String)",
+                "comments": "Optional[/**\r\n * Sets the new password value\r\n *\r\n * @param pPassword new password value.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return username;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getUsername()",
+                "comments": "Optional[/**\r\n * Returns the value of username\r\n *\r\n * @return value of username.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.username = pUsername;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setUsername(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of username\r\n *\r\n * @param pUsername New value for username.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdPuntoDiRistoro()",
+                "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value of idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro New idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.id = pId;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setId(pId);\r\n    setName(pName);\r\n    setSurname(pSurname);\r\n    setUsername(pUsername);\r\n    setPassword(pPassword);\r\n    setEmail(pEmail);\r\n    setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanOperatorePuntoDiRistoro(int, String, String, String, String, String, int)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pName\r\n * @param pSurname\r\n * @param pUsername\r\n * @param pPassword\r\n * @param pEmail\r\n * @param pIdPuntoDiRistoro\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanOperatorePuntoDiRistoro()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanOperatorePuntoDiRistoro",
+        "variables": [
+            "private int id",
+            "private String name",
+            "private String surname",
+            "private String username",
+            "private String password",
+            "private String email",
+            "private int idPuntoDiRistoro",
+            "private  static  final long serialVersionUID"
+        ]
+    }
+]

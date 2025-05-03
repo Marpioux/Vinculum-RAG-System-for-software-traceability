@@ -1,0 +1,76 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<FamilyMemberBean> familyMembers = getFamilyMembers(patientID);\r\n    for (FamilyMemberBean famMember : familyMembers) {\r\n        if (hadPriorDiagnoses(famMember.getMid(), icdLower, icdUpper))\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFamilyHistory(long, double, double)",
+                "comments": "Optional[/**\r\n * This method is implemented using {@link FamilyDAO} for 2 reasons: (a) definitions of family members\r\n * might change, so it's better to centralize that code and (2) to make this code a little bit \"nicer\"\r\n * even though it executes one query per family member. If this method gets slow, then you will need to\r\n * refactor. Otherwise, let's just keep it simple...\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @param icdLower A double of the lower bound for the codes.\r\n * @param icdUpper A double of the upper bound for the codes.\r\n * @return A boolean indicating whether a family member had a match in this range.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    FamilyDAO famDAO = factory.getFamilyDAO();\r\n    List<FamilyMemberBean> familyMembers = famDAO.getParents(patientID);\r\n    familyMembers.addAll(famDAO.getSiblings(patientID));\r\n    return familyMembers;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private List<FamilyMemberBean> getFamilyMembers(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // Note the datediff call - this is a MySQL function that takes the difference between two\r\n    // dates and returns that value in terms of days. 6570 days is 18 years (not counting leap years)\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OVDiagnosis ovd, OfficeVisits ov, Patients p \" + \"WHERE ovd.visitID=ov.id AND ov.patientid=p.mid AND p.mid=? \" + \"AND datediff(ov.visitdate,p.dateofbirth) < 6570 AND ovd.icdcode IN (\" + createPrepared(icdCodes.length) + \")\");\r\n        ps.setLong(1, patientID);\r\n        setICDs(2, ps, icdCodes);\r\n        // if this query has ANY rows, then yes\r\n        return ps.executeQuery().next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean hadChildhoodInfection(long, double...)",
+                "comments": "Optional[/**\r\n * Returns whether or not a patient had a childhood infection for the exact, given ICD codes.\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @param icdCodes A parameter list of the ICD codes to match.\r\n * @return A boolean indicating whether this patient had all the listed ICD codes.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// Note the datediff call - this is a MySQL function that takes the difference between two\r\n, // dates and returns that value in terms of days. 6570 days is 18 years (not counting leap years)\r\n, // if this query has ANY rows, then yes\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    String str = \"\";\r\n    for (int i = 0; i < length; i++) str += \"?,\";\r\n    return str.substring(0, str.length() - 1);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private String createPrepared(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    for (double icdCode : icdCodes) {\r\n        ps.setDouble(start++, icdCode);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private void setICDs(int, PreparedStatement, double[])",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM PersonalHealthInformation WHERE PatientID=? AND Smoker=1\");\r\n        ps.setLong(1, patientID);\r\n        // if this query has ANY rows, then yes\r\n        return ps.executeQuery().next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean hasSmoked(long)",
+                "comments": "Optional[/**\r\n * Returns if the patient has ever smoked in their life\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @return A boolean indicating whether the patient smoked.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// if this query has ANY rows, then yes\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OVDiagnosis ovd, OfficeVisits ov, Patients p \" + \"WHERE ovd.visitID=ov.id AND ov.patientid=p.mid AND p.mid=? \" + \"AND ovd.icdcode>=? AND ovd.icdcode<?\");\r\n        ps.setLong(1, patientID);\r\n        ps.setDouble(2, lowerICDCode);\r\n        ps.setDouble(3, upperICDCode);\r\n        // if this query has ANY rows, then yes\r\n        return ps.executeQuery().next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean hadPriorDiagnoses(long, double, double)",
+                "comments": "Optional[/**\r\n * Returns if a patient has ever been diagnosed with the given ICD code, in the range [lower,upper)\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @param lowerICDCode A double of the lower ICD code.\r\n * @param upperICDCode A double of the upper ICD code.\r\n * @return A boolean indicating whether there was a match in the given range.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// if this query has ANY rows, then yes\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public RiskDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "RiskDAO",
+        "variables": [
+            "private DAOFactory factory"
+        ]
+    }
+]

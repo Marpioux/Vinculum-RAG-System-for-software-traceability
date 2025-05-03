@@ -1,0 +1,49 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciMenu(BeanMenu)",
+                "comments": "Optional[/**\r\n * Adds a menu in the database\r\n *\r\n * @param pMenu menu to add\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaMenu(BeanMenu)",
+                "comments": "Optional[/**\r\n * Modify a menu in the database\r\n *\r\n * @param pMenu Contains the data to change\r\n * @return True if there was a modification, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaMenu(int)",
+                "comments": "Optional[/**\r\n * Delete a menu from the database\r\n *\r\n * @param pIdMenu menu to delete\r\n * @return True if it was deleted, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanMenu ottieniMenuDelGiorno(int, String)",
+                "comments": "Optional[/**\r\n * Returns the menu of the day of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification of refreshment\r\n * @param pGiorno day of the week in which the menu is daily\r\n * @return daily menu of refreshment\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanMenu> ottieniMenu(int)",
+                "comments": "Optional[/**\r\n * Returns a list of the menu of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification of refreshment\r\n * @return list of menus\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBMenu",
+        "variables": []
+    }
+]

@@ -1,0 +1,97 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaBeneCulturalePreferito(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaPuntoDiRistoroPreferito(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean delete(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciBeneCulturalePreferito(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciPuntoDiRistoroPreferito(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciTurista(BeanTurista)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean modificaTurista(BeanTurista)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public BeanTurista ottieniTurista(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return new BeanTurista(1, \"username\", \"Astrubale\", \"Silberschatz\", \"Naples\", \"Naples\", \"0111111\", \"80100th\", \"Way of the systems, 1\", \"NA\", \"trapano@solitario.it\", \"passwordsolomia\", new Date(), new Date(), true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public BeanTurista ottieniTurista(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ArrayList<BeanTurista> ottieniTuristi(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ArrayList<BeanTurista> ottieniTuristi(boolean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DBTurista",
+        "variables": []
+    }
+]

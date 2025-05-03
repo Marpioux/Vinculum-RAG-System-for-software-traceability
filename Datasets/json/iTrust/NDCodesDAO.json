@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM NDCodes ORDER BY CODE\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return medicationLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<MedicationBean> getAllNDCodes()",
+                "comments": "Optional[/**\r\n * Returns a list of all ND codes\r\n *\r\n * @return A java.util.List of MedicationBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM NDCodes WHERE Code = ?\");\r\n        ps.setString(1, code);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return medicationLoader.loadSingle(rs);\r\n        return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public MedicationBean getNDCode(String)",
+                "comments": "Optional[/**\r\n * Returns a particular description for a given code.\r\n *\r\n * @param code The ND code to be looked up.\r\n * @return A bean representing the Medication that was looked up.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO NDCodes (Code, Description) \" + \"VALUES (?,?)\");\r\n        ps.setString(1, med.getNDCode());\r\n        ps.setString(2, med.getDescription());\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: Code already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addNDCode(MedicationBean)",
+                "comments": "Optional[/**\r\n * Adds a new ND code, returns whether or not the change was made. If the code already exists, an\r\n * iTrustException is thrown.\r\n *\r\n * @param med The medication bean to be added.\r\n * @return A boolean indicating success or failure.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE NDCodes SET Description = ? \" + \"WHERE Code = ?\");\r\n        ps.setString(1, med.getDescription());\r\n        ps.setString(2, med.getNDCode());\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int updateCode(MedicationBean)",
+                "comments": "Optional[/**\r\n * Updates a particular code's description\r\n *\r\n * @param med A bean representing the particular medication to be updated.\r\n * @return An int representing the number of updated rows.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public NDCodesDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "NDCodesDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private MedicationBeanLoader medicationLoader"
+        ]
+    }
+]

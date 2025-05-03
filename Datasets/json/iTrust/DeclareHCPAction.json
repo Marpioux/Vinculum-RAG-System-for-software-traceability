@@ -1,0 +1,47 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return patientDAO.getDeclaredHCPs(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> getDeclaredHCPS()",
+                "comments": "Optional[/**\r\n * Lists the declared HCPs for this current patient\r\n *\r\n * @return Returns a list of the declared HCPs\r\n * @throws iTrustException\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long hcpID = Long.valueOf(hcpStr);\r\n        if (authDAO.getUserRole(hcpID) != Role.HCP)\r\n            throw new iTrustException(\"This user is not a licensed healthcare professional!\");\r\n        boolean confirm = patientDAO.declareHCP(loggedInMID, hcpID);\r\n        if (confirm) {\r\n            transDAO.logTransaction(TransactionType.DECLARE_HCP, loggedInMID, hcpID, \"patient declared hcp\");\r\n            return \"HCP successfully declared\";\r\n        } else\r\n            return \"HCP not declared\";\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String declareHCP(String)",
+                "comments": "Optional[/**\r\n * Validate an HCP's MID and declare them, if possible\r\n *\r\n * @param hcpStr\r\n *            The MID of an HCP to declare\r\n * @return A status message,\r\n * @throws iTrustException\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long hcpID = Long.valueOf(input);\r\n        boolean confirm = patientDAO.undeclareHCP(loggedInMID, hcpID);\r\n        if (confirm) {\r\n            transDAO.logTransaction(TransactionType.DECLARE_HCP, loggedInMID, hcpID, \"patient undeclared hcp\");\r\n            return \"HCP successfully undeclared\";\r\n        } else\r\n            return \"HCP not undeclared\";\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String undeclareHCP(String)",
+                "comments": "Optional[/**\r\n * Validate an HCP's MID and undeclare them, if possible\r\n *\r\n * @param input\r\n *            The MID of an HCP to undeclare\r\n * @return\r\n * @throws iTrustException\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DeclareHCPAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Sets up defaults\r\n *\r\n * @param factory The DAO factory to be used for generating the DAOs for this action.\r\n * @param loggedInMID\r\n *            This patient\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "DeclareHCPAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private PatientDAO patientDAO",
+            "private AuthDAO authDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

@@ -1,0 +1,87 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    // creo l'elenco degli addebiti alla stanza e degli extra\r\n    addebiti = new List(10, false);\r\n    addebiti.setFont(ConfigurazioneSistema.font_allineato);\r\n    extra = new List(10, false);\r\n    extra.setFont(ConfigurazioneSistema.font_allineato);\r\n    // creo i textfield\r\n    extra_add = new TextField(\"\", 40);\r\n    totale = new TextField(\"\", 20);\r\n    extra_add.setEditable(false);\r\n    totale.setEditable(false);\r\n    // creo i pulsanti\r\n    addebita = new Button(\"Addebita\");\r\n    deaddebita = new Button(\"Togli dall'addebito\");\r\n    aggiungi = new Button(\"Aggiungi nuovo bene/servizio\");\r\n    annulla = new Button(\"Annulla\");\r\n    conferma = new Button(bottone_conf);\r\n    // creo le label\r\n    etich4 = new Label(\"Informazioni sugli addebiti\");\r\n    etich4.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich5 = new Label(\"Ultimo addebito effettuato\");\r\n    etich6 = new Label(\"Lista degli addebiti\");\r\n    etich7 = new Label(\"Totale dell'addebito\");\r\n    // creo il primo pannello vuoto\r\n    panel1 = new Panel();\r\n    // creo pannello di informazione degli addebiti\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, etich4, 0, 0, 3, 1);\r\n    Utils.constrain(panel2, etich5, 0, 2, 3, 1, 10, 0, 0, 0);\r\n    Utils.constrain(panel2, extra_add, 0, 3, 1, 1, 0, 20, 0, 0);\r\n    Utils.constrain(panel2, etich6, 0, 5, 3, 1, 10, 0, 0, 0);\r\n    Utils.constrain(panel2, addebiti, 0, 6, 2, 4, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 20, 0, 20);\r\n    Utils.constrain(panel2, etich7, 0, 12, 3, 1, 10, 0, 0, 0);\r\n    Utils.constrain(panel2, totale, 0, 13, 1, 1, 0, 20, 0, 0);\r\n    // creo pannello per addebita\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, addebita, 0, 0, 1, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1.0, 0.0, 0, 0, 0, 5);\r\n    Utils.constrain(panel3, deaddebita, 1, 0, 1, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1.0, 0.0, 0, 5, 0, 0);\r\n    // creo pannello vuoto per num_stanza o coperti\r\n    panel4 = new Panel();\r\n    // creo pannello per aggiungi\r\n    panel5 = new Panel();\r\n    panel5.setLayout(gridbag);\r\n    Utils.constrain(panel5, aggiungi, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n    // creo pannello per annulla\r\n    panel6 = new Panel();\r\n    panel6.setLayout(gridbag);\r\n    Utils.constrain(panel6, annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 0, 0, 0, 0);\r\n    // creo pannello per conferma\r\n    panel7 = new Panel();\r\n    panel7.setLayout(gridbag);\r\n    Utils.constrain(panel7, conferma, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 0, 0, 0, 0);\r\n    // costruisco la finestra definitiva attaccando i pannelli\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 0, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 1, 0, 1, 4, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 0, 1, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(this, panel4, 0, 2, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 0, 5, 0);\r\n    Utils.constrain(this, panel5, 0, 3, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel6, 0, 4, 1, 1, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 0.0, 0.0, 5, 0, 5, 0);\r\n    Utils.constrain(this, panel7, 1, 4, 2, 1, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 0.0, 0.0, 5, 0, 5, 0);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": " void setupPanels(String)",
+                "comments": "Optional[// Creazione della finestra\r\n]",
+                "innerComments": "Optional[[// creo l'elenco degli addebiti alla stanza e degli extra\r\n, // creo i textfield\r\n, // creo i pulsanti\r\n, // creo le label\r\n, // creo il primo pannello vuoto\r\n, // creo pannello di informazione degli addebiti\r\n, // creo pannello per addebita\r\n, // creo pannello vuoto per num_stanza o coperti\r\n, // creo pannello per aggiungi\r\n, // creo pannello per annulla\r\n, // creo pannello per conferma\r\n, // costruisco la finestra definitiva attaccando i pannelli\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    aggiungi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAggiungi();\r\n        }\r\n    });\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": "Optional[// Per la gestione degli eventi della finestra\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAggiungi();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    nuovo = new AggiungiBeneServizio(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAggiungi()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(titolo);\r\n    setupPanels(bottone_conf);\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraPerAddebitare(String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraPerAddebitare",
+        "variables": [
+            " ListaBeniServizi elenco_extra",
+            " ListaAddebiti elenco_addebiti",
+            " ListaBeniServizi elenco_extra_addebitati",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Label etich7",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " Panel panel5",
+            " Panel panel6",
+            " Panel panel7",
+            " Button conferma",
+            " Button annulla",
+            " Button addebita",
+            " Button deaddebita",
+            " Button aggiungi",
+            " TextField extra_add",
+            " TextField totale",
+            " List addebiti",
+            " List extra",
+            " GridBagLayout gridbag",
+            " Frame padre",
+            " AggiungiBeneServizio nuovo",
+            " boolean addebito",
+            " int quantita_mod"
+        ]
+    }
+]

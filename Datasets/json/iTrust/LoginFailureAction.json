@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        authDAO.recordLoginFailure(ipAddr);\r\n        int loginFailures = authDAO.getLoginFailures(ipAddr);\r\n        transactionDAO.logTransaction(TransactionType.LOGIN_FAILURE, 0L, 0L, \"IP: \" + ipAddr);\r\n        return \"Login failed, attempt \" + loginFailures;\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String recordLoginFailure()",
+                "comments": "Optional[/**\r\n * Calls authDAO to record the login failure in the database\r\n *\r\n * @return How many login failure attempts or a DBException message\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return authDAO.getLoginFailures(ipAddr) < 3;\r\n    } catch (DBException e) {\r\n        System.err.println(\"Denying access due to DBException\");\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean isValidForLogin()",
+                "comments": "Optional[/**\r\n * Checks to see if the current user can login (#failures<3)\r\n *\r\n * @return true if the user is valid to login\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.authDAO = factory.getAuthDAO();\r\n    this.ipAddr = ipAddr;\r\n    this.transactionDAO = factory.getTransactionDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public LoginFailureAction(DAOFactory, String)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param ipAddr The IP address of the user making the login attempt.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "LoginFailureAction",
+        "variables": [
+            "public  static  final int MAX_LOGIN_ATTEMPTS",
+            "private AuthDAO authDAO",
+            "private String ipAddr",
+            "private TransactionDAO transactionDAO"
+        ]
+    }
+]

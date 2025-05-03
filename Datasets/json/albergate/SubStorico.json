@@ -1,0 +1,67 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_sub);\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    panel0.setBackground(Color.white);\r\n    Immagine figura = new Immagine(\"servizi5.jpg\");\r\n    Etichetta etich = new Etichetta(\"Storico.gif\");\r\n    Utils.constrain(panel0, etich, 0, 0, 2, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 1.0, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, figura, 2, 0, 10, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 1.0, 1.0, 0, 0, 0, 0);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(new GridLayout(2, 1));\r\n    Ricerca = new Button(\" Ricerca \");\r\n    Annulla = new Button(\" Annulla \");\r\n    panel1.add(Ricerca);\r\n    panel1.add(Annulla);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 12, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n    Utils.constrain(this, panel1, 12, 0, 1, 12, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            start_ricerca();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    start_ricerca();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new MascheraRicercaStorico(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void start_ricerca()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Storico Clienti\");\r\n    setup();\r\n    init();\r\n    pack();\r\n    //setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public SubStorico()",
+                "comments": null,
+                "innerComments": "[//setVisible(true);\r\n]"
+            }
+        ],
+        "signature": "SubStorico",
+        "variables": [
+            " Label label",
+            " Panel panel0",
+            " Panel panel1",
+            " Button Ricerca",
+            " Button Annulla",
+            " GridBagLayout gridbag",
+            " Frame p",
+            " Frame figlio"
+        ]
+    }
+]

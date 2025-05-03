@@ -1,0 +1,95 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return firstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFirstName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.firstName = firstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setFirstName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return getFirstName() + \" \" + getLastName();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFullName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return mid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getMid()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.mid = mid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setMid(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return relation;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getRelation()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.relation = relation;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRelation(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public FamilyMemberBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "FamilyMemberBean",
+        "variables": [
+            "private long mid",
+            "private String relation",
+            "private String firstName",
+            "private String lastName"
+        ]
+    }
+]

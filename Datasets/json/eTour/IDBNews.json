@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciNews(BeanNews)",
+                "comments": "Optional[/**\r\n * Add a news database\r\n *\r\n * @param news News to add\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaNews(BeanNews)",
+                "comments": "Optional[/**\r\n * Modify a news database\r\n *\r\n * @param news News to change with the new data\r\n * @throws SQLException\r\n * @return True if there was a modification, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaNews(int)",
+                "comments": "Optional[/**\r\n * Delete a database from news\r\n *\r\n * @param idNews News to eliminate\r\n * @throws SQLException\r\n * @return True if it has been deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanNews> ottieniNews()",
+                "comments": "Optional[/**\r\n * Returns the active news\r\n *\r\n * @throws SQLException\r\n * @return list of active news\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBNews",
+        "variables": []
+    }
+]

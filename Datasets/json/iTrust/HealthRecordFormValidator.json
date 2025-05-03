@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    errorList.addIfNotNull(checkInt(\"Systolic blood pressure\", bean.getBloodPressureN(), 0, 999, false));\r\n    errorList.addIfNotNull(checkInt(\"Diastolic blood pressure\", bean.getBloodPressureD(), 0, 999, false));\r\n    errorList.addIfNotNull(checkInt(\"Cholesterol HDL\", bean.getCholesterolHDL(), 0, 89, false));\r\n    errorList.addIfNotNull(checkInt(\"Cholesterol LDL\", bean.getCholesterolLDL(), 0, 600, false));\r\n    errorList.addIfNotNull(checkInt(\"Cholesterol Triglycerides\", bean.getCholesterolTri(), 100, 600, false));\r\n    errorList.addIfNotNull(checkFormat(\"Height\", bean.getHeight(), ValidationFormat.Height, false));\r\n    errorList.addIfNotNull(checkFormat(\"Weight\", bean.getWeight(), ValidationFormat.Weight, false));\r\n    errorList.addIfNotNull(checkBoolean(\"Smoker\", bean.getIsSmoker()));\r\n    if (errorList.hasErrors())\r\n        throw new FormValidationException(errorList);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void validate(HealthRecordForm)",
+                "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "HealthRecordFormValidator",
+        "variables": []
+    }
+]

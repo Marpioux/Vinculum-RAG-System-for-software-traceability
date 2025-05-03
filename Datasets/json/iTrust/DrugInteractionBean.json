@@ -1,0 +1,61 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return firstDrug;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getFirstDrug()",
+                "comments": "Optional[/**\r\n * @return the firstDrug\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.firstDrug = firstDrug;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setFirstDrug(String)",
+                "comments": "Optional[/**\r\n * @param firstDrug the firstDrug to set\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return secondDrug;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getSecondDrug()",
+                "comments": "Optional[/**\r\n * @return the secondDrug\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.secondDrug = secondDrug;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setSecondDrug(String)",
+                "comments": "Optional[/**\r\n * @param secondDrug the secondDrug to set\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return description;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": "Optional[/**\r\n * @return the description\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.description = description;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDescription(String)",
+                "comments": "Optional[/**\r\n * @param description the description to set\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DrugInteractionBean",
+        "variables": [
+            " String firstDrug",
+            " String secondDrug",
+            " String description"
+        ]
+    }
+]

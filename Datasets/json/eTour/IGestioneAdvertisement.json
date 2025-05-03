@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciBanner(int, ImageIcon)",
+                "comments": "Optional[/**\r\n * Inserts a new banner.\r\n *\r\n * @param pIdPuntoDiRistoro Bean contains the data of the banner\r\n * @param pImmagineBanner    Image of the banner\r\n * @return true if the operation is successful, false otherwise.\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaBanner(int)",
+                "comments": "Optional[/**\r\n * Delete a banner from the system.\r\n *\r\n * @param pBannerID ID banner to be deleted.\r\n * @return true if the operation is successful, false otherwise.\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaBanner(int, ImageIcon)",
+                "comments": "Optional[/**\r\n * Modify the data of the banner or the image associated.\r\n *\r\n * @param pBannerID ID of the banner.\r\n * @param pImmagine Image associated with the banner.\r\n * @return true if the operation is successful, false otherwise.\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract HashMap<BeanBanner, ImageIcon> ottieniBannersDaID(int)",
+                "comments": "Optional[/**\r\n * Returns a list of Banner of a particular point of comfort.\r\n *\r\n * @param pIdPuntoDiRistoro ID of the refreshment owner of the banner\r\n * @return HashMap containing the list of banners for the refreshment\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneAdvertisement",
+        "variables": []
+    }
+]

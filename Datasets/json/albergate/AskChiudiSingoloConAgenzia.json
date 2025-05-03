@@ -1,0 +1,67 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    message = new Label(\"Calcolare il conto di un soggiornante venuto con agenzia implica cambiare la sua data di partenza.\");\r\n    button1 = new Button(\" Annulla \");\r\n    button2 = new Button(\" Cambia data \");\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, message, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    //Creo il pannello in basso con due pulsanti\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, button1, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 0, 0, 0, 15);\r\n    Utils.constrain(panel2, button2, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 0, 15, 0, 0);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 1, 4, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 14, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanel()",
+                "comments": null,
+                "innerComments": "Optional[[//Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    button1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n    button2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            padre.startChiudiSingoloConAgenzia();\r\n            startAzione();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAzione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    padre.startChiudiSingoloConAgenzia();\r\n    startAzione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setVisible(false);\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAzione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Cosa devo fare?\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    setupPanel();\r\n    init();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AskChiudiSingoloConAgenzia(MascheraCalcoloConto)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "AskChiudiSingoloConAgenzia",
+        "variables": [
+            " Button button1",
+            " Button button2",
+            " Button button3",
+            " MascheraCalcoloConto padre",
+            " Panel panel1",
+            " Panel panel2",
+            " Label message",
+            " GridBagLayout gridbag"
+        ]
+    }
+]

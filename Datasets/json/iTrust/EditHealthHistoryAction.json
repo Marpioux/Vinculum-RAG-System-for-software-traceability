@@ -1,0 +1,56 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return authDAO.getUserName(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPatientName()",
+                "comments": "Optional[/**\r\n * returns the patient name\r\n *\r\n * @return patient name\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(hr);\r\n    HealthRecord record = transferForm(pid, hr);\r\n    hrDAO.add(record);\r\n    transDAO.logTransaction(TransactionType.ENTER_EDIT_PHR, loggedInMID, pid, \"EditHealthHistory - Add Record\");\r\n    return \"Information Recorded\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String addHealthRecord(long, HealthRecordForm)",
+                "comments": "Optional[/**\r\n * Adds a health record for the given patient\r\n *\r\n * @param pid  The patient record who is being edited.\r\n * @param hr  The filled out health record form to be added.\r\n * @return message - \"Information Recorded\" or exception's message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    HealthRecord record = new HealthRecord();\r\n    record.setPatientID(pid);\r\n    record.setPersonnelID(loggedInMID);\r\n    record.setBloodPressureD(Integer.valueOf(form.getBloodPressureD()));\r\n    record.setBloodPressureN(Integer.valueOf(form.getBloodPressureN()));\r\n    record.setCholesterolHDL(Integer.valueOf(form.getCholesterolHDL()));\r\n    record.setCholesterolLDL(Integer.valueOf(form.getCholesterolLDL()));\r\n    record.setCholesterolTri(Integer.valueOf(form.getCholesterolTri()));\r\n    if (record.getTotalCholesterol() < 100 || record.getTotalCholesterol() > 600)\r\n        throw new FormValidationException(\"Total cholesterol must be in [100,600]\");\r\n    record.setHeight(Double.valueOf(form.getHeight()));\r\n    record.setWeight(Double.valueOf(form.getWeight()));\r\n    record.setSmoker(Boolean.valueOf(form.getIsSmoker()));\r\n    return record;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private HealthRecord transferForm(long, HealthRecordForm)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.VIEW_HEALTH_RECORDS, loggedInMID, pid, \"EditHealthHistory - View Records\");\r\n    return hrDAO.getAllHealthRecords(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<HealthRecord> getAllHealthRecords(long)",
+                "comments": "Optional[/**\r\n * Returns a list of all HealthRecords for the given patient\r\n *\r\n * @param pid  The ID of the patient to look up\r\n * @return list of HealthRecords\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, pidString);\r\n    this.hrDAO = factory.getHealthRecordsDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EditHealthHistoryAction(DAOFactory, long, String)",
+                "comments": "Optional[/**\r\n * The patient ID is validated by the superclass\r\n *\r\n * @param factory The DAOFactory which will be used to generate the DAOs used for this action.\r\n * @param loggedInMID The user authorizing this action.\r\n * @param pidString The patient (or other user) who is being edited.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "EditHealthHistoryAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private HealthRecordsDAO hrDAO",
+            "private AuthDAO authDAO",
+            "private long loggedInMID",
+            "private HealthRecordFormValidator validator"
+        ]
+    }
+]

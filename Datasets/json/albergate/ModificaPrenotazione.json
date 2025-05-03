@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    writeDatiPren(p);\r\n    testo[0].setEditable(false);\r\n    testo[4].setEditable(false);\r\n    testo[5].setEditable(false);\r\n    testo[9].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getDataPren())));\r\n    if (!p.getNomeAgenzia().equals(\"\")) {\r\n        testo[6].setEditable(false);\r\n        myCheckbox1.setState(true);\r\n    }\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errori()) {\r\n                Prenotazione pren = readDatiPren();\r\n                pren.setIdPrenotazione(p.getIdPrenotazione());\r\n                pren.setDataPren(p.getDataPren());\r\n                int j;\r\n                j = (Principale.db).changePrenotazione(pren.getIdPrenotazione(), pren.getNumStanza(), pren.getNumPers(), pren.getNome(), pren.getCognome(), pren.getNumTel(), pren.getInizioSogg(), pren.getFineSogg(), pren.getDataPren(), pren.getCaparra(), pren.getRichLettoAgg(), pren.getPensionamento(), pren.getTramiteAgenzia(), pren.getNomeAgenzia(), pren.getRichParticolari());\r\n                dispose();\r\n                parent.creaLista(1);\r\n                parent.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    Assegna.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAssegnazione();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!errori()) {\r\n        Prenotazione pren = readDatiPren();\r\n        pren.setIdPrenotazione(p.getIdPrenotazione());\r\n        pren.setDataPren(p.getDataPren());\r\n        int j;\r\n        j = (Principale.db).changePrenotazione(pren.getIdPrenotazione(), pren.getNumStanza(), pren.getNumPers(), pren.getNome(), pren.getCognome(), pren.getNumTel(), pren.getInizioSogg(), pren.getFineSogg(), pren.getDataPren(), pren.getCaparra(), pren.getRichLettoAgg(), pren.getPensionamento(), pren.getTramiteAgenzia(), pren.getNomeAgenzia(), pren.getRichParticolari());\r\n        dispose();\r\n        parent.creaLista(1);\r\n        parent.setEnabled(true);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAssegnazione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    Utils.aggiornaDisp(elenco_disp, p.getNumStanza(), p.getInizioSogg(), p.getFineSogg(), Flag.ASSEGNATA, Flag.BLOCCATA, true);\r\n    msg = new AvvisoDialog(this, \" Assegnata la stanza \" + p.getNumStanza() + \" alla prenotazione \");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAssegnazione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(room, \"\", \"\", \"Modifica dei dati della prenotazione\", \"Modifica\", 2, pren.getPensionamento());\r\n    p = pren;\r\n    parent = papa;\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ModificaPrenotazione(Prenotazione, Stanza, RicercaPrenotazione)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ModificaPrenotazione",
+        "variables": [
+            " Prenotazione p",
+            " RicercaPrenotazione parent"
+        ]
+    }
+]

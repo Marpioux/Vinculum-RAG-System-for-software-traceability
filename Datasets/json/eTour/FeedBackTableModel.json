@@ -1,0 +1,127 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return headers.length;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getColumnCount()",
+                "comments": "Optional[/**\r\n * Returns the number of columns provided by the model.\r\n *\r\n * @return int - the number of columns.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return data.size();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getRowCount()",
+                "comments": "Optional[/**\r\n * Returns the number of rows currently in the model.\r\n *\r\n * @return int - the number of rows.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pColumn >= getColumnCount() || pColumn < 0) {\r\n        throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n    }\r\n    return headers[pColumn];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getColumnName(int)",
+                "comments": "Optional[/**\r\n * Returns the column name from the index provided.\r\n *\r\n * @return String - the name of the column.\r\n * @throws IllegalArgumentException - if the column index is not provided\r\n *                                   in the model.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pRow >= getRowCount() || pRow < 0) {\r\n        throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n    }\r\n    if (pColumn >= getColumnCount() || pColumn < 0) {\r\n        throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n    }\r\n    return data.get(pRow)[pColumn];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Object getValueAt(int, int)",
+                "comments": "Optional[/**\r\n * Returns the object in the model to the row and column provided.\r\n *\r\n * @param pRow    - the line number.\r\n * @param pColumn - the column number.\r\n * @return Object - the object contained in the selected cell.\r\n * @throws IllegalArgumentException - if the index or the row or column not provided\r\n *                                   are present in the model.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pColumn >= getColumnCount() || pColumn < 0) {\r\n        throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n    }\r\n    return columnClasses[pColumn];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Class getColumnClass(int)",
+                "comments": "Optional[/**\r\n * Returns the class of objects in the column of which is provided in the index.\r\n *\r\n * @param pColumn - the column number.\r\n * @return Class - the class of objects of the selected column.\r\n * @throws IllegalArgumentException - if the index column does not pro\r\n *                                   in the model.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean isCellEditable(int, int)",
+                "comments": "Optional[/**\r\n * Returns whether the selected cell editable.\r\n *\r\n * @return boolean - true if the cell editable\r\n * false otherwise\r\n * @param pRow    - the line number.\r\n * @param pColumn - the column number.\r\n * @throws IllegalArgumentException - if the index or the row or column are not provided\r\n *                                   in the model.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setValueAt(Object, int, int)",
+                "comments": "Optional[/**\r\n * The method is inherited by setValueAt TableModel does not need to FeedbackTableModel\r\n * Because it provided the possibility to change a single cell.\r\n * @deprecated\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pVisitaBC == null || pUsername == null || pUsername.equals(\"\")) {\r\n        throw new IllegalArgumentException(\"Invalid parameters supplied input.\");\r\n    }\r\n    Object[] aRow = new Object[6];\r\n    aRow[0] = pVisitaBC.getVoto();\r\n    aRow[1] = pVisitaBC.getCommento();\r\n    aRow[2] = pVisitaBC.getDataVisita();\r\n    aRow[3] = pUsername;\r\n    aRow[4] = pVisitaBC.getIdBeneCulturale();\r\n    aRow[5] = pVisitaBC.getIdTurista();\r\n    data.add(aRow);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void insertVisitaBC(BeanVisitaBC, String)",
+                "comments": "Optional[/**\r\n * Enter data on the feedback received from a cultural\r\n * In the model from Bean.\r\n *\r\n * @param pVisitaBC - the bean that contains the feedback from\r\n *                   Cultural.\r\n * @throws IllegalArgumentException - if the parameters supplied input not\r\n *                                   are valid.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pVisitaPR == null || pUsername == null || pUsername.equals(\"\")) {\r\n        throw new IllegalArgumentException(\"Invalid parameters supplied input.\");\r\n    }\r\n    Object[] aRow = new Object[6];\r\n    aRow[0] = pVisitaPR.getVoto();\r\n    aRow[1] = pVisitaPR.getCommento();\r\n    aRow[2] = pVisitaPR.getDataVisita();\r\n    aRow[3] = pUsername;\r\n    aRow[4] = pVisitaPR.getIdPuntoDiRistoro();\r\n    aRow[5] = pVisitaPR.getIdTurista();\r\n    data.add(aRow);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void insertVisitaPR(BeanVisitaPR, String)",
+                "comments": "Optional[/**\r\n * Enter data on the feedback received from a refreshment\r\n * In the model from Bean.\r\n *\r\n * @param pVisitaPR - the bean that contains the feedback from\r\n *                   Refreshment.\r\n * @throws IllegalArgumentException - if the parameters supplied input not\r\n *                                   are valid.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pRow >= getRowCount() || pRow < 0) {\r\n        throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n    }\r\n    if (pNuovoCommento == null) {\r\n        throw new IllegalArgumentException(\"The new comment can not be null.\");\r\n    }\r\n    data.get(pRow)[1] = pNuovoCommento;\r\n    fireTableDataChanged();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void modificaCommento(String, int)",
+                "comments": "Optional[/**\r\n * Updates the comment feedback contained in the table row selected.\r\n *\r\n * @param pNuovoCommento - the new comment.\r\n * @param pRow           - the row to update.\r\n * @throws IllegalArgumentException - if <ul> <li> the row index is not present in the model.\r\n *                                    <li> New comment supplied input is zero. </ul>\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pRow >= getRowCount() || pRow < 0) {\r\n        throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n    }\r\n    int[] ids = new int[2];\r\n    ids[0] = (Integer) data.get(pRow)[4];\r\n    ids[1] = (Integer) data.get(pRow)[5];\r\n    return ids;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int[] getIDFeedback(int)",
+                "comments": "Optional[/**\r\n * Returns the id of the row receive feedback provided on input.\r\n *\r\n * @param pRow int - the row number.\r\n * @return int[] - the id of the feedback.\r\n * @throws IllegalArgumentException - if the row index does not pro\r\n *                                   in the model.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int[] ids = getIDFeedback(pRow);\r\n    data.remove(pRow);\r\n    return ids;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int[] removeFeedback(int)",
+                "comments": "Optional[/**\r\n * Returns the id of feedback to line number provided as input and removes it from the model.\r\n *\r\n * @param pRow int - the row number.\r\n * @return int[] - the id of the feedback.\r\n * @throws IllegalArgumentException - if the row index does not pro\r\n *                                   in the model.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    data = new ArrayList<>();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public FeedbackTableModel()",
+                "comments": "Optional[/**\r\n * Default Constructor. We only provide the model but not\r\n * Loads no data in it.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this();\r\n    if (pDatiFeedback == null || pDatiFeedback.size() == 0) {\r\n        return;\r\n    }\r\n    Iterator<?> iter = pDatiFeedback.keySet().iterator();\r\n    while (iter.hasNext()) {\r\n        Object current = iter.next();\r\n        if (current instanceof BeanVisitaBC) {\r\n            insertVisitaBC((BeanVisitaBC) current, pDatiFeedback.get(current));\r\n        } else if (current instanceof BeanVisitaPR) {\r\n            insertVisitaPR((BeanVisitaPR) current, pDatiFeedback.get(current));\r\n        }\r\n    }\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public FeedbackTableModel(HashMap<?, String>)",
+                "comments": "Optional[/**\r\n * Constructor that takes as input an ArrayList of BeanVisitaBC or\r\n * BeanVisitaPR and copies of the data within the model\r\n * Preparing for display.\r\n *\r\n * @param pDatiFeedback java.util.HashMap - the HashMap of bean.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "FeedbackTableModel",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private  static  final String headers",
+            "private  static  final Class columnClasses",
+            "private ArrayList<Object[]> data"
+        ]
+    }
+]

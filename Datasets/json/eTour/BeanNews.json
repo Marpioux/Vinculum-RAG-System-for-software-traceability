@@ -1,0 +1,113 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return dataPubblicazione;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Date getDataPubblicazione()",
+                "comments": "Optional[/**\r\n * Returns the value of dataPubblicazione\r\n *\r\n * @return value dataPubblicazione.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dataPubblicazione = pDataPubblicazione;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDataPubblicazione(Date)",
+                "comments": "Optional[/**\r\n * Sets the new value of dataPubblicazione\r\n *\r\n * @param pDataPubblicazione New dataPubblicazione.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return dataScadenza;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Date getDataScadenza()",
+                "comments": "Optional[/**\r\n * Returns the value of dataScadenza\r\n *\r\n * @return value dataScadenza.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dataScadenza = pDataScadenza;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDataScadenza(Date)",
+                "comments": "Optional[/**\r\n * Sets the new value of dataScadenza\r\n *\r\n * @param pDataScadenza New dataScadenza.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return news;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getNews()",
+                "comments": "Optional[/**\r\n * Returns the value of news\r\n *\r\n * @return value of news.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    news = Pnews;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setNews(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of news\r\n *\r\n * @param Pnews New Pnews news.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return priority;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getPriorita()",
+                "comments": "Optional[/**\r\n * Returns the priority value\r\n *\r\n * @return the priority value.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    priority = pPriorita;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPriorita(int)",
+                "comments": "Optional[/**\r\n * Set the new priority value\r\n *\r\n * @param pPriorita New priority value.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    id = pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid New value for id.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setNews(Pnews);\r\n    setDataPubblicazione(pDataPubblicazione);\r\n    setDataScadenza(pDataScadenza);\r\n    setPriorita(pPriorita);\r\n    setId(pid);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanNews(String, Date, Date, int, int)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param Pnews\r\n * @param pDataPubblicazione\r\n * @param pDataScadenza\r\n * @param pPriorita\r\n * @param pId\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanNews()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanNews",
+        "variables": [
+            "private String news",
+            "private Date dataPubblicazione",
+            "private Date dataScadenza",
+            "private int priority",
+            "private int id",
+            "private  static  final long serialVersionUID"
+        ]
+    }
+]

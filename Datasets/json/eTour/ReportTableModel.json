@@ -1,0 +1,87 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return headers.length;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getColumnCount()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return data.size();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getRowCount()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return headers[col];\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getColumnName(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return data.get(row)[col];\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Object getValueAt(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return columnClasses[col];\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Class<?> getColumnClass(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean isCellEditable(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (row >= getRowCount()) {\r\n        Object[] newRow = new Object[headers.length];\r\n        newRow[col] = value;\r\n        data.add(newRow);\r\n    } else {\r\n        data.get(row)[col] = value;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setValueAt(Object, int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (value.length != headers.length) {\r\n        System.out.println(value.length);\r\n        System.out.println(headers.length);\r\n        throw new IllegalArgumentException();\r\n    }\r\n    if (row >= getRowCount()) {\r\n        data.add(value);\r\n    } else {\r\n        data.remove(row);\r\n        data.add(row, value);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setValueAt(Object[], int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    data = new Vector<>();\r\n    for (int i = 0; i < pr.length; i++) {\r\n        Object[] newRow = new Object[5];\r\n        newRow[0] = pr[i].getName();\r\n        newRow[1] = pr[i].getDescrizione();\r\n        newRow[2] = pr[i].getVar();\r\n        newRow[3] = pr[i].getCitta();\r\n        newRow[4] = pr[i].getProvincia();\r\n        data.add(newRow);\r\n    }\r\n    for (int i = 0; i < bc.length; i++) {\r\n        Object[] newRow = new Object[5];\r\n        newRow[0] = bc[i].getName();\r\n        newRow[1] = bc[i].getDescrizione();\r\n        newRow[2] = bc[i].getVar();\r\n        newRow[3] = bc[i].getCitta();\r\n        newRow[4] = bc[i].getProvincia();\r\n        data.add(newRow);\r\n    }\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReportTableModel(BeanBeneCulturale[], BeanPuntoDiRistoro[])",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ReportTableModel",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private  static  final String headers",
+            "private  static  final Class columnClasses",
+            "private Vector<Object[]> data"
+        ]
+    }
+]

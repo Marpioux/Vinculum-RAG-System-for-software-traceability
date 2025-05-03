@@ -1,0 +1,81 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciBeneCulturale(BeanBeneCulturale)",
+                "comments": "Optional[/**\r\n * Add a cultural heritage, given input\r\n *\r\n * @param pBene Cultural Heritage for inclusion in database\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaBeneCulturale(BeanBeneCulturale)",
+                "comments": "Optional[/**\r\n * Modify the information in the cultural\r\n *\r\n * @param pBene contains the information to modify the database\r\n * @throws SQLException\r\n * @return True if there was a modified false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Delete a cultural object from the database\r\n *\r\n * @param pIdBene cultural property to delete\r\n * @throws SQLException\r\n * @return True if it was deleted false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanBeneCulturale ottieniBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * Returns the cultural object with id as input\r\n *\r\n * @param pid cultural property to be extracted from the database\r\n * @throws SQLException\r\n * @return cultural property obtained from the database\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanBeneCulturale> search(String, ArrayList<BeanTag>, int, int, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Research. Returns the list of cultural property in their name or\r\n * Description given string as input, filtered according to tags and\r\n * Maximum distance. The returned list contains the number of goods given as input.\r\n * To browse the real list, which may contain more of\r\n * Ten elements, you use the parameter numPagina.\r\n *\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pNumPagina The page number you want to view. 0 for\r\n * 1 page (the first 10 results), 1 for 2 page (results\r\n * from 11 to 20) etc ...\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @param pNumeroElementiPerPagina number of items to return per page\r\n * @throws SQLException\r\n * @return list contained ten cultural\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanBeneCulturale> ricercaAvanzata(int, String, ArrayList<BeanTag>, int, int, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Advanced Search. Returns the list of cultural goods which have in\r\n * Name or description given string as input, sorted according to\r\n * Preferences of tourists and filtered according to the tag and the maximum distance. The\r\n * Returned list contains the number of goods given as input. To scroll\r\n * The actual list, which may contain multiple items, you\r\n * Use parameter numPagina.\r\n *\r\n * @param pIdTurista tourists who carried out the research\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pNumPagina The page number you want to view. 0 for\r\n * 1 page (the first 10 results), 1 for 2 page (results\r\n * from 11 to 20) etc ...\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @param pNumeroElementiPerPagina number of items to return per page\r\n * @throws SQLException\r\n * @return list contained ten cultural\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int ottieniNumeroElementiRicerca(String, ArrayList<BeanTag>, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Method to get the number of elements to search.\r\n *\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @throws SQLException\r\n * @return number of pages.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int ottieniNumeroElementiRicercaAvanzata(int, String, ArrayList<BeanTag>, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Method to get the number of elements to search.\r\n *\r\n * @param pIdTurista tourists who carried out the research\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @throws SQLException\r\n * @return number of pages.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanBeneCulturale> ottieniListaBC()",
+                "comments": "Optional[/**\r\n * Returns a list of all cultural\r\n *\r\n * @throws SQLException\r\n * @return List of all cultural\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBBeneCulturale",
+        "variables": []
+    }
+]

@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPreferenzaGenerica(BeanPreferenzeGeneriche)",
+                "comments": "Optional[/**\r\n * Add a general preference\r\n *\r\n * @param pPreferenza preference to be added\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaPreferenzaGenerica(BeanPreferenzeGeneriche)",
+                "comments": "Optional[/**\r\n * Edit a general preference\r\n *\r\n * @param pPreferenza preference to change\r\n * @throws SQLException\r\n * @return true if it has been changed, otherwise false\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPreferenzaGenerica(int)",
+                "comments": "Optional[/**\r\n * Delete a general preference\r\n *\r\n * @param pIdPreferenza preference to delete\r\n * @throws SQLException\r\n * @return true if it has been deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPreferenzeGeneriche ottieniPreferenzaGenerica(int)",
+                "comments": "Optional[/**\r\n * Returns the generic preference for tourists\r\n *\r\n * @param pIdTurista tourist's ID\r\n * @throws SQLException\r\n * @return generic preference\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBPreferenzeGeneriche",
+        "variables": []
+    }
+]

@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<TransactionBean> list = new ArrayList<TransactionBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<TransactionBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, TransactionBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    TransactionBean t = new TransactionBean();\r\n    t.setAddedInfo(rs.getString(\"addedInfo\"));\r\n    t.setLoggedInMID(rs.getLong(\"loggedInMID\"));\r\n    t.setSecondaryMID(rs.getLong(\"secondaryMID\"));\r\n    t.setTimeLogged(rs.getTimestamp(\"timeLogged\"));\r\n    t.setTransactionType(TransactionType.parse(rs.getInt(\"transactionCode\")));\r\n    t.setTransactionID(rs.getLong(\"transactionID\"));\r\n    return t;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public TransactionBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "TransactionBeanLoader",
+        "variables": []
+    }
+]

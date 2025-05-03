@@ -1,0 +1,61 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM CPTCodes ORDER BY CODE\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return procedureBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ProcedureBean> getAllCPTCodes()",
+                "comments": "Optional[/**\r\n * Returns a list of all CPT codes.\r\n *\r\n * @return A java.util.List of ProcedureBeans for the CPT codes.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"select * from cptcodes where attribute='immunization' order by code\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return procedureBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ProcedureBean> getImmunizationCPTCodes()",
+                "comments": "Optional[/**\r\n * Returns a list of all CPT codes.\r\n *\r\n * @return A java.util.List of all Immunization-related CPT codes.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM CPTCodes WHERE Code = ?\");\r\n        ps.setString(1, code);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return procedureBeanLoader.loadSingle(rs);\r\n        return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ProcedureBean getCPTCode(String)",
+                "comments": "Optional[/**\r\n * Returns a particular procedure description for a code.\r\n *\r\n * @param code The string representation of the code.\r\n * @return The textual description of the code.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO CPTCodes (Code, Description, Attribute) \" + \"VALUES (?,?,?)\");\r\n        ps.setString(1, proc.getCPTCode());\r\n        ps.setString(2, proc.getDescription());\r\n        ps.setString(3, proc.getAttribute());\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: Code already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addCPTCode(ProcedureBean)",
+                "comments": "Optional[/**\r\n * Adds a new CPT code, returns that it was added successfully\r\n *\r\n * @param proc A ProcedureBean representing the new code information.\r\n * @return A boolean for whether the operation was successful.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE CPTCodes SET Description = ?, Attribute = ? WHERE Code = ?\");\r\n        ps.setString(1, proc.getDescription());\r\n        ps.setString(2, proc.getAttribute());\r\n        ps.setString(3, proc.getCPTCode());\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int updateCode(ProcedureBean)",
+                "comments": "Optional[/**\r\n * Change the procedure description for a particular CPT code\r\n *\r\n * @param proc A ProcedureBean representing the new code information.\r\n * @return A boolean for whether the operation was successful.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public CPTCodesDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "CPTCodesDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private ProcedureBeanLoader procedureBeanLoader"
+        ]
+    }
+]

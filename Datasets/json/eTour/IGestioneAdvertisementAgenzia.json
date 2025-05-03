@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciNews(BeanNews)",
+                "comments": "Optional[/**\r\n * Method that inserts a new news item into the system.\r\n *\r\n * @param news Bean containing news data\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaNews(int)",
+                "comments": "Optional[/**\r\n * Method that removes a news item from the system.\r\n *\r\n * @param newsID ID of the news item to be erased\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaNews(BeanNews)",
+                "comments": "Optional[/**\r\n * Method that amends the text of a news item.\r\n *\r\n * @param news Bean containing news data\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanNews> ottieniAllNews()",
+                "comments": "Optional[/**\r\n * Returns the list of active news items.\r\n *\r\n * @return ArrayList of BeanNews\r\n * @throws RemoteException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneAdvertisementAgenzia",
+        "variables": []
+    }
+]

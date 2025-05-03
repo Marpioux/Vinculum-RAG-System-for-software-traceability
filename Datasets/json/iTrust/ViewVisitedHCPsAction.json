@@ -1,0 +1,74 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        List<OfficeVisitBean> ovlist = visitDAO.getAllOfficeVisits(patientMID);\r\n        HCPVisitBean visitBean;\r\n        List<PersonnelBean> dhcps = patientDAO.getDeclaredHCPs(patientMID);\r\n        boolean tmp;\r\n        PersonnelBean pb;\r\n        ArrayList<PersonnelBean> removeIDs = new ArrayList<PersonnelBean>();\r\n        for (OfficeVisitBean ov : ovlist) {\r\n            visitBean = new HCPVisitBean();\r\n            pb = docDAO.getPersonnel(ov.getHcpID());\r\n            visitBean.setHCPMID(ov.getHcpID());\r\n            visitBean.setHCPName(pb.getFullName());\r\n            visitBean.setOVDate(ov.getVisitDateStr());\r\n            visitBean.setHCPSpecialty(pb.getSpecialty());\r\n            visitBean.setHCPAddr(pb.getStreetAddress1() + \" \" + pb.getStreetAddress2() + \" \" + pb.getCity() + \", \" + pb.getState() + \" \" + pb.getZip());\r\n            if (true == (tmp = patientDAO.checkDeclaredHCP(patientMID, ov.getHcpID()))) {\r\n                visitBean.setDesignated(tmp);\r\n                if (!dhcps.isEmpty()) {\r\n                    for (PersonnelBean hcp : dhcps) {\r\n                        if (hcp.getMID() == ov.getHcpID()) {\r\n                            removeIDs.add(hcp);\r\n                        }\r\n                    }\r\n                    if (!removeIDs.isEmpty()) {\r\n                        for (PersonnelBean pbean : removeIDs) {\r\n                            dhcps.remove(pbean);\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            visits.add(visitBean);\r\n        }\r\n        for (PersonnelBean hcp : dhcps) {\r\n            visitBean = new HCPVisitBean();\r\n            visitBean.setHCPMID(hcp.getMID());\r\n            visitBean.setHCPName(hcp.getFullName());\r\n            visitBean.setOVDate(\"\");\r\n            visitBean.setHCPSpecialty(hcp.getSpecialty());\r\n            visitBean.setHCPAddr(hcp.getStreetAddress1() + \" \" + hcp.getStreetAddress2() + \" \" + hcp.getCity() + \", \" + hcp.getState() + \" \" + hcp.getZip());\r\n            visitBean.setDesignated(true);\r\n            visits.add(visitBean);\r\n        }\r\n    } catch (DBException dbe) {\r\n        throw new iTrustException(dbe.getMessage());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void processOfficeVisits()",
+                "comments": "Optional[/**\r\n * Adds all the office visits to a global array\r\n *\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        processOfficeVisits();\r\n        for (int i = 0; i < visits.size(); i++) {\r\n            for (int j = i + 1; j < visits.size(); j++) {\r\n                if (visits.get(i).getHCPMID() == visits.get(j).getHCPMID()) {\r\n                    visits.remove(visits.get(j));\r\n                    j--;\r\n                }\r\n            }\r\n        }\r\n    } catch (iTrustException ie) {\r\n    }\r\n    return visits;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<HCPVisitBean> getVisitedHCPs()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    HCPVisitBean remove = null;\r\n    for (HCPVisitBean visit : visits) {\r\n        if (0 == visit.getHCPName().toLowerCase().compareTo(name.toLowerCase())) {\r\n            Long mid = Long.valueOf(visit.getHCPMID());\r\n            //if (patientDAO.checkDeclaredHCP(patientMID, visit.getHCPMID())) {\r\n            declareAction.undeclareHCP(mid.toString());\r\n            //}\r\n            visit.setDesignated(false);\r\n            if (0 == visit.getOVDate().compareTo(\"\")) {\r\n                remove = visit;\r\n            }\r\n        }\r\n    }\r\n    if (null != remove) {\r\n        visits.remove(remove);\r\n    }\r\n    return \"\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public String undeclareHCP(String)",
+                "comments": "Optional[/**\r\n * Set a given HCP as undeclared\r\n *\r\n * @param name HCP to undeclare\r\n * @return An empty string.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": "Optional[[//if (patientDAO.checkDeclaredHCP(patientMID, visit.getHCPMID())) {\r\n, //}\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    boolean match = false;\r\n    for (HCPVisitBean visit : visits) {\r\n        if (0 == visit.getHCPName().toLowerCase().compareTo(name.toLowerCase())) {\r\n            match = true;\r\n            Long mid = Long.valueOf(visit.getHCPMID());\r\n            if (!patientDAO.checkDeclaredHCP(patientMID, visit.getHCPMID())) {\r\n                declareAction.declareHCP(mid.toString());\r\n            }\r\n            visit.setDesignated(true);\r\n        }\r\n    }\r\n    if (!match) {\r\n        List<PersonnelBean> doclist = docDAO.getAllPersonnel();\r\n        for (PersonnelBean ele : doclist) {\r\n            if (0 == name.compareTo(ele.getFullName())) {\r\n                HCPVisitBean visitBean;\r\n                visitBean = new HCPVisitBean();\r\n                visitBean.setHCPMID(ele.getMID());\r\n                visitBean.setHCPName(ele.getFullName());\r\n                visitBean.setOVDate(\"\");\r\n                visitBean.setHCPSpecialty(ele.getSpecialty());\r\n                visitBean.setHCPAddr(ele.getStreetAddress1() + \" \" + ele.getStreetAddress2() + \" \" + ele.getCity() + \", \" + ele.getState() + \" \" + ele.getZip());\r\n                visitBean.setDesignated(true);\r\n                Long mid = Long.valueOf(ele.getMID());\r\n                if (!patientDAO.checkDeclaredHCP(patientMID, mid)) {\r\n                    declareAction.declareHCP(mid.toString());\r\n                    visits.add(visitBean);\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return \"\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String declareHCP(String)",
+                "comments": "Optional[/**\r\n * Set a given HCP as declared\r\n *\r\n * @param name HCP to declare\r\n * @return An empty string.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return patientDAO.checkDeclaredHCP(patientMID, mid);\r\n    } catch (DBException dbe) {\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean checkDeclared(long)",
+                "comments": "Optional[/**\r\n * Check to see if a given HCP is declared\r\n * @param mid HCP to check\r\n * @return true if the HCP is declared, otherwise false\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<PersonnelBean> doclist;\r\n    try {\r\n        doclist = docDAO.getAllPersonnel();\r\n        for (PersonnelBean ele : doclist) {\r\n            if (ele.getLastName().toLowerCase().contains(doc.toLowerCase())) {\r\n                if (null != specialty && !specialty.equals(\"\")) {\r\n                    if (0 == specialty.toLowerCase().compareTo(ele.getSpecialty().toLowerCase())) {\r\n                        if (null != zip && !zip.equals(\"\")) {\r\n                            if (ele.getZip().contains(zip.substring(0, 2))) {\r\n                                filterList.add(ele);\r\n                            }\r\n                        } else {\r\n                            filterList.add(ele);\r\n                        }\r\n                    }\r\n                } else if (null != zip && !zip.equals(\"\")) {\r\n                    if (ele.getZip().contains(zip.substring(0, 2))) {\r\n                        filterList.add(ele);\r\n                    }\r\n                } else {\r\n                    filterList.add(ele);\r\n                }\r\n            }\r\n        }\r\n    } catch (DBException dbe) {\r\n    }\r\n    return filterList;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> filterHCPList(String, String, String)",
+                "comments": "Optional[/**\r\n * Filter the list of HCPs by last name, specialty, or zip code.\r\n * @param doc sort by last name\r\n * @param specialty sort by specialty\r\n * @param zip sort by zip\r\n * @return sorted list of HCPs\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    patientMID = loggedInMID;\r\n    docDAO = factory.getPersonnelDAO();\r\n    visitDAO = factory.getOfficeVisitDAO();\r\n    patientDAO = factory.getPatientDAO();\r\n    visits = new ArrayList<HCPVisitBean>();\r\n    declareAction = new DeclareHCPAction(factory, loggedInMID);\r\n    filterList = new ArrayList<PersonnelBean>();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewVisitedHCPsAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the visited HCPs.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewVisitedHCPsAction",
+        "variables": [
+            "private long patientMID",
+            "private PersonnelDAO docDAO",
+            "private OfficeVisitDAO visitDAO",
+            "private PatientDAO patientDAO",
+            "private ArrayList<HCPVisitBean> visits",
+            "private DeclareHCPAction declareAction",
+            "private ArrayList<PersonnelBean> filterList"
+        ]
+    }
+]

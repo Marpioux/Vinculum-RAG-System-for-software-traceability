@@ -1,0 +1,25 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // If the bean is null\r\n    if (pVBC == null) {\r\n        return false;\r\n    }\r\n    // Check the ID of a cultural visit\r\n    // And the id of its tourist\r\n    if (pVBC.getIdBeneCulturale() <= 0 || pVBC.getIdTurista() <= 0) {\r\n        return false;\r\n    }\r\n    // Check the vote (of course ratings are accepted only between 1 and 5)\r\n    if (pVBC.getVoto() < 1 || pVBC.getVoto() > 5) {\r\n        return false;\r\n    }\r\n    // Check for null references in the bean\r\n    if (!controllaDatiNulli(pVBC)) {\r\n        return false;\r\n    }\r\n    // Check the correct length of string\r\n    if (pVBC.getCommento() == null || pVBC.getCommento().length() == 0) {\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public static boolean controllaDatiVisitaBeneCulturale(BeanVisitaBC)",
+                "comments": "Optional[/**\r\n * Please consistency check by calling the appropriate methods\r\n *\r\n * @param pVBC The pVBC cultural visit to check\r\n * @return boolean The result of the check: true if OK, false otherwise\r\n */\r\n]",
+                "innerComments": "Optional[[// Check the ID of a cultural visit\r\n, // If the bean is null\r\n, // And the id of its tourist\r\n, // Check the vote (of course ratings are accepted only between 1 and 5)\r\n, // Check for null references in the bean\r\n, // Check the correct length of string\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Check the nullity of the fields of feedback\r\n    if (pBC.getCommento() == null || pBC.getDataVisita() == null) {\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public static boolean controllaDatiNulli(BeanVisitaBC)",
+                "comments": "Optional[/**\r\n * Check for null data in a bean cultural visit\r\n *\r\n * @param pBC The pBC cultural visit to check\r\n * @return boolean The result of the check: true if there are no null references, false otherwise\r\n */\r\n]",
+                "innerComments": "Optional[[// Check the nullity of the fields of feedback\r\n]]"
+            }
+        ],
+        "constructors": [],
+        "signature": "ControlloVisiteBeniCulturali",
+        "variables": []
+    }
+]

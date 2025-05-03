@@ -1,0 +1,25 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanOperatoreAgenzia ottieniOperatoreAgenzia(String)",
+                "comments": "Optional[/**\r\n * Returns the data Operator Agency with ID equal to that given in\r\n * input\r\n *\r\n * @param pUsername Username dell'OperatoreAgenzia to find\r\n * @return OperatoreAgenzia with id equal to the input, null if there is\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaPassword(BeanOperatoreAgenzia)",
+                "comments": "Optional[/**\r\n * Returns the data Operator Agency with ID equal to that given in\r\n * input\r\n *\r\n * @param poa OperatoreAgenzia to modify\r\n * @return true if the password was modified, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBOperatoreAgenzia",
+        "variables": []
+    }
+]

@@ -1,0 +1,215 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo dei pulsanti e ne disabilito due\r\n    Annulla = new Button(\" Fine \");\r\n    Cerca = new Button(\" Cerca \");\r\n    Scegli = new Button(\" Scegli \");\r\n    Aggiungi = new Button(\" Aggiungi a stanza \");\r\n    Scegli.setEnabled(false);\r\n    Aggiungi.setEnabled(false);\r\n    Cerca.setEnabled(true);\r\n    //Creo le etichette\r\n    etichetta1 = new Label(\"Inserire il nominativo della prenotazione\");\r\n    etichetta1.setFont(ConfigurazioneSistema.font_titolo);\r\n    label1 = new Label(\"Cognome\");\r\n    label2 = new Label(\"Nome\");\r\n    label3 = new Label(\"Risultato della ricerca\");\r\n    label3.setFont(ConfigurazioneSistema.font_titolo);\r\n    label4 = new Label(\"Cercare le prenotazioni reletive a:\");\r\n    label4.setFont(ConfigurazioneSistema.font_titolo);\r\n    //Creo i TextField e ne rendo  alcuni non editabili\r\n    t_nome = new TextField(\"\", 20);\r\n    t_cognome = new TextField(\"\", 20);\r\n    //creo il pannello con i filtri per la ricerca\r\n    filtri = new CheckboxGroup();\r\n    chbx1 = new Checkbox(\" Arrivi odierni\", filtri, true);\r\n    chbx2 = new Checkbox(\" Soggiornanti attuali\", filtri, false);\r\n    chbx3 = new Checkbox(\" Prenotazioni future\", filtri, false);\r\n    //Creo il pannello in alto per inserimento dei dati del cliente\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, t_cognome, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, t_nome, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label4, 0, 2, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, chbx1, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.5, 5, 5, 5, 5);\r\n    if (to_call != 2 && to_call != 1)\r\n        Utils.constrain(panel1, chbx2, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    if (to_call != 3)\r\n        Utils.constrain(panel1, chbx3, 0, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.5, 5, 5, 5, 5);\r\n    //Creo il pannello in basso con due pulsanti\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, Cerca, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, Scegli, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    if (to_call == 3)\r\n        Utils.constrain(panel2, Aggiungi, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    //Creo il pannello con la lista dei risultati della ricerca\r\n    lista = new List(10, false);\r\n    lista.setFont(ConfigurazioneSistema.font_allineato);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, label3, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel3, lista, 0, 1, 4, 3, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 3.0, 3.0, 0, 0, 0, 0);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 1, 4, 6, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 14, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 0, 15, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel3.setVisible(false);\r\n    pack();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //creo il pannello con i filtri per la ricerca\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n            switch(to_call) {\r\n                case 1:\r\n                    startModifica(prenotazione);\r\n                    break;\r\n                case 2:\r\n                    startCancella(prenotazione);\r\n                    break;\r\n                case 3:\r\n                    if (!chbx2.getState())\r\n                        startInsSoggiornante(prenotazione);\r\n                    else\r\n                        startAggiungi();\r\n                    break;\r\n                case 4:\r\n                    startVediPrenotazione(prenotazione);\r\n                    break;\r\n            }\r\n        }\r\n    });\r\n    Scegli.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!noSelection()) {\r\n                prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n                switch(to_call) {\r\n                    case 1:\r\n                        startModifica(prenotazione);\r\n                        break;\r\n                    case 2:\r\n                        startCancella(prenotazione);\r\n                        break;\r\n                    case 3:\r\n                        startInsSoggiornante(prenotazione);\r\n                        break;\r\n                    case 4:\r\n                        startVediPrenotazione(prenotazione);\r\n                        break;\r\n                }\r\n            }\r\n        }\r\n    });\r\n    Aggiungi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAggiungi();\r\n        }\r\n    });\r\n    t_nome.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista(0);\r\n        }\r\n    });\r\n    t_cognome.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista(0);\r\n        }\r\n    });\r\n    Cerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista(0);\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    chbx1.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (!first_time)\r\n                creaLista(0);\r\n        }\r\n    });\r\n    chbx2.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (!first_time)\r\n                creaLista(0);\r\n        }\r\n    });\r\n    chbx3.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (!first_time)\r\n                creaLista(0);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n    switch(to_call) {\r\n        case 1:\r\n            startModifica(prenotazione);\r\n            break;\r\n        case 2:\r\n            startCancella(prenotazione);\r\n            break;\r\n        case 3:\r\n            if (!chbx2.getState())\r\n                startInsSoggiornante(prenotazione);\r\n            else\r\n                startAggiungi();\r\n            break;\r\n        case 4:\r\n            startVediPrenotazione(prenotazione);\r\n            break;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!noSelection()) {\r\n        prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n        switch(to_call) {\r\n            case 1:\r\n                startModifica(prenotazione);\r\n                break;\r\n            case 2:\r\n                startCancella(prenotazione);\r\n                break;\r\n            case 3:\r\n                startInsSoggiornante(prenotazione);\r\n                break;\r\n            case 4:\r\n                startVediPrenotazione(prenotazione);\r\n                break;\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAggiungi();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!first_time)\r\n        creaLista(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!first_time)\r\n        creaLista(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!first_time)\r\n        creaLista(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!noSelection()) {\r\n        this.setEnabled(false);\r\n        prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n        startAddSoggiornante(prenotazione);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAggiungi()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\r\n    ModificaPrenotazione modify = new ModificaPrenotazione(pren, stanza, this);\r\n    modify.setVisible(true);\r\n    modify.padre = this;\r\n    notifyRoomBlocked(pren, modify, null);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startModifica(Prenotazione)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\r\n    CancellaPrenotazione cancel = new CancellaPrenotazione(pren, stanza, this);\r\n    cancel.setVisible(true);\r\n    cancel.padre = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startCancella(Prenotazione)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\r\n    VediPrenotazione visual = new VediPrenotazione(pren, stanza, this);\r\n    visual.setVisible(true);\r\n    visual.padre = this;\r\n    notifyRoomBlocked(pren, null, visual);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startVediPrenotazione(Prenotazione)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Disponibilita disp;\r\n    Frame msg;\r\n    disp = (Principale.db).readDisponibilita(pren.getNumStanza());\r\n    if (disp == null)\r\n        msg = new MessageDialog(this, \" Inconsistenze sul database! \");\r\n    else {\r\n        if (disp.getStatusGiorno(DateUtils.dataTogiorni(pren.getInizioSogg()), Const.ANNO_CORRENTE) == Flag.BLOCCATA)\r\n            msg = new AvvisoDialog(this, \" La stanza \" + pren.getNumStanza() + \" non e' assegnata a tale prenotazione. Modificare la prenotazione. \");\r\n        else\r\n            figlio = new InserisciSoggiornante(this, pren);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startInsSoggiornante(Prenotazione)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    char flag;\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    Disponibilita disp = Utils.getDispOfRoom(elenco_disp, pren.getNumStanza(), false);\r\n    Costanti cost = new Costanti();\r\n    if ((((pren.getInizioSogg()).getYear()) + 1900) == cost.getAnnoCorr())\r\n        flag = Const.ANNO_CORRENTE;\r\n    else\r\n        flag = Const.ANNO_PROSSIMO;\r\n    if (father2 == null)\r\n        if (disp.getStatusGiorno(DateUtils.dataTogiorni(pren.getInizioSogg()), flag) == Flag.BLOCCATA)\r\n            msg = new AvvisoDialog(father1, \" ATTENZIONE: per questa prenotazione non e' ancora stata assegnata la stanza!!\");\r\n        else\r\n            (father1.Assegna).setEnabled(false);\r\n    else if (disp.getStatusGiorno(DateUtils.dataTogiorni(pren.getInizioSogg()), flag) == Flag.BLOCCATA)\r\n        msg = new AvvisoDialog(father2, \" ATTENZIONE: per questa prenotazione non e' ancora stata assegnata la stanza!!\");\r\n    else\r\n        (father2.Assegna).setEnabled(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void notifyRoomBlocked(Prenotazione, ModificaPrenotazione, VediPrenotazione)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    Prenotazione p;\r\n    Date today = new Date();\r\n    L_visual = new ListaPrenotazioni();\r\n    L = (Principale.db).foundPrenotazioni(t_cognome.getText(), t_nome.getText());\r\n    if (L != null) {\r\n        if (!L.isEmpty()) {\r\n            if (lista.getItemCount() > 0)\r\n                lista.removeAll();\r\n            for (int i = 1; i <= L.length(); i++) {\r\n                p = L.getPrenotazione(i);\r\n                ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(p.getIdPrenotazione());\r\n                if (chbx3.getState()) {\r\n                    if (Utils.data1MaggioreData2(p.getInizioSogg(), today)) {\r\n                        lista.addItem(p.toString());\r\n                        L_visual.addPrenotazione(p);\r\n                    }\r\n                } else {\r\n                    if (chbx1.getState()) {\r\n                        if (L_sogg.isEmpty()) {\r\n                            if (((p.getInizioSogg()).getDate() == today.getDate()) && ((p.getInizioSogg()).getMonth() == today.getMonth()) && ((p.getInizioSogg()).getYear() == today.getYear())) {\r\n                                lista.addItem(p.toString());\r\n                                L_visual.addPrenotazione(p);\r\n                            }\r\n                        }\r\n                    } else {\r\n                        if (!(Utils.data1MaggioreData2(p.getInizioSogg(), today)) && !(Utils.data1MinoreData2(p.getFineSogg(), today))) {\r\n                            //controllo che sia un soggiornante gia registrato\r\n                            if (!L_sogg.isEmpty()) {\r\n                                lista.addItem(p.toString());\r\n                                L_visual.addPrenotazione(p);\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            if (lista.getItemCount() == 0) {\r\n                if (back == 0)\r\n                    msg = new AvvisoDialog(this, \" Nessuna prenotazione trovata! \");\r\n                Scegli.setEnabled(false);\r\n                Aggiungi.setEnabled(false);\r\n                panel3.setVisible(false);\r\n                pack();\r\n                if (to_call == 3)\r\n                    Aggiungi.setEnabled(false);\r\n            } else {\r\n                if (chbx1.getState()) {\r\n                    Aggiungi.setEnabled(false);\r\n                    Scegli.setEnabled(true);\r\n                }\r\n                if (chbx2.getState()) {\r\n                    Aggiungi.setEnabled(true);\r\n                    if (to_call == 3)\r\n                        Scegli.setEnabled(false);\r\n                    else\r\n                        Scegli.setEnabled(true);\r\n                }\r\n                if (chbx3.getState()) {\r\n                    Scegli.setEnabled(true);\r\n                }\r\n                panel3.setVisible(true);\r\n                pack();\r\n            }\r\n            if (first_time)\r\n                first_time = false;\r\n        } else {\r\n            if (back == 0)\r\n                msg = new AvvisoDialog(this, \" Prenotazione non trovata! \");\r\n            else {\r\n                if (back == 1) {\r\n                    if (lista.getItemCount() > 0)\r\n                        lista.removeAll();\r\n                    panel3.setVisible(false);\r\n                    pack();\r\n                }\r\n            }\r\n        }\r\n    } else\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void creaLista(int)",
+                "comments": null,
+                "innerComments": "Optional[[//controllo che sia un soggiornante gia registrato\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (lista.getSelectedIndex() == -1) {\r\n        msg = new AvvisoDialog(this, \" Selezionare una prenotazione dalla lista e ripremere il tasto\");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean noSelection()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(pren.getIdPrenotazione());\r\n    if (L_sogg != null)\r\n        if (L_sogg.length() > 0) {\r\n            Soggiornante sogg = L_sogg.getSoggiornante(1);\r\n            Stanza room = (Principale.db).readStanza(sogg.getNumStanza());\r\n            if ((room.getPostiLetto() > L_sogg.length()) || ((room.getPostiLetto() == L_sogg.length()) && (room.getDispLettoAgg() == Const.SI)))\r\n                figlio = new AggiungiSoggiornante(this, pren, room, L_sogg.length());\r\n            else\r\n                figlio = new AvvisoDialog(this, \" Nessun posto disponibile nella stanza n. \" + room.getNumStanza());\r\n        } else\r\n            figlio = new AvvisoDialog(this, \" La prenotazione non e' adempiuta. Premere 'Scegli' per gestire l'arrivo clienti\");\r\n    else\r\n        figlio = new MessageDialog(this, \" Problemi con il database!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAddSoggiornante(Prenotazione)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(titolo);\r\n    to_call = k;\r\n    setupPanels();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public RicercaPrenotazione(String, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "RicercaPrenotazione",
+        "variables": [
+            " Prenotazione prenotazione",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " Label etichetta1",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " Label label4",
+            " List lista",
+            " Button Annulla",
+            " Button Cerca",
+            " Button Scegli",
+            " Button Aggiungi",
+            " TextField t_nome",
+            " TextField t_cognome",
+            " Checkbox chbx1",
+            " Checkbox chbx2",
+            " Checkbox chbx3",
+            " CheckboxGroup filtri",
+            " GridBagLayout gridbag",
+            " Frame padre",
+            " ListaPrenotazioni L",
+            " ListaPrenotazioni L_visual",
+            " Frame figlio",
+            " int to_call",
+            " boolean first_time"
+        ]
+    }
+]

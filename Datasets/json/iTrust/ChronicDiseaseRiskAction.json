@@ -1,0 +1,47 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return pid;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getPatientID()",
+                "comments": "Optional[/**\r\n * Returns the ID of the patient to be checked.\r\n *\r\n * @return patient ID whose risk we are checking\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return authDAO.getUserName(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getUserName()",
+                "comments": "Optional[/**\r\n * Gives the full name of the patient\r\n *\r\n * @return Full name of the patient who we are checking\r\n * @throws DBException\r\n * @throws iTrustException\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.IDENTIFY_RISK_FACTORS, loggedInMID, pid, \"\");\r\n    return diseaseMediator.getDiseaseAtRisk();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<RiskChecker> getDiseasesAtRisk()",
+                "comments": "Optional[/**\r\n * Returns the risks for which this patient is at risk for. All logic has been passed to\r\n * {@link ChronicDiseaseMediator} and the subclasses of {@link RiskChecker}.\r\n *\r\n * @return List of risks\r\n * @throws iTrustException\r\n * @throws DBException\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, pidString);\r\n    this.authDAO = factory.getAuthDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    this.diseaseMediator = new ChronicDiseaseMediator(factory, pid);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ChronicDiseaseRiskAction(DAOFactory, long, String)",
+                "comments": "Optional[/**\r\n * @param factory\r\n * @param loggedInMID\r\n * @param pidString\r\n *            The patient ID to be validated and used\r\n * @throws iTrustException\r\n * @throws DBException\r\n * @throws NoHealthRecordsException\r\n *             This is thrown if a patient is added without any health records to be checked. Try to avoid\r\n *             having this exception be thrown in a normal flow of events.\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ChronicDiseaseRiskAction",
+        "variables": [
+            "private AuthDAO authDAO",
+            "private long loggedInMID",
+            "private ChronicDiseaseMediator diseaseMediator",
+            "private TransactionDAO transDAO"
+        ]
+    }
+]

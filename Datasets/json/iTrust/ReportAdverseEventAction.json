@@ -1,0 +1,59 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<String> MIDlist = new ArrayList<String>();\r\n    String patientID = \"\";\r\n    for (AdverseEventBean beaner : aeList) {\r\n        patientID = beaner.getMID();\r\n        String newDesc = \" Drug: \" + beaner.getDrug() + \" (\" + beaner.getCode() + \") Description: \" + beaner.getDescription();\r\n        beaner.setDescription(newDesc);\r\n    }\r\n    for (AdverseEventBean beano : aeList) {\r\n        if (!MIDlist.contains(beano.getPrescriber())) {\r\n            MIDlist.add(beano.getPrescriber());\r\n        }\r\n    }\r\n    Email email = new Email();\r\n    for (String num : MIDlist) {\r\n        String message = \" Patient: \" + patientDAO.getName(Long.parseLong(patientID)) + \" (MID \" + patientID + \") Has Reported the following adverse event(s)\";\r\n        for (AdverseEventBean beano : aeList) {\r\n            if (beano.getPrescriber().equals(num)) {\r\n                message = message + beano.getDescription();\r\n            }\r\n        }\r\n        String fromEmail;\r\n        email.setFrom(\"noreply@itrust.com\");\r\n        PatientBean sender = patientDAO.getPatient(loggedInMID);\r\n        PersonnelBean receiver = personnelDAO.getPersonnel(Long.parseLong(num));\r\n        List<String> toList = new ArrayList<String>();\r\n        toList.add(receiver.getEmail());\r\n        fromEmail = sender.getEmail();\r\n        email.setToList(toList);\r\n        email.setFrom(fromEmail);\r\n        email.setSubject(String.format(\"Adverse Event Report(Prescription)\"));\r\n        email.setBody(message);\r\n        emailer.sendEmail(email);\r\n        transactionDAO.logTransaction(TransactionType.SEND_MESSAGE, loggedInMID);\r\n    }\r\n    return email;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Email sendMails(List<AdverseEventBean>)",
+                "comments": "Optional[/**\r\n * Method that sends exactly one e-mail to each MID in the list of Adverse Events\r\n * @param aeList The list of adverse Event Beans that need to be acted upon\r\n * @return EList The list of e-mails sent for testing purposes\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Email email = new Email();\r\n    String fromEmail;\r\n    email.setFrom(\"noreply@itrust.com\");\r\n    List<String> toList = new ArrayList<String>();\r\n    PatientBean sender = patientDAO.getPatient(loggedInMID);\r\n    PersonnelBean receiver = personnelDAO.getPersonnel(hcpID);\r\n    toList.add(receiver.getEmail());\r\n    fromEmail = sender.getEmail();\r\n    email.setToList(toList);\r\n    email.setFrom(fromEmail);\r\n    email.setSubject(String.format(\"Adverse Event Report (Immunization)\"));\r\n    email.setBody(String.format(\" Patient: \" + patientDAO.getName(Long.parseLong(aeBean.getMID())) + \" (MID \" + aeBean.getMID() + \") Has Reported the following adverse event\" + \" Drug: \" + aeBean.getDrug() + \"(\" + aeBean.getCode() + \") Description: \" + aeBean.getDescription()));\r\n    emailer.sendEmail(email);\r\n    transactionDAO.logTransaction(TransactionType.SEND_MESSAGE, loggedInMID);\r\n    return email;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Email sendMail(AdverseEventBean)",
+                "comments": "Optional[/**\r\n * A method used to send a single e-mail. Used in immunizations.\r\n * @param aeBean\r\n * @return Email returns the Email for testing purposes.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        validator.validate(aeBean);\r\n    } catch (FormValidationException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n    try {\r\n        adverseEventDAO.addReport(aeBean, hcpID);\r\n    } catch (DBException e) {\r\n        throw new iTrustException(e.getMessage());\r\n    }\r\n    /**\r\n     *  Old code used to send a single e-mail. Keep for reference\r\n     * \t\tEmail email = new Email();\r\n     * \t\tString senderName;\r\n     * \t\tString fromEmail;\r\n     * \t\temail.setFrom(\"noreply@itrust.com\");\r\n     * \t\tList<String> toList = new ArrayList<String>();\r\n     *\r\n     * \t\tPatientBean sender = patientDAO.getPatient(loggedInMID);\r\n     * \t\tPersonnelBean receiver = personnelDAO.getPersonnel(hcpID);\r\n     *\r\n     * \t\ttoList.add(receiver.getEmail());\r\n     * \t\tsenderName = sender.getFullName();\r\n     * \t\tfromEmail = sender.getEmail();\r\n     *\r\n     * \t\temail.setToList(toList);\r\n     * \t\temail.setFrom(fromEmail);\r\n     * \t\temail.setSubject(String.format(\"Adverse Event Report\"));\r\n     * \t\temail.setBody(String.format(\r\n     * \t\t\t\t\" Patient: \" + patientDAO.getName(Long.parseLong(aeBean.getMID()))\r\n     * \t\t\t\t+ \" (MID \" + aeBean.getMID() + \") Has Reported the following adverse event(s)\" +\r\n     * \t\t\t\t\" Drug: \" + aeBean.getDrug() + \"(\" + aeBean.getCode() + \") Description: \" + aeBean.getDescription()\r\n     * \t\t\t\t));\r\n     * \t\temailer.sendEmail(email);\r\n     *\r\n     * \t\ttransactionDAO.logTransaction(TransactionType.SEND_MESSAGE, loggedInMID);\r\n     */\r\n    transactionDAO.logTransaction(TransactionType.ADVERSE_EVENT, loggedInMID);\r\n    return \"\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public String addReport(AdverseEventBean)",
+                "comments": "Optional[/**\r\n * Method used to add a report to the data base\r\n * @param aeBean The adverse event to add\r\n * @return a string for testing purposes only\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[/**\r\n *  Old code used to send a single e-mail. Keep for reference\r\n * \t\tEmail email = new Email();\r\n * \t\tString senderName;\r\n * \t\tString fromEmail;\r\n * \t\temail.setFrom(\"noreply@itrust.com\");\r\n * \t\tList<String> toList = new ArrayList<String>();\r\n *\r\n * \t\tPatientBean sender = patientDAO.getPatient(loggedInMID);\r\n * \t\tPersonnelBean receiver = personnelDAO.getPersonnel(hcpID);\r\n *\r\n * \t\ttoList.add(receiver.getEmail());\r\n * \t\tsenderName = sender.getFullName();\r\n * \t\tfromEmail = sender.getEmail();\r\n *\r\n * \t\temail.setToList(toList);\r\n * \t\temail.setFrom(fromEmail);\r\n * \t\temail.setSubject(String.format(\"Adverse Event Report\"));\r\n * \t\temail.setBody(String.format(\r\n * \t\t\t\t\" Patient: \" + patientDAO.getName(Long.parseLong(aeBean.getMID()))\r\n * \t\t\t\t+ \" (MID \" + aeBean.getMID() + \") Has Reported the following adverse event(s)\" +\r\n * \t\t\t\t\" Drug: \" + aeBean.getDrug() + \"(\" + aeBean.getCode() + \") Description: \" + aeBean.getDescription()\r\n * \t\t\t\t));\r\n * \t\temailer.sendEmail(email);\r\n *\r\n * \t\ttransactionDAO.logTransaction(TransactionType.SEND_MESSAGE, loggedInMID);\r\n */\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.emailer = new EmailUtil(factory);\r\n    this.adverseEventDAO = factory.getAdverseEventDAO();\r\n    this.transactionDAO = factory.getTransactionDAO();\r\n    this.hcpID = Long.parseLong(hcpID);\r\n    this.validator = new AdverseEventValidator();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReportAdverseEventAction(String, DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.emailer = new EmailUtil(factory);\r\n    this.adverseEventDAO = factory.getAdverseEventDAO();\r\n    this.transactionDAO = factory.getTransactionDAO();\r\n    this.validator = new AdverseEventValidator();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ReportAdverseEventAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Constructor used to send e-mails only\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ReportAdverseEventAction",
+        "variables": [
+            "private long loggedInMID",
+            "private EmailUtil emailer",
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO",
+            "private AdverseEventDAO adverseEventDAO",
+            "private TransactionDAO transactionDAO",
+            "private long hcpID",
+            "private AdverseEventValidator validator"
+        ]
+    }
+]

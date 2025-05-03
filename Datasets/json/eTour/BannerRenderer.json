@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Object obj = ((DefaultMutableTreeNode) pValue).getUserObject();\r\n    if (!(obj instanceof ImageIcon)) {\r\n        throw new IllegalArgumentException(\"Value cell unexpected.\");\r\n    }\r\n    ImageIcon image = (ImageIcon) obj;\r\n    JLabel aLabel = new JLabel();\r\n    aLabel.setIcon(image);\r\n    aLabel.setSize(image.getIconWidth() + 10, image.getIconHeight() + 10);\r\n    if (pSelected) {\r\n        aLabel.setBorder(BorderFactory.createLineBorder(Color.red, 2));\r\n    }\r\n    return aLabel;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Component getTreeCellRendererComponent(JTree, Object, boolean, boolean, boolean, int, boolean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "BannerRenderer",
+        "variables": []
+    }
+]

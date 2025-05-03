@@ -1,0 +1,63 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public abstract String getName()",
+                "comments": "Optional[/**\r\n * @return The name of the disease being checked.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected abstract List<PatientRiskFactor> getDiseaseRiskFactors()",
+                "comments": "Optional[/**\r\n * @return A java.util.List of the risk factors increasing this patients disease risk.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public abstract boolean qualifiesForDisease()",
+                "comments": "Optional[/**\r\n * @return A boolean indicating whether the patient is at increased risk.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (qualifiesForDisease()) {\r\n        int numRisks = 0;\r\n        List<PatientRiskFactor> diseaseRiskFactors = getDiseaseRiskFactors();\r\n        for (PatientRiskFactor factor : diseaseRiskFactors) {\r\n            if (factor.hasRiskFactor())\r\n                numRisks++;\r\n            if (numRisks >= RISK_THRESHOLD)\r\n                return true;\r\n        }\r\n    }\r\n    // both an else from qualifies or NOT over the threshold\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean isAtRisk()",
+                "comments": "Optional[/**\r\n * This method exists purely for performance - just stop once you hit the threshold. <br />\r\n * <br />\r\n * Also, the risk factors should be cached in the RiskFactor implementors - in getPatientRiskFactors there\r\n * should be no double-querying\r\n *\r\n * @return isAtRisk\r\n */\r\n]",
+                "innerComments": "Optional[[// both an else from qualifies or NOT over the threshold\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    List<PatientRiskFactor> patientRiskFactors = new ArrayList<PatientRiskFactor>();\r\n    List<PatientRiskFactor> diseaseRiskFactors = getDiseaseRiskFactors();\r\n    for (PatientRiskFactor factor : diseaseRiskFactors) {\r\n        if (factor.hasRiskFactor()) {\r\n            patientRiskFactors.add(factor);\r\n        }\r\n    }\r\n    return patientRiskFactors;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientRiskFactor> getPatientRiskFactors()",
+                "comments": "Optional[/**\r\n * @return A java.util.List of patient risk factors associated with this disease.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    HealthRecordsDAO hrDAO = factory.getHealthRecordsDAO();\r\n    List<HealthRecord> records = hrDAO.getAllHealthRecords(patientID);\r\n    if (records.size() > 0)\r\n        currentHealthRecord = records.get(0);\r\n    else\r\n        throw new NoHealthRecordsException();\r\n    patient = factory.getPatientDAO().getPatient(patientID);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public RiskChecker(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "RiskChecker",
+        "variables": [
+            "private  static  final int RISK_THRESHOLD",
+            "protected PatientBean patient",
+            "protected HealthRecord currentHealthRecord",
+            "protected DAOFactory factory"
+        ]
+    }
+]

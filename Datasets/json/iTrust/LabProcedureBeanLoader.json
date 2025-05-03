@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<LabProcedureBean> list = new ArrayList<LabProcedureBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LabProcedureBean LabProcedure = new LabProcedureBean();\r\n    LabProcedure.setProcedureID(rs.getLong(\"LaboratoryProcedureID\"));\r\n    LabProcedure.setPid(rs.getLong(\"PatientMID\"));\r\n    LabProcedure.setLoinc(rs.getString(\"LaboratoryProcedureCode\"));\r\n    LabProcedure.setStatus(rs.getString(\"Status\"));\r\n    LabProcedure.setCommentary(rs.getString(\"Commentary\"));\r\n    LabProcedure.setResults(rs.getString(\"Results\"));\r\n    LabProcedure.setOvID(rs.getLong(\"OfficeVisitID\"));\r\n    LabProcedure.setTimestamp(rs.getTimestamp(\"UpdatedDate\"));\r\n    LabProcedure.setRights(rs.getString(\"Rights\"));\r\n    return LabProcedure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LabProcedureBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, LabProcedureBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "LabProcedureBeanLoader",
+        "variables": []
+    }
+]

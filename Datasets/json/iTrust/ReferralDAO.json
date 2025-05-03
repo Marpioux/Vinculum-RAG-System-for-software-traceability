@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM referrals WHERE SenderID = ?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return referralLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ReferralBean> getReferralsSentFrom(long)",
+                "comments": "Optional[/**\r\n * Gets a list of all referrals sent from an HCP\r\n * @param mid The HCP's mid.\r\n * @return The list of the referrals they sent.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM referrals WHERE ReceiverID = ?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return referralLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ReferralBean> getReferralsSentTo(long)",
+                "comments": "Optional[/**\r\n * Gets a list of all referrals sent to an HCP\r\n * @param mid The HCP's mid.\r\n * @return The list of the referrals sent to them.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE referrals SET PatientID=?,SenderID=?,ReceiverID=?,\" + \"ReferralDetails=?,ConsultationDetails=?,Status=?  WHERE ID=?\");\r\n        referralLoader.loadParameters(ps, r);\r\n        ps.setLong(7, r.getId());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void editReferral(ReferralBean)",
+                "comments": "Optional[/**\r\n * Updates a given referral in the database.\r\n * @param r The referral to update.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO referrals (PatientID,SenderID,ReceiverID,\" + \"ReferralDetails,ConsultationDetails,Status)  \" + \"VALUES (?,?,?,?,?,?)\");\r\n        referralLoader.loadParameters(ps, r);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addReferral(ReferralBean)",
+                "comments": "Optional[/**\r\n * Adds a given referral to the database.\r\n * @param r The referral to add.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    referralLoader = new ReferralBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ReferralDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ReferralDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private ReferralBeanLoader referralLoader"
+        ]
+    }
+]

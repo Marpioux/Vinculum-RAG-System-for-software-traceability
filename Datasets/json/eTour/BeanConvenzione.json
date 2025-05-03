@@ -1,0 +1,147 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return active;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean isAttiva()",
+                "comments": "Optional[/**\r\n * Returns the value of active\r\n *\r\n * @return value of active.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    active = pActs;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setAttiva(boolean)",
+                "comments": "Optional[/**\r\n * Sets the new value of active\r\n *\r\n * @param pActs new value of active.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return endDate;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Date getDataFine()",
+                "comments": "Optional[/**\r\n * Returns the value of endDate\r\n *\r\n * @return value of endDate.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    endDate = pDataFine;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDataFine(Date)",
+                "comments": "Optional[/**\r\n * Sets the new value for endDate\r\n *\r\n * @param pDataFine new value for endDate.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return startDate;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Date getDataInizio()",
+                "comments": "Optional[/**\r\n * Returns the value of startDate\r\n *\r\n * @return value of startDate.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startDate = pDataInizio;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDataInizio(Date)",
+                "comments": "Optional[/**\r\n * Sets the new value of startDate\r\n *\r\n * @param pDataInizio new value for startDate.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return maxBanner;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getMaxBanner()",
+                "comments": "Optional[/**\r\n * Returns the value of maxBanner\r\n *\r\n * @return value of maxBanner.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    maxBanner = pMaxBanner;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setMaxBanner(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of maxBanner\r\n *\r\n * @param pMaxBanner new maxBanner.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return price;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public double getPrezzo()",
+                "comments": "Optional[/**\r\n * Returns the value of price\r\n *\r\n * @return value of price.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    price = pPrezzo;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPrezzo(double)",
+                "comments": "Optional[/**\r\n * Sets the new value of price\r\n *\r\n * @param pPrezzo new value for price.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value of id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdPuntoDiRistoro()",
+                "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value of idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    id = pId;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId new value for id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro new idPuntoDiRistoro.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setId(pId);\r\n    setMaxBanner(pMaxBanner);\r\n    setDataInizio(pDataInizio);\r\n    setDataFine(pDataFine);\r\n    setPrezzo(pPrezzo);\r\n    setAttiva(pActs);\r\n    setIdPuntoDiRistoro(pIdPuntoDiRistoro);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanConvenzione(int, int, Date, Date, double, boolean, int)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pMaxBanner\r\n * @param pDataInizio\r\n * @param pDataFine\r\n * @param pPrezzo\r\n * @param pActs\r\n * @param pIdPuntoDiRistoro\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanConvenzione()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanConvenzione",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int id",
+            "private int maxBanner",
+            "private Date startDate",
+            "private Date endDate",
+            "private double price",
+            "private boolean active",
+            "private int idPuntoDiRistoro"
+        ]
+    }
+]

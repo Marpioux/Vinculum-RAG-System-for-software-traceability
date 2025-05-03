@@ -1,0 +1,68 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return getPreferredSize();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Dimension getPreferredScrollableViewportSize()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int posCorrente;\r\n    if (orientation == SwingConstants.HORIZONTAL) {\r\n        posCorrente = visibleRect.x;\r\n    } else {\r\n        posCorrente = visibleRect.y;\r\n    }\r\n    if (direction < 0) {\r\n        int newPos = posCorrente - (posCorrente / maxUnitIncrement) * maxUnitIncrement;\r\n        return (newPos == 0) ? maxUnitIncrement : newPos;\r\n    } else {\r\n        return ((posCorrente / maxUnitIncrement) + 1) * maxUnitIncrement - posCorrente;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getScrollableUnitIncrement(Rectangle, int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (orientation == SwingConstants.HORIZONTAL) {\r\n        return visibleRect.width - maxUnitIncrement;\r\n    } else {\r\n        return visibleRect.height - maxUnitIncrement;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getScrollableBlockIncrement(Rectangle, int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean getScrollableTracksViewportWidth()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean getScrollableTracksViewportHeight()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ScrollableTable()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(tm);\r\n    setGridColor(Color.LIGHT_GRAY);\r\n    setIntercellSpacing(new Dimension(5, 0));\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ScrollableTable(TableModel)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ScrollableTable",
+        "variables": [
+            "private  static  final int maxUnitIncrement"
+        ]
+    }
+]

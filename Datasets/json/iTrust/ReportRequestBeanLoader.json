@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<ReportRequestBean> list = new ArrayList<ReportRequestBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ReportRequestBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ReportRequestBean b = new ReportRequestBean();\r\n    b.setID(rs.getLong(\"ID\"));\r\n    b.setRequesterMID(rs.getLong(\"RequesterMID\"));\r\n    b.setPatientMID(rs.getLong(\"PatientMID\"));\r\n    b.setRequestedDate(rs.getTimestamp(\"RequestedDate\"));\r\n    b.setViewedDate(rs.getTimestamp(\"ViewedDate\"));\r\n    b.setStatus(rs.getString(\"Status\"));\r\n    return b;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReportRequestBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, ReportRequestBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ReportRequestBeanLoader",
+        "variables": []
+    }
+]

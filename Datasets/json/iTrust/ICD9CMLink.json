@@ -1,0 +1,94 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        JspWriter out = pageContext.getOut();\r\n        out.write(\"<a href=\\\"http://icd9cm.chrisendres.com/2007/index.php?srchtype=diseases&srchtext=\" + code + \"&Submit=Search&action=search\\\">\" + code + \"</a>\");\r\n    } catch (IOException e) {\r\n        e.printStackTrace();\r\n    }\r\n    return SKIP_BODY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int doStartTag()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return SKIP_BODY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int doEndTag()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void release()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.pageContext = pageContext;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPageContext(PageContext)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.parent = parent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setParent(Tag)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return parent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Tag getParent()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCode()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.code = code;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.code = String.valueOf(code);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCode(double)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ICD9CMLink()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ICD9CMLink",
+        "variables": [
+            "private PageContext pageContext",
+            "private Tag parent",
+            "private String code"
+        ]
+    }
+]

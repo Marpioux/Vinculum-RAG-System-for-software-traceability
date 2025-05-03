@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"Patient has had related diagnoses\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hadPriorDiagnoses(patientID, lowerICDCode, upperICDCode);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.patientID = patientID;\r\n    this.lowerICDCode = lowerICDCode;\r\n    this.upperICDCode = upperICDCode;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PriorDiagnosisFactor(DAOFactory, long, double, double)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "PriorDiagnosisFactor",
+        "variables": [
+            "private long patientID",
+            "private DAOFactory factory",
+            "private double lowerICDCode",
+            "private double upperICDCode"
+        ]
+    }
+]

@@ -1,0 +1,56 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return lpDAO.getAllLabProceduresLOINC(id);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> sortByLOINC(long)",
+                "comments": "Optional[/**\r\n * This method sorts by LOINC and returns the list\r\n *\r\n * @param id the ID to sort the list by\r\n * @return List sorted by LOINC\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<LabProcedureBean> listLabProc = new ArrayList<LabProcedureBean>(0);\r\n    List<OfficeVisitBean> listOV = ovDAO.getAllOfficeVisitsForLHCP(loggedInMID);\r\n    for (OfficeVisitBean ov : listOV) {\r\n        if (listLabProc.isEmpty() == true) {\r\n            listLabProc = lpDAO.getLabProceduresForLHCPForNextMonth(ov.getID());\r\n        } else {\r\n            for (LabProcedureBean lb : lpDAO.getLabProceduresForLHCPForNextMonth(ov.getID())) {\r\n                listLabProc.add(lb);\r\n            }\r\n        }\r\n    }\r\n    return listLabProc;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LabProcedureBean> getLabProcForNextMonth()",
+                "comments": "Optional[/**\r\n * Returns a list of all the lab procedures for the next month\r\n *\r\n * @return all the lab procedures for the next month\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LabProcedureBean pb = lpDAO.getLabProcedure(x);\r\n    if (checkAccess(x)) {\r\n        if (pb.getRights().equals(LabProcedureBean.Restrict)) {\r\n            pb.allow();\r\n        } else {\r\n            pb.restrict();\r\n        }\r\n        validator.validate(pb);\r\n        lpDAO.updateRights(pb);\r\n        transDAO.logTransaction(TransactionType.ENTER_EDIT_LAB_PROCEDURE, loggedInMID, pb.getPid(), \"Privacy Changed procedure id: \" + pb.getProcedureID());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void changePrivacy(long)",
+                "comments": "Optional[/**\r\n * Changes the privacy settings\r\n *\r\n * @param x the ID of the procedure to change\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    LabProcedureBean pb = lpDAO.getLabProcedure(x);\r\n    OfficeVisitBean ovbean = ovDAO.getOfficeVisit(pb.getOvID());\r\n    return (loggedInMID == ovbean.getHcpID());\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean checkAccess(long)",
+                "comments": "Optional[/**\r\n * Checks to see if the logged in HCP is the one who made the procedure.  Used to generate links for page to edit OfficeVisit\r\n *\r\n * @param x the ID of the HCP to check\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, loggedInMID);\r\n    transDAO = factory.getTransactionDAO();\r\n    lpDAO = factory.getLabProcedureDAO();\r\n    ovDAO = factory.getOfficeVisitDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    validator = new LabProcedureValidator();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public LabProcHCPAction(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "LabProcHCPAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private LabProcedureDAO lpDAO",
+            "private OfficeVisitDAO ovDAO",
+            " long loggedInMID",
+            "private LabProcedureValidator validator"
+        ]
+    }
+]

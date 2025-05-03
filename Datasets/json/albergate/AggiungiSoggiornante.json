@@ -1,0 +1,142 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    testo1.setText(stanza.getNumStanza());\r\n    testo1.setEditable(false);\r\n    testo13.setText(DateUtils.giveStringOfDate(new Date()));\r\n    testo13.setEditable(false);\r\n    testo14.setText(DateUtils.giveStringOfDate(prenotazione.getFineSogg()));\r\n    testo14.setEditable(false);\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        Soggiornante sogg = readDatiSogg(prenotazione, num_sogg + 1);\r\n        sogg.setInizioSogg(new Date());\r\n        sogg.setFineSogg(prenotazione.getFineSogg());\r\n        sogg.setNumStanza(stanza.getNumStanza());\r\n        int j;\r\n        if ((j = (Principale.db).writeSoggiornante(sogg)) == DataBase.OK) {\r\n            //\tModifico la prenotazione relativa\r\n            if (stanza.getPostiLetto() > num_sogg)\r\n                prenotazione.setNumPers(num_sogg + 1);\r\n            else if ((stanza.getPostiLetto() == num_sogg) && (stanza.getDispLettoAgg() == Const.SI))\r\n                prenotazione.setRichLettoAgg(Const.SI);\r\n            (Principale.db).changePrenotazione(prenotazione.getIdPrenotazione(), prenotazione.getNumStanza(), prenotazione.getNumPers(), prenotazione.getNome(), prenotazione.getCognome(), prenotazione.getNumTel(), prenotazione.getInizioSogg(), prenotazione.getFineSogg(), prenotazione.getDataPren(), prenotazione.getCaparra(), prenotazione.getRichLettoAgg(), prenotazione.getPensionamento(), prenotazione.getTramiteAgenzia(), prenotazione.getNomeAgenzia(), prenotazione.getRichParticolari());\r\n            msg = new AvvisoLocale(this, \" Nuovo soggiornante registrato! \");\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": "Optional[[//\tModifico la prenotazione relativa\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            setVisible(false);\r\n            dispose();\r\n            padre.dispose();\r\n            padre.padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setVisible(false);\r\n    dispose();\r\n    padre.dispose();\r\n    padre.padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Inserimento dati del soggiornante\", \"Aggiungi agli altri\", p.getPensionamento(), Flag.ADULTO);\r\n    padre = parent;\r\n    stanza = s;\r\n    num_sogg = num;\r\n    prenotazione = p;\r\n    inizializza();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AggiungiSoggiornante(RicercaPrenotazione, Prenotazione, Stanza, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Avviso\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    Panel textPanel = new Panel();\r\n    Panel buttonPanel = new Panel();\r\n    textPanel.add(new Label(testo));\r\n    OK = new Button(\"OK\");\r\n    buttonPanel.add(OK);\r\n    add(\"North\", textPanel);\r\n    add(\"Center\", buttonPanel);\r\n    init();\r\n    pack();\r\n    //setSize(250,100);\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public AvvisoLocale(AggiungiSoggiornante, String)",
+                "comments": null,
+                "innerComments": "[//setSize(250,100);\r\n]"
+            }
+        ],
+        "signature": "AggiungiSoggiornante",
+        "variables": [
+            " Prenotazione prenotazione",
+            " int num_sogg",
+            " Stanza stanza",
+            " Button OK",
+            " AggiungiSoggiornante padre"
+        ]
+    },
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    testo1.setText(stanza.getNumStanza());\r\n    testo1.setEditable(false);\r\n    testo13.setText(DateUtils.giveStringOfDate(new Date()));\r\n    testo13.setEditable(false);\r\n    testo14.setText(DateUtils.giveStringOfDate(prenotazione.getFineSogg()));\r\n    testo14.setEditable(false);\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        Soggiornante sogg = readDatiSogg(prenotazione, num_sogg + 1);\r\n        sogg.setInizioSogg(new Date());\r\n        sogg.setFineSogg(prenotazione.getFineSogg());\r\n        sogg.setNumStanza(stanza.getNumStanza());\r\n        int j;\r\n        if ((j = (Principale.db).writeSoggiornante(sogg)) == DataBase.OK) {\r\n            //\tModifico la prenotazione relativa\r\n            if (stanza.getPostiLetto() > num_sogg)\r\n                prenotazione.setNumPers(num_sogg + 1);\r\n            else if ((stanza.getPostiLetto() == num_sogg) && (stanza.getDispLettoAgg() == Const.SI))\r\n                prenotazione.setRichLettoAgg(Const.SI);\r\n            (Principale.db).changePrenotazione(prenotazione.getIdPrenotazione(), prenotazione.getNumStanza(), prenotazione.getNumPers(), prenotazione.getNome(), prenotazione.getCognome(), prenotazione.getNumTel(), prenotazione.getInizioSogg(), prenotazione.getFineSogg(), prenotazione.getDataPren(), prenotazione.getCaparra(), prenotazione.getRichLettoAgg(), prenotazione.getPensionamento(), prenotazione.getTramiteAgenzia(), prenotazione.getNomeAgenzia(), prenotazione.getRichParticolari());\r\n            msg = new AvvisoLocale(this, \" Nuovo soggiornante registrato! \");\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": "Optional[[//\tModifico la prenotazione relativa\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            setVisible(false);\r\n            dispose();\r\n            padre.dispose();\r\n            padre.padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setVisible(false);\r\n    dispose();\r\n    padre.dispose();\r\n    padre.padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Inserimento dati del soggiornante\", \"Aggiungi agli altri\", p.getPensionamento(), Flag.ADULTO);\r\n    padre = parent;\r\n    stanza = s;\r\n    num_sogg = num;\r\n    prenotazione = p;\r\n    inizializza();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AggiungiSoggiornante(RicercaPrenotazione, Prenotazione, Stanza, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Avviso\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    Panel textPanel = new Panel();\r\n    Panel buttonPanel = new Panel();\r\n    textPanel.add(new Label(testo));\r\n    OK = new Button(\"OK\");\r\n    buttonPanel.add(OK);\r\n    add(\"North\", textPanel);\r\n    add(\"Center\", buttonPanel);\r\n    init();\r\n    pack();\r\n    //setSize(250,100);\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public AvvisoLocale(AggiungiSoggiornante, String)",
+                "comments": null,
+                "innerComments": "[//setSize(250,100);\r\n]"
+            }
+        ],
+        "signature": "AvvisoLocale",
+        "variables": [
+            " Prenotazione prenotazione",
+            " int num_sogg",
+            " Stanza stanza",
+            " Button OK",
+            " AggiungiSoggiornante padre"
+        ]
+    }
+]

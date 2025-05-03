@@ -1,0 +1,26 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    errorList.addIfNotNull(checkFormat(\"body\", mBean.getBody(), ValidationFormat.MESSAGES_BODY, false));\r\n    errorList.addIfNotNull(checkFormat(\"subject\", mBean.getSubject(), ValidationFormat.MESSAGES_SUBJECT, false));\r\n    if (errorList.hasErrors())\r\n        throw new FormValidationException(errorList);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void validate(MessageBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MessageValidator()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MessageValidator",
+        "variables": []
+    }
+]

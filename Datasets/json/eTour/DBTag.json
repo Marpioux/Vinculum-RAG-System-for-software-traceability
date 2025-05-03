@@ -1,0 +1,108 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean aggiungeTagBeneCulturale(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean aggiungeTagPuntoDiRistoro(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaTag(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaTagBeneCulturale(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaTagPuntoDiRistoro(int, int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciTag(BeanTag)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean modificaTag(BeanTag)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanTag> ottieniListaTag()",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public BeanTag ottieniTag(int)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanTag> ottieniTagBeneCulturale(int)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int)",
+                "comments": null,
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    b = new ArrayList<BeanTag>(0);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DBTag()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "DBTag",
+        "variables": [
+            "private ArrayList<BeanTag> b"
+        ]
+    }
+]

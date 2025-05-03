@@ -1,0 +1,152 @@
+[
+    {
+        "methods": [
+            {
+                "signature": "private JPanel getJContentPane()",
+                "body": "private JPanel getJContentPane() {\n    if (jContentPane == null) {\n        jContentPane = new JPanel();\n        jContentPane.setLayout(new BorderLayout());\n        jContentPane.add(getRightPanel(), BorderLayout.EAST);\n        jContentPane.add(getBannerToolbar(), BorderLayout.NORTH);\n        jContentPane.add(getTreeBanner(), BorderLayout.CENTER);\n    }\n    return jContentPane;\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "comments": null,
+                "innerComments": "Optional[[]]"
+              },
+              {
+                "signature": "private JToolBar getBannerToolbar()",
+                "body": "private JToolBar getBannerToolbar() {\n    if (bannerToolbar == null) {\n        bannerToolbar = new JToolBar();\n        bannerToolbar.setLayout(null);\n        bannerToolbar.setPreferredSize(new Dimension(1, 50));\n        bannerToolbar.setFloatable(false);\n        bannerToolbar.add(getBtnInserisci());\n        bannerToolbar.add(getBtnSostituisci());\n        bannerToolbar.add(getBtnElimina());\n    }\n    return bannerToolbar;\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "comments": null,
+                "innerComments": "Optional[[]]"
+              },
+              {
+                "signature": "private JButton getBtnInserisci()",
+                "body": "private JButton getBtnInserisci() {\n    if (btnInserisci == null) {\n        btnInserisci = new JButton();\n        btnInserisci.setBounds(5, 5, 140, 40);\n        btnInserisci.setText(\"<html> <br> Show Banner </html>\");\n        btnInserisci.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"NuovoBanner32.png\")));\n        btnInserisci.setEnabled(false);\n        btnInserisci.setName(\"btnInserisci\");\n        btnInserisci.addMouseListener(bannerHelp);\n        btnInserisci.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent arg0) {\n                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) treeBanner.getSelectionPath().getLastPathComponent();\n                openDialog(selectedNode);\n            }\n        });\n    }\n    return btnInserisci;\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Show Banner, // Get selected node, // Open dialog]]"
+              },
+              {
+                "signature": "private JButton getBtnSostituisci()",
+                "body": "private JButton getBtnSostituisci() {\n    if (btnSostituisci == null) {\n        btnSostituisci = new JButton();\n        btnSostituisci.setBounds(155, 5, 140, 40);\n        btnSostituisci.setText(\"<html> Replace <br> Banner </html>\");\n        btnSostituisci.setEnabled(false);\n        btnSostituisci.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"SostituisciBanner32.png\")));\n        btnSostituisci.setName(\"btnSostituisci\");\n        btnSostituisci.addMouseListener(bannerHelp);\n        btnSostituisci.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent arg0) {\n                DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) treeBanner.getSelectionPath().getLastPathComponent();\n                openDialog(selectedNode);\n            }\n        });\n    }\n    return btnSostituisci;\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Replace Banner, // Get selected node, // Open dialog]]"
+              },
+              {
+                "signature": "private JButton getBtnElimina()",
+                "body": "private JButton getBtnElimina() {\n    if (btnElimina == null) {\n        btnElimina = new JButton();\n        btnElimina.setBounds(305, 5, 140, 40);\n        btnElimina.setText(\"<html> Delete <br> Banner </html>\");\n        btnElimina.setEnabled(false);\n        btnElimina.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"EliminaBanner32.png\")));\n        btnElimina.setName(\"btnElimina\");\n        btnElimina.addMouseListener(bannerHelp);\n        btnElimina.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent arg0) {\n                JPanel root = new JPanel(new BorderLayout());\n                JLabel message = new JLabel(\"Are you sure you want to delete the banner selected?\");\n                message.setFont(new Font(\"Dialog\", Font.BOLD, 14));\n                JLabel alert = new JLabel(\"The banner cannot be more recovered.\", SwingConstants.CENTER);\n                alert.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"warning16.png\")));\n                root.add(message, BorderLayout.NORTH);\n                root.add(alert, BorderLayout.CENTER);\n                String[] options = {\"Delete\", \"Cancel\"};\n                int choice = JOptionPane.showInternalOptionDialog(jContentPane, root, \"Confirm Delete\",\n                        JOptionPane.YES_NO_OPTION,\n                        JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"EliminaBanner48.png\")),\n                        options, options[1]);\n                if (choice == JOptionPane.YES_OPTION) {\n                    DefaultTreeModel model = (DefaultTreeModel) treeBanner.getModel();\n                    model.removeNodeFromParent((DefaultMutableTreeNode) treeBanner.getSelectionPath().getLastPathComponent());\n                    JLabel confirm = new JLabel(\"The banner selected was deleted.\");\n                    confirm.setFont(new Font(\"Dialog\", Font.BOLD, 14));\n                    JOptionPane.showInternalMessageDialog(jContentPane, confirm, \"Banner out!\",\n                            JOptionPane.OK_OPTION, new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"ok32.png\")));\n                }\n            }\n        });\n    }\n    return btnElimina;\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Delete Banner, // Confirm delete, // Delete from model]]"
+              },
+              {
+                "signature": "private void createTree()",
+                "body": "private void createTree() {\n    DefaultMutableTreeNode root = new DefaultMutableTreeNode(\"eTour\");\n\n    try {\n        ArrayList<BeanPuntoDiRistoro> pPR = gestionePuntiRistoro.ottieniPuntiDiRistoro();\n        for (int i = 0; i < pPR.size(); i++) {\n            BeanPuntoDiRistoro current = pPR.get(i);\n            int id = current.getId();\n            PRNode puntoDiRistoro = new PRNode(current.getNome(), id);\n            HashMap<BeanBanner, ImageIcon> banner = gestioneBanner.ottieniBannersDaID(id);\n            Iterator<BeanBanner> iteraBanner = banner.keySet().iterator();\n            while (iteraBanner.hasNext()) {\n                BeanBanner currentBanner = iteraBanner.next();\n                BannerNode newBanner = new BannerNode(banner.get(currentBanner), currentBanner.getId());\n                puntoDiRistoro.add(newBanner);\n            }\n            root.add(puntoDiRistoro);\n        }\n    } catch (RemoteException ex) {\n        JLabel error = new JLabel(\"<html> <h2> Unable to communicate with the server eTour. </h2>\"\n                + \"<h3> <u> The list of banners was not loaded. </u> </h3>\"\n                + \"<p> Please try again later. </p>\"\n                + \"<p> If the error persists, please contact technical support. </p>\"\n                + \"<p> We apologize for the inconvenience. </html>\");\n        ImageIcon err = new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"error48.png\"));\n        JOptionPane.showInternalMessageDialog(this, error, \"Error!\", JOptionPane.ERROR_MESSAGE, err);\n    } finally {\n        treeBanner.setModel(new DefaultTreeModel(root));\n    }\n}",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Load refreshment points, // Add banners to tree, // Show error dialog]]"
+              },
+              {
+                "signature": "private JScrollPane getTreeBanner()",
+                "body": "private JScrollPane getTreeBanner() {\n    if (treeBanner == null) {\n        treeBanner = new JTree(new DefaultTreeModel(new DefaultMutableTreeNode(\"eTour\")));\n        treeBanner.setScrollsOnExpand(true);\n        treeBanner.setAutoscrolls(true);\n        treeBanner.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);\n        treeBanner.setName(\"treeBanner\");\n        treeBanner.addMouseListener(bannerHelp);\n        treeBanner.setRootVisible(false);\n        treeBanner.setCellRenderer(new BannerRenderer());\n        treeBanner.addTreeSelectionListener(new TreeSelectionListener() {\n            public void valueChanged(TreeSelectionEvent s) {\n                DefaultMutableTreeNode node = (DefaultMutableTreeNode) treeBanner.getLastSelectedPathComponent();\n                if (node instanceof PRNode) {\n                    btnInserisci.setEnabled(true);\n                    btnElimina.setEnabled(false);\n                    btnSostituisci.setEnabled(false);\n                } else if (node instanceof BannerNode) {\n                    btnInserisci.setEnabled(false);\n                    btnSostituisci.setEnabled(true);\n                    btnElimina.setEnabled(true);\n                } else {\n                    btnInserisci.setEnabled(false);\n                    btnSostituisci.setEnabled(false);\n                    btnElimina.setEnabled(false);\n                }\n            }\n        });\n    }\n    jScrollPane = new JScrollPane(treeBanner);\n    jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);\n    return jScrollPane;\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Tree listener logic, // Enable/disable buttons]]"
+              },
+              {
+                "signature": "private JPanel getRightPanel()",
+                "body": "private JPanel getRightPanel() {\n    if (rightPanel == null) {\n        rightPanel = new JPanel();\n        rightPanel.setLayout(new GridBagLayout());\n        GridBagConstraints g = new GridBagConstraints();\n        g.gridx = 0;\n        g.gridy = 0;\n        g.fill = GridBagConstraints.BOTH;\n        g.weighty = 0.7;\n        rightPanel.add(getSearchPanel(), g);\n        g.gridy++;\n        g.weighty = 0.3;\n        rightPanel.add(getHelpPanel(), g);\n    }\n    return rightPanel;\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "comments": null,
+                "innerComments": "Optional[[]]"
+              },
+              {
+                "signature": "private JPanel getHelpPanel()",
+                "body": "private JPanel getHelpPanel() {\n    if (helpPanel == null) {\n        helpPanel = new JPanel();\n        helpPanel.setLayout(new BorderLayout());\n        helpPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(51, 102, 255), 3),\n                \"Help\", TitledBorder.DEFAULT_JUSTIFICATION,\n                TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), new Color(0, 102, 255)));\n        helpPanel.add(new JScrollPane(new JTextArea()), BorderLayout.CENTER);\n    }\n    return helpPanel;\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "comments": null,
+                "innerComments": "Optional[[]]"
+              },
+              {
+                "signature": "private JPanel getSearchPanel()",
+                "body": "private JPanel getSearchPanel() {\n    if (searchPanel == null) {\n        searchPanel = new JPanel();\n        searchPanel.setLayout(new FlowLayout(FlowLayout.LEFT));\n        searchPanel.add(new JLabel(\"Search:\"));\n        searchPanel.add(getBtnRicerca());\n        searchPanel.add(getBtnAzzera());\n    }\n    return searchPanel;\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Add labels and textfields, // Add tag panel]]"
+              },
+              {
+                "signature": "private JButton getBtnRicerca()",
+                "body": "private JButton getBtnRicerca() {\n    if (btnRicerca == null) {\n        btnRicerca = new JButton(\"Search\");\n        btnRicerca.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent arg0) {\n                System.out.println(\"Searching...\");\n                // Implement search functionality here\n            }\n        });\n    }\n    return btnRicerca;\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "comments": null,
+                "innerComments": "Optional[[]]"
+              },
+              {
+                "signature": "private JButton getBtnAzzera()",
+                "body": "private JButton getBtnAzzera() {\n    if (btnAzzera == null) {\n        btnAzzera = new JButton(\"Reset\");\n        btnAzzera.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent arg0) {\n                System.out.println(\"Resetting...\");\n                // Implement reset functionality here\n            }\n        });\n    }\n    return btnAzzera;\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Clear tag panel and name field]]"
+              },
+              {
+                "signature": "private void openDialog(DefaultMutableTreeNode pSelectedNode)",
+                "body": "private void openDialog(DefaultMutableTreeNode node) {\n    // Display dialog with information related to the selected node\n    JOptionPane.showMessageDialog(this, \"Selected Node: \" + node.toString(), \"Node Information\", JOptionPane.INFORMATION_MESSAGE);\n}",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Open modal dialog, // Save or replace banner]]"
+              },
+              {
+                "signature": "private void caricaTags()",
+                "body": "private void caricaTags() {\n    try {\n        // Placeholder for loading tags\n        System.out.println(\"Loading tags...\");\n    } catch (Exception ex) {\n        ex.printStackTrace();\n    }\n}",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "comments": null,
+                "innerComments": "Optional[[// Load tags and repaint]]"
+              }
+        ],
+        "constructors": [
+            {
+                "body": "{super(\\\"Banner\\\");\nresizable = true;\nclosable = true;\niconable = true;\nmaximizable = true;\nsetPreferredSize(Home.CHILD_SIZE);\nframeIcon = new ImageIcon(getClass().getResource(Home.URL_IMAGES + \\\"banner2.png\\\"));\n\ntextGuida = new JTextPane();\n\ntry {\nbannerHelp = new HelpManager(Home.URL_HELP + \\\"Banner.txt\\\", textGuida);\n} catch (FileNotFoundException e) {\ntextGuida.setText(\\\"<html> <b> Help not available </b> </html>\\\");\n}\n\nsetContentPane(getJContentPane());\naddInternalFrameListener(new InternalFrameAdapter() {\npublic void internalFrameOpened(InternalFrameEvent pEvent) {\nJInternalFrame frame = (JInternalFrame) pEvent.getInternalFrame();\njDesktopPane = frame.getDesktopPane();\ndesktopManager = (DeskManager) jDesktopPane.getDesktopManager();\n\ntry {\nRegistry reg = LocateRegistry.getRegistry(Home.HOST);\ngestioneBanner = (IGestioneAdvertisementAgenzia) reg.lookup(\\\"GestioneBeniCulturaliAgenzia\\\");\ntags = (IGestioneTagComune) reg.lookup(\\\"GestioneTagComune\\\");\ngestionePuntiRistoro = (IGestionePuntiDiRistoroAgenzia) reg.lookup(\\\"GestionePuntiDiRistoroAgenzia\\\");\ncreateTree();\ncaricaTags();\n} catch (Exception ex) {\nJLabel error = new JLabel(\\\"<html> <h2> Unable to communicate with the server eTour. </h2>\\\"\n+ \\\"<h3> <u> The dialog management request is closed. </u> </h3>\\\"\n+ \\\"<p> <b> Possible Causes: </b>\\\"\n+ \\\"<ul> <li> No connection to the network. </li>\\\"\n+ \\\"<li> Server inactive. </li>\\\"\n+ \\\"<li> Server clogged. </li> </ul>\\\"\n+ \\\"<p> Please try again later. </p>\\\"\n+ \\\"<p> If the error persists, please contact technical support. </p>\\\"\n+ \\\"<p> We apologize for the inconvenience. </html>\\\");\nImageIcon err = new ImageIcon(getClass().getResource(Home.URL_IMAGES + \\\"error48.png\\\"));\nJOptionPane.showMessageDialog(jDesktopPane, error, \\\"Error!\\\", JOptionPane.ERROR_MESSAGE, err);\nframe.dispose();\n}\n}\n});}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public JInternalFrame()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "JInternalFrame extends Banner",
+        "variables": [
+            "private JPanel jContentPane = null;",
+            "private JPanel rightPanel = null;",          
+            "private JToolBar bannerToolbar = null;",
+            "private JButton btnInserisci = null;",
+            "private JButton btnSostituisci = null;",
+            "private JButton btnElimina = null;",
+            "private JScrollPane jScrollPane = null;",
+            "private JPanel helpPanel = null;",
+            "private JTextPane textGuida = null;",
+            "private TagPanel panelTag = null;",
+            "private JButton btnRicerca = null;",
+            "private JButton btnAzzera = null;",
+            "private JPanel panelSearch = null;",
+            "private JTextField nomePR = null;",
+            "private JTree treeBanner = null;",
+            "private JDesktopPane jDesktopPane;",
+            "private HelpManager bannerHelp;",
+            "protected DeskManager desktopManager;",
+            "protected IGestionePuntiDiRistoroAgenzia gestionePuntiRistoro;",
+            "protected IGestioneAdvertisementAgenzia gestioneBanner;",
+            "protected IGestioneTagComune tags;"
+        ]
+    }
+]

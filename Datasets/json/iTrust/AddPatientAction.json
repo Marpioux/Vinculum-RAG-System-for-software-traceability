@@ -1,0 +1,31 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    new AddPatientValidator().validate(p);\r\n    long newMID = patientDAO.addEmptyPatient();\r\n    p.setMID(newMID);\r\n    String pwd = authDAO.addUser(newMID, Role.PATIENT, RandomPassword.getRandomPassword());\r\n    p.setPassword(pwd);\r\n    patientDAO.editPatient(p);\r\n    transDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID, newMID, \"New Patient Added\");\r\n    return newMID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addPatient(PatientBean)",
+                "comments": "Optional[/**\r\n * Creates a new patient, returns the new MID. Adds a new user to the table along with a random password.\r\n *\r\n * @return the new MID of the patient\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    this.authDAO = factory.getAuthDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AddPatientAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Just the factory and logged in MID\r\n *\r\n * @param factory\r\n * @param loggedInMID\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AddPatientAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private PatientDAO patientDAO",
+            "private AuthDAO authDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

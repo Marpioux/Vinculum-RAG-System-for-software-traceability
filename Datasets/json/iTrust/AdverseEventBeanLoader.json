@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<AdverseEventBean> list = new ArrayList<AdverseEventBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<AdverseEventBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    AdverseEventBean adverseEvent = new AdverseEventBean();\r\n    adverseEvent.setMID(rs.getString(\"PatientMID\"));\r\n    adverseEvent.setDrug(rs.getString(\"PresImmu\"));\r\n    adverseEvent.setDescription(rs.getString(\"Comment\"));\r\n    adverseEvent.setCode(rs.getString(\"Code\"));\r\n    adverseEvent.setDate(rs.getTimestamp(\"TimeLogged\").toString());\r\n    adverseEvent.setId(rs.getInt(\"id\"));\r\n    adverseEvent.setStatus(rs.getString(\"Status\"));\r\n    return adverseEvent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AdverseEventBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, AdverseEventBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "AdverseEventBeanLoader",
+        "variables": []
+    }
+]

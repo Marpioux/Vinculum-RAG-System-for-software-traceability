@@ -1,0 +1,80 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    adverseEvents = adEvents;\r\n    this.codeName = name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setAdverseEventsList(List<AdverseEventBean>, String)",
+                "comments": "Optional[/**\r\n * Called from the JSP page to initialize the list of Adverse Events needed to\r\n * produce the desired chart.\r\n *\r\n * @param adEvents\r\n * @param name\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // The DefaultCategoryDataset is used for bar charts.\r\n    // This dataset class may change based on the type of chart you wish to produce.\r\n    DefaultCategoryDataset dataset = new DefaultCategoryDataset() {\r\n\r\n        /**\r\n         * The generated serializable ID.\r\n         */\r\n        private static final long serialVersionUID = -8238489914590553747L;\r\n\r\n        /**\r\n         * @see java.lang.Object#finalize()\r\n         */\r\n        protected void finalize() throws Throwable {\r\n            super.finalize();\r\n        }\r\n    };\r\n    SimpleDateFormat sdf = new SimpleDateFormat(\"yyyy-MM-dd hh:mm:ss\");\r\n    // For each Adverse Event in the list,\r\n    // parse the string repreentation of the report date\r\n    // to a Java Date object. Then, get the month of the\r\n    // Date object and increment the value count for that month.\r\n    for (AdverseEventBean event : adverseEvents) {\r\n        Calendar cal = Calendar.getInstance();\r\n        try {\r\n            cal.setTime(sdf.parse(event.getDate()));\r\n        } catch (ParseException e) {\r\n            e.printStackTrace();\r\n            throw new DatasetProduceException(e.getMessage());\r\n        }\r\n        int monthOfReport = cal.get(Calendar.MONTH);\r\n        values[monthOfReport]++;\r\n    }\r\n    // For each month, add the monthly values to the dataset for\r\n    // producing the chart.\r\n    for (int i = 0; i < 12; i++) {\r\n        // values[i] represents the number of adverse events for month i\r\n        // codeName represents the given prescription/immunization being analyzed\r\n        // month[i] is the static array of month names, to be used as labels on the chart\r\n        dataset.addValue(values[i], codeName, months[i]);\r\n    }\r\n    return dataset;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public Object produceDataset(Map)",
+                "comments": "Optional[/**\r\n * This method parses the list of Adverse Event Beans to initialize the chart dataset.\r\n */\r\n]",
+                "innerComments": "Optional[[// The DefaultCategoryDataset is used for bar charts.\r\n, // For each Adverse Event in the list,\r\n, // parse the string repreentation of the report date\r\n, // to a Java Date object. Then, get the month of the\r\n, // For each month, add the monthly values to the dataset for\r\n, // This dataset class may change based on the type of chart you wish to produce.\r\n, /**\r\n * The generated serializable ID.\r\n */\r\n, /**\r\n * @see java.lang.Object#finalize()\r\n */\r\n, // Date object and increment the value count for that month.\r\n, // producing the chart.\r\n, // values[i] represents the number of adverse events for month i\r\n, // codeName represents the given prescription/immunization being analyzed\r\n, // month[i] is the static array of month names, to be used as labels on the chart\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    super.finalize();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected void finalize()",
+                "comments": "Optional[/**\r\n * @see java.lang.Object#finalize()\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (System.currentTimeMillis() - since.getTime()) > 5000;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean hasExpired(Map, Date)",
+                "comments": "Optional[/**\r\n * This producer's data is invalidated after 5 seconds. By this method the\r\n * producer can influence Cewolf's caching behaviour the way it wants to.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return \"AdverseEventsData DatasetProducer\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getProducerId()",
+                "comments": "Optional[/**\r\n * Returns a unique ID for this DatasetProducer\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return months[series];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String generateLink(Object, int, Object)",
+                "comments": "Optional[/**\r\n * Returns a link target for a special data item.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    super.finalize();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected void finalize()",
+                "comments": "Optional[/**\r\n * @see java.lang.Object#finalize()\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return months[series];\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String generateToolTip(CategoryDataset, int, int)",
+                "comments": "Optional[/**\r\n * @see org.jfree.chart.tooltips.CategoryToolTipGenerator#generateToolTip(CategoryDataset, int, int)\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "AdverseEventsData",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private  final String months",
+            "private int values",
+            "private List<AdverseEventBean> adverseEvents",
+            "private String codeName",
+            "private  static  final long serialVersionUID"
+        ]
+    }
+]

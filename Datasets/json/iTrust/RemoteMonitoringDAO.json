@@ -1,0 +1,93 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM RemoteMonitoringLists WHERE HCPMID=? ORDER BY PatientMID\");\r\n        ps.setLong(1, loggedInMID);\r\n        ResultSet patientRS = ps.executeQuery();\r\n        ps = conn.prepareStatement(\"SELECT * FROM RemoteMonitoringData WHERE timelogged >= CURRENT_DATE ORDER BY PatientID, timeLogged DESC\");\r\n        ResultSet dataRS = ps.executeQuery();\r\n        List<String> patientList = new ArrayList<String>();\r\n        while (patientRS.next()) {\r\n            patientList.add(patientRS.getLong(\"PatientMID\") + \"\");\r\n        }\r\n        List<RemoteMonitoringDataBean> dataList = loader.loadList(dataRS);\r\n        int i, j;\r\n        //Go through all patients and remove any that aren't monitored by this HCP\r\n        for (i = 0; i < dataList.size(); i++) {\r\n            if (!patientList.contains(dataList.get(i).getPatientMID() + \"\")) {\r\n                dataList.remove(i);\r\n                i--;\r\n            }\r\n        }\r\n        //Add values in patient list with no data for today to list.\r\n        boolean itsThere;\r\n        for (i = 0; i < patientList.size(); i++) {\r\n            itsThere = false;\r\n            for (j = 0; j < dataList.size(); j++) {\r\n                if ((dataList.get(j).getPatientMID() + \"\").equals(patientList.get(i))) {\r\n                    itsThere = true;\r\n                    break;\r\n                }\r\n            }\r\n            if (!itsThere) {\r\n                dataList.add(new RemoteMonitoringDataBean(Long.parseLong(patientList.get(i))));\r\n            }\r\n        }\r\n        return dataList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<RemoteMonitoringDataBean> getPatientsData(long)",
+                "comments": "Optional[/**\r\n * Returns patient data for a given HCP\r\n *\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//Go through all patients and remove any that aren't monitored by this HCP\r\n, //Add values in patient list with no data for today to list.\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM remotemonitoringdata WHERE PatientID=? AND timeLogged >= ? AND timeLogged <= ? ORDER BY timeLogged DESC\");\r\n        ps.setLong(1, patientMID);\r\n        ps.setTimestamp(2, new Timestamp(lower.getTime()));\r\n        // add 1 day's worth to include the upper\r\n        ps.setTimestamp(3, new Timestamp(upper.getTime() + 1000L * 60L * 60 * 24L));\r\n        ResultSet rs = ps.executeQuery();\r\n        List<RemoteMonitoringDataBean> dataList = loader.loadList(rs);\r\n        return dataList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public List<RemoteMonitoringDataBean> getPatientDataByDate(long, Date, Date)",
+                "comments": null,
+                "innerComments": "Optional[[// add 1 day's worth to include the upper\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (getNumberOfDailyEntries(patientMID) >= 10)\r\n        throw new iTrustException(\"Patient entries for today cannot exceed 10.\");\r\n    if (reporterRole.equals(\"patient representative\"))\r\n        validatePR(reporterMID, patientMID);\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO RemoteMonitoringData(PatientID, systolicBloodPressure, \" + \"diastolicBloodPressure, glucoseLevel, ReporterRole, ReporterID) VALUES(?,?,?,?,?,?)\");\r\n        ps.setLong(1, patientMID);\r\n        ps.setLong(2, systolicBloodPressure);\r\n        ps.setInt(3, diastolicBloodPressure);\r\n        ps.setInt(4, glucoseLevel);\r\n        ps.setString(5, reporterRole);\r\n        ps.setLong(6, reporterMID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void storePatientData(long, int, int, int, String, long)",
+                "comments": "Optional[/**\r\n * Store data for a given patient in the RemoteMonitoringData table\r\n *\r\n * @param patientMID The MID of the patient\r\n * @param systolicBloodPressure The systolic blood pressure of the patient\r\n * @param diastolicBloodPressure The diastolic blood pressure of the patient\r\n * @param glucoseLevel The glucose level of the patient\r\n * @param reporterRole  The role of the person that reported these monitoring stats\r\n * @param reporterMID  The MID of the person that reported these monitoring stats\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (getNumberOfDailyEntries(patientMID) >= 10)\r\n        throw new iTrustException(\"Patient entries for today cannot exceed 10.\");\r\n    if (reporterRole.equals(\"patient representative\"))\r\n        validatePR(reporterMID, patientMID);\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO RemoteMonitoringData(PatientID, glucoseLevel, ReporterRole, ReporterID) VALUES(?,?,?,?)\");\r\n        ps.setLong(1, patientMID);\r\n        ps.setInt(2, glucoseLevel);\r\n        ps.setString(3, reporterRole);\r\n        ps.setLong(4, reporterMID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void storePatientData(long, int, String, long)",
+                "comments": "Optional[/**\r\n * Store data for a given patient in the RemoteMonitoringData table\r\n *\r\n * @param patientMID The MID of the patient\r\n * @param systolicBloodPressure The systolic blood pressure of the patient\r\n * @param diastolicBloodPressure The diastolic blood pressure of the patient\r\n * @param glucoseLevel The glucose level of the patient\r\n * @param reporterRole  The role of the person that reported these monitoring stats\r\n * @param reporterMID  The MID of the person that reported these monitoring stats\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (getNumberOfDailyEntries(patientMID) >= 10)\r\n        throw new iTrustException(\"Patient entries for today cannot exceed 10.\");\r\n    if (reporterRole.equals(\"patient representative\"))\r\n        validatePR(reporterMID, patientMID);\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO RemoteMonitoringData(PatientID, systolicBloodPressure, \" + \"diastolicBloodPressure, ReporterRole, ReporterID) VALUES(?,?,?,?,?)\");\r\n        ps.setLong(1, patientMID);\r\n        ps.setLong(2, systolicBloodPressure);\r\n        ps.setInt(3, diastolicBloodPressure);\r\n        ps.setString(4, reporterRole);\r\n        ps.setLong(5, reporterMID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void storePatientData(long, int, int, String, long)",
+                "comments": "Optional[/**\r\n * Store data for a given patient in the RemoteMonitoringData table\r\n *\r\n * @param patientMID The MID of the patient\r\n * @param systolicBloodPressure The systolic blood pressure of the patient\r\n * @param diastolicBloodPressure The diastolic blood pressure of the patient\r\n * @param glucoseLevel The glucose level of the patient\r\n * @param reporterRole  The role of the person that reported these monitoring stats\r\n * @param reporterMID  The MID of the person that reported these monitoring stats\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM RemoteMonitoringData WHERE PatientID=? AND DATE(timeLogged)=CURRENT_DATE\");\r\n        ps.setLong(1, patientMID);\r\n        ResultSet rs = ps.executeQuery();\r\n        List<RemoteMonitoringDataBean> patients = loader.loadList(rs);\r\n        return patients.size();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private int getNumberOfDailyEntries(long)",
+                "comments": "Optional[/**\r\n * Private method to get the number of entries for a certain patientID for today.\r\n * @param patientMID\r\n * @return the number of entries\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Representatives WHERE RepresenterMID=? AND RepresenteeMID=?\");\r\n        ps.setLong(1, representativeMID);\r\n        ps.setLong(2, patientMID);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (//no rows\r\n        !rs.next())\r\n            throw new iTrustException(\"Representer is not valid for patient \" + patientMID);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void validatePR(long, long)",
+                "comments": null,
+                "innerComments": "Optional[[//no rows\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM RemoteMonitoringLists WHERE PatientMID = ? AND HCPMID = ?\");\r\n        ps.setLong(1, patientMID);\r\n        ps.setLong(2, HCPMID);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return false;\r\n        ps = conn.prepareStatement(\"INSERT INTO RemoteMonitoringLists(PatientMID, HCPMID) VALUES(?,?)\");\r\n        ps.setLong(1, patientMID);\r\n        ps.setLong(2, HCPMID);\r\n        ps.executeUpdate();\r\n        return true;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addPatientToList(long, long)",
+                "comments": "Optional[/**\r\n * Add a patient to the list of HCPs' monitoring lists of Patients\r\n *\r\n * @param patientMID The MID of the patient\r\n * @param HCPMID The MID of the HCP\r\n * @return true if added successfully, false if already in list\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        /*ps = conn.prepareStatement(\"SELECT * FROM RemoteMonitoringList WHERE PatientMID = ? AND HCPMID = ?\");\r\n\t\t\tps.setLong(1, patientMID);\r\n\t\t\tps.setLong(2, HCPMID);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\tif(!rs.next())\r\n\t\t\t\treturn false;*/\r\n        ps = conn.prepareStatement(\"DELETE FROM RemoteMonitoringLists WHERE PatientMID = ? AND HCPMID = ?\");\r\n        ps.setLong(1, patientMID);\r\n        ps.setLong(2, HCPMID);\r\n        if (ps.executeUpdate() == 0)\r\n            return false;\r\n        return true;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean removePatientFromList(long, long)",
+                "comments": "Optional[/**\r\n * Remove a patient from the list of HCPs' monitoring lists of Patients\r\n *\r\n * @param patientMID The MID of the patient\r\n * @param HCPMID The MID of the HCP\r\n * @return true if removed successfully, false if not in list\r\n */\r\n]",
+                "innerComments": "Optional[[/*ps = conn.prepareStatement(\"SELECT * FROM RemoteMonitoringList WHERE PatientMID = ? AND HCPMID = ?\");\r\n\t\t\tps.setLong(1, patientMID);\r\n\t\t\tps.setLong(2, HCPMID);\r\n\t\t\tResultSet rs = ps.executeQuery();\r\n\t\t\tif(!rs.next())\r\n\t\t\t\treturn false;*/\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public RemoteMonitoringDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "RemoteMonitoringDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private RemoteMonitoringDataBeanLoader loader"
+        ]
+    }
+]

@@ -1,0 +1,103 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo i pulsanti\r\n    Indietro = new Button(\" Indietro \");\r\n    //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n    Visualizza = new Button(\"Visualizza disponibilita\");\r\n    Visualizza.setEnabled(false);\r\n    //Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n    //Creo le etichette\r\n    etichetta1 = new Label(\"Selezionare il tipo di ricerca che si desidera effettuare:\");\r\n    etichetta1.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta2 = new Label(\"Risultato della ricerca:\");\r\n    etichetta2.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta3 = new Label(\"Ricerca per stanza:\");\r\n    etichetta3.setFont(ConfigurazioneSistema.font_titolo);\r\n    label1 = new Label(\"Stanza numero\");\r\n    //Creo un Checkbox ad esclusione\r\n    checkbox_group = new CheckboxGroup();\r\n    checkboxes = new Checkbox[2];\r\n    checkboxes[0] = new Checkbox(\" Ricerca per stanza\", checkbox_group, false);\r\n    checkboxes[1] = new Checkbox(\" Ricerca su tutte le stanze\", checkbox_group, false);\r\n    //Creo il TextField e lo rendo non editabili\r\n    testo = new TextField(\"\", 4);\r\n    testo.setEditable(false);\r\n    //creo una Lista\r\n    lista_disp = new List(10, false);\r\n    panel = new Panel[5];\r\n    for (int i = 0; i < panel.length; ++i) {\r\n        panel[i] = new Panel();\r\n        panel[i].setLayout(gridbag);\r\n    }\r\n    //Creo il pannello in alto a sinistra\r\n    Utils.constrain(panel[1], etichetta1, 0, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[1], checkboxes[0], 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 0, 0);\r\n    Utils.constrain(panel[1], checkboxes[1], 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 0, 0);\r\n    //Creo il pannello ricerca per stanza\r\n    Utils.constrain(panel[2], etichetta3, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[2], label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 0, 20);\r\n    Utils.constrain(panel[2], testo, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    //Creo il pannello dei pulsanti\r\n    Utils.constrain(panel[0], Indietro, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.EAST, 0.3, 0.0, 10, 0, 10, 5);\r\n    Utils.constrain(panel[0], Visualizza, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 0.3, 0.0, 10, 5, 10, 0);\r\n    //Creo il pannello contenente la list_soggiornanti\r\n    Utils.constrain(panel[4], etichetta2, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[4], lista_disp, 0, 1, 1, 1, GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST, 1.0, 1.0, 0, 5, 0, 20);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel[1], 0, 0, 5, 4, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[2], 0, 4, 5, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 1.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[0], 0, 6, 5, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.SOUTHEAST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[4], 0, 7, 5, 7, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 1.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo il TextField e lo rendo non editabili\r\n, //creo una Lista\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello ricerca per stanza\r\n, //Creo il pannello dei pulsanti\r\n, //Creo il pannello contenente la list_soggiornanti\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    cost = new Costanti();\r\n    anno_corr = cost.getAnnoCorr();\r\n    anno_prox = cost.getAnnoProx();\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            testo.setEditable(true);\r\n            Visualizza.setEnabled(true);\r\n            if (lista_disp.getItemCount() > 0)\r\n                lista_disp.removeAll();\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            testo.setEditable(false);\r\n            testo.setText(\"\");\r\n            Visualizza.setEnabled(true);\r\n            if (lista_disp.getItemCount() > 0)\r\n                lista_disp.removeAll();\r\n        }\r\n    });\r\n    Visualizza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            Disponibilita disp = new Disponibilita();\r\n            String str = new String(\"\");\r\n            //Tramuto temporaneamente tutti i commissionamenti di una certa agenzia\r\n            //in disponibilita\r\n            ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n            if (!agenzia.equals(\"\")) {\r\n                ListaCommissionamenti L_comm = (Principale.db).foundCommissionamenti(agenzia);\r\n                Commissionamento comm;\r\n                for (int i = 1; i <= L_comm.length(); i++) {\r\n                    comm = L_comm.getCommissionamento(i);\r\n                    disp = Utils.getDispOfRoom(L_disp, comm.getNumStanza(), true);\r\n                    disp.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), Flag.DISPONIBILE, Flag.COMMISSIONATA);\r\n                    L_disp.addDisponibilita(disp);\r\n                }\r\n                str = new String(\"  ---  commissioni \" + agenzia);\r\n            }\r\n            if (L_disp.length() > 0)\r\n                lista_disp.addItem(\"TABELLA DELLE DISPONIBILITA'\" + str);\r\n            if (checkboxes[0].getState())\r\n                showDispOfRoom(L_disp, testo.getText());\r\n            else\r\n                showDispOfHotel(L_disp);\r\n        }\r\n    });\r\n    Indietro.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": "Optional[[//Tramuto temporaneamente tutti i commissionamenti di una certa agenzia\r\n, //in disponibilita\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    testo.setEditable(true);\r\n    Visualizza.setEnabled(true);\r\n    if (lista_disp.getItemCount() > 0)\r\n        lista_disp.removeAll();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    testo.setEditable(false);\r\n    testo.setText(\"\");\r\n    Visualizza.setEnabled(true);\r\n    if (lista_disp.getItemCount() > 0)\r\n        lista_disp.removeAll();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Disponibilita disp = new Disponibilita();\r\n    String str = new String(\"\");\r\n    //Tramuto temporaneamente tutti i commissionamenti di una certa agenzia\r\n    //in disponibilita\r\n    ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n    if (!agenzia.equals(\"\")) {\r\n        ListaCommissionamenti L_comm = (Principale.db).foundCommissionamenti(agenzia);\r\n        Commissionamento comm;\r\n        for (int i = 1; i <= L_comm.length(); i++) {\r\n            comm = L_comm.getCommissionamento(i);\r\n            disp = Utils.getDispOfRoom(L_disp, comm.getNumStanza(), true);\r\n            disp.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), Flag.DISPONIBILE, Flag.COMMISSIONATA);\r\n            L_disp.addDisponibilita(disp);\r\n        }\r\n        str = new String(\"  ---  commissioni \" + agenzia);\r\n    }\r\n    if (L_disp.length() > 0)\r\n        lista_disp.addItem(\"TABELLA DELLE DISPONIBILITA'\" + str);\r\n    if (checkboxes[0].getState())\r\n        showDispOfRoom(L_disp, testo.getText());\r\n    else\r\n        showDispOfHotel(L_disp);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": "Optional[[//Tramuto temporaneamente tutti i commissionamenti di una certa agenzia\r\n, //in disponibilita\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    Disponibilita disp;\r\n    String aus;\r\n    if (room.equals(\"\"))\r\n        msg = new MessageDialog(this, \"Inserire il numero della stanza per la ricerca delle sue dispoibilita\");\r\n    else {\r\n        disp = Utils.getDispOfRoom(L, room, false);\r\n        if (disp == null) {\r\n            msg = new MessageDialog(this, \"La stanza inserita e' inesistente!\");\r\n            if (lista_disp.getItemCount() > 0)\r\n                lista_disp.removeAll();\r\n        } else {\r\n            lista_disp.addItem(\"\");\r\n            lista_disp.addItem(\"Disponibilita' stanza n. \" + room + \" per l'anno \" + anno_corr);\r\n            aus = new String(Utils.scanVectorForDisp(disp.getDispAnnoCorr(), anno_corr, (Principale.config).getStagAnnoCorr()));\r\n            if (aus.equals(\"\"))\r\n                lista_disp.addItem(\"NESSUNA DISPONIBILITA'\");\r\n            else\r\n                lista_disp.addItem(aus);\r\n            lista_disp.addItem(\"\");\r\n            lista_disp.addItem(\"Disponibilita' stanza n. \" + room + \" per l'anno \" + anno_prox);\r\n            aus = new String(Utils.scanVectorForDisp(disp.getDispAnnoProx(), anno_prox, (Principale.config).getStagAnnoProx()));\r\n            if (aus.equals(\"\"))\r\n                lista_disp.addItem(\"NESSUNA DISPONIBILITA'\");\r\n            else\r\n                lista_disp.addItem(aus);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void showDispOfRoom(ListaDisponibilita, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (L.length() == 0)\r\n        msg = new AvvisoDialog(this, \"Nessuna stanza trovata!\");\r\n    else\r\n        for (int i = 1; i <= L.length(); i++) showDispOfRoom(L, (L.getDisponibilita(i)).getNumStanza());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void showDispOfHotel(ListaDisponibilita)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Disponibilita delle stanze\");\r\n    padre = parent;\r\n    agenzia = new String(nome_ag);\r\n    padre.setEnabled(false);\r\n    setupPanels();\r\n    pack();\r\n    init();\r\n    this.setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraDisponibilita(Frame, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraDisponibilita",
+        "variables": [
+            " Button Indietro",
+            " Button Visualizza",
+            " TextField testo",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Label etichetta3",
+            " Label label3",
+            " Label label5",
+            " Label label1",
+            " Panel panel",
+            " CheckboxGroup checkbox_group",
+            " Checkbox checkboxes",
+            " GridBagLayout gridbag",
+            " List lista_disp",
+            " Frame padre",
+            " Costanti cost",
+            " int anno_corr",
+            " int anno_prox",
+            " String agenzia",
+            " ListaDisponibilita L"
+        ]
+    }
+]

@@ -1,0 +1,93 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return hospitalID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHospitalID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hospitalID = hospitalID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHospitalID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hospitalName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHospitalName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hospitalName = hospitalName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHospitalName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return obj != null && obj.getClass().equals(this.getClass()) && this.equals((HospitalBean) obj);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean equals(Object)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int hashCode()",
+                "comments": null,
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return hospitalID.equals(other.hospitalID) && hospitalName.equals(other.hospitalName);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private boolean equals(HospitalBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HospitalBean()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    hospitalID = id;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HospitalBean(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    hospitalID = id;\r\n    hospitalName = name;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HospitalBean(String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "HospitalBean",
+        "variables": [
+            " String hospitalID",
+            " String hospitalName"
+        ]
+    }
+]

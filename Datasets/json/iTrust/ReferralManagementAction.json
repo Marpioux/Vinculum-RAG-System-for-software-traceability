@@ -1,0 +1,54 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    referralDAO.addReferral(r);\r\n    transDAO.logTransaction(TransactionType.SEND_REFERRAL, loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void sendReferral(ReferralBean)",
+                "comments": "Optional[/**\r\n * Adds a referral bean to the database.\r\n * @param r The referral bean to be added.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    referralDAO.editReferral(r);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void updateReferral(ReferralBean)",
+                "comments": "Optional[/**\r\n * Updates an existing referral bean.\r\n * @param r The current referral bean.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return referralDAO.getReferralsSentFrom(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ReferralBean> getReferralsSentFromMe()",
+                "comments": "Optional[/**\r\n * Gets the referrals the currently logged in MID has sent.\r\n * @return A java.util.List of ReferralBeans this MID has sent.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return referralDAO.getReferralsSentTo(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ReferralBean> getReferralsSentToMe()",
+                "comments": "Optional[/**\r\n * Gets the referrals this MID has received.\r\n * @return A java.util.List of the ReferralBeans this MID has received.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.referralDAO = factory.getReferralDAO();\r\n    this.loggedInMID = loggedInMID;\r\n    this.transDAO = factory.getTransactionDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ReferralManagementAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Super class validates the patient id\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user managing this referral.\r\n * @param pidString The MID of the patient being referred.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ReferralManagementAction",
+        "variables": [
+            "private long loggedInMID",
+            "private TransactionDAO transDAO",
+            "private ReferralDAO referralDAO"
+        ]
+    }
+]

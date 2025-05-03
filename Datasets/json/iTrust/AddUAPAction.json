@@ -1,0 +1,31 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    new AddPersonnelValidator().validate(p);\r\n    long newMID = personnelDAO.addEmptyPersonnel(Role.UAP);\r\n    p.setMID(newMID);\r\n    personnelDAO.editPersonnel(p);\r\n    String pwd = authDAO.addUser(newMID, Role.UAP, RandomPassword.getRandomPassword());\r\n    p.setPassword(pwd);\r\n    transDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID, newMID, \"New UAP Added\");\r\n    return newMID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long add(PersonnelBean)",
+                "comments": "Optional[/**\r\n * Adds the new user.  Event is logged.\r\n *\r\n * @param p bean containing the information for the new user\r\n * @return MID of the new user.\r\n * @throws FormValidationException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AddUAPAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Sets up the defaults for the class\r\n *\r\n * @param factory factory for creating the defaults.\r\n * @param loggedInMID person currently logged in\r\n * @author Andy Meneely\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AddUAPAction",
+        "variables": [
+            "private PersonnelDAO personnelDAO",
+            "private AuthDAO authDAO",
+            "private TransactionDAO transDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

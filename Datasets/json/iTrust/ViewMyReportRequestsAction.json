@@ -1,0 +1,63 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return reportRequestDAO.getAllReportRequestsForRequester(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ReportRequestBean> getAllReportRequestsForRequester()",
+                "comments": "Optional[/**\r\n * Returns all the reports for the currently logged in HCP\r\n *\r\n * @return list of all reports for the logged in HCP\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    long id = reportRequestDAO.addReportRequest(loggedInMID, patientMID, Calendar.getInstance().getTime());\r\n    transDAO.logTransaction(TransactionType.COMPREHENSIVE_REPORT_REQUEST, loggedInMID, patientMID, \"Added comprehensive report request\");\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addReportRequest(long)",
+                "comments": "Optional[/**\r\n * Adds a report request to the list\r\n *\r\n * @param patientMID ID of the patient that the report request is for\r\n * @return\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return reportRequestDAO.getReportRequest(ID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ReportRequestBean getReportRequest(int)",
+                "comments": "Optional[/**\r\n * Returns the requested report\r\n *\r\n * @param ID id of the requested report\r\n * @return the requested report\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    //\t\tReportRequestBean rr = reportRequestDAO.getReportRequest(ID);\r\n    reportRequestDAO.setViewed(ID, Calendar.getInstance().getTime());\r\n    transDAO.logTransaction(TransactionType.COMPREHENSIVE_REPORT_REQUEST, loggedInMID, 0L, \"Viewed comprehensive report\");\r\n    //new EmailUtil(factory).sendEmail(makeEmailView(rr.getApproverMID(), rr.getRequesterMID(), rr\r\n    //\t.getPatientMID()));\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void setViewed(int)",
+                "comments": "Optional[/**\r\n * Sets the viewed status of the report.  If the report is \"viewed\" the HCP must request a new one to see it again.\r\n *\r\n * @param ID id of the report\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": "Optional[[//new EmailUtil(factory).sendEmail(makeEmailView(rr.getApproverMID(), rr.getRequesterMID(), rr\r\n, //\t.getPatientMID()));\r\n, //\t\tReportRequestBean rr = reportRequestDAO.getReportRequest(ID);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    StringBuilder s = new StringBuilder();\r\n    ReportRequestBean r = reportRequestDAO.getReportRequest(id);\r\n    if (r.getStatus().equals(ReportRequestBean.Requested)) {\r\n        PersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n        s.append(String.format(\"Request was requested on %s by %s\", r.getRequestedDateString(), p.getFullName()));\r\n    }\r\n    //\t\tif (r.getStatus().equals(ReportRequestBean.Approved)) {\r\n    //\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n    //\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n    //\t\t\ts.append(String.format(\"Request was requested on %s by %s \", r.getRequestedDateString(), p\r\n    //\t\t\t\t\t.getFullName()));\r\n    //\t\t\ts.append(String.format(\"and approved on %s by %s\", r.getApprovedDateString(), p2.getFullName()));\r\n    //\t\t}\r\n    //\t\tif (r.getStatus().equals(ReportRequestBean.Rejected)) {\r\n    //\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n    //\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n    //\t\t\ts.append(String.format(\"Request was requested on %s by %s \", r.getRequestedDateString(), p\r\n    //\t\t\t\t\t.getFullName()));\r\n    //\t\t\ts.append(String.format(\"and rejected on %s by %s\", r.getApprovedDateString(), p2.getFullName()));\r\n    //\t\t}\r\n    if (r.getStatus().equals(ReportRequestBean.Viewed)) {\r\n        PersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n        //\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n        String fullName = \"Unknown\";\r\n        if (p != null) {\r\n            fullName = p.getFullName();\r\n            s.append(String.format(\"Request was requested on %s by %s, \", r.getRequestedDateString(), p.getFullName()));\r\n        }\r\n        //\t\t\ts.append(String.format(\"approved on %s by %s, \", r.getApprovedDateString(), fullName));\r\n        // removed \"<br />\" because it caused unit test to fail and seems to have no\r\n        s.append(\"\");\r\n        // purpose\r\n        s.append(String.format(\"and viewed on %s by %s\", r.getViewedDateString(), fullName));\r\n    }\r\n    return s.toString();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public String getLongStatus(long)",
+                "comments": "Optional[/**\r\n * Gets the status of the request\r\n *\r\n * @param id id of the request\r\n * @return the request's status\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": "Optional[[//\t\tif (r.getStatus().equals(ReportRequestBean.Approved)) {\r\n, //\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n, //\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n, //\t\t\ts.append(String.format(\"Request was requested on %s by %s \", r.getRequestedDateString(), p\r\n, //\t\t\t\t\t.getFullName()));\r\n, //\t\t\ts.append(String.format(\"and approved on %s by %s\", r.getApprovedDateString(), p2.getFullName()));\r\n, //\t\t}\r\n, //\t\tif (r.getStatus().equals(ReportRequestBean.Rejected)) {\r\n, //\t\t\tPersonnelBean p = personnelDAO.getPersonnel(r.getRequesterMID());\r\n, //\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n, //\t\t\ts.append(String.format(\"Request was requested on %s by %s \", r.getRequestedDateString(), p\r\n, //\t\t\t\t\t.getFullName()));\r\n, //\t\t\ts.append(String.format(\"and rejected on %s by %s\", r.getApprovedDateString(), p2.getFullName()));\r\n, //\t\t}\r\n, //\t\t\ts.append(String.format(\"approved on %s by %s, \", r.getApprovedDateString(), fullName));\r\n, //\t\t\tPersonnelBean p2 = personnelDAO.getPersonnel(r.getApproverMID());\r\n, // removed \"<br />\" because it caused unit test to fail and seems to have no\r\n, // purpose\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.reportRequestDAO = factory.getReportRequestDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    //this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public ViewMyReportRequestsAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing their report requests.\r\n */\r\n]",
+                "innerComments": "[//this.factory = factory;\r\n]"
+            }
+        ],
+        "signature": "ViewMyReportRequestsAction",
+        "variables": [
+            "private long loggedInMID",
+            "private ReportRequestDAO reportRequestDAO",
+            "private PersonnelDAO personnelDAO",
+            "private TransactionDAO transDAO"
+        ]
+    }
+]

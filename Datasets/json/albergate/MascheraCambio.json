@@ -1,0 +1,112 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    stanza1 = new TextField(\"\", 4);\r\n    stanza2 = new TextField(\"\", 4);\r\n    stanza2.setEditable(false);\r\n    etichetta1 = new Label(\"Stanza attuale\");\r\n    etichetta2 = new Label(\"     Nuova stanza\");\r\n    Annulla = new Button(\" Annulla \");\r\n    Ricerca = new Button(\" Ricerca \");\r\n    Conferma = new Button(\"Conferma\");\r\n    Conferma.setEnabled(false);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, stanza1, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, etichetta2, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, stanza2, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel2, Ricerca, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel2, Conferma, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 0, 0, 0, 0);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 0, 1, 1, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 10, 10, 10, 10);\r\n    Utils.constrain(this, panel2, 0, 1, 1, 1, GridBagConstraints.BOTH, GridBagConstraints.EAST, 1.0, 1.0, 10, 10, 10, 10);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors()) {\r\n                //stanza1.setEditable(false);\r\n                startRicerca();\r\n            }\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": "Optional[[//stanza1.setEditable(false);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (noErrors()) {\r\n        //stanza1.setEditable(false);\r\n        startRicerca();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": "Optional[[//stanza1.setEditable(false);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    } else {\r\n        if (ctrlPosti()) {\r\n            int ris;\r\n            if ((ris = (Principale.db).changeStanzaSoggiornanti(stanza1.getText(), stanza2.getText())) > 0) {\r\n                if ((ris = (Principale.db).changeStanzaAddebiti(stanza1.getText(), stanza2.getText())) < 0)\r\n                    msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(ris));\r\n                if ((ris = (Principale.db).changeStanzaTelefonate(stanza1.getText(), stanza2.getText())) < 0)\r\n                    msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(ris));\r\n                Utils.aggiornaDisp(elenco_disp, stanza1.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.DISPONIBILE, Flag.OCCUPATA, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.DISPONIBILE, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.COMMISSIONATA, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.DISPONIBILE, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.COMMISSIONATA, true);\r\n                if (p.getTramiteAgenzia() == Const.SI) {\r\n                    Utils.restoreCommissioni(stanza1.getText());\r\n                }\r\n                msg = new AvvisoDialog(this, \"La stanza e' stata cambiata e tutti i dati riferiti ad essa aggiornati\");\r\n                Conferma.setEnabled(false);\r\n            } else if ((ris != 0) && (!(ris == DataBase.DONT_EXISTS_STANZA)))\r\n                msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(ris));\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(stanza1.getText(), false);\r\n    Stanza room2 = (Principale.db).readStanza(stanza2.getText());\r\n    if (!(room2 == null) && !(L_sogg == null))\r\n        if (L_sogg.length() > contaPosti(room2)) {\r\n            msg = new AvvisoDialog(this, \"La stanza scelta e' troppo piccola per \" + L_sogg.length() + \" persone\");\r\n            return false;\r\n        } else\r\n            return true;\r\n    else {\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean ctrlPosti()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int c = s.getPostiLetto();\r\n    if (s.getDispLettoAgg() == Const.SI)\r\n        c++;\r\n    return c;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " int contaPosti(Stanza)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    figlio = new MascheraRicercaStanza(\"Ricerca di stanze disponibili per cambio stanza\", 3);\r\n    Soggiornante sogg = (Principale.db).readSoggiornante(stanza1.getText(), 1);\r\n    p = (Principale.db).readPrenotazione(sogg.getIdPrenotazione());\r\n    if (!(p == null)) {\r\n        figlio.data_inizio.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(new Date())));\r\n        figlio.data_inizio.setEditable(false);\r\n        figlio.data_fine.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getFineSogg())));\r\n        figlio.save_date = p.getFineSogg();\r\n        if (p.getTramiteAgenzia() == Const.SI) {\r\n            figlio.con_ag.setState(true);\r\n            figlio.con_ag.setEnabled(false);\r\n            figlio.nome_ag.setText(p.getNomeAgenzia());\r\n            figlio.nome_ag.setEditable(false);\r\n        }\r\n        figlio.setVisible(true);\r\n        figlio.father = this;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startRicerca()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    Disponibilita disp = new Disponibilita();\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return false;\r\n    }\r\n    if ((stanza1.getText().equals(\"\"))) {\r\n        msg = new AvvisoDialog(this, \" Inserire il numero della stanza da cambiare! \");\r\n        return false;\r\n    } else {\r\n        if ((Principale.db).readStanza(stanza1.getText()) == null) {\r\n            msg = new MessageDialog(this, \" La stanza inserita e' inesistente! \");\r\n            return false;\r\n        } else {\r\n            disp = Utils.getDispOfRoom(elenco_disp, stanza1.getText(), true);\r\n            if (disp != null) {\r\n                if (disp.getStatusGiorno(DateUtils.dataTogiorni(new Date()), Const.ANNO_CORRENTE) != Flag.OCCUPATA) {\r\n                    msg = new MessageDialog(this, \" La stanza inserita non e' attualmente occupata! \");\r\n                    return false;\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean noErrors()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Cambio di stanza\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    setup();\r\n    init();\r\n    pack();\r\n    this.setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraCambio(Frame)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraCambio",
+        "variables": [
+            " TextField stanza1",
+            " TextField stanza2",
+            " Button Annulla",
+            " Button Conferma",
+            " Button Ricerca",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Panel panel1",
+            " Panel panel2",
+            " GridBagLayout gridbag",
+            " Prenotazione p",
+            " Frame padre",
+            " MascheraRicercaStanza figlio"
+        ]
+    }
+]

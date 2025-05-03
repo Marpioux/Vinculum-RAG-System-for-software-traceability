@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<HealthRecord> list = new ArrayList<HealthRecord>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<HealthRecord> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int i = 1;\r\n    ps.setLong(i++, bean.getPatientID());\r\n    ps.setDouble(i++, bean.getHeight());\r\n    ps.setDouble(i++, bean.getWeight());\r\n    ps.setInt(i++, bean.isSmoker() ? 1 : 0);\r\n    ps.setInt(i++, bean.getBloodPressureN());\r\n    ps.setInt(i++, bean.getBloodPressureD());\r\n    ps.setInt(i++, bean.getCholesterolHDL());\r\n    ps.setInt(i++, bean.getCholesterolLDL());\r\n    ps.setInt(i++, bean.getCholesterolTri());\r\n    ps.setLong(i++, bean.getPersonnelID());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, HealthRecord)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    HealthRecord hr = new HealthRecord();\r\n    hr.setBloodPressureN(rs.getInt(\"BloodPressureN\"));\r\n    hr.setBloodPressureD(rs.getInt(\"BloodPressureD\"));\r\n    hr.setCholesterolHDL(rs.getInt(\"CholesterolHDL\"));\r\n    hr.setCholesterolLDL(rs.getInt(\"CholesterolLDL\"));\r\n    hr.setCholesterolTri(rs.getInt(\"CholesterolTri\"));\r\n    hr.setDateRecorded(rs.getTimestamp(\"AsOfDate\"));\r\n    hr.setSmoker(rs.getInt(\"Smoker\") == 1);\r\n    hr.setHeight(rs.getDouble(\"Height\"));\r\n    hr.setWeight(rs.getDouble(\"Weight\"));\r\n    hr.setPersonnelID(rs.getLong(\"HCPID\"));\r\n    hr.setPatientID(rs.getLong(\"PatientID\"));\r\n    return hr;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HealthRecord loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "HealthRecordsBeanLoader",
+        "variables": []
+    }
+]

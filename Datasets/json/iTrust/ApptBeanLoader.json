@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<ApptBean> list = new ArrayList<ApptBean>();\r\n    while (rs.next()) list.add(loadSingle(rs));\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ApptBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ps.setString(1, bean.getApptType());\r\n    ps.setLong(2, bean.getPatient());\r\n    ps.setLong(3, bean.getHcp());\r\n    ps.setTimestamp(4, bean.getDate());\r\n    ps.setString(5, bean.getComment());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, ApptBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ApptBean bean = new ApptBean();\r\n    bean.setApptType(rs.getString(\"appt_type\"));\r\n    bean.setPatient(rs.getLong(\"patient_id\"));\r\n    bean.setHcp(rs.getLong(\"doctor_id\"));\r\n    bean.setDate(rs.getTimestamp(\"sched_date\"));\r\n    bean.setComment(rs.getString(\"comment\"));\r\n    return bean;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ApptBeanLoader",
+        "variables": []
+    }
+]

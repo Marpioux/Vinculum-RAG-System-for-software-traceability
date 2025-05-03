@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return getFamilyMembers(pid, \"Parent\", \"SELECT p2.FirstName AS FirstName, p2.LastName AS LastName, p2.MID as MID \" + \"FROM Patients p1, Patients p2 \" + \"WHERE p1.MID=? AND (p1.MotherMID=p2.MID OR p1.FatherMID=p2.MID)\", false);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<FamilyMemberBean> getParents(long)",
+                "comments": "Optional[/**\r\n * Return the information of the mother and father of this patient\r\n *\r\n * @param pid -\r\n *            this patient\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return getFamilyMembers(pid, \"Sibling\", \"SELECT p2.FirstName AS FirstName, p2.LastName AS LastName, p2.MID as MID \" + \"FROM Patients p1, Patients p2 \" + \"WHERE p1.MID=? AND p1.MID<>p2.MID \" + \"AND( (p1.MotherMID=p2.MotherMID AND p2.MotherMID<>0)\" + \"  OR (p1.FatherMID=p2.FatherMID AND p1.FatherMID<>0))\", false);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<FamilyMemberBean> getSiblings(long)",
+                "comments": "Optional[/**\r\n * Return a list of patients who share at least one parent (and that parent is not '0') with this patient\r\n *\r\n * @param pid -\r\n *            this patient\r\n * @return A java.util.list of FamilyMemberBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return getFamilyMembers(pid, \"Child\", \"SELECT FirstName, LastName, MID FROM Patients \" + \"WHERE MotherMID=? or FatherMID=?\", true);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<FamilyMemberBean> getChildren(long)",
+                "comments": "Optional[/**\r\n * Return a list of patients whose mother or father is this patient\r\n *\r\n * @param pid -\r\n *            this patient\r\n * @return A java.util.List of FamilyMemberBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    familyBeanLoader = new FamilyBeanLoader(relation);\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(query);\r\n        ps.setLong(1, pid);\r\n        if (secondParam)\r\n            ps.setLong(2, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return familyBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private List<FamilyMemberBean> getFamilyMembers(long, String, String, boolean)",
+                "comments": "Optional[/**\r\n * Private helper method (since all three are alike)\r\n *\r\n * @param pid\r\n * @param relation\r\n * @param query\r\n * @param secondParam -\r\n *            add the pid as the second parameter (the 3rd query was a little different)\r\n *\r\n * @return A java.util.List of FamilyMemberBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public FamilyDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "FamilyDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private FamilyBeanLoader familyBeanLoader"
+        ]
+    }
+]

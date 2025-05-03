@@ -1,0 +1,46 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    OfficeVisitBean ov = new OfficeVisitBean();\r\n    ov.setHcpID(loggedInMID);\r\n    ov.setPatientID(pid);\r\n    long visitID = ovDAO.add(ov);\r\n    transDAO.logTransaction(TransactionType.DOCUMENT_OFFICE_VISIT, loggedInMID, pid, \"visit id: \" + visitID);\r\n    return visitID;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addEmptyOfficeVisit(long)",
+                "comments": "Optional[/**\r\n * Adds an empty office visit\r\n *\r\n * @param loggedInMID\r\n *            For logging purposes\r\n * @return Office visit ID (primary key) of the new office visit\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ovDAO.getAllOfficeVisits(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<OfficeVisitBean> getAllOfficeVisits()",
+                "comments": "Optional[/**\r\n * Lists all office visits for a particular patient, regardless of who originally documented the office\r\n * visit.\r\n *\r\n * @return List of office visits,\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return factory.getAuthDAO().getUserName(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getUserName()",
+                "comments": "Optional[/**\r\n * Returns the full name of the patient with this MID\r\n *\r\n * @return name in the form of a string\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, pidString);\r\n    this.factory = factory;\r\n    this.transDAO = factory.getTransactionDAO();\r\n    ovDAO = factory.getOfficeVisitDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public AddOfficeVisitAction(DAOFactory, String)",
+                "comments": "Optional[/**\r\n * Sets up the defaults for the class\r\n * @param factory\r\n * @param pidString\r\n *            Patient ID to be validated by the superclass, {@link PatientBaseAction}\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "AddOfficeVisitAction",
+        "variables": [
+            "private DAOFactory factory",
+            "private OfficeVisitDAO ovDAO",
+            "private TransactionDAO transDAO"
+        ]
+    }
+]

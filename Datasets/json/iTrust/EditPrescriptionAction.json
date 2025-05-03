@@ -1,0 +1,28 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ovDAO.editPrescription(pres);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void editPrescription(PrescriptionBean)",
+                "comments": "Optional[/**\r\n * Edits an existing prescription in the database.\r\n *\r\n * @param pres The prescription bean that has been changed.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.ovDAO = factory.getOfficeVisitDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EditPrescriptionAction(DAOFactory)",
+                "comments": "Optional[/**\r\n * Creates a new action by initializing the office visit\r\n * database access object.\r\n *\r\n * @param factory\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "EditPrescriptionAction",
+        "variables": [
+            "private OfficeVisitDAO ovDAO"
+        ]
+    }
+]

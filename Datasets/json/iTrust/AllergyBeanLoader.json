@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<AllergyBean> list = new ArrayList<AllergyBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<AllergyBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    AllergyBean allergy = new AllergyBean();\r\n    allergy.setId(rs.getLong(\"ID\"));\r\n    allergy.setPatientID(rs.getLong(\"PatientID\"));\r\n    allergy.setDescription(rs.getString(\"Description\"));\r\n    allergy.setFirstFound(rs.getTimestamp(\"FirstFound\"));\r\n    return allergy;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AllergyBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, AllergyBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "AllergyBeanLoader",
+        "variables": []
+    }
+]

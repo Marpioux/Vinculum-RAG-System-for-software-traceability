@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<SurveyResultBean> list = new ArrayList<SurveyResultBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<SurveyResultBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, SurveyResultBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    SurveyResultBean surveyResult = new SurveyResultBean();\r\n    surveyResult.setHCPMID(rs.getLong(\"mid\"));\r\n    surveyResult.setAvgExamRoomMinutes(rs.getFloat(\"AvgExamRoomMinutes\"));\r\n    surveyResult.setAvgTreatmentSatisfaction(rs.getFloat(\"AvgTreatmentSatisfation\"));\r\n    surveyResult.setAvgVisitSatisfaction(rs.getFloat(\"AvgVisitSatisfaction\"));\r\n    surveyResult.setAvgWaitingRoomMinutes(rs.getFloat(\"AvgWaitingRoomMinutes\"));\r\n    surveyResult.setHCPaddress1(rs.getString(\"address1\"));\r\n    surveyResult.setHCPaddress2(rs.getString(\"address2\"));\r\n    surveyResult.setHCPcity(rs.getString(\"city\"));\r\n    surveyResult.setHCPstate(rs.getString(\"state\"));\r\n    surveyResult.setHCPzip(rs.getString(\"zip\"));\r\n    surveyResult.setHCPhospital(rs.getString(\"hospitalID\"));\r\n    surveyResult.setHCPFirstName(rs.getString(\"firstName\"));\r\n    surveyResult.setHCPLastName(rs.getString(\"lastName\"));\r\n    surveyResult.setHCPspecialty(rs.getString(\"specialty\"));\r\n    surveyResult.setPercentSatisfactionResults(rs.getFloat(\"PercentSatisfactionResults\"));\r\n    return surveyResult;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public SurveyResultBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "SurveyResultBeanLoader",
+        "variables": []
+    }
+]

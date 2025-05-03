@@ -1,0 +1,47 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return apptDAO.getApptsFor(loggedInMID);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ApptBean> getMyAppointments()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (mid < 7000000000L)\r\n        return patientDAO.getName(mid);\r\n    else\r\n        return personnelDAO.getName(mid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName(long)",
+                "comments": "Optional[/**\r\n * Gets a users's name from their MID\r\n *\r\n * @param mid the MID of the user\r\n * @return the user's name\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return apptDAO.getAllAppts();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ApptBean> getAllAppts()",
+                "comments": "Optional[/**\r\n * Get All Appointments for the admins use... may need to change!\r\n * @return\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.apptDAO = factory.getApptDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ViewMyApptsAction(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewMyApptsAction",
+        "variables": [
+            "private long loggedInMID",
+            "private ApptDAO apptDAO",
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO"
+        ]
+    }
+]

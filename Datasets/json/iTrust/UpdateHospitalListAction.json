@@ -1,0 +1,46 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    new HospitalBeanValidator().validate(hosp);\r\n    try {\r\n        if (hospDAO.addHospital(hosp)) {\r\n            transDAO.logTransaction(TransactionType.MAINTAIN_HOSPITALS, performerID, 0L, \"added hospital \" + hosp.getHospitalName());\r\n            return \"Success: \" + hosp.getHospitalID() + \" - \" + hosp.getHospitalName() + \" added\";\r\n        } else\r\n            return \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    } catch (iTrustException e) {\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String addHospital(HospitalBean)",
+                "comments": "Optional[/**\r\n * Adds a hosptial using the HospitalBean passed as a param\r\n *\r\n * @param hosp\r\n *            the new hospital listing\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    new HospitalBeanValidator().validate(hosp);\r\n    try {\r\n        int rows = 0;\r\n        return ((0 == (rows = updateHospital(hosp))) ? \"Error: Hospital not found.\" : \"Success: \" + rows + \" row(s) updated\");\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String updateInformation(HospitalBean)",
+                "comments": "Optional[/**\r\n * Updates a hospital (based on the hospital id) using new information from the HospitalBean passed as a\r\n * param\r\n *\r\n * @param hosp\r\n *            the new hospital information with the same hospital id\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hospDAO.updateHospital(hosp);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private int updateHospital(HospitalBean)",
+                "comments": "Optional[/**\r\n * Updates hospital\r\n *\r\n * @param hosp new information\r\n * @return id for the updated hospital\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.hospDAO = factory.getHospitalsDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.performerID = performerID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public UpdateHospitalListAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param performerID The MID of the person updating the hospitals.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "UpdateHospitalListAction",
+        "variables": [
+            "private long performerID",
+            "private HospitalsDAO hospDAO",
+            "private TransactionDAO transDAO"
+        ]
+    }
+]

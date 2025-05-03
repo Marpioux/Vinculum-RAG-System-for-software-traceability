@@ -1,0 +1,178 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return (other != null) && this.getClass().equals(other.getClass()) && this.equals((PrescriptionBean) other);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean equals(Object)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (medication == other.medication || (medication != null && medication.equals(other.medication))) && visitID == other.visitID && startDateStr.equals(other.startDateStr) && endDateStr.equals(other.endDateStr) && dosage == other.dosage && instructions.equals(other.instructions);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private boolean equals(PrescriptionBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int hashCode()",
+                "comments": null,
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return dosage;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getDosage()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.dosage = dosage;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDosage(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").parse(endDateStr);\r\n    } catch (java.text.ParseException e) {\r\n        return null;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getEndDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.endDateStr = endDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setEndDateStr(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return instructions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getInstructions()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.instructions = instruction;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setInstructions(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return medication;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MedicationBean getMedication()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.medication = medication;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setMedication(MedicationBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").parse(startDateStr);\r\n    } catch (ParseException e) {\r\n        return null;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getStartDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return startDateStr;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getStartDateStr()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return endDateStr;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getEndDateStr()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.startDateStr = startDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setStartDateStr(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return visitID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getVisitID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.visitID = visitID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setVisitID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getId()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.id = id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setId(long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PrescriptionBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "PrescriptionBean",
+        "variables": [
+            "private long id",
+            "private MedicationBean medication",
+            "private long visitID",
+            "private String startDateStr",
+            "private String endDateStr",
+            "private int dosage",
+            "private String instructions"
+        ]
+    }
+]

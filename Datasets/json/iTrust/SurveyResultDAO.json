@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    StringBuffer sql = new StringBuffer();\r\n    sql.append(\"select p.mid, p.firstname, p.lastname, p.address1, p.address2, p.city, p.state, p.zip, p.specialty, \");\r\n    sql.append(\"'na' hospitalID, \");\r\n    sql.append(\"avg(s.WaitingRoomMinutes) AvgWaitingRoomMinutes, \");\r\n    sql.append(\"avg(s.ExamRoomMinutes) AvgExamRoomMinutes, \");\r\n    sql.append(\"avg(s.VisitSatisfaction) AvgVisitSatisfaction, \");\r\n    sql.append(\"avg(s.TreatmentSatisfaction) AvgTreatmentSatisfation, \");\r\n    sql.append(\"count(*) / \");\r\n    sql.append(\"\t(select count(*) from personnel p1, officevisits v1 \");\r\n    sql.append(\"\t where v1.hcpid = p1.mid \");\r\n    sql.append(\"\t and substr(p1.zip,1,3) = ? \");\r\n    sql.append(\"\t and p1.mid = p.mid) * 100 PercentSatisfactionResults \");\r\n    sql.append(\"from ovsurvey s, personnel p, officevisits v \");\r\n    sql.append(\"where s.visitid = v.id \");\r\n    sql.append(\"and v.hcpid = p.mid \");\r\n    sql.append(\"and substr(p.zip,1,3) = ? \");\r\n    if (!specialty.equals(SurveyResultBean.ANY_SPECIALTY))\r\n        sql.append(\"and specialty = ?\");\r\n    sql.append(\"group by p.mid, p.firstname, p.lastname, p.address1, p.address2, p.city, p.state, p.zip, hospitalID \");\r\n    if (!specialty.equals(SurveyResultBean.ANY_SPECIALTY))\r\n        sql.append(\", p.specialty \");\r\n    sql.append(\"order by p.mid \");\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(sql.toString());\r\n        ps.setString(1, zip.substring(0, 3));\r\n        ps.setString(2, zip.substring(0, 3));\r\n        if (!specialty.equals(SurveyResultBean.ANY_SPECIALTY))\r\n            ps.setString(3, specialty);\r\n        return loader.loadList(ps.executeQuery());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<SurveyResultBean> getSurveyResultsForZip(String, String)",
+                "comments": "Optional[/**\r\n * Returns all the survey results in the database that correspond to a particular zip code.\r\n *\r\n * @param zip The zipcode we are interested in as a String.\r\n * @param specialty The specialty we are interested in as a String.\r\n * @return A java.util.List of SurveyResultBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    StringBuffer sql = new StringBuffer();\r\n    sql.append(\"select p.mid, p.firstname, p.lastname, p.address1, p.address2, p.city, p.state, p.zip, p.specialty, \");\r\n    sql.append(\"h.hosid hospitalID, \");\r\n    sql.append(\"avg(s.WaitingRoomMinutes) AvgWaitingRoomMinutes, \");\r\n    sql.append(\"avg(s.ExamRoomMinutes) AvgExamRoomMinutes, \");\r\n    sql.append(\"avg(s.VisitSatisfaction) AvgVisitSatisfaction, \");\r\n    sql.append(\"avg(s.TreatmentSatisfaction) AvgTreatmentSatisfation, \");\r\n    sql.append(\"count(*) / \");\r\n    sql.append(\"\t(select count(*) from personnel p1, officevisits v1, HCPAssignedHos h1 \");\r\n    sql.append(\"\t where v1.hcpid = p1.mid \");\r\n    sql.append(\"\t and v1.hcpid = h1.hcpid \");\r\n    sql.append(\"\t and h1.hosid = ? \");\r\n    sql.append(\"\t and p1.mid = p.mid) * 100 PercentSatisfactionResults \");\r\n    sql.append(\"from ovsurvey s, personnel p, officevisits v, HCPAssignedHos h \");\r\n    sql.append(\"where s.visitid = v.id \");\r\n    sql.append(\"and v.hcpid = p.mid \");\r\n    sql.append(\"and v.hcpid = h.hcpid \");\r\n    sql.append(\"and h.hosid = ? \");\r\n    if (!specialty.equals(SurveyResultBean.ANY_SPECIALTY))\r\n        sql.append(\"and p.specialty = ?\");\r\n    sql.append(\"group by p.mid, p.firstname, p.lastname, p.address1, p.address2, p.city, p.state, p.zip, hospitalID \");\r\n    if (!specialty.equals(SurveyResultBean.ANY_SPECIALTY))\r\n        sql.append(\", p.specialty \");\r\n    sql.append(\"order by p.mid \");\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(sql.toString());\r\n        ps.setString(1, hospitalID);\r\n        ps.setString(2, hospitalID);\r\n        if (!specialty.equals(SurveyResultBean.ANY_SPECIALTY)) {\r\n            ps.setString(3, specialty);\r\n        }\r\n        return loader.loadList(ps.executeQuery());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<SurveyResultBean> getSurveyResultsForHospital(String, String)",
+                "comments": "Optional[/**\r\n * Returns all the survey data associated with a given hospital and a certain specialty.\r\n *\r\n * @param hospitalID The unique ID of the iTrust hospital we are querying about.\r\n * @param specialty A string representing the specialty we are interested in.\r\n * @return A java.util.List of SurveyResultBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.loader = new SurveyResultBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SurveyResultDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SurveyResultDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private SurveyResultBeanLoader loader"
+        ]
+    }
+]

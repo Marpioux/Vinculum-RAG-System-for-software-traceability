@@ -1,0 +1,30 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    //now set visit ID in the survey bean\r\n    surveyBean.setVisitID(visitID);\r\n    surveyDAO.addCompletedSurvey(surveyBean, Calendar.getInstance().getTime());\r\n    //add to transaction log\r\n    transDAO.logTransaction(TransactionType.ADD_PATIENT_SURVEY, loggedInMID, 0L, \"office visit ID for completed survey is: \" + visitID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void addSurvey(SurveyBean, long)",
+                "comments": "Optional[/**\r\n * Pass the OfficeVistBean along with SurveyBean\r\n * @param surveyBean contains data to be added to database\r\n * @param visitID The Office Visit ID corresponding to this Survey.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//now set visit ID in the survey bean\r\n, //add to transaction log\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    transDAO = factory.getTransactionDAO();\r\n    surveyDAO = factory.getSurveyDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public SurveyAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Sets up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user taking the survey.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "SurveyAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private SurveyDAO surveyDAO",
+            " long loggedInMID"
+        ]
+    }
+]

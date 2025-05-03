@@ -1,0 +1,55 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID);\r\n    return rmDAO.getPatientsData(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<RemoteMonitoringDataBean> getPatientsData()",
+                "comments": "Optional[/**\r\n * Returns a list of RemoteMonitoringDataBeans for the logged in HCP\r\n *\r\n * @return list of TransactionBeans\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Date lower;\r\n    Date upper;\r\n    try {\r\n        lower = new SimpleDateFormat(\"MM/dd/yyyy\").parse(startDate);\r\n        upper = new SimpleDateFormat(\"MM/dd/yyyy\").parse(endDate);\r\n        if (lower.after(upper))\r\n            throw new FormValidationException(\"Start date must be before end date!\");\r\n    } catch (ParseException e) {\r\n        throw new FormValidationException(\"Enter dates in MM/dd/yyyy\");\r\n    }\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID);\r\n    return rmDAO.getPatientDataByDate(patientMID, lower, upper);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<RemoteMonitoringDataBean> getPatientDataByDate(long, String, String)",
+                "comments": "Optional[/**\r\n * Returns a list of RemoteMonitoringDataBeans for the logged in HCP\r\n *\r\n * @return list of TransactionBeans\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return rmDAO.getPatientsData(loggedInMID);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<RemoteMonitoringDataBean> getPatientDataWithoutLogging()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return authDAO.getUserName(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getPatientName(long)",
+                "comments": "Optional[/**\r\n * returns the patient name\r\n *\r\n * @return patient name\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.rmDAO = factory.getRemoteMonitoringDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewMyRemoteMonitoringListAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Constructor\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the HCP retrieving the patient data.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewMyRemoteMonitoringListAction",
+        "variables": [
+            "private RemoteMonitoringDAO rmDAO",
+            "private TransactionDAO transDAO",
+            "private AuthDAO authDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

@@ -1,0 +1,41 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciTag(BeanTag)",
+                "comments": "Optional[/**\r\n * Method to insert a new tag\r\n *\r\n * @param pTagNuovo containing all the data of the new Tag\r\n * @return true if the operation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaTag(int)",
+                "comments": "Optional[/**\r\n * Method for the cancellation of an existing tag\r\n *\r\n * @param pTagID to identify the tags in question\r\n * @return true if the operation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaTag(BeanTag)",
+                "comments": "Optional[/**\r\n * Method for editing a Tag\r\n *\r\n * @param pTagModificato containing the details of the new Tag\r\n * @return true if the operation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanTag ottieniTag(int)",
+                "comments": "Optional[/**\r\n * Method which returns a tag identified by its ID\r\n *\r\n * @param pTagID to identify a particular tag\r\n * @return a BeanTag containing data Tag concerned\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneTagOperatoreAgenzia",
+        "variables": []
+    }
+]

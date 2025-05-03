@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        DAOFactory.getProductionInstance().getConnection().close();\r\n        return true;\r\n    } catch (SQLException e) {\r\n        System.out.println(e);\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean canObtainProductionInstance()",
+                "comments": "Optional[/**\r\n * Used to check if we can actually obtain a connection.\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        if (ps != null)\r\n            ps.close();\r\n        if (conn != null)\r\n            conn.close();\r\n    } catch (SQLException e) {\r\n        System.err.println(\"Error closing connections\");\r\n        e.printStackTrace();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static void closeConnection(Connection, PreparedStatement)",
+                "comments": "Optional[/**\r\n * Close the prepared statement and the connection in a proper way\r\n *\r\n * @param conn\r\n * @param ps\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ResultSet rs = conn.createStatement().executeQuery(\"SELECT LAST_INSERT_ID()\");\r\n    rs.next();\r\n    return rs.getLong(1);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static long getLastInsert(Connection)",
+                "comments": "Optional[/**\r\n * Returns the last ID that was generated for an auto-increment column. Please note that this does NOT\r\n * cause transaction problems! last_insert_id() returns the last generated ID on a per-connection basis.\r\n * See the MySQL documentation at the following location to confirm this:\r\n * {@link http://dev.mysql.com/doc/refman/5.0/en/getting-unique-id.html}\r\n *\r\n * Don't believe me? see {@link AutoIncrementTest}\r\n *\r\n * @param conn\r\n * @return last generated id\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DBUtil",
+        "variables": []
+    }
+]

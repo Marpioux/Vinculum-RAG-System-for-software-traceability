@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    errorList.addIfNotNull(checkFormat(\"Appointment Type Name\", a.getName(), ValidationFormat.APPT_TYPE_NAME, false));\r\n    errorList.addIfNotNull(checkFormat(\"Appointment Type Duration\", a.getDuration() + \"\", ValidationFormat.APPT_TYPE_DURATION, false));\r\n    if (errorList.hasErrors())\r\n        throw new FormValidationException(errorList);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void validate(ApptTypeBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ApptTypeBeanValidator",
+        "variables": []
+    }
+]

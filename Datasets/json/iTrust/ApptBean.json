@@ -1,0 +1,95 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return apptType;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getApptType()",
+                "comments": "Optional[/**\r\n * @return the apptType\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.apptType = apptType;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setApptType(String)",
+                "comments": "Optional[/**\r\n * @param apptType the apptType to set\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patient;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getPatient()",
+                "comments": "Optional[/**\r\n * @return the patient\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patient = patient;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setPatient(long)",
+                "comments": "Optional[/**\r\n * @param patient the patient to set\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcp;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long getHcp()",
+                "comments": "Optional[/**\r\n * @return the hcp\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcp = hcp;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setHcp(long)",
+                "comments": "Optional[/**\r\n * @param hcp the hcp to set\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return date;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Timestamp getDate()",
+                "comments": "Optional[/**\r\n * @return the date\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.date = date;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDate(Timestamp)",
+                "comments": "Optional[/**\r\n * @param date the date to set\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return comment;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getComment()",
+                "comments": "Optional[/**\r\n * @return the comment\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.comment = comment;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setComment(String)",
+                "comments": "Optional[/**\r\n * @param comment the comment to set\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "ApptBean",
+        "variables": [
+            "private String apptType",
+            "private long patient",
+            "private long hcp",
+            "private Timestamp date",
+            "private String comment"
+        ]
+    }
+]

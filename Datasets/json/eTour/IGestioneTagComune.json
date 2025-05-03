@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanTag> ottieniTags()",
+                "comments": "Optional[/**\r\n * Method which returns all the tags stored in the database\r\n *\r\n * @return an ArrayList of BeanTag\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IGestioneTagComune",
+        "variables": []
+    }
+]

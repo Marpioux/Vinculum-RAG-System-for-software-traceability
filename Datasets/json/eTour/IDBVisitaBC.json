@@ -1,0 +1,49 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciVisitaBC(BeanVisitaBC)",
+                "comments": "Optional[/**\r\n * Inserts a visit\r\n *\r\n * @param PVIS Visit to insert\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaVisitaBC(BeanVisitaBC)",
+                "comments": "Optional[/**\r\n * Modify a visit\r\n *\r\n * @param PVIS Visit to edit\r\n * @throws SQLException\r\n * @return True if changed, otherwise false\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanVisitaBC> ottieniListaVisitaBC(int)",
+                "comments": "Optional[/**\r\n * Extract the list of visits to a cultural asset\r\n *\r\n * @param pIdBeneCulturale ID of the cultural asset\r\n * @throws SQLException\r\n * @return list of visits of the cultural asset\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanVisitaBC> ottieniListaVisitaBCTurista(int)",
+                "comments": "Optional[/**\r\n * Extract the list of cultural assets visited by a tourist\r\n *\r\n * @param pIdTurista ID of the tourist\r\n * @throws SQLException\r\n * @return ArrayList of all feedback issued by a tourist for a specified cultural asset\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanVisitaBC ottieniVisitaBC(int, int)",
+                "comments": "Optional[/**\r\n * Extract a visit by a tourist to a cultural asset\r\n *\r\n * @param pIdBeneCulturale ID of the cultural asset\r\n * @param pIdTurista ID of the tourist\r\n * @throws SQLException\r\n * @return visit\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBVisitaBC",
+        "variables": []
+    }
+]

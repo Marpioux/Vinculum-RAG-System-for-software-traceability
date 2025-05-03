@@ -1,0 +1,217 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT firstName, lastName FROM Patients WHERE MID=?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs;\r\n        rs = ps.executeQuery();\r\n        if (rs.next()) {\r\n            return rs.getString(\"firstName\") + \" \" + rs.getString(\"lastName\");\r\n        } else {\r\n            throw new iTrustException(\"User does not exist\");\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName(long)",
+                "comments": "Optional[/**\r\n * Returns the name for the given MID\r\n *\r\n * @param mid The MID of the patient in question.\r\n * @return A String representing the patient's first name and last name.\r\n * @throws iTrustException\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT role FROM Users WHERE MID=? AND Role=?\");\r\n        ps.setLong(1, mid);\r\n        ps.setString(2, role);\r\n        ResultSet rs;\r\n        rs = ps.executeQuery();\r\n        if (rs.next()) {\r\n            return rs.getString(\"role\");\r\n        } else {\r\n            throw new iTrustException(\"User does not exist with the designated role\");\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getRole(long, String)",
+                "comments": "Optional[/**\r\n * Returns the role of a particular patient - why is this in PatientDAO? It should be in AuthDAO\r\n *\r\n * @param mid The MID of the patient in question.\r\n * @param role A String representing the role of the patient.\r\n * @return A String representing the patient's role.\r\n * @throws iTrustException\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO Patients(MID) VALUES(NULL)\");\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addEmptyPatient()",
+                "comments": "Optional[/**\r\n * Adds an empty patient to the table, returns the new MID\r\n *\r\n * @return The MID of the patient as a long.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Patients WHERE MID = ?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        // pdao.logTransaction(type, loggedInMID, secondaryMID, addedInfo)\r\n        if (rs.next()) {\r\n            return patientLoader.loadSingle(rs);\r\n        } else\r\n            return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public PatientBean getPatient(long)",
+                "comments": "Optional[/**\r\n * Returns the patient's information for a given ID\r\n *\r\n * @param mid The MID of the patient to retrieve.\r\n * @return A PatientBean representing the patient.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// pdao.logTransaction(type, loggedInMID, secondaryMID, addedInfo)\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE Patients SET firstName=?,lastName=?,email=?,\" + \"address1=?,address2=?,city=?,state=?,zip1=?, zip2=?,phone1=?,phone2=?,phone3=?,\" + \"eName=?,ePhone1=?,ePhone2=?,ePhone3=?,iCName=?,iCAddress1=?,iCAddress2=?,iCCity=?,\" + \"ICState=?,iCZip1=?, iCZip2=?, iCPhone1=?,iCPhone2=?,iCPhone3=?,iCID=?,DateOfBirth=?,\" + \"DateOfDeath=?,CauseOfDeath=?,MotherMID=?,FatherMID=?,\" + \"BloodType=?,Ethnicity=?,Gender=?,TopicalNotes=?, CreditCardType=?, CreditCardNumber=?, MessageFilter=? WHERE MID=?\");\r\n        patientLoader.loadParameters(ps, p);\r\n        ps.setLong(40, p.getMID());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void editPatient(PatientBean)",
+                "comments": "Optional[/**\r\n * Updates a patient's information for the given MID\r\n *\r\n * @param p The patient bean representing the new information for the patient.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Patients WHERE MID=?\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return rs.next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean checkPatientExists(long)",
+                "comments": "Optional[/**\r\n * Returns whether or not the patient exists\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A boolean indicating whether the patient exists.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (pid == 0L)\r\n            throw new SQLException(\"pid cannot be 0\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM DeclaredHCP, Personnel \" + \"WHERE PatientID=? AND Personnel.MID=DeclaredHCP.HCPID\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return personnelLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> getDeclaredHCPs(long)",
+                "comments": "Optional[/**\r\n * Returns a list of HCPs who are declared by the given patient\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of Personnel Beans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO DeclaredHCP(PatientID, HCPID) VALUES(?,?)\");\r\n        ps.setLong(1, pid);\r\n        ps.setLong(2, hcpID);\r\n        return 1 == ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"HCP \" + hcpID + \" has already been declared for patient \" + pid);\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean declareHCP(long, long)",
+                "comments": "Optional[/**\r\n * Declares an HCP for a particular patient\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @param hcpID The HCP's MID.\r\n * @return A boolean as to whether the insertion was successful.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM DeclaredHCP WHERE PatientID=? AND HCPID=?\");\r\n        ps.setLong(1, pid);\r\n        ps.setLong(2, hcpID);\r\n        return 1 == ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean undeclareHCP(long, long)",
+                "comments": "Optional[/**\r\n * Undeclare an HCP for a given patient\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @param hcpID The MID of the HCP in question.\r\n * @return A boolean indicating whether the action was successful.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM DeclaredHCP WHERE PatientID=? AND HCPID=?\");\r\n        ps.setLong(1, pid);\r\n        ps.setLong(2, hcpid);\r\n        return ps.executeQuery().next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean checkDeclaredHCP(long, long)",
+                "comments": "Optional[/**\r\n * Check if a patient has declared the given HCP\r\n *\r\n * @param pid The MID of the patient in question as a long.\r\n * @param hcpid The MID of the HCP in question as a long.\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT Patients.* FROM Representatives, Patients \" + \"WHERE RepresenterMID=? AND RepresenteeMID=Patients.MID\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return patientLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> getRepresented(long)",
+                "comments": "Optional[/**\r\n * Return a list of patients that the given patient represents\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of PatientBeans\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT Patients.* FROM Representatives, Patients \" + \"WHERE RepresenteeMID=? AND RepresenterMID=Patients.MID\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return patientLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> getRepresenting(long)",
+                "comments": "Optional[/**\r\n * Return a list of patients that the given patient is represented by\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of PatientBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Representatives WHERE RepresenterMID=? AND RepresenteeMID=?\");\r\n        ps.setLong(1, representer);\r\n        ps.setLong(2, representee);\r\n        ResultSet rs = ps.executeQuery();\r\n        return rs.next();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean represents(long, long)",
+                "comments": "Optional[/**\r\n * Check if the given representer represents the representee\r\n *\r\n * @param representer The MID of the representer in question.\r\n * @param representee The MID of the representee in question.\r\n * @return A boolean indicating whether represenation is in place.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO Representatives(RepresenterMID,RepresenteeMID) VALUES (?,?)\");\r\n        ps.setLong(1, representer);\r\n        ps.setLong(2, representee);\r\n        return 1 == ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Patient \" + representer + \" already represents patient \" + representee);\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addRepresentative(long, long)",
+                "comments": "Optional[/**\r\n * Assign a representer to the representee\r\n *\r\n * @param representer The MID of the representer as a long.\r\n * @param representee The MID of the representee as a long.\r\n * @return A boolean as to whether the insertion was correct.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM Representatives WHERE RepresenterMID=? AND RepresenteeMID=?\");\r\n        ps.setLong(1, representer);\r\n        ps.setLong(2, representee);\r\n        return 1 == ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean removeRepresentative(long, long)",
+                "comments": "Optional[/**\r\n * Unassign the representation\r\n *\r\n * @param representer The MID of the representer in question.\r\n * @param representee The MID of the representee in question.\r\n * @return A boolean indicating whether the unassignment was sucessful.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (pid == 0L)\r\n            throw new SQLException(\"pid cannot be 0\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM OVDiagnosis ovd, OfficeVisits ov, ICDCodes icd \" + \"WHERE ovd.VisitID=ov.ID and icd.Code=ovd.ICDCode and ov.PatientID=? \" + \"ORDER BY ov.visitDate DESC\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return diagnosisLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DiagnosisBean> getDiagnoses(long)",
+                "comments": "Optional[/**\r\n * Return a list of all diagnoses for a given patient\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of Diagnoses.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (pid == 0L)\r\n            throw new SQLException(\"pid cannot be 0\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OVProcedure ovp, OfficeVisits ov, CPTCodes cpt \" + \"Where ovp.VisitID=ov.ID and cpt.code=ovp.cptcode and ov.patientID=? \" + \"ORDER BY ov.visitDate desc\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return procedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ProcedureBean> getProcedures(long)",
+                "comments": "Optional[/**\r\n * Return a list of all procedures for a given patient\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of all the procedures.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (pid == 0L)\r\n            throw new SQLException(\"pid cannot be 0\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OVProcedure ovp, OfficeVisits ov, CPTCodes cpt \" + \"Where ovp.VisitID=ov.ID and cpt.code=ovp.cptcode and ov.patientID=? and cpt.attribute='immunization'\" + \"ORDER BY ov.visitDate desc\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return procedureLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ProcedureBean> getImmunizationProcedures(long)",
+                "comments": "Optional[/**\r\n * Return a list of all immunization procedures for a given patient\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of the procedures.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (patientID == 0L)\r\n            throw new SQLException(\"pid cannot be 0\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OVMedication,NDCodes,OfficeVisits \" + \"Where OfficeVisits.PatientID = ? AND OVMedication.VisitID = \" + \"OfficeVisits.ID AND NDCodes.Code=OVMedication.NDCode \" + \"ORDER BY OfficeVisits.visitDate DESC, OVMedication.NDCode ASC;\");\r\n        ps.setLong(1, patientID);\r\n        ResultSet rs = ps.executeQuery();\r\n        return prescriptionLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getPrescriptions(long)",
+                "comments": "Optional[/**\r\n * Return a list of all prescriptions for a patient\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @return A java.util.List of prescriptions.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (patientID == 0L)\r\n            throw new SQLException(\"pid cannot be 0\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OVMedication,NDCodes,OfficeVisits \" + \"Where OfficeVisits.PatientID = ? AND OVMedication.VisitID = \" + \"OfficeVisits.ID AND NDCodes.Code=OVMedication.NDCode AND \" + \"OVMedication.EndDate >= ?\" + \"ORDER BY OVMedication.ID DESC;\");\r\n        ps.setLong(1, patientID);\r\n        ps.setDate(2, DateUtil.getSQLdateXDaysAgoFromNow(91));\r\n        ResultSet rs = ps.executeQuery();\r\n        return prescriptionLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getCurrentPrescriptions(long)",
+                "comments": "Optional[/**\r\n * Return a list of prescriptions which are currently prescribed for a patient\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @return A java.util.List of prescription beans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (patientID == 0L)\r\n            throw new SQLException(\"pid cannot be 0\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From OVMedication,NDCodes,OfficeVisits \" + \"Where OfficeVisits.PatientID = ? AND OVMedication.VisitID = \" + \"OfficeVisits.ID AND NDCodes.Code=OVMedication.NDCode AND \" + \"OVMedication.EndDate < ?\" + \"ORDER BY OVMedication.ID DESC;\");\r\n        ps.setLong(1, patientID);\r\n        ps.setDate(2, DateUtil.getSQLdateXDaysAgoFromNow(0));\r\n        ResultSet rs = ps.executeQuery();\r\n        return prescriptionLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getExpiredPrescriptions(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM patients \");\r\n        ResultSet rs = ps.executeQuery();\r\n        return patientLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> getAllPatients()",
+                "comments": "Optional[/**\r\n * Lists every patient in the database.\r\n *\r\n * @return A java.util.List of PatientBeans representing the patients.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ( \" + \"SELECT DISTINCT patients.* From patients, declaredhcp, ovdiagnosis, officevisits, ovmedication \" + \"Where \" + \"declaredHCP.HCPID = ? AND \" + \"patients.MID = declaredhcp.PatientID AND \" + \"( \" + \"ovdiagnosis.VisitID = officevisits.ID AND officevisits.PatientID = declaredhcp.PatientID \" + \"AND \" + \"((ovdiagnosis.ICDCode >= ? AND ovdiagnosis.ICDCode < ?) \" + \"OR (ovdiagnosis.ICDCode >= ? AND ovdiagnosis.ICDCode < ?) \" + \"OR (ovdiagnosis.ICDCode >= ? AND ovdiagnosis.ICDCode < ?)) \" + \") \" + \"UNION ALL \" + \"SELECT DISTINCT patients.* From patients, declaredhcp, ovdiagnosis, officevisits, ovmedication \" + \"Where \" + \"declaredHCP.HCPID = ? AND \" + \"patients.MID = declaredhcp.PatientID AND \" + \"( \" + \"declaredhcp.PatientID = officevisits.PatientID AND officevisits.ID = ovmedication.VisitID \" + \"AND \" + \"ovmedication.EndDate BETWEEN CURDATE() AND DATE_ADD(CURDATE(), INTERVAL 7 DAY) \" + \") \" + \") AS final \" + \"GROUP BY final.MID HAVING COUNT(*) = 2 \" + \"ORDER BY final.lastname ASC, final.firstname ASC\");\r\n        ps.setLong(1, hcpMID);\r\n        ps.setFloat(2, 250.0f);\r\n        ps.setFloat(3, 251.0f);\r\n        ps.setFloat(4, 493.0f);\r\n        ps.setFloat(5, 494.0f);\r\n        ps.setFloat(6, 390.0f);\r\n        ps.setFloat(7, 460.99f);\r\n        ps.setLong(8, hcpMID);\r\n        ResultSet rs = ps.executeQuery();\r\n        return patientLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> getRenewalNeedsPatients(long)",
+                "comments": "Optional[/**\r\n * Return a list of patients with a special-diagnosis-history who\r\n * have the logged in HCP as a DHCP and whose medications are going to\r\n * expire within seven days.\r\n *\r\n * @param hcpMID The MID of the logged in HCP\r\n * @return A list of patients satisfying the conditions.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    if (first.equals(\"%\") && last.equals(\"%\"))\r\n        return new Vector<PatientBean>();\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM patients WHERE firstName LIKE ? AND lastName LIKE ?\");\r\n        ps.setString(1, first);\r\n        ps.setString(2, last);\r\n        ResultSet rs = ps.executeQuery();\r\n        return patientLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> searchForPatientsWithName(String, String)",
+                "comments": "Optional[/**\r\n * Returns all patients with names \"LIKE\" (as in SQL) the passed in parameters.\r\n *\r\n * @param first The patient's first name.\r\n * @param last The patient's last name.\r\n * @return A java.util.List of PatientBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.patientLoader = new PatientLoader();\r\n    this.personnelLoader = new PersonnelLoader();\r\n    this.diagnosisLoader = new DiagnosisBeanLoader(true);\r\n    this.prescriptionLoader = new PrescriptionBeanLoader();\r\n    this.procedureLoader = new ProcedureBeanLoader(true);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PatientDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "PatientDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private PatientLoader patientLoader",
+            "private PersonnelLoader personnelLoader",
+            "private DiagnosisBeanLoader diagnosisLoader",
+            "private PrescriptionBeanLoader prescriptionLoader",
+            "private ProcedureBeanLoader procedureLoader"
+        ]
+    }
+]

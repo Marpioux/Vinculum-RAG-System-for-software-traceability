@@ -1,0 +1,42 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<ReferralBean> list = new ArrayList<ReferralBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ReferralBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ReferralBean ref = new ReferralBean();\r\n    // ERIC: fixed to correct for the mysql database bug plaguing java 1.5\r\n    ref.setId((long) rs.getInt(\"id\"));\r\n    //ref.setId(rs.getLong(\"id\"));\r\n    ref.setSenderID(rs.getLong(\"SenderID\"));\r\n    ref.setReceiverID(rs.getLong(\"ReceiverID\"));\r\n    ref.setPatientID((long) rs.getInt(\"PatientID\"));\r\n    ref.setReferralDetails(rs.getString(\"ReferralDetails\"));\r\n    ref.setConsultationDetails(rs.getString(\"ConsultationDetails\"));\r\n    if (rs.getString(\"Status\").equals(\"Pending\"))\r\n        ref.setStatus(ReferralStatus.Pending);\r\n    else if (rs.getString(\"Status\").equals(\"Finished\"))\r\n        ref.setStatus(ReferralStatus.Finished);\r\n    else\r\n        ref.setStatus(ReferralStatus.Declined);\r\n    return ref;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ReferralBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": "Optional[[// ERIC: fixed to correct for the mysql database bug plaguing java 1.5\r\n, //ref.setId(rs.getLong(\"id\"));\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    ps.setLong(1, ref.getPatientID());\r\n    ps.setLong(2, ref.getSenderID());\r\n    ps.setLong(3, ref.getReceiverID());\r\n    ps.setString(4, ref.getReferralDetails());\r\n    ps.setString(5, ref.getConsultationDetails());\r\n    ps.setString(6, ref.getStatus().toString());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, ReferralBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ReferralBeanLoader()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ReferralBeanLoader",
+        "variables": []
+    }
+]

@@ -1,0 +1,38 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return \"This patient had a viral infection during their childhood that would increase the risk for this diesease\";\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hadChildhoodInfection(patientID, icdCodes);\r\n    } catch (DBException e) {\r\n        System.err.println(\"DBException on Childhood Infection Risk, giving no risk\");\r\n        return false;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean hasFactor()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.patientID = mid;\r\n    this.icdCodes = icdCodes.clone();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ChildhoodInfectionFactor(DAOFactory, long, double)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ChildhoodInfectionFactor",
+        "variables": [
+            "private  final double icdCodes",
+            "private  final long patientID",
+            "private  final DAOFactory factory"
+        ]
+    }
+]

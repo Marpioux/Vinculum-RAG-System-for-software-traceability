@@ -1,0 +1,367 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return addDiagID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddDiagID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.addDiagID = addDiagID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddDiagID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return addLabProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddLabProcID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.addLabProcID = addLabProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddLabProcID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return addMedID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddMedID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.addMedID = addMedID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddMedID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return addProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddProcID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.addProcID = addProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddProcID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return addImmunizationID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddImmunizationID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.addImmunizationID = addImmunizationID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddImmunizationID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return notes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getNotes()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.notes = notes;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setNotes(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ovID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getOvID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.ovID = ovID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setOvID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return removeLabProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getRemoveLabProcID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.removeLabProcID = removeLabProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRemoveLabProcID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return removeDiagID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getRemoveDiagID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.removeDiagID = removeDiagID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRemoveDiagID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return removeMedID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getRemoveMedID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.removeMedID = removeMedID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRemoveMedID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return removeProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getRemoveProcID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.removeProcID = removeProcID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRemoveProcID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return removeImmunizationID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getRemoveImmunizationID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.removeImmunizationID = removeImmunizationID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRemoveImmunizationID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return visitDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getVisitDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.visitDate = visitDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setVisitDate(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHcpID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpID = hcpID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHcpID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPatientID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hospitalID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHospitalID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hospitalID = hospitalID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHospitalID(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return dosage;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDosage()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.dosage = dosage;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDosage(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return endDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getEndDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.endDate = endDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setEndDate(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return instructions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getInstructions()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.instructions = instructions;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setInstructions(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return startDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getStartDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.startDate = startDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setStartDate(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return causeOfDeath;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCauseOfDeath()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.causeOfDeath = causeOfDeath;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCauseOfDeath(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "EditOfficeVisitForm",
+        "variables": [
+            "private String ovID",
+            "private String hcpID",
+            "private String patientID",
+            "private String hospitalID",
+            "private String removeLabProcID",
+            "private String removeDiagID",
+            "private String removeProcID",
+            "private String removeImmunizationID",
+            "private String removeMedID",
+            "private String addLabProcID",
+            "private String addDiagID",
+            "private String addProcID",
+            "private String addImmunizationID",
+            "private String addMedID",
+            "private String notes",
+            "private String visitDate",
+            "private String startDate",
+            "private String endDate",
+            "private String dosage",
+            "private String instructions",
+            "private String causeOfDeath"
+        ]
+    }
+]

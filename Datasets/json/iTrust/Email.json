@@ -1,0 +1,143 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return toList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<String> getToList()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.toList = toList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setToList(List<String>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String str = \"\";\r\n    for (String addr : toList) {\r\n        str += addr + \",\";\r\n    }\r\n    return str.substring(0, str.length() - 1);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getToListStr()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return from;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFrom()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.from = from;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setFrom(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return subject;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getSubject()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.subject = subject;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSubject(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return body;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getBody()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.body = body;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setBody(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return timeAdded;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Timestamp getTimeAdded()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.timeAdded = timeAdded;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTimeAdded(Timestamp)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return obj != null && obj.getClass().equals(this.getClass()) && this.equals((Email) obj);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean equals(Object)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public int hashCode()",
+                "comments": null,
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return from.equals(other.from) && subject.equals(other.subject) && body.equals(other.body) && listEquals(toList, other.toList);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private boolean equals(Email)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (toList.size() != otherToList.size())\r\n        return false;\r\n    for (int i = 0; i < toList.size(); i++) {\r\n        if (!toList.get(i).equals(otherToList.get(i)))\r\n            return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "private boolean listEquals(List<String>, List<String>)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return \"FROM: \" + from + \" TO: \" + toList.toString() + \" SUBJECT: \" + subject + \" BODY: \" + body;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String toString()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "Email",
+        "variables": [
+            "private List<String> toList",
+            "private String from",
+            "private String subject",
+            "private String body",
+            "private Timestamp timeAdded"
+        ]
+    }
+]

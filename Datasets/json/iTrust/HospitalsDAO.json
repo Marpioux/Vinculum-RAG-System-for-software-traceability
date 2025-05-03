@@ -1,0 +1,77 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Hospitals ORDER BY HospitalName\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return hospitalLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<HospitalBean> getAllHospitals()",
+                "comments": "Optional[/**\r\n * Returns a list of all hospitals sorted alphabetically\r\n *\r\n * @return A java.util.List of HospitalBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM Hospitals WHERE HospitalID = ?\");\r\n        ps.setString(1, id);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return hospitalLoader.loadSingle(rs);\r\n        return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public HospitalBean getHospital(String)",
+                "comments": "Optional[/**\r\n * Returns a particular hospital given its ID\r\n *\r\n * @param id The String ID of the hospital.\r\n * @return A HospitalBean representing this hospital.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO Hospitals (HospitalID, HospitalName) \" + \"VALUES (?,?)\");\r\n        ps.setString(1, hosp.getHospitalID());\r\n        ps.setString(2, hosp.getHospitalName());\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: Hospital already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean addHospital(HospitalBean)",
+                "comments": "Optional[/**\r\n * Adds a hospital\r\n *\r\n * @param hosp The HospitalBean object to insert.\r\n * @return A boolean indicating whether the insertion was successful.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE Hospitals SET HospitalName = ? \" + \"WHERE HospitalID = ?\");\r\n        ps.setString(1, hosp.getHospitalName());\r\n        ps.setString(2, hosp.getHospitalID());\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int updateHospital(HospitalBean)",
+                "comments": "Optional[/**\r\n * Updates a particular hospital's description. Returns the number of rows affected (should be 1)\r\n *\r\n * @param hosp The HospitalBean to update.\r\n * @return An int indicating the number of affected rows.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO HCPAssignedHos (HCPID, HosID) VALUES (?,?)\");\r\n        ps.setLong(1, hcpID);\r\n        ps.setString(2, hospitalID);\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"HCP \" + hcpID + \" already assigned to hospital \" + hospitalID);\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean assignHospital(long, String)",
+                "comments": "Optional[/**\r\n * Assign an HCP to a hospital. If they have already been assigned to that hospital, then an\r\n * iTrustException is thrown.\r\n *\r\n * @param hcpID The HCP's MID to assign to the hospital.\r\n * @param hospitalID The ID of the hospital to assign them to.\r\n * @return A boolean indicating whether the assignment was a success.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM HCPAssignedHos WHERE HCPID = ? AND HosID = ?\");\r\n        ps.setLong(1, hcpID);\r\n        ps.setString(2, hospitalID);\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean removeHospitalAssignment(long, String)",
+                "comments": "Optional[/**\r\n * Unassigns an HCP to a hospital. Returns whether or not any changes were made\r\n *\r\n * @param hcpID The MID of the HCP to remove.\r\n * @param hospitalID The ID of the hospital being removed from.\r\n * @return A boolean indicating success.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM HCPAssignedHos WHERE HCPID = ?\");\r\n        ps.setLong(1, hcpID);\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int removeAllHospitalAssignmentsFrom(long)",
+                "comments": "Optional[/**\r\n * Removes all hospital assignments for a particular HCP. Returns the number of rows affected.\r\n *\r\n * @param hcpID The MID of the HCP.\r\n * @return An int representing the number of hospital assignments removed.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public HospitalsDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "HospitalsDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private HospitalBeanLoader hospitalLoader"
+        ]
+    }
+]

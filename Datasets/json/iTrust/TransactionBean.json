@@ -1,0 +1,129 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return role;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getRole()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.role = role;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRole(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return addedInfo;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getAddedInfo()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.addedInfo = addedInfo;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAddedInfo(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return loggedInMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getLoggedInMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.loggedInMID = loggedInMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLoggedInMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return secondaryMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getSecondaryMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.secondaryMID = secondaryMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSecondaryMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return timeLogged;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Timestamp getTimeLogged()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.timeLogged = timeLogged;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTimeLogged(Timestamp)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return transactionType;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public TransactionType getTransactionType()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.transactionType = tranactionType;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTransactionType(TransactionType)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return transactionID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getTransactionID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.transactionID = transactionID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTransactionID(long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "TransactionBean",
+        "variables": [
+            "private long transactionID",
+            "private long loggedInMID",
+            "private long secondaryMID",
+            "private TransactionType transactionType",
+            "private Timestamp timeLogged",
+            "private String addedInfo",
+            "private String role"
+        ]
+    }
+]

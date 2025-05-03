@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM FakeEmail ORDER BY AddedDate DESC\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return emailBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<Email> getAllEmails()",
+                "comments": "Optional[/**\r\n * Return all emails that have been \"sent\" (inserted into the database)\r\n *\r\n * @return A java.util.List of Email objects representing fake e-mails.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM FakeEmail WHERE ToAddr LIKE ? ORDER BY AddedDate DESC\");\r\n        ps.setString(1, \"%\" + email + \"%\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return emailBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<Email> getEmailsByPerson(String)",
+                "comments": "Optional[/**\r\n * Return all emails that a person has sent\r\n *\r\n * @param email The \"From\" email address as a string.\r\n * @return A java.util.List of fake emails.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO FakeEmail (ToAddr, FromAddr, Subject, Body) \" + \"VALUES (?,?,?,?)\");\r\n        emailBeanLoader.loadParameters(ps, email);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void sendEmailRecord(Email)",
+                "comments": "Optional[/**\r\n * \"Send\" an email, which just inserts it into the database.\r\n *\r\n * @param email The Email object to insert.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM FakeEmail WHERE Instr(Body,?)>0 ORDER BY AddedDate DESC\");\r\n        ps.setString(1, bodySubstring);\r\n        ResultSet rs = ps.executeQuery();\r\n        return emailBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<Email> getEmailWithBody(String)",
+                "comments": "Optional[/**\r\n * Returns a list of emails that have the given string as a substring of the body\r\n * @param string The string to search within the body.\r\n * @return A java.util.List of fake emails.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public FakeEmailDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "FakeEmailDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private EmailBeanLoader emailBeanLoader"
+        ]
+    }
+]

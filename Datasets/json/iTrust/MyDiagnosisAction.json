@@ -1,0 +1,116 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return patientDAO.getDiagnoses(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DiagnosisBean> getDiagnoses()",
+                "comments": "Optional[/**\r\n * Returns a list of DiagnosisBeans for the patient\r\n *\r\n * @return the list of DiagnosisBeans\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int medMatch = 0;\r\n    HashMap<Long, HCPDiagnosisBean> hcpHash = new HashMap<Long, HCPDiagnosisBean>();\r\n    HashMap<Long, Long> patientHash = new HashMap<Long, Long>();\r\n    transactionDAO.logTransaction(TransactionType.FIND_HCPS_WITH_EXP, loggedInMID);\r\n    HCPDiagnosisBean diag = null;\r\n    List<OfficeVisitBean> beans = officeVisitDAO.getAllOfficeVisitsForDiagnosis(icdcode);\r\n    for (OfficeVisitBean bean : beans) {\r\n        // check for HCP-Patient locality based on first 3 digits in ZIP\r\n        if (!patientDAO.getPatient(loggedInMID).getZip1().substring(0, 2).equals(personnelDAO.getPersonnel(bean.getHcpID()).getZip1().substring(0, 2)))\r\n            continue;\r\n        // Check to see if we already have a bean for the HCP associated with this visit\r\n        if (hcpHash.containsKey(bean.getHcpID())) {\r\n            diag = (HCPDiagnosisBean) hcpHash.get(bean.getHcpID());\r\n            for (PrescriptionBean p : bean.getPrescriptions()) {\r\n                List<MedicationBean> mlist = diag.getMedList();\r\n                for (MedicationBean b : mlist) {\r\n                    if (p.getMedication().getDescription().equals(b.getDescription()))\r\n                        medMatch++;\r\n                }\r\n                if (medMatch == 0) {\r\n                    mlist.add(p.getMedication());\r\n                    diag.setMedList(mlist);\r\n                } else {\r\n                    medMatch = 0;\r\n                }\r\n            }\r\n            // Get Lab Procedures\r\n            List<LabProcedureBean> labprocs = diag.getLabList();\r\n            List<LabProcedureBean> lpbeans = labprocDAO.getAllLabProceduresForDocOV(bean.getVisitID());\r\n            for (LabProcedureBean p : lpbeans) {\r\n                labprocs.add(p);\r\n            }\r\n            diag.setLabList(labprocs);\r\n            if (surveyDAO.isSurveyCompleted(bean.getVisitID())) {\r\n                SurveyBean survey = surveyDAO.getSurveyData(bean.getVisitID());\r\n                diag.setVisitSat(survey.getVisitSatisfaction());\r\n                diag.setTreatmentSat(survey.getTreatmentSatisfaction());\r\n            }\r\n            // Check if this patient has been seen multiple times for this diagnosis\r\n            if (!patientHash.containsKey(bean.getPatientID())) {\r\n                patientHash.put(bean.getPatientID(), bean.getHcpID());\r\n                diag.incNumPatients();\r\n            }\r\n        } else {\r\n            diag = new HCPDiagnosisBean();\r\n            List<MedicationBean> mlist = new ArrayList<MedicationBean>();\r\n            diag.setHCP(bean.getHcpID());\r\n            try {\r\n                diag.setHCPName(personnelDAO.getName(bean.getHcpID()));\r\n            } catch (iTrustException e) {\r\n                diag.setHCPName(\"null\");\r\n            }\r\n            diag.incNumPatients();\r\n            for (PrescriptionBean p : bean.getPrescriptions()) {\r\n                mlist.add(p.getMedication());\r\n            }\r\n            diag.setMedList(mlist);\r\n            diag.setLabList(labprocDAO.getAllLabProceduresForDocOV(bean.getVisitID()));\r\n            if (surveyDAO.isSurveyCompleted(bean.getVisitID())) {\r\n                SurveyBean survey = surveyDAO.getSurveyData(bean.getVisitID());\r\n                diag.setVisitSat(survey.getVisitSatisfaction());\r\n                diag.setTreatmentSat(survey.getTreatmentSatisfaction());\r\n            }\r\n            patientHash.put(bean.getPatientID(), bean.getHcpID());\r\n            hcpHash.put(bean.getHcpID(), diag);\r\n        }\r\n    }\r\n    List<HCPDiagnosisBean> list = new ArrayList<HCPDiagnosisBean>(hcpHash.values());\r\n    Collections.sort(list, new HCPDiagnosisBeanComparator());\r\n    return list;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<HCPDiagnosisBean> getHCPByDiagnosis(String)",
+                "comments": "Optional[/**\r\n * Returns a list of all the HCPs who have a particular diagnosis\r\n *\r\n * @param icdcode the diagnosis of interest\r\n * @return the list of HCPs\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// check for HCP-Patient locality based on first 3 digits in ZIP\r\n, // Check to see if we already have a bean for the HCP associated with this visit\r\n, // Get Lab Procedures\r\n, // Check if this patient has been seen multiple times for this diagnosis\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    List<PrescriptionBean> list = new ArrayList<PrescriptionBean>();\r\n    List<OfficeVisitBean> ovs = officeVisitDAO.getAllOfficeVisitsForDiagnosis(icdcode);\r\n    for (int i = 0; i < ovs.size(); i++) {\r\n        if (ovs.get(i).getHcpID() == hcpid) {\r\n            list.addAll(ovs.get(i).getPrescriptions());\r\n        }\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getPrescriptionsByHCPAndICD(long, String)",
+                "comments": "Optional[/**\r\n * Looks up all the prescriptions given by a certain HCP with the same ICD code.\r\n * @param hcpid The MID of the HCP\r\n * @param icdcode The ICD code of the prescription we are looking up.\r\n * @return A java.util.List of PrescriptionBeans made by this HCP of this ICD code.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int ret = 0;\r\n    if (a.getNumPatients() > b.getNumPatients())\r\n        ret = -1;\r\n    else if (a.getNumPatients() < b.getNumPatients())\r\n        ret = 1;\r\n    return ret;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int compare(HCPDiagnosisBean, HCPDiagnosisBean)",
+                "comments": "Optional[/**\r\n * Compares one HCP with another\r\n *\r\n * @param a the first HCP\r\n * @param b the second HCP\r\n * @return -1 if a has had more patients, 1 if b has had more patients; otherwise 0\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.officeVisitDAO = factory.getOfficeVisitDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.surveyDAO = factory.getSurveyDAO();\r\n    this.transactionDAO = factory.getTransactionDAO();\r\n    this.labprocDAO = factory.getLabProcedureDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public MyDiagnosisAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up for defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user who is looking at their diagnoses.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "MyDiagnosisAction",
+        "variables": [
+            "private OfficeVisitDAO officeVisitDAO",
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO",
+            "private SurveyDAO surveyDAO",
+            "private TransactionDAO transactionDAO",
+            "private LabProcedureDAO labprocDAO",
+            "private long loggedInMID",
+            "private  static  final long serialVersionUID"
+        ]
+    },
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return patientDAO.getDiagnoses(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DiagnosisBean> getDiagnoses()",
+                "comments": "Optional[/**\r\n * Returns a list of DiagnosisBeans for the patient\r\n *\r\n * @return the list of DiagnosisBeans\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int medMatch = 0;\r\n    HashMap<Long, HCPDiagnosisBean> hcpHash = new HashMap<Long, HCPDiagnosisBean>();\r\n    HashMap<Long, Long> patientHash = new HashMap<Long, Long>();\r\n    transactionDAO.logTransaction(TransactionType.FIND_HCPS_WITH_EXP, loggedInMID);\r\n    HCPDiagnosisBean diag = null;\r\n    List<OfficeVisitBean> beans = officeVisitDAO.getAllOfficeVisitsForDiagnosis(icdcode);\r\n    for (OfficeVisitBean bean : beans) {\r\n        // check for HCP-Patient locality based on first 3 digits in ZIP\r\n        if (!patientDAO.getPatient(loggedInMID).getZip1().substring(0, 2).equals(personnelDAO.getPersonnel(bean.getHcpID()).getZip1().substring(0, 2)))\r\n            continue;\r\n        // Check to see if we already have a bean for the HCP associated with this visit\r\n        if (hcpHash.containsKey(bean.getHcpID())) {\r\n            diag = (HCPDiagnosisBean) hcpHash.get(bean.getHcpID());\r\n            for (PrescriptionBean p : bean.getPrescriptions()) {\r\n                List<MedicationBean> mlist = diag.getMedList();\r\n                for (MedicationBean b : mlist) {\r\n                    if (p.getMedication().getDescription().equals(b.getDescription()))\r\n                        medMatch++;\r\n                }\r\n                if (medMatch == 0) {\r\n                    mlist.add(p.getMedication());\r\n                    diag.setMedList(mlist);\r\n                } else {\r\n                    medMatch = 0;\r\n                }\r\n            }\r\n            // Get Lab Procedures\r\n            List<LabProcedureBean> labprocs = diag.getLabList();\r\n            List<LabProcedureBean> lpbeans = labprocDAO.getAllLabProceduresForDocOV(bean.getVisitID());\r\n            for (LabProcedureBean p : lpbeans) {\r\n                labprocs.add(p);\r\n            }\r\n            diag.setLabList(labprocs);\r\n            if (surveyDAO.isSurveyCompleted(bean.getVisitID())) {\r\n                SurveyBean survey = surveyDAO.getSurveyData(bean.getVisitID());\r\n                diag.setVisitSat(survey.getVisitSatisfaction());\r\n                diag.setTreatmentSat(survey.getTreatmentSatisfaction());\r\n            }\r\n            // Check if this patient has been seen multiple times for this diagnosis\r\n            if (!patientHash.containsKey(bean.getPatientID())) {\r\n                patientHash.put(bean.getPatientID(), bean.getHcpID());\r\n                diag.incNumPatients();\r\n            }\r\n        } else {\r\n            diag = new HCPDiagnosisBean();\r\n            List<MedicationBean> mlist = new ArrayList<MedicationBean>();\r\n            diag.setHCP(bean.getHcpID());\r\n            try {\r\n                diag.setHCPName(personnelDAO.getName(bean.getHcpID()));\r\n            } catch (iTrustException e) {\r\n                diag.setHCPName(\"null\");\r\n            }\r\n            diag.incNumPatients();\r\n            for (PrescriptionBean p : bean.getPrescriptions()) {\r\n                mlist.add(p.getMedication());\r\n            }\r\n            diag.setMedList(mlist);\r\n            diag.setLabList(labprocDAO.getAllLabProceduresForDocOV(bean.getVisitID()));\r\n            if (surveyDAO.isSurveyCompleted(bean.getVisitID())) {\r\n                SurveyBean survey = surveyDAO.getSurveyData(bean.getVisitID());\r\n                diag.setVisitSat(survey.getVisitSatisfaction());\r\n                diag.setTreatmentSat(survey.getTreatmentSatisfaction());\r\n            }\r\n            patientHash.put(bean.getPatientID(), bean.getHcpID());\r\n            hcpHash.put(bean.getHcpID(), diag);\r\n        }\r\n    }\r\n    List<HCPDiagnosisBean> list = new ArrayList<HCPDiagnosisBean>(hcpHash.values());\r\n    Collections.sort(list, new HCPDiagnosisBeanComparator());\r\n    return list;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<HCPDiagnosisBean> getHCPByDiagnosis(String)",
+                "comments": "Optional[/**\r\n * Returns a list of all the HCPs who have a particular diagnosis\r\n *\r\n * @param icdcode the diagnosis of interest\r\n * @return the list of HCPs\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// check for HCP-Patient locality based on first 3 digits in ZIP\r\n, // Check to see if we already have a bean for the HCP associated with this visit\r\n, // Get Lab Procedures\r\n, // Check if this patient has been seen multiple times for this diagnosis\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    List<PrescriptionBean> list = new ArrayList<PrescriptionBean>();\r\n    List<OfficeVisitBean> ovs = officeVisitDAO.getAllOfficeVisitsForDiagnosis(icdcode);\r\n    for (int i = 0; i < ovs.size(); i++) {\r\n        if (ovs.get(i).getHcpID() == hcpid) {\r\n            list.addAll(ovs.get(i).getPrescriptions());\r\n        }\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getPrescriptionsByHCPAndICD(long, String)",
+                "comments": "Optional[/**\r\n * Looks up all the prescriptions given by a certain HCP with the same ICD code.\r\n * @param hcpid The MID of the HCP\r\n * @param icdcode The ICD code of the prescription we are looking up.\r\n * @return A java.util.List of PrescriptionBeans made by this HCP of this ICD code.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int ret = 0;\r\n    if (a.getNumPatients() > b.getNumPatients())\r\n        ret = -1;\r\n    else if (a.getNumPatients() < b.getNumPatients())\r\n        ret = 1;\r\n    return ret;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int compare(HCPDiagnosisBean, HCPDiagnosisBean)",
+                "comments": "Optional[/**\r\n * Compares one HCP with another\r\n *\r\n * @param a the first HCP\r\n * @param b the second HCP\r\n * @return -1 if a has had more patients, 1 if b has had more patients; otherwise 0\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.officeVisitDAO = factory.getOfficeVisitDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.surveyDAO = factory.getSurveyDAO();\r\n    this.transactionDAO = factory.getTransactionDAO();\r\n    this.labprocDAO = factory.getLabProcedureDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public MyDiagnosisAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up for defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user who is looking at their diagnoses.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "HCPDiagnosisBeanComparator",
+        "variables": [
+            "private OfficeVisitDAO officeVisitDAO",
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO",
+            "private SurveyDAO surveyDAO",
+            "private TransactionDAO transactionDAO",
+            "private LabProcedureDAO labprocDAO",
+            "private long loggedInMID",
+            "private  static  final long serialVersionUID"
+        ]
+    }
+]

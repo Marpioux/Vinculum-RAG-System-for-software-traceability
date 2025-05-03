@@ -1,0 +1,54 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    testo1.setText(prenotazione.getNumStanza());\r\n    testo1.setEditable(false);\r\n    testo2.setText(prenotazione.getCognome());\r\n    testo3.setText(prenotazione.getNome());\r\n    testo7.setText(prenotazione.getNumTel());\r\n    testo13.setText(DateUtils.giveStringOfDate(prenotazione.getInizioSogg()));\r\n    testo13.setEditable(false);\r\n    testo14.setText(DateUtils.giveStringOfDate(prenotazione.getFineSogg()));\r\n    testo14.setEditable(false);\r\n    counter_tot = prenotazione.getNumPers();\r\n    if (prenotazione.getRichLettoAgg() == Const.SI)\r\n        counter_tot++;\r\n    changeTitle(counter_ins, counter_tot);\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!erroriLocale()) {\r\n        Soggiornante sogg = readDatiSogg(prenotazione, counter_ins);\r\n        int j;\r\n        if ((j = (Principale.db).writeSoggiornante(sogg)) == DataBase.OK) {\r\n            Annulla.setEnabled(false);\r\n            cleanFields();\r\n            if (counter_ins == counter_tot) {\r\n                aggiornaDisp(sogg, Flag.OCCUPATA);\r\n                dispose();\r\n                padre.creaLista(1);\r\n                padre.setEnabled(true);\r\n            }\r\n            counter_ins++;\r\n            changeTitle(counter_ins, counter_tot);\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (!errori()) {\r\n        if (counter_ins == 1) {\r\n            Frame msg;\r\n            if ((testo2.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il cognome! \");\r\n                return true;\r\n            }\r\n            if ((testo3.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il nome! \");\r\n                return true;\r\n            }\r\n            if ((testo6.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero di documento! \");\r\n                return true;\r\n            }\r\n            if ((testo7.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero telefonico! \");\r\n                return true;\r\n            }\r\n            if ((testo8.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato l'indirizzo! \");\r\n                return true;\r\n            }\r\n            if ((testo9.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il C.A.P.! \");\r\n                return true;\r\n            }\r\n            if ((testo10.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il comune! \");\r\n                return true;\r\n            }\r\n            if ((testo11.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la citta! \");\r\n                return true;\r\n            }\r\n            if ((testo12.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la nazione! \");\r\n                return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean erroriLocale()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Inserimento dati\", \"Inserisci\", p.getPensionamento(), Flag.ADULTO);\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    prenotazione = p;\r\n    inizializza();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public InserisciSoggiornante(RicercaPrenotazione, Prenotazione)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "InserisciSoggiornante",
+        "variables": [
+            " Prenotazione prenotazione",
+            " int counter_ins",
+            " int counter_tot"
+        ]
+    }
+]

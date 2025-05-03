@@ -1,0 +1,69 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo le etichette\r\n    etich1 = new Label(\"Dati dell'addebito\");\r\n    etich1.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich2 = new Label(\"Numero Stanza\");\r\n    etich3 = new Label(\"Descrizione\");\r\n    etich4 = new Label(\"Quantita\");\r\n    etich5 = new Label(\"Addebito relativo\");\r\n    etich6 = new Label(\"Totale addebiti sulla stanza \" + add.getNumStanza());\r\n    etich6.setFont(ConfigurazioneSistema.font_titolo);\r\n    //Creo i TextField e ne rendo  alcuni non editabili\r\n    num_stanza = new TextField(\"\", 4);\r\n    desc = new TextField(\"\", 32);\r\n    quantita = new TextField(\"\", 6);\r\n    tot = new TextField(\"\", 8);\r\n    tot_addebiti = new TextField(\"\", 10);\r\n    //Disabilita i TextField\r\n    num_stanza.setEditable(false);\r\n    desc.setEditable(false);\r\n    quantita.setEditable(false);\r\n    tot.setEditable(false);\r\n    tot_addebiti.setEditable(false);\r\n    //Creo i pulsanti\r\n    Annulla = new Button(\" Indietro \");\r\n    //Creo il pannello\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etich1, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, etich2, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, num_stanza, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich3, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, desc, 1, 2, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich4, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, quantita, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich5, 2, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, tot, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich6, 0, 4, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 15, 5, 5, 5);\r\n    Utils.constrain(panel1, tot_addebiti, 2, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 15, 5, 5, 5);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 0, 0, 0, 15);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 0, 6, 5, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 5, 6, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Disabilita i TextField\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    writeDatiTel();\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String d = new String(\"\");\r\n    BeneServizio extra = (Principale.db).readBeneServizio(add.getCodExtra());\r\n    if (extra == null)\r\n        d = new String(\"\");\r\n    else\r\n        d = new String(extra.getDescrizione());\r\n    num_stanza.setText(add.getNumStanza());\r\n    desc.setText(d);\r\n    quantita.setText(\"\" + add.getQuantita());\r\n    tot.setText(\"\" + add.getTotAddebito());\r\n    tot_addebiti.setText(\"\" + addebiti_totali);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void writeDatiTel()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Visualizzazione dei dati dell'addebito scelto\");\r\n    padre = p;\r\n    add = a;\r\n    addebiti_totali = tot;\r\n    padre.setEnabled(false);\r\n    setupPanels();\r\n    inizializza();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VediAddebito(Frame, Addebito, float)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "VediAddebito",
+        "variables": [
+            " TextField num_stanza",
+            " TextField desc",
+            " TextField quantita",
+            " TextField tot",
+            " TextField tot_addebiti",
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Panel panel1",
+            " Panel panel2",
+            " Button Annulla",
+            " GridBagLayout gridbag",
+            " Frame padre",
+            " Addebito add",
+            " float addebiti_totali"
+        ]
+    }
+]

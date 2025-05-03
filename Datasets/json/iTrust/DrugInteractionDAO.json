@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM druginteractions WHERE FirstDrug = ? OR SecondDrug = ?\");\r\n        ps.setString(1, drugCode);\r\n        ps.setString(2, drugCode);\r\n        ResultSet rs = ps.executeQuery();\r\n        return interactionLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DrugInteractionBean> getInteractions(String)",
+                "comments": "Optional[/**\r\n * Returns a list of all drug interactions for the input drug name\r\n *\r\n * @return A java.util.List of DrugInteractionBeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (firstDrug.equals(secondDrug))\r\n        throw new iTrustException(\"Drug cannot interact with itself.\");\r\n    List<DrugInteractionBean> currentIntsDrug2 = getInteractions(secondDrug);\r\n    for (DrugInteractionBean dib : currentIntsDrug2) {\r\n        if (dib.getSecondDrug().equals(firstDrug)) {\r\n            throw new iTrustException(\"Error: Interaction between these drugs already exists.\");\r\n        }\r\n    }\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO druginteractions (FirstDrug, SecondDrug, Description) \" + \"VALUES (?,?,?)\");\r\n        ps.setString(1, firstDrug);\r\n        ps.setString(2, secondDrug);\r\n        ps.setString(3, description);\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: Interaction between these drugs already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean reportInteraction(String, String, String)",
+                "comments": "Optional[/**\r\n * Adds a new drug interaction, returns whether or not the addition was successful. If the code already exists, an\r\n * iTrustException is thrown.\r\n *\r\n * @param firstDrug  The name of the first drug in an interaction.\r\n * @param secondDrug  The name of the second drug in an interaction.\r\n * @param description  Explanation of the drug interaction.\r\n * @return A boolean indicating success or failure.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"DELETE FROM druginteractions WHERE (FirstDrug = ? OR SecondDrug = ?) AND (FirstDrug = ? OR SecondDrug = ?)\");\r\n        ps.setString(1, firstDrug);\r\n        ps.setString(2, firstDrug);\r\n        ps.setString(3, secondDrug);\r\n        ps.setString(4, secondDrug);\r\n        if (ps.executeUpdate() == 0)\r\n            return false;\r\n        return true;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean deleteInteraction(String, String)",
+                "comments": "Optional[/**\r\n * Remove an interaction from the database\r\n *\r\n * @param firstDrug  The name of the first patient\r\n * @param secondDrug  The name of the second patient\r\n * @return true if removed successfully, false if not in list\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    interactionLoader = new DrugInteractionBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DrugInteractionDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "DrugInteractionDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private DrugInteractionBeanLoader interactionLoader"
+        ]
+    }
+]

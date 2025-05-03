@@ -1,0 +1,103 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return description;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getDescription()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.description = description;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDescription(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return (Date) firstFound.clone();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Date getFirstFound()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null != firstFound)\r\n        this.firstFound = (Date) firstFound.clone();\r\n    else\r\n        this.firstFound = null;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setFirstFound(Date)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getId()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.id = id;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setId(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return this.description;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String toString()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getPatientID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").format(getFirstFound());\r\n    } catch (Exception e) {\r\n        e.printStackTrace();\r\n        return \"\";\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFirstFoundStr()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AllergyBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "AllergyBean",
+        "variables": [
+            "private long id",
+            "private long patientID",
+            "private String description",
+            "private Date firstFound"
+        ]
+    }
+]

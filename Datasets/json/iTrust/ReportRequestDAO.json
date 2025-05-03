@@ -1,0 +1,61 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (id == 0L)\r\n            throw new SQLException(\"ID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ReportRequests WHERE ID = ?\");\r\n        ps.setLong(1, id);\r\n        ResultSet rs = ps.executeQuery();\r\n        rs.next();\r\n        return loader.loadSingle(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ReportRequestBean getReportRequest(long)",
+                "comments": "Optional[/**\r\n * Returns a full bean describing a given report request.\r\n *\r\n * @param id The unique ID of the bean in the database.\r\n * @return The bean describing this report request.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (mid == 0L)\r\n            throw new SQLException(\"RequesterMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ReportRequests WHERE RequesterMID = ?\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return loader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ReportRequestBean> getAllReportRequestsForRequester(long)",
+                "comments": "Optional[/**\r\n * Returns all report requests associated with a given requester.\r\n *\r\n * @param mid The MID of the personnel in question.\r\n * @return A java.util.List of report requests.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (pid == 0L)\r\n            throw new SQLException(\"PatientMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM ReportRequests WHERE PatientMID = ?\");\r\n        ps.setLong(1, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return loader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ReportRequestBean> getAllReportRequestsForPatient(long)",
+                "comments": "Optional[/**\r\n * Returns all of the report requests associated with a specific patient.\r\n *\r\n * @param pid The MID of the patient in question.\r\n * @return A java.util.List of report requests.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (requesterMID == 0L)\r\n            throw new SQLException(\"RequesterMID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO ReportRequests (ID, RequesterMID, PatientMID, RequestedDate, Status) VALUES (null,?,?,?,'Requested')\");\r\n        ps.setLong(1, requesterMID);\r\n        ps.setLong(2, patientMID);\r\n        ps.setTimestamp(3, new java.sql.Timestamp(date.getTime()));\r\n        ps.executeUpdate();\r\n        return DBUtil.getLastInsert(conn);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long addReportRequest(long, long, Date)",
+                "comments": "Optional[/**\r\n * Adds a request for a report.\r\n *\r\n * @param requesterMID The MID of the requester.\r\n * @param patientMID The MID of the patient in question.\r\n * @param date The date the request was made.\r\n * @return A long of the unique ID of the report request.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        if (ID == 0L)\r\n            throw new SQLException(\"ID cannot be null\");\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE ReportRequests set ViewedDate = ?, Status = 'Viewed' where ID = ?\");\r\n        ps.setTimestamp(1, new java.sql.Timestamp(date.getTime()));\r\n        ps.setLong(2, ID);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setViewed(long, Date)",
+                "comments": "Optional[/**\r\n * Sets the status of a report request to 'Viewed'\r\n *\r\n * @param ID The unique ID of the request in question.\r\n * @param date The date the request was viewed.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    loader = new ReportRequestBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ReportRequestDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ReportRequestDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private ReportRequestBeanLoader loader"
+        ]
+    }
+]

@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<PatientBean> list = new ArrayList<PatientBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PatientBean p = new PatientBean();\r\n    p.setMID(rs.getInt(\"MID\"));\r\n    p.setFirstName(rs.getString(\"firstName\"));\r\n    p.setLastName(rs.getString(\"LastName\"));\r\n    Date dateOfBirth = rs.getDate(\"DateOfBirth\");\r\n    if (dateOfBirth != null)\r\n        p.setDateOfBirthStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(dateOfBirth));\r\n    Date dateOfDeath = rs.getDate(\"DateOfDeath\");\r\n    if (dateOfDeath != null)\r\n        p.setDateOfDeathStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(dateOfDeath));\r\n    p.setCauseOfDeath(rs.getString(\"CauseOfDeath\"));\r\n    p.setEmail(rs.getString(\"Email\"));\r\n    p.setStreetAddress1(rs.getString(\"address1\"));\r\n    p.setStreetAddress2(rs.getString(\"address2\"));\r\n    p.setCity(rs.getString(\"City\"));\r\n    p.setState(rs.getString(\"State\"));\r\n    p.setZip1((rs.getString(\"Zip1\")));\r\n    p.setZip2((rs.getString(\"Zip2\")));\r\n    p.setPhone1((rs.getString(\"phone1\")));\r\n    p.setPhone2((rs.getString(\"phone2\")));\r\n    p.setPhone3((rs.getString(\"phone3\")));\r\n    p.setEmergencyName(rs.getString(\"eName\"));\r\n    p.setEmergencyPhone1(rs.getString(\"ePhone1\"));\r\n    p.setEmergencyPhone2(rs.getString(\"ePhone2\"));\r\n    p.setEmergencyPhone3(rs.getString(\"ePhone3\"));\r\n    p.setIcName(rs.getString(\"icName\"));\r\n    p.setIcAddress1(rs.getString(\"icAddress1\"));\r\n    p.setIcAddress2(rs.getString(\"icAddress2\"));\r\n    p.setIcCity(rs.getString(\"icCity\"));\r\n    p.setIcState(rs.getString(\"icState\"));\r\n    p.setIcZip1(rs.getString(\"icZip1\"));\r\n    p.setIcZip2(rs.getString(\"icZip2\"));\r\n    p.setIcPhone1(rs.getString(\"icPhone1\"));\r\n    p.setIcPhone2(rs.getString(\"icPhone2\"));\r\n    p.setIcPhone3(rs.getString(\"icPhone3\"));\r\n    p.setIcID(rs.getString(\"icID\"));\r\n    p.setMotherMID(rs.getString(\"MotherMID\"));\r\n    p.setFatherMID(rs.getString(\"FatherMID\"));\r\n    p.setBloodTypeStr(rs.getString(\"BloodType\"));\r\n    p.setEthnicityStr(rs.getString(\"Ethnicity\"));\r\n    p.setGenderStr(rs.getString(\"Gender\"));\r\n    p.setTopicalNotes(rs.getString(\"TopicalNotes\"));\r\n    p.setCreditCardType(rs.getString(\"CreditCardType\"));\r\n    p.setCreditCardNumber(rs.getString(\"CreditCardNumber\"));\r\n    p.setMessageFilter(rs.getString(\"MessageFilter\"));\r\n    return p;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PatientBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int i = 1;\r\n    ps.setString(i++, p.getFirstName());\r\n    ps.setString(i++, p.getLastName());\r\n    ps.setString(i++, p.getEmail());\r\n    // ps.setString(i++, p.getSecurityQuestion());\r\n    // ps.setString(i++, p.getSecurityAnswer());\r\n    ps.setString(i++, p.getStreetAddress1());\r\n    ps.setString(i++, p.getStreetAddress2());\r\n    ps.setString(i++, p.getCity());\r\n    ps.setString(i++, p.getState());\r\n    ps.setString(i++, p.getZip1());\r\n    ps.setString(i++, p.getZip2());\r\n    ps.setString(i++, p.getPhone1());\r\n    ps.setString(i++, p.getPhone2());\r\n    ps.setString(i++, p.getPhone3());\r\n    ps.setString(i++, p.getEmergencyName());\r\n    ps.setString(i++, p.getEmergencyPhone1());\r\n    ps.setString(i++, p.getEmergencyPhone2());\r\n    ps.setString(i++, p.getEmergencyPhone3());\r\n    ps.setString(i++, p.getIcName());\r\n    ps.setString(i++, p.getIcAddress1());\r\n    ps.setString(i++, p.getIcAddress2());\r\n    ps.setString(i++, p.getIcCity());\r\n    ps.setString(i++, p.getIcState());\r\n    ps.setString(i++, p.getIcZip1());\r\n    ps.setString(i++, p.getIcZip2());\r\n    ps.setString(i++, p.getIcPhone1());\r\n    ps.setString(i++, p.getIcPhone2());\r\n    ps.setString(i++, p.getIcPhone3());\r\n    ps.setString(i++, p.getIcID());\r\n    Date date = null;\r\n    try {\r\n        date = new java.sql.Date(new SimpleDateFormat(\"MM/dd/yyyy\").parse(p.getDateOfBirthStr()).getTime());\r\n    } catch (ParseException e) {\r\n        e.printStackTrace();\r\n    }\r\n    ps.setDate(i++, date);\r\n    date = null;\r\n    try {\r\n        date = new java.sql.Date(new SimpleDateFormat(\"MM/dd/yyyy\").parse(p.getDateOfDeathStr()).getTime());\r\n    } catch (ParseException e) {\r\n        if (\"\".equals(p.getDateOfDeathStr()))\r\n            date = null;\r\n        else\r\n            e.printStackTrace();\r\n    }\r\n    ps.setDate(i++, date);\r\n    ps.setString(i++, p.getCauseOfDeath());\r\n    ps.setString(i++, p.getMotherMID());\r\n    ps.setString(i++, p.getFatherMID());\r\n    ps.setString(i++, p.getBloodType().getName());\r\n    ps.setString(i++, p.getEthnicity().getName());\r\n    ps.setString(i++, p.getGender().getName());\r\n    ps.setString(i++, p.getTopicalNotes());\r\n    ps.setString(i++, p.getCreditCardType());\r\n    ps.setString(i++, p.getCreditCardNumber());\r\n    ps.setString(i++, p.getMessageFilter());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, PatientBean)",
+                "comments": null,
+                "innerComments": "Optional[[// ps.setString(i++, p.getSecurityQuestion());\r\n, // ps.setString(i++, p.getSecurityAnswer());\r\n]]"
+            }
+        ],
+        "constructors": [],
+        "signature": "PatientLoader",
+        "variables": []
+    }
+]

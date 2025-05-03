@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    writeDatiPren(p);\r\n    for (int i = 0; i < 11; i++) testo[i].setEditable(false);\r\n    myCheckbox.setEnabled(false);\r\n    myCheckbox1.setEnabled(false);\r\n    for (int i = 0; i < checkboxes.length; i++) checkboxes[i].setEnabled(false);\r\n    testo[9].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getDataPren())));\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCancella();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startCancella();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    (Principale.db).delPrenotazione(p.getIdPrenotazione());\r\n    aggiornaDisp(p, Flag.DISPONIBILE);\r\n    Utils.restoreCommissioni(p.getNumStanza());\r\n    parent.creaLista(1);\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startCancella()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(room, \"\", \"\", \"Cancellazione della prenotazione\", \"Cancella\", 3, pren.getPensionamento());\r\n    p = pren;\r\n    parent = papa;\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CancellaPrenotazione(Prenotazione, Stanza, RicercaPrenotazione)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "CancellaPrenotazione",
+        "variables": [
+            " Prenotazione p",
+            " RicercaPrenotazione parent"
+        ]
+    }
+]

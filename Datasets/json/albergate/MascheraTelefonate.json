@@ -1,0 +1,80 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo le etichette\r\n    etich1 = new Label(\"Dati della telefonata\");\r\n    etich1.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich2 = new Label(\"Numero Stanza\");\r\n    etich3 = new Label(\"Data Telefonata\");\r\n    etich4 = new Label(\"Ora di Inizio\");\r\n    etich5 = new Label(\"Ora di Fine\");\r\n    etich6 = new Label(\"Durata\");\r\n    etich7 = new Label(\"Numero Chiamato\");\r\n    etich8 = new Label(\"Scatti Addebitati\");\r\n    etich9 = new Label(\"Spesa Addebitata\");\r\n    etich10 = new Label(\"Totale Scatti\");\r\n    etich10.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich11 = new Label(\"Totale Spesa\");\r\n    etich11.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich12 = new Label(\"Riassunto totali stanza \" + phone.getNumStanza());\r\n    etich12.setFont(ConfigurazioneSistema.font_titolo);\r\n    //Creo i TextField e ne rendo  alcuni non editabili\r\n    data_tel = new TextField(\"\", 12);\r\n    num_stanza = new TextField(\"\", 4);\r\n    ora_i = new TextField(\"\", 12);\r\n    ora_f = new TextField(\"\", 12);\r\n    durata = new TextField(\"\", 12);\r\n    scatti = new TextField(\"\", 4);\r\n    numero = new TextField(\"\", 18);\r\n    costo = new TextField(\"\", 12);\r\n    tot_scatti = new TextField(\"\", 4);\r\n    tot_costo = new TextField(\"\", 14);\r\n    //Disabilita i TextField\r\n    data_tel.setEditable(false);\r\n    num_stanza.setEditable(false);\r\n    ora_i.setEditable(false);\r\n    ora_f.setEditable(false);\r\n    durata.setEditable(false);\r\n    scatti.setEditable(false);\r\n    numero.setEditable(false);\r\n    costo.setEditable(false);\r\n    tot_scatti.setEditable(false);\r\n    tot_costo.setEditable(false);\r\n    //Creo i pulsanti\r\n    Annulla = new Button(\" Indietro \");\r\n    //Creo il pannello\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etich1, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, etich2, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, num_stanza, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich3, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, data_tel, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich4, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, ora_i, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich5, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, ora_f, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich6, 4, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, durata, 5, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich7, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, numero, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich8, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, scatti, 1, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich9, 2, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, costo, 3, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich12, 0, 5, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich10, 0, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, tot_scatti, 1, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11, 2, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, tot_costo, 3, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 0, 0, 0, 15);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 0, 6, 7, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 7, 6, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Disabilita i TextField\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    writeDatiTel();\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    data_tel.setText(DateUtils.giveStringOfDate(phone.getDataTel()));\r\n    num_stanza.setText(phone.getNumStanza());\r\n    ora_i.setText(\"\" + phone.getInizioTel());\r\n    ora_f.setText(\"\" + phone.getFineTel());\r\n    durata.setText(\"\" + phone.getDurataTel());\r\n    scatti.setText(\"\" + phone.getNumScatti());\r\n    numero.setText(phone.getNumChiamato());\r\n    costo.setText(\"\" + ((Principale.config).getCostoXScatto()) * phone.getNumScatti());\r\n    tot_scatti.setText(\"\" + scatti_totali);\r\n    tot_costo.setText(\"\" + ((Principale.config).getCostoXScatto()) * scatti_totali);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void writeDatiTel()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Visualizzazione dei dati delle telefonate\");\r\n    padre = p;\r\n    phone = t;\r\n    scatti_totali = tot;\r\n    padre.setEnabled(false);\r\n    setupPanels();\r\n    inizializza();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraTelefonate(Frame, Telefonata, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraTelefonate",
+        "variables": [
+            " TextField num_stanza",
+            " TextField data_tel",
+            " TextField ora_i",
+            " TextField ora_f",
+            " TextField numero",
+            " TextField durata",
+            " TextField scatti",
+            " TextField costo",
+            " TextField tot_scatti",
+            " TextField tot_costo",
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Label etich7",
+            " Label etich8",
+            " Label etich9",
+            " Label etich10",
+            " Label etich11",
+            " Label etich12",
+            " Panel panel1",
+            " Panel panel2",
+            " Button Annulla",
+            " GridBagLayout gridbag",
+            " Frame padre",
+            " Telefonata phone",
+            " int scatti_totali"
+        ]
+    }
+]

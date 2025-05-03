@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<TransactionBean> accesses;\r\n    if (lowerDate == null || upperDate == null)\r\n        return transDAO.getAllRecordAccesses(loggedInMID, getByRole);\r\n    String message = \"\";\r\n    try {\r\n        Date lower = new SimpleDateFormat(\"MM/dd/yyyy\").parse(lowerDate);\r\n        Date upper = new SimpleDateFormat(\"MM/dd/yyyy\").parse(upperDate);\r\n        if (lower.after(upper))\r\n            throw new FormValidationException(\"Start date must be before end date!\");\r\n        message = \"for dates between \" + lowerDate + \" and \" + upperDate;\r\n        transDAO.logTransaction(TransactionType.VIEW_ACCESS_LOG, loggedInMID, 0L, message);\r\n        accesses = transDAO.getRecordAccesses(loggedInMID, lower, upper, getByRole);\r\n    } catch (ParseException e) {\r\n        throw new FormValidationException(\"Enter dates in MM/dd/yyyy\");\r\n    }\r\n    return accesses;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<TransactionBean> getAccesses(String, String, boolean)",
+                "comments": "Optional[/**\r\n * Returns a list of TransactionBeans between the two dates passed as params\r\n *\r\n * @param lowerDate\r\n *            the first date\r\n * @param upperDate\r\n *            the second date\r\n * @return list of TransactionBeans\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String startDate = \"\";\r\n    if (accesses.size() > 0) {\r\n        startDate = new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(accesses.get(accesses.size() - 1).getTimeLogged().getTime()));\r\n    } else {\r\n        startDate = new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date());\r\n    }\r\n    return startDate;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDefaultStart(List<TransactionBean>)",
+                "comments": "Optional[/**\r\n * Returns the date of the first Transaction in the list passed as a param if the list is not empty\r\n * otherwise, returns today's date\r\n *\r\n * @param accesses A java.util.List of TransactionBeans for the accesses.\r\n * @return A String representing the date of the first transaction.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String endDate = \"\";\r\n    if (accesses.size() > 0) {\r\n        endDate = new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(accesses.get(0).getTimeLogged().getTime()));\r\n    } else {\r\n        endDate = new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date());\r\n    }\r\n    return endDate;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDefaultEnd(List<TransactionBean>)",
+                "comments": "Optional[/**\r\n * Returns the date of the last Transaction in the list passed as a param if the list is not empty\r\n * otherwise, returns today's date\r\n *\r\n * @param accesses A java.util.List of TransactionBeans storing the access.\r\n * @return A String representation of the date of the last transaction.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.transDAO = factory.getTransactionDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewMyAccessLogAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person retrieving the logs.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewMyAccessLogAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

@@ -1,0 +1,113 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return dimensioneFont;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getDimensioneFont()",
+                "comments": "Optional[/**\r\n * Returns the value of dimensioneFont\r\n *\r\n * @return value dimensioneFont.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dimensioneFont = pDimensioneFont;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setDimensioneFont(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of dimensioneFont\r\n *\r\n * @param pDimensioneFont New dimensioneFont.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return font;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getFont()",
+                "comments": "Optional[/**\r\n * Returns the value of font\r\n *\r\n * @return Value of font.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    font = pFont;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setFont(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of font\r\n *\r\n * @param pFont New value of font.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return tema;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getTema()",
+                "comments": "Optional[/**\r\n * Returns the value of the tema\r\n *\r\n * @return value tema.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    tema = pTema;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setTema(String)",
+                "comments": "Optional[/**\r\n * Sets the new value of the tema\r\n *\r\n * @param pTema New value for tema.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return id;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getId()",
+                "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return idTurista;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int getIdTurista()",
+                "comments": "Optional[/**\r\n * Returns the value of idTurista\r\n *\r\n * @return value idTurista.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    idTurista = pIdTurista;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setIdTurista(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of idTurista\r\n *\r\n * @param pIdTurista New value for idTurista.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    id = pId;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setId(int)",
+                "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    setId(pId);\r\n    setDimensioneFont(pDimensioneFont);\r\n    setFont(pFont);\r\n    setTema(pTema);\r\n    setIdTurista(pIdTurista);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanPreferenzeGeneriche(int, int, String, String, int)",
+                "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pDimensioneFont\r\n * @param pFont\r\n * @param pTema\r\n * @param pIdTurista\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanPreferenzeGeneriche()",
+                "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "BeanPreferenzeGeneriche",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int id",
+            "private int dimensioneFont",
+            "private String font",
+            "private String tema",
+            "private int idTurista"
+        ]
+    }
+]

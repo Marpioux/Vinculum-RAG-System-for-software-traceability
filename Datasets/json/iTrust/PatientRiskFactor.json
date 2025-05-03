@@ -1,0 +1,35 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public abstract String getDescription()",
+                "comments": "Optional[/**\r\n * @return A textual description of what the patient's status is that's causing the risk.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected abstract boolean hasFactor()",
+                "comments": "Optional[/**\r\n * @return A boolean indicating whether the patient has the increased risk.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (hasRisk == null)\r\n        hasRisk = hasFactor();\r\n    return hasRisk;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean hasRiskFactor()",
+                "comments": "Optional[/**\r\n * @return A boolean indicating whether the patient has the increased risk.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "PatientRiskFactor",
+        "variables": [
+            "private Boolean hasRisk"
+        ]
+    }
+]

@@ -1,0 +1,124 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo dei pulsanti e ne disabilito due\r\n    Annulla = new Button(\" Fine \");\r\n    Azione = new Button(caption);\r\n    Assegna = new Button(\" Assegna Stanza \");\r\n    Cancella = new Button(\" Cancella prenotazione \");\r\n    //Creo le etichette\r\n    etichetta1 = new Label(\"Inserimento dei dati della prenotazione:\");\r\n    etichetta1.setFont(ConfigurazioneSistema.font_titolo);\r\n    label1 = new Label(\"Numero stanza\");\r\n    label2 = new Label(\"Cognome\");\r\n    label3 = new Label(\"Nome\");\r\n    label4 = new Label(\"Numero telefonico\");\r\n    label5 = new Label(\"Numero persone\");\r\n    label6 = new Label(\"Data inizio\");\r\n    label7 = new Label(\"Data fine\");\r\n    label8 = new Label(\"Caparra versata \" + (Principale.config).getValuta() + \".\");\r\n    label9 = new Label(\"Richieste particolari\");\r\n    label11 = new Label(\"Nome Agenzia\");\r\n    label10 = new Label(\"Tipo di pensionamento:\");\r\n    label10.setFont(ConfigurazioneSistema.font_titolo);\r\n    label12 = new Label(\"Risultato della ricerca\");\r\n    label12.setFont(ConfigurazioneSistema.font_titolo);\r\n    label13 = new Label(\"Data di prenotazione\");\r\n    //Creo i TextField e ne rendo  alcuni non editabili\r\n    testo = new TextField[11];\r\n    testo[0] = new TextField(\"\", 4);\r\n    testo[1] = new TextField(\"\", 20);\r\n    testo[2] = new TextField(\"\", 20);\r\n    testo[3] = new TextField(\"\", 10);\r\n    testo[4] = new TextField(\"\", 12);\r\n    testo[5] = new TextField(\"\", 12);\r\n    testo[6] = new TextField(\"\", 10);\r\n    testo[7] = new TextField(\"\", 20);\r\n    testo[8] = new TextField(\"\", 20);\r\n    testo[8].setEditable(false);\r\n    testo[9] = new TextField(\"\", 12);\r\n    testo[9].setEditable(false);\r\n    testo[10] = new TextField(\"\", 3);\r\n    //Creo un Checkbox ad esclusione\r\n    pensione = new CheckboxGroup();\r\n    checkboxes = new Checkbox[4];\r\n    checkboxes[0] = new Checkbox(\" Solo pernottamento\", pensione, false);\r\n    checkboxes[1] = new Checkbox(\" Prima colazione\", pensione, false);\r\n    checkboxes[2] = new Checkbox(\" Mezza pensione\", pensione, false);\r\n    checkboxes[3] = new Checkbox(\" Pensione completa\", pensione, false);\r\n    switch(pens) {\r\n        case Flag.SOLO_PERNOTTAMENTO:\r\n            checkboxes[0] = new Checkbox(\" Solo pernottamento\", pensione, true);\r\n            break;\r\n        case Flag.SOLO_COLAZIONE:\r\n            checkboxes[1] = new Checkbox(\" Prima colazione\", pensione, true);\r\n            break;\r\n        case Flag.MEZZA_PENSIONE:\r\n            checkboxes[2] = new Checkbox(\" Mezza pensione\", pensione, true);\r\n            break;\r\n        case Flag.PENSIONE_COMPLETA:\r\n            checkboxes[3] = new Checkbox(\" Pensione completa\", pensione, true);\r\n            break;\r\n    }\r\n    //Creo due Checkbox a se' stanti\r\n    myCheckbox = new Checkbox(\" Letto aggiuntivo\", null, false);\r\n    if (stanza != null)\r\n        if (stanza.getDispLettoAgg() == Const.NO)\r\n            myCheckbox.setEnabled(false);\r\n    myCheckbox1 = new Checkbox(\" Prenotazione tramite agenzia\", null, false);\r\n    myCheckbox1.setEnabled(false);\r\n    //Creo un Choice\r\n    if (caller == 1) {\r\n        mychoice = new Choice();\r\n        if (stanza != null)\r\n            for (int i = 1; i <= stanza.getPostiLetto(); i++) mychoice.addItem(\"\" + i);\r\n        else\r\n            mychoice.addItem(\"1\");\r\n    }\r\n    //Creo il pannello in alto per inserimento dei dati del cliente\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[0], 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label13, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[9], 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label2, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[1], 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label3, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[2], 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label4, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[3], 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label5, 2, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    if (caller == 1)\r\n        Utils.constrain(panel1, mychoice, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    else\r\n        Utils.constrain(panel1, testo[10], 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label6, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[4], 1, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label7, 2, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[5], 3, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label8, 0, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[6], 1, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label9, 0, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[7], 1, 6, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, myCheckbox, 0, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, myCheckbox1, 1, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label11, 2, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, testo[8], 3, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, label10, 0, 8, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, checkboxes[0], 0, 9, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, checkboxes[1], 0, 10, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, checkboxes[2], 0, 11, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, checkboxes[3], 0, 12, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    //Creo il pannello in basso con due pulsanti\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, Azione, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    if (caller == 2)\r\n        Utils.constrain(panel2, Assegna, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    if (caller == 5)\r\n        Utils.constrain(panel2, Cancella, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    //Creo il pannello con la lista dei risultati della ricerca\r\n    lista = new List(7, false);\r\n    lista.setFont(ConfigurazioneSistema.font_allineato);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, label12, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel3, lista, 0, 1, 4, 3, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 3.0, 3.0, 0, 0, 0, 0);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 1, 4, 13, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 14, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 0, 15, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel3.setVisible(false);\r\n    pack();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels(String, String, String, char)",
+                "comments": null,
+                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo due Checkbox a se' stanti\r\n, //Creo un Choice\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void inizializza()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Prenotazione pren = new Prenotazione();\r\n    pren.setNumStanza(testo[0].getText());\r\n    pren.setCognome(testo[1].getText());\r\n    pren.setNome(testo[2].getText());\r\n    pren.setNumTel(testo[3].getText());\r\n    if (caller == 1)\r\n        //Conversione String -> Int\r\n        pren.setNumPers(Integer.parseInt(mychoice.getSelectedItem()));\r\n    else\r\n        pren.setNumPers(Integer.parseInt(testo[10].getText()));\r\n    pren.setInizioSogg(DateUtils.convertDate(testo[4].getText()));\r\n    pren.setFineSogg(DateUtils.convertDate(testo[5].getText()));\r\n    if ((testo[6].getText().equals(\"\")))\r\n        pren.setCaparra(0);\r\n    else\r\n        // Conversione String -> Float\r\n        pren.setCaparra((Float.valueOf(testo[6].getText())).floatValue());\r\n    pren.setRichParticolari(testo[7].getText());\r\n    if (myCheckbox.getState() == true)\r\n        pren.setRichLettoAgg(Const.SI);\r\n    if (myCheckbox1.getState() == true) {\r\n        pren.setTramiteAgenzia(Const.SI);\r\n        pren.setNomeAgenzia(testo[8].getText());\r\n    }\r\n    if (checkboxes[0].getState() == true)\r\n        pren.setPensionamento(Flag.SOLO_PERNOTTAMENTO);\r\n    else if (checkboxes[1].getState() == true)\r\n        pren.setPensionamento(Flag.SOLO_COLAZIONE);\r\n    else if (checkboxes[2].getState() == true)\r\n        pren.setPensionamento(Flag.MEZZA_PENSIONE);\r\n    else\r\n        pren.setPensionamento(Flag.PENSIONE_COMPLETA);\r\n    pren.setIdPrenotazione(Principale.config.getIdPrenotazione());\r\n    return pren;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public Prenotazione readDatiPren()",
+                "comments": null,
+                "innerComments": "Optional[[//Conversione String -> Int\r\n, // Conversione String -> Float\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    myCheckbox.setState(false);\r\n    myCheckbox1.setState(false);\r\n    testo[8].setText(\"\");\r\n    testo[0].setText(pren.getNumStanza());\r\n    testo[1].setText(pren.getCognome());\r\n    testo[2].setText(pren.getNome());\r\n    testo[3].setText(pren.getNumTel());\r\n    testo[4].setText(DateUtils.giveStringOfDate(pren.getInizioSogg()));\r\n    testo[5].setText(DateUtils.giveStringOfDate(pren.getFineSogg()));\r\n    testo[6].setText(\"\" + pren.getCaparra());\r\n    testo[7].setText(pren.getRichParticolari());\r\n    testo[8].setText(pren.getNomeAgenzia());\r\n    testo[9].setText(DateUtils.giveStringOfDate(pren.getDataPren()));\r\n    if (caller != 1) {\r\n        testo[10].setText(\"\" + pren.getNumPers());\r\n    }\r\n    if (pren.getTramiteAgenzia() == Const.SI) {\r\n        myCheckbox1.setState(true);\r\n        testo[8].setText(pren.getNomeAgenzia());\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void writeDatiPren(Prenotazione)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    boolean numeri_corretti;\r\n    Frame msg;\r\n    if (caller != 1) {\r\n        if (Utils.isIntPos(testo[10].getText())) {\r\n            int num = Integer.parseInt(testo[10].getText());\r\n            if ((num > stanza.getPostiLetto()) || (num <= 0)) {\r\n                msg = new MessageDialog(this, \" La stanza non puo' contenere \" + num + \" persone! \");\r\n                return true;\r\n            }\r\n        } else {\r\n            msg = new MessageDialog(this, \" Inserire correttamente il numero di persone \");\r\n            return true;\r\n        }\r\n    }\r\n    if (!((testo[0].getText()).length() <= 4)) {\r\n        msg = new MessageDialog(this, \" Il numero di stanza deve avere al piu' 4 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo[1].getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il cognome deve avere al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo[2].getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il nome deve avere al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo[3].getText()).length() <= 16)) {\r\n        msg = new MessageDialog(this, \" Il numero di telefono deve avere al piu' 16 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((testo[1].getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il cognome! \");\r\n        return true;\r\n    }\r\n    if ((testo[2].getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il nome! \");\r\n        return true;\r\n    }\r\n    if ((testo[3].getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il numero di telefono! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected boolean errori()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    testo[0].setText(\"\");\r\n    testo[1].setText(\"\");\r\n    testo[2].setText(\"\");\r\n    testo[3].setText(\"\");\r\n    testo[4].setText(\"\");\r\n    testo[5].setText(\"\");\r\n    testo[6].setText(\"\");\r\n    testo[7].setText(\"\");\r\n    testo[8].setText(\"\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void cleanFields()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    Prenotazione p;\r\n    L = (Principale.db).foundPrenotazioni(testo[1].getText(), testo[2].getText());\r\n    if (L != null) {\r\n        if (!L.isEmpty()) {\r\n            if (lista.getItemCount() > 0)\r\n                lista.removeAll();\r\n            panel3.setVisible(true);\r\n            pack();\r\n            for (int i = 1; i <= L.length(); i++) lista.addItem(L.getPrenotazione(i).toString());\r\n        } else\r\n            msg = new AvvisoDialog(this, \"Prenotazione non trovata!\");\r\n    } else\r\n        msg = new MessageDialog(this, \"Problemi con il DataBase\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void creaLista()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Disponibilita disp_da_cambiare = new Disponibilita();\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        Frame msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    disp_da_cambiare = Utils.getDispOfRoom(elenco_disp, pren.getNumStanza(), true);\r\n    if (//cancellazione della prenotazione\r\n    tipo == Flag.DISPONIBILE) {\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.ASSEGNATA);\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.BLOCCATA);\r\n    } else {\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.DISPONIBILE);\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.COMMISSIONATA);\r\n    }\r\n    (Principale.db).changeDisponibilita(disp_da_cambiare.getNumStanza(), disp_da_cambiare.getDispAnnoCorr(), disp_da_cambiare.getDispAnnoProx());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void aggiornaDisp(Prenotazione, char)",
+                "comments": null,
+                "innerComments": "Optional[[//cancellazione della prenotazione\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(title);\r\n    caller = c;\r\n    stanza = s;\r\n    setupPanels(data_i, data_f, caption, pens);\r\n    inizializza();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraPrenotazione(Stanza, String, String, String, String, int, char)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraPrenotazione",
+        "variables": [
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Label etichetta1",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " Label label4",
+            " Label label5",
+            " Label label6",
+            " Label label7",
+            " Label label8",
+            " Label label9",
+            " Label label10",
+            " Label label11",
+            " Label label12",
+            " Label label13",
+            " List lista",
+            "public Button Annulla",
+            "public Button Azione",
+            "public Button Assegna",
+            "public Button Cancella",
+            " TextField testo",
+            " Choice mychoice",
+            " Checkbox checkboxes",
+            " Checkbox myCheckbox",
+            " Checkbox myCheckbox1",
+            " CheckboxGroup pensione",
+            " GridBagLayout gridbag",
+            " Frame padre",
+            " ListaPrenotazioni L",
+            " Stanza stanza",
+            " int caller"
+        ]
+    }
+]

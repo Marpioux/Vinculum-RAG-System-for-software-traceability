@@ -1,0 +1,25 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    errorList.addIfNotNull(checkFormat(\"LOINC\", b.getLoinc(), ValidationFormat.LOINC, false));\r\n    errorList.addIfNotNull(checkFormat(\"Commentary\", b.getCommentary(), ValidationFormat.COMMENTS, true));\r\n    errorList.addIfNotNull(checkFormat(\"Results\", b.getCommentary(), ValidationFormat.COMMENTS, true));\r\n    errorList.addIfNotNull(checkFormat(\"Status\", b.getStatus(), ValidationFormat.LAB_STATUS, false));\r\n    errorList.addIfNotNull(checkFormat(\"Rights\", b.getRights(), ValidationFormat.LAB_RIGHTS, false));\r\n    if (errorList.hasErrors())\r\n        throw new FormValidationException(errorList);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void validate(LabProcedureBean)",
+                "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String errorMessage = name + \": \" + format.getDescription();\r\n    if (value == null || \"\".equals(value))\r\n        return isNullable ? \"\" : errorMessage;\r\n    if (format.getRegex().matcher(value).matches())\r\n        return \"\";\r\n    else\r\n        return errorMessage;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "protected String checkFormat(String, String, ValidationFormat, boolean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "LabProcedureValidator",
+        "variables": []
+    }
+]

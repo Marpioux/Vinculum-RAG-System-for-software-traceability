@@ -1,0 +1,114 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query cancellation\r\n        String query = \"DELETE FROM preferenzediricerca WHERE Id =\" + pIdPreferenza;\r\n        // You run the query Cancellation\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean cancellaPreferenzaDiRicerca(int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query cancellation\r\n, // You run the query Cancellation\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query cancellation\r\n        String query = \"DELETE FROM associazionebc WHERE IdPreferenzeDiRicerca =\" + pIdPreferenzaDiRicerca + \" AND IdBeneCulturale =\" + pIdBeneCulturale;\r\n        // You run the query Cancellation\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean cancellaPreferenzaDiRicercaBC(int, int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query cancellation\r\n, // You run the query Cancellation\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query cancellation\r\n        String query = \"DELETE FROM associazionepr WHERE IdPreferenzeDiRicerca =\" + pIdPreferenza + \" AND IdPuntoDiRistoro =\" + pIdPuntoDiRistoro;\r\n        // You run the query Cancellation\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean cancellaPreferenzaDiRicercaPR(int, int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query cancellation\r\n, // You run the query Cancellation\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query cancellation\r\n        String query = \"DELETE FROM rating WHERE IdTurista =\" + pIdTurista + \" AND IdPreferenzeDiRicerca =\" + pIdPreferenza;\r\n        // You run the query Cancellation\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean cancellaPreferenzaDiRicercaTurista(int, int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query cancellation\r\n, // You run the query Cancellation\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query for the insertion\r\n        String query = \"INSERT INTO associazionebc (IdPreferenzeDiRicerca, IdBeneCulturale) VALUES (\" + pIdPreferenzaDiRicerca + \", \" + pIdBeneCulturale + \")\";\r\n        // You run the insert query\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciPreferenzaDiRicercaDelBC(int, int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query for the insertion\r\n, // You run the insert query\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query for the insertion\r\n        String query = \"INSERT INTO preferenzediricerca (Id, Name) VALUES (\" + pPreferenza.getId() + \", '\" + pPreferenza.getNome() + \"')\";\r\n        // You run the insert query\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciPreferenzaDiRicerca(BeanPreferenzaDiRicerca)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query for the insertion\r\n, // You run the insert query\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query for the insertion\r\n        String query = \"INSERT INTO associazionepr (IdPreferenzeDiRicerca, IdPuntoDiRistoro) VALUES (\" + pIdPreferenzaDiRicerca + \", \" + pIdPuntoDiRistoro + \")\";\r\n        // You run the insert query\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciPreferenzaDiRicercaDelPR(int, int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query for the insertion\r\n, // You run the insert query\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query for the insertion\r\n        String query = \"INSERT INTO rating (IdTurista, IdPreferenzeDiRicerca) VALUES (\" + pIdTurista + \", \" + pIdPreferenzaDiRicerca + \")\";\r\n        // You run the insert query\r\n        int i = stat.executeUpdate(query);\r\n        // This returns the backup\r\n        return (i == 1);\r\n    } finally {\r\n        // Always runs and takes care of closing the Statement and the connection\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciPreferenzaDiRicercaDelTurista(int, int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query for the insertion\r\n, // You run the insert query\r\n, // This returns the backup\r\n, // Always runs and takes care of closing the Statement and the connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    // Variable for the query results\r\n    ResultSet result = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query to extract the list of search preferences\r\n        String query = \"SELECT * FROM associazionebc, preferenzediricerca WHERE IdBeneCulturale =\" + pIdBeneCulturale + \" AND IdPreferenzeDiRicerca = preferenzediricerca.Id\";\r\n        // The query is executed\r\n        result = stat.executeQuery(query);\r\n        // List that will contain the BeanPreferenzaDiRicerca\r\n        ArrayList<BeanPreferenzaDiRicerca> list = new ArrayList<BeanPreferenzaDiRicerca>();\r\n        // We extract the results from the result set and moves in the list\r\n        while (result.next()) {\r\n            // Add to the list BeanPreferenzaDiRicerca\r\n            list.add(new BeanPreferenzaDiRicerca(result.getInt(\"Id\"), result.getString(\"Name\")));\r\n        }\r\n        return list;\r\n    } finally {\r\n        // Always runs and takes care to close the Result, the Statement and Connection\r\n        if (result != null) {\r\n            result.close();\r\n        }\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelBC(int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Variable for the query results\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query to extract the list of search preferences\r\n, // The query is executed\r\n, // List that will contain the BeanPreferenzaDiRicerca\r\n, // We extract the results from the result set and moves in the list\r\n, // Add to the list BeanPreferenzaDiRicerca\r\n, // Always runs and takes care to close the Result, the Statement and Connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    // Variable for the query results\r\n    ResultSet result = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query to extract the list of search preferences\r\n        String query = \"SELECT * FROM associazionepr, preferenzediricerca WHERE IdPuntoDiRistoro =\" + pIdPuntoDiRistoro + \" AND IdPreferenzeDiRicerca = preferenzediricerca.Id\";\r\n        // The query is executed\r\n        result = stat.executeQuery(query);\r\n        // List that will contain the BeanPreferenzaDiRicerca\r\n        ArrayList<BeanPreferenzaDiRicerca> list = new ArrayList<BeanPreferenzaDiRicerca>();\r\n        // We extract the results from the result set and moves in the list\r\n        while (result.next()) {\r\n            // Add to the list BeanPreferenzaDiRicerca\r\n            list.add(new BeanPreferenzaDiRicerca(result.getInt(\"Id\"), result.getString(\"Name\")));\r\n        }\r\n        return list;\r\n    } finally {\r\n        // Always runs and takes care to close the Result, the Statement and Connection\r\n        if (result != null) {\r\n            result.close();\r\n        }\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelPR(int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Variable for the query results\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query to extract the list of search preferences\r\n, // The query is executed\r\n, // List that will contain the BeanPreferenzaDiRicerca\r\n, // We extract the results from the result set and moves in the list\r\n, // Add to the list BeanPreferenzaDiRicerca\r\n, // Always runs and takes care to close the Result, the Statement and Connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    // Variable for the query results\r\n    ResultSet result = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query to extract the list of search preferences\r\n        String query = \"SELECT * FROM rating, preferenzediricerca WHERE IdTurista =\" + pIdTurista + \" AND IdPreferenzeDiRicerca = preferenzediricerca.Id\";\r\n        // The query is executed\r\n        result = stat.executeQuery(query);\r\n        // List that will contain the BeanPreferenzaDiRicerca\r\n        ArrayList<BeanPreferenzaDiRicerca> list = new ArrayList<BeanPreferenzaDiRicerca>();\r\n        // We extract the results from the result set and moves in the list\r\n        while (result.next()) {\r\n            // Add to the list BeanPreferenzaDiRicerca\r\n            list.add(new BeanPreferenzaDiRicerca(result.getInt(\"Id\"), result.getString(\"Name\")));\r\n        }\r\n        return list;\r\n    } finally {\r\n        // Always runs and takes care to close the Result, the Statement and Connection\r\n        if (result != null) {\r\n            result.close();\r\n        }\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelTurista(int)",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Variable for the query results\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query to extract the list of search preferences\r\n, // The query is executed\r\n, // List that will contain the BeanPreferenzaDiRicerca\r\n, // We extract the results from the result set and moves in the list\r\n, // Add to the list BeanPreferenzaDiRicerca\r\n, // Always runs and takes care to close the Result, the Statement and Connection\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Variables for database connection\r\n    Connection conn = null;\r\n    // Variable for the query\r\n    Statement stat = null;\r\n    // Variable for the query results\r\n    ResultSet result = null;\r\n    try {\r\n        // Get the connection\r\n        conn = DBConnessionePool.ottieniConnessione();\r\n        // Create the Statement\r\n        stat = conn.createStatement();\r\n        // Query to extract the list of search preferences\r\n        String query = \"SELECT * FROM preferenzediricerca\";\r\n        // The query is executed\r\n        result = stat.executeQuery(query);\r\n        // List that will contain the BeanPreferenzaDiRicerca\r\n        ArrayList<BeanPreferenzaDiRicerca> list = new ArrayList<BeanPreferenzaDiRicerca>();\r\n        // We extract the results from the result set and moves in the list\r\n        while (result.next()) {\r\n            // Add to the list BeanPreferenzaDiRicerca\r\n            list.add(new BeanPreferenzaDiRicerca(result.getInt(\"Id\"), result.getString(\"Name\")));\r\n        }\r\n        // Return the list of search preferences in the DB\r\n        return list;\r\n    } finally {\r\n        // Always runs and takes care to close the Result, the Statement and Connection\r\n        if (result != null) {\r\n            result.close();\r\n        }\r\n        if (stat != null) {\r\n            stat.close();\r\n        }\r\n        if (conn != null) {\r\n            DBConnessionePool.rilasciaConnessione(conn);\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicerca()",
+                "comments": null,
+                "innerComments": "Optional[[// Variables for database connection\r\n, // Variable for the query\r\n, // Variable for the query results\r\n, // Get the connection\r\n, // Create the Statement\r\n, // Query to extract the list of search preferences\r\n, // The query is executed\r\n, // List that will contain the BeanPreferenzaDiRicerca\r\n, // We extract the results from the result set and moves in the list\r\n, // Add to the list BeanPreferenzaDiRicerca\r\n, // Return the list of search preferences in the DB\r\n, // Always runs and takes care to close the Result, the Statement and Connection\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public DBPreferenzeDiRicerca()",
+                "comments": "Optional[// Empty constructor\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "DBPreferenzeDiRicerca",
+        "variables": []
+    }
+]

@@ -1,0 +1,71 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        long mid = Long.valueOf(midString);\r\n        List<HospitalBean> allHospitals = hospitalsDAO.getAllHospitals();\r\n        List<HospitalBean> ourHospitals = personnelDAO.getHospitals(mid);\r\n        while (!ourHospitals.isEmpty()) {\r\n            allHospitals.remove(ourHospitals.remove(0));\r\n        }\r\n        return allHospitals;\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<HospitalBean> getAvailableHospitals(String)",
+                "comments": "Optional[/**\r\n * Returns a list of hospitals to which the given mid is not currently assigned\r\n *\r\n * @param midString\r\n * @return list of HospitalBeans\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long mid = Long.valueOf(midString);\r\n        return personnelDAO.getHospitals(mid);\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<HospitalBean> getAssignedHospitals(String)",
+                "comments": "Optional[/**\r\n * Returns a list of hospitals to which the given mid is currently assigned\r\n *\r\n * @param midString\r\n * @return list of HosptialBeans\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long hcpID = Long.valueOf(midString);\r\n        boolean confirm = hospitalsDAO.assignHospital(hcpID, hospitalID);\r\n        if (confirm) {\r\n            /*\r\n\t\t\t\t\t\t\t * only patient is mentioned for transaction type 0, but spec looks like personnel\r\n\t\t\t\t\t\t\t * should be included too...\r\n\t\t\t\t\t\t\t */\r\n            transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, hcpID, \"HCP Assigned to Hospital\");\r\n            return \"HCP successfully assigned.\";\r\n        } else\r\n            return \"Assignment did not occur\";\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public String assignHCPToHospital(String, String)",
+                "comments": "Optional[/**\r\n * Assigns the mid to the hospital\r\n *\r\n * @param midString The MID of the person assigned to the hospital as a String.\r\n * @param hospitalID The ID of the hospital.\r\n * @return message indicating the status of the assignment\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": "Optional[[/*\r\n\t\t\t\t\t\t\t * only patient is mentioned for transaction type 0, but spec looks like personnel\r\n\t\t\t\t\t\t\t * should be included too...\r\n\t\t\t\t\t\t\t */\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long hcpID = Long.valueOf(midString);\r\n        boolean confirm = hospitalsDAO.removeHospitalAssignment(hcpID, hospitalID);\r\n        if (confirm) {\r\n            transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, hcpID, \"HCP unassigned from hospital\");\r\n            return \"HCP successfully unassigned\";\r\n        } else\r\n            return \"HCP not unassigned\";\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String removeHCPAssignmentToHospital(String, String)",
+                "comments": "Optional[/**\r\n * Removes HCPs assignment to the designated hospital\r\n *\r\n * @param midString\r\n *            the HCP's mid\r\n * @param hospitalID\r\n *            the hospital id to be removed\r\n * @return Status message\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long hcpID = Long.valueOf(midString);\r\n        int numAssignments = hospitalsDAO.removeAllHospitalAssignmentsFrom(hcpID);\r\n        if (0 < numAssignments) {\r\n            transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, hcpID, \"HCP unassigned from all hospital\");\r\n        }\r\n        return numAssignments;\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int removeAllAssignmentsFromHCP(String)",
+                "comments": "Optional[/**\r\n * Removes all hospital assignments for the given hcp mid\r\n *\r\n * @param midString\r\n *            HCP's mid\r\n * @return status message\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long pid = Long.valueOf(hcpID);\r\n        if (personnelDAO.checkPersonnelExists(pid))\r\n            return pid;\r\n        else\r\n            throw new iTrustException(\"HCP does not exist\");\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP ID is not a number: \" + e.getMessage());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public long checkHCPID(String)",
+                "comments": "Optional[/**\r\n * Checks if the hcpID param is a HCP\r\n *\r\n * @param hcpID\r\n *            the String to be checked\r\n * @return the mid as a long if the hcpID is a HCP's mid\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.hospitalsDAO = factory.getHospitalsDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ManageHospitalAssignmentsAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user managing hospitals.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ManageHospitalAssignmentsAction",
+        "variables": [
+            "private TransactionDAO transDAO",
+            "private PersonnelDAO personnelDAO",
+            "private HospitalsDAO hospitalsDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

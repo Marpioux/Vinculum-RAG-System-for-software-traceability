@@ -1,0 +1,57 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciConvenzione(BeanConvenzione)",
+                "comments": "Optional[/**\r\n * Add a convention in the database\r\n *\r\n * @param pConvenzione Convention to be added\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaConvenzione(BeanConvenzione)",
+                "comments": "Optional[/**\r\n * Modify a convention in the database\r\n *\r\n * @param pConvenzione Convention to be updated\r\n * @return True if there was a modification, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaConvenzione(int)",
+                "comments": "Optional[/**\r\n * Delete a convention from the database\r\n *\r\n * @param pIdConvenzione ID of the convention to be removed\r\n * @return True if deleted, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int)",
+                "comments": "Optional[/**\r\n * Returns the historical conventions of a refreshment\r\n *\r\n * @param idPuntoDiRistoro Point identification of the refreshment\r\n * @return List of conventions of the refreshment given as argument\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanConvenzione ottieniConvenzioneAttiva(int)",
+                "comments": "Optional[/**\r\n * Returns the active convention of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro Point identification of the refreshment\r\n * @return Active convention\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPuntoDiRistoro> ottieniListaConvenzioneAttivaPR()",
+                "comments": "Optional[/**\r\n * Returns a list of all the refreshment points that have an active convention\r\n *\r\n * @return List of all the refreshment points with the active convention\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBConvenzione",
+        "variables": []
+    }
+]

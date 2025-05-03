@@ -1,0 +1,107 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo due pulsanti\r\n    Annulla = new Button(\" Fine  \");\r\n    Cerca = new Button(\" Cerca \");\r\n    //Creo le etichette\r\n    etichetta1 = new Label(\"Inserire la stanza addebitata                         \");\r\n    etichetta1.setFont(ConfigurazioneSistema.font_titolo);\r\n    label1 = new Label(\"Numero Stanza   \");\r\n    label3 = new Label(\"Risultato della ricerca\");\r\n    label3.setFont(ConfigurazioneSistema.font_titolo);\r\n    //Creo i TextField e ne rendo  alcuni non editabili\r\n    stanza = new TextField(\"\", 4);\r\n    //Creo il pannello in alto per inserimento dei dati del cliente\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, stanza, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    //Creo il pannello in basso con due pulsanti\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, Cerca, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\r\n    //Creo il pannello con la lista dei risultati della ricerca\r\n    lista = new List(10, false);\r\n    lista.setFont(ConfigurazioneSistema.font_allineato);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, label3, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel3, lista, 0, 1, 4, 3, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 3.0, 3.0, 0, 0, 0, 0);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 1, 4, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 14, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 0, 15, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel3.setVisible(false);\r\n    pack();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//Creo due pulsanti\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (lista.getSelectedIndex() < (lista.getItemCount() - 1)) {\r\n                add = L.getAddebito((lista.getSelectedIndexes())[0] + 1);\r\n                startVediAddebito(add);\r\n            }\r\n        }\r\n    });\r\n    stanza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors())\r\n                creaLista();\r\n        }\r\n    });\r\n    Cerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors())\r\n                creaLista();\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (lista.getSelectedIndex() < (lista.getItemCount() - 1)) {\r\n        add = L.getAddebito((lista.getSelectedIndexes())[0] + 1);\r\n        startVediAddebito(add);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (noErrors())\r\n        creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (noErrors())\r\n        creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new VediAddebito(this, add, totale_add);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startVediAddebito(Addebito)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    BeneServizio extra;\r\n    Addebito addebito;\r\n    String desc = new String();\r\n    totale_add = 0;\r\n    L = (Principale.db).foundAddebiti(stanza.getText());\r\n    if (L != null) {\r\n        if (!L.isEmpty()) {\r\n            if (lista.getItemCount() > 0)\r\n                lista.removeAll();\r\n            panel3.setVisible(true);\r\n            pack();\r\n            for (int i = 1; i <= L.length(); i++) {\r\n                addebito = L.getAddebito(i);\r\n                extra = (Principale.db).readBeneServizio(addebito.getCodExtra());\r\n                if (extra != null)\r\n                    lista.addItem(\"DESCRIZIONE:\" + Utils.completaStringa(extra.getDescrizione(), 10) + \" QUANTITA':\" + Utils.completaStringa((\"\" + addebito.getQuantita()), 2) + \" TOTALE ADDEBITO:\" + (Principale.config).getValuta() + \".\" + addebito.getTotAddebito());\r\n                totale_add += addebito.getTotAddebito();\r\n            }\r\n            lista.addItem(\"L'ADDEBITO TOTALE DELLA STANZA \" + stanza.getText() + \" E' DI \" + (Principale.config).getValuta() + \".\" + totale_add);\r\n        } else\r\n            msg = new AvvisoDialog(this, \" Nessun addebitato trovato. \");\r\n    } else\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void creaLista()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    //Disponibilita disp = new Disponibilita();\r\n    if ((stanza.getText().equals(\"\"))) {\r\n        msg = new AvvisoDialog(this, \"Inserire il numero della stanza\");\r\n        return false;\r\n    } else if ((Principale.db).readStanza(stanza.getText()) == null) {\r\n        msg = new MessageDialog(this, \"La stanza inserita e' inesistente!\");\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " boolean noErrors()",
+                "comments": null,
+                "innerComments": "Optional[[//Disponibilita disp = new Disponibilita();\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Ricerca degli addebiti\");\r\n    padre = p;\r\n    padre.setEnabled(false);\r\n    setupPanels();\r\n    init();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public RicercaAddebiti(Frame)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "RicercaAddebiti",
+        "variables": [
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Label etichetta1",
+            " Label label1",
+            " Label label3",
+            " List lista",
+            " Button Annulla",
+            " Button Cerca",
+            " TextField stanza",
+            " GridBagLayout gridbag",
+            " Frame padre",
+            " Frame figlio",
+            " ListaAddebiti L",
+            " Addebito add",
+            " float totale_add"
+        ]
+    }
+]

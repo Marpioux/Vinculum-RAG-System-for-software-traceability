@@ -1,0 +1,52 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ArrayList<DiagnosisBean> list = new ArrayList<DiagnosisBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<DiagnosisBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    DiagnosisBean diag = new DiagnosisBean(rs.getString(\"Code\"), rs.getString(\"Description\"), rs.getString(\"Chronic\"));\r\n    if (loadOVDiagnosisID) {\r\n        diag.setOvDiagnosisID(rs.getInt(\"ID\"));\r\n        diag.setVisitID(rs.getLong(\"VisitID\"));\r\n    }\r\n    return diag;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DiagnosisBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, DiagnosisBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    loadOVDiagnosisID = false;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DiagnosisBeanLoader()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.loadOVDiagnosisID = loadOVDiagnosisID;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public DiagnosisBeanLoader(boolean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "DiagnosisBeanLoader",
+        "variables": [
+            "private boolean loadOVDiagnosisID"
+        ]
+    }
+]

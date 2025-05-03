@@ -1,0 +1,39 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    validator.validate(diagn);\r\n    List<LOINCbean> lblist = lDAO.getAllLOINC();\r\n    boolean correctID = false;\r\n    for (int i = 0; i < lblist.size(); i++) {\r\n        if (lblist.get(i).getLabProcedureCode().equals(diagn.getLabProcedureCode())) {\r\n            correctID = true;\r\n            i = lblist.size();\r\n        }\r\n    }\r\n    if (correctID) {\r\n        throw new FormValidationException(\"Error: Code already exists.\");\r\n    }\r\n    lDAO.addLOINC(diagn);\r\n    transDAO.logTransaction(TransactionType.MANAGE_LOINC, performerID, 0L, \"added LOINC code \" + diagn.getLabProcedureCode());\r\n    return \"Success: \" + diagn.getLabProcedureCode() + \" added\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String add(LOINCbean)",
+                "comments": "Optional[/**\r\n * Adds a new LOINC\r\n *\r\n * @param diagn\r\n *            New LOINC\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(diagn);\r\n    try {\r\n        int rows = lDAO.update(diagn);\r\n        if (0 == rows) {\r\n            return \"Error: Code not found.\";\r\n        } else {\r\n            transDAO.logTransaction(TransactionType.MANAGE_LOINC, performerID, 0L, \"updated LOINC code \" + diagn.getLabProcedureCode());\r\n            return \"Success: \" + diagn.getLabProcedureCode() + \" updated\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String updateInformation(LOINCbean)",
+                "comments": "Optional[/**\r\n * Updates a LOINC\r\n *\r\n * @param diagn\r\n *            new information to update (but same code)\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.performerID = performerID;\r\n    transDAO = factory.getTransactionDAO();\r\n    lDAO = factory.getLOINCDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public UpdateLOINCListAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Sets up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param performerID The MID of the person updating the LOINCs.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "UpdateLOINCListAction",
+        "variables": [
+            "private long performerID",
+            "private LOINCDAO lDAO",
+            "private TransactionDAO transDAO",
+            "private LOINCBeanValidator validator"
+        ]
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return adEventDAO.getReport(id);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public AdverseEventBean getAdverseEvent(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return adEventDAO.getUnremovedAdverseEventsByCode(code);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<AdverseEventBean> getUnremovedAdverseEventsByCode(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return adEventDAO.getNameForCode(code);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getNameForCode(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.adEventDAO = factory.getAdverseEventDAO();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ViewAdverseEventAction(DAOFactory)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewAdverseEventAction",
+        "variables": [
+            "private AdverseEventDAO adEventDAO"
+        ]
+    }
+]

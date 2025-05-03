@@ -1,0 +1,128 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo i pulsanti\r\n    Annulla = new Button(\"Annulla \");\r\n    //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n    Conferma = new Button(\"Conferma\");\r\n    Conferma.setEnabled(false);\r\n    //Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n    //Creo le etichette\r\n    etichetta1 = new Label(\"Selezionare il tipo di ricerca che si desidera effettuare:\");\r\n    etichetta1.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta2 = new Label(\"Risultato della ricerca:\");\r\n    etichetta2.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta3 = new Label(\"Ricerca per stanza:\");\r\n    etichetta3.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta4 = new Label(\"Ricerca per nome:\");\r\n    etichetta4.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta5 = new Label(\"Ricerca per data:\");\r\n    etichetta5.setFont(ConfigurazioneSistema.font_titolo);\r\n    label1 = new Label(\"Stanza numero\");\r\n    label2 = new Label(\"Cognome\");\r\n    label3 = new Label(\"Nome\");\r\n    label5 = new Label(\"Data di soggiorno desiderata\");\r\n    //Creo un Checkbox ad esclusione\r\n    checkbox_group = new CheckboxGroup();\r\n    checkboxes = new Checkbox[3];\r\n    checkboxes[0] = new Checkbox(\"Ricerca per stanza\", checkbox_group, false);\r\n    checkboxes[1] = new Checkbox(\"Ricerca per nome\", checkbox_group, false);\r\n    checkboxes[2] = new Checkbox(\"Ricerca per data\", checkbox_group, false);\r\n    //Creo i TextField e li rendo non editabili\r\n    testo = new TextField[4];\r\n    testo[0] = new TextField(\"\", 6);\r\n    testo[1] = new TextField(\"\", 25);\r\n    testo[2] = new TextField(\"\", 25);\r\n    testo[3] = new TextField(\"\", 12);\r\n    for (int i = 0; i < testo.length; ++i) testo[i].setEditable(false);\r\n    //creo una TextArea\r\n    list_clienti = new List(10, false);\r\n    panel = new Panel[6];\r\n    for (int i = 0; i < 6; ++i) {\r\n        panel[i] = new Panel();\r\n        panel[i].setLayout(gridbag);\r\n    }\r\n    //Creo il pannello in alto a sinistra\r\n    Utils.constrain(panel[1], etichetta1, 0, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[1], checkboxes[0], 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 0, 0);\r\n    Utils.constrain(panel[1], checkboxes[1], 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 0, 0);\r\n    Utils.constrain(panel[1], checkboxes[2], 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 0, 0);\r\n    //Creo il pannello ricerca per stanza\r\n    Utils.constrain(panel[2], etichetta3, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[2], label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 0, 20);\r\n    Utils.constrain(panel[2], testo[0], 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    //Creo il pannello ricerca per nome e cognome\r\n    Utils.constrain(panel[3], etichetta4, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[3], label2, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 0, 20);\r\n    Utils.constrain(panel[3], testo[1], 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel[3], label3, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.SOUTHWEST, 0.0, 0.0, 20, 5, 0, 20);\r\n    Utils.constrain(panel[3], testo[2], 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.SOUTHWEST, 1.0, 0.0, 20, 0, 0, 0);\r\n    //Creo il pannnello ricerca per data\r\n    Utils.constrain(panel[4], etichetta5, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[4], label5, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 0, 20);\r\n    Utils.constrain(panel[4], testo[3], 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 5);\r\n    //Creo il pannello dei pulsanti\r\n    Utils.constrain(panel[0], Annulla, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.EAST, 0.3, 0.0, 10, 0, 10, 5);\r\n    Utils.constrain(panel[0], Conferma, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 0.3, 0.0, 10, 5, 10, 0);\r\n    //Creo il pannello contenente la list_clienti\r\n    Utils.constrain(panel[5], etichetta2, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel[5], list_clienti, 0, 1, 1, 1, GridBagConstraints.BOTH, GridBagConstraints.NORTHWEST, 1.0, 1.0, 0, 5, 0, 20);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel[1], 0, 0, 5, 4, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[2], 0, 4, 5, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 1.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[3], 0, 6, 5, 3, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 1.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[4], 0, 9, 5, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 1.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[0], 0, 11, 5, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.SOUTHEAST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel[5], 0, 12, 5, 7, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 1.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo i TextField e li rendo non editabili\r\n, //creo una TextArea\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello ricerca per stanza\r\n, //Creo il pannello ricerca per nome e cognome\r\n, //Creo il pannnello ricerca per data\r\n, //Creo il pannello dei pulsanti\r\n, //Creo il pannello contenente la list_clienti\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                if (list_clienti.getItemCount() > 0)\r\n                    list_clienti.removeAll();\r\n                testo[0].setEditable(true);\r\n                for (int i = 1; i <= 3; ++i) testo[i].setEditable(false);\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                if (list_clienti.getItemCount() > 0)\r\n                    list_clienti.removeAll();\r\n                for (int i = 1; i < 3; ++i) testo[i].setEditable(true);\r\n                testo[0].setEditable(false);\r\n                testo[3].setEditable(false);\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[2].getState()) {\r\n                if (list_clienti.getItemCount() > 0)\r\n                    list_clienti.removeAll();\r\n                testo[3].setEditable(true);\r\n                for (int i = 0; i < 3; ++i) testo[i].setEditable(false);\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    list_clienti.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startVediCliente();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        if (list_clienti.getItemCount() > 0)\r\n            list_clienti.removeAll();\r\n        testo[0].setEditable(true);\r\n        for (int i = 1; i <= 3; ++i) testo[i].setEditable(false);\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        if (list_clienti.getItemCount() > 0)\r\n            list_clienti.removeAll();\r\n        for (int i = 1; i < 3; ++i) testo[i].setEditable(true);\r\n        testo[0].setEditable(false);\r\n        testo[3].setEditable(false);\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[2].getState()) {\r\n        if (list_clienti.getItemCount() > 0)\r\n            list_clienti.removeAll();\r\n        testo[3].setEditable(true);\r\n        for (int i = 0; i < 3; ++i) testo[i].setEditable(false);\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startVediCliente();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int i;\r\n    Frame msg;\r\n    Conferma.setEnabled(false);\r\n    if (!errori()) {\r\n        if (checkboxes[0].getState())\r\n            elenco_clienti = (Principale.db).foundStorico(testo[0].getText());\r\n        else if (checkboxes[1].getState())\r\n            elenco_clienti = (Principale.db).foundStorico(testo[1].getText(), testo[2].getText());\r\n        else if (checkboxes[2].getState())\r\n            elenco_clienti = (Principale.db).foundStorico(DateUtils.convertDate(testo[3].getText()));\r\n        else\r\n            elenco_clienti = new ListaClienti();\r\n        if (elenco_clienti != null) {\r\n            if (list_clienti.getItemCount() > 0)\r\n                list_clienti.removeAll();\r\n            for (i = 1; i <= elenco_clienti.length(); i++) list_clienti.addItem((elenco_clienti.getCliente(i)).toString());\r\n            if (list_clienti.getItemCount() == 0)\r\n                msg = new AvvisoDialog(this, \"Trovata nessuna corrispondenza!\");\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database!\");\r\n    } else\r\n        msg = new MessageDialog(this, \"Errore nei parametri!\");\r\n    for (i = 0; i < testo.length; i++) {\r\n        testo[i].setText(\"\");\r\n        testo[i].setEditable(false);\r\n    }\r\n    for (i = 0; i < checkboxes.length; i++) checkboxes[i].setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[0].getState())\r\n        return ((testo[0].getText()).length() > 4);\r\n    else if (checkboxes[1].getState())\r\n        return ((testo[1].getText()).length() > 20 || (testo[2].getText()).length() > 20);\r\n    else if (checkboxes[2].getState())\r\n        return (!DateUtils.dataCorretta(testo[3].getText()));\r\n    else\r\n        return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean errori()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    cliente = elenco_clienti.getCliente((list_clienti.getSelectedIndexes())[0] + 1);\r\n    figlio = new VediCliente(this, cliente);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startVediCliente()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Ricerca nello storico\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    setupPanels();\r\n    pack();\r\n    init();\r\n    this.setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraRicercaStorico(Frame)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraRicercaStorico",
+        "variables": [
+            " Button Annulla",
+            " Button Conferma",
+            " TextField testo",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Label etichetta3",
+            " Label etichetta4",
+            " Label etichetta5",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " Label label5",
+            " Panel panel",
+            " CheckboxGroup checkbox_group",
+            " Checkbox checkboxes",
+            " GridBagLayout gridbag",
+            " List list_clienti",
+            " Frame padre",
+            " VediCliente figlio",
+            " Cliente cliente",
+            " ListaClienti elenco_clienti"
+        ]
+    }
+]

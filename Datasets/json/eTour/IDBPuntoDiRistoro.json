@@ -1,0 +1,81 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean inserisciPuntoDiRistoro(BeanPuntoDiRistoro)",
+                "comments": "Optional[/**\r\n * Add a refreshment\r\n *\r\n * @param pPuntoDiRistoro Refreshment to add\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean modificaPuntoDiRistoro(BeanPuntoDiRistoro)",
+                "comments": "Optional[/**\r\n * Modify a refreshment\r\n *\r\n * @param pPuntoDiRistoro Refreshment to edit\r\n * @throws SQLException\r\n * @return True if changed, otherwise false\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract boolean cancellaPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Delete a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro Refreshment to eliminate\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract BeanPuntoDiRistoro ottieniPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * Returns data from a point of comfort with the ID given as argument\r\n *\r\n * @param pid point identification Refreshments\r\n * @throws SQLException\r\n * @return Refreshment\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPuntoDiRistoro> ricercaAvanzata(int, String, ArrayList<BeanTag>, int, int, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Advanced Search. Returns the list of eateries that have in\r\n * Name or description given string as input, sorted according to\r\n * Preferences of tourists, the tags and filtered according to the distance\r\n * Max. The list returned contains only the number of catering outlets input data.\r\n * To scroll the real list, which may contain multiple items, you\r\n * Use parameter numPagina.\r\n *\r\n * @param pIdTurista tourists who carried out the research\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of refreshment\r\n * @param pTags list of tags used to filter the search. The\r\n * Maximum number of tags to be included should not exceed five\r\n * Units'. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pNumeroPagina The page number you want to view. 0\r\n * The 1 page (the first 10 results), 1 for 2 page (results from 11 to 20) etc.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pNumeroElementiPerPagina Number of elements to return\r\n * @param pDistanzaMassima Maximum distance from the user to refreshment\r\n * @throws SQLException\r\n * @return list containing ten points Refreshments\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int ottieniNumeroElementiRicercaAvanzata(int, String, ArrayList<BeanTag>, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Method to get the number of elements to search.\r\n *\r\n * @see ricercaAvanzata()\r\n * @param pIdTurista tourists who carried out the research\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of refreshment\r\n * @param pTags list of tags used to filter the search. The\r\n * Maximum number of tags to be included should not exceed five\r\n * Units'. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to refreshment\r\n * to seek\r\n * @throws SQLException\r\n * @return number of pages.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPuntoDiRistoro> ricerca(String, ArrayList<BeanTag>, int, int, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Research. Returns the list of eateries that have the name or\r\n * Description given string as input, filtered and tags\r\n * According to the maximum distance. The returned list contains the number of\r\n * Points Refreshments input data. To scroll the real list, which\r\n * May contain more items, you use the parameter numPagina.\r\n *\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of refreshment\r\n * @param pTags list of tags used to filter the search. The\r\n * Maximum number of tags to be included should not exceed five\r\n * Units'. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pNumeroPagina The page number you want to view. 0\r\n * The 1 page (the first 10 results), 1 for 2 page (results from 11 to 20) etc.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to refreshment\r\n * @param pNumeroElementiPerPagina Number of elements to return\r\n * @throws SQLException\r\n * @return list containing ten points Refreshments\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int ottieniNumeroElementiRicerca(String, ArrayList<BeanTag>, Punto3D, double)",
+                "comments": "Optional[/**\r\n * Method to get you the elements for an advanced search.\r\n *\r\n * @see ricerca()\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of refreshment\r\n * @param pTags list of tags used to filter the search. The\r\n * Maximum number of tags to be included should not exceed five\r\n * Units'. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to refreshment\r\n * to seek\r\n * @throws SQLException\r\n * @return number of pages.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract ArrayList<BeanPuntoDiRistoro> ottieniListaPR()",
+                "comments": "Optional[/**\r\n * Returns a list of all the refreshment\r\n *\r\n * @throws SQLException\r\n * @return list of all the refreshment\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IDBPuntoDiRistoro",
+        "variables": []
+    }
+]

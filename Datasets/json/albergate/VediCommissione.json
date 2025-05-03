@@ -1,0 +1,52 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    nome_agenzia.setEditable(true);\r\n    num_stanza.setEditable(false);\r\n    num_tel_agenzia.setEditable(false);\r\n    inizio_comm.setEditable(false);\r\n    fine_comm.setEditable(false);\r\n    scadenza_comm.setEditable(false);\r\n    num_stanza.setEditable(false);\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            commissione = L.getCommissionamento((lista.getSelectedIndexes())[0] + 1);\r\n            writeDatiComm(commissione);\r\n            Azione.setEnabled(true);\r\n            pack();\r\n        }\r\n    });\r\n    nome_agenzia.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista();\r\n        }\r\n    });\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    commissione = L.getCommissionamento((lista.getSelectedIndexes())[0] + 1);\r\n    writeDatiComm(commissione);\r\n    Azione.setEnabled(true);\r\n    pack();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"\", \"\", \"Visualizzazione dati delle commissioni\", \" Cerca \", 4);\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VediCommissione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "VediCommissione",
+        "variables": [
+            " Commissionamento commissione"
+        ]
+    }
+]

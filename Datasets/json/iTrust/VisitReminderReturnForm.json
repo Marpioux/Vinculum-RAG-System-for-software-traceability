@@ -1,0 +1,129 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return hcpID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getHcpID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.hcpID = hcpID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHcpID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getPatientID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPatientID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return firstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFirstName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.firstName = firstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setFirstName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return phoneNumber;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPhoneNumber()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.phoneNumber = phone1 + \"-\" + phone2 + \"-\" + phone3;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPhoneNumber(String, String, String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return visitFlags.toArray(new VisitFlag[visitFlags.size()]);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VisitFlag[] getVisitFlags()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.visitFlags = new ArrayList<VisitFlag>();\r\n    for (VisitFlag flag : visitFlags) {\r\n        this.visitFlags.add(flag);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setVisitFlags(VisitFlag[])",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null == visitFlags)\r\n        visitFlags = new ArrayList<VisitFlag>();\r\n    visitFlags.add(flag);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void addVisitFlag(VisitFlag)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.hcpID = hcpID;\r\n    this.patientID = patientID;\r\n    this.lastName = lastName;\r\n    this.firstName = firstName;\r\n    setPhoneNumber(phone1, phone2, phone3);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VisitReminderReturnForm(long, long, String, String, String, String, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "VisitReminderReturnForm",
+        "variables": [
+            "private long hcpID",
+            "private long patientID",
+            "private String lastName",
+            "private String firstName",
+            "private String phoneNumber",
+            "private ArrayList<VisitFlag> visitFlags"
+        ]
+    }
+]

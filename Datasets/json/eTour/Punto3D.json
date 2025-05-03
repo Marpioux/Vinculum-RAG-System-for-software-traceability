@@ -1,0 +1,95 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return latitude;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public double getLatitudine()",
+                "comments": "Optional[/**\r\n * Returns the latitude\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.latitude = pLatitudine;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setLatitudine(double)",
+                "comments": "Optional[/**\r\n * Sets the latitude\r\n *\r\n * @param pLatitudine\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return longitude;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public double getLongitudine()",
+                "comments": "Optional[/**\r\n * Returns the longitude\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.longitude = pLongitudine;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setLongitudine(double)",
+                "comments": "Optional[/**\r\n * Sets the longitude\r\n *\r\n * @param pLongitudine\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return altitude;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public double getAltitudine()",
+                "comments": "Optional[/**\r\n * Returns the altitude\r\n *\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.altitude = pAltitudine;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void setAltitudine(double)",
+                "comments": "Optional[/**\r\n * Sets the altitude\r\n *\r\n * @param pAltitudine\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    double differenzaLongitudine = this.longitude - p.longitude;\r\n    double p1 = Math.pow(Math.cos(p.latitude) * Math.sin(differenzaLongitudine), 2);\r\n    double p2 = Math.pow(Math.cos(latitude) * Math.sin(p.latitude) - Math.sin(latitude) * Math.cos(p.latitude) * Math.cos(differenzaLongitudine), 2);\r\n    double p3 = Math.sin(latitude) * Math.sin(p.latitude) + Math.cos(latitude) * Math.cos(p.latitude) * Math.cos(differenzaLongitudine);\r\n    return (Math.atan(Math.sqrt(p1 + p2) / p3) * EARTH_RADIUS);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public double distance(Punto3D)",
+                "comments": "Optional[/**\r\n * Calculate the distance between the point and another point given as argument\r\n *\r\n * @param p\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Punto3D point = new Punto3D();\r\n    point.setLatitudine(pLatitudine * Math.PI / 180);\r\n    point.setLongitudine(pLongitudine * Math.PI / 180);\r\n    point.setAltitudine(pAltitudine);\r\n    return point;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static Punto3D gradiRadianti(double, double, double)",
+                "comments": "Optional[/**\r\n * Method which creates a 3D point from coordinates measured in degrees. The\r\n * 3D point instead represents the coordinates in radians\r\n *\r\n * @param pLatitudine latitude in degrees\r\n * @param pLongitudine Longitude in degrees\r\n * @param pAltitudine\r\n * @return Punto3D with the coordinates in radians\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    latitude = longitude = altitude = 0;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Punto3D()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    latitude = pLatitudine;\r\n    longitude = pLongitudine;\r\n    altitude = pAltitudine;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Punto3D(double, double, double)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "Punto3D",
+        "variables": [
+            "final double EARTH_RADIUS",
+            "private double latitude",
+            "private double longitude",
+            "private double altitude"
+        ]
+    }
+]

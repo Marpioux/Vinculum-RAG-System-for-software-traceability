@@ -1,0 +1,121 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    hcpMID = mid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return hcpMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getHCPMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return HCPName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null != name) {\r\n        HCPName = name;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return HCPSpecialty;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPSpecialty()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null != specialty) {\r\n        HCPSpecialty = specialty;\r\n    } else {\r\n        HCPSpecialty = \"none\";\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPSpecialty(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return HCPAddr;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getHCPAddr()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null != addr) {\r\n        HCPAddr = addr;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setHCPAddr(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return OVDate;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getOVDate()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (null != date) {\r\n        OVDate = date;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setOVDate(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return designated;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean isDesignated()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    designated = val;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDesignated(boolean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    HCPName = \"\";\r\n    HCPSpecialty = \"\";\r\n    HCPAddr = \"\";\r\n    OVDate = \"\";\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public HCPVisitBean()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "HCPVisitBean",
+        "variables": [
+            "private String HCPName",
+            "private String HCPSpecialty",
+            "private String HCPAddr",
+            "private String OVDate",
+            "private boolean designated",
+            "private long hcpMID"
+        ]
+    }
+]

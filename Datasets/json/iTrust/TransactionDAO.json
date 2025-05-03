@@ -1,0 +1,86 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM TransactionLog ORDER BY timeLogged DESC\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return loader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<TransactionBean> getAllTransactions()",
+                "comments": "Optional[/**\r\n * Returns the whole transaction log\r\n *\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    logTransaction(type, loggedInMID, 0L, \"\");\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void logTransaction(TransactionType, long)",
+                "comments": "Optional[/**\r\n * Log a transaction, just giving it the person who is logged in and the type\r\n *\r\n * @param type The {@link TransactionType} enum representing the type this transaction is.\r\n * @param loggedInMID The MID of the user who is logged in.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO TransactionLog(loggedInMID, secondaryMID, \" + \"transactionCode, addedInfo) VALUES(?,?,?,?)\");\r\n        ps.setLong(1, loggedInMID);\r\n        ps.setLong(2, secondaryMID);\r\n        ps.setInt(3, type.getCode());\r\n        ps.setString(4, addedInfo);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void logTransaction(TransactionType, long, long, String)",
+                "comments": "Optional[/**\r\n * Log a transaction, with all of the info. The meaning of secondaryMID and addedInfo changes depending on\r\n * the transaction type.\r\n *\r\n * @param type The {@link TransactionType} enum representing the type this transaction is.\r\n * @param loggedInMID The MID of the user who is logged in.\r\n * @param secondaryMID Typically, the MID of the user who is being acted upon.\r\n * @param addedInfo A note about a subtransaction, or specifics of this transaction (for posterity).\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM TransactionLog WHERE secondaryMID=? AND transactionCode \" + \"IN(\" + TransactionType.patientViewableStr + \") ORDER BY timeLogged DESC\");\r\n        ps.setLong(1, patientID);\r\n        ResultSet rs = ps.executeQuery();\r\n        List<TransactionBean> tbList = loader.loadList(rs);\r\n        tbList = addAndSortRoles(tbList, patientID, getByRole);\r\n        return tbList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<TransactionBean> getAllRecordAccesses(long, boolean)",
+                "comments": "Optional[/**\r\n * Return a list of all transactions in which an HCP accessed the given patient's record\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @return A java.util.List of transactions.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        if (loggedInRole.compareTo(\"any\") == 0) {\r\n            loggedInRole = \"*\";\r\n        }\r\n        if (secondaryRole.compareTo(\"any\") == 0) {\r\n            secondaryRole = \"*\";\r\n        }\r\n        ps = conn.prepareStatement(\"SELECT * FROM TransactionLog, Users  WHERE (MID=loggedInMID OR MID=secondaryMID) AND (Role=? OR Role=?) \" + \" AND transactionCode=? AND timeLogged >= ? AND timeLogged <= ?\" + \" ORDER BY timeLogged DESC\");\r\n        ps.setString(1, loggedInRole);\r\n        ps.setString(2, secondaryRole);\r\n        ps.setInt(3, type.getCode());\r\n        ps.setDate(4, begin);\r\n        ps.setDate(5, end);\r\n        ResultSet rs = ps.executeQuery();\r\n        List<TransactionBean> tbList = loader.loadList(rs);\r\n        //tbList = addAndSortRoles(tbList, patientID, getByRole);\r\n        return tbList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<TransactionBean> getTransactionsFor(String, String, Date, Date, TransactionType)",
+                "comments": "Optional[/**\r\n * The Most Thorough Fetch\r\n * @param loggedInRole Role of loggedIn\r\n * @param secondaryRole Role of secondary\r\n * @param begin Beginning of date range\r\n * @param end End of date range\r\n * @param type Type of transaction\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//tbList = addAndSortRoles(tbList, patientID, getByRole);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM TransactionLog WHERE secondaryMID=? AND transactionCode IN (\" + TransactionType.patientViewableStr + \") \" + \"AND timeLogged >= ? AND timeLogged <= ? ORDER BY timeLogged DESC\");\r\n        ps.setLong(1, patientID);\r\n        ps.setTimestamp(2, new Timestamp(lower.getTime()));\r\n        // add 1 day's worth to include the upper\r\n        ps.setTimestamp(3, new Timestamp(upper.getTime() + 1000L * 60L * 60 * 24L));\r\n        ResultSet rs = ps.executeQuery();\r\n        List<TransactionBean> tbList = loader.loadList(rs);\r\n        tbList = addAndSortRoles(tbList, patientID, getByRole);\r\n        return tbList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<TransactionBean> getRecordAccesses(long, java.util.Date, java.util.Date, boolean)",
+                "comments": "Optional[/**\r\n * Return a list of all transactions in which an HCP accessed the given patient's record, within the dates\r\n *\r\n * @param patientID The MID of the patient in question.\r\n * @param lower The starting date as a java.util.Date\r\n * @param upper The ending date as a java.util.Date\r\n * @return A java.util.List of transactions.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[// add 1 day's worth to include the upper\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT TransactionCode, count(transactionID) as TotalCount, \" + \"count(if(loggedInMID<9000000000, transactionID, null)) as PatientCount, \" + \"count(if(loggedInMID>=9000000000, transactionID, null)) as PersonnelCount \" + \"FROM TransactionLog GROUP BY transactionCode ORDER BY transactionCode ASC\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return operationalProfileLoader.loadSingle(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public OperationalProfile getOperationalProfile()",
+                "comments": "Optional[/**\r\n * Returns the operation profile\r\n *\r\n * @return The OperationalProfile as a bean.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        for (TransactionBean t : tbList) {\r\n            ps = conn.prepareStatement(\"SELECT Role FROM Users WHERE MID=?\");\r\n            ps.setLong(1, t.getLoggedInMID());\r\n            ResultSet rs = ps.executeQuery();\r\n            String role = \"\";\r\n            if (rs.next())\r\n                role = rs.getString(\"Role\");\r\n            if (role.equals(\"er\"))\r\n                role = \"Emergency Responder\";\r\n            else if (role.equals(\"uap\"))\r\n                role = \"UAP\";\r\n            else if (role.equals(\"hcp\")) {\r\n                role = \"LHCP\";\r\n                ps = conn.prepareStatement(\"SELECT PatientID FROM DeclaredHCP WHERE HCPID=?\");\r\n                ps.setLong(1, t.getLoggedInMID());\r\n                ResultSet rs2 = ps.executeQuery();\r\n                while (rs2.next()) {\r\n                    if (rs2.getLong(\"PatientID\") == patientID) {\r\n                        role = \"DLHCP\";\r\n                        break;\r\n                    }\r\n                }\r\n            } else if (role.equals(\"patient\")) {\r\n                role = \"Patient\";\r\n                ps = conn.prepareStatement(\"SELECT representeeMID FROM Representatives WHERE representerMID=?\");\r\n                ps.setLong(1, t.getLoggedInMID());\r\n                ResultSet rs2 = ps.executeQuery();\r\n                while (rs2.next()) {\r\n                    if (rs2.getLong(\"representeeMID\") == patientID) {\r\n                        role = \"Personal Health Representative\";\r\n                        break;\r\n                    }\r\n                }\r\n            }\r\n            t.setRole(role);\r\n        }\r\n        if (sortByRole) {\r\n            TransactionBean[] array = new TransactionBean[tbList.size()];\r\n            array[0] = tbList.get(0);\r\n            TransactionBean t;\r\n            for (int i = 1; i < tbList.size(); i++) {\r\n                t = tbList.get(i);\r\n                String role = t.getRole();\r\n                int j = 0;\r\n                while (array[j] != null && role.compareToIgnoreCase(array[j].getRole()) >= 0) j++;\r\n                for (int k = i; k > j; k--) {\r\n                    array[k] = array[k - 1];\r\n                }\r\n                array[j] = t;\r\n            }\r\n            int size = tbList.size();\r\n            for (int i = 0; i < size; i++) tbList.set(i, array[i]);\r\n        }\r\n        return tbList;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private List<TransactionBean> addAndSortRoles(List<TransactionBean>, long, boolean)",
+                "comments": "Optional[/**\r\n * @param tbList\r\n * @param patientID\r\n * @param sortByRole\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public TransactionDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "TransactionDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private TransactionBeanLoader loader",
+            "private OperationalProfileLoader operationalProfileLoader"
+        ]
+    }
+]

@@ -1,0 +1,179 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        boolean delete = true;\r\n        BeanPreferenzaDiRicerca prefRic = new BeanPreferenzaDiRicerca();\r\n        ArrayList<BeanPreferenzaDiRicerca> elencoPrefRic = new ArrayList<>();\r\n        elencoPrefRic = prefRicTurista.ottieniPreferenzeDiRicercaDelTurista(pIdTurista);\r\n        Iterator<BeanPreferenzaDiRicerca> elenco = elencoPrefRic.iterator();\r\n        while (elenco.hasNext() && delete == true) {\r\n            prefRic = elenco.next();\r\n            if (prefRic.getId() == pIdPreferenzaDiRicerca)\r\n                // Find the anniversary with the id\r\n                delete = false;\r\n            // We leave the interested\r\n            // Cycle\r\n        }\r\n        prefRicTurista.cancellaPreferenzaDiRicercaTurista(pIdTurista, pIdPreferenzaDiRicerca);\r\n        return prefRic;\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanPreferenzaDiRicerca cancellaPreferenzeDiRicerca(int, int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#cancellaPreferenzeDiRicerca(int, int)\r\n */\r\n]",
+                "innerComments": "Optional[[// We leave the interested\r\n, // Cycle\r\n, // Find the anniversary with the id\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        BeanPreferenzeGeneriche temp = prefGenTurista.ottieniPreferenzaGenerica(pIdTurista);\r\n        boolean canceled = prefGenTurista.cancellaPreferenzaGenerica(temp.getId());\r\n        if (canceled)\r\n            return temp;\r\n        else\r\n            // The cancellation occurred\r\n            return null;\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanPreferenzeGeneriche cancellaPreferenzeGeneriche(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#cancellaPreferenzeGeneriche(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// The cancellation occurred\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        boolean checkdate = ControlloDati.checkBeanPreferenzaDiRicerca(pPreferenzaDiRicerca);\r\n        if (checkdate) {\r\n            // If the data control is positive\r\n            return prefRicTurista.inserisciPreferenzaDiRicercaDelTurista(pIdTurista, pPreferenzaDiRicerca.getId());\r\n        } else {\r\n            // Data error\r\n            return false;\r\n        }\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciPreferenzaDiRicerca(int, BeanPreferenzaDiRicerca)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#inserisciPreferenzaDiRicerca(int, unisa.gps.etour.bean.BeanPreferenzaDiRicerca)\r\n */\r\n]",
+                "innerComments": "Optional[[// If the data control is positive\r\n, // Data error\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        boolean checkdate = ControlloDati.checkBeanPreferenzeGeneriche(pPreferenzeGeneriche);\r\n        if (checkdate) {\r\n            // If the data control is positive\r\n            return prefGenTurista.inserisciPreferenzaGenerica(pPreferenzeGeneriche);\r\n        } else {\r\n            // Data error\r\n            return false;\r\n        }\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciPreferenzeGeneriche(BeanPreferenzeGeneriche)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#inserisciPreferenzeGeneriche(unisa.gps.etour.bean.BeanPreferenzeGeneriche)\r\n */\r\n]",
+                "innerComments": "Optional[[// If the data control is positive\r\n, // Data error\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        // Check if the username entered is already present in DB\r\n        BeanTurista temp = profiloTurista.ottieniTurista(pTurista.getUsername());\r\n        // If there is no choice all'username Tourist Offices\r\n        if (temp == null) {\r\n            boolean checkdate = ControlloDati.checkBeanTurista(pTurista);\r\n            if (checkdate) {\r\n                // If the data control is positive\r\n                return profiloTurista.inserisciTurista(pTurista);\r\n            } else {\r\n                // Data error\r\n                return false;\r\n            }\r\n        } else {\r\n            // Username already exists in DB\r\n            return false;\r\n        }\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean inserisciTurista(BeanTurista)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#inserisciTurista(unisa.gps.etour.bean.BeanTurista)\r\n */\r\n]",
+                "innerComments": "Optional[[// Check if the username entered is already present in DB\r\n, // If there is no choice all'username Tourist Offices\r\n, // If the data control is positive\r\n, // Data error\r\n, // Username already exists in DB\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        boolean checkdate = ControlloDati.checkBeanPreferenzeGeneriche(pPreferenzeGenericheNuove);\r\n        if (checkdate) {\r\n            // If the data control is positive\r\n            return prefGenTurista.modificaPreferenzaGenerica(pPreferenzeGenericheNuove);\r\n        } else {\r\n            // Data error\r\n            return false;\r\n        }\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean modificaPreferenzeGeneriche(BeanPreferenzeGeneriche)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#modificaPreferenzeGeneriche(unisa.gps.etour.bean.BeanPreferenzeGeneriche)\r\n */\r\n]",
+                "innerComments": "Optional[[// If the data control is positive\r\n, // Data error\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Array containing the list of search preferences tourists ID = pIdTurista\r\n    BeanPreferenzaDiRicerca[] preferences = null;\r\n    try {\r\n        // ** Convert ArrayList (return type of method \"ottieniPreferenzeDiRicerca\") to simple array **\r\n        ArrayList<BeanPreferenzaDiRicerca> listaPreferenze = prefRicTurista.ottieniPreferenzeDiRicercaDelTurista(pIdTurista);\r\n        preferences = new BeanPreferenzaDiRicerca[listaPreferenze.size()];\r\n        preferences = listaPreferenze.toArray(preferences);\r\n        // ** ** End Conversion\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n    return preferences;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanPreferenzaDiRicerca[] ottieniPreferenzeDiRicerca(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#ottieniPreferenzeDiRicerca(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// Array containing the list of search preferences tourists ID = pIdTurista\r\n, // ** ** End Conversion\r\n, // ** Convert ArrayList (return type of method \"ottieniPreferenzeDiRicerca\") to simple array **\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        return prefGenTurista.ottieniPreferenzaGenerica(pIdTurista);\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanPreferenzeGeneriche ottieniPreferenzeGeneriche(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#ottieniPreferenzeGeneriche(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        // Boolean variable that will hold true if the bean is correct, false otherwise\r\n        boolean checkdate = ControlloDati.checkBeanTurista(pprofiloTurista);\r\n        if (checkdate) {\r\n            // If the data control is positive\r\n            return profiloTurista.modificaTurista(pprofiloTurista);\r\n        } else {\r\n            // Data error\r\n            return false;\r\n        }\r\n    } catch (SQLException e) {\r\n        // If the data layer is thrown an exception SQLException\r\n        // It throws RemoteException the remote exception\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public boolean modificaTurista(BeanTurista)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.GestioneTuristaComune#modificaTurista(unisa.gps.etour.bean.BeanTurista)\r\n */\r\n]",
+                "innerComments": "Optional[[// Boolean variable that will hold true if the bean is correct, false otherwise\r\n, // If the data control is positive\r\n, // Data error\r\n, // If the data layer is thrown an exception SQLException\r\n, // It throws RemoteException the remote exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    BeanVisitaBC[] visited = null;\r\n    if (pIdTurista > 0) {\r\n        try {\r\n            ArrayList<BeanVisitaBC> listavisitati = visitatiBC.ottieniListaVisitaBCTurista(pIdTurista);\r\n            visited = new BeanVisitaBC[listavisitati.size()];\r\n            visited = listavisitati.toArray(visited);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return visited;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanVisitaBC[] ottieniBeniCulturaliVisitati(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#ottieniBeniCulturaliVisitati(int)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // Array containing the list of catering outlets visited by tourists with id \"pIdTurista\"\r\n    BeanVisitaPR[] visited = null;\r\n    if (pIdTurista > 0) {\r\n        try {\r\n            ArrayList<BeanVisitaPR> listavisitati = visitatiPR.ottieniListaVisitaPRTurista(pIdTurista);\r\n            visited = new BeanVisitaPR[listavisitati.size()];\r\n            visited = listavisitati.toArray(visited);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return visited;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanVisitaPR[] ottieniPuntiDiRistoroVisitati(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#ottieniPuntiDiRistoroVisitati(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// Array containing the list of catering outlets visited by tourists with id \"pIdTurista\"\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (ControlloDati.checkBeanVisitaBC(pVisitaBC)) {\r\n        try {\r\n            return visitatiBC.inserisciVisitaBC(pVisitaBC);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciBeneCulturaleVisitato(BeanVisitaBC)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#inserisciBeneCulturaleVisitato(unisa.gps.etour.bean.BeanVisitaBC)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (ControlloDati.checkBeanVisitaPR(pVisitaPR)) {\r\n        try {\r\n            return visitatiPR.inserisciVisitaPR(pVisitaPR);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciPuntoDiRistoroVisitato(BeanVisitaPR)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#inserisciPuntoDiRistoroVisitato(unisa.gps.etour.bean.BeanVisitaPR)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pIdTurista > 0 && pIdBeneCulturale > 0) {\r\n        try {\r\n            return profiloTurista.inserisciBeneCulturalePreferito(pIdTurista, pIdBeneCulturale);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciBeneCulturalePreferito(int, int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#inserisciBeneCulturalePreferito(int, int)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pIdTurista > 0 && pIdPuntoDiRistoro > 0) {\r\n        try {\r\n            return profiloTurista.inserisciPuntoDiRistoroPreferito(pIdTurista, pIdPuntoDiRistoro);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciPuntoDiRistoroPreferito(int, int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#inserisciPuntoDiRistoroPreferito(int, int)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pIdTurista > 0 && pIdBeneCulturale > 0) {\r\n        try {\r\n            return profiloTurista.cancellaBeneCulturalePreferito(pIdTurista, pIdBeneCulturale);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaBeneCulturalePreferito(int, int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#cancellaBeneCulturalePreferito(int, int)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pIdTurista > 0 && pIdPuntoDiRistoro > 0) {\r\n        try {\r\n            return profiloTurista.cancellaPuntoDiRistoroPreferito(pIdTurista, pIdPuntoDiRistoro);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaPuntoDiRistoroPreferito(int, int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n *\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#cancellaPuntoDiRistoroPreferito(int, int)\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (pIdTurista > 0) {\r\n        try {\r\n            // List of cultural favorites of tourists with id = \"pIdTurista\"\r\n            ArrayList<Integer> listaPreferiti = profiloTurista.ottieniBeniCulturaliPreferiti(pIdTurista);\r\n            // Convert ArrayList to simple array\r\n            BeanBeneCulturale[] favorites = new BeanBeneCulturale[listaPreferiti.size()];\r\n            favorites = new BeanBeneCulturale[listaPreferiti.size()];\r\n            listaPreferiti.toArray(favorites);\r\n            // Cycle counter\r\n            int k = 0;\r\n            for (Integer i : listaPreferiti) {\r\n                // Fill the array with the favorite bean of all cultural favorites from the tourist\r\n                favorites[k++] = beneCulturale.ottieniBeneCulturale(i);\r\n            }\r\n            return favorites;\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanBeneCulturale[] ottieniBeniCulturaliPreferiti(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#ottieniBeniCulturaliPreferiti(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// List of cultural favorites of tourists with id = \"pIdTurista\"\r\n, // Convert ArrayList to simple array\r\n, // Cycle counter\r\n, // Fill the array with the favorite bean of all cultural favorites from the tourist\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (pIdTurista > 0) {\r\n        try {\r\n            // List of places for refreshment favorite tourist with id = \"pIdTurista\"\r\n            ArrayList<Integer> listaPreferiti = profiloTurista.ottieniPuntoDiRistoroPreferiti(pIdTurista);\r\n            // Convert ArrayList to simple array\r\n            BeanPuntoDiRistoro[] favorites = new BeanPuntoDiRistoro[listaPreferiti.size()];\r\n            listaPreferiti.toArray(favorites);\r\n            // Cycle counter\r\n            int k = 0;\r\n            for (Integer i : listaPreferiti) {\r\n                // Fill the array with the favorite bean of all cultural favorites from the tourist\r\n                favorites[k++] = puntoDiRistoro.ottieniPuntoDiRistoro(i);\r\n            }\r\n            return favorites;\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanPuntoDiRistoro[] ottieniPuntiDiRistoroPreferiti(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n * @see unisa.gps.etour.control.GestioneUtentiRegistrati.IGestioneTuristaClient#ottieniPuntiDiRistoroPreferiti(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// List of places for refreshment favorite tourist with id = \"pIdTurista\"\r\n, // Convert ArrayList to simple array\r\n, // Cycle counter\r\n, // Fill the array with the favorite bean of all cultural favorites from the tourist\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n    profiloTurista = new DBTurista();\r\n    prefGenTurista = new DBPreferenzeGeneriche();\r\n    prefRicTurista = new DBPreferenzeDiRicerca();\r\n    visitatiBC = new DBVisitaBC();\r\n    visitatiPR = new DBVisitaPR();\r\n    beneCulturale = new DBBeneCulturale();\r\n    puntoDiRistoro = new DBPuntoDiRistoro();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public GestioneTuristaClient()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "GestioneTuristaClient",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private IDBTurista profiloTurista",
+            "private IDBPreferenzeGeneriche prefGenTurista",
+            "private IDBPreferenzeDiRicerca prefRicTurista",
+            "private IDBVisitaBC visitatiBC",
+            "private IDBVisitaPR visitatiPR",
+            "private IDBBeneCulturale beneCulturale",
+            "private IDBPuntoDiRistoro puntoDiRistoro"
+        ]
+    }
+]

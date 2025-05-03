@@ -1,0 +1,17 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (!(pValue instanceof Double || pValue instanceof Integer)) {\r\n        throw new IllegalArgumentException(\"Value cell unexpected.\");\r\n    }\r\n    double rating = 0;\r\n    if (pValue instanceof Double) {\r\n        rating = (Double) pValue;\r\n    } else {\r\n        rating += (Integer) pValue;\r\n    }\r\n    JLabel aLabel = new JLabel(\"\");\r\n    aLabel.setHorizontalAlignment(JLabel.CENTER);\r\n    if (rating > 4) {\r\n        aLabel.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"stella5.gif\")));\r\n    } else if (rating <= 4 && rating > 3) {\r\n        aLabel.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"stella4.gif\")));\r\n    } else if (rating <= 3 && rating > 2) {\r\n        aLabel.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"stella3.gif\")));\r\n    } else if (rating <= 2 && rating > 1) {\r\n        aLabel.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"stella2.gif\")));\r\n    } else {\r\n        aLabel.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"stella1.gif\")));\r\n    }\r\n    return aLabel;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public Component getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)",
+                "comments": "Optional[/**\r\n * Method that returns the custom component for the\r\n * display of the data contained in the cell of a table.\r\n *\r\n * @param pTable JTable - the table.\r\n * @param pValue Object - the data.\r\n * @param pSelected boolean -\r\n * <ul>\r\n * <li><i>True</i> if the selected cell.</li>\r\n * <li><i>False</i> otherwise.</li>\r\n * </ul>\r\n * @param pHasFocus boolean -\r\n * <ul>\r\n * <li><i>True</i> if the cell has the focus.</li>\r\n * <li><i>False</i> otherwise.</li>\r\n * </ul>\r\n * @param pRow int - the line number.\r\n * @param pColumn int - the column number.\r\n * @return Component - the component that customizes render the cell.\r\n * @throws IllegalArgumentException - if the value of the cell cannot\r\n * be rendered by this renderer.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "MediaVotiRenderer",
+        "variables": []
+    }
+]

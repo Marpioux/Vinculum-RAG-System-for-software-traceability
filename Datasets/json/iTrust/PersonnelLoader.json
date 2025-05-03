@@ -1,0 +1,33 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    List<PersonnelBean> list = new ArrayList<PersonnelBean>();\r\n    while (rs.next()) {\r\n        list.add(loadSingle(rs));\r\n    }\r\n    return list;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> loadList(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PersonnelBean p = new PersonnelBean();\r\n    p.setMID(rs.getLong(\"MID\"));\r\n    p.setAMID(rs.getLong(\"amid\"));\r\n    p.setRole(Role.parse(rs.getString(\"role\")));\r\n    p.setLastName(rs.getString(\"lastName\"));\r\n    p.setFirstName(rs.getString(\"firstName\"));\r\n    p.setPhone1(rs.getString(\"phone1\"));\r\n    p.setPhone2(rs.getString(\"phone2\"));\r\n    p.setPhone3(rs.getString(\"phone3\"));\r\n    p.setStreetAddress1(rs.getString(\"address1\"));\r\n    p.setStreetAddress2(rs.getString(\"address2\"));\r\n    p.setCity(rs.getString(\"city\"));\r\n    p.setState(rs.getString(\"state\"));\r\n    p.setZip1((rs.getString(\"zip1\")));\r\n    p.setZip2((rs.getString(\"zip2\")));\r\n    p.setEmail(rs.getString(\"email\"));\r\n    p.setSpecialty(rs.getString(\"specialty\"));\r\n    p.setMessageFilter(rs.getString(\"MessageFilter\"));\r\n    return p;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public PersonnelBean loadSingle(ResultSet)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    int i = 1;\r\n    ps.setLong(i++, p.getAMID());\r\n    ps.setString(i++, p.getFirstName());\r\n    ps.setString(i++, p.getLastName());\r\n    ps.setString(i++, p.getPhone1());\r\n    ps.setString(i++, p.getPhone2());\r\n    ps.setString(i++, p.getPhone3());\r\n    ps.setString(i++, p.getStreetAddress1());\r\n    ps.setString(i++, p.getStreetAddress2());\r\n    ps.setString(i++, p.getCity());\r\n    ps.setString(i++, p.getState());\r\n    ps.setString(i++, p.getZip());\r\n    ps.setString(i++, p.getZip1());\r\n    ps.setString(i++, p.getZip2());\r\n    //ps.setString(i++, p.getSpecialty());\r\n    ps.setString(i++, p.getEmail());\r\n    ps.setString(i++, p.getMessageFilter());\r\n    return ps;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public PreparedStatement loadParameters(PreparedStatement, PersonnelBean)",
+                "comments": null,
+                "innerComments": "Optional[[//ps.setString(i++, p.getSpecialty());\r\n]]"
+            }
+        ],
+        "constructors": [],
+        "signature": "PersonnelLoader",
+        "variables": []
+    }
+]

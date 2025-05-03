@@ -1,0 +1,20 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " abstract int login(String, String, byte)",
+                "comments": "Optional[/**\r\n * Method to authenticate a registered user (Turista - Operatore\r\n * Ristorazione)\r\n *\r\n * @param pUsername Registered User username\r\n * @param pPassword Registered User password\r\n * @param pTipologiaUtente User type to be authenticated\r\n * @return If the data are correct user ID logged in, otherwise -1\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "IAutenticazione",
+        "variables": [
+            " byte VISITORS",
+            " byte OP_PUNTO_DI_RISTORO"
+        ]
+    }
+]

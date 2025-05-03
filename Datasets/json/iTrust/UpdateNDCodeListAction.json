@@ -1,0 +1,47 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    validator.validate(med);\r\n    try {\r\n        if (ndDAO.addNDCode(med)) {\r\n            transDAO.logTransaction(TransactionType.MANAGE_DRUG_CODE, performerID, 0L, \"added ND code \" + med.getNDCode());\r\n            return \"Success: \" + med.getNDCode() + \" - \" + med.getDescription() + \" added\";\r\n        } else\r\n            return \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    } catch (iTrustException e) {\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String addNDCode(MedicationBean)",
+                "comments": "Optional[/**\r\n * Adds a new ND Code (prescription) to the list\r\n *\r\n * @param med\r\n *            The new ND Code to be added\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(med);\r\n    try {\r\n        int rows = updateCode(med);\r\n        if (0 == rows) {\r\n            return \"Error: Code not found.\";\r\n        } else {\r\n            transDAO.logTransaction(TransactionType.MANAGE_DRUG_CODE, performerID, 0L, \"updated ND code \" + med.getNDCode());\r\n            return \"Success: \" + rows + \" row(s) updated\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String updateInformation(MedicationBean)",
+                "comments": "Optional[/**\r\n * Updates the ND Code with new information from the MedicationBean\r\n *\r\n * @param med\r\n *            the MedicationBean that holds new information but the same code\r\n * @return status message\r\n * @throws FormValidationException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ndDAO.updateCode(med);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private int updateCode(MedicationBean)",
+                "comments": "Optional[/**\r\n * Medication information should already be validated\r\n *\r\n * @param med\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.performerID = performerID;\r\n    ndDAO = factory.getNDCodesDAO();\r\n    transDAO = factory.getTransactionDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public UpdateNDCodeListAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults.\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param performerID The MID of the user updating the ND lists.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "UpdateNDCodeListAction",
+        "variables": [
+            "private long performerID",
+            "private TransactionDAO transDAO",
+            "private NDCodesDAO ndDAO",
+            "private MedicationBeanValidator validator"
+        ]
+    }
+]

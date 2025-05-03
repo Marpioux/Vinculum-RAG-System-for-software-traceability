@@ -1,0 +1,212 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //Creo i TextField\r\n    data_inizio = new TextField(\"\", 12);\r\n    data_fine = new TextField(\"\", 12);\r\n    nome_ag = new TextField(\"\", 20);\r\n    nome_ag.setEditable(false);\r\n    //Creo i pulsanti e ne disabilito due\r\n    Annulla = new Button(\"Indietro\");\r\n    Annulla1 = new Button(\"Annulla\");\r\n    Conferma = new Button(\" Scegli \");\r\n    Avvio = new Button(\"Avvio Ricerca\");\r\n    ShowDisp = new Button(\"Disponibilita'\");\r\n    Annulla1.setEnabled(false);\r\n    Conferma.setEnabled(false);\r\n    //Creo le etichette\r\n    etichetta = new Label(\"Periodo di soggiorno\");\r\n    etichetta.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta1 = new Label(\"Data inizio:\");\r\n    etichetta2 = new Label(\"Data fine:\");\r\n    etichetta3 = new Label(\"Risultato della ricerca:\");\r\n    etichetta3.setFont(ConfigurazioneSistema.font_titolo);\r\n    etichetta4 = new Label(\" Nome agenzia\");\r\n    etichetta5 = new Label(\"Prenotazione di stanze commissionate:\");\r\n    etichetta5.setFont(ConfigurazioneSistema.font_titolo);\r\n    //Creo la lista\r\n    lista = new List(15, false);\r\n    //Creo il checkbox\r\n    con_ag = new Checkbox(\" Prenotazione tramite agenzia\", false);\r\n    //Creo il pannello in alto\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 10, 0);\r\n    Utils.constrain(panel1, etichetta1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, data_inizio, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, etichetta2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel1, data_fine, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    panel5 = new Panel();\r\n    panel5.setLayout(gridbag);\r\n    Utils.constrain(panel5, etichetta5, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel5, con_ag, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel5, etichetta4, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel5, nome_ag, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    //Creo un pannello con due pulsanti\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, Annulla, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.3, 0.0, 0, 0, 0, 1);\r\n    Utils.constrain(panel2, Avvio, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.3, 0.0, 0, 0, 0, 1);\r\n    Utils.constrain(panel2, ShowDisp, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.3, 0.0, 0, 0, 0, 1);\r\n    //Creo il pannello contenente la lista\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, etichetta3, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel3, lista, 0, 1, 4, 3, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 3.0, 3.0, 0, 0, 0, 0);\r\n    //Creo il pannello in basso con due pulsanti\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, Annulla1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.SOUTHEAST, 0.3, 0.0, 0, 0, 0, 10);\r\n    Utils.constrain(panel4, Conferma, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.SOUTHWEST, 0.3, 0.0, 0, 0, 0, 0);\r\n    //Attacco i pannelli al frame\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel1, 0, 0, 4, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 15, 10, 10, 10);\r\n    Utils.constrain(this, panel5, 0, 2, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 15, 10, 10, 10);\r\n    Utils.constrain(this, panel2, 0, 3, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHEAST, 1.0, 0.0, 10, 10, 0, 10);\r\n    Utils.constrain(this, panel3, 0, 4, 4, 3, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 2.0, 2.0, 10, 10, 10, 10);\r\n    Utils.constrain(this, panel4, 0, 7, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.SOUTHWEST, 1.0, 1.0, 10, 10, 15, 10);\r\n    if (caller == 1) {\r\n        panel5.setVisible(false);\r\n        pack();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//Creo i TextField\r\n, //Creo i pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo la lista\r\n, //Creo il checkbox\r\n, //Creo il pannello in alto\r\n, //Creo un pannello con due pulsanti\r\n, //Creo il pannello contenente la lista\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    //Ascoltatore del pulsante Avvio,se il pulsante viene premuto viene\r\n    //lanciata la procedura di ricerca stanze libere\r\n    Avvio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            ctrlAvvio();\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante Annulla,se il pulsante viene prumeto si torna\r\n    //alla maschera precedente\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if (caller == 3)\r\n                father.setEnabled(true);\r\n            else\r\n                padre.setEnabled(true);\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante ShowDisp,se il pulsante viene premuto si\r\n    //mostrera' una maschera con le disponibilita dell'albergo\r\n    ShowDisp.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            lookDisp();\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante Annulla1,se il pulsante viene premuto si\r\n    //vengono riabilitati i componenti del pannello in alto e\r\n    //disabilitati quelli del pannello in basso\r\n    Annulla1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAnnulla1();\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n    //la finestra riguardante l'inserimento della prenotazione\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startInserimento();\r\n        }\r\n    });\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startInserimento();\r\n        }\r\n    });\r\n    con_ag.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (con_ag.getState())\r\n                nome_ag.setEditable(true);\r\n            else {\r\n                nome_ag.setEditable(false);\r\n                nome_ag.setText(\"\");\r\n            }\r\n        }\r\n    });\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public void init()",
+                "comments": "Optional[//Gestione degli eventi\r\n]",
+                "innerComments": "Optional[[//Ascoltatore del pulsante Avvio,se il pulsante viene premuto viene\r\n, //Ascoltatore del pulsante Annulla,se il pulsante viene prumeto si torna\r\n, //Ascoltatore del pulsante ShowDisp,se il pulsante viene premuto si\r\n, //Ascoltatore del pulsante Annulla1,se il pulsante viene premuto si\r\n, //vengono riabilitati i componenti del pannello in alto e\r\n, //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n, //lanciata la procedura di ricerca stanze libere\r\n, //alla maschera precedente\r\n, //mostrera' una maschera con le disponibilita dell'albergo\r\n, //disabilitati quelli del pannello in basso\r\n, //la finestra riguardante l'inserimento della prenotazione\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    ctrlAvvio();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    if (caller == 3)\r\n        father.setEnabled(true);\r\n    else\r\n        padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    lookDisp();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAnnulla1();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startInserimento();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startInserimento();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (con_ag.getState())\r\n        nome_ag.setEditable(true);\r\n    else {\r\n        nome_ag.setEditable(false);\r\n        nome_ag.setText(\"\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Date inizio_pren = DateUtils.convertDate(data_inizio.getText());\r\n    Date today = new Date();\r\n    if (inizio_pren.getYear() < today.getYear())\r\n        return false;\r\n    else if (inizio_pren.getYear() > today.getYear())\r\n        return true;\r\n    else // l'anno e' il medesimo\r\n    if (inizio_pren.getMonth() < today.getMonth())\r\n        return false;\r\n    else if (inizio_pren.getMonth() > today.getMonth())\r\n        return true;\r\n    else // l'anno e il mese sono i medesimi\r\n    if (inizio_pren.getDate() < today.getDate())\r\n        return false;\r\n    else\r\n        return true;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " boolean dataInizioIsNotBeforeToday()",
+                "comments": null,
+                "innerComments": "Optional[[// l'anno e' il medesimo\r\n, // l'anno e il mese sono i medesimi\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (Utils.dateEPeriodoCorretti(this, data_inizio.getText(), data_fine.getText())) {\r\n        if (con_ag.getState() && nome_ag.getText().equals(\"\")) {\r\n            msg = new MessageDialog(this, \" Manca il nome dell'agenzia! \");\r\n            return;\r\n        }\r\n        ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n        if (L_disp == null) {\r\n            msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n            return;\r\n        }\r\n        if (caller == 3) {\r\n            if (Utils.data1MaggioreData2(DateUtils.convertDate(data_fine.getText()), save_date)) {\r\n                msg = new AvvisoDialog(this, \"ATTENZIONE: la data non puo' essere posticipata\");\r\n                data_fine.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(save_date)));\r\n            } else if (Utils.data1MinoreData2(DateUtils.convertDate(data_fine.getText()), DateUtils.convertDate(data_inizio.getText()))) {\r\n                msg = new AvvisoDialog(this, \"ATTENZIONE: la data non puo' essere precedente alla data di inizio\");\r\n                data_fine.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(save_date)));\r\n            } else {\r\n                stanze_disp = new ListaStanze();\r\n                startAvvio(L_disp, 0);\r\n            }\r\n        } else {\r\n            if (dataInizioIsNotBeforeToday()) {\r\n                stanze_disp = new ListaStanze();\r\n                startAvvio(L_disp, 0);\r\n            } else\r\n                msg = new MessageDialog(this, \" La data di inizio deve essere maggiore o uguale di quella odierna! \");\r\n        }\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": " void ctrlAvvio()",
+                "comments": "Optional[/*\tse la ricerca viene lanciata per un cambio stanza (caller = 3) si deve\r\n\t * \timpedire che la data di fine venga posticipata rispetto la fine del soggiorno\r\n\t *\to anticipata rispetto la data del cambio stanza.\r\n\t */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    data_inizio.setEditable(true);\r\n    data_fine.setEditable(true);\r\n    con_ag.setEnabled(true);\r\n    if (con_ag.getState())\r\n        nome_ag.setEditable(true);\r\n    Annulla.setEnabled(true);\r\n    Avvio.setEnabled(true);\r\n    Annulla1.setEnabled(false);\r\n    Conferma.setEnabled(false);\r\n    if (lista.getItemCount() > 0)\r\n        lista.removeAll();\r\n    stanze_disp = new ListaStanze();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAnnulla1()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (con_ag.getState())\r\n        startSearchComm(L_disp, k);\r\n    // le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n    Frame msg;\r\n    String str = new String(\"\");\r\n    ListaCommissionamenti L_comm = new ListaCommissionamenti();\r\n    ListaStanze elenco_stanze_disp = new ListaStanze();\r\n    // variabili necessarie per passaggio dei parametri della Inserisci\r\n    data1 = DateUtils.parseDate(data_inizio.getText());\r\n    data2 = DateUtils.parseDate(data_fine.getText());\r\n    // scansione delle disponibilita\r\n    Stanza stanza = null;\r\n    Disponibilita disp_attuale = null;\r\n    for (int i = 1; i <= L_disp.length(); i++) {\r\n        disp_attuale = L_disp.getDisponibilita(i);\r\n        if (disp_attuale.isDisponibile(DateUtils.convertDate(data_inizio.getText()), DateUtils.convertDate(data_fine.getText()), Flag.DISPONIBILE)) {\r\n            stanza = (Principale.db).readStanza(disp_attuale.getNumStanza());\r\n            if (stanza != null) {\r\n                elenco_stanze_disp.addStanza(stanza);\r\n                stanze_disp.addStanza(stanza);\r\n            } else\r\n                msg = new MessageDialog(this, \" Problemi con il database! \");\r\n        }\r\n    }\r\n    if (!stanze_disp.isEmpty()) {\r\n        Avvio.setEnabled(false);\r\n        Annulla.setEnabled(false);\r\n        data_inizio.setEditable(false);\r\n        data_fine.setEditable(false);\r\n        Annulla1.setEnabled(true);\r\n        Conferma.setEnabled(true);\r\n        con_ag.setEnabled(false);\r\n        nome_ag.setEditable(false);\r\n        for (int i = 1; i <= elenco_stanze_disp.length(); i++) lista.addItem(str + (elenco_stanze_disp.getStanza(i)).toString());\r\n    } else if (k == 0)\r\n        if (!con_ag.getState())\r\n            msg = new AvvisoDialog(this, \" Nessuna stanza disponibile in tale periodo! \");\r\n        else\r\n            msg = new AvvisoDialog(this, \" Nessuna stanza disponibile o commisionata in tale periodo! \");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void startAvvio(ListaDisponibilita, int)",
+                "comments": null,
+                "innerComments": "Optional[[// le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n, // variabili necessarie per passaggio dei parametri della Inserisci\r\n, // scansione delle disponibilita\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n    Frame msg;\r\n    Commissionamento c;\r\n    Stanza stanza = null;\r\n    Disponibilita disp_loc = null;\r\n    ListaCommissionamenti L_comm = new ListaCommissionamenti();\r\n    ;\r\n    ListaStanze elenco_stanze_disp = new ListaStanze();\r\n    Date d1 = DateUtils.convertDate(data_inizio.getText());\r\n    Date d2 = DateUtils.convertDate(data_fine.getText());\r\n    data1 = DateUtils.parseDate(data_inizio.getText());\r\n    data2 = DateUtils.parseDate(data_fine.getText());\r\n    L_comm = (Principale.db).foundCommissionamentiSenzaLike(nome_ag.getText());\r\n    if (L_comm == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle commissioni! \");\r\n        return;\r\n    }\r\n    if (!L_comm.isEmpty()) {\r\n        nomi_agenzie = new String[L_comm.length()];\r\n        int indice_nomi = 0;\r\n        for (int i = 1; i <= L_comm.length(); i++) {\r\n            c = L_comm.getCommissionamento(i);\r\n            // Controllo che le date inserite appartengano al periodo commissionato\r\n            if ((!Utils.data1MaggioreData2(c.getInizioComm(), d1)) && (!(c.getFineComm()).before(d2))) {\r\n                disp_loc = Utils.getDispOfRoom(L_disp, c.getNumStanza(), false);\r\n                if (disp_loc.isDisponibile(d1, d2, Flag.COMMISSIONATA)) {\r\n                    stanza = (Principale.db).readStanza(disp_loc.getNumStanza());\r\n                    if (stanza != null) {\r\n                        elenco_stanze_disp.addStanza(stanza);\r\n                        stanze_disp.addStanza(stanza);\r\n                        nomi_agenzie[indice_nomi] = new String(c.getNomeAgenzia());\r\n                        indice_nomi++;\r\n                    } else {\r\n                        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n                        return;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    if (!stanze_disp.isEmpty()) {\r\n        Avvio.setEnabled(false);\r\n        Annulla.setEnabled(false);\r\n        data_inizio.setEditable(false);\r\n        data_fine.setEditable(false);\r\n        Annulla1.setEnabled(true);\r\n        Conferma.setEnabled(true);\r\n        for (int i = 1; i <= elenco_stanze_disp.length(); i++) lista.addItem(\"COMMISSIONATA A \" + nomi_agenzie[i - 1] + \" \" + (elenco_stanze_disp.getStanza(i)).toString());\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void startSearchComm(ListaDisponibilita, int)",
+                "comments": null,
+                "innerComments": "Optional[[// le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n, // Controllo che le date inserite appartengano al periodo commissionato\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n    if (L_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    startAnnulla1();\r\n    startAvvio(L_disp, 1);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void restartAvvio()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (lista.getSelectedIndex() != -1)\r\n        switch(caller) {\r\n            case 1:\r\n                visualInsertComm();\r\n                break;\r\n            case 2:\r\n                visualInsertPren();\r\n                break;\r\n            case 3:\r\n                returnFreeRoom();\r\n                break;\r\n        }\r\n    else\r\n        msg = new MessageDialog(this, \" Manca la selezione! \");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startInserimento()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    figlio = new MascheraDisponibilita(this, nome_ag.getText());\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void lookDisp()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = stanze_disp.getStanza(lista.getSelectedIndex() + 1);\r\n    if (con_ag.getState())\r\n        pren = new InserisciPrenotazione(stanza, data1, data2, nome_ag.getText());\r\n    else\r\n        pren = new InserisciPrenotazione(stanza, data1, data2, \"\");\r\n    pren.setVisible(true);\r\n    pren.mask_ricerca = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void visualInsertPren()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = stanze_disp.getStanza(lista.getSelectedIndex() + 1);\r\n    comm = new InserisciCommissioni(stanza, data1, data2);\r\n    comm.setVisible(true);\r\n    comm.mask_ricerca = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void visualInsertComm()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Stanza stanza = stanze_disp.getStanza(lista.getSelectedIndex() + 1);\r\n    father.stanza2.setText(stanza.getNumStanza());\r\n    father.setEnabled(true);\r\n    father.stanza1.setEditable(false);\r\n    father.Ricerca.setEnabled(false);\r\n    father.Conferma.setEnabled(true);\r\n    dispose();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void returnFreeRoom()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(title);\r\n    caller = c;\r\n    setupPanels();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraRicercaStanza(String, int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraRicercaStanza",
+        "variables": [
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " Panel panel5",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Label etichetta3",
+            " Label etichetta",
+            " Label etichetta4",
+            " Label etichetta5",
+            " Button Avvio",
+            " Button Annulla",
+            " Button ShowDisp",
+            " Button Annulla1",
+            " Button Conferma",
+            " TextField data_inizio",
+            " TextField data_fine",
+            " TextField nome_ag",
+            " List lista",
+            " Checkbox con_ag",
+            " GridBagLayout gridbag",
+            " InserisciPrenotazione pren",
+            " InserisciCommissioni comm",
+            " Frame figlio",
+            " Frame padre",
+            " MascheraCambio father",
+            " int caller",
+            " ListaStanze stanze_disp",
+            " Date save_date",
+            " String nomi_agenzie",
+            " String data1",
+            " String data2"
+        ]
+    }
+]

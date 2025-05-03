@@ -1,0 +1,53 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO LOINC (LaboratoryProcedureCode, Component, KindOfProperty, TimeAspect, System, ScaleType, MethodType) \" + \"VALUES (?,?,?,?,?,?,?)\");\r\n        ps.setString(1, hosp.getLabProcedureCode());\r\n        ps.setString(2, hosp.getComponent());\r\n        ps.setString(3, hosp.getKindOfProperty());\r\n        ps.setString(4, hosp.getTimeAspect());\r\n        ps.setString(5, hosp.getSystem());\r\n        ps.setString(6, hosp.getScaleType());\r\n        ps.setString(7, hosp.getMethodType());\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: LOINC already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void addLOINC(LOINCbean)",
+                "comments": "Optional[/**\r\n * Adds a LOINC\r\n *\r\n * @param hosp The LOINCbean representing the new code to be added.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From LOINC Where LaboratoryProcedureCode = ? \");\r\n        ps.setString(1, visitID);\r\n        ResultSet rs = ps.executeQuery();\r\n        return LOINCLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LOINCbean> getProcedures(String)",
+                "comments": "Optional[/**\r\n * Returns all LOINCs associated with LaboratoryProcedureCode\r\n *\r\n * @param visitID The code of the Laboratory Procedure Code as a String.\r\n * @return A java.util.List of LOINCBeans matching the Laboratory Procedure Code.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE LOINC SET Component=?, KindOfProperty=?, TimeAspect=?, System=?, ScaleType=?, MethodType=? WHERE LaboratoryProcedureCode=?\");\r\n        ps.setString(1, ov.getComponent());\r\n        ps.setString(2, ov.getKindOfProperty());\r\n        ps.setString(3, ov.getTimeAspect());\r\n        ps.setString(4, ov.getSystem());\r\n        ps.setString(5, ov.getScaleType());\r\n        ps.setString(6, ov.getMethodType());\r\n        ps.setString(7, ov.getLabProcedureCode());\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int update(LOINCbean)",
+                "comments": "Optional[/**\r\n * Updates the information in LOINC.\r\n *\r\n * @param ov\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LOINC\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return LOINCLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<LOINCbean> getAllLOINC()",
+                "comments": "Optional[/**\r\n * Returns all LOINCs as a list.\r\n *\r\n * @return A java.util.List of LOINCbeans.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    LOINCLoader = new LOINCBeanLoader();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public LOINCDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "LOINCDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private LOINCBeanLoader LOINCLoader"
+        ]
+    }
+]

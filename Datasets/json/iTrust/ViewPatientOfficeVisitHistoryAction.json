@@ -1,0 +1,57 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        List<OfficeVisitBean> ovlist = officevisitDAO.getAllOfficeVisitsForLHCP(loggedInMID);\r\n        Iterator<OfficeVisitBean> it = ovlist.iterator();\r\n        OfficeVisitBean ov;\r\n        PatientVisitBean visitBean;\r\n        while (it.hasNext()) {\r\n            visitBean = new PatientVisitBean();\r\n            ov = it.next();\r\n            PatientBean pb;\r\n            pb = patientDAO.getPatient(ov.getPatientID());\r\n            visitBean.setPatient(pb);\r\n            visitBean.setPatientName(pb.getFullName());\r\n            String date = ov.getVisitDateStr();\r\n            Scanner sc = new Scanner(date);\r\n            sc.useDelimiter(\"/\");\r\n            String month = sc.next();\r\n            String day = sc.next();\r\n            String year = sc.next();\r\n            visitBean.setLastOVDateM(month);\r\n            visitBean.setLastOVDateD(day);\r\n            visitBean.setLastOVDateY(year);\r\n            visitBean.setLastOVDate(year + \"-\" + month + \"-\" + date);\r\n            visitBean.setAddress1(pb.getStreetAddress1() + \" \" + pb.getStreetAddress2());\r\n            visitBean.setAddress2(pb.getCity() + \" \" + pb.getState() + \" \" + pb.getZip());\r\n            boolean b = PatientInList(pb, date);\r\n            if (b == false)\r\n                visits.add(visitBean);\r\n        }\r\n    } catch (DBException dbe) {\r\n        throw new iTrustException(dbe.getMessage());\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private void processOfficeVisits()",
+                "comments": "Optional[/**\r\n * Adds all the office visits for the logged in HCP to a list.\r\n *\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Iterator<PatientVisitBean> it = visits.iterator();\r\n    PatientVisitBean visitBean;\r\n    while (it.hasNext()) {\r\n        visitBean = it.next();\r\n        if (visitBean.getPatientName().equals(pb.getFullName())) {\r\n            if (visitBean.getLastOVDateY().compareTo(date) < 0) {\r\n                visitBean.setLastOVDate(date);\r\n            }\r\n            return true;\r\n        }\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private boolean PatientInList(PatientBean, String)",
+                "comments": "Optional[/**\r\n * Checks to see if a patient is in the list of  visits\r\n * @param pb patient to check\r\n * @param date date of the visit\r\n * @return True if the patient is in the list of visits.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        processOfficeVisits();\r\n    } catch (iTrustException ie) {\r\n    }\r\n    //log transaction\r\n    transDAO.logTransaction(TransactionType.VIEW_PATIENT_LIST, loggedInMID);\r\n    return visits;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<PatientVisitBean> getPatients()",
+                "comments": "Optional[/**\r\n * Get the list of patients an HCP has had office visits with\r\n *\r\n * @return the list of patients an HCP has had office visits with\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[//log transaction\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return personnelDAO.getPersonnel(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PersonnelBean getPersonnel()",
+                "comments": "Optional[/**\r\n * Returns a PersonnelBean for the logged in HCP\r\n * @return PersonnelBean for the logged in HCP\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    officevisitDAO = factory.getOfficeVisitDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    visits = new ArrayList<PatientVisitBean>();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewPatientOfficeVisitHistoryAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the office visits.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewPatientOfficeVisitHistoryAction",
+        "variables": [
+            "private long loggedInMID",
+            "private PatientDAO patientDAO",
+            "private TransactionDAO transDAO",
+            "private PersonnelDAO personnelDAO",
+            "private OfficeVisitDAO officevisitDAO",
+            "private ArrayList<PatientVisitBean> visits"
+        ]
+    }
+]

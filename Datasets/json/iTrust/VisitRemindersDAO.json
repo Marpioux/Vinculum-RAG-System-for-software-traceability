@@ -1,0 +1,44 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    VisitReminderReturnForm temp;\r\n    VisitReminderReturnFormLoader loader = new VisitReminderReturnFormLoader();\r\n    List<VisitReminderReturnForm> patients = new ArrayList<VisitReminderReturnForm>();\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT DISTINCT\" + \"       ? as hid, \" + \"       dhcp.patientid, \" + \"       p.lastName, \" + \"       p.firstName, \" + \"       p.phone1, \" + \"       p.phone2, \" + \"       p.phone3 \" + \"  FROM \" + \"       Patients p, \" + \"       declaredhcp dhcp \" + \" WHERE \" + \"\t\tdhcp.hcpid = ? \" + \" AND \" + \"     p.MID = dhcp.patientid \" + \" AND \" + \"\t\tp.dateofdeath is null \" + \" AND \" + \"     p.dateofbirth > DATE_SUB(CURDATE(), INTERVAL 19 YEAR) \");\r\n        ps.setLong(1, hcpid);\r\n        ps.setLong(2, hcpid);\r\n        rs = ps.executeQuery();\r\n        while (rs.next()) {\r\n            temp = loader.loadSingle(rs);\r\n            patients.add(temp);\r\n        }\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n    return patients;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<VisitReminderReturnForm> getPatients(long)",
+                "comments": "Optional[/**\r\n * Returns a list of patients associated with a given HCP.\r\n *\r\n * @param hcpid The MID of the HCP in question.\r\n * @return A java.util.List of Visit Reminder Forms.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT DISTINCT\" + \"       ? as hid, \" + \"       ov.PatientID, \" + \"       p.lastName, \" + \"       p.firstName, \" + \"       p.phone1, \" + \"       p.phone2, \" + \"       p.phone3, \" + \"       ovd.ICDCode, \" + \"       ov.visitDate \" + \"  FROM \" + \"       Patients p, \" + \"       OfficeVisits ov, \" + \"       OVDiagnosis ovd \" + \" WHERE \" + \"       p.MID = ov.PatientID \" + \"   AND \" + \"       ov.ID = ovd.VisitID \" + \"   AND \" + \"       p.DateOfDeath is null \" + \"   AND \" + \"       ov.visitDate <= DATE_SUB(CURDATE(), INTERVAL 1 YEAR) \" + \"   AND \" + \"       ( \" + //250.00 AND 250.99\r\n        \"            ovd.ICDCode BETWEEN ? AND ? \" + \"         OR \" + //390.00 AND 459.99\r\n        \"            ovd.ICDCode BETWEEN ? AND ? \" + \"         OR \" + //493.00 AND 493.99\r\n        \"            ovd.ICDCode BETWEEN ? AND ? \" + \"        )\" + \"GROUP BY \" + \"       p.MID \" + \"ORDER BY \" + \" p.lastName, p.firstName, ov.PatientID \");\r\n        ps.setLong(1, hcpid);\r\n        ps.setFloat(2, 250.0f);\r\n        ps.setFloat(3, 250.99f);\r\n        ps.setFloat(4, 390.0f);\r\n        ps.setFloat(5, 459.99f);\r\n        ps.setFloat(6, 493.0f);\r\n        ps.setFloat(7, 493.99f);\r\n        rs = ps.executeQuery();\r\n        List<VisitReminderReturnForm> patients = new ArrayList<VisitReminderReturnForm>();\r\n        VisitReminderReturnForm temp;\r\n        VisitReminderReturnFormLoader loader = new VisitReminderReturnFormLoader();\r\n        while (rs.next()) {\r\n            temp = loader.loadSingle(rs);\r\n            temp.addVisitFlag(new VisitFlag(VisitFlag.DIAGNOSED, rs.getString(8)));\r\n            temp.addVisitFlag(new VisitFlag(VisitFlag.LAST_VISIT, rs.getString(9)));\r\n            patients.add(temp);\r\n        }\r\n        return patients;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<VisitReminderReturnForm> getDiagnosedVisitNeeders(long)",
+                "comments": "Optional[/**\r\n * Returns a list of patients who need a visit for this HCP. This means:\r\n *\r\n * Alive patient, no office visit for > 1 yr, diagnosed: - Diabetes: 250.xx - Asthma: 493.xx -\r\n * Circulatory-System Disease: [ 390.00 , 459.99 ]\r\n *\r\n * @param hcpid The MID of the HCP in question.\r\n * @return A java.util.List of visit reminders.\r\n */\r\n]",
+                "innerComments": "Optional[[//250.00 AND 250.99\r\n, //390.00 AND 459.99\r\n, //493.00 AND 493.99\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    ResultSet rs = null;\r\n    /*\r\n\t\t * Fall 2007 Bug Fix: Use the correct range for a zero-based calendar (eg January is 0)\r\n\t\t * \r\n\t\t */\r\n    boolean thisYear = DateUtil.currentlyInMonthRange(8, 11);\r\n    String flagType = thisYear ? VisitFlag.MISSING_MEDICATION : VisitFlag.MISSED_MEDICATION;\r\n    java.sql.Date september = new java.sql.Date(0l), december = new java.sql.Date(0l);\r\n    DateUtil.setSQLMonthRange(september, 8, thisYear ? 0 : 1, december, 11, thisYear ? 0 : 1);\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT DISTINCT \" + \"? as hid, ov.patientid, p.lastname, p.firstname, \" + \"p.phone1, p.phone2, p.phone3 \" + \"FROM OfficeVisits ov, Patients p \" + \"WHERE ov.patientid=p.mid \" + \"AND p.dateofdeath IS NULL \" + \"AND p.dateofbirth < DATE_SUB(CURDATE(), INTERVAL 50 YEAR) \" + \"AND patientid NOT IN \" + \"(SELECT patientid FROM OfficeVisits ov, OVMedication om \" + \"WHERE ov.id=om.visitid \" + \"AND NDCode IN (90656, 90658, 90660) \" + \"AND ((StartDate BETWEEN ? AND ?) \" + \"OR (EndDate BETWEEN ? AND ?))) \" + \"ORDER BY lastname, firstname, ov.patientid\");\r\n        ps.setLong(1, hcpid);\r\n        ps.setDate(2, september);\r\n        ps.setDate(3, december);\r\n        ps.setDate(4, september);\r\n        ps.setDate(5, december);\r\n        rs = ps.executeQuery();\r\n        List<VisitReminderReturnForm> patients = new ArrayList<VisitReminderReturnForm>();\r\n        VisitReminderReturnForm temp;\r\n        VisitReminderReturnFormLoader loader = new VisitReminderReturnFormLoader();\r\n        while (rs.next()) {\r\n            temp = loader.loadSingle(rs);\r\n            temp.addVisitFlag(new VisitFlag(flagType, \"Flu Shot\"));\r\n            patients.add(temp);\r\n        }\r\n        return patients;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<VisitReminderReturnForm> getFluShotDelinquents(long)",
+                "comments": "Optional[/**\r\n * Returns a list of old people who need a flu shot\r\n *\r\n * CURRENT SPEC: Alive patient, over 50 years old, no flu shot - 90656, 90658, 90660 a) during the months\r\n * 09 - 12 of current calendar year if in 09 - 12 b) during the months 09 - 12 of last calendar year if\r\n * not in 09 - 12\r\n *\r\n * Determines current date and calls one of two private methods these methods return different sets of\r\n * people - a: people who haven't had a flu shot yet this year and need one - b: people who missed last\r\n * year's flu shot and need a check-up\r\n *\r\n * @return A java.util.List of Visit Reminder Forms.\r\n * @param hcpid The MID of the HCP in question.\r\n * @param patientBirthday The birthday of the patient in question.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": "Optional[[/*\r\n\t\t * Fall 2007 Bug Fix: Use the correct range for a zero-based calendar (eg January is 0)\r\n\t\t * \r\n\t\t */\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public VisitRemindersDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "VisitRemindersDAO",
+        "variables": [
+            "private DAOFactory factory"
+        ]
+    }
+]

@@ -1,0 +1,138 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // Reset the parameters of the previous search\r\n    azzeraParametri();\r\n    // Start checking the correctness of the search parameters\r\n    try {\r\n        this.pIdTurista = pIdTurista;\r\n        this.pTags = arrayToArrayListTag(pTagsId);\r\n        this.pParoleChiave = ControlloDati.correggiStringa(pParoleChiave, true, true, \"\", ControlloDati.LUNGHEZZA_MASSIMA);\r\n        this.pRaggioMax = pRaggioMax;\r\n        this.pPosizioneUtente = pPosizioneUtente;\r\n        this.pTipologiaSito = pTipologiaSito;\r\n        // If the parameters are valid, I get the number of results\r\n        if (pElementiPerPagina > 0 && ((pTipologiaSito == 0) || (pTipologiaSito == 1)) && pRaggioMax > 0 && pPosizioneUtente != null && (this.numeroElementiRicerca = ottieniNumeroElementiRicercaSpecializzato()) >= 0) {\r\n            this.pElementiPerPagina = pElementiPerPagina;\r\n            this.numeroPagineRisultati = calcolaNumeroPagineRicerca();\r\n            return this.numeroElementiRicerca;\r\n        } else\r\n            // Otherwise returns -1\r\n            return -1;\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public int search(int, String, int[], double, int, Punto3D, byte)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n * @see unisa.gps.etour.control.GestioneRicerche.IRicerca#search(int, java.lang.String, int[], double, int, unisa.gps.etour.util.Punto3D, byte)\r\n */\r\n]",
+                "innerComments": "Optional[[// Reset the parameters of the previous search\r\n, // Start checking the correctness of the search parameters\r\n, // If the parameters are valid, I get the number of results\r\n, // Otherwise returns -1\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Check that the type of site is valid and that the page is in the range\r\n    if ((this.pTipologiaSito == BENE_CULTURALE) && controllaPagina(pPagina)) {\r\n        // Transform the list obtained in array\r\n        BeanBeneCulturale[] results = new BeanBeneCulturale[calcolaNumeroElementiPagina(pPagina)];\r\n        results = ricercaPerPagina(pPagina).toArray(results);\r\n        return results;\r\n    } else\r\n        return null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanBeneCulturale[] ottieniPaginaRisultatiBeneCulturale(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n * @see unisa.gps.etour.control.GestioneRicerche.IRicerca#ottieniPaginaRisultatiBeneCulturale(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// Check that the type of site is valid and that the page is in the range\r\n, // Transform the list obtained in array\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Check that the type of site is valid and that the page is in the range\r\n    if ((this.pTipologiaSito == PUNTO_DI_RISTORO) && controllaPagina(pPagina)) {\r\n        // Transform the list obtained in array\r\n        BeanPuntoDiRistoro[] results = new BeanPuntoDiRistoro[calcolaNumeroElementiPagina(pPagina)];\r\n        results = ricercaPerPagina(pPagina).toArray(results);\r\n        return results;\r\n    } else\r\n        return null;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public BeanPuntoDiRistoro[] ottieniPaginaRisultatiPuntoDiRistoro(int)",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n * @see unisa.gps.etour.control.GestioneRicerche.IRicerca#ottieniPaginaRisultatiPuntoDiRistoro(int)\r\n */\r\n]",
+                "innerComments": "Optional[[// Check that the type of site is valid and that the page is in the range\r\n, // Transform the list obtained in array\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return numeroElementiRicerca;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int ottieniNumeroElementiRicerca()",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n * @see unisa.gps.etour.control.GestioneRicerche.IRicerca#ottieniNumeroElementiRicerca()\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return numeroPagineRisultati;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public int ottieniNumeroPagineRicerca()",
+                "comments": "Optional[/**\r\n * (Non-Javadoc)\r\n * @see unisa.gps.etour.control.GestioneRicerche.IRicerca#ottieniNumeroPagineRicerca()\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // Check the type of site and gets the number of results\r\n    if (controllaIdTurista()) {\r\n        switch(pTipologiaSito) {\r\n            case BENE_CULTURALE:\r\n                return pIdTurista > 0 ? BeneCulturale.ottieniNumeroElementiRicercaAvanzata(this.pIdTurista, this.pParoleChiave, this.pTags, this.pPosizioneUtente, this.pRaggioMax) : BeneCulturale.ottieniNumeroElementiRicerca(this.pParoleChiave, this.pTags, this.pPosizioneUtente, this.pRaggioMax);\r\n            case PUNTO_DI_RISTORO:\r\n                return pIdTurista > 0 ? PuntoDiRistoro.ottieniNumeroElementiRicercaAvanzata(this.pIdTurista, this.pParoleChiave, this.pTags, this.pPosizioneUtente, this.pRaggioMax) : PuntoDiRistoro.ottieniNumeroElementiRicerca(this.pParoleChiave, this.pTags, this.pPosizioneUtente, this.pRaggioMax);\r\n        }\r\n    }\r\n    return -1;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private int ottieniNumeroElementiRicercaSpecializzato()",
+                "comments": "Optional[/**\r\n * Method for returning the number of findings from research\r\n *\r\n * @return number of findings from research. On error Returns -1\r\n * @throws SQLException Exception Connecting to Database\r\n */\r\n]",
+                "innerComments": "Optional[[// Check the type of site and gets the number of results\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Declare the list of sites related to the page input\r\n    ArrayList<?> risultatiPaginaCorrente = null;\r\n    try {\r\n        if (controllaIdTurista()) {\r\n            // Check the type of site\r\n            switch(pTipologiaSito) {\r\n                case BENE_CULTURALE:\r\n                    // If the list has not already been obtained previously\r\n                    // Search\r\n                    if ((risultatiPaginaCorrente = risultatiRicercaBeniCulturali.get(pNumeroPagina)) == null) {\r\n                        risultatiPaginaCorrente = (ArrayList<?>) (pIdTurista > 0 ? BeneCulturale.ricercaAvanzata(pIdTurista, pParoleChiave, pTags, pNumeroPagina, pElementiPerPagina, pPosizioneUtente, pRaggioMax) : BeneCulturale.ricerca(pParoleChiave, pTags, pNumeroPagina, pElementiPerPagina, pPosizioneUtente, pRaggioMax));\r\n                        risultatiRicercaBeniCulturali.put(pNumeroPagina, (ArrayList<BeanBeneCulturale>) risultatiPaginaCorrente);\r\n                    }\r\n                    break;\r\n                case PUNTO_DI_RISTORO:\r\n                    // If the list has not already been obtained previously\r\n                    // Search\r\n                    if ((risultatiPaginaCorrente = risultatiRicercaPuntiDiRistoro.get(pNumeroPagina)) == null) {\r\n                        risultatiPaginaCorrente = (ArrayList<?>) (pIdTurista > 0 ? PuntoDiRistoro.ricercaAvanzata(pIdTurista, pParoleChiave, pTags, pNumeroPagina, pElementiPerPagina, pPosizioneUtente, pRaggioMax) : PuntoDiRistoro.ricerca(pParoleChiave, pTags, pNumeroPagina, pElementiPerPagina, pPosizioneUtente, pRaggioMax));\r\n                        risultatiRicercaPuntiDiRistoro.put(pNumeroPagina, (ArrayList<BeanPuntoDiRistoro>) risultatiPaginaCorrente);\r\n                    }\r\n                    break;\r\n            }\r\n        }\r\n        // Return the results\r\n        return risultatiPaginaCorrente;\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private ArrayList<?> ricercaPerPagina(int)",
+                "comments": "Optional[/**\r\n * Method for returning the list of results\r\n *\r\n * @param pNumeroPagina range of results to return\r\n * @return Container sites emerged in the research phase as the interval\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
+                "innerComments": "Optional[[// Declare the list of sites related to the page input\r\n, // Check the type of site\r\n, // If the list has not already been obtained previously\r\n, // Search\r\n, // If the list has not already been obtained previously\r\n, // Search\r\n, // Return the results\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // If the number of pages is greater than or equal to 0 returns the number of Pages\r\n    if (numeroPagineRisultati >= 0)\r\n        return numeroPagineRisultati;\r\n    // If the number of elements is a multiple of the number of items per page\r\n    // Return their relationship\r\n    if ((numeroElementiRicerca % pElementiPerPagina == 0))\r\n        return (numeroElementiRicerca / pElementiPerPagina);\r\n    // Otherwise returns their relationship + 1\r\n    return (numeroElementiRicerca / pElementiPerPagina) + 1;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private int calcolaNumeroPagineRicerca()",
+                "comments": "Optional[/**\r\n * Method for calculating the number of pages found at Search\r\n *\r\n * @return many pages in the research phase\r\n */\r\n]",
+                "innerComments": "Optional[[// If the number of elements is a multiple of the number of items per page\r\n, // If the number of pages is greater than or equal to 0 returns the number of Pages\r\n, // Return their relationship\r\n, // Otherwise returns their relationship + 1\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // If page number is the last return their form\r\n    if (nPagina == (numeroPagineRisultati - 1))\r\n        return (numeroElementiRicerca % pElementiPerPagina);\r\n    else\r\n        // Otherwise returns the number of items per page\r\n        return (pElementiPerPagina);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private int calcolaNumeroElementiPagina(int)",
+                "comments": "Optional[/**\r\n * Method for calculating the number of elements of nell'intevallo A given page\r\n *\r\n * @param nPagina results\r\n * @return number of elements in a page\r\n */\r\n]",
+                "innerComments": "Optional[[// If page number is the last return their form\r\n, // Otherwise returns the number of items per page\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // If page number is in the range returns true\r\n    return (pPagina >= 0 && pPagina < numeroPagineRisultati);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private boolean controllaPagina(int)",
+                "comments": "Optional[/**\r\n * Method for checking the validity of a page\r\n *\r\n * @param pPagina page to check\r\n * @return true if the page is valid\r\n */\r\n]",
+                "innerComments": "Optional[[// If page number is in the range returns true\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return ((pIdTurista > 0) || (pIdTurista == -1));\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private boolean controllaIdTurista()",
+                "comments": "Optional[/**\r\n * Method for checking the correctness of the identifier Tourist\r\n *\r\n * @return true if the identifier is valid, false otherwise\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    // Clears all the search parameters\r\n    pIdTurista = -1;\r\n    pTipologiaSito = -1;\r\n    pElementiPerPagina = -1;\r\n    numeroElementiRicerca = -1;\r\n    numeroPagineRisultati = -1;\r\n    risultatiRicercaBeniCulturali.clear();\r\n    risultatiRicercaPuntiDiRistoro.clear();\r\n    return -1;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private int azzeraParametri()",
+                "comments": "Optional[/**\r\n * Method to reset all the variables related to a search\r\n *\r\n * @return A constant that indicates the correct zero\r\n */\r\n]",
+                "innerComments": "Optional[[// Clears all the search parameters\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    // Initialize the list of Tags\r\n    ArrayList<BeanTag> pTags = new ArrayList<>();\r\n    // If the list of identifiers of the tag is empty I get the tags\r\n    if (pTagsId == null) {\r\n        BeanTag currentTag = null;\r\n        try {\r\n            // Loop for the insertion of tags found in the list\r\n            for (int i = 0; i < pTagsId.length; i++) {\r\n                // If the identifier is greater than 0\r\n                if (pTagsId[i] > 0) {\r\n                    currentTag = Tag.ottieniTag(pTagsId[i]);\r\n                    // Check correctness on tags\r\n                    if (ControlloDati.checkBeanTag(currentTag))\r\n                        pTags.add(currentTag);\r\n                }\r\n            }\r\n        } catch (SQLException e) {\r\n            throw new SQLException(MessaggiErrore.ERRORE_DBMS);\r\n        }\r\n    }\r\n    // Return the list of tags\r\n    return pTags;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private ArrayList<BeanTag> arrayToArrayListTag(int[])",
+                "comments": "Optional[/**\r\n * Method for the detection and conversion of data tags in struttara List\r\n *\r\n * @param pTagsId Search Tags\r\n * @return List Search Tags\r\n * @throws SQLException\r\n */\r\n]",
+                "innerComments": "Optional[[// Initialize the list of Tags\r\n, // If the list of identifiers of the tag is empty I get the tags\r\n, // Loop for the insertion of tags found in the list\r\n, // If the identifier is greater than 0\r\n, // Check correctness on tags\r\n, // Return the list of tags\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Search()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "Search",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private int pIdTurista",
+            "private String pParoleChiave",
+            "private double pRaggioMax",
+            "private Punto3D pPosizioneUtente",
+            "private int pElementiPerPagina",
+            "private byte pTipologiaSito",
+            "private IDBBeneCulturale BeneCulturale",
+            "private IDBPuntoDiRistoro PuntoDiRistoro",
+            "private IDBTag Tag",
+            "private ArrayList<BeanTag> pTags",
+            "private Hashtable<Integer,ArrayList<BeanBeneCulturale>> risultatiRicercaBeniCulturali",
+            "private Hashtable<Integer,ArrayList<BeanPuntoDiRistoro>> risultatiRicercaPuntiDiRistoro",
+            "private int numeroPagineRisultati",
+            "private int numeroElementiRicerca"
+        ]
+    }
+]

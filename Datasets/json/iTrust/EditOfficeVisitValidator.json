@@ -1,0 +1,36 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    ErrorList errorList = new ErrorList();\r\n    errorList.addIfNotNull(checkFormat(\"HCP ID\", form.getHcpID(), ValidationFormat.MID, false));\r\n    errorList.addIfNotNull(checkFormat(\"Hospital ID\", form.getHospitalID(), ValidationFormat.HOSPITAL_ID, true));\r\n    errorList.addIfNotNull(checkFormat(\"Notes\", form.getNotes(), ValidationFormat.NOTES, true));\r\n    errorList.addIfNotNull(checkFormat(\"Patient ID\", form.getPatientID(), ValidationFormat.MID, false));\r\n    errorList.addIfNotNull(checkFormat(\"Visit Date\", form.getVisitDate(), ValidationFormat.DATE, false));\r\n    if (validatePrescription) {\r\n        errorList.addIfNotNull(checkFormat(\"Start Date\", form.getStartDate(), ValidationFormat.DATE, false));\r\n        errorList.addIfNotNull(checkFormat(\"End Date\", form.getEndDate(), ValidationFormat.DATE, false));\r\n        errorList.addIfNotNull(checkFormat(\"Instructions\", form.getInstructions(), ValidationFormat.NOTES, true));\r\n        errorList.addIfNotNull(checkInt(\"Dosage\", form.getDosage(), 0, 9999, false));\r\n        if ((checkFormat(\"Start Date\", form.getStartDate(), ValidationFormat.DATE, false)) == \"\" && (checkFormat(\"End Date\", form.getEndDate(), ValidationFormat.DATE, false)) == \"\") {\r\n            Date sd = null;\r\n            Date ed = null;\r\n            try {\r\n                sd = new SimpleDateFormat(\"MM/dd/yyyy\").parse(form.getStartDate());\r\n                ed = new SimpleDateFormat(\"MM/dd/yyyy\").parse(form.getEndDate());\r\n                String dateError = null;\r\n                if (sd.after(ed)) {\r\n                    dateError = \"The start date of the prescription must be before the end date.\";\r\n                }\r\n                errorList.addIfNotNull(dateError);\r\n            } catch (ParseException e) {\r\n                errorList.addIfNotNull(ValidationFormat.DATE.getDescription());\r\n            }\r\n        }\r\n    }\r\n    if (errorList.hasErrors())\r\n        throw new FormValidationException(errorList);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public void validate(EditOfficeVisitForm)",
+                "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EditOfficeVisitValidator()",
+                "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.validatePrescription = validatePrescription;\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public EditOfficeVisitValidator(boolean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "EditOfficeVisitValidator",
+        "variables": [
+            "private boolean validatePrescription"
+        ]
+    }
+]

@@ -1,0 +1,25 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (input == null)\r\n        return input;\r\n    String str = input.replaceAll(\"<\", \"&lt;\");\r\n    str = str.replaceAll(\">\", \"&gt;\");\r\n    str = str.replaceAll(\"\\n\", \"<br />\");\r\n    return str;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static String encode(String)",
+                "comments": "Optional[/**\r\n *  Escapes a few key HTML characters\r\n * @param input String to check and escape\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return !(input.contains(\"http://\"));\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean URLOnSite(String)",
+                "comments": "Optional[/**\r\n * Checks URL\r\n *\r\n * @param input URL to check\r\n * @return false if the input contains http://, true otherwise\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "HtmlEncoder",
+        "variables": []
+    }
+]

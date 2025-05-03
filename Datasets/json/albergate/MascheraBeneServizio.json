@@ -1,0 +1,241 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    elenco.setFont(ConfigurazioneSistema.font_allineato);\r\n    //Creo i pannelli\r\n    panel = new Panel[13];\r\n    for (int i = 0; i < 10; ++i) {\r\n        panel[i] = new Panel();\r\n        panel[i].setLayout(grid1);\r\n        panel[i].setVisible(false);\r\n    }\r\n    for (int i = 10; i < 13; ++i) {\r\n        panel[i] = new Panel();\r\n        panel[i].setVisible(false);\r\n    }\r\n    //Creo il pannello in alto\r\n    label = new Label(\"Tipi\");\r\n    label.setFont(ConfigurazioneSistema.font_titolo);\r\n    tipi = new CheckboxGroup();\r\n    // mi serve piu' lungo per l'aggiungi\r\n    prima_scelta = new Checkbox[5];\r\n    prima_scelta[0] = new Checkbox(\"BAR\", tipi, false);\r\n    prima_scelta[1] = new Checkbox(\"RISTORANTE\", tipi, false);\r\n    prima_scelta[2] = new Checkbox(\"SERVIZI\", tipi, false);\r\n    prima_scelta[3] = new Checkbox(\"SUPPLEMENTI\", tipi, false);\r\n    prima_scelta[4] = new Checkbox(\"RIDUZIONI\", tipi, false);\r\n    panel[0].add(label);\r\n    panel[0].add(prima_scelta[0]);\r\n    panel[0].add(prima_scelta[1]);\r\n    panel[0].add(prima_scelta[2]);\r\n    panel[0].setVisible(true);\r\n    //Attacco il pannello in alto al frame\r\n    this.setLayout(grid);\r\n    this.add(panel[0]);\r\n    //Creo il pannello del bar\r\n    label1 = new Label(\"Bar\");\r\n    label1.setFont(ConfigurazioneSistema.font_titolo);\r\n    bar = new CheckboxGroup();\r\n    scelta_bar = new Checkbox[2];\r\n    scelta_bar[0] = new Checkbox(\"Bevande\", bar, false);\r\n    scelta_bar[1] = new Checkbox(\"Cibi\", bar, false);\r\n    panel[1].add(label1);\r\n    panel[1].add(scelta_bar[0]);\r\n    panel[1].add(scelta_bar[1]);\r\n    //Creo il pannello dal ristorante\r\n    label2 = new Label(\"Ristorante\");\r\n    label2.setFont(ConfigurazioneSistema.font_titolo);\r\n    ristorante = new CheckboxGroup();\r\n    scelta_piatto = new Checkbox[6];\r\n    scelta_piatto[0] = new Checkbox(\"Antipasti\", ristorante, false);\r\n    scelta_piatto[1] = new Checkbox(\"Primi\", ristorante, false);\r\n    scelta_piatto[2] = new Checkbox(\"Secondi\", ristorante, false);\r\n    scelta_piatto[3] = new Checkbox(\"Contorni\", ristorante, false);\r\n    scelta_piatto[4] = new Checkbox(\"Dessert\", ristorante, false);\r\n    scelta_piatto[5] = new Checkbox(\"Frutta\", ristorante, false);\r\n    panel[2].add(label2);\r\n    panel[2].add(scelta_piatto[0]);\r\n    panel[2].add(scelta_piatto[1]);\r\n    panel[2].add(scelta_piatto[2]);\r\n    panel[2].add(scelta_piatto[3]);\r\n    panel[2].add(scelta_piatto[4]);\r\n    panel[2].add(scelta_piatto[5]);\r\n    label3 = new Label(\"Servizi\");\r\n    label3.setFont(ConfigurazioneSistema.font_titolo);\r\n    servizi = new CheckboxGroup();\r\n    scelta_servizio = new Checkbox[2];\r\n    scelta_servizio[0] = new Checkbox(\"Ricreativi\", servizi, false);\r\n    scelta_servizio[1] = new Checkbox(\"Altro\", servizi, false);\r\n    panel[3].add(label3);\r\n    panel[3].add(scelta_servizio[0]);\r\n    panel[3].add(scelta_servizio[1]);\r\n    label4 = new Label(\"Bevande\");\r\n    label4.setFont(ConfigurazioneSistema.font_titolo);\r\n    bevande = new CheckboxGroup();\r\n    scelta_bevanda = new Checkbox[3];\r\n    scelta_bevanda[0] = new Checkbox(\"Caffetteria\", bevande, false);\r\n    scelta_bevanda[1] = new Checkbox(\"Analcolici\", bevande, false);\r\n    scelta_bevanda[2] = new Checkbox(\"Alcolici\", bevande, false);\r\n    panel[4].add(label4);\r\n    panel[4].add(scelta_bevanda[0]);\r\n    panel[4].add(scelta_bevanda[1]);\r\n    panel[4].add(scelta_bevanda[2]);\r\n    //Creo il pannello dei cibi\r\n    label5 = new Label(\"Cibi\");\r\n    label5.setFont(ConfigurazioneSistema.font_titolo);\r\n    cibi = new CheckboxGroup();\r\n    scelta_cibo = new Checkbox[3];\r\n    scelta_cibo[0] = new Checkbox(\"Dolci\", cibi, false);\r\n    scelta_cibo[1] = new Checkbox(\"Salati\", cibi, false);\r\n    panel[5].add(label5);\r\n    panel[5].add(scelta_cibo[0]);\r\n    panel[5].add(scelta_cibo[1]);\r\n    //Creo il pannello degli antipasti\r\n    label6 = new Label(\"Antipasti\");\r\n    label6.setFont(ConfigurazioneSistema.font_titolo);\r\n    antipasti = new CheckboxGroup();\r\n    scelta_antipasto = new Checkbox[3];\r\n    scelta_antipasto[0] = new Checkbox(\"Freddi\", antipasti, false);\r\n    scelta_antipasto[1] = new Checkbox(\"Caldi\", antipasti, false);\r\n    panel[6].add(label6);\r\n    panel[6].add(scelta_antipasto[0]);\r\n    panel[6].add(scelta_antipasto[1]);\r\n    //Creo il pannello dei primi\r\n    label7 = new Label(\"Primi\");\r\n    label7.setFont(ConfigurazioneSistema.font_titolo);\r\n    primi = new CheckboxGroup();\r\n    scelta_primo = new Checkbox[3];\r\n    scelta_primo[0] = new Checkbox(\"Solidi\", primi, false);\r\n    scelta_primo[1] = new Checkbox(\"Liquidi\", primi, false);\r\n    panel[7].add(label7);\r\n    panel[7].add(scelta_primo[0]);\r\n    panel[7].add(scelta_primo[1]);\r\n    //Creo il pannello dei secondi\r\n    label8 = new Label(\"Secondi\");\r\n    label8.setFont(ConfigurazioneSistema.font_titolo);\r\n    secondi = new CheckboxGroup();\r\n    scelta_secondo = new Checkbox[3];\r\n    scelta_secondo[0] = new Checkbox(\"Carne\", secondi, false);\r\n    scelta_secondo[1] = new Checkbox(\"Pesce\", secondi, false);\r\n    panel[8].add(label8);\r\n    panel[8].add(scelta_secondo[0]);\r\n    panel[8].add(scelta_secondo[1]);\r\n    //Creo il pannello dei contorni\r\n    label9 = new Label(\"Contorni\");\r\n    label9.setFont(ConfigurazioneSistema.font_titolo);\r\n    contorni = new CheckboxGroup();\r\n    scelta_contorno = new Checkbox[3];\r\n    scelta_contorno[0] = new Checkbox(\"Verdura cotta\", contorni, false);\r\n    scelta_contorno[1] = new Checkbox(\"Verdura cruda\", contorni, false);\r\n    scelta_contorno[2] = new Checkbox(\"Formaggio\", contorni, false);\r\n    panel[9].add(label9);\r\n    panel[9].add(scelta_contorno[0]);\r\n    panel[9].add(scelta_contorno[1]);\r\n    panel[9].add(scelta_contorno[2]);\r\n    //Creo il pannello BAR-Bevande\r\n    panel[10].setLayout(gridbag);\r\n    label12 = new Label(\"Nome del bene\");\r\n    label13 = new Label(\"Prezzo del bene \" + (Principale.config).getValuta() + \".\");\r\n    testo3 = new TextField(\"\", 40);\r\n    testo4 = new TextField(\"\", 10);\r\n    annulla = new Button(\"Annulla\");\r\n    conferma = new Button(\"Conferma\");\r\n    Utils.constrain(panel[10], label12, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 0.0, 0.0, 0, 5, 5, 0);\r\n    Utils.constrain(panel[10], testo3, 1, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 0, 5, 5, 0);\r\n    Utils.constrain(panel[10], label13, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 0.0, 0.0, 5, 5, 5, 0);\r\n    Utils.constrain(panel[10], testo4, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 0);\r\n    Utils.constrain(panel[10], annulla, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.EAST, 1.0, 0.0, 5, 5, 0, 5);\r\n    Utils.constrain(panel[10], conferma, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 0, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": "Optional[[//Creo i pannelli\r\n, //Creo il pannello in alto\r\n, // mi serve piu' lungo per l'aggiungi\r\n, //Attacco il pannello in alto al frame\r\n, //Creo il pannello del bar\r\n, //Creo il pannello dal ristorante\r\n, //Creo il pannello dei cibi\r\n, //Creo il pannello degli antipasti\r\n, //Creo il pannello dei primi\r\n, //Creo il pannello dei secondi\r\n, //Creo il pannello dei contorni\r\n, //Creo il pannello BAR-Bevande\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    prima_scelta[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[0].getState()) {\r\n                inComuneABC(scelta_bar, 1, BeneServizio.BAR);\r\n            }\r\n        }\r\n    });\r\n    prima_scelta[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[1].getState()) {\r\n                inComuneABC(scelta_piatto, 2, BeneServizio.RISTORANTE);\r\n            }\r\n        }\r\n    });\r\n    prima_scelta[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[2].getState()) {\r\n                inComuneABC(scelta_servizio, 3, BeneServizio.SERVIZI);\r\n            }\r\n        }\r\n    });\r\n    scelta_bar[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bar[0].getState()) {\r\n                inComuneGH(scelta_bevanda, 4, BeneServizio.BEVANDE);\r\n            }\r\n        }\r\n    });\r\n    scelta_bar[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bar[1].getState()) {\r\n                inComuneGH(scelta_cibo, 5, BeneServizio.CIBI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[0].getState()) {\r\n                inComuneILMN(scelta_antipasto, 6, BeneServizio.ANTIPASTI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[1].getState()) {\r\n                inComuneILMN(scelta_primo, 7, BeneServizio.PRIMI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[2].getState()) {\r\n                inComuneILMN(scelta_secondo, 8, BeneServizio.SECONDI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[3].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[3].getState()) {\r\n                inComuneILMN(scelta_contorno, 9, BeneServizio.CONTORNI);\r\n            }\r\n        }\r\n    });\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (prima_scelta[0].getState()) {\r\n        inComuneABC(scelta_bar, 1, BeneServizio.BAR);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (prima_scelta[1].getState()) {\r\n        inComuneABC(scelta_piatto, 2, BeneServizio.RISTORANTE);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (prima_scelta[2].getState()) {\r\n        inComuneABC(scelta_servizio, 3, BeneServizio.SERVIZI);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_bar[0].getState()) {\r\n        inComuneGH(scelta_bevanda, 4, BeneServizio.BEVANDE);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_bar[1].getState()) {\r\n        inComuneGH(scelta_cibo, 5, BeneServizio.CIBI);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_piatto[0].getState()) {\r\n        inComuneILMN(scelta_antipasto, 6, BeneServizio.ANTIPASTI);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_piatto[1].getState()) {\r\n        inComuneILMN(scelta_primo, 7, BeneServizio.PRIMI);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_piatto[2].getState()) {\r\n        inComuneILMN(scelta_secondo, 8, BeneServizio.SECONDI);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (scelta_piatto[3].getState()) {\r\n        inComuneILMN(scelta_contorno, 9, BeneServizio.CONTORNI);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    level = 0;\r\n    for (int i = 1; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    this.add(panel[numero_pannello]);\r\n    panel[numero_pannello].setVisible(true);\r\n    setVisible(true);\r\n    codice = composeCode(level, c);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void inComuneABC(Checkbox[], int, char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    level = 1;\r\n    for (int i = 2; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    this.add(panel[numero_pannello]);\r\n    panel[numero_pannello].setVisible(true);\r\n    setVisible(true);\r\n    codice = composeCode(level, c);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void inComuneGH(Checkbox[], int, char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    level = 1;\r\n    if (panel[1].isVisible())\r\n        remove(panel[1]);\r\n    for (int i = 3; i < 13; i++) if (panel[i].isVisible())\r\n        remove(panel[i]);\r\n    this.add(panel[numero_pannello]);\r\n    panel[numero_pannello].setVisible(true);\r\n    setVisible(true);\r\n    codice = composeCode(level, c);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void inComuneILMN(Checkbox[], int, char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!((testo3.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La descrizione del bene o servizio deve essere di al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((testo3.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca la descrizione del bene o servizio! \");\r\n        return true;\r\n    }\r\n    if ((testo4.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il prezzo del bene o servizio! \");\r\n        return true;\r\n    }\r\n    if (!(Utils.isFloatPos(testo4.getText()))) {\r\n        msg = new MessageDialog(this, \" Il prezzo deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean errore()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    codice[index] = tipo;\r\n    for (int i = index + 1; i < 3; ++i) codice[i] = ' ';\r\n    return codice;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " char[] composeCode(int, char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (codice[1] == ' ')\r\n        codice[1] = '0';\r\n    if (codice[2] == ' ')\r\n        codice[2] = '0';\r\n    return codice;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " char[] completeCode()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (// necessario nella finestra di modifica\r\n    panel[10].isVisible())\r\n        remove(panel[10]);\r\n    if (// necessario nella finestra di cancellazione\r\n    panel[12].isVisible())\r\n        remove(panel[12]);\r\n    inComuneOP();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void o()",
+                "comments": null,
+                "innerComments": "Optional[[// necessario nella finestra di modifica\r\n, // necessario nella finestra di cancellazione\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (panel[1].isVisible())\r\n        remove(panel[1]);\r\n    for (int i = 3; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    inComuneOP();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void p()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    completeCode();\r\n    if (//per evitare warning\r\n    elenco.getItemCount() > 0)\r\n        elenco.removeAll();\r\n    creaLista();\r\n    this.add(panel[11]);\r\n    panel[11].setVisible(true);\r\n    setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void inComuneOP()",
+                "comments": null,
+                "innerComments": "Optional[[//per evitare warning\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    int i = 1;\r\n    BeneServizio b;\r\n    L = (Principale.db).elencoBeniServizi(new String(codice));\r\n    if (L != null) {\r\n        while (i <= L.length()) {\r\n            b = L.getBeneServizio(i);\r\n            elenco.addItem(b.toString());\r\n            i++;\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void creaLista()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(title);\r\n    setup();\r\n    init();\r\n    setSize(350, 600);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public MascheraBeneServizio(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "MascheraBeneServizio",
+        "variables": [
+            "protected Label label",
+            "protected Label label1",
+            "protected Label label2",
+            "protected Label label3",
+            "protected Label label4",
+            "protected Label label5",
+            "protected Label label6",
+            "protected Label label7",
+            "protected Label label8",
+            "protected Label label9",
+            "protected Label label12",
+            "protected Label label13",
+            "protected TextField testo3",
+            "protected TextField testo4",
+            "protected Panel panel",
+            "protected Panel buttons",
+            "protected Button annulla",
+            "protected Button conferma",
+            "protected CheckboxGroup tipi",
+            "protected CheckboxGroup bar",
+            "protected CheckboxGroup ristorante",
+            "protected CheckboxGroup servizi",
+            "protected CheckboxGroup bevande",
+            "protected CheckboxGroup cibi",
+            "protected CheckboxGroup antipasti",
+            "protected CheckboxGroup primi",
+            "protected CheckboxGroup secondi",
+            "protected CheckboxGroup contorni",
+            "protected Checkbox prima_scelta",
+            "protected Checkbox scelta_bar",
+            "protected Checkbox scelta_piatto",
+            "protected Checkbox scelta_servizio",
+            "protected Checkbox scelta_bevanda",
+            "protected Checkbox scelta_cibo",
+            "protected Checkbox scelta_antipasto",
+            "protected Checkbox scelta_primo",
+            "protected Checkbox scelta_secondo",
+            "protected Checkbox scelta_contorno",
+            "protected GridLayout grid",
+            "protected GridLayout grid1",
+            "protected GridBagLayout gridbag",
+            "protected List elenco",
+            "protected ListaBeniServizi L",
+            " Frame padre",
+            " int level",
+            " char codice"
+        ]
+    }
+]

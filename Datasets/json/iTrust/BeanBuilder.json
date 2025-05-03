@@ -1,0 +1,25 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    // JavaBeans should not have overloaded methods, according to their API\r\n    // (a stupid limitation!)\r\n    // Nevertheless, we should check for it\r\n    checkOverloadedMethods(bean);\r\n    // Use an introspector to find all of the getXXX or setXXX, we only want\r\n    // the setXXX\r\n    PropertyDescriptor[] propertyDescriptors = Introspector.getBeanInfo(bean.getClass()).getPropertyDescriptors();\r\n    for (PropertyDescriptor descriptor : propertyDescriptors) {\r\n        // if object is null, either it was ignored or empty - just go with\r\n        // bean's default\r\n        String[] value = (String[]) map.get(descriptor.getName());\r\n        Method writeMethod = descriptor.getWriteMethod();\r\n        if (!\"class\".equals(descriptor.getName()) && value != null && writeMethod != null) {\r\n            // descriptor's name is the name of your property; like\r\n            // firstName\r\n            // only take the first string\r\n            try {\r\n                // Skip the setters for enumerations\r\n                if (writeMethod.getParameterTypes()[0].getEnumConstants() == null)\r\n                    writeMethod.invoke(bean, new Object[] { value[0] });\r\n            } catch (IllegalArgumentException e) {\r\n                // Throw a more informative exception\r\n                throw new IllegalArgumentException(e.getMessage() + \" with \" + writeMethod.getName() + \" and \" + value[0]);\r\n            }\r\n        }\r\n    }\r\n    return bean;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public T build(Map, T)",
+                "comments": "Optional[// this warning is only suppressed because Map isn't parameterized (old JSP)\r\n]",
+                "innerComments": "Optional[[// JavaBeans should not have overloaded methods, according to their API\r\n, // (a stupid limitation!)\r\n, // Use an introspector to find all of the getXXX or setXXX, we only want\r\n, // Nevertheless, we should check for it\r\n, // the setXXX\r\n, // if object is null, either it was ignored or empty - just go with\r\n, // bean's default\r\n, // descriptor's name is the name of your property; like\r\n, // firstName\r\n, // only take the first string\r\n, // Skip the setters for enumerations\r\n, // Throw a more informative exception\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Method[] methods = bean.getClass().getDeclaredMethods();\r\n    HashMap<String, String> nameMap = new HashMap<String, String>(methods.length);\r\n    for (Method method : methods) {\r\n        if (nameMap.get(method.getName()) != null)\r\n            throw new IllegalArgumentException(bean.getClass().getName() + \" should not have any overloaded methods, like \" + method.getName());\r\n        if (// allow an equals override\r\n        !\"equals\".equals(method.getName()))\r\n            nameMap.put(method.getName(), \"exists\");\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "private void checkOverloadedMethods(T)",
+                "comments": "Optional[/**\r\n * Checks for overloaded methods\r\n *\r\n * @param bean item to check\r\n */\r\n]",
+                "innerComments": "Optional[[// allow an equals override\r\n]]"
+            }
+        ],
+        "constructors": [],
+        "signature": "BeanBuilder",
+        "variables": []
+    }
+]

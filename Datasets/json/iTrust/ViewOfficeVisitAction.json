@@ -1,0 +1,62 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        long repee = Long.valueOf(repPIDString);\r\n        if (!patientDAO.represents(loggedInMID, repee))\r\n            throw new iTrustException(//$NON-NLS-1$\r\n            Messages.getString(\"ViewOfficeVisitAction.0\"));\r\n    } catch (NumberFormatException e) {\r\n        //$NON-NLS-1$\r\n        throw new iTrustException(Messages.getString(\"ViewOfficeVisitAction.1\"));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "private void checkRepresented(long, String)",
+                "comments": null,
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    return ovDAO.getOfficeVisit(ovID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public OfficeVisitBean getOfficeVisit()",
+                "comments": "Optional[/**\r\n * Returns the office visit as an OfficeVisitBean for the ovID that was initially passed to the\r\n * constructor\r\n *\r\n * @return the OfficeVisitBean for the ovID\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return ovDAO.getPrescriptions(ovID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getPrescriptions()",
+                "comments": "Optional[/**\r\n * Returns the prescriptions associated with the ovID initially passed to the constructor\r\n *\r\n * @return list of PrescriptionBeans for the ovID\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String name = null;\r\n    try {\r\n        name = personnelDAO.getName(hcpID);\r\n    } catch (iTrustException e) {\r\n        e.printStackTrace();\r\n        name = e.getMessage();\r\n    }\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getHCPName(long)",
+                "comments": "Optional[/**\r\n * Returns the name of the HCP for the hcpID passed as a param\r\n *\r\n * @param hcpID\r\n * @return the name of the HCP\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, String.valueOf(loggedInMID), ovIDString);\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.ovDAO = factory.getOfficeVisitDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewOfficeVisitAction(DAOFactory, long, String)",
+                "comments": "Optional[/**\r\n * Super class handles validating the loggedInMid and ovIDString\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing their office visits.\r\n * @param ovIDString\r\n *            The unique identifier of the office visit as a String.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(factory, repPIDString, ovIDString);\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.ovDAO = factory.getOfficeVisitDAO();\r\n    checkRepresented(loggedInMID, repPIDString);\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewOfficeVisitAction(DAOFactory, long, String, String)",
+                "comments": "Optional[/**\r\n * Super class handles validating the pidString and ovIDString. Usually used for representing a patient.\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param repPIDString The MID of the representative viewing the records.\r\n * @param ovIDString\r\n *            The unique identifier of the office visit as a String.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewOfficeVisitAction",
+        "variables": [
+            "private OfficeVisitDAO ovDAO",
+            "private PersonnelDAO personnelDAO",
+            "private PatientDAO patientDAO"
+        ]
+    }
+]

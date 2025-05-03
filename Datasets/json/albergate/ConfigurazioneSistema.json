@@ -1,0 +1,1622 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(font_base);\r\n    //creo le etichette\r\n    cambio_L_E = new Label(\"Cambio Lira <-> EURO\");\r\n    etichetta = new Label(\"Licenza:\");\r\n    etichetta.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta1 = new Label(\"DATI DI CONFIGURAZIONE\");\r\n    etichetta1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta2 = new Label(\"Supplementi dovuto alle stagionionalita'\");\r\n    etichetta2.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta3 = new Label(\"Riduzioni\");\r\n    etichetta3.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta4 = new Label(\"Ristorazione\");\r\n    etichetta4.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta5 = new Label(\"Valuta\");\r\n    etichetta5.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta6 = new Label(\"Cambio di password utente\");\r\n    etichetta6.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta7 = new Label(\"Definizione delle stagionalita'\");\r\n    etichetta7.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    licenza = new TextField(\"\", 35);\r\n    albergo = new TextField(\"\", 25);\r\n    comune_alb = new TextField(\"\", 35);\r\n    citta_alb = new TextField(\"\", 25);\r\n    indirizzo_alb = new TextField(\"\", 35);\r\n    rag_soc = new TextField(\"\", 35);\r\n    giorni_blocco = new TextField(\"\", 4);\r\n    sup_bassissima = new TextField(\"\", 9);\r\n    sup_bassa = new TextField(\"\", 9);\r\n    sup_media = new TextField(\"\", 9);\r\n    sup_alta = new TextField(\"\", 9);\r\n    sup_neonato = new TextField(\"\", 9);\r\n    sup_letto_agg = new TextField(\"\", 9);\r\n    rid_bambino = new TextField(\"\", 4);\r\n    rid_ragazzo = new TextField(\"\", 4);\r\n    rid_comitiva = new TextField(\"\", 4);\r\n    min_pers_comitiva = new TextField(\"\", 4);\r\n    num_max_stanze = new TextField(\"\", 4);\r\n    num_max_stanze.setEditable(false);\r\n    px_colazione = new TextField(\"\", 9);\r\n    px_mezza = new TextField(\"\", 9);\r\n    px_intera = new TextField(\"\", 9);\r\n    coperto = new TextField(\"\", 9);\r\n    costo_x_scatto = new TextField(\"\", 9);\r\n    password = new TextField(\"\", 20);\r\n    cambio = new TextField(\"\", 8);\r\n    //creo un Checkbox\r\n    checkbox = new CheckboxGroup();\r\n    checkboxes = new Checkbox[2];\r\n    checkboxes[0] = new Checkbox(\" Lire\", checkbox, true);\r\n    checkboxes[1] = new Checkbox(\" EURO\", checkbox, false);\r\n    writeDatiConf();\r\n    if (prima_volta)\r\n        licenza.setEditable(true);\r\n    else\r\n        licenza.setEditable(false);\r\n    licenza.setForeground(Color.red.darker());\r\n    albergo.setForeground(Color.blue);\r\n    comune_alb.setForeground(Color.blue);\r\n    citta_alb.setForeground(Color.blue);\r\n    rag_soc.setForeground(Color.blue);\r\n    password.setEchoChar('*');\r\n    etich1 = new Label(\"Dati dell'albergo\");\r\n    etich1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etich2 = new Label(\"Nome dell'albergo:\");\r\n    etich3 = new Label(\"Indirizzo dell'albergo:\");\r\n    indirizzo_alb.setForeground(Color.blue);\r\n    etich4 = new Label(\"Comune dell'albergo:\");\r\n    etich5 = new Label(\"Citta' dell'albergo:\");\r\n    etich6 = new Label(\"Numero di giorni massimo di bloccaggio di una stanza\");\r\n    etich7 = new Label(\"Supplemento bassisima stagione\");\r\n    etich8 = new Label(\"Supplemento bassa stagione\");\r\n    etich9 = new Label(\"Supplemento media stagione\");\r\n    etich10 = new Label(\"Supplemento alta stagione\");\r\n    etich11 = new Label(\"Supplemento per neonati\");\r\n    etich11_1 = new Label(\"Supplemento letto aggiuntivo\");\r\n    etich12 = new Label(\"Riduzione per bambini %\");\r\n    etich13 = new Label(\"Riduzione per ragazzi %\");\r\n    etich14 = new Label(\"Riduzione per comitive %\");\r\n    etich15 = new Label(\"Numero minimo di persone per comitiva\");\r\n    etich16 = new Label(\"Numero di stanze\");\r\n    etich17 = new Label(\"Supplemento prima colazione\");\r\n    etich18 = new Label(\"Supplemento mezza pensione\");\r\n    etich19 = new Label(\"Supplemento pensione completa\");\r\n    etich20 = new Label(\"Coperto per la ristorazione\");\r\n    etich21 = new Label(\"Costo di uno scatto telefonico\");\r\n    etich22 = new Label(\"Password utente\");\r\n    etich23 = new Label(\"Lire\");\r\n    etich24 = new Label(\"Dollari\");\r\n    etich25 = new Label(\"Ragione sociale\");\r\n    //creo i pulsanti\r\n    Annulla = new Button(\"Annulla\");\r\n    Passwd = new Button(\"Cambio di password\");\r\n    Conferma = new Button(\"Conferma\");\r\n    Stagioni = new Button(\"Definisci Stagionalita'\");\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    Utils.constrain(panel0, etichetta, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, licenza, 1, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich2, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, albergo, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich3, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, indirizzo_alb, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich4, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, comune_alb, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich5, 2, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, citta_alb, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich25, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, rag_soc, 1, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich6, 0, 1, 5, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, giorni_blocco, 5, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich21, 7, 1, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, costo_x_scatto, 10, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta2, 0, 2, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta3, 5, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta4, 8, 2, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    // supplementi\r\n    Utils.constrain(panel1, etich7, 0, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassissima, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich8, 0, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassa, 3, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich9, 0, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_media, 3, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich10, 0, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_alta, 3, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11, 0, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_neonato, 3, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11_1, 0, 8, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_letto_agg, 3, 8, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // riduzioni\r\n    Utils.constrain(panel1, etich12, 4, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_bambino, 7, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich13, 4, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_ragazzo, 7, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich14, 4, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_comitiva, 7, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich15, 4, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, min_pers_comitiva, 7, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // ristorazione\r\n    Utils.constrain(panel1, etich17, 8, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_colazione, 11, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich18, 8, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_mezza, 11, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich19, 8, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_intera, 11, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich20, 8, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, coperto, 11, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio_L_E, 5, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio, 7, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich16, 9, 7, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, num_max_stanze, 11, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, etichetta5, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[0], 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[1], 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, etichetta6, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Passwd, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etichetta7, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Stagioni, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, Annulla, 8, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel4, Conferma, 9, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 6, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel1, 0, 6, 12, 9, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 15, 1, 3, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 1, 15, 11, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 19, 12, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void setupPanels(boolean)",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo un Checkbox\r\n, //creo i pulsanti\r\n, // supplementi\r\n, // riduzioni\r\n, // ristorazione\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if (!first_start)\r\n                padre.setEnabled(true);\r\n            else\r\n                System.exit(0);\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                startAvviso(Const.LIRE);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                startAvviso(Const.EURO);\r\n            }\r\n        }\r\n    });\r\n    Passwd.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startChangePwd();\r\n        }\r\n    });\r\n    Stagioni.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            setStagioni();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    if (!first_start)\r\n        padre.setEnabled(true);\r\n    else\r\n        System.exit(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        startAvviso(Const.LIRE);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        startAvviso(Const.EURO);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startChangePwd();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setStagioni();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (nuova_valuta != this_config.getValuta() && !first_start) {\r\n        msg = new AvvisoDialog(this, \"Attenzione: il cambio LIRA<->EURO effettuato alla conferma modifichera' le cifre della finestra corrente!\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAvviso(char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    CambioPassword cambio = new CambioPassword();\r\n    cambio.setVisible(true);\r\n    cambio.conf = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startChangePwd()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MessageDialog msg;\r\n    int j;\r\n    if (!errore()) {\r\n        char vecchia_valuta = this_config.getValuta();\r\n        readDatiConf();\r\n        this_config.setPassword(new_passwd);\r\n        this_config.setStagionalita(new_stag_anno_corr, new_stag_anno_prox);\r\n        if ((j = (db.writeConfigurazione(this_config))) != DataBase.OK) {\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else {\r\n            if (vecchia_valuta != this_config.getValuta() && !first_start) {\r\n                j = (Principale.db).startCambioValuta();\r\n                if (j != DataBase.OK) {\r\n                    msg = new MessageDialog(this, \"Errore con il database: \" + DataBase.strErrore(j));\r\n                    return;\r\n                }\r\n                this_config = (Principale.db).readConfigurazione();\r\n                Principale.config = this_config;\r\n            }\r\n            if (!(first_start)) {\r\n                padre.pass.p.setTitle(this_config.getNomeAlbergo());\r\n                padre.setEnabled(true);\r\n            } else {\r\n                Frame p = new Principale(this_config, db);\r\n                p.setVisible(true);\r\n            }\r\n            dispose();\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    def_stag = new DefinizioneStagionalita(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setStagioni()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!((licenza.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La licenza deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((albergo.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" Il nome dell'albergo deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((comune_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" Il comune deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((indirizzo_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" L'indirizzo deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((citta_alb.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" La citta' deve essere composta da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((rag_soc.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La ragione sociale deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(giorni_blocco.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di giorni di blocco deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(sup_bassissima.getText()) || !Utils.isFloatPos(sup_bassa.getText()) || !Utils.isFloatPos(sup_media.getText()) || !Utils.isFloatPos(sup_alta.getText()) || !Utils.isFloatPos(sup_neonato.getText()) || !Utils.isFloatPos(sup_letto_agg.getText()) || !Utils.isFloatPos(px_colazione.getText()) || !Utils.isFloatPos(px_mezza.getText()) || !Utils.isFloatPos(px_intera.getText())) {\r\n        msg = new MessageDialog(this, \" I supplementi devono essere numeri positivi! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(rid_bambino.getText()) || !Utils.isIntPos(rid_ragazzo.getText()) || !Utils.isIntPos(rid_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" deve essere un numero intero! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(min_pers_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di persone comitiva deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(num_max_stanze.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di stanze deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(coperto.getText())) {\r\n        msg = new MessageDialog(this, \" Il coperto deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(costo_x_scatto.getText())) {\r\n        msg = new MessageDialog(this, \" Il costo dello scatto telefonico deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(cambio.getText())) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    } else if (!((Float.valueOf(cambio.getText())).floatValue() > 0)) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean errore()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this_config.setLicenza(licenza.getText());\r\n    this_config.setNomeAlbergo(albergo.getText());\r\n    this_config.setComuneAlb(comune_alb.getText());\r\n    this_config.setIndirizzoAlb(indirizzo_alb.getText());\r\n    this_config.setCittaAlb(citta_alb.getText());\r\n    this_config.setRagSoc(rag_soc.getText());\r\n    this_config.setGiorniBlocco(Integer.parseInt(giorni_blocco.getText()));\r\n    this_config.setSupplemento((Float.valueOf(sup_bassissima.getText())).floatValue(), Flag.BASSISSIMA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_bassa.getText())).floatValue(), Flag.BASSA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_media.getText())).floatValue(), Flag.MEDIA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_alta.getText())).floatValue(), Flag.ALTA_STAGIONE);\r\n    this_config.setSupNeonato((Float.valueOf(sup_neonato.getText())).floatValue());\r\n    this_config.setSupLettoAgg((Float.valueOf(sup_letto_agg.getText())).floatValue());\r\n    this_config.setRiduzione(Integer.parseInt(rid_bambino.getText()), Flag.BAMBINO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_ragazzo.getText()), Flag.RAGAZZO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_comitiva.getText()), Flag.COMITIVA);\r\n    this_config.setMinPersComit(Integer.parseInt(min_pers_comitiva.getText()));\r\n    this_config.setNumStanze(Integer.parseInt(num_max_stanze.getText()));\r\n    this_config.setPxColazione((Float.valueOf(px_colazione.getText())).floatValue());\r\n    this_config.setPxMezza((Float.valueOf(px_mezza.getText())).floatValue());\r\n    this_config.setPxIntera((Float.valueOf(px_intera.getText())).floatValue());\r\n    this_config.setCoperto((Float.valueOf(coperto.getText())).floatValue());\r\n    this_config.setCostoXScatto((Float.valueOf(costo_x_scatto.getText())).floatValue());\r\n    this_config.setCoeffXCambio((Float.valueOf(cambio.getText())).floatValue());\r\n    if (checkboxes[0].getState())\r\n        this_config.setValuta(Const.LIRE);\r\n    else\r\n        this_config.setValuta(Const.EURO);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void readDatiConf()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    //String s = new String(Principale.simbol);\r\n    licenza.setText(\"\" + this_config.getLicenza());\r\n    albergo.setText(\"\" + this_config.getNomeAlbergo());\r\n    comune_alb.setText(\"\" + this_config.getComuneAlb());\r\n    indirizzo_alb.setText(\"\" + this_config.getIndirizzoAlb());\r\n    citta_alb.setText(\"\" + this_config.getCittaAlb());\r\n    rag_soc.setText(\"\" + this_config.getRagSoc());\r\n    giorni_blocco.setText(\"\" + this_config.getGiorniBlocco());\r\n    sup_bassissima.setText(\"\" + this_config.getSupplemento(Flag.BASSISSIMA_STAGIONE));\r\n    sup_bassa.setText(\"\" + this_config.getSupplemento(Flag.BASSA_STAGIONE));\r\n    sup_media.setText(\"\" + this_config.getSupplemento(Flag.MEDIA_STAGIONE));\r\n    sup_alta.setText(\"\" + this_config.getSupplemento(Flag.ALTA_STAGIONE));\r\n    sup_neonato.setText(\"\" + this_config.getSupNeonato());\r\n    sup_letto_agg.setText(\"\" + this_config.getSupLettoAgg());\r\n    rid_bambino.setText(\"\" + this_config.getRiduzione(Flag.BAMBINO));\r\n    rid_ragazzo.setText(\"\" + this_config.getRiduzione(Flag.RAGAZZO));\r\n    rid_comitiva.setText(\"\" + this_config.getRiduzione(Flag.COMITIVA));\r\n    min_pers_comitiva.setText(\"\" + this_config.getMinPersComit());\r\n    num_max_stanze.setText(\"\" + this_config.getNumStanze());\r\n    px_colazione.setText(\"\" + this_config.getPxColazione());\r\n    px_mezza.setText(\"\" + this_config.getPxMezza());\r\n    px_intera.setText(\"\" + this_config.getPxIntera());\r\n    coperto.setText(\"\" + this_config.getCoperto());\r\n    costo_x_scatto.setText(\"\" + this_config.getCostoXScatto());\r\n    cambio.setText(\"\" + this_config.getCoeffXCambio());\r\n    if (this_config.getValuta() == Const.LIRE)\r\n        checkbox.setSelectedCheckbox(checkboxes[0]);\r\n    else\r\n        checkbox.setSelectedCheckbox(checkboxes[1]);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void writeDatiConf()",
+                "comments": null,
+                "innerComments": "Optional[[//String s = new String(Principale.simbol);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo le etichette\r\n    label1 = new Label(\"Inserire vecchia password\");\r\n    label2 = new Label(\"Inserire nuova password\");\r\n    label3 = new Label(\"Reinserire la nuova password\");\r\n    //creo i textField\r\n    testo1 = new TextField(\"\", 20);\r\n    testo2 = new TextField(\"\", 20);\r\n    testo1.setEchoChar('*');\r\n    testo2.setEchoChar('*');\r\n    testo2.setEditable(false);\r\n    conferma = new Button(\"Conferma\");\r\n    cambio = new Button(\"Cambio di password\");\r\n    cambio.setEnabled(false);\r\n    annulla = new Button(\"Annulla\");\r\n    pannello = new Panel();\r\n    pannello.setLayout(grid);\r\n    Utils.constrain(pannello, label1, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo1, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, label2, 0, 1, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, conferma, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, cambio, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    pannello_x_annulla = new Panel();\r\n    pannello_x_annulla.setLayout(grid);\r\n    Utils.constrain(pannello_x_annulla, annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(grid);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 2, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, pannello_x_annulla, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo i textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            conf.setEnabled(true);\r\n        }\r\n    });\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    testo1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    cambio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n    testo2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo1.getText();\r\n    if (tmp.equals(ConfigurazioneSistema.new_passwd)) {\r\n        testo2.setEditable(true);\r\n        testo1.setEditable(false);\r\n        cambio.setEnabled(true);\r\n        conferma.setEnabled(false);\r\n    } else {\r\n        dialog = new MessageDialog(this, \"La password non e' corretta\");\r\n        dialog.setVisible(true);\r\n        testo1.setText(\"\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void g()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo2.getText();\r\n    Messaggio messaggio1 = new Messaggio(tmp);\r\n    messaggio1.setVisible(true);\r\n    messaggio1.c = this;\r\n    this.setEnabled(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void i()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo un pulsante\r\n    OK = new Button(\"OK\");\r\n    //creo un'etichetta\r\n    msg = new Label(\"Reinserire la nuova password\");\r\n    //creo un textField\r\n    testo3 = new TextField(\"\", 20);\r\n    testo3.setEchoChar('*');\r\n    pannello = new Panel();\r\n    pannello.setLayout(gridbag);\r\n    Utils.constrain(pannello, msg, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo3, 2, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, OK, 4, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": "Optional[[//creo un pulsante\r\n, //creo un'etichetta\r\n, //creo un textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n    testo3.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if ((testo3.getText()).equals(pwd_passata)) {\r\n        ConfigurazioneSistema.new_passwd = testo3.getText();\r\n        dialog = new Avviso(this, \"La password verra' cambiata alla conferma\");\r\n    } else\r\n        dialog = new Avviso(this, \"La nuova password non e' stata accettata\");\r\n    dialog.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startOK()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            esci();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    esci();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.dispose();\r\n    padre.c.dispose();\r\n    padre.c.conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void esci()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Configurazione di sistema\");\r\n    this_config = config;\r\n    db = archivio;\r\n    new_passwd = this_config.getPassword();\r\n    new_stag_anno_corr = this_config.getStagionalita(Const.ANNO_CORRENTE);\r\n    new_stag_anno_prox = this_config.getStagionalita(Const.ANNO_PROSSIMO);\r\n    first_start = prima_volta;\r\n    setupPanels(prima_volta);\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ConfigurazioneSistema(Configurazione, boolean, DataBase)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Cambio di password\");\r\n    setupPanels();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CambioPassword()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Messaggio per il cambio di password\");\r\n    setup();\r\n    pwd_passata = text;\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Messaggio(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Attenzione\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    Panel textPanel = new Panel();\r\n    Panel buttonPanel = new Panel();\r\n    textPanel.add(new Label(testo));\r\n    OK = new Button(\"OK\");\r\n    buttonPanel.add(OK);\r\n    add(\"North\", textPanel);\r\n    add(\"Center\", buttonPanel);\r\n    init();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Avviso(Messaggio, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ConfigurazioneSistema",
+        "variables": [
+            "public  static  final Font font_base",
+            "public  static  final Font font_sub",
+            "public  static  final Font font_titolo",
+            "public  static  final Font font_allineato",
+            " TextField giorni_blocco",
+            " TextField sup_bassissima",
+            " TextField sup_bassa",
+            " TextField sup_media",
+            " TextField sup_alta",
+            " TextField sup_letto_agg",
+            " TextField costo_x_scatto",
+            " TextField sup_neonato",
+            " TextField rid_bambino",
+            " TextField rid_ragazzo",
+            " TextField rid_comitiva",
+            " TextField password",
+            " TextField num_max_stanze",
+            " TextField px_colazione",
+            " TextField px_mezza",
+            " TextField px_intera",
+            " TextField coperto",
+            " TextField min_pers_comitiva",
+            " TextField cambio",
+            " TextField albergo",
+            " TextField indirizzo_alb",
+            " TextField comune_alb",
+            " TextField citta_alb",
+            " TextField rag_soc",
+            " TextField licenza",
+            " Label cambio_L_E",
+            " Label etichetta",
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Label etich7",
+            " Label etich8",
+            " Label etich9",
+            " Label etich10",
+            " Label etich11",
+            " Label etich11_1",
+            " Label etich12",
+            " Label etich13",
+            " Label etich14",
+            " Label etich15",
+            " Label etich16",
+            " Label etich17",
+            " Label etich18",
+            " Label etich19",
+            " Label etich20",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Label etichetta3",
+            " Label etichetta4",
+            " Label etichetta5",
+            " Label etich21",
+            " Label etich22",
+            " Label etichetta6",
+            " Label etich23",
+            " Label etich24",
+            " Label etich25",
+            " Label etichetta7",
+            " Panel panel0",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " GridBagLayout gridbag",
+            " CheckboxGroup checkbox",
+            " Checkbox checkboxes",
+            " Button Annulla",
+            " Button Passwd",
+            " Button Conferma",
+            " Button Stagioni",
+            " DefinizioneStagionalita def_stag",
+            "static String new_passwd",
+            "static char new_stag_anno_corr",
+            "static char new_stag_anno_prox",
+            " SubGestione padre",
+            "static Configurazione this_config",
+            " DataBase db",
+            " boolean first_start",
+            " TextField testo1",
+            " TextField testo2",
+            " TextField testo3",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " GridBagLayout grid",
+            " Panel pannello",
+            " Panel pannello_x_annulla",
+            " Frame conf",
+            " Button conferma",
+            " Button cambio",
+            " Button annulla",
+            " MessageDialog dialog",
+            " Label msg",
+            " Button OK",
+            " CambioPassword c",
+            " Avviso dialog",
+            " GridBagLayout gridbag",
+            " TextField testo3",
+            " Panel pannello",
+            " String pwd_passata",
+            " Button OK",
+            " Messaggio padre"
+        ]
+    },
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(font_base);\r\n    //creo le etichette\r\n    cambio_L_E = new Label(\"Cambio Lira <-> EURO\");\r\n    etichetta = new Label(\"Licenza:\");\r\n    etichetta.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta1 = new Label(\"DATI DI CONFIGURAZIONE\");\r\n    etichetta1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta2 = new Label(\"Supplementi dovuto alle stagionionalita'\");\r\n    etichetta2.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta3 = new Label(\"Riduzioni\");\r\n    etichetta3.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta4 = new Label(\"Ristorazione\");\r\n    etichetta4.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta5 = new Label(\"Valuta\");\r\n    etichetta5.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta6 = new Label(\"Cambio di password utente\");\r\n    etichetta6.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta7 = new Label(\"Definizione delle stagionalita'\");\r\n    etichetta7.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    licenza = new TextField(\"\", 35);\r\n    albergo = new TextField(\"\", 25);\r\n    comune_alb = new TextField(\"\", 35);\r\n    citta_alb = new TextField(\"\", 25);\r\n    indirizzo_alb = new TextField(\"\", 35);\r\n    rag_soc = new TextField(\"\", 35);\r\n    giorni_blocco = new TextField(\"\", 4);\r\n    sup_bassissima = new TextField(\"\", 9);\r\n    sup_bassa = new TextField(\"\", 9);\r\n    sup_media = new TextField(\"\", 9);\r\n    sup_alta = new TextField(\"\", 9);\r\n    sup_neonato = new TextField(\"\", 9);\r\n    sup_letto_agg = new TextField(\"\", 9);\r\n    rid_bambino = new TextField(\"\", 4);\r\n    rid_ragazzo = new TextField(\"\", 4);\r\n    rid_comitiva = new TextField(\"\", 4);\r\n    min_pers_comitiva = new TextField(\"\", 4);\r\n    num_max_stanze = new TextField(\"\", 4);\r\n    num_max_stanze.setEditable(false);\r\n    px_colazione = new TextField(\"\", 9);\r\n    px_mezza = new TextField(\"\", 9);\r\n    px_intera = new TextField(\"\", 9);\r\n    coperto = new TextField(\"\", 9);\r\n    costo_x_scatto = new TextField(\"\", 9);\r\n    password = new TextField(\"\", 20);\r\n    cambio = new TextField(\"\", 8);\r\n    //creo un Checkbox\r\n    checkbox = new CheckboxGroup();\r\n    checkboxes = new Checkbox[2];\r\n    checkboxes[0] = new Checkbox(\" Lire\", checkbox, true);\r\n    checkboxes[1] = new Checkbox(\" EURO\", checkbox, false);\r\n    writeDatiConf();\r\n    if (prima_volta)\r\n        licenza.setEditable(true);\r\n    else\r\n        licenza.setEditable(false);\r\n    licenza.setForeground(Color.red.darker());\r\n    albergo.setForeground(Color.blue);\r\n    comune_alb.setForeground(Color.blue);\r\n    citta_alb.setForeground(Color.blue);\r\n    rag_soc.setForeground(Color.blue);\r\n    password.setEchoChar('*');\r\n    etich1 = new Label(\"Dati dell'albergo\");\r\n    etich1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etich2 = new Label(\"Nome dell'albergo:\");\r\n    etich3 = new Label(\"Indirizzo dell'albergo:\");\r\n    indirizzo_alb.setForeground(Color.blue);\r\n    etich4 = new Label(\"Comune dell'albergo:\");\r\n    etich5 = new Label(\"Citta' dell'albergo:\");\r\n    etich6 = new Label(\"Numero di giorni massimo di bloccaggio di una stanza\");\r\n    etich7 = new Label(\"Supplemento bassisima stagione\");\r\n    etich8 = new Label(\"Supplemento bassa stagione\");\r\n    etich9 = new Label(\"Supplemento media stagione\");\r\n    etich10 = new Label(\"Supplemento alta stagione\");\r\n    etich11 = new Label(\"Supplemento per neonati\");\r\n    etich11_1 = new Label(\"Supplemento letto aggiuntivo\");\r\n    etich12 = new Label(\"Riduzione per bambini %\");\r\n    etich13 = new Label(\"Riduzione per ragazzi %\");\r\n    etich14 = new Label(\"Riduzione per comitive %\");\r\n    etich15 = new Label(\"Numero minimo di persone per comitiva\");\r\n    etich16 = new Label(\"Numero di stanze\");\r\n    etich17 = new Label(\"Supplemento prima colazione\");\r\n    etich18 = new Label(\"Supplemento mezza pensione\");\r\n    etich19 = new Label(\"Supplemento pensione completa\");\r\n    etich20 = new Label(\"Coperto per la ristorazione\");\r\n    etich21 = new Label(\"Costo di uno scatto telefonico\");\r\n    etich22 = new Label(\"Password utente\");\r\n    etich23 = new Label(\"Lire\");\r\n    etich24 = new Label(\"Dollari\");\r\n    etich25 = new Label(\"Ragione sociale\");\r\n    //creo i pulsanti\r\n    Annulla = new Button(\"Annulla\");\r\n    Passwd = new Button(\"Cambio di password\");\r\n    Conferma = new Button(\"Conferma\");\r\n    Stagioni = new Button(\"Definisci Stagionalita'\");\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    Utils.constrain(panel0, etichetta, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, licenza, 1, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich2, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, albergo, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich3, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, indirizzo_alb, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich4, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, comune_alb, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich5, 2, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, citta_alb, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich25, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, rag_soc, 1, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich6, 0, 1, 5, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, giorni_blocco, 5, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich21, 7, 1, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, costo_x_scatto, 10, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta2, 0, 2, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta3, 5, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta4, 8, 2, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    // supplementi\r\n    Utils.constrain(panel1, etich7, 0, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassissima, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich8, 0, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassa, 3, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich9, 0, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_media, 3, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich10, 0, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_alta, 3, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11, 0, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_neonato, 3, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11_1, 0, 8, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_letto_agg, 3, 8, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // riduzioni\r\n    Utils.constrain(panel1, etich12, 4, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_bambino, 7, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich13, 4, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_ragazzo, 7, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich14, 4, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_comitiva, 7, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich15, 4, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, min_pers_comitiva, 7, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // ristorazione\r\n    Utils.constrain(panel1, etich17, 8, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_colazione, 11, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich18, 8, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_mezza, 11, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich19, 8, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_intera, 11, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich20, 8, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, coperto, 11, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio_L_E, 5, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio, 7, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich16, 9, 7, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, num_max_stanze, 11, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, etichetta5, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[0], 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[1], 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, etichetta6, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Passwd, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etichetta7, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Stagioni, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, Annulla, 8, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel4, Conferma, 9, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 6, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel1, 0, 6, 12, 9, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 15, 1, 3, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 1, 15, 11, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 19, 12, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void setupPanels(boolean)",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo un Checkbox\r\n, //creo i pulsanti\r\n, // supplementi\r\n, // riduzioni\r\n, // ristorazione\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if (!first_start)\r\n                padre.setEnabled(true);\r\n            else\r\n                System.exit(0);\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                startAvviso(Const.LIRE);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                startAvviso(Const.EURO);\r\n            }\r\n        }\r\n    });\r\n    Passwd.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startChangePwd();\r\n        }\r\n    });\r\n    Stagioni.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            setStagioni();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    if (!first_start)\r\n        padre.setEnabled(true);\r\n    else\r\n        System.exit(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        startAvviso(Const.LIRE);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        startAvviso(Const.EURO);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startChangePwd();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setStagioni();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (nuova_valuta != this_config.getValuta() && !first_start) {\r\n        msg = new AvvisoDialog(this, \"Attenzione: il cambio LIRA<->EURO effettuato alla conferma modifichera' le cifre della finestra corrente!\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAvviso(char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    CambioPassword cambio = new CambioPassword();\r\n    cambio.setVisible(true);\r\n    cambio.conf = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startChangePwd()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MessageDialog msg;\r\n    int j;\r\n    if (!errore()) {\r\n        char vecchia_valuta = this_config.getValuta();\r\n        readDatiConf();\r\n        this_config.setPassword(new_passwd);\r\n        this_config.setStagionalita(new_stag_anno_corr, new_stag_anno_prox);\r\n        if ((j = (db.writeConfigurazione(this_config))) != DataBase.OK) {\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else {\r\n            if (vecchia_valuta != this_config.getValuta() && !first_start) {\r\n                j = (Principale.db).startCambioValuta();\r\n                if (j != DataBase.OK) {\r\n                    msg = new MessageDialog(this, \"Errore con il database: \" + DataBase.strErrore(j));\r\n                    return;\r\n                }\r\n                this_config = (Principale.db).readConfigurazione();\r\n                Principale.config = this_config;\r\n            }\r\n            if (!(first_start)) {\r\n                padre.pass.p.setTitle(this_config.getNomeAlbergo());\r\n                padre.setEnabled(true);\r\n            } else {\r\n                Frame p = new Principale(this_config, db);\r\n                p.setVisible(true);\r\n            }\r\n            dispose();\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    def_stag = new DefinizioneStagionalita(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setStagioni()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!((licenza.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La licenza deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((albergo.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" Il nome dell'albergo deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((comune_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" Il comune deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((indirizzo_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" L'indirizzo deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((citta_alb.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" La citta' deve essere composta da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((rag_soc.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La ragione sociale deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(giorni_blocco.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di giorni di blocco deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(sup_bassissima.getText()) || !Utils.isFloatPos(sup_bassa.getText()) || !Utils.isFloatPos(sup_media.getText()) || !Utils.isFloatPos(sup_alta.getText()) || !Utils.isFloatPos(sup_neonato.getText()) || !Utils.isFloatPos(sup_letto_agg.getText()) || !Utils.isFloatPos(px_colazione.getText()) || !Utils.isFloatPos(px_mezza.getText()) || !Utils.isFloatPos(px_intera.getText())) {\r\n        msg = new MessageDialog(this, \" I supplementi devono essere numeri positivi! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(rid_bambino.getText()) || !Utils.isIntPos(rid_ragazzo.getText()) || !Utils.isIntPos(rid_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" deve essere un numero intero! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(min_pers_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di persone comitiva deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(num_max_stanze.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di stanze deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(coperto.getText())) {\r\n        msg = new MessageDialog(this, \" Il coperto deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(costo_x_scatto.getText())) {\r\n        msg = new MessageDialog(this, \" Il costo dello scatto telefonico deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(cambio.getText())) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    } else if (!((Float.valueOf(cambio.getText())).floatValue() > 0)) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean errore()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this_config.setLicenza(licenza.getText());\r\n    this_config.setNomeAlbergo(albergo.getText());\r\n    this_config.setComuneAlb(comune_alb.getText());\r\n    this_config.setIndirizzoAlb(indirizzo_alb.getText());\r\n    this_config.setCittaAlb(citta_alb.getText());\r\n    this_config.setRagSoc(rag_soc.getText());\r\n    this_config.setGiorniBlocco(Integer.parseInt(giorni_blocco.getText()));\r\n    this_config.setSupplemento((Float.valueOf(sup_bassissima.getText())).floatValue(), Flag.BASSISSIMA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_bassa.getText())).floatValue(), Flag.BASSA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_media.getText())).floatValue(), Flag.MEDIA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_alta.getText())).floatValue(), Flag.ALTA_STAGIONE);\r\n    this_config.setSupNeonato((Float.valueOf(sup_neonato.getText())).floatValue());\r\n    this_config.setSupLettoAgg((Float.valueOf(sup_letto_agg.getText())).floatValue());\r\n    this_config.setRiduzione(Integer.parseInt(rid_bambino.getText()), Flag.BAMBINO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_ragazzo.getText()), Flag.RAGAZZO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_comitiva.getText()), Flag.COMITIVA);\r\n    this_config.setMinPersComit(Integer.parseInt(min_pers_comitiva.getText()));\r\n    this_config.setNumStanze(Integer.parseInt(num_max_stanze.getText()));\r\n    this_config.setPxColazione((Float.valueOf(px_colazione.getText())).floatValue());\r\n    this_config.setPxMezza((Float.valueOf(px_mezza.getText())).floatValue());\r\n    this_config.setPxIntera((Float.valueOf(px_intera.getText())).floatValue());\r\n    this_config.setCoperto((Float.valueOf(coperto.getText())).floatValue());\r\n    this_config.setCostoXScatto((Float.valueOf(costo_x_scatto.getText())).floatValue());\r\n    this_config.setCoeffXCambio((Float.valueOf(cambio.getText())).floatValue());\r\n    if (checkboxes[0].getState())\r\n        this_config.setValuta(Const.LIRE);\r\n    else\r\n        this_config.setValuta(Const.EURO);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void readDatiConf()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    //String s = new String(Principale.simbol);\r\n    licenza.setText(\"\" + this_config.getLicenza());\r\n    albergo.setText(\"\" + this_config.getNomeAlbergo());\r\n    comune_alb.setText(\"\" + this_config.getComuneAlb());\r\n    indirizzo_alb.setText(\"\" + this_config.getIndirizzoAlb());\r\n    citta_alb.setText(\"\" + this_config.getCittaAlb());\r\n    rag_soc.setText(\"\" + this_config.getRagSoc());\r\n    giorni_blocco.setText(\"\" + this_config.getGiorniBlocco());\r\n    sup_bassissima.setText(\"\" + this_config.getSupplemento(Flag.BASSISSIMA_STAGIONE));\r\n    sup_bassa.setText(\"\" + this_config.getSupplemento(Flag.BASSA_STAGIONE));\r\n    sup_media.setText(\"\" + this_config.getSupplemento(Flag.MEDIA_STAGIONE));\r\n    sup_alta.setText(\"\" + this_config.getSupplemento(Flag.ALTA_STAGIONE));\r\n    sup_neonato.setText(\"\" + this_config.getSupNeonato());\r\n    sup_letto_agg.setText(\"\" + this_config.getSupLettoAgg());\r\n    rid_bambino.setText(\"\" + this_config.getRiduzione(Flag.BAMBINO));\r\n    rid_ragazzo.setText(\"\" + this_config.getRiduzione(Flag.RAGAZZO));\r\n    rid_comitiva.setText(\"\" + this_config.getRiduzione(Flag.COMITIVA));\r\n    min_pers_comitiva.setText(\"\" + this_config.getMinPersComit());\r\n    num_max_stanze.setText(\"\" + this_config.getNumStanze());\r\n    px_colazione.setText(\"\" + this_config.getPxColazione());\r\n    px_mezza.setText(\"\" + this_config.getPxMezza());\r\n    px_intera.setText(\"\" + this_config.getPxIntera());\r\n    coperto.setText(\"\" + this_config.getCoperto());\r\n    costo_x_scatto.setText(\"\" + this_config.getCostoXScatto());\r\n    cambio.setText(\"\" + this_config.getCoeffXCambio());\r\n    if (this_config.getValuta() == Const.LIRE)\r\n        checkbox.setSelectedCheckbox(checkboxes[0]);\r\n    else\r\n        checkbox.setSelectedCheckbox(checkboxes[1]);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void writeDatiConf()",
+                "comments": null,
+                "innerComments": "Optional[[//String s = new String(Principale.simbol);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo le etichette\r\n    label1 = new Label(\"Inserire vecchia password\");\r\n    label2 = new Label(\"Inserire nuova password\");\r\n    label3 = new Label(\"Reinserire la nuova password\");\r\n    //creo i textField\r\n    testo1 = new TextField(\"\", 20);\r\n    testo2 = new TextField(\"\", 20);\r\n    testo1.setEchoChar('*');\r\n    testo2.setEchoChar('*');\r\n    testo2.setEditable(false);\r\n    conferma = new Button(\"Conferma\");\r\n    cambio = new Button(\"Cambio di password\");\r\n    cambio.setEnabled(false);\r\n    annulla = new Button(\"Annulla\");\r\n    pannello = new Panel();\r\n    pannello.setLayout(grid);\r\n    Utils.constrain(pannello, label1, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo1, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, label2, 0, 1, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, conferma, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, cambio, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    pannello_x_annulla = new Panel();\r\n    pannello_x_annulla.setLayout(grid);\r\n    Utils.constrain(pannello_x_annulla, annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(grid);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 2, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, pannello_x_annulla, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo i textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            conf.setEnabled(true);\r\n        }\r\n    });\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    testo1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    cambio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n    testo2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo1.getText();\r\n    if (tmp.equals(ConfigurazioneSistema.new_passwd)) {\r\n        testo2.setEditable(true);\r\n        testo1.setEditable(false);\r\n        cambio.setEnabled(true);\r\n        conferma.setEnabled(false);\r\n    } else {\r\n        dialog = new MessageDialog(this, \"La password non e' corretta\");\r\n        dialog.setVisible(true);\r\n        testo1.setText(\"\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void g()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo2.getText();\r\n    Messaggio messaggio1 = new Messaggio(tmp);\r\n    messaggio1.setVisible(true);\r\n    messaggio1.c = this;\r\n    this.setEnabled(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void i()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo un pulsante\r\n    OK = new Button(\"OK\");\r\n    //creo un'etichetta\r\n    msg = new Label(\"Reinserire la nuova password\");\r\n    //creo un textField\r\n    testo3 = new TextField(\"\", 20);\r\n    testo3.setEchoChar('*');\r\n    pannello = new Panel();\r\n    pannello.setLayout(gridbag);\r\n    Utils.constrain(pannello, msg, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo3, 2, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, OK, 4, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": "Optional[[//creo un pulsante\r\n, //creo un'etichetta\r\n, //creo un textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n    testo3.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if ((testo3.getText()).equals(pwd_passata)) {\r\n        ConfigurazioneSistema.new_passwd = testo3.getText();\r\n        dialog = new Avviso(this, \"La password verra' cambiata alla conferma\");\r\n    } else\r\n        dialog = new Avviso(this, \"La nuova password non e' stata accettata\");\r\n    dialog.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startOK()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            esci();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    esci();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.dispose();\r\n    padre.c.dispose();\r\n    padre.c.conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void esci()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Configurazione di sistema\");\r\n    this_config = config;\r\n    db = archivio;\r\n    new_passwd = this_config.getPassword();\r\n    new_stag_anno_corr = this_config.getStagionalita(Const.ANNO_CORRENTE);\r\n    new_stag_anno_prox = this_config.getStagionalita(Const.ANNO_PROSSIMO);\r\n    first_start = prima_volta;\r\n    setupPanels(prima_volta);\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ConfigurazioneSistema(Configurazione, boolean, DataBase)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Cambio di password\");\r\n    setupPanels();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CambioPassword()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Messaggio per il cambio di password\");\r\n    setup();\r\n    pwd_passata = text;\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Messaggio(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Attenzione\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    Panel textPanel = new Panel();\r\n    Panel buttonPanel = new Panel();\r\n    textPanel.add(new Label(testo));\r\n    OK = new Button(\"OK\");\r\n    buttonPanel.add(OK);\r\n    add(\"North\", textPanel);\r\n    add(\"Center\", buttonPanel);\r\n    init();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Avviso(Messaggio, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "CambioPassword",
+        "variables": [
+            "public  static  final Font font_base",
+            "public  static  final Font font_sub",
+            "public  static  final Font font_titolo",
+            "public  static  final Font font_allineato",
+            " TextField giorni_blocco",
+            " TextField sup_bassissima",
+            " TextField sup_bassa",
+            " TextField sup_media",
+            " TextField sup_alta",
+            " TextField sup_letto_agg",
+            " TextField costo_x_scatto",
+            " TextField sup_neonato",
+            " TextField rid_bambino",
+            " TextField rid_ragazzo",
+            " TextField rid_comitiva",
+            " TextField password",
+            " TextField num_max_stanze",
+            " TextField px_colazione",
+            " TextField px_mezza",
+            " TextField px_intera",
+            " TextField coperto",
+            " TextField min_pers_comitiva",
+            " TextField cambio",
+            " TextField albergo",
+            " TextField indirizzo_alb",
+            " TextField comune_alb",
+            " TextField citta_alb",
+            " TextField rag_soc",
+            " TextField licenza",
+            " Label cambio_L_E",
+            " Label etichetta",
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Label etich7",
+            " Label etich8",
+            " Label etich9",
+            " Label etich10",
+            " Label etich11",
+            " Label etich11_1",
+            " Label etich12",
+            " Label etich13",
+            " Label etich14",
+            " Label etich15",
+            " Label etich16",
+            " Label etich17",
+            " Label etich18",
+            " Label etich19",
+            " Label etich20",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Label etichetta3",
+            " Label etichetta4",
+            " Label etichetta5",
+            " Label etich21",
+            " Label etich22",
+            " Label etichetta6",
+            " Label etich23",
+            " Label etich24",
+            " Label etich25",
+            " Label etichetta7",
+            " Panel panel0",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " GridBagLayout gridbag",
+            " CheckboxGroup checkbox",
+            " Checkbox checkboxes",
+            " Button Annulla",
+            " Button Passwd",
+            " Button Conferma",
+            " Button Stagioni",
+            " DefinizioneStagionalita def_stag",
+            "static String new_passwd",
+            "static char new_stag_anno_corr",
+            "static char new_stag_anno_prox",
+            " SubGestione padre",
+            "static Configurazione this_config",
+            " DataBase db",
+            " boolean first_start",
+            " TextField testo1",
+            " TextField testo2",
+            " TextField testo3",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " GridBagLayout grid",
+            " Panel pannello",
+            " Panel pannello_x_annulla",
+            " Frame conf",
+            " Button conferma",
+            " Button cambio",
+            " Button annulla",
+            " MessageDialog dialog",
+            " Label msg",
+            " Button OK",
+            " CambioPassword c",
+            " Avviso dialog",
+            " GridBagLayout gridbag",
+            " TextField testo3",
+            " Panel pannello",
+            " String pwd_passata",
+            " Button OK",
+            " Messaggio padre"
+        ]
+    },
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(font_base);\r\n    //creo le etichette\r\n    cambio_L_E = new Label(\"Cambio Lira <-> EURO\");\r\n    etichetta = new Label(\"Licenza:\");\r\n    etichetta.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta1 = new Label(\"DATI DI CONFIGURAZIONE\");\r\n    etichetta1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta2 = new Label(\"Supplementi dovuto alle stagionionalita'\");\r\n    etichetta2.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta3 = new Label(\"Riduzioni\");\r\n    etichetta3.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta4 = new Label(\"Ristorazione\");\r\n    etichetta4.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta5 = new Label(\"Valuta\");\r\n    etichetta5.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta6 = new Label(\"Cambio di password utente\");\r\n    etichetta6.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta7 = new Label(\"Definizione delle stagionalita'\");\r\n    etichetta7.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    licenza = new TextField(\"\", 35);\r\n    albergo = new TextField(\"\", 25);\r\n    comune_alb = new TextField(\"\", 35);\r\n    citta_alb = new TextField(\"\", 25);\r\n    indirizzo_alb = new TextField(\"\", 35);\r\n    rag_soc = new TextField(\"\", 35);\r\n    giorni_blocco = new TextField(\"\", 4);\r\n    sup_bassissima = new TextField(\"\", 9);\r\n    sup_bassa = new TextField(\"\", 9);\r\n    sup_media = new TextField(\"\", 9);\r\n    sup_alta = new TextField(\"\", 9);\r\n    sup_neonato = new TextField(\"\", 9);\r\n    sup_letto_agg = new TextField(\"\", 9);\r\n    rid_bambino = new TextField(\"\", 4);\r\n    rid_ragazzo = new TextField(\"\", 4);\r\n    rid_comitiva = new TextField(\"\", 4);\r\n    min_pers_comitiva = new TextField(\"\", 4);\r\n    num_max_stanze = new TextField(\"\", 4);\r\n    num_max_stanze.setEditable(false);\r\n    px_colazione = new TextField(\"\", 9);\r\n    px_mezza = new TextField(\"\", 9);\r\n    px_intera = new TextField(\"\", 9);\r\n    coperto = new TextField(\"\", 9);\r\n    costo_x_scatto = new TextField(\"\", 9);\r\n    password = new TextField(\"\", 20);\r\n    cambio = new TextField(\"\", 8);\r\n    //creo un Checkbox\r\n    checkbox = new CheckboxGroup();\r\n    checkboxes = new Checkbox[2];\r\n    checkboxes[0] = new Checkbox(\" Lire\", checkbox, true);\r\n    checkboxes[1] = new Checkbox(\" EURO\", checkbox, false);\r\n    writeDatiConf();\r\n    if (prima_volta)\r\n        licenza.setEditable(true);\r\n    else\r\n        licenza.setEditable(false);\r\n    licenza.setForeground(Color.red.darker());\r\n    albergo.setForeground(Color.blue);\r\n    comune_alb.setForeground(Color.blue);\r\n    citta_alb.setForeground(Color.blue);\r\n    rag_soc.setForeground(Color.blue);\r\n    password.setEchoChar('*');\r\n    etich1 = new Label(\"Dati dell'albergo\");\r\n    etich1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etich2 = new Label(\"Nome dell'albergo:\");\r\n    etich3 = new Label(\"Indirizzo dell'albergo:\");\r\n    indirizzo_alb.setForeground(Color.blue);\r\n    etich4 = new Label(\"Comune dell'albergo:\");\r\n    etich5 = new Label(\"Citta' dell'albergo:\");\r\n    etich6 = new Label(\"Numero di giorni massimo di bloccaggio di una stanza\");\r\n    etich7 = new Label(\"Supplemento bassisima stagione\");\r\n    etich8 = new Label(\"Supplemento bassa stagione\");\r\n    etich9 = new Label(\"Supplemento media stagione\");\r\n    etich10 = new Label(\"Supplemento alta stagione\");\r\n    etich11 = new Label(\"Supplemento per neonati\");\r\n    etich11_1 = new Label(\"Supplemento letto aggiuntivo\");\r\n    etich12 = new Label(\"Riduzione per bambini %\");\r\n    etich13 = new Label(\"Riduzione per ragazzi %\");\r\n    etich14 = new Label(\"Riduzione per comitive %\");\r\n    etich15 = new Label(\"Numero minimo di persone per comitiva\");\r\n    etich16 = new Label(\"Numero di stanze\");\r\n    etich17 = new Label(\"Supplemento prima colazione\");\r\n    etich18 = new Label(\"Supplemento mezza pensione\");\r\n    etich19 = new Label(\"Supplemento pensione completa\");\r\n    etich20 = new Label(\"Coperto per la ristorazione\");\r\n    etich21 = new Label(\"Costo di uno scatto telefonico\");\r\n    etich22 = new Label(\"Password utente\");\r\n    etich23 = new Label(\"Lire\");\r\n    etich24 = new Label(\"Dollari\");\r\n    etich25 = new Label(\"Ragione sociale\");\r\n    //creo i pulsanti\r\n    Annulla = new Button(\"Annulla\");\r\n    Passwd = new Button(\"Cambio di password\");\r\n    Conferma = new Button(\"Conferma\");\r\n    Stagioni = new Button(\"Definisci Stagionalita'\");\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    Utils.constrain(panel0, etichetta, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, licenza, 1, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich2, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, albergo, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich3, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, indirizzo_alb, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich4, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, comune_alb, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich5, 2, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, citta_alb, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich25, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, rag_soc, 1, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich6, 0, 1, 5, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, giorni_blocco, 5, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich21, 7, 1, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, costo_x_scatto, 10, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta2, 0, 2, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta3, 5, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta4, 8, 2, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    // supplementi\r\n    Utils.constrain(panel1, etich7, 0, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassissima, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich8, 0, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassa, 3, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich9, 0, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_media, 3, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich10, 0, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_alta, 3, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11, 0, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_neonato, 3, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11_1, 0, 8, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_letto_agg, 3, 8, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // riduzioni\r\n    Utils.constrain(panel1, etich12, 4, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_bambino, 7, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich13, 4, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_ragazzo, 7, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich14, 4, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_comitiva, 7, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich15, 4, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, min_pers_comitiva, 7, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // ristorazione\r\n    Utils.constrain(panel1, etich17, 8, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_colazione, 11, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich18, 8, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_mezza, 11, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich19, 8, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_intera, 11, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich20, 8, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, coperto, 11, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio_L_E, 5, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio, 7, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich16, 9, 7, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, num_max_stanze, 11, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, etichetta5, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[0], 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[1], 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, etichetta6, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Passwd, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etichetta7, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Stagioni, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, Annulla, 8, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel4, Conferma, 9, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 6, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel1, 0, 6, 12, 9, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 15, 1, 3, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 1, 15, 11, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 19, 12, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void setupPanels(boolean)",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo un Checkbox\r\n, //creo i pulsanti\r\n, // supplementi\r\n, // riduzioni\r\n, // ristorazione\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if (!first_start)\r\n                padre.setEnabled(true);\r\n            else\r\n                System.exit(0);\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                startAvviso(Const.LIRE);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                startAvviso(Const.EURO);\r\n            }\r\n        }\r\n    });\r\n    Passwd.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startChangePwd();\r\n        }\r\n    });\r\n    Stagioni.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            setStagioni();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    if (!first_start)\r\n        padre.setEnabled(true);\r\n    else\r\n        System.exit(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        startAvviso(Const.LIRE);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        startAvviso(Const.EURO);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startChangePwd();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setStagioni();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (nuova_valuta != this_config.getValuta() && !first_start) {\r\n        msg = new AvvisoDialog(this, \"Attenzione: il cambio LIRA<->EURO effettuato alla conferma modifichera' le cifre della finestra corrente!\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAvviso(char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    CambioPassword cambio = new CambioPassword();\r\n    cambio.setVisible(true);\r\n    cambio.conf = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startChangePwd()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MessageDialog msg;\r\n    int j;\r\n    if (!errore()) {\r\n        char vecchia_valuta = this_config.getValuta();\r\n        readDatiConf();\r\n        this_config.setPassword(new_passwd);\r\n        this_config.setStagionalita(new_stag_anno_corr, new_stag_anno_prox);\r\n        if ((j = (db.writeConfigurazione(this_config))) != DataBase.OK) {\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else {\r\n            if (vecchia_valuta != this_config.getValuta() && !first_start) {\r\n                j = (Principale.db).startCambioValuta();\r\n                if (j != DataBase.OK) {\r\n                    msg = new MessageDialog(this, \"Errore con il database: \" + DataBase.strErrore(j));\r\n                    return;\r\n                }\r\n                this_config = (Principale.db).readConfigurazione();\r\n                Principale.config = this_config;\r\n            }\r\n            if (!(first_start)) {\r\n                padre.pass.p.setTitle(this_config.getNomeAlbergo());\r\n                padre.setEnabled(true);\r\n            } else {\r\n                Frame p = new Principale(this_config, db);\r\n                p.setVisible(true);\r\n            }\r\n            dispose();\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    def_stag = new DefinizioneStagionalita(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setStagioni()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!((licenza.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La licenza deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((albergo.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" Il nome dell'albergo deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((comune_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" Il comune deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((indirizzo_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" L'indirizzo deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((citta_alb.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" La citta' deve essere composta da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((rag_soc.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La ragione sociale deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(giorni_blocco.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di giorni di blocco deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(sup_bassissima.getText()) || !Utils.isFloatPos(sup_bassa.getText()) || !Utils.isFloatPos(sup_media.getText()) || !Utils.isFloatPos(sup_alta.getText()) || !Utils.isFloatPos(sup_neonato.getText()) || !Utils.isFloatPos(sup_letto_agg.getText()) || !Utils.isFloatPos(px_colazione.getText()) || !Utils.isFloatPos(px_mezza.getText()) || !Utils.isFloatPos(px_intera.getText())) {\r\n        msg = new MessageDialog(this, \" I supplementi devono essere numeri positivi! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(rid_bambino.getText()) || !Utils.isIntPos(rid_ragazzo.getText()) || !Utils.isIntPos(rid_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" deve essere un numero intero! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(min_pers_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di persone comitiva deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(num_max_stanze.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di stanze deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(coperto.getText())) {\r\n        msg = new MessageDialog(this, \" Il coperto deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(costo_x_scatto.getText())) {\r\n        msg = new MessageDialog(this, \" Il costo dello scatto telefonico deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(cambio.getText())) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    } else if (!((Float.valueOf(cambio.getText())).floatValue() > 0)) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean errore()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this_config.setLicenza(licenza.getText());\r\n    this_config.setNomeAlbergo(albergo.getText());\r\n    this_config.setComuneAlb(comune_alb.getText());\r\n    this_config.setIndirizzoAlb(indirizzo_alb.getText());\r\n    this_config.setCittaAlb(citta_alb.getText());\r\n    this_config.setRagSoc(rag_soc.getText());\r\n    this_config.setGiorniBlocco(Integer.parseInt(giorni_blocco.getText()));\r\n    this_config.setSupplemento((Float.valueOf(sup_bassissima.getText())).floatValue(), Flag.BASSISSIMA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_bassa.getText())).floatValue(), Flag.BASSA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_media.getText())).floatValue(), Flag.MEDIA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_alta.getText())).floatValue(), Flag.ALTA_STAGIONE);\r\n    this_config.setSupNeonato((Float.valueOf(sup_neonato.getText())).floatValue());\r\n    this_config.setSupLettoAgg((Float.valueOf(sup_letto_agg.getText())).floatValue());\r\n    this_config.setRiduzione(Integer.parseInt(rid_bambino.getText()), Flag.BAMBINO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_ragazzo.getText()), Flag.RAGAZZO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_comitiva.getText()), Flag.COMITIVA);\r\n    this_config.setMinPersComit(Integer.parseInt(min_pers_comitiva.getText()));\r\n    this_config.setNumStanze(Integer.parseInt(num_max_stanze.getText()));\r\n    this_config.setPxColazione((Float.valueOf(px_colazione.getText())).floatValue());\r\n    this_config.setPxMezza((Float.valueOf(px_mezza.getText())).floatValue());\r\n    this_config.setPxIntera((Float.valueOf(px_intera.getText())).floatValue());\r\n    this_config.setCoperto((Float.valueOf(coperto.getText())).floatValue());\r\n    this_config.setCostoXScatto((Float.valueOf(costo_x_scatto.getText())).floatValue());\r\n    this_config.setCoeffXCambio((Float.valueOf(cambio.getText())).floatValue());\r\n    if (checkboxes[0].getState())\r\n        this_config.setValuta(Const.LIRE);\r\n    else\r\n        this_config.setValuta(Const.EURO);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void readDatiConf()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    //String s = new String(Principale.simbol);\r\n    licenza.setText(\"\" + this_config.getLicenza());\r\n    albergo.setText(\"\" + this_config.getNomeAlbergo());\r\n    comune_alb.setText(\"\" + this_config.getComuneAlb());\r\n    indirizzo_alb.setText(\"\" + this_config.getIndirizzoAlb());\r\n    citta_alb.setText(\"\" + this_config.getCittaAlb());\r\n    rag_soc.setText(\"\" + this_config.getRagSoc());\r\n    giorni_blocco.setText(\"\" + this_config.getGiorniBlocco());\r\n    sup_bassissima.setText(\"\" + this_config.getSupplemento(Flag.BASSISSIMA_STAGIONE));\r\n    sup_bassa.setText(\"\" + this_config.getSupplemento(Flag.BASSA_STAGIONE));\r\n    sup_media.setText(\"\" + this_config.getSupplemento(Flag.MEDIA_STAGIONE));\r\n    sup_alta.setText(\"\" + this_config.getSupplemento(Flag.ALTA_STAGIONE));\r\n    sup_neonato.setText(\"\" + this_config.getSupNeonato());\r\n    sup_letto_agg.setText(\"\" + this_config.getSupLettoAgg());\r\n    rid_bambino.setText(\"\" + this_config.getRiduzione(Flag.BAMBINO));\r\n    rid_ragazzo.setText(\"\" + this_config.getRiduzione(Flag.RAGAZZO));\r\n    rid_comitiva.setText(\"\" + this_config.getRiduzione(Flag.COMITIVA));\r\n    min_pers_comitiva.setText(\"\" + this_config.getMinPersComit());\r\n    num_max_stanze.setText(\"\" + this_config.getNumStanze());\r\n    px_colazione.setText(\"\" + this_config.getPxColazione());\r\n    px_mezza.setText(\"\" + this_config.getPxMezza());\r\n    px_intera.setText(\"\" + this_config.getPxIntera());\r\n    coperto.setText(\"\" + this_config.getCoperto());\r\n    costo_x_scatto.setText(\"\" + this_config.getCostoXScatto());\r\n    cambio.setText(\"\" + this_config.getCoeffXCambio());\r\n    if (this_config.getValuta() == Const.LIRE)\r\n        checkbox.setSelectedCheckbox(checkboxes[0]);\r\n    else\r\n        checkbox.setSelectedCheckbox(checkboxes[1]);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void writeDatiConf()",
+                "comments": null,
+                "innerComments": "Optional[[//String s = new String(Principale.simbol);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo le etichette\r\n    label1 = new Label(\"Inserire vecchia password\");\r\n    label2 = new Label(\"Inserire nuova password\");\r\n    label3 = new Label(\"Reinserire la nuova password\");\r\n    //creo i textField\r\n    testo1 = new TextField(\"\", 20);\r\n    testo2 = new TextField(\"\", 20);\r\n    testo1.setEchoChar('*');\r\n    testo2.setEchoChar('*');\r\n    testo2.setEditable(false);\r\n    conferma = new Button(\"Conferma\");\r\n    cambio = new Button(\"Cambio di password\");\r\n    cambio.setEnabled(false);\r\n    annulla = new Button(\"Annulla\");\r\n    pannello = new Panel();\r\n    pannello.setLayout(grid);\r\n    Utils.constrain(pannello, label1, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo1, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, label2, 0, 1, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, conferma, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, cambio, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    pannello_x_annulla = new Panel();\r\n    pannello_x_annulla.setLayout(grid);\r\n    Utils.constrain(pannello_x_annulla, annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(grid);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 2, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, pannello_x_annulla, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo i textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            conf.setEnabled(true);\r\n        }\r\n    });\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    testo1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    cambio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n    testo2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo1.getText();\r\n    if (tmp.equals(ConfigurazioneSistema.new_passwd)) {\r\n        testo2.setEditable(true);\r\n        testo1.setEditable(false);\r\n        cambio.setEnabled(true);\r\n        conferma.setEnabled(false);\r\n    } else {\r\n        dialog = new MessageDialog(this, \"La password non e' corretta\");\r\n        dialog.setVisible(true);\r\n        testo1.setText(\"\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void g()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo2.getText();\r\n    Messaggio messaggio1 = new Messaggio(tmp);\r\n    messaggio1.setVisible(true);\r\n    messaggio1.c = this;\r\n    this.setEnabled(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void i()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo un pulsante\r\n    OK = new Button(\"OK\");\r\n    //creo un'etichetta\r\n    msg = new Label(\"Reinserire la nuova password\");\r\n    //creo un textField\r\n    testo3 = new TextField(\"\", 20);\r\n    testo3.setEchoChar('*');\r\n    pannello = new Panel();\r\n    pannello.setLayout(gridbag);\r\n    Utils.constrain(pannello, msg, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo3, 2, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, OK, 4, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": "Optional[[//creo un pulsante\r\n, //creo un'etichetta\r\n, //creo un textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n    testo3.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if ((testo3.getText()).equals(pwd_passata)) {\r\n        ConfigurazioneSistema.new_passwd = testo3.getText();\r\n        dialog = new Avviso(this, \"La password verra' cambiata alla conferma\");\r\n    } else\r\n        dialog = new Avviso(this, \"La nuova password non e' stata accettata\");\r\n    dialog.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startOK()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            esci();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    esci();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.dispose();\r\n    padre.c.dispose();\r\n    padre.c.conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void esci()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Configurazione di sistema\");\r\n    this_config = config;\r\n    db = archivio;\r\n    new_passwd = this_config.getPassword();\r\n    new_stag_anno_corr = this_config.getStagionalita(Const.ANNO_CORRENTE);\r\n    new_stag_anno_prox = this_config.getStagionalita(Const.ANNO_PROSSIMO);\r\n    first_start = prima_volta;\r\n    setupPanels(prima_volta);\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ConfigurazioneSistema(Configurazione, boolean, DataBase)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Cambio di password\");\r\n    setupPanels();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CambioPassword()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Messaggio per il cambio di password\");\r\n    setup();\r\n    pwd_passata = text;\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Messaggio(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Attenzione\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    Panel textPanel = new Panel();\r\n    Panel buttonPanel = new Panel();\r\n    textPanel.add(new Label(testo));\r\n    OK = new Button(\"OK\");\r\n    buttonPanel.add(OK);\r\n    add(\"North\", textPanel);\r\n    add(\"Center\", buttonPanel);\r\n    init();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Avviso(Messaggio, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "Messaggio",
+        "variables": [
+            "public  static  final Font font_base",
+            "public  static  final Font font_sub",
+            "public  static  final Font font_titolo",
+            "public  static  final Font font_allineato",
+            " TextField giorni_blocco",
+            " TextField sup_bassissima",
+            " TextField sup_bassa",
+            " TextField sup_media",
+            " TextField sup_alta",
+            " TextField sup_letto_agg",
+            " TextField costo_x_scatto",
+            " TextField sup_neonato",
+            " TextField rid_bambino",
+            " TextField rid_ragazzo",
+            " TextField rid_comitiva",
+            " TextField password",
+            " TextField num_max_stanze",
+            " TextField px_colazione",
+            " TextField px_mezza",
+            " TextField px_intera",
+            " TextField coperto",
+            " TextField min_pers_comitiva",
+            " TextField cambio",
+            " TextField albergo",
+            " TextField indirizzo_alb",
+            " TextField comune_alb",
+            " TextField citta_alb",
+            " TextField rag_soc",
+            " TextField licenza",
+            " Label cambio_L_E",
+            " Label etichetta",
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Label etich7",
+            " Label etich8",
+            " Label etich9",
+            " Label etich10",
+            " Label etich11",
+            " Label etich11_1",
+            " Label etich12",
+            " Label etich13",
+            " Label etich14",
+            " Label etich15",
+            " Label etich16",
+            " Label etich17",
+            " Label etich18",
+            " Label etich19",
+            " Label etich20",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Label etichetta3",
+            " Label etichetta4",
+            " Label etichetta5",
+            " Label etich21",
+            " Label etich22",
+            " Label etichetta6",
+            " Label etich23",
+            " Label etich24",
+            " Label etich25",
+            " Label etichetta7",
+            " Panel panel0",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " GridBagLayout gridbag",
+            " CheckboxGroup checkbox",
+            " Checkbox checkboxes",
+            " Button Annulla",
+            " Button Passwd",
+            " Button Conferma",
+            " Button Stagioni",
+            " DefinizioneStagionalita def_stag",
+            "static String new_passwd",
+            "static char new_stag_anno_corr",
+            "static char new_stag_anno_prox",
+            " SubGestione padre",
+            "static Configurazione this_config",
+            " DataBase db",
+            " boolean first_start",
+            " TextField testo1",
+            " TextField testo2",
+            " TextField testo3",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " GridBagLayout grid",
+            " Panel pannello",
+            " Panel pannello_x_annulla",
+            " Frame conf",
+            " Button conferma",
+            " Button cambio",
+            " Button annulla",
+            " MessageDialog dialog",
+            " Label msg",
+            " Button OK",
+            " CambioPassword c",
+            " Avviso dialog",
+            " GridBagLayout gridbag",
+            " TextField testo3",
+            " Panel pannello",
+            " String pwd_passata",
+            " Button OK",
+            " Messaggio padre"
+        ]
+    },
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    this.setFont(font_base);\r\n    //creo le etichette\r\n    cambio_L_E = new Label(\"Cambio Lira <-> EURO\");\r\n    etichetta = new Label(\"Licenza:\");\r\n    etichetta.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta1 = new Label(\"DATI DI CONFIGURAZIONE\");\r\n    etichetta1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta2 = new Label(\"Supplementi dovuto alle stagionionalita'\");\r\n    etichetta2.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta3 = new Label(\"Riduzioni\");\r\n    etichetta3.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta4 = new Label(\"Ristorazione\");\r\n    etichetta4.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta5 = new Label(\"Valuta\");\r\n    etichetta5.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta6 = new Label(\"Cambio di password utente\");\r\n    etichetta6.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etichetta7 = new Label(\"Definizione delle stagionalita'\");\r\n    etichetta7.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    licenza = new TextField(\"\", 35);\r\n    albergo = new TextField(\"\", 25);\r\n    comune_alb = new TextField(\"\", 35);\r\n    citta_alb = new TextField(\"\", 25);\r\n    indirizzo_alb = new TextField(\"\", 35);\r\n    rag_soc = new TextField(\"\", 35);\r\n    giorni_blocco = new TextField(\"\", 4);\r\n    sup_bassissima = new TextField(\"\", 9);\r\n    sup_bassa = new TextField(\"\", 9);\r\n    sup_media = new TextField(\"\", 9);\r\n    sup_alta = new TextField(\"\", 9);\r\n    sup_neonato = new TextField(\"\", 9);\r\n    sup_letto_agg = new TextField(\"\", 9);\r\n    rid_bambino = new TextField(\"\", 4);\r\n    rid_ragazzo = new TextField(\"\", 4);\r\n    rid_comitiva = new TextField(\"\", 4);\r\n    min_pers_comitiva = new TextField(\"\", 4);\r\n    num_max_stanze = new TextField(\"\", 4);\r\n    num_max_stanze.setEditable(false);\r\n    px_colazione = new TextField(\"\", 9);\r\n    px_mezza = new TextField(\"\", 9);\r\n    px_intera = new TextField(\"\", 9);\r\n    coperto = new TextField(\"\", 9);\r\n    costo_x_scatto = new TextField(\"\", 9);\r\n    password = new TextField(\"\", 20);\r\n    cambio = new TextField(\"\", 8);\r\n    //creo un Checkbox\r\n    checkbox = new CheckboxGroup();\r\n    checkboxes = new Checkbox[2];\r\n    checkboxes[0] = new Checkbox(\" Lire\", checkbox, true);\r\n    checkboxes[1] = new Checkbox(\" EURO\", checkbox, false);\r\n    writeDatiConf();\r\n    if (prima_volta)\r\n        licenza.setEditable(true);\r\n    else\r\n        licenza.setEditable(false);\r\n    licenza.setForeground(Color.red.darker());\r\n    albergo.setForeground(Color.blue);\r\n    comune_alb.setForeground(Color.blue);\r\n    citta_alb.setForeground(Color.blue);\r\n    rag_soc.setForeground(Color.blue);\r\n    password.setEchoChar('*');\r\n    etich1 = new Label(\"Dati dell'albergo\");\r\n    etich1.setFont(new Font(\"Courier\", Font.BOLD, 12));\r\n    etich2 = new Label(\"Nome dell'albergo:\");\r\n    etich3 = new Label(\"Indirizzo dell'albergo:\");\r\n    indirizzo_alb.setForeground(Color.blue);\r\n    etich4 = new Label(\"Comune dell'albergo:\");\r\n    etich5 = new Label(\"Citta' dell'albergo:\");\r\n    etich6 = new Label(\"Numero di giorni massimo di bloccaggio di una stanza\");\r\n    etich7 = new Label(\"Supplemento bassisima stagione\");\r\n    etich8 = new Label(\"Supplemento bassa stagione\");\r\n    etich9 = new Label(\"Supplemento media stagione\");\r\n    etich10 = new Label(\"Supplemento alta stagione\");\r\n    etich11 = new Label(\"Supplemento per neonati\");\r\n    etich11_1 = new Label(\"Supplemento letto aggiuntivo\");\r\n    etich12 = new Label(\"Riduzione per bambini %\");\r\n    etich13 = new Label(\"Riduzione per ragazzi %\");\r\n    etich14 = new Label(\"Riduzione per comitive %\");\r\n    etich15 = new Label(\"Numero minimo di persone per comitiva\");\r\n    etich16 = new Label(\"Numero di stanze\");\r\n    etich17 = new Label(\"Supplemento prima colazione\");\r\n    etich18 = new Label(\"Supplemento mezza pensione\");\r\n    etich19 = new Label(\"Supplemento pensione completa\");\r\n    etich20 = new Label(\"Coperto per la ristorazione\");\r\n    etich21 = new Label(\"Costo di uno scatto telefonico\");\r\n    etich22 = new Label(\"Password utente\");\r\n    etich23 = new Label(\"Lire\");\r\n    etich24 = new Label(\"Dollari\");\r\n    etich25 = new Label(\"Ragione sociale\");\r\n    //creo i pulsanti\r\n    Annulla = new Button(\"Annulla\");\r\n    Passwd = new Button(\"Cambio di password\");\r\n    Conferma = new Button(\"Conferma\");\r\n    Stagioni = new Button(\"Definisci Stagionalita'\");\r\n    panel0 = new Panel();\r\n    panel0.setLayout(gridbag);\r\n    Utils.constrain(panel0, etichetta, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, licenza, 1, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n    Utils.constrain(panel0, etich2, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, albergo, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich3, 2, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, indirizzo_alb, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich4, 0, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, comune_alb, 1, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich5, 2, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, citta_alb, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, etich25, 0, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel0, rag_soc, 1, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etichetta1, 0, 0, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich6, 0, 1, 5, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, giorni_blocco, 5, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etich21, 7, 1, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, costo_x_scatto, 10, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 0, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta2, 0, 2, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta3, 5, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etichetta4, 8, 2, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    // supplementi\r\n    Utils.constrain(panel1, etich7, 0, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassissima, 3, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich8, 0, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_bassa, 3, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich9, 0, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_media, 3, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich10, 0, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_alta, 3, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11, 0, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_neonato, 3, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich11_1, 0, 8, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, sup_letto_agg, 3, 8, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // riduzioni\r\n    Utils.constrain(panel1, etich12, 4, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_bambino, 7, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich13, 4, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_ragazzo, 7, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich14, 4, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, rid_comitiva, 7, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich15, 4, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, min_pers_comitiva, 7, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // ristorazione\r\n    Utils.constrain(panel1, etich17, 8, 3, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_colazione, 11, 3, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich18, 8, 4, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_mezza, 11, 4, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich19, 8, 5, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, px_intera, 11, 5, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich20, 8, 6, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, coperto, 11, 6, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio_L_E, 5, 7, 3, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, cambio, 7, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, etich16, 9, 7, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel1, num_max_stanze, 11, 7, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel2 = new Panel();\r\n    panel2.setLayout(gridbag);\r\n    Utils.constrain(panel2, etichetta5, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[0], 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel2, checkboxes[1], 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    panel3 = new Panel();\r\n    panel3.setLayout(gridbag);\r\n    Utils.constrain(panel3, etichetta6, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Passwd, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, etichetta7, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel3, Stagioni, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, Annulla, 8, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(panel4, Conferma, 9, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTH, 0.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, panel0, 0, 0, 12, 6, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel1, 0, 6, 12, 9, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel2, 0, 15, 1, 3, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel3, 1, 15, 11, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 19, 12, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": "public void setupPanels(boolean)",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo un Checkbox\r\n, //creo i pulsanti\r\n, // supplementi\r\n, // riduzioni\r\n, // ristorazione\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if (!first_start)\r\n                padre.setEnabled(true);\r\n            else\r\n                System.exit(0);\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                startAvviso(Const.LIRE);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                startAvviso(Const.EURO);\r\n            }\r\n        }\r\n    });\r\n    Passwd.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startChangePwd();\r\n        }\r\n    });\r\n    Stagioni.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            setStagioni();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    if (!first_start)\r\n        padre.setEnabled(true);\r\n    else\r\n        System.exit(0);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startConferma();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        startAvviso(Const.LIRE);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        startAvviso(Const.EURO);\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void itemStateChanged(ItemEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startChangePwd();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    setStagioni();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (nuova_valuta != this_config.getValuta() && !first_start) {\r\n        msg = new AvvisoDialog(this, \"Attenzione: il cambio LIRA<->EURO effettuato alla conferma modifichera' le cifre della finestra corrente!\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAvviso(char)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setEnabled(false);\r\n    CambioPassword cambio = new CambioPassword();\r\n    cambio.setVisible(true);\r\n    cambio.conf = this;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startChangePwd()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MessageDialog msg;\r\n    int j;\r\n    if (!errore()) {\r\n        char vecchia_valuta = this_config.getValuta();\r\n        readDatiConf();\r\n        this_config.setPassword(new_passwd);\r\n        this_config.setStagionalita(new_stag_anno_corr, new_stag_anno_prox);\r\n        if ((j = (db.writeConfigurazione(this_config))) != DataBase.OK) {\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else {\r\n            if (vecchia_valuta != this_config.getValuta() && !first_start) {\r\n                j = (Principale.db).startCambioValuta();\r\n                if (j != DataBase.OK) {\r\n                    msg = new MessageDialog(this, \"Errore con il database: \" + DataBase.strErrore(j));\r\n                    return;\r\n                }\r\n                this_config = (Principale.db).readConfigurazione();\r\n                Principale.config = this_config;\r\n            }\r\n            if (!(first_start)) {\r\n                padre.pass.p.setTitle(this_config.getNomeAlbergo());\r\n                padre.setEnabled(true);\r\n            } else {\r\n                Frame p = new Principale(this_config, db);\r\n                p.setVisible(true);\r\n            }\r\n            dispose();\r\n        }\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startConferma()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    def_stag = new DefinizioneStagionalita(this);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void setStagioni()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!((licenza.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La licenza deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((albergo.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" Il nome dell'albergo deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((comune_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" Il comune deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((indirizzo_alb.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" L'indirizzo deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((citta_alb.getText()).length() < 21)) {\r\n        msg = new MessageDialog(this, \" La citta' deve essere composta da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((rag_soc.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La ragione sociale deve essere composta da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(giorni_blocco.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di giorni di blocco deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(sup_bassissima.getText()) || !Utils.isFloatPos(sup_bassa.getText()) || !Utils.isFloatPos(sup_media.getText()) || !Utils.isFloatPos(sup_alta.getText()) || !Utils.isFloatPos(sup_neonato.getText()) || !Utils.isFloatPos(sup_letto_agg.getText()) || !Utils.isFloatPos(px_colazione.getText()) || !Utils.isFloatPos(px_mezza.getText()) || !Utils.isFloatPos(px_intera.getText())) {\r\n        msg = new MessageDialog(this, \" I supplementi devono essere numeri positivi! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(rid_bambino.getText()) || !Utils.isIntPos(rid_ragazzo.getText()) || !Utils.isIntPos(rid_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" deve essere un numero intero! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(min_pers_comitiva.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di persone comitiva deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(num_max_stanze.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di stanze deve essere un numero intero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(coperto.getText())) {\r\n        msg = new MessageDialog(this, \" Il coperto deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(costo_x_scatto.getText())) {\r\n        msg = new MessageDialog(this, \" Il costo dello scatto telefonico deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(cambio.getText())) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    } else if (!((Float.valueOf(cambio.getText())).floatValue() > 0)) {\r\n        msg = new MessageDialog(this, \" Il coefficiente di cambio LIRE<->EURO deve essere un numero positivo e diverso da zero! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " boolean errore()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this_config.setLicenza(licenza.getText());\r\n    this_config.setNomeAlbergo(albergo.getText());\r\n    this_config.setComuneAlb(comune_alb.getText());\r\n    this_config.setIndirizzoAlb(indirizzo_alb.getText());\r\n    this_config.setCittaAlb(citta_alb.getText());\r\n    this_config.setRagSoc(rag_soc.getText());\r\n    this_config.setGiorniBlocco(Integer.parseInt(giorni_blocco.getText()));\r\n    this_config.setSupplemento((Float.valueOf(sup_bassissima.getText())).floatValue(), Flag.BASSISSIMA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_bassa.getText())).floatValue(), Flag.BASSA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_media.getText())).floatValue(), Flag.MEDIA_STAGIONE);\r\n    this_config.setSupplemento((Float.valueOf(sup_alta.getText())).floatValue(), Flag.ALTA_STAGIONE);\r\n    this_config.setSupNeonato((Float.valueOf(sup_neonato.getText())).floatValue());\r\n    this_config.setSupLettoAgg((Float.valueOf(sup_letto_agg.getText())).floatValue());\r\n    this_config.setRiduzione(Integer.parseInt(rid_bambino.getText()), Flag.BAMBINO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_ragazzo.getText()), Flag.RAGAZZO);\r\n    this_config.setRiduzione(Integer.parseInt(rid_comitiva.getText()), Flag.COMITIVA);\r\n    this_config.setMinPersComit(Integer.parseInt(min_pers_comitiva.getText()));\r\n    this_config.setNumStanze(Integer.parseInt(num_max_stanze.getText()));\r\n    this_config.setPxColazione((Float.valueOf(px_colazione.getText())).floatValue());\r\n    this_config.setPxMezza((Float.valueOf(px_mezza.getText())).floatValue());\r\n    this_config.setPxIntera((Float.valueOf(px_intera.getText())).floatValue());\r\n    this_config.setCoperto((Float.valueOf(coperto.getText())).floatValue());\r\n    this_config.setCostoXScatto((Float.valueOf(costo_x_scatto.getText())).floatValue());\r\n    this_config.setCoeffXCambio((Float.valueOf(cambio.getText())).floatValue());\r\n    if (checkboxes[0].getState())\r\n        this_config.setValuta(Const.LIRE);\r\n    else\r\n        this_config.setValuta(Const.EURO);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void readDatiConf()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    //String s = new String(Principale.simbol);\r\n    licenza.setText(\"\" + this_config.getLicenza());\r\n    albergo.setText(\"\" + this_config.getNomeAlbergo());\r\n    comune_alb.setText(\"\" + this_config.getComuneAlb());\r\n    indirizzo_alb.setText(\"\" + this_config.getIndirizzoAlb());\r\n    citta_alb.setText(\"\" + this_config.getCittaAlb());\r\n    rag_soc.setText(\"\" + this_config.getRagSoc());\r\n    giorni_blocco.setText(\"\" + this_config.getGiorniBlocco());\r\n    sup_bassissima.setText(\"\" + this_config.getSupplemento(Flag.BASSISSIMA_STAGIONE));\r\n    sup_bassa.setText(\"\" + this_config.getSupplemento(Flag.BASSA_STAGIONE));\r\n    sup_media.setText(\"\" + this_config.getSupplemento(Flag.MEDIA_STAGIONE));\r\n    sup_alta.setText(\"\" + this_config.getSupplemento(Flag.ALTA_STAGIONE));\r\n    sup_neonato.setText(\"\" + this_config.getSupNeonato());\r\n    sup_letto_agg.setText(\"\" + this_config.getSupLettoAgg());\r\n    rid_bambino.setText(\"\" + this_config.getRiduzione(Flag.BAMBINO));\r\n    rid_ragazzo.setText(\"\" + this_config.getRiduzione(Flag.RAGAZZO));\r\n    rid_comitiva.setText(\"\" + this_config.getRiduzione(Flag.COMITIVA));\r\n    min_pers_comitiva.setText(\"\" + this_config.getMinPersComit());\r\n    num_max_stanze.setText(\"\" + this_config.getNumStanze());\r\n    px_colazione.setText(\"\" + this_config.getPxColazione());\r\n    px_mezza.setText(\"\" + this_config.getPxMezza());\r\n    px_intera.setText(\"\" + this_config.getPxIntera());\r\n    coperto.setText(\"\" + this_config.getCoperto());\r\n    costo_x_scatto.setText(\"\" + this_config.getCostoXScatto());\r\n    cambio.setText(\"\" + this_config.getCoeffXCambio());\r\n    if (this_config.getValuta() == Const.LIRE)\r\n        checkbox.setSelectedCheckbox(checkboxes[0]);\r\n    else\r\n        checkbox.setSelectedCheckbox(checkboxes[1]);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void writeDatiConf()",
+                "comments": null,
+                "innerComments": "Optional[[//String s = new String(Principale.simbol);\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo le etichette\r\n    label1 = new Label(\"Inserire vecchia password\");\r\n    label2 = new Label(\"Inserire nuova password\");\r\n    label3 = new Label(\"Reinserire la nuova password\");\r\n    //creo i textField\r\n    testo1 = new TextField(\"\", 20);\r\n    testo2 = new TextField(\"\", 20);\r\n    testo1.setEchoChar('*');\r\n    testo2.setEchoChar('*');\r\n    testo2.setEditable(false);\r\n    conferma = new Button(\"Conferma\");\r\n    cambio = new Button(\"Cambio di password\");\r\n    cambio.setEnabled(false);\r\n    annulla = new Button(\"Annulla\");\r\n    pannello = new Panel();\r\n    pannello.setLayout(grid);\r\n    Utils.constrain(pannello, label1, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo1, 2, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, label2, 0, 1, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo2, 2, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, conferma, 3, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, cambio, 3, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    pannello_x_annulla = new Panel();\r\n    pannello_x_annulla.setLayout(grid);\r\n    Utils.constrain(pannello_x_annulla, annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(grid);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 2, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(this, pannello_x_annulla, 0, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setupPanels()",
+                "comments": null,
+                "innerComments": "Optional[[//creo le etichette\r\n, //creo i textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            conf.setEnabled(true);\r\n        }\r\n    });\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    testo1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            g();\r\n        }\r\n    });\r\n    cambio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n    testo2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            i();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    g();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    i();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo1.getText();\r\n    if (tmp.equals(ConfigurazioneSistema.new_passwd)) {\r\n        testo2.setEditable(true);\r\n        testo1.setEditable(false);\r\n        cambio.setEnabled(true);\r\n        conferma.setEnabled(false);\r\n    } else {\r\n        dialog = new MessageDialog(this, \"La password non e' corretta\");\r\n        dialog.setVisible(true);\r\n        testo1.setText(\"\");\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void g()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String tmp = testo2.getText();\r\n    Messaggio messaggio1 = new Messaggio(tmp);\r\n    messaggio1.setVisible(true);\r\n    messaggio1.c = this;\r\n    this.setEnabled(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void i()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.setFont(ConfigurazioneSistema.font_base);\r\n    //creo un pulsante\r\n    OK = new Button(\"OK\");\r\n    //creo un'etichetta\r\n    msg = new Label(\"Reinserire la nuova password\");\r\n    //creo un textField\r\n    testo3 = new TextField(\"\", 20);\r\n    testo3.setEchoChar('*');\r\n    pannello = new Panel();\r\n    pannello.setLayout(gridbag);\r\n    Utils.constrain(pannello, msg, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, testo3, 2, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    Utils.constrain(pannello, OK, 4, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    this.setLayout(gridbag);\r\n    Utils.constrain(this, pannello, 0, 0, 4, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 1.0, 0.0, 5, 5, 5, 5);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": true,
+                "signature": " void setup()",
+                "comments": null,
+                "innerComments": "Optional[[//creo un pulsante\r\n, //creo un'etichetta\r\n, //creo un textField\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n    testo3.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startOK();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startOK();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if ((testo3.getText()).equals(pwd_passata)) {\r\n        ConfigurazioneSistema.new_passwd = testo3.getText();\r\n        dialog = new Avviso(this, \"La password verra' cambiata alla conferma\");\r\n    } else\r\n        dialog = new Avviso(this, \"La nuova password non e' stata accettata\");\r\n    dialog.setVisible(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startOK()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            esci();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    esci();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    dispose();\r\n    padre.dispose();\r\n    padre.c.dispose();\r\n    padre.c.conf.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void esci()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Configurazione di sistema\");\r\n    this_config = config;\r\n    db = archivio;\r\n    new_passwd = this_config.getPassword();\r\n    new_stag_anno_corr = this_config.getStagionalita(Const.ANNO_CORRENTE);\r\n    new_stag_anno_prox = this_config.getStagionalita(Const.ANNO_PROSSIMO);\r\n    first_start = prima_volta;\r\n    setupPanels(prima_volta);\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ConfigurazioneSistema(Configurazione, boolean, DataBase)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Cambio di password\");\r\n    setupPanels();\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public CambioPassword()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Messaggio per il cambio di password\");\r\n    setup();\r\n    pwd_passata = text;\r\n    init();\r\n    pack();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Messaggio(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    super(\"Attenzione\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    Panel textPanel = new Panel();\r\n    Panel buttonPanel = new Panel();\r\n    textPanel.add(new Label(testo));\r\n    OK = new Button(\"OK\");\r\n    buttonPanel.add(OK);\r\n    add(\"North\", textPanel);\r\n    add(\"Center\", buttonPanel);\r\n    init();\r\n    pack();\r\n    setVisible(true);\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Avviso(Messaggio, String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "Avviso",
+        "variables": [
+            "public  static  final Font font_base",
+            "public  static  final Font font_sub",
+            "public  static  final Font font_titolo",
+            "public  static  final Font font_allineato",
+            " TextField giorni_blocco",
+            " TextField sup_bassissima",
+            " TextField sup_bassa",
+            " TextField sup_media",
+            " TextField sup_alta",
+            " TextField sup_letto_agg",
+            " TextField costo_x_scatto",
+            " TextField sup_neonato",
+            " TextField rid_bambino",
+            " TextField rid_ragazzo",
+            " TextField rid_comitiva",
+            " TextField password",
+            " TextField num_max_stanze",
+            " TextField px_colazione",
+            " TextField px_mezza",
+            " TextField px_intera",
+            " TextField coperto",
+            " TextField min_pers_comitiva",
+            " TextField cambio",
+            " TextField albergo",
+            " TextField indirizzo_alb",
+            " TextField comune_alb",
+            " TextField citta_alb",
+            " TextField rag_soc",
+            " TextField licenza",
+            " Label cambio_L_E",
+            " Label etichetta",
+            " Label etich1",
+            " Label etich2",
+            " Label etich3",
+            " Label etich4",
+            " Label etich5",
+            " Label etich6",
+            " Label etich7",
+            " Label etich8",
+            " Label etich9",
+            " Label etich10",
+            " Label etich11",
+            " Label etich11_1",
+            " Label etich12",
+            " Label etich13",
+            " Label etich14",
+            " Label etich15",
+            " Label etich16",
+            " Label etich17",
+            " Label etich18",
+            " Label etich19",
+            " Label etich20",
+            " Label etichetta1",
+            " Label etichetta2",
+            " Label etichetta3",
+            " Label etichetta4",
+            " Label etichetta5",
+            " Label etich21",
+            " Label etich22",
+            " Label etichetta6",
+            " Label etich23",
+            " Label etich24",
+            " Label etich25",
+            " Label etichetta7",
+            " Panel panel0",
+            " Panel panel1",
+            " Panel panel2",
+            " Panel panel3",
+            " Panel panel4",
+            " GridBagLayout gridbag",
+            " CheckboxGroup checkbox",
+            " Checkbox checkboxes",
+            " Button Annulla",
+            " Button Passwd",
+            " Button Conferma",
+            " Button Stagioni",
+            " DefinizioneStagionalita def_stag",
+            "static String new_passwd",
+            "static char new_stag_anno_corr",
+            "static char new_stag_anno_prox",
+            " SubGestione padre",
+            "static Configurazione this_config",
+            " DataBase db",
+            " boolean first_start",
+            " TextField testo1",
+            " TextField testo2",
+            " TextField testo3",
+            " Label label1",
+            " Label label2",
+            " Label label3",
+            " GridBagLayout grid",
+            " Panel pannello",
+            " Panel pannello_x_annulla",
+            " Frame conf",
+            " Button conferma",
+            " Button cambio",
+            " Button annulla",
+            " MessageDialog dialog",
+            " Label msg",
+            " Button OK",
+            " CambioPassword c",
+            " Avviso dialog",
+            " GridBagLayout gridbag",
+            " TextField testo3",
+            " Panel pannello",
+            " String pwd_passata",
+            " Button OK",
+            " Messaggio padre"
+        ]
+    }
+]

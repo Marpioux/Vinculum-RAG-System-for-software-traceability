@@ -1,0 +1,103 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        JspWriter out = pageContext.getOut();\r\n        out.write(\"<select name=\\\"\" + getName() + \"\\\" >\");\r\n        if (name == null || \"\".equals(name))\r\n            out.write(\"<option value=\\\"\\\">Select State</option>\");\r\n        for (State state : State.values()) {\r\n            String selected = state.toString().equals(getValue()) ? \"selected=selected\" : \"\";\r\n            out.write(\"<option value=\\\"\" + state.toString() + \"\\\" \" + selected + \">\" + state.getName() + \"</option>\");\r\n        }\r\n        out.write(\"</select>\");\r\n    } catch (IOException e) {\r\n        e.printStackTrace();\r\n    }\r\n    return SKIP_BODY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int doStartTag()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return SKIP_BODY;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int doEndTag()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void release()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.pageContext = pageContext;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPageContext(PageContext)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.parent = parent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setParent(Tag)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return parent;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Tag getParent()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.name = name;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return value;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getValue()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.value = value;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setValue(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public StateSelect()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "StateSelect",
+        "variables": [
+            "private PageContext pageContext",
+            "private Tag parent",
+            "private String name",
+            "private String value"
+        ]
+    }
+]

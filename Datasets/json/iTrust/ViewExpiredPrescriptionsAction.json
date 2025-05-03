@@ -1,0 +1,56 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return patientDAO.getPatient(patientID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PatientBean getPatient(long)",
+                "comments": "Optional[/**\r\n * Gets a PatientBean from an MID\r\n *\r\n * @param patientID MID of the patient\r\n * @return PatientBean for the MID given\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientDAO.getRepresented(loggedInMID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> getRepresentees()",
+                "comments": "Optional[/**\r\n * Gets the logged in person's representees\r\n *\r\n * @return list of PatientBeans holding the representees\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return personnelDAO.getPrescribingDoctor(prescription);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PersonnelBean getPrescribingDoctor(PrescriptionBean)",
+                "comments": "Optional[/**\r\n * Returns the prescribing HCP for a prescription\r\n *\r\n * @param prescription item in question\r\n * @return HCP who prescribed the prescription\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    PatientBean patient = patientDAO.getPatient(patientID);\r\n    if (loggedInMID == patientID) {\r\n        transDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n        return patientDAO.getExpiredPrescriptions(patientID);\r\n    }\r\n    List<String> toList = new ArrayList<String>();\r\n    toList.add(patient.getEmail());\r\n    List<PatientBean> representatives = patientDAO.getRepresenting(patientID);\r\n    for (PatientBean representative : representatives) {\r\n        if (loggedInMID == representative.getMID()) {\r\n            transDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n            return patientDAO.getExpiredPrescriptions(patientID);\r\n        }\r\n        toList.add(representative.getEmail());\r\n    }\r\n    List<PersonnelBean> dlhcps = patientDAO.getDeclaredHCPs(patientID);\r\n    for (PersonnelBean dlhcp : dlhcps) {\r\n        if (loggedInMID == dlhcp.getMID()) {\r\n            transDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n            return patientDAO.getExpiredPrescriptions(patientID);\r\n        }\r\n        List<PersonnelBean> uaps = personnelDAO.getUAPsForHCP(dlhcp.getMID());\r\n        for (PersonnelBean uap : uaps) {\r\n            if (loggedInMID == uap.getMID()) {\r\n                transDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n                return patientDAO.getPrescriptions(patientID);\r\n            }\r\n        }\r\n    }\r\n    Email email = new Email();\r\n    email.setToList(toList);\r\n    email.setFrom(\"noreply@itrust.com\");\r\n    email.setSubject(\"Undesignated Personnel Have Accessed Your Prescription Records\");\r\n    email.setBody(\"An undesignated HCP or UAP has accessed your prescription records. For more information, please log in to iTrust.\");\r\n    emailer.sendEmail(email);\r\n    transDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID);\r\n    return patientDAO.getPrescriptions(patientID);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getPrescriptionsForPatient(long)",
+                "comments": "Optional[/**\r\n * Returns all the prescriptions for a given patient\r\n *\r\n * @param patientID patient in question\r\n * @return list of all the prescriptions for that patient\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.emailer = new EmailUtil(factory);\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewExpiredPrescriptionsAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the expired prescriptions.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewExpiredPrescriptionsAction",
+        "variables": [
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO",
+            "private TransactionDAO transDAO",
+            "private EmailUtil emailer",
+            "private long loggedInMID"
+        ]
+    }
+]

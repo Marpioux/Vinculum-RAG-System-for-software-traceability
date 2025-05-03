@@ -1,0 +1,47 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return patientDAO.getRepresented(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PatientBean> getRepresented(long)",
+                "comments": "Optional[/**\r\n * Return a list of patients that pid represents\r\n *\r\n * @param pid The id of the personnel we are looking up representees for.\r\n * @return a list of PatientBeans\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long representee = Long.valueOf(pidString);\r\n        if (authDAO.getUserRole(representee) != Role.PATIENT)\r\n            throw new iTrustException(\"This user is not a patient!\");\r\n        else if (super.pid == representee)\r\n            throw new iTrustException(\"This user cannot represent themselves.\");\r\n        boolean confirm = patientDAO.addRepresentative(pid, representee);\r\n        if (confirm) {\r\n            transDAO.logTransaction(TransactionType.DECLARE_REPRESENTATIVE, loggedInMID, pid, \"patient \" + pid + \" now represents patient \" + representee);\r\n            return \"Patient represented\";\r\n        } else\r\n            return \"No change made\";\r\n    } catch (NumberFormatException e) {\r\n        return \"MID not a number\";\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String addRepresentative(String)",
+                "comments": "Optional[/**\r\n * Makes the patient (pid) represent the input mid parameter\r\n *\r\n * @param pidString\r\n *            the mid of the person who will be represented (the representee)\r\n * @return a message\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        long representee = Long.valueOf(input);\r\n        boolean confirm = patientDAO.removeRepresentative(pid, representee);\r\n        if (confirm) {\r\n            transDAO.logTransaction(TransactionType.DECLARE_REPRESENTATIVE, loggedInMID, pid, \"patient \" + pid + \" no longer represents patient \" + representee);\r\n            return \"Patient represented\";\r\n        } else\r\n            return \"No change made\";\r\n    } catch (NumberFormatException e) {\r\n        return \"MID not a number\";\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String removeRepresentative(String)",
+                "comments": "Optional[/**\r\n * Makes the patient (pid) no longer represent the input mid param\r\n *\r\n * @param input\r\n *            the mid of the person be represented (representee)\r\n * @return a message\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(factory, pidString);\r\n    this.loggedInMID = loggedInMID;\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.authDAO = factory.getAuthDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public EditRepresentativesAction(DAOFactory, long, String)",
+                "comments": "Optional[/**\r\n * Super class validates the patient mid\r\n *\r\n * @param factory The DAOFactory used in creating the DAOs for this action.\r\n * @param loggedInMID The MID of the patient editing his/her representatives.\r\n * @param pidString The MID of the representative in question.\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "EditRepresentativesAction",
+        "variables": [
+            "private PatientDAO patientDAO",
+            "private TransactionDAO transDAO",
+            "private AuthDAO authDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

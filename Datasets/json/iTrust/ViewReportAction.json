@@ -1,0 +1,61 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return patientDAO.getDiagnoses(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<DiagnosisBean> getDiagnoses(long)",
+                "comments": "Optional[/**\r\n *  Get diagnosis list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of diagnoses\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientDAO.getProcedures(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<ProcedureBean> getProcedures(long)",
+                "comments": "Optional[/**\r\n *  Get procedure list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of procedures\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientDAO.getCurrentPrescriptions(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PrescriptionBean> getPrescriptions(long)",
+                "comments": "Optional[/**\r\n *  Get prescription list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of prescriptions\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientDAO.getDeclaredHCPs(pid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<PersonnelBean> getDeclaredHCPs(long)",
+                "comments": "Optional[/**\r\n *  Get declared HCPs list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of declared HCPs\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return personnelDAO.getPersonnel(mid);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public PersonnelBean getPersonnel(long)",
+                "comments": "Optional[/**\r\n * Returns a PersonnelBean when given an MID\r\n * @param mid HCP of interest\r\n * @return PersonnelBean of the given HCP\r\n * @throws iTrustException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    patientDAO = factory.getPatientDAO();\r\n    personnelDAO = factory.getPersonnelDAO();\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewReportAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the report.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewReportAction",
+        "variables": [
+            "private PatientDAO patientDAO",
+            "private PersonnelDAO personnelDAO"
+        ]
+    }
+]

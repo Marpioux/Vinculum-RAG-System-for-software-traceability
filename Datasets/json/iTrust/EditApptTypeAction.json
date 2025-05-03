@@ -1,0 +1,55 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return apptTypeDAO.getApptTypes();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ApptTypeBean> getApptTypes()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(apptType);\r\n    List<ApptTypeBean> list = this.getApptTypes();\r\n    for (ApptTypeBean a : list) {\r\n        if (a.getName().equals(apptType.getName()))\r\n            return \"Appointment Type: \" + apptType.getName() + \" already exists.\";\r\n    }\r\n    try {\r\n        if (apptTypeDAO.addApptType(apptType)) {\r\n            transDAO.logTransaction(TransactionType.ADD_APPT_TYPE, loggedInMID, 0L, \"Added Appointment Type \" + apptType.getName());\r\n            return \"Success: \" + apptType.getName() + \" - Duration: \" + apptType.getDuration() + \" added\";\r\n        } else\r\n            return \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String addApptType(ApptTypeBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    validator.validate(apptType);\r\n    List<ApptTypeBean> list = this.getApptTypes();\r\n    int flag = 0;\r\n    for (ApptTypeBean a : list) {\r\n        if (a.getName().equals(apptType.getName())) {\r\n            flag = 1;\r\n            if (a.getDuration() == apptType.getDuration())\r\n                return \"Appointment Type: \" + apptType.getName() + \" already has a duration of \" + apptType.getDuration() + \" minutes.\";\r\n            break;\r\n        }\r\n    }\r\n    if (flag == 0) {\r\n        return \"Appointment Type: \" + apptType.getName() + \" you are trying to update does not exist.\";\r\n    }\r\n    try {\r\n        if (apptTypeDAO.editApptType(apptType)) {\r\n            transDAO.logTransaction(TransactionType.UPDATE_APPT_TYPE, loggedInMID, 0L, \"Updated Appointment Type \" + apptType.getName());\r\n            return \"Success: \" + apptType.getName() + \" - Duration: \" + apptType.getDuration() + \" updated\";\r\n        } else\r\n            return \"The database has become corrupt. Please contact the system administrator for assistance.\";\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String editApptType(ApptTypeBean)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    List<ApptTypeBean> list = this.getApptTypes();\r\n    for (ApptTypeBean a : list) {\r\n        if (a.getName().equals(at))\r\n            return a.getDuration();\r\n    }\r\n    return 0;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getDurationByType(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.loggedInMID = loggedInMID;\r\n    this.apptTypeDAO = factory.getApptTypeDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public EditApptTypeAction(DAOFactory, long)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "EditApptTypeAction",
+        "variables": [
+            "private long loggedInMID",
+            "private ApptTypeDAO apptTypeDAO",
+            "private TransactionDAO transDAO",
+            "private ApptTypeBeanValidator validator"
+        ]
+    }
+]

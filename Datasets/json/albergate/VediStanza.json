@@ -1,0 +1,50 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    testo1.setEditable(true);\r\n    testo2.setEditable(false);\r\n    testo3.setEditable(false);\r\n    testo4.setEditable(false);\r\n    mycheckboxes.setEnabled(false);\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCerca();\r\n        }\r\n    });\r\n    testo1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCerca();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startCerca();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startCerca();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MessageDialog msg;\r\n    Stanza room;\r\n    if ((room = (Principale.db).readStanza(testo1.getText())) != null) {\r\n        writeDatiStanza(room);\r\n        Azione.setEnabled(true);\r\n    } else\r\n        msg = new MessageDialog(this, \"Stanza inesistente!\");\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startCerca()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"Visualizzazione dei dati delle stanze\", \"Cerca\", 4);\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public VediStanza()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "VediStanza",
+        "variables": []
+    }
+]

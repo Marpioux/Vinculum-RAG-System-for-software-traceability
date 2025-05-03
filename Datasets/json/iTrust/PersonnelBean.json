@@ -1,0 +1,400 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return messageFilter;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getMessageFilter()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.messageFilter = messageFilter;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setMessageFilter(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return email;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getEmail()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.email = email;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setEmail(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return AMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getAMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    AMID = amid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setAMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return city;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getCity()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.city = city;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setCity(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return confirmPassword;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getConfirmPassword()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.confirmPassword = confirmPassword;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setConfirmPassword(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return firstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFirstName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.firstName = firstName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setFirstName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getLastName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLastName(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return getFirstName() + \" \" + getLastName();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getFullName()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return MID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    MID = mid;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return password;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPassword()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.password = password;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPassword(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return phone1 + \"-\" + phone2 + \"-\" + phone3;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPhone()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return phone1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPhone1()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.phone1 = phone1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPhone1(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return phone2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPhone2()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.phone2 = phone2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPhone2(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return phone3;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getPhone3()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.phone3 = phone3;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setPhone3(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return role;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Role getRole()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.role = role;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setRole(Role)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return securityAnswer;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getSecurityAnswer()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.securityAnswer = securityAnswer;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSecurityAnswer(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return securityQuestion;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getSecurityQuestion()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.securityQuestion = securityQuestion;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSecurityQuestion(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return state;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getState()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.state = state;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setState(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return streetAddress1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getStreetAddress1()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.streetAddress1 = streetAddress1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setStreetAddress1(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return streetAddress2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getStreetAddress2()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.streetAddress2 = streetAddress2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setStreetAddress2(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (getZip2() != null && !\"\".equals(getZip2()))\r\n        return getZip1() + \"-\" + getZip2();\r\n    else\r\n        return getZip1();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getZip()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return zip1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getZip1()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.zip1 = zip1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setZip1(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return zip2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getZip2()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.zip2 = zip2;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setZip2(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return specialty;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getSpecialty()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.specialty = specialty;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSpecialty(String)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    for (int i = 0; i < list.size(); i++) {\r\n        if (list.get(i).MID == this.MID)\r\n            return i;\r\n    }\r\n    return -1;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getIndexIn(List<PersonnelBean>)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "PersonnelBean",
+        "variables": [
+            "private  static  final long serialVersionUID",
+            "private long MID",
+            "private long AMID",
+            "private Role role",
+            "private String firstName",
+            "private String lastName",
+            "private String password",
+            "private String confirmPassword",
+            "private String securityQuestion",
+            "private String securityAnswer",
+            "private String streetAddress1",
+            "private String streetAddress2",
+            "private String city",
+            "private String state",
+            "private String zip1",
+            "private String zip2",
+            "private String phone1",
+            "private String phone2",
+            "private String phone3",
+            "private String email",
+            "private String specialty",
+            "private String messageFilter"
+        ]
+    }
+]

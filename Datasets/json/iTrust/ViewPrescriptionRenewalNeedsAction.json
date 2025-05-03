@@ -1,0 +1,30 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    try {\r\n        transDAO.logTransaction(TransactionType.VIEW_RENEWAL_NEEDS_PATIENTS, loggedInMID, 0L, //$NON-NLS-1$\r\n        loggedInMID + Messages.getString(\"ViewPrescriptionRenewalNeedsAction.0\"));\r\n        return patientDAO.getRenewalNeedsPatients(loggedInMID);\r\n    } catch (DBException e) {\r\n        //$NON-NLS-1$\r\n        System.out.println(Messages.getString(\"ViewPrescriptionRenewalNeedsAction.1\"));\r\n        System.out.println(e);\r\n        return null;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public List<PatientBean> getRenewalNeedsPatients()",
+                "comments": "Optional[/**\r\n * Uses PatientDAO as a helper class to return a list of patients with a special-diagnosis-history who\r\n * have the logged in HCP as a DHCP and whose medications are going to\r\n * expire within seven days.\r\n *\r\n * @return A list of PatientBean's\r\n */\r\n]",
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.transDAO = factory.getTransactionDAO();\r\n    this.loggedInMID = loggedInMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public ViewPrescriptionRenewalNeedsAction(DAOFactory, long)",
+                "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the prescription renewals.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "ViewPrescriptionRenewalNeedsAction",
+        "variables": [
+            "private PatientDAO patientDAO",
+            "private TransactionDAO transDAO",
+            "private long loggedInMID"
+        ]
+    }
+]

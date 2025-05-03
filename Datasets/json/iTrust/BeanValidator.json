@@ -1,0 +1,73 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional.empty",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public abstract void validate(T)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String errorMessage = name + \": \" + format.getDescription();\r\n    if (value == null || \"\".equals(value))\r\n        return isNullable ? \"\" : errorMessage;\r\n    else if (format.getRegex().matcher(value).matches())\r\n        return \"\";\r\n    else\r\n        return errorMessage;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected String checkFormat(String, String, ValidationFormat, boolean)",
+                "comments": "Optional[/**\r\n * Check the format against the given enum. isNullable will check if the string is empty or a Java null.\r\n * Otherwise, an error message will be returned. Use this in conjunction with {@link ErrorList}.\r\n *\r\n * @param name\r\n * @param value\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String str = \"\";\r\n    if (longValue != null)\r\n        str = String.valueOf(longValue);\r\n    return checkFormat(name, str, format, isNullable);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected String checkFormat(String, Long, ValidationFormat, boolean)",
+                "comments": "Optional[/**\r\n * Check a long value against a particular format. isNullable will check if it is empty or a Java null.\r\n * Otherwise, an error message will be returned. Use this in conjunction with {@link ErrorList}.\r\n *\r\n * @param name\r\n * @param longValue\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String str = \"\";\r\n    if (doubleValue != null)\r\n        str = String.valueOf(doubleValue);\r\n    return checkFormat(name, str, format, isNullable);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected String checkFormat(String, Double, ValidationFormat, boolean)",
+                "comments": "Optional[/**\r\n * Check the format against the given enum. isNullable will check if it is a Java null. Otherwise, an\r\n * error message will be returned. Use this in conjunction with {@link ErrorList}.\r\n *\r\n * @param name\r\n * @param doubleValue\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    String str = \"\";\r\n    if (gen != null)\r\n        str = gen.toString();\r\n    return checkFormat(name, str, format, isNullable);\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected String checkGender(String, Gender, ValidationFormat, boolean)",
+                "comments": "Optional[/**\r\n * Check against the proper gender\r\n *\r\n * @param name\r\n * @param gen\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    if (isNullable && (value == null || \"\".equals(value)))\r\n        return \"\";\r\n    try {\r\n        int intValue = Integer.valueOf(value);\r\n        if (lower <= intValue && intValue <= upper)\r\n            return \"\";\r\n    } catch (NumberFormatException e) {\r\n        // just fall through to returning the error message\r\n    }\r\n    return name + \" must be an integer in [\" + lower + \",\" + upper + \"]\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "protected String checkInt(String, String, int, int, boolean)",
+                "comments": "Optional[/**\r\n * The that an integer is the proper format, and is in the correct range\r\n *\r\n * @param name\r\n * @param value\r\n * @param lower\r\n * @param upper\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
+                "innerComments": "Optional[[// just fall through to returning the error message\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    try {\r\n        double doubleValue = Double.valueOf(value);\r\n        if (lower <= doubleValue && doubleValue < upper)\r\n            return \"\";\r\n    } catch (NumberFormatException e) {\r\n        // just fall through to returning the error message\r\n    }\r\n    return name + \" must be a decimal in [\" + lower + \",\" + upper + \")\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "protected String checkDouble(String, String, double, double)",
+                "comments": "Optional[/**\r\n * Check that a double is in the proper format and is in the correct range\r\n *\r\n * @param name\r\n * @param value\r\n * @param lower\r\n * @param upper\r\n * @return\r\n */\r\n]",
+                "innerComments": "Optional[[// just fall through to returning the error message\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (\"true\".equals(value) || \"false\".equals(value))\r\n        return \"\";\r\n    else\r\n        return name + \" must be either 'true' or 'false'\";\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "protected String checkBoolean(String, String)",
+                "comments": "Optional[/**\r\n * Check that the value fits the \"true\" or \"false\"\r\n *\r\n * @param name\r\n * @param value\r\n * @return\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "BeanValidator",
+        "variables": []
+    }
+]

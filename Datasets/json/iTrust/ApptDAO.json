@@ -1,0 +1,45 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    if (mid >= (long) 999999999) {\r\n        ps = conn.prepareStatement(\"SELECT * FROM appointment WHERE doctor_id=? ORDER BY sched_date;\");\r\n    } else {\r\n        ps = conn.prepareStatement(\"SELECT * FROM appointment WHERE patient_id=? ORDER BY sched_date;\");\r\n    }\r\n    ps.setLong(1, mid);\r\n    ResultSet rs = ps.executeQuery();\r\n    List<ApptBean> abList = this.abloader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return abList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ApptBean> getApptsFor(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"SELECT * FROM appointment;\");\r\n    ResultSet rs = ps.executeQuery();\r\n    List<ApptBean> abList = this.abloader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return abList;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public List<ApptBean> getAllAppts()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"INSERT INTO appointment (appt_type, patient_id, doctor_id, sched_date, comment) \" + \"VALUES (?, ?, ?, ?, ?)\");\r\n    ps = this.abloader.loadParameters(ps, appt);\r\n    ps.executeUpdate();\r\n    DBUtil.closeConnection(conn, ps);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void scheduleAppt(ApptBean)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n    this.abloader = new ApptBeanLoader();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ApptDAO(DAOFactory)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ApptDAO",
+        "variables": [
+            "private DAOFactory factory",
+            "private ApptBeanLoader abloader"
+        ]
+    }
+]

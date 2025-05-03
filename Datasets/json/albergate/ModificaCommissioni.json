@@ -1,0 +1,84 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            commissione = L.getCommissionamento(lista.getSelectedIndex() + 1);\r\n            writeDatiComm(commissione);\r\n            abilita();\r\n            panel5.setVisible(false);\r\n            pack();\r\n        }\r\n    });\r\n    nome_agenzia.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista();\r\n        }\r\n    });\r\n    Azione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n    Cerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista();\r\n        }\r\n    });\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void init()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    commissione = L.getCommissionamento(lista.getSelectedIndex() + 1);\r\n    writeDatiComm(commissione);\r\n    abilita();\r\n    panel5.setVisible(false);\r\n    pack();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    startAzione();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    creaLista();\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void actionPerformed(ActionEvent)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    num_stanza.setEditable(false);\r\n    num_tel_agenzia.setEditable(false);\r\n    inizio_comm.setEditable(false);\r\n    fine_comm.setEditable(false);\r\n    scadenza_comm.setEditable(false);\r\n    num_stanza.setEditable(false);\r\n    Azione.setEnabled(false);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void deabilita()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    num_tel_agenzia.setEditable(true);\r\n    scadenza_comm.setEditable(true);\r\n    Azione.setEnabled(true);\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void abilita()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        Commissionamento comm = readDatiComm();\r\n        int j;\r\n        if ((j = (Principale.db).changeCommissionamento(commissione.getIdCommissionamento(), comm.getNumStanza(), comm.getNomeAgenzia(), comm.getNumTel(), comm.getInizioComm(), comm.getFineComm(), comm.getScadenzaComm(), comm.getScaduto())) == DataBase.OK) {\r\n            cleanFields();\r\n            deabilita();\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": " void startAzione()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    super(\"\", \"\", \"Modifica i dati delle commissioni\", \"Modifica\", 2);\r\n    nome_agenzia.setEditable(true);\r\n    deabilita();\r\n    init();\r\n}",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public ModificaCommissioni()",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "signature": "ModificaCommissioni",
+        "variables": [
+            " Commissionamento commissione"
+        ]
+    }
+]

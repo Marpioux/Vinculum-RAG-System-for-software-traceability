@@ -1,0 +1,37 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM PersonalHealthInformation \" + \"WHERE PatientID=? ORDER BY ASOFDATE DESC\");\r\n        ps.setLong(1, mid);\r\n        ResultSet rs;\r\n        rs = ps.executeQuery();\r\n        return loader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public List<HealthRecord> getAllHealthRecords(long)",
+                "comments": "Optional[/**\r\n * Returns a list of all health records for a particular patient\r\n *\r\n * @param mid The MID of the patient to look up.\r\n * @return A java.util.List of HealthRecords.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO PersonalHealthInformation(PatientID,Height,Weight,\" + \"Smoker,BloodPressureN,BloodPressureD,CholesterolHDL,CholesterolLDL,CholesterolTri,\" + \"HCPID) VALUES(?,?,?,?,?,?,?,?,?,?)\");\r\n        loader.loadParameters(ps, record);\r\n        int numInserted = ps.executeUpdate();\r\n        return (numInserted == 1);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean add(HealthRecord)",
+                "comments": "Optional[/**\r\n * Adds a health record for a particular patient\r\n *\r\n * @param record The HealthRecord object to insert.\r\n * @return A boolean indicating whether the insert was successful.\r\n * @throws DBException\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n    this.factory = factory;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public HealthRecordsDAO(DAOFactory)",
+                "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "HealthRecordsDAO",
+        "variables": [
+            "private HealthRecordsBeanLoader loader",
+            "private DAOFactory factory"
+        ]
+    }
+]

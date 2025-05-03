@@ -1,0 +1,59 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    if (numTest == 5) {\r\n        throw new SQLException();\r\n    } else {\r\n        return true;\r\n    }\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public boolean cancellaBanner(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return numTest == 1 || numTest == 2;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean inserisciBanner(BeanBanner)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @ See unisa.gps.etour.repository.IDBBanner # inserisciBanner (unisa.gps.etour.bean.BeanBanner)\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return true;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public boolean modificaBanner(BeanBanner)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @ See unisa.gps.etour.repository.IDBBanner # modificaBanner (unisa.gps.etour.bean.BeanBanner)\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    ArrayList<BeanBanner> toReturn = new ArrayList<>();\r\n    if (numTest == 1 || numTest == 2) {\r\n        /* Must return an ArrayList with 3 elements */\r\n        toReturn.add(new BeanBanner());\r\n        toReturn.add(new BeanBanner());\r\n        toReturn.add(new BeanBanner());\r\n        return toReturn;\r\n    } else if (numTest == 4) {\r\n        toReturn.add(new BeanBanner(3, \"c:\\\\ProvaBannerInserimento.jpg\", 55));\r\n        toReturn.add(new BeanBanner(4, \"c:\\\\ProvaBannerInserimento.jpg\", 55));\r\n        toReturn.add(new BeanBanner(5, \"c:\\\\ProvaBannerInserimento.jpg\", 55));\r\n        toReturn.add(new BeanBanner(5, \"c:\\\\ProvaBannerInserimento.jpg\", 55));\r\n        return toReturn;\r\n    } else {\r\n        return null;\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": true,
+                "signature": "public ArrayList<BeanBanner> ottieniBanner(int)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @ See unisa.gps.etour.repository.IDBBanner # ottieniBanner (int)\r\n     */\r\n]",
+                "innerComments": "Optional[[/* Must return an ArrayList with 3 elements */\r\n]]"
+            },
+            {
+                "body": "Optional[{\r\n    if (numTest == 7) {\r\n        return null;\r\n    } else {\r\n        return new BeanBanner(55, \"c:\\\\ProvaBanner.jpg\", 3);\r\n    }\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public BeanBanner ottieniBannerDaID(int)",
+                "comments": "Optional[/* (Non-Javadoc)\r\n     * @ See unisa.gps.etour.repository.IDBBanner # ottieniBannerDaID (int)\r\n     */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    DBBanner.numTest = numTest;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public static void setNumTest(int)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [],
+        "signature": "DBBanner",
+        "variables": [
+            "private  static int numTest"
+        ]
+    }
+]

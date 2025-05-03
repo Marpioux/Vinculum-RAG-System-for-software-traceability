@@ -1,0 +1,146 @@
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return reporterMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getReporterMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.reporterMID = reporterMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setReporterMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return patientMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public long getPatientMID()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.patientMID = patientMID;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setLoggedInMID(long)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return time;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public Timestamp getTime()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.time = time;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setTime(Timestamp)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return systolicBloodPressure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getSystolicBloodPressure()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.systolicBloodPressure = systolicBloodPressure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setSystolicBloodPressure(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return diastolicBloodPressure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getDiastolicBloodPressure()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.diastolicBloodPressure = diastolicBloodPressure;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setDiastolicBloodPressure(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return glucoseLevel;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public int getGlucoseLevel()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.glucoseLevel = glucoseLevel;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setGlucoseLevel(int)",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    return reporterRole;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public String getReporterRole()",
+                "comments": null,
+                "innerComments": null
+            },
+            {
+                "body": "Optional[{\r\n    this.reporterRole = reporterRole;\r\n}]",
+                "hasComment": false,
+                "hasInnerComment": false,
+                "signature": "public void setReporterRole(String)",
+                "comments": null,
+                "innerComments": null
+            }
+        ],
+        "constructors": [
+            {
+                "body": "{\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public RemoteMonitoringDataBean()",
+                "comments": "Optional[/**\r\n * Constructor with no parameters\r\n */\r\n]",
+                "innerComments": null
+            },
+            {
+                "body": "{\r\n    this.patientMID = patientMID;\r\n}",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public RemoteMonitoringDataBean(long)",
+                "comments": "Optional[/**\r\n * Constructor with loggedInMID parameter\r\n */\r\n]",
+                "innerComments": null
+            }
+        ],
+        "signature": "RemoteMonitoringDataBean",
+        "variables": [
+            "private long patientMID",
+            "private Timestamp time",
+            "private int systolicBloodPressure",
+            "private int diastolicBloodPressure",
+            "private int glucoseLevel",
+            "private String reporterRole",
+            "private long reporterMID"
+        ]
+    }
+]
