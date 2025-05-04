@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the description of the patient's health condition.\n * \n * @return A string representing the patient's health condition, specifically mentioning bad cholesterol.\n */"
             },
             {
                 "body": "Optional[{\r\n    return (record.getCholesterolHDL() < hdlThreshold) || (record.getCholesterolLDL() > ldlThreshold) || (record.getCholesterolTri() > triThreshold);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the given health record has any cholesterol levels that are outside of the healthy range.\n * \n * @return true if any of the cholesterol levels (HDL, LDL, or Triglycerides) are outside of the healthy range, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public CholesterolFactor(HealthRecord)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new CholesterolFactor object with the given HealthRecord.\n * \n * @param currentHealthRecord the HealthRecord object containing the cholesterol information\n * @return a new CholesterolFactor object with the specified HealthRecord\n */"
             }
         ],
         "signature": "CholesterolFactor",
@@ -34,6 +37,7 @@
             "private  static  final int ldlThreshold",
             "private  static  final int triThreshold",
             "private HealthRecord record"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The CholesterolFactor class represents a utility class that checks for cholesterol levels outside of the healthy range in a given HealthRecord object.\n * It contains methods to retrieve the description of the patient's health condition and to determine if any cholesterol levels are outside of the healthy range.\n * \n * The main functionalities of this class include:\n * - Retrieving the description of the patient's health condition, specifically mentioning bad cholesterol.\n * - Checking if the given health record has any cholesterol levels that are outside of the healthy range.\n * \n * The class has the following variables:\n * - hdlThreshold: a static final integer representing the threshold for HDL cholesterol levels.\n * - ldlThreshold: a static final integer representing the threshold for LDL cholesterol levels.\n * - triThreshold: a static final integer representing the threshold for Triglyceride levels.\n * - record: a HealthRecord object containing the cholesterol information.\n * \n * The class constructor initializes a new CholesterolFactor object with the specified HealthRecord object.\n * \n * This class provides a comprehensive solution for monitoring and evaluating cholesterol levels in a patient's health record.\n */"
     }
 ]

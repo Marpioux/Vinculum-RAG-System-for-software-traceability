@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public static boolean controllaDatiVisitaBeneCulturale(BeanVisitaBC)",
                 "comments": "Optional[/**\r\n * Please consistency check by calling the appropriate methods\r\n *\r\n * @param pVBC The pVBC cultural visit to check\r\n * @return boolean The result of the check: true if OK, false otherwise\r\n */\r\n]",
-                "innerComments": "Optional[[// Check the ID of a cultural visit\r\n, // If the bean is null\r\n, // And the id of its tourist\r\n, // Check the vote (of course ratings are accepted only between 1 and 5)\r\n, // Check for null references in the bean\r\n, // Check the correct length of string\r\n]]"
+                "innerComments": "Optional[[// Check the ID of a cultural visit\r\n, // If the bean is null\r\n, // And the id of its tourist\r\n, // Check the vote (of course ratings are accepted only between 1 and 5)\r\n, // Check for null references in the bean\r\n, // Check the correct length of string\r\n]]",
+                "generated_comment": "/**\n * Checks if the provided BeanVisitaBC object contains valid data for a cultural visit.\n * \n * @param pVBC the BeanVisitaBC object to be checked\n * @return true if the BeanVisitaBC object contains valid data for a cultural visit, false otherwise\n * \n * The method checks if the BeanVisitaBC object is not null, if it contains valid IDs for a cultural visit and its tourist,\n * if the rating is between 1 and 5, if there are no null references in the object, and if the comment string is not empty.\n * \n * @see BeanVisitaBC\n */\npublic static boolean controllaDatiVisitaBeneCulturale(BeanVisitaBC pVBC) {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    // Check the nullity of the fields of feedback\r\n    if (pBC.getCommento() == null || pBC.getDataVisita() == null) {\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
@@ -15,11 +16,13 @@
                 "hasInnerComment": true,
                 "signature": "public static boolean controllaDatiNulli(BeanVisitaBC)",
                 "comments": "Optional[/**\r\n * Check for null data in a bean cultural visit\r\n *\r\n * @param pBC The pBC cultural visit to check\r\n * @return boolean The result of the check: true if there are no null references, false otherwise\r\n */\r\n]",
-                "innerComments": "Optional[[// Check the nullity of the fields of feedback\r\n]]"
+                "innerComments": "Optional[[// Check the nullity of the fields of feedback\r\n]]",
+                "generated_comment": "/**\n * This method checks if the fields of a given BeanVisitaBC object are null.\n * \n * @param pBC the BeanVisitaBC object to be checked for null fields\n * @return true if the commento and dataVisita fields of the BeanVisitaBC object are not null, false otherwise\n */"
             }
         ],
         "constructors": [],
         "signature": "ControlloVisiteBeniCulturali",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ControlloVisiteBeniCulturali class provides methods for checking the validity of data in cultural visit objects.\n * It contains two main methods: controllaDatiVisitaBeneCulturale and controllaDatiNulli.\n * \n * The controllaDatiVisitaBeneCulturale method checks if the provided BeanVisitaBC object contains valid data for a cultural visit.\n * It verifies that the object is not null, has valid IDs for a cultural visit and its tourist, has a rating between 1 and 5,\n * does not contain null references, and has a non-empty comment string.\n * \n * The controllaDatiNulli method checks if the fields of a given BeanVisitaBC object are null.\n * It specifically checks for null values in the commento and dataVisita fields of the object.\n * \n * This class aims to ensure data consistency and integrity in cultural visit objects, \n * providing reliable validation methods for use in cultural visit management systems.\n * \n * @see BeanVisitaBC\n */"
     }
 ]

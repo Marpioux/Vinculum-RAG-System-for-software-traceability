@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescrizione()",
                 "comments": "Optional[/**\r\n * Returns the value of description\r\n *\r\n * @return value of description.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n* Retrieves the description of the object.\n* \n* @return the description of the object as a String\n*/"
             },
             {
                 "body": "Optional[{\r\n    description = pDescrizione;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescrizione(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of description\r\n *\r\n * @param pDescrizione New value of description.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param pDescrizione the new description to set\n * \n * This method sets the description of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the object.\n * \n * @return the name of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    name = pNom;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNome(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of name\r\n *\r\n * @param pNom New value for name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param pNom the new name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier of this object.\n * \n * @return the unique identifier of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pId;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pId the new ID to set\n * @return void\n */\npublic void setId(int pId) {\n    id = pId;\n}"
             }
         ],
         "constructors": [
@@ -57,7 +63,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanTag(int, String, String)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pNom\r\n * @param pDescrizione\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanTag object with the specified id, name, and description.\n * \n * @param pId the id of the BeanTag\n * @param pNom the name of the BeanTag\n * @param pDescrizione the description of the BeanTag\n */\npublic BeanTag(int pId, String pNom, String pDescrizione) {\n    setId(pId);\n    setNome(pNom);\n    setDescrizione(pDescrizione);\n}"
             },
             {
                 "body": "{\r\n}",
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanTag()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanTag object with no parameters.\n * This constructor initializes a new instance of the BeanTag class with default values.\n */"
             }
         ],
         "signature": "BeanTag",
@@ -74,6 +82,7 @@
             "private int id",
             "private String name",
             "private String description"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanTag class represents a simple Java bean object that encapsulates information about a tag.\n * This class provides methods to retrieve and set the unique identifier, name, and description of the tag.\n * \n * The main functionalities of the BeanTag class include:\n * - Retrieving and setting the unique identifier of the tag\n * - Retrieving and setting the name of the tag\n * - Retrieving and setting the description of the tag\n * \n * This class also includes constructors to create a new BeanTag object with specified values or with default values.\n * \n * Overall, the BeanTag class serves as a data structure to store information about a tag in a Java application.\n */"
     }
 ]

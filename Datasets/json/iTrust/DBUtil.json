@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public static boolean canObtainProductionInstance()",
                 "comments": "Optional[/**\r\n * Used to check if we can actually obtain a connection.\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a production instance can be obtained by attempting to establish a connection and then closing it.\n * \n * @return true if a production instance can be obtained successfully, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        if (ps != null)\r\n            ps.close();\r\n        if (conn != null)\r\n            conn.close();\r\n    } catch (SQLException e) {\r\n        System.err.println(\"Error closing connections\");\r\n        e.printStackTrace();\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public static void closeConnection(Connection, PreparedStatement)",
                 "comments": "Optional[/**\r\n * Close the prepared statement and the connection in a proper way\r\n *\r\n * @param conn\r\n * @param ps\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Closes the given database connection and prepared statement.\n * \n * @param conn the database connection to be closed\n * @param ps the prepared statement to be closed\n * \n * @return void\n * \n * This method attempts to close the provided database connection and prepared statement. \n * If either the connection or prepared statement is not null, they are closed. \n * Any SQLException that occurs during the closing process is caught and an error message is printed.\n */"
             },
             {
                 "body": "Optional[{\r\n    ResultSet rs = conn.createStatement().executeQuery(\"SELECT LAST_INSERT_ID()\");\r\n    rs.next();\r\n    return rs.getLong(1);\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public static long getLastInsert(Connection)",
                 "comments": "Optional[/**\r\n * Returns the last ID that was generated for an auto-increment column. Please note that this does NOT\r\n * cause transaction problems! last_insert_id() returns the last generated ID on a per-connection basis.\r\n * See the MySQL documentation at the following location to confirm this:\r\n * {@link http://dev.mysql.com/doc/refman/5.0/en/getting-unique-id.html}\r\n *\r\n * Don't believe me? see {@link AutoIncrementTest}\r\n *\r\n * @param conn\r\n * @return last generated id\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the last inserted ID in the database.\n * \n * This method executes a query to retrieve the last inserted ID in the database using the LAST_INSERT_ID() function.\n * \n * @param conn the Connection object to the database\n * @return the last inserted ID as a long value\n */"
             }
         ],
         "constructors": [],
         "signature": "DBUtil",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The DAOUtils class provides utility methods for handling database connections and operations.\n * \n * This class includes methods for checking if a production instance can be obtained, closing database connections and prepared statements properly, \n * and retrieving the last inserted ID from a database table.\n * \n * The main functionalities of this class are:\n * - canObtainProductionInstance(): Used to check if a connection to the production instance can be successfully obtained.\n * - closeConnection(Connection conn, PreparedStatement ps): Closes the provided database connection and prepared statement.\n * - getLastInsertedId(Connection conn): Retrieves the last inserted ID from a database table using the provided connection.\n * \n * The overall behavior of this class is to ensure proper handling of database connections and operations, \n * catching and handling any SQLExceptions that may occur during these processes.\n */\n**/\n/**\n * The DBUtil class provides utility methods for interacting with a database.\n * It includes methods for executing queries, updating records, and retrieving data from a database.\n * This class also includes a method to retrieve the last inserted ID in the database using the LAST_INSERT_ID() function.\n * \n * The main functionalities of this class include:\n * - Executing queries on a database connection\n * - Updating records in a database\n * - Retrieving data from a database\n * - Retrieving the last inserted ID in the database\n * \n * The getLastInsert(Connection) method in this class retrieves the last inserted ID in the database.\n * It does not cause transaction problems and returns the last generated ID on a per-connection basis.\n * \n * This class is designed to work with MySQL databases, and it is recommended to refer to the MySQL documentation for more information on the behavior of the getLastInsert method.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

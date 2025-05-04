@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean equals(Object)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this PrescriptionBean object with the specified object for equality.\n * Returns true if the specified object is also a PrescriptionBean object and has the same class as this object,\n * and all corresponding fields are equal. \n * \n * @param other the object to compare this PrescriptionBean with\n * @return true if the objects are equal, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return (medication == other.medication || (medication != null && medication.equals(other.medication))) && visitID == other.visitID && startDateStr.equals(other.startDateStr) && endDateStr.equals(other.endDateStr) && dosage == other.dosage && instructions.equals(other.instructions);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "private boolean equals(PrescriptionBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this PrescriptionBean object with another object to determine if they are equal.\n * Two PrescriptionBean objects are considered equal if all their attributes (medication, visitID, startDateStr, endDateStr, dosage, instructions) are equal.\n * \n * @param other the object to compare this PrescriptionBean with\n * @return true if the two objects are equal, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "public int hashCode()",
                 "comments": null,
-                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]",
+                "generated_comment": "/**\n * Returns a hash code value for the object. This method is not designed to provide a meaningful hash code implementation and always returns a constant value of 42.\n * \n * @return the hash code value of 42\n */"
             },
             {
                 "body": "Optional[{\r\n    return dosage;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getDosage()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the dosage of the medication.\n * \n * @return the dosage of the medication as an integer value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.dosage = dosage;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDosage(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the dosage of the medication.\n * \n * @param dosage the dosage of the medication to set\n * \n * This method sets the dosage of the medication to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").parse(endDateStr);\r\n    } catch (java.text.ParseException e) {\r\n        return null;\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getEndDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the end date of an event.\n * \n * This method parses the end date string provided and returns a Date object representing the end date of the event.\n * \n * @return the end date of the event as a Date object, or null if the end date string is not in the correct format\n */"
             },
             {
                 "body": "Optional[{\r\n    this.endDateStr = endDate;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEndDateStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the end date string for the object.\n * \n * @param endDate the new end date string to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return instructions;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getInstructions()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the instructions for this object.\n * \n * @return the instructions for this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.instructions = instruction;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setInstructions(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the instructions for this object.\n * \n * @param instruction the instructions to be set\n * \n * This method sets the instructions for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return medication;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public MedicationBean getMedication()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the medication associated with this MedicationBean object.\n * \n * @return the medication object stored in this MedicationBean\n */"
             },
             {
                 "body": "Optional[{\r\n    this.medication = medication;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMedication(MedicationBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the medication for the patient.\n * \n * @param medication the MedicationBean object representing the medication to be set\n * \n * This method sets the medication for the patient by assigning the provided MedicationBean object to the medication field.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").parse(startDateStr);\r\n    } catch (ParseException e) {\r\n        return null;\r\n    }\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getStartDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the start date of an event.\n * \n * @return the start date of the event as a Date object\n */"
             },
             {
                 "body": "Optional[{\r\n    return startDateStr;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStartDateStr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the start date string associated with this object.\n * \n * @return the start date string\n */"
             },
             {
                 "body": "Optional[{\r\n    return endDateStr;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEndDateStr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the end date of the event as a string representation.\n * \n * @return the end date of the event as a string\n */"
             },
             {
                 "body": "Optional[{\r\n    this.startDateStr = startDate;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStartDateStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the start date string for this object.\n * \n * @param startDate the start date string to set\n * \n * This method sets the start date string for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitID;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getVisitID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier for the visit.\n * \n * @return the visit ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.visitID = visitID;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the visit ID for this object.\n * \n * @param visitID the unique identifier for the visit\n * \n * This method sets the visit ID for this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getId()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = id;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param id the new ID to set\n * \n * This method sets the ID of the object to the specified value.\n * \n */"
             }
         ],
         "constructors": [
@@ -161,7 +180,8 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the PrescriptionBean class.\n * It initializes a new PrescriptionBean object with default values.\n */"
             }
         ],
         "signature": "PrescriptionBean",
@@ -173,6 +193,7 @@
             "private String endDateStr",
             "private int dosage",
             "private String instructions"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PrescriptionBean class represents a prescription object that contains information about a medication prescription.\n * It provides methods to compare two PrescriptionBean objects for equality and generate a hash code value.\n * \n * The main functionalities of the PrescriptionBean class include:\n * - Comparing two PrescriptionBean objects to determine if they are equal based on their attributes (medication, visitID, startDateStr, endDateStr, dosage, instructions)\n * - Generating a hash code value for the object\n * \n * The equals(Object) method compares this PrescriptionBean object with the specified object for equality. It returns true if the specified object is also a PrescriptionBean object and has the same class as this object, and all corresponding fields are equal.\n * \n * The equals(PrescriptionBean) method compares this PrescriptionBean object with another object to determine if they are equal. Two PrescriptionBean objects are considered equal if all their attributes are equal.\n * \n * The hashCode() method returns a hash code value for the object. This method is not designed to provide a unique hash code, but rather an arbitrary constant value.\n * \n * Overall, the PrescriptionBean class encapsulates the data and behavior related to medication prescriptions and provides methods for comparison and hashing.\n */\npublic class PrescriptionBean {\n    // class implementation here\n}\n**/\n/**\n * The Medication class represents a medication object that can be prescribed to patients.\n * It stores information such as the medication name, dosage, start date, end date, and instructions.\n * \n * This class provides methods to get and set the medication details, including the dosage, start date, end date,\n * and instructions. It also includes a method to calculate the duration of the medication based on the start and end dates.\n * \n * The hash code implementation in this class always returns a constant value of 42, ensuring that the hash code is consistent.\n * \n * Overall, the Medication class encapsulates the necessary information and functionality related to medications,\n * making it easy to manage and track medication prescriptions for patients.\n */\nSure, here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a MedicationBean object that stores information about a medication associated with a patient.\n * It provides methods to set and retrieve instructions, medication details, and start date of the medication.\n * \n * The class includes the following functionalities:\n * - Setting and retrieving instructions for the medication\n * - Getting the medication details stored in the MedicationBean object\n * - Setting the medication for the patient by assigning a MedicationBean object\n * - Retrieving the start date of an event as a Date object\n * \n * Overall, this class serves as a container for medication information and provides methods to manage and access this data.\n */\n/**\n * This class represents an event object that contains information about a specific event, such as its start and end dates, visit ID, and unique identifier.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the start date of the event as a string representation\n * - Storing and retrieving the end date of the event as a string representation\n * - Storing and retrieving the unique identifier for the visit associated with the event\n * - Storing and retrieving the unique identifier for the event object\n * \n * This class provides methods to set and get the start date string, end date string, visit ID, and ID of the event object. \n * \n * Overall, this class encapsulates the data related to an event and provides methods to access and manipulate this data.\n */\n \npublic class Event {\n    private String startDateStr;\n    private String endDateStr;\n    private long visitID;\n    private long id;\n    \n    /**\n     * Retrieves the start date string associated with this object.\n     * \n     * @return the start date string\n     */\n    public String getStartDateStr() {\n        return startDateStr;\n    }\n    \n    /**\n     * Returns the end date of the event as a string representation.\n     * \n     * @return the end date of the event as a string\n     */\n    public String getEndDateStr() {\n        return endDateStr;\n    }\n    \n    /**\n     * Sets the start date string for this object.\n     * \n     * @param startDate the start date string to set\n     * \n     * This method sets the start date string for this object to the specified value.\n     * \n     * @return void\n     */\n    public void setStartDateStr(String startDate) {\n        this.startDateStr = startDate;\n    }\n    \n    /**\n     * Returns the unique identifier for the visit.\n     * \n     * @return the visit ID as a long value\n     */\n    public long getVisitID() {\n        return visitID;\n    }\n    \n    /**\n     * Sets the visit ID for this object.\n     * \n     * @param visitID the unique identifier for the visit\n     * \n     * This method sets the visit ID for this object to the specified value. \n     * \n     * @return void\n     */\n    public void setVisitID(long visitID) {\n        this.visitID = visitID;\n    }\n    \n    /**\n     * Returns the unique identifier for the event object.\n     * \n     * @return the ID of the event object\n     */\n    public long getId() {\n        return id;\n    }\n}\n**/\n/**\n * The PrescriptionBean class represents a prescription object that contains information about a medication prescription.\n * It includes details such as the ID of the prescription, the medication being prescribed, the visit ID associated with the prescription,\n * the start and end dates of the prescription, the dosage amount, and any additional instructions.\n * \n * This class provides methods to get and set the various attributes of the prescription, such as the ID, medication, visit ID, start and end dates,\n * dosage, and instructions. It also includes a default constructor to initialize a new PrescriptionBean object with default values.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving information about a medication prescription\n * - Setting and getting the ID of the prescription\n * - Setting and getting the medication being prescribed\n * - Setting and getting the visit ID associated with the prescription\n * - Setting and getting the start and end dates of the prescription\n * - Setting and getting the dosage amount\n * - Setting and getting any additional instructions for the prescription\n * \n * Overall, the PrescriptionBean class encapsulates the data related to a medication prescription and provides methods to interact with this data.\n */\n**/"
     }
 ]

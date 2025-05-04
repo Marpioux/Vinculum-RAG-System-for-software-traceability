@@ -1,8 +1,5 @@
 import os
-from summaries.extract_comments import exctract_comments
 from summaries.summaries_creation import enrich_json_with_gpt_comments
-from embedings.embedding_process import create_embedding_from_folder
-
 #paths for folders
 code_folders = [
 "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/java_code/eTOUR",
@@ -25,14 +22,6 @@ index_names = [
 "iTrust"]
 
 for element in code_folders:
-    # First step 
-    #exctract_comments(root_directory=element,
-    #                  output_directory=json_folders[code_folders.index(element)])
     
     # 2) Pass in all classes and methods who dont have comment and generate them with the LLM
     enrich_json_with_gpt_comments(json_folder_path=json_folders[code_folders.index(element)], model_temperature=0.3)
-
-    # Third step
-    # take all requirements and embed them with the LLM and save them in a redis database
-    #create_embedding_from_folder(folder_path=requirements_folders[code_folders.index(element)],
-    #                            index_name=index_names[code_folders.index(element)])

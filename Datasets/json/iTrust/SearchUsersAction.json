@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PersonnelBean> searchForPersonnelWithName(String, String)",
                 "comments": "Optional[/**\r\n * Searches for all personnel with the first name and last name specified in the parameter list.\r\n * @param firstName The first name to be searched.\r\n * @param lastName The last name to be searched.\r\n * @return A java.util.List of PersonnelBeans for the users who matched.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Searches for personnel with the given first and last names.\n * If either first name or last name is an empty string, it will be treated as a wildcard.\n * \n * @param firstName The first name of the personnel to search for.\n * @param lastName The last name of the personnel to search for.\n * @return A list of PersonnelBean objects matching the search criteria, or null if an exception occurs.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        if (\"\".equals(firstName))\r\n            firstName = \"%\";\r\n        if (\"\".equals(lastName))\r\n            lastName = \"%\";\r\n        return patientDAO.searchForPatientsWithName(firstName, lastName);\r\n    } catch (DBException e) {\r\n        System.out.println(\"DB Exception from SearchUsersAction\");\r\n        e.printStackTrace();\r\n        return null;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PatientBean> searchForPatientsWithName(String, String)",
                 "comments": "Optional[/**\r\n * Search for all patients with first name and last name given in parameters.\r\n * @param firstName The first name of the patient being searched.\r\n * @param lastName The last name of the patient being searched.\r\n * @return A java.util.List of PatientBeans\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Searches for patients with the given first and last names.\n * If either first name or last name is an empty string, it will be replaced with \"%\"\n * before searching.\n * \n * @param firstName the first name of the patient to search for\n * @param lastName the last name of the patient to search for\n * @return a list of PatientBean objects matching the given first and last names\n * or null if a DBException occurs during the search\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public SearchUsersAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user who is performing the search.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SearchUsersAction with the specified DAOFactory and user ID.\n * This constructor initializes the SearchUsersAction with the patientDAO and personnelDAO\n * obtained from the given DAOFactory.\n * \n * @param factory the DAOFactory used to retrieve the patientDAO and personnelDAO\n * @param userID the ID of the user performing the search\n */"
             }
         ],
         "signature": "SearchUsersAction",
         "variables": [
             "private PatientDAO patientDAO",
             "private PersonnelDAO personnelDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a utility for searching personnel and patients by first and last names.\n * It provides methods to search for personnel and patients with the specified first and last names.\n * If either the first name or last name is an empty string, it will be treated as a wildcard.\n * \n * The class contains methods to search for personnel and patients with the given names using DAO objects.\n * It handles exceptions that may occur during the search process and returns a list of matching objects.\n * \n * The main functionalities of this class include:\n * - Searching for personnel with the given first and last names\n * - Searching for patients with the given first and last names\n * \n * The overall behavior of this class is to facilitate searching for personnel and patients based on their names.\n * It ensures that the search process is handled properly and exceptions are caught and logged.\n * \n * @author [Your Name]\n * @version 1.0\n */\n**/\n/**\n * The SearchUsersAction class is responsible for searching for patients with the given first and last names.\n * It provides a method to search for patients based on the first name and last name provided as input.\n * If either the first name or last name is an empty string, it will be replaced with \"%\" before searching.\n * \n * This class contains a constructor that initializes the SearchUsersAction with the patientDAO and personnelDAO obtained from the given DAOFactory.\n * It also includes a method to perform the search and return a list of PatientBean objects matching the given first and last names.\n * If a DBException occurs during the search, the method will return null.\n * \n * The SearchUsersAction class is used to facilitate searching for patients in the system based on their names.\n * It relies on the PatientDAO and PersonnelDAO to access the necessary data for the search operation.\n */\n**/"
     }
 ]

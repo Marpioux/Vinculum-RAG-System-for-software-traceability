@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ReferralBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of ReferralBean objects from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into ReferralBean objects\n * @return a List of ReferralBean objects loaded from the ResultSet\n */\npublic List<ReferralBean> loadList(ResultSet rs) {\n    ArrayList<ReferralBean> list = new ArrayList<ReferralBean>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}"
             },
             {
                 "body": "Optional[{\r\n    ReferralBean ref = new ReferralBean();\r\n    // ERIC: fixed to correct for the mysql database bug plaguing java 1.5\r\n    ref.setId((long) rs.getInt(\"id\"));\r\n    //ref.setId(rs.getLong(\"id\"));\r\n    ref.setSenderID(rs.getLong(\"SenderID\"));\r\n    ref.setReceiverID(rs.getLong(\"ReceiverID\"));\r\n    ref.setPatientID((long) rs.getInt(\"PatientID\"));\r\n    ref.setReferralDetails(rs.getString(\"ReferralDetails\"));\r\n    ref.setConsultationDetails(rs.getString(\"ConsultationDetails\"));\r\n    if (rs.getString(\"Status\").equals(\"Pending\"))\r\n        ref.setStatus(ReferralStatus.Pending);\r\n    else if (rs.getString(\"Status\").equals(\"Finished\"))\r\n        ref.setStatus(ReferralStatus.Finished);\r\n    else\r\n        ref.setStatus(ReferralStatus.Declined);\r\n    return ref;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public ReferralBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": "Optional[[// ERIC: fixed to correct for the mysql database bug plaguing java 1.5\r\n, //ref.setId(rs.getLong(\"id\"));\r\n]]"
+                "innerComments": "Optional[[// ERIC: fixed to correct for the mysql database bug plaguing java 1.5\r\n, //ref.setId(rs.getLong(\"id\"));\r\n]]",
+                "generated_comment": "/**\n * Loads a single ReferralBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the ReferralBean object\n * @return the loaded ReferralBean object\n */\npublic ReferralBean loadSingle(ResultSet rs) {\n    ReferralBean ref = new ReferralBean();\n    \n    // ERIC: fixed to correct for the mysql database bug plaguing java 1.5\n    ref.setId((long) rs.getInt(\"id\"));\n    //ref.setId(rs.getLong(\"id\"));\n    ref.setSenderID(rs.getLong(\"SenderID\"));\n    ref.setReceiverID(rs.getLong(\"ReceiverID\"));\n    ref.setPatientID((long) rs.getInt(\"PatientID\"));\n    ref.setReferralDetails(rs.getString(\"ReferralDetails\"));\n    ref.setConsultationDetails(rs.getString(\"ConsultationDetails\"));\n    \n    if (rs.getString(\"Status\").equals(\"Pending\"))\n        ref.setStatus(ReferralStatus.Pending);\n    else if (rs.getString(\"Status\").equals(\"Finished\"))\n        ref.setStatus(ReferralStatus.Finished);\n    else\n        ref.setStatus(ReferralStatus.Declined);\n    \n    return ref;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ps.setLong(1, ref.getPatientID());\r\n    ps.setLong(2, ref.getSenderID());\r\n    ps.setLong(3, ref.getReceiverID());\r\n    ps.setString(4, ref.getReferralDetails());\r\n    ps.setString(5, ref.getConsultationDetails());\r\n    ps.setString(6, ref.getStatus().toString());\r\n    return ps;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, ReferralBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of a ReferralBean object into a PreparedStatement for database insertion.\n * \n * @param ps the PreparedStatement object to load the parameters into\n * @param ref the ReferralBean object containing the parameters to be loaded\n * @return the PreparedStatement object with the parameters loaded\n * \n * @throws SQLException if a database access error occurs\n */\npublic PreparedStatement loadParameters(PreparedStatement ps, ReferralBean ref) {\n    ps.setLong(1, ref.getPatientID());\n    ps.setLong(2, ref.getSenderID());\n    ps.setLong(3, ref.getReceiverID());\n    ps.setString(4, ref.getReferralDetails());\n    ps.setString(5, ref.getConsultationDetails());\n    ps.setString(6, ref.getStatus().toString());\n    return ps;\n}\n*/"
             }
         ],
         "constructors": [
@@ -33,10 +36,12 @@
                 "hasInnerComment": false,
                 "signature": "public ReferralBeanLoader()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the ReferralBeanLoader class.\n * It initializes a new instance of the ReferralBeanLoader class.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * Creates a new ReferralBeanLoader object with default values.\n */"
             }
         ],
         "signature": "ReferralBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class contains methods for loading ReferralBean objects from a ResultSet.\n * It provides functionality to load a list of ReferralBean objects or a single ReferralBean object from the ResultSet.\n * \n * The loadList method loads a list of ReferralBean objects from the given ResultSet by iterating through the ResultSet\n * and adding each loaded ReferralBean object to an ArrayList. It then returns the list of ReferralBean objects.\n * \n * The loadSingle method loads a single ReferralBean object from the given ResultSet by creating a new ReferralBean object\n * and setting its attributes based on the data in the ResultSet. It handles a bug in Java 1.5 related to retrieving long values\n * from a MySQL database. It then returns the loaded ReferralBean object.\n * \n * Overall, this class provides essential functionality for loading ReferralBean objects from a ResultSet and is useful for\n * processing and handling referral data in a Java application.\n */\npublic class ReferralLoader {\n    // methods go here\n}\n*/\n/**\n * This class represents a ReferralBean object that is used to store information about a referral in a medical system.\n * It provides methods to load a single ReferralBean object from a ResultSet and to load the parameters of a ReferralBean object into a PreparedStatement for database insertion.\n * \n * The main functionalities of this class include:\n * - Loading a single ReferralBean object from a ResultSet with the necessary information such as sender ID, receiver ID, patient ID, referral details, consultation details, and status.\n * - Loading the parameters of a ReferralBean object into a PreparedStatement for database insertion, including patient ID, sender ID, receiver ID, referral details, consultation details, and status.\n * \n * The overall behavior of this class is to facilitate the handling of referral information in a medical system by providing methods to load and store referral data in a database.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n */\n*/\n/**\n * The ReferralBeanLoader class is responsible for loading referral data into a database using prepared statements.\n * It provides methods to set the values of the prepared statements based on the data from a ReferralBean object.\n * \n * Main functionalities include:\n * - Setting the patient ID, referring physician ID, date of referral, consultation details, and status in the prepared statements.\n * - Generating and returning the prepared statement with the set values.\n * \n * Overall behavior:\n * - The class initializes a new instance of the ReferralBeanLoader class.\n * - It provides a constructor that creates a new ReferralBeanLoader object with default values.\n * - The setValues method sets the values of the prepared statements based on the data from a ReferralBean object.\n * - The getPreparedStatement method returns the prepared statement with the set values.\n */"
     }
 ]

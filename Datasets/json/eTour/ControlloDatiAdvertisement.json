@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public static boolean controlloBanner(BeanBanner)",
                 "comments": "Optional[/**\r\n * Please formal control and consistency on\r\n * data content of the banner in the bean passed by parameter.\r\n *\r\n * @param pBanner bean contains the data of the banner.\r\n * @return true if the banner data is consistent, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks if the provided BeanBanner object is valid by verifying that it has a non-negative ID, a non-empty file path, and a positive ID for the associated restaurant point.\n * \n * @param pBanner the BeanBanner object to be checked for validity\n * @return true if the BeanBanner object is valid, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    boolean toReturn = false;\r\n    /* Check the validity of the general method parameter */\r\n    if (pNews != null) {\r\n        // Release Date\r\n        Date dataPubb = pNews.getDataPubblicazione();\r\n        // Due Date\r\n        Date dataScad = pNews.getDataScadenza();\r\n        // Text of News\r\n        String news = pNews.getNews();\r\n        /* Checking the validity of the fields */\r\n        if (dataPubb != null && dataScad != null && news != null) {\r\n            /* Check the consistency of the dates */\r\n            toReturn = dataPubb.before(dataScad);\r\n            /* Check that the text is not empty */\r\n            toReturn = toReturn && !news.isEmpty();\r\n            /* Check that the ID is greater than 0 */\r\n            toReturn = toReturn && (pNews.getId() > 0);\r\n            /* Check the priority value */\r\n        }\r\n    }\r\n    return toReturn;\r\n}]",
@@ -15,11 +16,13 @@
                 "hasInnerComment": true,
                 "signature": "public static boolean controlloNews(BeanNews)",
                 "comments": "Optional[/**\r\n * Method that performs consistency checks and\r\n * correctness of the information contained in the bean passed\r\n * per parameter, in particular check that the dates\r\n * publication and expiration of the news are consistent,\r\n * or that the second is the later.\r\n *\r\n * @param pNews bean containing data news\r\n * @return true if the bean contains consistent data, false otherwise\r\n */\r\n]",
-                "innerComments": "Optional[[/* Check the validity of the general method parameter */\r\n, // Release Date\r\n, // Due Date\r\n, // Text of News\r\n, /* Checking the validity of the fields */\r\n, /* Check the priority value */\r\n, /* Check the consistency of the dates */\r\n, /* Check that the text is not empty */\r\n, /* Check that the ID is greater than 0 */\r\n]]"
+                "innerComments": "Optional[[/* Check the validity of the general method parameter */\r\n, // Release Date\r\n, // Due Date\r\n, // Text of News\r\n, /* Checking the validity of the fields */\r\n, /* Check the priority value */\r\n, /* Check the consistency of the dates */\r\n, /* Check that the text is not empty */\r\n, /* Check that the ID is greater than 0 */\r\n]]",
+                "generated_comment": "/**\n * This method checks the validity of a news object by verifying the release date, due date, and text of the news.\n * It also ensures that the release date is before the due date, the text is not empty, and the ID is greater than 0.\n * \n * @param pNews the news object to be validated\n * @return true if the news object is valid, false otherwise\n */"
             }
         ],
         "constructors": [],
         "signature": "ControlloDatiAdvertisement",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ControlloDatiAdvertisement class provides methods for performing data validation and consistency checks on different types of advertisement objects.\n * It contains methods for checking the validity of banner and news objects by verifying specific criteria such as ID, file path, publication date, expiration date, and news text.\n * \n * This class serves as a utility for ensuring that the data contained in advertisement objects is accurate and consistent before further processing or display.\n * \n * The main functionalities of this class include:\n * - Validating the data of a BeanBanner object by checking for a non-negative ID, a non-empty file path, and a positive ID for the associated restaurant point.\n * - Verifying the consistency and correctness of a BeanNews object by examining the publication date, expiration date, and news text.\n * \n * Overall, the ControlloDatiAdvertisement class helps maintain data integrity and reliability in advertisement-related operations within an application.\n */"
     }
 ]

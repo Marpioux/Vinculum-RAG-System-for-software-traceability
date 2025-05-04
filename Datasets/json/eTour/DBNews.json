@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaNews(int)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#cancellaNews(int)\r\n     */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a news item from the database.\n * \n * @param newsId the ID of the news item to be deleted\n * @return true if the news item is successfully deleted, false otherwise\n * @throws SQLException if an error occurs while deleting the news item\n */"
             },
             {
                 "body": "Optional[{\r\n    return NUM_TEST != 7;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciNews(BeanNews)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#inserisciNews(unisa.gps.etour.bean.BeanNews)\r\n     */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a news item into the system.\n * \n * @param newsItem the BeanNews object representing the news item to be inserted\n * @return true if the news item was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return true;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean modificaNews(BeanNews)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#modificaNews(unisa.gps.etour.bean.BeanNews)\r\n     */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a news item in the system.\n * \n * @param news the BeanNews object representing the news item to be modified\n * @return true if the news item was successfully modified, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    ArrayList<BeanNews> toReturn = new ArrayList<>();\r\n    if (NUM_TEST == 5) {\r\n        for (int i = 1; i <= CostantiGlobali.MAX_NEWS_ATTIVE; i++) {\r\n            toReturn.add(new BeanNews());\r\n        }\r\n    } else {\r\n        toReturn.add(new BeanNews());\r\n    }\r\n    return toReturn;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanNews> ottieniNews()",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @see unisa.gps.etour.repository.IDBNews#ottieniNews()\r\n     */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Ottiene un elenco di news in base al numero di test specificato.\n * Se il numero di test è uguale a 5, restituisce un elenco di BeanNews con un numero massimo di news attive.\n * Altrimenti, restituisce un elenco contenente una singola BeanNews.\n * \n * @return un ArrayList di BeanNews contenente le news ottenute\n */"
             },
             {
                 "body": "Optional[{\r\n    NUM_TEST = numTest;\r\n}]",
@@ -39,13 +43,15 @@
                 "hasInnerComment": false,
                 "signature": "public static void setNUM_TEST(int)",
                 "comments": "Optional[/**\r\n * Set the number of tests in progress\r\n *\r\n * @param numTest\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of NUM_TEST to the specified integer.\n * \n * @param numTest the integer value to set NUM_TEST to\n * @return void\n */"
             }
         ],
         "constructors": [],
         "signature": "DBNews",
         "variables": [
             "private  static int NUM_TEST"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DBNews class represents a database interface for managing news items.\n * It provides methods for deleting, inserting, modifying, and retrieving news items.\n * The class also includes a static variable NUM_TEST to keep track of the number of tests in progress.\n * \n * This class contains the following main functionalities:\n * - Deleting a news item from the database\n * - Inserting a new news item into the system\n * - Modifying an existing news item in the system\n * - Retrieving a list of news items based on a specified test number\n * \n * The class behavior can be summarized as follows:\n * - The cancellaNews method deletes a news item from the database based on the provided ID.\n * - The inserisciNews method inserts a new news item into the system.\n * - The modificaNews method modifies an existing news item in the system.\n * - The ottieniNews method retrieves a list of news items based on the specified test number.\n * - The setNUM_TEST method sets the value of NUM_TEST to the specified integer.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

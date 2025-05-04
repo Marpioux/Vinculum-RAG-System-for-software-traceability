@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "private void initialize()",
                 "comments": "Optional[/**\r\n * This method initializes this\r\n *\r\n * @return void\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the properties of the Manage Tag window.\n * Sets the size of the window to 508x398 pixels, sets the frame icon to a specified image,\n * sets the title of the window to \"Manage Tag\", and sets the content pane to the specified component.\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == jContentPane) {\r\n        jContentPane = new JPanel();\r\n        jContentPane.setLayout(new BorderLayout());\r\n        jContentPane.add(getCenterPanel(), BorderLayout.CENTER);\r\n        jContentPane.add(getEastPanel(), BorderLayout.EAST);\r\n        jContentPane.add(getJJToolBarBar(), BorderLayout.NORTH);\r\n    }\r\n    return jContentPane;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getJContentPane()",
                 "comments": "Optional[/**\r\n * This method initializes jContentPane\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the content pane for this application's main JFrame.\n * If the content pane has not been initialized yet, it creates a new JPanel\n * with a BorderLayout and adds the center panel, east panel, and toolbar to it.\n * \n * @return the content pane of the main JFrame\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == CenterPanel) {\r\n        GridBagConstraints gridBagConstraints = new GridBagConstraints();\r\n        gridBagConstraints.fill = GridBagConstraints.BOTH;\r\n        gridBagConstraints.weighty = 1.0;\r\n        gridBagConstraints.weightx = 1.0;\r\n        CenterPanel = new JPanel();\r\n        CenterPanel.setLayout(new GridBagLayout());\r\n        CenterPanel.add(getJScrollPane(), gridBagConstraints);\r\n    }\r\n    return CenterPanel;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getCenterPanel()",
                 "comments": "Optional[/**\r\n * This method initializes CenterPanel\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the center panel of the GUI. If the center panel has not been initialized yet, it creates a new JPanel with a GridBagLayout and adds a JScrollPane to it. The GridBagConstraints are set to fill both horizontally and vertically, with weights of 1.0 for both directions. Subsequent calls to this method will return the same instance of the center panel.\n * \n * @return the center panel of the GUI\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == EastPanel) {\r\n        GridBagConstraints gridBagConstraints3 = new GridBagConstraints();\r\n        gridBagConstraints3.gridy = 1;\r\n        GridBagConstraints gridBagConstraints2 = new GridBagConstraints();\r\n        gridBagConstraints2.gridx = 0;\r\n        gridBagConstraints2.gridy = 0;\r\n        EastPanel = new JPanel();\r\n        EastPanel.setLayout(new GridBagLayout());\r\n        EastPanel.add(getJPanelUp(), gridBagConstraints2);\r\n        EastPanel.add(getJPanelHelp(), gridBagConstraints3);\r\n    }\r\n    return EastPanel;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getEastPanel()",
                 "comments": "Optional[/**\r\n * This method initializes EastPanel\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a JPanel containing two sub-panels: JPanelUp and JPanelHelp.\n * If the EastPanel is null, it creates a new JPanel with a GridBagLayout and adds JPanelUp\n * at position (0,0) and JPanelHelp at position (0,1).\n * \n * @return the JPanel containing JPanelUp and JPanelHelp\n */"
             },
             {
                 "body": "Optional[{\r\n    if (jScrollPane == null) {\r\n        jScrollPane = new JScrollPane();\r\n        jScrollPane.setViewportView(getJTable());\r\n    }\r\n    return jScrollPane;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "private JScrollPane getJScrollPane()",
                 "comments": "Optional[/**\r\n * This method initializes JScrollPane\r\n *\r\n * @return javax.swing.JScrollPane\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the JScrollPane component that contains a JTable.\n * If the JScrollPane has not been initialized yet, it creates a new instance\n * and sets its view to the JTable returned by getJTable() method.\n * \n * @return the JScrollPane component containing the JTable\n */"
             },
             {
                 "body": "Optional[{\r\n    if (jTable == null) {\r\n        jTable = new JTable();\r\n        BeanTag[] listaTag = new BeanTag[11];\r\n        listaTag[0] = new BeanTag(1, \"romantic\", \"place for couples and unforgettable moments\");\r\n        listaTag[1] = new BeanTag(2, \"esoteric\", \"places of magic\");\r\n        listaTag[2] = new BeanTag(3, \"pizza\", \"The best pizza\");\r\n        listaTag[3] = new BeanTag(6, \"music\", \"live music venues, concerts ...\");\r\n        listaTag[4] = new BeanTag(76, \"trattoria\", \"typical\");\r\n        listaTag[5] = new BeanTag(7, \"fairs\", \"for important purchases or souvenirs bellissimi\");\r\n        listaTag[6] = new BeanTag(9, \"Market\", \"typical\");\r\n        listaTag[7] = new BeanTag(8, \"History\", \"typical\");\r\n        listaTag[8] = new BeanTag(5, \"nineteenth century\", \"typical\");\r\n        listaTag[9] = new BeanTag(4, \"range\", \"typical\");\r\n        listaTag[10] = new BeanTag(56, \"Cinema\", \"typical\");\r\n    }\r\n    return jTable;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "private JTable getJTable()",
                 "comments": "Optional[/**\r\n * This method initializes JTable\r\n *\r\n * @return javax.swing.JTable\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the JTable object used for displaying data.\n * If the JTable object has not been initialized yet, it will be created and populated with a predefined list of BeanTag objects.\n * \n * @return the JTable object used for displaying data\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == jJToolBarBar) {\r\n        jJToolBarBar = new JToolBar();\r\n        jJToolBarBar.add(getBtnModifica());\r\n        jJToolBarBar.add(getBtnElimina());\r\n        jJToolBarBar.addSeparator();\r\n        jJToolBarBar.add(getBtnExit());\r\n    }\r\n    return jJToolBarBar;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "private JToolBar getJJToolBarBar()",
                 "comments": "Optional[/**\r\n * This method initializes jJToolBarBar\r\n *\r\n * @return javax.swing.JToolBar\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the JToolBar component for the application, initializing it if necessary.\n * This method creates a new JToolBar instance if it has not been initialized yet, and adds\n * buttons for modifying, deleting, and exiting the application to the toolbar.\n * \n * @return the JToolBar component for the application\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == btnModifica) {\r\n        btnModifica = new JButton();\r\n        btnModifica.setText(\"Edit Tag\");\r\n        btnModifica.setIcon(new ImageIcon(getClass().getResource(\"/interfacceAgenzia/immagini/edit-32x32.png\")));\r\n    }\r\n    return btnModifica;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnModifica()",
                 "comments": "Optional[/**\r\n * This method initializes btnModifica\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JButton used for editing a tag. If the JButton has not been initialized yet, it creates a new JButton with the text \"Edit Tag\" and sets an icon. \n * \n * @return the JButton used for editing a tag\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == btnElimina) {\r\n        btnElimina = new JButton();\r\n        btnElimina.setText(\"Remove Tag\");\r\n        btnElimina.setIcon(new ImageIcon(getClass().getResource(\"/interfacceAgenzia/immagini/button-cancel-32x32.png\")));\r\n    }\r\n    return btnElimina;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnElimina()",
                 "comments": "Optional[/**\r\n * This method initializes btnElimina\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JButton used for removing a tag.\n * If the button has not been initialized yet, it creates a new JButton with the text \"Remove Tag\"\n * and an icon representing a cancel action. Subsequent calls will return the same button instance.\n * \n * @return the JButton used for removing a tag\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == btnExit) {\r\n        btnExit = new JButton();\r\n        btnExit.setText(\"Exit\");\r\n        btnExit.setIcon(new ImageIcon(getClass().getResource(\"/interfacceAgenzia/images/Forward 2.png\")));\r\n    }\r\n    return btnExit;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnExit()",
                 "comments": "Optional[/**\r\n * This method initializes btnExit\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the exit button for the interface.\n * If the exit button has not been initialized yet, it creates a new JButton with the text \"Exit\" and an icon.\n * \n * @return the exit button for the interface\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == jPanelUp) {\r\n        GridBagConstraints gridBagConstraints9 = new GridBagConstraints();\r\n        gridBagConstraints9.gridx = 1;\r\n        gridBagConstraints9.insets = new Insets(5, 5, 5, 5);\r\n        gridBagConstraints9.gridy = 4;\r\n        GridBagConstraints gridBagConstraints8 = new GridBagConstraints();\r\n        gridBagConstraints8.gridx = 0;\r\n        gridBagConstraints8.insets = new Insets(5, 5, 5, 5);\r\n        gridBagConstraints8.gridy = 4;\r\n        GridBagConstraints gridBagConstraints7 = new GridBagConstraints();\r\n        gridBagConstraints7.fill = GridBagConstraints.BOTH;\r\n        gridBagConstraints7.gridy = 3;\r\n        gridBagConstraints7.weightx = 1.0;\r\n        gridBagConstraints7.weighty = 1.0;\r\n        gridBagConstraints7.gridwidth = 2;\r\n        gridBagConstraints7.insets = new Insets(5, 0, 5, 0);\r\n        gridBagConstraints7.gridx = 0;\r\n        GridBagConstraints gridBagConstraints6 = new GridBagConstraints();\r\n        gridBagConstraints6.gridx = 0;\r\n        gridBagConstraints6.gridwidth = 2;\r\n        gridBagConstraints6.insets = new Insets(5, 0, 5, 0);\r\n        gridBagConstraints6.gridy = 2;\r\n        description = new JLabel();\r\n        description.setText(\"Description:\");\r\n        GridBagConstraints gridBagConstraints5 = new GridBagConstraints();\r\n        gridBagConstraints5.fill = GridBagConstraints.VERTICAL;\r\n        gridBagConstraints5.gridy = 1;\r\n        gridBagConstraints5.weightx = 1.0;\r\n        gridBagConstraints5.gridwidth = 2;\r\n        gridBagConstraints5.insets = new Insets(5, 0, 5, 0);\r\n        gridBagConstraints5.gridx = 0;\r\n        GridBagConstraints gridBagConstraints4 = new GridBagConstraints();\r\n        gridBagConstraints4.gridx = 0;\r\n        gridBagConstraints4.gridwidth = 2;\r\n        gridBagConstraints4.insets = new Insets(5, 0, 5, 0);\r\n        gridBagConstraints4.gridy = 0;\r\n        tagname = new JLabel();\r\n        tagname.setText(\"Tag Name:\");\r\n        jPanelUp = new JPanel();\r\n        jPanelUp.setLayout(new GridBagLayout());\r\n        jPanelUp.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 102, 255), 3), \"Insert New\", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), new Color(0, 102, 255)));\r\n        jPanelUp.add(tagname, gridBagConstraints4);\r\n        jPanelUp.add(getJTextField(), gridBagConstraints5);\r\n        jPanelUp.add(description, gridBagConstraints6);\r\n        jPanelUp.add(getJTextArea(), gridBagConstraints7);\r\n        jPanelUp.add(getBtnOk(), gridBagConstraints8);\r\n        jPanelUp.add(getBtnResetta(), gridBagConstraints9);\r\n    }\r\n    return jPanelUp;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getJPanelUp()",
                 "comments": "Optional[/**\r\n * This method initializes jPanelUp\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a JPanel containing components for inserting a new tag.\n * If the JPanel has not been initialized yet, it creates and configures the components\n * including a tag name label, text field, description label, text area, and buttons for\n * OK and reset. The JPanel is set with a titled border and a grid layout.\n * \n * @return the JPanel containing components for inserting a new tag\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == jPanelHelp) {\r\n        GridBagConstraints gridBagConstraints1 = new GridBagConstraints();\r\n        gridBagConstraints1.fill = GridBagConstraints.BOTH;\r\n        gridBagConstraints1.weighty = 1.0;\r\n        gridBagConstraints1.weightx = 1.0;\r\n        jPanelHelp = new JPanel();\r\n        jPanelHelp.setLayout(new GridBagLayout());\r\n        jPanelHelp.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 102, 255), 3), \"Help\", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), new Color(51, 153, 255)));\r\n        jPanelHelp.add(getJTextPane(), gridBagConstraints1);\r\n    }\r\n    return jPanelHelp;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getJPanelHelp()",
                 "comments": "Optional[/**\r\n * This method initializes jPanelHelp\r\n *\r\n * @return javax.swing.JPanel\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a JPanel that contains a JTextPane with help information.\n * If the JPanel has not been initialized yet, it creates a new JPanel with a titled border\n * and adds a JTextPane to it. The JPanel is then returned.\n * \n * @return JPanel - a JPanel containing help information\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == jTextPane) {\r\n        jTextPane = new JTextPane();\r\n        jTextPane.setPreferredSize(new Dimension(190, 80));\r\n    }\r\n    return jTextPane;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "private JTextPane getJTextPane()",
                 "comments": "Optional[/**\r\n * This method initializes jTextPane\r\n *\r\n * @return javax.swing.JTextPane\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an instance of JTextPane, creating a new one if it doesn't already exist.\n * \n * @return the JTextPane instance with a preferred size of 190x80\n */"
             },
             {
                 "body": "Optional[{\r\n    if (jTextField == null) {\r\n        jTextField = new JTextField();\r\n        jTextField.setColumns(10);\r\n    }\r\n    return jTextField;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "private JTextField getJTextField()",
                 "comments": "Optional[/**\r\n * This method initializes JTextField\r\n *\r\n * @return javax.swing.JTextField\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a JTextField object. If the JTextField object is null, a new JTextField object is created with 10 columns. \n * \n * @return the JTextField object\n */"
             },
             {
                 "body": "Optional[{\r\n    if (jTextArea == null) {\r\n        jTextArea = new JTextArea();\r\n        jTextArea.setRows(3);\r\n    }\r\n    return jTextArea;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "private JTextArea getJTextArea()",
                 "comments": "Optional[/**\r\n * This method initializes JTextArea\r\n *\r\n * @return javax.swing.JTextArea\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JTextArea component that can be used to display text.\n * If the JTextArea has not been initialized yet, a new JTextArea with 3 rows will be created.\n * \n * @return the JTextArea component\n */"
             },
             {
                 "body": "Optional[{\r\n    if (btnOK == null) {\r\n        btnOK = new JButton();\r\n        btnOK.setText(\"Ok\");\r\n        btnOK.setIcon(new ImageIcon(getClass().getResource(\"/interfacceAgenzia/immagini/Button_ok16.png\")));\r\n    }\r\n    return btnOK;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnOk()",
                 "comments": "Optional[/**\r\n * This method initializes btnOK\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the JButton object for the \"Ok\" button. If the button has not been initialized yet, it creates a new JButton object with the text \"Ok\" and an icon. \n * \n * @return the JButton object for the \"Ok\" button\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == btnResetta) {\r\n        btnResetta = new JButton();\r\n        btnResetta.setText(\"Reset\");\r\n        btnResetta.setIcon(new ImageIcon(getClass().getResource(\"/interfacceAgenzia/images/Trash.png\")));\r\n    }\r\n    return btnResetta;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnResetta()",
                 "comments": "Optional[/**\r\n * This method initializes btnResetta\r\n *\r\n * @return javax.swing.JButton\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JButton used for resetting the form.\n * If the button has not been initialized yet, it creates a new JButton with the text \"Reset\" and an icon of a trash can.\n * \n * @return the JButton used for resetting the form\n */"
             }
         ],
         "constructors": [
@@ -145,7 +162,8 @@
                 "hasInnerComment": false,
                 "signature": "public Tag()",
                 "comments": "Optional[/**\r\n * This is the default constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Tag object with no parameters.\n * This constructor calls the superclass constructor and initializes the Tag object.\n */"
             }
         ],
         "signature": "Tag",
@@ -168,6 +186,7 @@
             "private JTextArea jTextArea",
             "private JButton btnOK",
             "private JButton btnResetta"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Tag class represents a window for managing tags in a graphical user interface.\n * This class provides methods for initializing the window, setting up the content pane,\n * creating panels for displaying data, adding buttons for editing, deleting, and exiting,\n * and inserting new tags. The class includes components such as JTable, JToolBar, JButton,\n * JPanel, JTextPane, JLabel, JTextField, JTextArea, and more for interacting with tag data.\n * \n * The main functionalities of this class include:\n * - Initializing the window properties such as size, icon, and title\n * - Creating the content pane with center panel, east panel, and toolbar\n * - Displaying a table of tags with predefined data\n * - Adding buttons for modifying, deleting, and exiting the application\n * - Inserting new tags with name and description fields\n * - Providing help information through a JTextPane component\n * \n * The behavior of the Tag class is to display a window for managing tags, allowing users to\n * view, edit, delete, and add new tags. The window layout includes panels for organizing\n * components, buttons for performing actions, and text fields for entering tag information.\n * Users can interact with the interface to manage tag data effectively and efficiently.\n * \n * Note: This class is part of a larger application and is designed to work within the context\n * of the overall system for managing tag information.\n */\n */"
     }
 ]

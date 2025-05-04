@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getGiorno()",
                 "comments": "Optional[/**\r\n * Returns the value of days\r\n *\r\n * @return Value of the day.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the day of the week as a String.\n * \n * @return the day of the week\n */"
             },
             {
                 "body": "Optional[{\r\n    day = pGiorno;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setGiorno(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of days\r\n *\r\n * @param pGiorno New pGiorno day.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the day of the week for this object.\n * \n * @param pGiorno the day of the week to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdPuntoDiRistoro()",
                 "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the food point.\n * \n * @return the ID of the food point\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pId;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pId the new ID to set\n * \n * This method sets the ID of the object to the specified value.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro New idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the restaurant point.\n * \n * @param pIdPuntoDiRistoro the ID of the restaurant point to set\n * \n * This method sets the ID of the restaurant point to the specified value.\n * \n */"
             }
         ],
         "constructors": [
@@ -57,7 +63,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanMenu(int, String, int)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pGiorno\r\n * @param pIdPuntoDiRistoro\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanMenu object with the specified ID, giorno, and ID punto di ristoro.\n * \n * @param pId the ID of the menu\n * @param pGiorno the day of the menu\n * @param pIdPuntoDiRistoro the ID of the restaurant point\n */\npublic BeanMenu(int pId, String pGiorno, int pIdPuntoDiRistoro) {\n    setId(pId);\n    setGiorno(pGiorno);\n    setIdPuntoDiRistoro(pIdPuntoDiRistoro);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanMenu()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the BeanMenu class.\n * It creates a new instance of BeanMenu with no parameters.\n */"
             }
         ],
         "signature": "BeanMenu",
@@ -74,6 +82,7 @@
             "private int id",
             "private String day",
             "private int idPuntoDiRistoro"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanMenu class represents a menu object with various attributes such as ID, day, and restaurant point ID.\n * This class provides methods to get and set the values of these attributes, as well as constructors to create new instances of BeanMenu.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the ID of the menu\n * - Retrieving and setting the day of the menu\n * - Retrieving and setting the ID of the restaurant point associated with the menu\n * \n * This class also includes constructors to initialize a new BeanMenu object with specified values for ID, day, and restaurant point ID.\n * \n * Overall, the BeanMenu class encapsulates the data and behavior related to a menu object, allowing for easy manipulation and management of menu information.\n */"
     }
 ]

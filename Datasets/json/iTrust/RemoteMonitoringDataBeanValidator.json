@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(RemoteMonitoringDataBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the given RemoteMonitoringDataBean by checking the format of its systolic blood pressure, diastolic blood pressure, and glucose level.\n * If any of the values do not adhere to the specified format, an error message is added to the ErrorList.\n * If there are any errors in the ErrorList after validation, a FormValidationException is thrown.\n * \n * @param m the RemoteMonitoringDataBean to validate\n * @throws FormValidationException if there are errors in the validation process\n */"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public RemoteMonitoringDataBeanValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the RemoteMonitoringDataBeanValidator class.\n * This constructor initializes a new instance of the RemoteMonitoringDataBeanValidator class.\n * It does not take any parameters.\n * \n * @param None\n * @return A new instance of RemoteMonitoringDataBeanValidator\n */"
             }
         ],
         "signature": "RemoteMonitoringDataBeanValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The RemoteMonitoringDataBeanValidator class is responsible for validating instances of RemoteMonitoringDataBean.\n * It contains a method, validate, which checks the format of systolic blood pressure, diastolic blood pressure, and glucose level\n * in the given RemoteMonitoringDataBean. If any of these values do not adhere to the specified format, an error message is added\n * to the ErrorList. If there are any errors in the ErrorList after validation, a FormValidationException is thrown.\n * \n * This class also includes a default constructor that initializes a new instance of RemoteMonitoringDataBeanValidator.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * This class represents a RemoteMonitoringDataBeanValidator which is responsible for validating data beans used in remote monitoring.\n * It does not take any parameters.\n * \n * The main functionalities of this class include:\n * - Validating data beans used in remote monitoring to ensure data integrity and accuracy.\n * \n * This class ensures that the data beans used in remote monitoring are valid and meet the required criteria for processing.\n * \n * @param None\n * @return A new instance of RemoteMonitoringDataBeanValidator\n */"
     }
 ]

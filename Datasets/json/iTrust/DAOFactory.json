@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public static DAOFactory getProductionInstance()",
                 "comments": "Optional[/**\r\n * @return A production instance of the DAOFactory, to be used in deployment (by Tomcat).\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the production instance of the DAOFactory. If the production instance is null, a new DAOFactory object is created and assigned to the productionInstance variable.\n * \n * @return the production instance of the DAOFactory\n */"
             },
             {
                 "body": "Optional[{\r\n    return driver.getConnection();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public Connection getConnection()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a connection to the database using the specified driver.\n * \n * @return a Connection object representing a connection to the database\n */"
             },
             {
                 "body": "Optional[{\r\n    return new AccessDAO(this);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public AccessDAO getAccessDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an instance of AccessDAO initialized with the current object.\n * \n * @return an instance of AccessDAO initialized with the current object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new AllergyDAO(this);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public AllergyDAO getAllergyDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the Allergy Data Access Object (DAO) associated with this instance.\n *\n * @return An instance of AllergyDAO that is initialized with the current instance of the class.\n */"
             },
             {
                 "body": "Optional[{\r\n    return new ApptDAO(this);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public ApptDAO getApptDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the appointment data access object (ApptDAO) associated with this object.\n * \n * @return the ApptDAO object associated with this object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new ApptTypeDAO(this);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public ApptTypeDAO getApptTypeDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ApptTypeDAO object associated with this instance.\n * \n * @return the ApptTypeDAO object associated with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new AuthDAO(this);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public AuthDAO getAuthDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the AuthDAO object associated with this instance.\n * \n * @return the AuthDAO object associated with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new CPTCodesDAO(this);\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public CPTCodesDAO getCPTCodesDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an instance of the CPTCodesDAO class.\n * \n * @return a new instance of the CPTCodesDAO class with the current object as a parameter\n */"
             },
             {
                 "body": "Optional[{\r\n    return new DrugInteractionDAO(this);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public DrugInteractionDAO getDrugInteractionDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a new instance of DrugInteractionDAO initialized with the current object as a parameter.\n * \n * @return a DrugInteractionDAO object initialized with the current object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new FamilyDAO(this);\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public FamilyDAO getFamilyDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the FamilyDAO object associated with this instance.\n * \n * @return a new instance of FamilyDAO initialized with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new HealthRecordsDAO(this);\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public HealthRecordsDAO getHealthRecordsDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the HealthRecordsDAO object associated with this instance.\n * \n * @return a new instance of HealthRecordsDAO initialized with the current instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new HospitalsDAO(this);\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public HospitalsDAO getHospitalsDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a HospitalsDAO object that is initialized with the current instance of the class.\n * \n * @return a HospitalsDAO object initialized with the current instance of the class\n */"
             },
             {
                 "body": "Optional[{\r\n    return new ICDCodesDAO(this);\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public ICDCodesDAO getICDCodesDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ICDCodesDAO object associated with this instance.\n * \n * @return the ICDCodesDAO object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new NDCodesDAO(this);\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public NDCodesDAO getNDCodesDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an instance of NDCodesDAO.\n * \n * This method creates a new instance of NDCodesDAO using the current object as a parameter.\n * \n * @return an instance of NDCodesDAO\n */"
             },
             {
                 "body": "Optional[{\r\n    return new OfficeVisitDAO(this);\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitDAO getOfficeVisitDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the OfficeVisitDAO object associated with this instance.\n * \n * @return the OfficeVisitDAO object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new PatientDAO(this);\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientDAO getPatientDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the PatientDAO object associated with this instance.\n * \n * @return the PatientDAO object associated with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new PersonnelDAO(this);\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public PersonnelDAO getPersonnelDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the Personnel Data Access Object (DAO) associated with this object.\n * \n * @return the PersonnelDAO object initialized with this object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new ReferralDAO(this);\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReferralDAO getReferralDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ReferralDAO object associated with this instance.\n * \n * @return the ReferralDAO object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new RiskDAO(this);\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public RiskDAO getRiskDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the RiskDAO object associated with this instance.\n * \n * @return a RiskDAO object initialized with the current instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new TransactionDAO(this);\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public TransactionDAO getTransactionDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the TransactionDAO object associated with this instance.\n * \n * @return a new TransactionDAO object initialized with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new VisitRemindersDAO(this);\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public VisitRemindersDAO getVisitRemindersDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the VisitRemindersDAO object associated with this instance.\n * \n * @return a VisitRemindersDAO object initialized with the current instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new FakeEmailDAO(this);\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public FakeEmailDAO getFakeEmailDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the FakeEmailDAO object associated with this instance.\n * \n * @return FakeEmailDAO - the FakeEmailDAO object associated with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new ReportRequestDAO(this);\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReportRequestDAO getReportRequestDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ReportRequestDAO object associated with this instance.\n * \n * @return ReportRequestDAO - the ReportRequestDAO object associated with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new SurveyDAO(this);\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public SurveyDAO getSurveyDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the SurveyDAO object associated with this instance.\n * \n * @return a SurveyDAO object initialized with the current instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new LabProcedureDAO(this);\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public LabProcedureDAO getLabProcedureDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an instance of LabProcedureDAO initialized with the current object.\n * \n * @return LabProcedureDAO - an instance of LabProcedureDAO initialized with the current object.\n */"
             },
             {
                 "body": "Optional[{\r\n    return new LOINCDAO(this);\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public LOINCDAO getLOINCDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a new instance of the LOINCDAO class with the current object as a parameter.\n * \n * @return a new instance of the LOINCDAO class initialized with the current object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new SurveyResultDAO(this);\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public SurveyResultDAO getSurveyResultDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a SurveyResultDAO object that is associated with this instance.\n * \n * @return a SurveyResultDAO object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new MessageDAO(this);\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public MessageDAO getMessageDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the MessageDAO object associated with this instance.\n * \n * @return a new instance of MessageDAO initialized with the current object\n */"
             },
             {
                 "body": "Optional[{\r\n    return new AdverseEventDAO(this);\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public AdverseEventDAO getAdverseEventDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the AdverseEventDAO object associated with this instance.\n * \n * @return the AdverseEventDAO object associated with this instance\n */"
             },
             {
                 "body": "Optional[{\r\n    return new RemoteMonitoringDAO(this);\r\n}]",
@@ -239,7 +268,8 @@
                 "hasInnerComment": false,
                 "signature": "public RemoteMonitoringDAO getRemoteMonitoringDAO()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an instance of RemoteMonitoringDAO for accessing remote monitoring data.\n * \n * @return an instance of RemoteMonitoringDAO\n */"
             }
         ],
         "constructors": [
@@ -249,13 +279,15 @@
                 "hasInnerComment": false,
                 "signature": "protected DAOFactory()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DAOFactory object.\n * \n * This constructor initializes the DAOFactory with a new instance of ProductionConnectionDriver, which is used to establish connections to the production database. \n * \n * @param none\n * @return a new DAOFactory object with a ProductionConnectionDriver instance\n */"
             }
         ],
         "signature": "DAOFactory",
         "variables": [
             "private  static DAOFactory productionInstance",
             "private IConnectionDriver driver"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DAOFactory class represents a factory for creating Data Access Objects (DAOs) for various entities in the system.\n * It provides methods for obtaining instances of specific DAOs and managing database connections.\n * \n * The class follows the Singleton design pattern, ensuring that only one instance of the DAOFactory is created.\n * The productionInstance variable holds the production instance of the DAOFactory, which is used in deployment by Tomcat.\n * \n * The getConnection method retrieves a connection to the database using the specified driver.\n * \n * The getAccessDAO method returns an instance of AccessDAO initialized with the current object.\n * \n * The getAllergyDAO method retrieves the Allergy Data Access Object (DAO) associated with this instance.\n * \n * The getApptDAO method returns an instance of ApptDAO initialized with the current object.\n * \n * Overall, the DAOFactory class serves as a central hub for creating and managing DAO instances, facilitating database operations\n * in a structured and efficient manner.\n */\n/**\n * This class represents a Data Access Object (DAO) for managing various types of appointments, authentication, CPT codes, drug interactions, and family information.\n * It provides methods for retrieving specific DAO objects associated with this instance, such as ApptDAO, ApptTypeDAO, AuthDAO, CPTCodesDAO, DrugInteractionDAO, and FamilyDAO.\n * \n * The getApptDAO method retrieves the appointment data access object (ApptDAO) associated with this object.\n * \n * The getApptTypeDAO method retrieves the ApptTypeDAO object associated with this instance.\n * \n * The getAuthDAO method retrieves the AuthDAO object associated with this instance.\n * \n * The getCPTCodesDAO method returns an instance of the CPTCodesDAO class with the current object as a parameter.\n * \n * The getDrugInteractionDAO method returns a new instance of DrugInteractionDAO initialized with the current object as a parameter.\n * \n * The getFamilyDAO method returns a new instance of FamilyDAO initialized with the current object as a parameter.\n */\n/**\n * This class represents a Data Access Object (DAO) for managing various health-related entities in the system.\n * It provides methods for retrieving and manipulating data related to families, health records, hospitals, \n * ICD codes, NDC codes, and office visits. Each method returns a DAO object associated with the current instance\n * of the class, initialized with the necessary data.\n * \n * The main functionalities of this class include:\n * - Retrieving a FamilyDAO object initialized with the current instance\n * - Retrieving a HealthRecordsDAO object initialized with the current instance\n * - Retrieving a HospitalsDAO object initialized with the current instance\n * - Retrieving an ICDCodesDAO object associated with the current instance\n * - Retrieving an NDCodesDAO object initialized with the current instance\n * - Retrieving an OfficeVisitDAO object initialized with the current instance\n * \n * This class encapsulates the logic for interacting with the database and provides a convenient way to access \n * and manipulate health-related data. Each method returns a new instance of the corresponding DAO object, \n * allowing for easy integration with other parts of the system.\n */\n/**\n * The DataAccessObjectFactory class is responsible for creating and providing Data Access Objects (DAOs) for various entities in the system.\n * \n * This class contains methods to retrieve different DAO objects such as OfficeVisitDAO, PatientDAO, PersonnelDAO, ReferralDAO, RiskDAO, and TransactionDAO.\n * Each method returns an initialized DAO object associated with the current instance.\n * \n * Main functionalities of this class include:\n * - Creating and providing DAO objects for different entities in the system\n * - Initializing and returning DAO objects for OfficeVisit, Patient, Personnel, Referral, Risk, and Transaction entities\n * \n * The overall behavior of this class is to facilitate data access operations by providing access to DAO objects for interacting with the database.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The LabProcedureDAO class is responsible for handling database operations related to lab procedures.\n * It provides methods to retrieve, create, update, and delete lab procedures in the database.\n * \n * This class is associated with a specific instance of the main application class, allowing it to interact\n * with the database using the connection established by the main application.\n * \n * The main functionalities of this class include:\n * - Retrieving lab procedures from the database\n * - Creating new lab procedures and storing them in the database\n * - Updating existing lab procedures with new information\n * - Deleting lab procedures from the database\n * \n * The behavior of this class is dependent on the database schema and the structure of the LabProcedure table.\n * It ensures data integrity and consistency by enforcing constraints defined in the database schema.\n * \n * This class follows the DAO (Data Access Object) design pattern, separating the database operations from the\n * business logic of the application. It encapsulates the database access code and provides a clean interface\n * for interacting with lab procedures in the database.\n */\n */\"\n/**\n * This class represents a Data Access Object (DAO) for managing various entities in the system.\n * It provides methods to retrieve specific DAO instances for different entities such as LabProcedure, LOINC, SurveyResult, Message, AdverseEvent, and RemoteMonitoring.\n * Each method returns a new instance of the corresponding DAO class initialized with the current object.\n * \n * The main functionalities of this class include:\n * - Providing access to DAO instances for different entities in the system\n * - Facilitating data retrieval and manipulation operations for each entity\n * \n * Overall, this class serves as a central hub for managing data access operations for different entities in the system.\n * Developers can use the methods in this class to obtain specific DAO instances and perform CRUD operations on the corresponding entities.\n */\n**/\n/**\n * The DAOFactory class is responsible for providing instances of various Data Access Objects (DAOs) that interact with the database.\n * \n * This class serves as a factory for creating DAO objects and managing database connections. It contains methods for obtaining instances of specific DAOs, such as RemoteMonitoringDAO, and handles the initialization of the database connection driver.\n * \n * The DAOFactory class follows the Factory design pattern, allowing for the creation of DAO objects without exposing the underlying implementation details. It encapsulates the logic for creating and configuring DAO instances, promoting code reusability and maintainability.\n * \n * The DAOFactory class also ensures that only one instance of the ProductionConnectionDriver is used throughout the application, promoting consistency and efficiency in database operations.\n * \n * Overall, the DAOFactory class plays a crucial role in abstracting database interactions and providing a centralized mechanism for accessing and managing DAO instances.\n */"
     }
 ]

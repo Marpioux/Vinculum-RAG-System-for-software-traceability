@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LabProcedureBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of LabProcedureBean objects from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into LabProcedureBean objects\n * @return a List of LabProcedureBean objects loaded from the ResultSet\n * \n * This method iterates through the ResultSet and creates a new LabProcedureBean object for each row of data.\n * It then adds each LabProcedureBean object to an ArrayList and returns the list of LabProcedureBean objects.\n */"
             },
             {
                 "body": "Optional[{\r\n    LabProcedureBean LabProcedure = new LabProcedureBean();\r\n    LabProcedure.setProcedureID(rs.getLong(\"LaboratoryProcedureID\"));\r\n    LabProcedure.setPid(rs.getLong(\"PatientMID\"));\r\n    LabProcedure.setLoinc(rs.getString(\"LaboratoryProcedureCode\"));\r\n    LabProcedure.setStatus(rs.getString(\"Status\"));\r\n    LabProcedure.setCommentary(rs.getString(\"Commentary\"));\r\n    LabProcedure.setResults(rs.getString(\"Results\"));\r\n    LabProcedure.setOvID(rs.getLong(\"OfficeVisitID\"));\r\n    LabProcedure.setTimestamp(rs.getTimestamp(\"UpdatedDate\"));\r\n    LabProcedure.setRights(rs.getString(\"Rights\"));\r\n    return LabProcedure;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public LabProcedureBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single LabProcedureBean object from a ResultSet.\n * \n * @param rs the ResultSet containing the data to load into the LabProcedureBean\n * @return a LabProcedureBean object with data loaded from the ResultSet\n */\npublic LabProcedureBean loadSingle(ResultSet rs) {\n    LabProcedureBean LabProcedure = new LabProcedureBean();\n    LabProcedure.setProcedureID(rs.getLong(\"LaboratoryProcedureID\"));\n    LabProcedure.setPid(rs.getLong(\"PatientMID\"));\n    LabProcedure.setLoinc(rs.getString(\"LaboratoryProcedureCode\"));\n    LabProcedure.setStatus(rs.getString(\"Status\"));\n    LabProcedure.setCommentary(rs.getString(\"Commentary\"));\n    LabProcedure.setResults(rs.getString(\"Results\"));\n    LabProcedure.setOvID(rs.getLong(\"OfficeVisitID\"));\n    LabProcedure.setTimestamp(rs.getTimestamp(\"UpdatedDate\"));\n    LabProcedure.setRights(rs.getString(\"Rights\"));\n    return LabProcedure;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, LabProcedureBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of a LabProcedureBean into a PreparedStatement.\n * \n * @param preparedStatement the PreparedStatement to load the parameters into\n * @param labProcedureBean the LabProcedureBean containing the parameters to be loaded\n * @return the PreparedStatement with the parameters loaded\n * @throws IllegalStateException if the method is not implemented\n */"
             }
         ],
         "constructors": [],
         "signature": "LabProcedureBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a Data Access Object (DAO) for LabProcedureBean objects. It provides methods for loading LabProcedureBean objects from a ResultSet and returning them as a List or a single object.\n * \n * The main functionalities of this class include:\n * - Loading a list of LabProcedureBean objects from a ResultSet using the loadList method\n * - Loading a single LabProcedureBean object from a ResultSet using the loadSingle method\n * \n * The loadList method iterates through the ResultSet and creates a new LabProcedureBean object for each row of data. It then adds each LabProcedureBean object to an ArrayList and returns the list of LabProcedureBean objects.\n * \n * The loadSingle method loads a single LabProcedureBean object from a ResultSet by setting its attributes based on the data in the ResultSet.\n * \n * This class encapsulates the logic for loading LabProcedureBean objects from a ResultSet and provides a convenient way to work with LabProcedureBean data in a database.\n */\npublic class LabProcedureDAO {\n    // methods for loading LabProcedureBean objects from a ResultSet\n}\n*/\n/**\n * The LabProcedureBeanLoader class is responsible for loading LabProcedureBean objects from a ResultSet and\n * loading the parameters of a LabProcedureBean into a PreparedStatement. It provides methods to extract data from\n * a ResultSet and populate a LabProcedureBean object, as well as to load the parameters of a LabProcedureBean\n * into a PreparedStatement for database operations.\n * \n * This class includes methods for:\n * - Extracting data from a ResultSet and populating a LabProcedureBean object\n * - Loading the parameters of a LabProcedureBean into a PreparedStatement\n * \n * The main functionalities of this class include:\n * - Extracting data such as ProcedureID, PatientMID, LaboratoryProcedureCode, Status, Commentary, Results, OfficeVisitID,\n *   UpdatedDate, and Rights from a ResultSet and populating a LabProcedureBean object\n * - Loading the parameters of a LabProcedureBean into a PreparedStatement for database operations\n * \n * The overall behavior of this class is to facilitate the loading and extraction of LabProcedureBean objects from\n * a ResultSet and PreparedStatement, providing a convenient way to interact with LabProcedureBean data in a database.\n */\n **/"
     }
 ]

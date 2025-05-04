@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ApptBean> getApptsFor(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of appointments for a given doctor or patient ID.\n *\n * @param mid the ID of the doctor or patient\n * @return a list of ApptBean objects representing the appointments\n * @throws SQLException if an error occurs while accessing the database\n */\npublic List<ApptBean> getApptsFor(long mid) throws SQLException {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    conn = factory.getConnection();\n    if (mid >= (long) 999999999) {\n        ps = conn.prepareStatement(\"SELECT * FROM appointment WHERE doctor_id=? ORDER BY sched_date;\");\n    } else {\n        ps = conn.prepareStatement(\"SELECT * FROM appointment WHERE patient_id=? ORDER BY sched_date;\");\n    }\n    ps.setLong(1, mid);\n    ResultSet rs = ps.executeQuery();\n    List<ApptBean> abList = this.abloader.loadList(rs);\n    DBUtil.closeConnection(conn, ps);\n    return abList;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"SELECT * FROM appointment;\");\r\n    ResultSet rs = ps.executeQuery();\r\n    List<ApptBean> abList = this.abloader.loadList(rs);\r\n    DBUtil.closeConnection(conn, ps);\r\n    return abList;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ApptBean> getAllAppts()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all appointments from the database.\n * \n * @return a List of ApptBean objects representing all appointments in the database\n * @throws SQLException if a database access error occurs\n */\npublic List<ApptBean> getAllAppts() {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    \n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"SELECT * FROM appointment;\");\n        ResultSet rs = ps.executeQuery();\n        \n        List<ApptBean> abList = this.abloader.loadList(rs);\n        \n        return abList;\n    } catch (SQLException e) {\n        e.printStackTrace();\n    } finally {\n        DBUtil.closeConnection(conn, ps);\n    }\n    \n    return null;\n}"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"INSERT INTO appointment (appt_type, patient_id, doctor_id, sched_date, comment) \" + \"VALUES (?, ?, ?, ?, ?)\");\r\n    ps = this.abloader.loadParameters(ps, appt);\r\n    ps.executeUpdate();\r\n    DBUtil.closeConnection(conn, ps);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void scheduleAppt(ApptBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Schedule an appointment for a patient with a doctor.\n * \n * @param appt The ApptBean object containing the appointment details.\n * @throws SQLException if a database access error occurs\n * \n * This method inserts a new appointment record into the database with the specified appointment type, patient ID, doctor ID, scheduled date, and comment. \n * It uses the ApptBeanLoader class to load the parameters into the PreparedStatement object before executing the SQL query to insert the record.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -33,13 +36,15 @@
                 "hasInnerComment": false,
                 "signature": "public ApptDAO(DAOFactory)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ApptDAO object with the given DAOFactory.\n * \n * @param factory the DAOFactory to be used for database operations\n * \n * Initializes the ApptDAO with the provided DAOFactory and creates a new ApptBeanLoader object.\n */"
             }
         ],
         "signature": "ApptDAO",
         "variables": [
             "private DAOFactory factory",
             "private ApptBeanLoader abloader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ApptDAO class represents a Data Access Object (DAO) for managing appointments in a database.\n * It provides methods for retrieving, scheduling, and accessing appointment records.\n * \n * This class contains the following main functionalities:\n * - Retrieving a list of appointments for a given doctor or patient ID\n * - Retrieving a list of all appointments from the database\n * - Scheduling an appointment for a patient with a doctor\n * \n * The class maintains two private variables:\n * - factory: a DAOFactory object used for database operations\n * - abloader: an instance of the ApptBeanLoader class for loading appointment data\n * \n * The class constructor initializes the ApptDAO object with the provided DAOFactory and creates a new ApptBeanLoader object.\n * \n * The class methods include:\n * - getApptsFor(long mid): Retrieves a list of appointments for a given doctor or patient ID.\n * - getAllAppts(): Retrieves a list of all appointments from the database.\n * - scheduleAppt(ApptBean appt): Schedule an appointment for a patient with a doctor.\n * \n * This class encapsulates database operations related to appointments and provides a convenient interface for interacting with appointment data.\n */\npublic class ApptDAO {\n    private DAOFactory factory;\n    private ApptBeanLoader abloader;\n    \n    /**\n     * Constructs a new ApptDAO object with the given DAOFactory.\n     * \n     * @param factory the DAOFactory to be used for database operations\n     * \n     * Initializes the ApptDAO with the provided DAOFactory and creates a new ApptBeanLoader object.\n     */\n    public ApptDAO(DAOFactory factory) {\n        this.factory = factory;\n        this.abloader = new ApptBeanLoader();\n    }\n    \n    /**\n     * Retrieves a list of appointments for a given doctor or patient ID.\n     * \n     * @param mid the ID of the doctor or patient\n     * @return a list of ApptBean objects representing the appointments\n     * @throws SQLException if an error occurs while accessing the database\n     */\n    public List<ApptBean> getApptsFor(long mid) throws SQLException {\n        Connection conn = null;\n        PreparedStatement ps = null;\n        conn = factory.getConnection();\n        if (mid >= (long) 999999999) {\n            ps = conn.prepareStatement(\"SELECT * FROM appointment WHERE doctor_id=? ORDER BY sched_date;\");\n        } else {\n            ps = conn.prepareStatement(\"SELECT * FROM appointment WHERE patient_id=? ORDER BY sched_date;\");\n        }\n        ps.setLong(1, mid);\n        ResultSet rs = ps.executeQuery();\n        List<ApptBean> abList = this.abloader.loadList(rs);\n        DBUtil.closeConnection(conn, ps);\n        return abList;\n    }\n    \n    /**\n     * Retrieves a list of all appointments from the database.\n     * \n     * @return a List of ApptBean objects representing all appointments in the database\n     * @throws SQLException if a database access error occurs\n     */\n    public List<ApptBean> getAllAppts() {\n        Connection conn = null;\n        PreparedStatement ps = null;\n        \n        try {\n            conn = factory.getConnection();\n            ps = conn.prepareStatement(\"SELECT * FROM appointment;\");\n            ResultSet rs = ps.executeQuery();\n            \n            List<ApptBean> abList = this.abloader.loadList(rs);\n            \n            return abList;\n        } catch (SQLException e) {\n            e.printStackTrace();\n        } finally {\n            DBUtil.closeConnection(conn, ps);\n        }\n        \n        return null;\n    }\n    \n    /**\n     * Schedule an appointment for a patient with a doctor.\n     * \n     * @param appt The ApptBean object containing the appointment details.\n     * @throws SQLException if a database access error occurs\n     * \n     * This method inserts a new appointment record into the database with the specified appointment type, patient ID, doctor ID, scheduled date, and comment. \n     * It uses the ApptBeanLoader class to load the parameters into the PreparedStatement object before executing the SQL query to insert the record.\n     * \n     * @return void\n     */\n    public void scheduleAppt(ApptBean appt) {\n        Connection conn = null;\n        PreparedStatement ps = null;\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"INSERT INTO appointment (appt_type, patient_id, doctor_id, sched_date, comment) \" + \"VALUES (?, ?, ?, ?, ?)\");\n        ps = this.abloader.loadParameters(ps, appt);\n        ps.executeUpdate();\n        DBUtil.closeConnection(conn, ps);\n    }\n}\n*/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getColumnCount()",
                 "comments": "Optional[/**\r\n * Returns the number of columns\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of columns in the dataset.\n * \n * @return the number of columns in the dataset\n */"
             },
             {
                 "body": "Optional[{\r\n    return data.size();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getRowCount()",
                 "comments": "Optional[/**\r\n * Returns the number of rows\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of rows in the data set.\n * \n * @return the number of rows in the data set\n */"
             },
             {
                 "body": "Optional[{\r\n    return headers[pCol];\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getColumnName(int)",
                 "comments": "Optional[/**\r\n * Returns the column heading i_esima\r\n *\r\n * @param pCol\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the column name at the specified index from the headers array.\n * \n * @param pCol the index of the column name to retrieve\n * @return the column name at the specified index\n * @throws ArrayIndexOutOfBoundsException if the index is out of bounds\n */"
             },
             {
                 "body": "Optional[{\r\n    return data.get(pRow)[pCol];\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public Object getValueAt(int, int)",
                 "comments": "Optional[/**\r\n * Returns the coordinates given by the pair of row, column\r\n *\r\n * @param pRow\r\n * @param pCol\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value at the specified row and column in the data structure.\n * \n * @param pRow the index of the row to retrieve the value from\n * @param pCol the index of the column to retrieve the value from\n * @return the value at the specified row and column\n */"
             },
             {
                 "body": "Optional[{\r\n    return columnClasses[pCol];\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Class<?> getColumnClass(int)",
                 "comments": "Optional[/**\r\n * Returns the column pCol\r\n *\r\n * @param pCol\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the class type of the specified column in the table model.\n * \n * @param pCol the index of the column to retrieve the class type for\n * @return the class type of the specified column\n * \n * @throws IndexOutOfBoundsException if the specified column index is out of bounds\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isCellEditable(int, int)",
                 "comments": "Optional[/**\r\n * Always returns false because the cells in the table are not editable\r\n *\r\n * @param row\r\n * @param col\r\n * @return false\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Determines if a cell is editable based on the specified row and column indices.\n * \n * @param row the row index of the cell\n * @param column the column index of the cell\n * @return true if the cell is editable, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setValueAt(Object, int, int)",
                 "comments": "Optional[/**\r\n * This method is empty.\r\n * Can not be included an element within a cell\r\n *\r\n * @deprecated\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value at the specified row and column in the data model. \n * \n * @param value the new value to set at the specified row and column\n * @param row the row index of the cell to be updated\n * @param column the column index of the cell to be updated\n */\npublic void setValueAt(Object value, int row, int column) {\n    // Method body goes here\n}"
             }
         ],
         "constructors": [
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public TAGTableModel(BeanTag[])",
                 "comments": "Optional[/**\r\n * Constructor for class TagTableModel\r\n *\r\n * @param tags BeanTag[]\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new TAGTableModel with the given array of BeanTag objects.\n * \n * @param tags an array of BeanTag objects to populate the table model with\n * \n * This constructor initializes a new Vector and populates it with rows containing data from the provided BeanTag objects.\n * Each row consists of three elements: the ID, name, and description of the BeanTag object.\n */"
             }
         ],
         "signature": "TAGTableModel",
@@ -74,6 +82,7 @@
             "private  static  final String headers",
             "private  static  final Class<?> columnClasses",
             "private Vector<Object[]> data"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The TAGTableModel class represents a table model for displaying data related to BeanTag objects.\n * It provides methods for retrieving information about the structure of the data, accessing specific values,\n * and determining the class type of columns. This class also includes functionality for determining if cells are editable\n * and setting values at specific rows and columns.\n * \n * The class includes a constructor that takes an array of BeanTag objects and populates the table model with data\n * from these objects. Each row in the table consists of three elements: the ID, name, and description of the BeanTag object.\n * \n * Overall, the TAGTableModel class serves as a data structure for organizing and displaying information about BeanTag objects\n * in a tabular format. It encapsulates the data and provides methods for interacting with and manipulating the data\n * within the table model.\n */"
     }
 ]

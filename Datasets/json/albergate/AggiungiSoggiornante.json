@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by setting text values and disabling editing.\n * Sets the text of testo1 to the room number of the current stanza.\n * Sets the text of testo13 to the current date.\n * Sets the text of testo14 to the end date of the prenotazione.\n * Disables editing for testo1, testo13, and testo14.\n * Adds an ActionListener to the Conferma button that calls startConferma() when clicked.\n */"
             },
             {
                 "body": "Optional[{\r\n    startConferma();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startConferma() method, which initiates the confirmation process for the event. \n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        Soggiornante sogg = readDatiSogg(prenotazione, num_sogg + 1);\r\n        sogg.setInizioSogg(new Date());\r\n        sogg.setFineSogg(prenotazione.getFineSogg());\r\n        sogg.setNumStanza(stanza.getNumStanza());\r\n        int j;\r\n        if ((j = (Principale.db).writeSoggiornante(sogg)) == DataBase.OK) {\r\n            //\tModifico la prenotazione relativa\r\n            if (stanza.getPostiLetto() > num_sogg)\r\n                prenotazione.setNumPers(num_sogg + 1);\r\n            else if ((stanza.getPostiLetto() == num_sogg) && (stanza.getDispLettoAgg() == Const.SI))\r\n                prenotazione.setRichLettoAgg(Const.SI);\r\n            (Principale.db).changePrenotazione(prenotazione.getIdPrenotazione(), prenotazione.getNumStanza(), prenotazione.getNumPers(), prenotazione.getNome(), prenotazione.getCognome(), prenotazione.getNumTel(), prenotazione.getInizioSogg(), prenotazione.getFineSogg(), prenotazione.getDataPren(), prenotazione.getCaparra(), prenotazione.getRichLettoAgg(), prenotazione.getPensionamento(), prenotazione.getTramiteAgenzia(), prenotazione.getNomeAgenzia(), prenotazione.getRichParticolari());\r\n            msg = new AvvisoLocale(this, \" Nuovo soggiornante registrato! \");\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": " void startConferma()",
                 "comments": null,
-                "innerComments": "Optional[[//\tModifico la prenotazione relativa\r\n]]"
+                "innerComments": "Optional[[//\tModifico la prenotazione relativa\r\n]]",
+                "generated_comment": "/**\n * Starts the confirmation process for a new guest by reading and storing their information in the database.\n * If there are no errors, a new guest is added to the database with the specified details.\n * If successful, the corresponding reservation is updated accordingly.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            setVisible(false);\r\n            dispose();\r\n            padre.dispose();\r\n            padre.padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the ActionListener for the \"OK\" button, which when clicked, hides the current window, disposes of it, disposes of the parent window, and enables the parent window's parent window.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    setVisible(false);\r\n    dispose();\r\n    padre.dispose();\r\n    padre.padre.setEnabled(true);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Hides the current window, disposes of it, disposes of its parent window, and enables the parent window's parent window.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public AggiungiSoggiornante(RicercaPrenotazione, Prenotazione, Stanza, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for adding a guest to a reservation.\n * \n * @param ricercaPrenotazione The search for the reservation.\n * @param prenotazione The reservation to add the guest to.\n * @param stanza The room where the guest will stay.\n * @param num The number of the guest.\n */\npublic AggiungiSoggiornante(RicercaPrenotazione ricercaPrenotazione, Prenotazione prenotazione, Stanza stanza, int num) {\n    super(\"Inserimento dati del soggiornante\", \"Aggiungi agli altri\", prenotazione.getPensionamento(), Flag.ADULTO);\n    padre = ricercaPrenotazione;\n    stanza = stanza;\n    num_sogg = num;\n    prenotazione = prenotazione;\n    inizializza();\n}\n*/"
             },
             {
                 "body": "{\r\n    super(\"Avviso\");\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    this.setFont(ConfigurazioneSistema.font_titolo);\r\n    Panel textPanel = new Panel();\r\n    Panel buttonPanel = new Panel();\r\n    textPanel.add(new Label(testo));\r\n    OK = new Button(\"OK\");\r\n    buttonPanel.add(OK);\r\n    add(\"North\", textPanel);\r\n    add(\"Center\", buttonPanel);\r\n    init();\r\n    pack();\r\n    //setSize(250,100);\r\n    setVisible(true);\r\n}",
@@ -57,7 +63,8 @@
                 "hasInnerComment": true,
                 "signature": "public AvvisoLocale(AggiungiSoggiornante, String)",
                 "comments": null,
-                "innerComments": "[//setSize(250,100);\r\n]"
+                "innerComments": "[//setSize(250,100);\r\n]",
+                "generated_comment": "/**\n * Constructs a new AvvisoLocale object with the specified parent and text.\n * The AvvisoLocale object displays a message dialog with the given text and an \"OK\" button.\n * The parent component is disabled while the dialog is open.\n * \n * @param parent the parent AggiungiSoggiornante component\n * @param text the text to be displayed in the message dialog\n */"
             }
         ],
         "signature": "AggiungiSoggiornante",
@@ -67,7 +74,8 @@
             " Stanza stanza",
             " Button OK",
             " AggiungiSoggiornante padre"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AggiungiSoggiornante class represents a component for adding a guest to a reservation.\n * It provides methods for initializing the GUI components, starting the confirmation process for a new guest,\n * handling action events, and displaying message dialogs.\n * \n * The class includes a constructor for creating an instance of AggiungiSoggiornante with the necessary parameters.\n * It also contains methods for initializing the ActionListener for the \"OK\" button, hiding windows, disposing of windows,\n * and enabling parent windows.\n * \n * The main functionalities of this class include:\n * - Initializing GUI components with specific text values and disabling editing\n * - Starting the confirmation process for adding a new guest to a reservation\n * - Handling action events triggered by user interactions\n * - Displaying message dialogs to provide feedback to the user\n * \n * Overall, the AggiungiSoggiornante class facilitates the process of adding guests to reservations\n * and provides a user-friendly interface for managing guest information.\n */"
     },
     {
         "methods": [

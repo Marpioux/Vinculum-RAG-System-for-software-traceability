@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public static HashMap<String, String> convertMap(Map)",
                 "comments": "Optional[/**\r\n * Provides a utility method that converts the \"Map\" from the JSP container to a type-checked hashmap\r\n * @param params Map to convert\r\n * @return converted Map\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Converts a Map into a HashMap with String keys and values.\n * \n * @param params the Map to be converted\n * @return a HashMap with String keys and values from the input Map\n */\npublic static HashMap<String, String> convertMap(Map params) {\n    HashMap<String, String> myMap = new HashMap<String, String>();\n    for (Object key : params.keySet()) {\n        String[] value = ((String[]) params.get(key));\n        if (value != null)\n            myMap.put(key.toString(), value[0]);\n        else\n            myMap.put(key.toString(), null);\n    }\n    return myMap;\n}"
             }
         ],
         "constructors": [],
         "signature": "ParameterUtil",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ParameterUtil class provides utility methods for handling parameters in Java applications.\n * It contains a static method to convert a Map object into a HashMap with String keys and values.\n * \n * This class is useful for converting parameters from the JSP container to a type-checked hashmap.\n * \n * The main functionality of this class is the convertMap method, which takes a Map as input and returns a HashMap\n * with String keys and values. It iterates through the keys of the input Map, converting the values to String arrays\n * and adding them to the output HashMap.\n * \n * Overall, the ParameterUtil class simplifies the process of handling and converting parameters in Java applications,\n * making it easier to work with parameter data in a type-safe manner.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PersonnelBean> getDeclaredHCPS()",
                 "comments": "Optional[/**\r\n * Lists the declared HCPs for this current patient\r\n *\r\n * @return Returns a list of the declared HCPs\r\n * @throws iTrustException\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of PersonnelBeans representing the healthcare providers that have been declared as the primary care provider for the currently logged in user.\n * \n * @return A list of PersonnelBeans representing the declared healthcare providers for the logged in user.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        long hcpID = Long.valueOf(hcpStr);\r\n        if (authDAO.getUserRole(hcpID) != Role.HCP)\r\n            throw new iTrustException(\"This user is not a licensed healthcare professional!\");\r\n        boolean confirm = patientDAO.declareHCP(loggedInMID, hcpID);\r\n        if (confirm) {\r\n            transDAO.logTransaction(TransactionType.DECLARE_HCP, loggedInMID, hcpID, \"patient declared hcp\");\r\n            return \"HCP successfully declared\";\r\n        } else\r\n            return \"HCP not declared\";\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String declareHCP(String)",
                 "comments": "Optional[/**\r\n * Validate an HCP's MID and declare them, if possible\r\n *\r\n * @param hcpStr\r\n *            The MID of an HCP to declare\r\n * @return A status message,\r\n * @throws iTrustException\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Declares a healthcare professional (HCP) for a patient in the system.\n * \n * @param hcpStr the string representation of the HCP's ID\n * @return a message indicating the success or failure of declaring the HCP\n * @throws iTrustException if the HCP's ID is not a number or if the user is not a licensed HCP\n */\npublic String declareHCP(String hcpStr) throws iTrustException {\n    try {\n        long hcpID = Long.valueOf(hcpStr);\n        if (authDAO.getUserRole(hcpID) != Role.HCP)\n            throw new iTrustException(\"This user is not a licensed healthcare professional!\");\n        boolean confirm = patientDAO.declareHCP(loggedInMID, hcpID);\n        if (confirm) {\n            transDAO.logTransaction(TransactionType.DECLARE_HCP, loggedInMID, hcpID, \"patient declared hcp\");\n            return \"HCP successfully declared\";\n        } else\n            return \"HCP not declared\";\n    } catch (NumberFormatException e) {\n        throw new iTrustException(\"HCP's MID not a number\");\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        long hcpID = Long.valueOf(input);\r\n        boolean confirm = patientDAO.undeclareHCP(loggedInMID, hcpID);\r\n        if (confirm) {\r\n            transDAO.logTransaction(TransactionType.DECLARE_HCP, loggedInMID, hcpID, \"patient undeclared hcp\");\r\n            return \"HCP successfully undeclared\";\r\n        } else\r\n            return \"HCP not undeclared\";\r\n    } catch (NumberFormatException e) {\r\n        throw new iTrustException(\"HCP's MID not a number\");\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String undeclareHCP(String)",
                 "comments": "Optional[/**\r\n * Validate an HCP's MID and undeclare them, if possible\r\n *\r\n * @param input\r\n *            The MID of an HCP to undeclare\r\n * @return\r\n * @throws iTrustException\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Undeclares a healthcare provider (HCP) for a patient.\n * \n * @param input the MID of the HCP to be undeclared\n * @return a message indicating whether the HCP was successfully undeclared or not\n * @throws iTrustException if the input is not a valid number\n */\npublic String undeclareHCP(String input) {\n    try {\n        long hcpID = Long.valueOf(input);\n        boolean confirm = patientDAO.undeclareHCP(loggedInMID, hcpID);\n        if (confirm) {\n            transDAO.logTransaction(TransactionType.DECLARE_HCP, loggedInMID, hcpID, \"patient undeclared hcp\");\n            return \"HCP successfully undeclared\";\n        } else {\n            return \"HCP not undeclared\";\n        }\n    } catch (NumberFormatException e) {\n        throw new iTrustException(\"HCP's MID not a number\");\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public DeclareHCPAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Sets up defaults\r\n *\r\n * @param factory The DAO factory to be used for generating the DAOs for this action.\r\n * @param loggedInMID\r\n *            This patient\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DeclareHCPAction object with the given DAOFactory and logged in member ID.\n * This constructor initializes the loggedInMID field with the provided member ID,\n * and initializes the transDAO, patientDAO, and authDAO fields by retrieving them from the given DAOFactory.\n * \n * @param factory the DAOFactory used to retrieve TransactionDAO, PatientDAO, and AuthDAO objects\n * @param loggedInMID the member ID of the logged in user\n */"
             }
         ],
         "signature": "DeclareHCPAction",
@@ -42,6 +46,7 @@
             "private PatientDAO patientDAO",
             "private AuthDAO authDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PatientService class provides services related to patients in the iTrust system.\n * It contains methods for managing declared healthcare providers (HCPs) for patients.\n * \n * This class includes functionalities for retrieving a list of declared HCPs for a patient,\n * as well as declaring a new HCP for a patient by validating the HCP's MID and logging the transaction.\n * \n * The main purpose of this class is to facilitate the management of healthcare providers for patients,\n * ensuring that only licensed professionals are declared as primary care providers.\n * \n * Overall, the PatientService class plays a crucial role in maintaining the integrity and accuracy of patient-provider relationships within the iTrust system.\n */\n/**\n * This class contains methods for declaring and undeclaring healthcare providers (HCPs) for a patient.\n * It allows a patient to declare a licensed healthcare professional as their HCP, and also to undeclare them if needed.\n * \n * The declareHCP method validates the input HCP's MID, checks if they are a licensed HCP, and then declares them for the patient.\n * If successful, it logs a transaction and returns a success message. If not, it returns a failure message.\n * \n * The undeclareHCP method validates the input HCP's MID, undeclares them for the patient if possible, logs a transaction, and returns a message indicating success or failure.\n * \n * Both methods handle NumberFormatException if the input is not a valid number, and throw iTrustException in such cases.\n * \n * @author [Author Name]\n */\n*/\n/**\n * The DeclareHCPAction class represents an action that allows a patient to declare or undeclare a healthcare provider (HCP).\n * This class provides methods for declaring an HCP for a patient, undeclaring an HCP for a patient, and handling exceptions related to the process.\n * \n * The class contains a TransactionDAO, PatientDAO, and AuthDAO for interacting with the database to log transactions, retrieve patient information, and authenticate users.\n * The loggedInMID field stores the member ID of the logged-in user performing the action.\n * \n * The DeclareHCPAction class constructor initializes the class with the necessary DAO objects and the logged-in member ID.\n * \n * The declareHCP method allows a patient to declare an HCP by logging a transaction and updating the patient's information in the database.\n * If the operation is successful, the method returns a success message; otherwise, it returns an error message.\n * \n * The undeclareHCP method allows a patient to undeclare an HCP by logging a transaction and updating the patient's information in the database.\n * If the operation is successful, the method returns a success message; otherwise, it returns an error message.\n * \n * The class also handles NumberFormatException by throwing an iTrustException if the HCP's MID is not a valid number.\n * \n * @author [Author Name]\n * @version [Version Number]\n */"
     }
 ]

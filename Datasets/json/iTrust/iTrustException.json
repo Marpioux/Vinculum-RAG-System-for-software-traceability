@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getMessage()",
                 "comments": "Optional[/**\r\n * For messages which are displayed to the user. Usually, this is a very general message for security\r\n * reasons.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the message associated with this object. If the message is null, \n * returns a default error message indicating that an error has occurred.\n * \n * @return the message associated with this object, or a default error message if null\n */"
             },
             {
                 "body": "Optional[{\r\n    return \"No extended information.\";\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getExtendedMessage()",
                 "comments": "Optional[/**\r\n * For exceptions which show a lot of technical detail, usually delegated to a subclass\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the extended message associated with this object.\n * \n * @return a String representing the extended message. If no extended information is available, it returns \"No extended information.\"\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public iTrustException(String)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param message A message to be displayed to the screen.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new iTrustException with the specified message.\n * \n * @param message the message to be associated with this exception\n * @throws IllegalArgumentException if the message is null\n */\npublic iTrustException(String message) {\n    if (message == null) {\n        throw new IllegalArgumentException(\"Message cannot be null\");\n    }\n    \n    this.message = message;\n}"
             }
         ],
         "signature": "iTrustException",
         "variables": [
             "private  static  final long serialVersionUID",
             " String message"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The iTrustException class represents an exception that can occur within the iTrust application.\n * This class provides methods for retrieving messages associated with the exception and handling extended information.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving messages for exceptions\n * - Providing extended information for exceptions\n * \n * The class contains the following methods:\n * - public String getMessage(): Retrieves the message associated with this object. If the message is null, \n *   returns a default error message indicating that an error has occurred.\n * - public String getExtendedMessage(): Returns the extended message associated with this object. If no extended information \n *   is available, it returns \"No extended information.\"\n * \n * The class also includes a constructor:\n * - public iTrustException(String message): Constructs a new iTrustException with the specified message. \n *   It throws an IllegalArgumentException if the message is null.\n * \n * Overall, the iTrustException class is used to handle exceptions within the iTrust application by providing \n * messages and extended information for better error handling and user feedback.\n */\npublic class iTrustException {\n    // Class implementation goes here\n}\n**/\n/**\n * The iTrustException class represents a custom exception that can be thrown in the iTrust system.\n * This exception is used to handle specific errors or exceptional conditions that may occur during the execution of the system.\n * \n * The main functionality of this class is to provide a way to throw custom exceptions with a message that can be displayed to the user or logged for debugging purposes.\n * \n * The iTrustException class extends the Java Exception class and includes a private String variable 'message' to store the error message associated with the exception.\n * \n * Example usage:\n * \n * try {\n *     // code that may throw an exception\n *     if (errorCondition) {\n *         throw new iTrustException(\"An error occurred while processing the request.\");\n *     }\n * } catch (iTrustException e) {\n *     // handle the exception\n *     System.out.println(\"Error message: \" + e.getMessage());\n * }\n * \n * Overall, the iTrustException class encapsulates error messages and provides a way to handle and communicate exceptions in the iTrust system.\n */\npublic class iTrustException extends Exception {\n    private static final long serialVersionUID = 1L;\n    private String message;\n\n    /**\n     * Constructs a new iTrustException with the specified error message.\n     * \n     * @param message the error message associated with the exception\n     */\n    public iTrustException(String message) {\n        super(message);\n        this.message = message;\n    }\n\n    /**\n     * Returns the error message associated with the exception.\n     * \n     * @return the error message\n     */\n    public String getMessage() {\n        return message;\n    }\n}\n**/"
     }
 ]

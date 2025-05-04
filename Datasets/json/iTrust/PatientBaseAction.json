@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "private long checkPatientID(String)",
                 "comments": "Optional[/**\r\n * Asserts whether the input is a valid, existing patient's MID.\r\n *\r\n * @param input\r\n *            The presumed MID\r\n * @return The existing patient's ID as a long.\r\n * @throws iTrustException\r\n *             If the patient does not exist or there is a DB Problem.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a patient ID exists in the system.\n * \n * @param input the patient ID to be checked\n * @return the patient ID if it exists in the system\n * @throws iTrustException if the patient ID is not a number or if the patient does not exist\n */\n \nprivate long checkPatientID(String input) {\n    try {\n        long pid = Long.valueOf(input);\n        if (factory.getPatientDAO().checkPatientExists(pid))\n            return pid;\n        else\n            throw new iTrustException(\"Patient does not exist\");\n    } catch (NumberFormatException e) {\n        throw new iTrustException(\"Patient ID is not a number: \" + HtmlEncoder.encode(input));\n    }\n}"
             },
             {
                 "body": "Optional[{\r\n    return pid;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPid()",
                 "comments": "Optional[/**\r\n * Retrieves the identifier of the patient as a long.\r\n *\r\n * @return The patient's MID.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the process ID (PID) of the current process.\n * \n * @return the process ID (PID) of the current process as a long value\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public PatientBaseAction(DAOFactory, String)",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n *\r\n * @param factory\r\n *            A factory to create a database access object.\r\n * @param pidString\r\n *            The patient's ID to associate with this action.\r\n * @throws iTrustException\r\n *             If the patient's ID is incorrect or there is a DB problem.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PatientBaseAction with the specified DAOFactory and patient ID.\n * \n * @param factory the DAOFactory to be used for database operations\n * @param pidString the String representation of the patient ID\n * @throws IllegalArgumentException if the patient ID is invalid\n */\npublic PatientBaseAction(DAOFactory factory, String pidString) {\n    this.factory = factory;\n    this.pid = checkPatientID(pidString);\n}\n*/"
             }
         ],
         "signature": "PatientBaseAction",
         "variables": [
             "private DAOFactory factory",
             "protected long pid"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class contains methods for checking and retrieving patient IDs in the system.\n * It provides functionality to verify if a patient ID exists and to retrieve the patient's ID.\n * The class handles exceptions for invalid patient IDs and non-existing patients.\n * \n * The main functionalities of this class include:\n * - Checking if a patient ID exists in the system\n * - Retrieving the patient's ID if it exists\n * \n * Overall behavior:\n * - The class validates input patient IDs and throws exceptions if they are invalid or do not exist\n * - It interacts with the database through the factory to check patient existence\n * - The methods in this class ensure data integrity and accuracy when dealing with patient IDs\n */\npublic class PatientIDChecker {\n    // Class implementation goes here\n}\n*/\n/**\n * The PatientBaseAction class represents a base action for patient-related operations in the iTrust system.\n * It provides functionality for handling patient data and performing database operations.\n * \n * This class requires a DAOFactory for database access and a patient ID to associate with the action.\n * \n * The main functionalities of this class include:\n * - Constructing a new PatientBaseAction with the specified DAOFactory and patient ID\n * - Validating the patient ID and handling any exceptions that may occur\n * \n * The overall behavior of this class is to serve as a foundation for patient-related actions in the iTrust system.\n * It ensures that the necessary database operations are performed securely and efficiently.\n * \n * @author [Your Name]\n * @version 1.0\n * @since [Date]\n */\npublic class PatientBaseAction {\n    private DAOFactory factory;\n    protected long pid;\n    \n    /**\n     * Constructs a new PatientBaseAction with the specified DAOFactory and patient ID.\n     * \n     * @param factory the DAOFactory to be used for database operations\n     * @param pidString the String representation of the patient ID\n     * @throws IllegalArgumentException if the patient ID is invalid\n     */\n    public PatientBaseAction(DAOFactory factory, String pidString) {\n        this.factory = factory;\n        this.pid = checkPatientID(pidString);\n    }\n    \n    /**\n     * Validates the patient ID and returns the corresponding long value.\n     * \n     * @param pidString the String representation of the patient ID\n     * @return the long value of the patient ID\n     * @throws IllegalArgumentException if the patient ID is invalid\n     */\n    private long checkPatientID(String pidString) {\n        // Implementation details for validating the patient ID\n    }\n}\n*/"
     }
 ]

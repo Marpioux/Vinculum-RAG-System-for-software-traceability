@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void sendReferral(ReferralBean)",
                 "comments": "Optional[/**\r\n * Adds a referral bean to the database.\r\n * @param r The referral bean to be added.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sends a referral by adding it to the referral database and logging the transaction.\n * \n * @param referral the ReferralBean object to be sent\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    referralDAO.editReferral(r);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void updateReferral(ReferralBean)",
                 "comments": "Optional[/**\r\n * Updates an existing referral bean.\r\n * @param r The current referral bean.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the referral information in the database.\n * \n * @param referral the referral bean containing the updated information\n * @return void\n * \n * This method updates the referral information in the database by calling the editReferral method\n * of the referralDAO object with the provided referral bean as a parameter.\n */"
             },
             {
                 "body": "Optional[{\r\n    return referralDAO.getReferralsSentFrom(loggedInMID);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ReferralBean> getReferralsSentFromMe()",
                 "comments": "Optional[/**\r\n * Gets the referrals the currently logged in MID has sent.\r\n * @return A java.util.List of ReferralBeans this MID has sent.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of referral beans representing referrals sent by the currently logged in user.\n * \n * @return A list of ReferralBean objects representing referrals sent by the currently logged in user.\n */"
             },
             {
                 "body": "Optional[{\r\n    return referralDAO.getReferralsSentTo(loggedInMID);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ReferralBean> getReferralsSentToMe()",
                 "comments": "Optional[/**\r\n * Gets the referrals this MID has received.\r\n * @return A java.util.List of the ReferralBeans this MID has received.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of referral beans that have been sent to the currently logged in member.\n * \n * @return A list of ReferralBean objects representing the referrals sent to the logged in member.\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReferralManagementAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Super class validates the patient id\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user managing this referral.\r\n * @param pidString The MID of the patient being referred.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ReferralManagementAction object with the given DAOFactory and loggedInMID.\n * \n * @param factory the DAOFactory used to access the referral and transaction data\n * @param loggedInMID the ID of the logged-in member\n * \n * This constructor initializes the referralDAO and transDAO fields with the corresponding DAO objects obtained from the factory,\n * and sets the loggedInMID field to the provided value.\n */\npublic ReferralManagementAction(DAOFactory factory, long loggedInMID) {\n    this.referralDAO = factory.getReferralDAO();\n    this.loggedInMID = loggedInMID;\n    this.transDAO = factory.getTransactionDAO();\n}\n*/"
             }
         ],
         "signature": "ReferralManagementAction",
@@ -49,6 +54,7 @@
             "private long loggedInMID",
             "private TransactionDAO transDAO",
             "private ReferralDAO referralDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ReferralService class provides methods for managing referral information in the database.\n * It allows users to send referrals, update existing referrals, and retrieve a list of referrals sent by the currently logged in user.\n * \n * This class encapsulates the business logic for handling referral operations, including adding, editing, and retrieving referral information.\n * \n * The main functionalities of this class include:\n * - Sending a referral by adding it to the referral database and logging the transaction\n * - Updating an existing referral bean with new information\n * - Retrieving a list of referrals sent by the currently logged in user\n * \n * This class interacts with the ReferralDAO and TransactionDAO classes to perform database operations and log transactions.\n * \n * Note: All methods in this class may throw a DBException if there is an issue with the database operation.\n */\n/**\n * The ReferralManagementAction class represents an action that manages referrals within the system.\n * This class provides methods to retrieve referrals sent to the currently logged-in member and perform\n * other referral management operations.\n * \n * The main functionalities of this class include:\n * - Retrieving referrals sent to the logged-in member\n * - Managing referral operations such as creating, updating, and deleting referrals\n * \n * This class interacts with the DAOFactory to access the necessary DAO objects for performing\n * database operations related to referrals. It also stores the ID of the logged-in member for\n * authentication and authorization purposes.\n * \n * Note: This class should be used in conjunction with the ReferralDAO and TransactionDAO classes\n * to fully manage referral operations within the system.\n */\n/**\n * The Variables class represents a collection of private variables used in the application.\n * These variables include the user's logged-in MID, a TransactionDAO object for handling transactions,\n * and a ReferralDAO object for managing referrals.\n * \n * This class serves as a central repository for storing and accessing important data throughout the application.\n * The loggedInMID variable stores the MID of the currently logged-in user, allowing for personalized interactions.\n * The transDAO variable provides access to transaction-related functionalities, such as creating, updating, and retrieving transactions.\n * The referralDAO variable enables the application to manage referrals, including adding new referrals and retrieving referral information.\n * \n * Overall, the Variables class plays a crucial role in maintaining the state of the application and facilitating communication between different components.\n * By encapsulating these variables within a single class, it promotes code organization and reusability, making it easier to manage and maintain the application's data.\n */"
     }
 ]

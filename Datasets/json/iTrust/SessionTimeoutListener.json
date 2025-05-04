@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void sessionCreated(HttpSessionEvent)",
                 "comments": "Optional[/**\r\n * Called when the HttpSession is created, this method pulls the pre-specified limit from the\r\n * database and sets it as a property of the HttpSession.\r\n * @param arg0 The HttpSessionEven which just occurred.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the session timeout for a newly created HttpSession.\n * \n * @param arg0 the HttpSessionEvent containing the newly created session\n * @return void\n * \n * This method retrieves the session timeout value from the database using the AccessDAO factory. \n * If an exception occurs during the retrieval process, the method defaults to a timeout of 20 minutes.\n * The session timeout is then set to the retrieved value or the default value, ensuring that it is at least 1 minute.\n */"
             },
             {
                 "body": "Optional[{\r\n    // nothing to do here\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public void sessionDestroyed(HttpSessionEvent)",
                 "comments": "Optional[/**\r\n * Must be declared for compliance with the interface. Not implemented.\r\n */\r\n]",
-                "innerComments": "Optional[[// nothing to do here\r\n]]"
+                "innerComments": "Optional[[// nothing to do here\r\n]]",
+                "generated_comment": "/**\n * Called when a session is about to be invalidated.\n * \n * @param event the HttpSessionEvent that triggered this method\n * \n * This method does not perform any specific action as there is nothing to do here.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public SessionTimeoutListener()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SessionTimeoutListener object.\n * This constructor initializes the factory field by retrieving the production instance of DAOFactory.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "{\r\n    this.factory = factory;\r\n}",
@@ -33,12 +36,14 @@
                 "hasInnerComment": false,
                 "signature": "public SessionTimeoutListener(DAOFactory)",
                 "comments": "Optional[/**\r\n * The specialized constructor, which takes a particular DAOFactory to be used when checking for the pre-specified\r\n * timeout limit.\r\n * @param factory The DAOFactory to be used.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SessionTimeoutListener with the specified DAOFactory.\n * \n * @param factory the DAOFactory to be used by the listener\n * @throws IllegalArgumentException if factory is null\n */\npublic SessionTimeoutListener(DAOFactory factory) {\n    if (factory == null) {\n        throw new IllegalArgumentException(\"DAOFactory cannot be null\");\n    }\n    \n    this.factory = factory;\n}"
             }
         ],
         "signature": "SessionTimeoutListener",
         "variables": [
             "private DAOFactory factory"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class is responsible for managing session creation and destruction events in a web application.\n * It contains methods to set the session timeout for a newly created HttpSession and handle session destruction events.\n * \n * The main functionalities of this class include:\n * - Setting the session timeout value for a newly created HttpSession by retrieving the value from the database using the AccessDAO factory.\n * - Handling session destruction events by implementing the necessary method for compliance with the HttpSessionListener interface.\n * \n * The overall behavior of this class is to ensure that session timeout values are properly set and that session destruction events are handled appropriately.\n * \n * @author [Author Name]\n * @version 1.0\n */\npublic class SessionManager implements HttpSessionListener {\n    private AccessDAOFactory factory;\n    \n    /**\n     * Constructs a new SessionManager with the specified AccessDAOFactory.\n     * \n     * @param factory the AccessDAOFactory to use for retrieving session timeout values\n     */\n    public SessionManager(AccessDAOFactory factory) {\n        this.factory = factory;\n    }\n    \n    /**\n     * Sets the session timeout for a newly created HttpSession.\n     * \n     * @param arg0 the HttpSessionEvent containing the newly created session\n     * @return void\n     * \n     * This method retrieves the session timeout value from the database using the AccessDAO factory. \n     * If an exception occurs during the retrieval process, the method defaults to a timeout of 20 minutes.\n     * The session timeout is then set to the retrieved value or the default value, ensuring that it is at least 1 minute.\n     */\n    public void sessionCreated(HttpSessionEvent arg0) {\n        HttpSession session = arg0.getSession();\n        int mins = 20;\n        try {\n            mins = factory.getAccessDAO().getSessionTimeoutMins();\n        } catch (DBException e) {\n            System.err.println(\"Unable to set session timeout, defaulting to 20 minutes\");\n            e.printStackTrace();\n        }\n        if (mins < 1)\n            mins = 1;\n        session.setMaxInactiveInterval(mins * 60);\n    }\n    \n    /**\n     * Called when a session is about to be invalidated.\n     * \n     * @param event the HttpSessionEvent that triggered this method\n     * \n     * This method does not perform any specific action as there is nothing to do here.\n     * \n     * @return void\n     */\n    public void sessionDestroyed(HttpSessionEvent event) {\n        // nothing to do here\n    }\n}\n*/\n/**\n * The SessionTimeoutListener class is responsible for monitoring session timeouts and taking appropriate actions.\n * It provides two constructors: a default constructor that initializes the factory field with the production instance of DAOFactory,\n * and a specialized constructor that allows the user to specify a particular DAOFactory to be used.\n * \n * The main functionalities of this class include:\n * - Monitoring session timeouts based on pre-specified limits\n * - Notifying the application when a session timeout occurs\n * - Handling session timeout events by invoking appropriate actions\n * \n * The behavior of this class is as follows:\n * - When a session timeout event is detected, the listener will trigger the necessary actions to handle the timeout.\n * - The listener relies on the specified DAOFactory to access the required data and perform any necessary operations.\n * \n * @author [Your Name]\n * @version 1.0\n */\n \npublic class SessionTimeoutListener {\n    \n    /**\n     * The default constructor.\n     */\n    public SessionTimeoutListener() {\n        // Initialize the factory field with the production instance of DAOFactory\n        this.factory = DAOFactory.getProductionInstance();\n    }\n    \n    /**\n     * Constructs a new SessionTimeoutListener with the specified DAOFactory.\n     * \n     * @param factory the DAOFactory to be used by the listener\n     * @throws IllegalArgumentException if factory is null\n     */\n    public SessionTimeoutListener(DAOFactory factory) {\n        if (factory == null) {\n            throw new IllegalArgumentException(\"DAOFactory cannot be null\");\n        }\n        \n        this.factory = factory;\n    }\n    \n    private DAOFactory factory;\n}\n**/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDataPubblicazione()",
                 "comments": "Optional[/**\r\n * Returns the value of dataPubblicazione\r\n *\r\n * @return value dataPubblicazione.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date of publication for this object.\n * \n * @return the date of publication\n */"
             },
             {
                 "body": "Optional[{\r\n    dataPubblicazione = pDataPubblicazione;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDataPubblicazione(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of dataPubblicazione\r\n *\r\n * @param pDataPubblicazione New dataPubblicazione.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of publication for this object.\n * \n * @param pDataPubblicazione the date of publication to set\n */\npublic void setDataPubblicazione(Date pDataPubblicazione) {\n    dataPubblicazione = pDataPubblicazione;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return dataScadenza;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDataScadenza()",
                 "comments": "Optional[/**\r\n * Returns the value of dataScadenza\r\n *\r\n * @return value dataScadenza.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the expiration date of the item.\n * \n * @return the expiration date of the item\n */"
             },
             {
                 "body": "Optional[{\r\n    dataScadenza = pDataScadenza;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDataScadenza(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of dataScadenza\r\n *\r\n * @param pDataScadenza New dataScadenza.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the expiration date for the object.\n * \n * @param pDataScadenza the expiration date to be set\n * \n * This method sets the expiration date of the object to the specified date.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return news;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getNews()",
                 "comments": "Optional[/**\r\n * Returns the value of news\r\n *\r\n * @return value of news.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the latest news.\n * \n * @return a String representing the latest news\n */"
             },
             {
                 "body": "Optional[{\r\n    news = Pnews;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNews(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of news\r\n *\r\n * @param Pnews New Pnews news.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the news for this object.\n * \n * @param news the news to be set\n * \n * This method sets the news for this object to the specified news string.\n */"
             },
             {
                 "body": "Optional[{\r\n    return priority;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getPriorita()",
                 "comments": "Optional[/**\r\n * Returns the priority value\r\n *\r\n * @return the priority value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the priority of the object.\n * \n * @return the priority of the object as an integer value\n */"
             },
             {
                 "body": "Optional[{\r\n    priority = pPriorita;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPriorita(int)",
                 "comments": "Optional[/**\r\n * Set the new priority value\r\n *\r\n * @param pPriorita New priority value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the priority of the object.\n * \n * @param pPriorita the new priority to set\n * \n * This method sets the priority of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID of the object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pid;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object to the specified value.\n * \n * @param pid the new ID to set for the object\n * @return void\n */\npublic void setId(int pid) {\n    id = pid;\n}"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanNews(String, Date, Date, int, int)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param Pnews\r\n * @param pDataPubblicazione\r\n * @param pDataScadenza\r\n * @param pPriorita\r\n * @param pId\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanNews object with the specified parameters.\n * \n * @param Pnews the news content to set\n * @param pDataPubblicazione the publication date to set\n * @param pDataScadenza the expiration date to set\n * @param pPriorita the priority level to set\n * @param pid the ID to set\n */\npublic BeanNews(String Pnews, Date pDataPubblicazione, Date pDataScadenza, int pPriorita, int pid) {\n    setNews(Pnews);\n    setDataPubblicazione(pDataPubblicazione);\n    setDataScadenza(pDataScadenza);\n    setPriorita(pPriorita);\n    setId(pid);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanNews()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of the BeanNews class with no parameters.\n * This constructor initializes a new BeanNews object with default values.\n */"
             }
         ],
         "signature": "BeanNews",
@@ -108,6 +120,7 @@
             "private int priority",
             "private int id",
             "private  static  final long serialVersionUID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanNews class represents a news object with various attributes such as news content, publication date, expiration date, priority level, and ID.\n * This class provides methods to get and set these attributes, as well as constructors to create new BeanNews objects with specified parameters.\n * \n * Main functionalities include:\n * - Retrieving and setting news content\n * - Retrieving and setting publication date\n * - Retrieving and setting expiration date\n * - Retrieving and setting priority level\n * - Retrieving and setting ID\n * \n * The class also includes constructors for creating new BeanNews objects with default values or specified parameters.\n * \n * Overall behavior:\n * - The BeanNews class encapsulates news-related data and provides methods to interact with this data.\n * - It allows for the creation, modification, and retrieval of news objects with various attributes.\n * - The class is designed to be used in applications that require handling news items with specific properties.\n */"
     }
 ]

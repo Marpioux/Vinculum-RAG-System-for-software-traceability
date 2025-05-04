@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract int search(int, String, int[], double, int, Punto3D, byte)",
                 "comments": "Optional[/**\r\n * Initialization method for research\r\n *\r\n * @param pIdTurista       ID of the tourist. Pass -1 in case of a Guest\r\n * @param pParoleChiave    Together keyword search\r\n * @param pTagsId          Search Tags\r\n * @param pRaggioMax       Maximum distance between the user and the site\r\n * @param pElementiPerPagina number of items to look for in a search session\r\n * @param pPosizioneUtente detected by the GPS user position\r\n * @param pTipologiaSito   site search\r\n * @return number of elements emerged from the research. On error returns -1\r\n * @throws RemoteException the remote exception\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method searches for a specific value in an array of integers based on the given parameters.\n * \n * @param valueToSearch the value to search for in the array\n * @param searchString the string to search for in the array\n * @param intArray the array of integers to search in\n * @param doubleValue the double value to search for in the array\n * @param intValue the integer value to search for in the array\n * @param punto3DValue the 3D point to search for in the array\n * @param byteValue the byte value to search for in the array\n * \n * @return an Optional containing the index of the found value in the array, or an empty Optional if the value is not found\n */\nabstract int search(int valueToSearch, String searchString, int[] intArray, double doubleValue, int intValue, Punto3D punto3DValue, byte byteValue) {\n    // implementation details\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanBeneCulturale[] ottieniPaginaRisultatiBeneCulturale(int)",
                 "comments": "Optional[/**\r\n * Method for returning the list of emerging from the Cultural Heritage\r\n * Research, in a given interval\r\n *\r\n * @param pPagina range of items to be included in the results\r\n * @return entirety of cultural property related to the range of results\r\n *         selected search. In case of error returns null\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves an array of cultural assets from the database based on the specified page number.\n *\n * @param pageNumber the page number to retrieve cultural assets from\n * @return an array of cultural assets matching the specified page number, or an empty Optional if no assets are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanPuntoDiRistoro[] ottieniPaginaRisultatiPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Method to return the list of eateries have emerged from\r\n * Research related to a specific interval\r\n *\r\n * @param pPagina range of items to be included in the results\r\n * @return set of points relating to the range of refreshment\r\n *         selected search results. In case of error returns null\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves an array of BeanPuntoDiRistoro objects representing a page of search results for restaurants.\n * \n * @param pageNumber the page number to retrieve\n * @return an array of BeanPuntoDiRistoro objects representing the search results for the specified page,\n *         or an empty Optional if no results are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract int ottieniNumeroElementiRicerca()",
                 "comments": "Optional[/**\r\n * Method for returning the number of elements results from\r\n * Search\r\n *\r\n * @return number of elements emerged in the research phase. Where no\r\n *         is initialized the search returns -1\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the number of elements found during a search operation.\n * \n * @return the number of elements found during the search operation, or an empty Optional if no elements were found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract int ottieniNumeroPagineRicerca()",
                 "comments": "Optional[/**\r\n * Method for returning the number of pages appear in results\r\n *\r\n * @return number of pages that have emerged in the research phase. Where no\r\n *         is initialized the search returns -1\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to obtain the number of pages resulting from a search operation.\n * \n * @return an integer representing the number of pages resulting from the search operation. \n * If no pages are found, an empty Optional is returned.\n */"
             }
         ],
         "constructors": [],
@@ -47,6 +52,7 @@
         "variables": [
             " byte BENE_CULTURALE",
             " byte PUNTO_DI_RISTORO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The IRicerca interface defines a set of methods for conducting searches and retrieving search results\n * related to cultural heritage and restaurants. It provides functionality for searching based on various\n * parameters such as keywords, tags, distance, and user preferences. The interface also includes methods\n * for retrieving specific pages of search results, obtaining the total number of elements and pages in a search,\n * and searching for specific values in arrays.\n * \n * The interface includes the following main functionalities:\n * - Conducting searches for cultural heritage and restaurants based on user-defined criteria\n * - Retrieving specific pages of search results for cultural heritage and restaurants\n * - Obtaining the total number of elements and pages resulting from a search operation\n * - Searching for specific values in arrays of integers, strings, doubles, and other data types\n * \n * The IRicerca interface is designed to be implemented by classes that provide search functionality in a\n * specific context, such as a tourism application or a cultural heritage database. Implementing classes\n * should provide concrete implementations of the abstract methods defined in this interface to enable\n * customized search behavior.\n */"
     }
 ]

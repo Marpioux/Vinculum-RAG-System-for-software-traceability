@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": "Optional[[//Caricamento di un'immagine scelta a caso tra quelle disponibili\r\n]]"
+                "innerComments": "Optional[[//Caricamento di un'immagine scelta a caso tra quelle disponibili\r\n]]",
+                "generated_comment": "/**\n * Sets up the initial configuration of the GUI components.\n * This method sets the font to ConfigurazioneSistema.font_sub, creates a panel with a gridbag layout and white background,\n * loads a random image from the available options, creates and adds labels and buttons to the panels,\n * and sets the layout of the main panel.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            s.setEnabled(true);\r\n        }\r\n    });\r\n    Inserimento.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            insBeneServizio();\r\n        }\r\n    });\r\n    Modifica.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            modBeneServizio();\r\n        }\r\n    });\r\n    Cancellazione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            cancBeneServizio();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            vediBeneServizio();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the user interface by adding action listeners to various buttons.\n * When the \"Annulla\" button is clicked, the current window is disposed and the parent window is enabled.\n * When the \"Inserimento\" button is clicked, the method insBeneServizio() is called.\n * When the \"Modifica\" button is clicked, the method modBeneServizio() is called.\n * When the \"Cancellazione\" button is clicked, the method cancBeneServizio() is called.\n * When the \"Ricerca\" button is clicked, the method vediBeneServizio() is called.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    s.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It disposes of the current window and enables the specified component.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    insBeneServizio();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the insBeneServizio() method to insert a new service record.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    modBeneServizio();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the modBeneServizio() method to modify the benefit service.\n * \n * @param e the ActionEvent object that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    cancBeneServizio();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It cancels the service benefit for the user.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    vediBeneServizio();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the method vediBeneServizio() to perform a specific action.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_1 = new InserisciBeniServizi(\"Inserimento di beni e servizi\");\r\n    call_1.padre = this;\r\n    call_1.setVisible(true);\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void insBeneServizio()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object and opens a new window for inserting goods and services.\n * \n * This method disables the current object by setting its enabled status to false. It then creates a new instance of InserisciBeniServizi window with the title \"Inserimento di beni e servizi\". The parent of the new window is set to the current object, and the new window is set to be visible.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_2 = new ModificaBeniServizi();\r\n    call_2.padre = this;\r\n    call_2.setVisible(true);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void modBeneServizio()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and opens a new window for modifying goods and services.\n * The method sets the current component as disabled, creates a new instance of ModificaBeniServizi,\n * sets the current component as the parent of the new window, and makes the new window visible.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_3 = new CancellaBeniServizi();\r\n    call_3.padre = this;\r\n    call_3.setVisible(true);\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void cancBeneServizio()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object and opens a new window to delete goods and services.\n * This method sets the enabled status of the current object to false, creates a new instance of CancellaBeniServizi,\n * sets the parent of the new instance to the current object, and makes the new instance visible.\n */\nvoid cancBeneServizio() {\n    this.setEnabled(false);\n    call_3 = new CancellaBeniServizi();\n    call_3.padre = this;\n    call_3.setVisible(true);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_4 = new VediBeniServizi();\r\n    call_4.padre = this;\r\n    call_4.setVisible(true);\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void vediBeneServizio()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object and opens a new window to display goods and services.\n * The current object is set to disabled to prevent user interaction while the new window is open.\n * The new window is an instance of VediBeniServizi class and is displayed to the user.\n * The new window is linked to the current object as its parent.\n */\nvoid vediBeneServizio() {\n    this.setEnabled(false);\n    call_4 = new VediBeniServizi();\n    call_4.padre = this;\n    call_4.setVisible(true);\n}\n*/"
             }
         ],
         "constructors": [
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public SubBeniServizi()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SubBeniServizi object with the title \"Gestione dei Beni&Servizi\".\n * This constructor calls the constructor of the superclass with the specified title,\n * then sets up the GUI components, initializes the object, and packs the components.\n */"
             }
         ],
         "signature": "SubBeniServizi",
@@ -116,6 +128,7 @@
             " ModificaBeniServizi call_2",
             " InserisciBeniServizi call_1",
             " VediBeniServizi call_4"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubBeniServizi class represents a GUI component for managing goods and services.\n * This class provides various functionalities for inserting, modifying, deleting, and viewing goods and services.\n * The class includes methods for setting up the initial configuration of the GUI components, initializing the user interface,\n * handling action events for buttons, and opening new windows for specific operations.\n * \n * The main functionalities of this class include:\n * - Setting up the initial configuration of the GUI components.\n * - Initializing the user interface by adding action listeners to various buttons.\n * - Handling action events for buttons such as \"Inserimento\", \"Modifica\", \"Cancellazione\", \"Ricerca\", and \"Annulla\".\n * - Opening new windows for inserting, modifying, deleting, and viewing goods and services.\n * \n * The behavior of the SubBeniServizi class is as follows:\n * - Upon construction, a new SubBeniServizi object is created with the title \"Gestione dei Beni&Servizi\".\n * - The setup() method is called to configure the GUI components, and the init() method is called to initialize the user interface.\n * - The pack() method is called to pack the components and display the window.\n * \n * The class includes various variables such as labels, panels, buttons, layouts, and instances of other classes for managing goods and services.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<AllergyBean> getAllergies(long)",
                 "comments": "Optional[/**\r\n * Returns a list of patient's allergies.\r\n * @param pid A long for the MID of the patient we are looking up.\r\n * @return A java.util.List of AllergyBeans associated with this patient.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of AllergyBeans for a given patient ID.\n * \n * @param pid the ID of the patient to retrieve allergies for\n * @return a list of AllergyBeans for the specified patient ID, ordered by the date they were first found\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO Allergies(PatientID, Description) VALUES (?,?)\");\r\n        ps.setLong(1, pid);\r\n        ps.setString(2, description);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void addAllergy(long, String)",
                 "comments": "Optional[/**\r\n * Adds an allergy to this patient's list.\r\n * @param pid The MID of the patient whose allergy we are adding.\r\n * @param description The name of the allergen.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new allergy for a patient to the database.\n * \n * @param pid the ID of the patient for whom the allergy is being added\n * @param description the description of the allergy being added\n * \n * @throws DBException if there is an error accessing the database\n */\npublic void addAllergy(long pid, String description) {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"INSERT INTO Allergies(PatientID, Description) VALUES (?,?)\");\n        ps.setLong(1, pid);\n        ps.setString(2, description);\n        ps.executeUpdate();\n    } catch (SQLException e) {\n        e.printStackTrace();\n        throw new DBException(e);\n    } finally {\n        DBUtil.closeConnection(conn, ps);\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public AllergyDAO(DAOFactory)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AllergyDAO with the specified DAOFactory.\n * \n * @param factory the DAOFactory used to create database connections\n * @throws IllegalArgumentException if the factory is null\n */\npublic AllergyDAO(DAOFactory factory) {\n    if (factory == null) {\n        throw new IllegalArgumentException(\"DAOFactory cannot be null\");\n    }\n    \n    this.factory = factory;\n}"
             }
         ],
         "signature": "AllergyDAO",
         "variables": [
             "private DAOFactory factory",
             "private AllergyBeanLoader allergyBeanLoader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AllergyDAO class is responsible for handling database operations related to allergies for patients.\n * It provides methods to retrieve a list of allergies for a specific patient, add a new allergy for a patient,\n * and construct a new AllergyDAO object with the specified DAOFactory.\n * \n * This class contains a private DAOFactory instance variable for database connection management and\n * a private AllergyBeanLoader instance variable for loading AllergyBeans from ResultSet objects.\n * \n * The getAllergies method retrieves a list of allergies for a given patient ID, ordered by the date they were first found.\n * The addAllergy method adds a new allergy for a patient to the database.\n * The AllergyDAO constructor constructs a new AllergyDAO object with the specified DAOFactory.\n * \n * This class ensures proper database connection handling and exception propagation by utilizing try-catch blocks\n * and throwing DBException in case of any errors accessing the database.\n */\n **/"
     }
 ]

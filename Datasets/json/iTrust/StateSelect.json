@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int doStartTag()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method generates a HTML select element with options for each State enum value.\n * \n * @return int - SKIP_BODY constant indicating that the body of the tag should be skipped\n * @throws JspException if an error occurs while processing the tag\n */\npublic int doStartTag() {\n    try {\n        JspWriter out = pageContext.getOut();\n        out.write(\"<select name=\\\"\" + getName() + \"\\\" >\");\n        if (name == null || \"\".equals(name))\n            out.write(\"<option value=\\\"\\\">Select State</option>\");\n        for (State state : State.values()) {\n            String selected = state.toString().equals(getValue()) ? \"selected=selected\" : \"\";\n            out.write(\"<option value=\\\"\" + state.toString() + \"\\\" \" + selected + \">\" + state.getName() + \"</option>\");\n        }\n        out.write(\"</select>\");\n    } catch (IOException e) {\n        e.printStackTrace();\n    }\n    return SKIP_BODY;\n}"
             },
             {
                 "body": "Optional[{\r\n    return SKIP_BODY;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int doEndTag()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when the end tag of a custom JSP tag is encountered. \n * It is responsible for performing any cleanup or final processing tasks before the tag is closed. \n * \n * @return an integer value representing the action to be taken after processing the end tag. \n *         Possible return values include SKIP_BODY to skip processing the body of the tag, \n *         EVAL_PAGE to continue processing the JSP page, or SKIP_PAGE to skip processing the rest of the page. \n */"
             },
             {
                 "body": "Optional[{\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void release()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Releases any resources held by this object.\n * This method does not take any parameters and does not return any value.\n * It is recommended to call this method when the object is no longer needed to free up resources.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.pageContext = pageContext;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPageContext(PageContext)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the PageContext for this object.\n * \n * @param pageContext the PageContext to be set\n * \n * This method sets the PageContext for this object to the specified PageContext parameter.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.parent = parent;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setParent(Tag)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the parent tag of this tag.\n * \n * @param parent the parent tag to set\n * @return void\n */\npublic void setParent(Tag parent) {\n    this.parent = parent;\n}"
             },
             {
                 "body": "Optional[{\r\n    return parent;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public Tag getParent()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the parent Tag of this Tag.\n * \n * @return the parent Tag of this Tag, or null if this Tag has no parent\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the object.\n * \n * @return the name of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.name = name;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param name the new name to set\n * \n * This method sets the name of the object to the specified name.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return value;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getValue()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value stored in this object.\n * \n * @return the value stored in this object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.value = value;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setValue(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of the object.\n * \n * @param value the new value to set\n * \n * This method sets the value of the object to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public StateSelect()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new StateSelect object.\n * This constructor initializes the StateSelect object by calling the constructor of its superclass.\n */"
             }
         ],
         "signature": "StateSelect",
@@ -98,6 +109,7 @@
             "private Tag parent",
             "private String name",
             "private String value"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a custom JSP tag that generates a HTML select element with options for each State enum value.\n * It provides methods to handle the start and end tags of the custom tag.\n * \n * The main functionalities of this class include:\n * - Generating a HTML select element with options for each State enum value\n * - Handling the start and end tags of the custom JSP tag\n * \n * The behavior of this class is as follows:\n * - The doStartTag method generates the HTML select element with options for each State enum value\n * - The doEndTag method returns SKIP_BODY indicating that the body of the tag should be skipped\n * \n * @author [Author Name]\n * @version 1.0\n */\n/**\n * The TagHandler class is responsible for processing tasks related to custom JSP tags before the tag is closed.\n * \n * This class provides methods for setting and getting the PageContext and parent Tag, as well as releasing any resources held by the object.\n * \n * The main functionalities of this class include processing the start and end tags of custom JSP tags, setting the PageContext and parent Tag, and releasing resources when no longer needed.\n * \n * The overall behavior of this class is to facilitate the processing of custom JSP tags by providing methods to handle various tasks before the tag is closed.\n */\n**/\n/**\n * The StateSelect class represents an object that allows users to select a state from a list of options.\n * This class provides methods to set and retrieve the name and value of the selected state.\n * \n * The main functionalities of the StateSelect class include:\n * 1. Setting and retrieving the name of the selected state.\n * 2. Setting and retrieving the value of the selected state.\n * \n * The StateSelect class has the following variables:\n * - pageContext: Represents the page context of the StateSelect object.\n * - parent: Represents the parent tag of the StateSelect object.\n * - name: Represents the name of the selected state.\n * - value: Represents the value of the selected state.\n * \n * The StateSelect class also includes the following methods:\n * 1. public String getName(): Retrieves the name of the selected state.\n * 2. public void setName(String name): Sets the name of the selected state.\n * 3. public String getValue(): Retrieves the value of the selected state.\n * 4. public void setValue(String value): Sets the value of the selected state.\n * 5. public StateSelect(): Constructs a new StateSelect object.\n * \n * This class is designed to be used in conjunction with other classes to provide state selection functionality in Java applications.\n */"
     }
 ]

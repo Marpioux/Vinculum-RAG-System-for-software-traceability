@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanTag> ottieniTags()",
                 "comments": "Optional[/**\r\n * Method which returns all the tags stored in the database\r\n *\r\n * @return an ArrayList of BeanTag\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to obtain a list of BeanTag objects.\n * \n * @return an ArrayList of BeanTag objects, or an empty Optional if no tags are found\n */"
             }
         ],
         "constructors": [],
         "signature": "IGestioneTagComune",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IGestioneTagComune interface represents a contract for classes that provide functionality related to managing common tags.\n * This interface defines a method ottieniTags() which is used to retrieve all the tags stored in the database.\n * \n * Implementing classes should provide an implementation for ottieniTags() that returns an ArrayList of BeanTag objects.\n * If no tags are found, the method should return an empty Optional.\n * \n * This interface does not have any constructors or variables, and is intended to be implemented by classes that handle tag management operations.\n */"
     }
 ]

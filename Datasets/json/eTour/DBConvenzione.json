@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean cancellaConvenzione(int)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#cancellaConvenzione(int)\r\n     */\r\n]",
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Cancels a specific convention identified by the given ID.\n * \n * @param id the ID of the convention to be cancelled\n * @return true if the convention was successfully cancelled, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#getStoricoConvenzione(int)\r\n     */\r\n]",
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Retrieves the historical data of a specific convention based on the provided ID.\n * \n * @param id the ID of the convention for which the historical data is to be retrieved\n * @return an ArrayList of BeanConvenzione objects representing the historical data of the convention,\n *         or null if no historical data is found\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return false;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean inserisciConvenzione(BeanConvenzione)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#inserisciConvenzione(unisa.gps.etour.bean.BeanConvenzione)\r\n     */\r\n]",
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Inserts a new convention into the system.\n * \n * @param convenzione The BeanConvenzione object representing the convention to be inserted\n * @return true if the convention was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return false;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean modificaConvenzione(BeanConvenzione)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#modificaConvenzione(unisa.gps.etour.bean.BeanConvenzione)\r\n     */\r\n]",
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Modifies a BeanConvenzione object.\n * \n * This method takes a BeanConvenzione object as a parameter and modifies it. \n * \n * @param convenzione the BeanConvenzione object to be modified\n * @return true if the BeanConvenzione object was successfully modified, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    BeanConvenzione convenzione = new BeanConvenzione();\r\n    convenzione.setAttiva(true);\r\n    convenzione.setDataFine(new Date());\r\n    convenzione.setDataInizio(new Date());\r\n    convenzione.setId(12);\r\n    convenzione.setIdPuntoDiRistoro(3);\r\n    convenzione.setPrezzo(100);\r\n    if (numTest == 1) {\r\n        /* Test banners allowed */\r\n        convenzione.setMaxBanner(4);\r\n        return convenzione;\r\n    } else if (numTest == 2) {\r\n        /* Test banners not allowed */\r\n        convenzione.setMaxBanner(3);\r\n        return convenzione;\r\n    } else {\r\n        return null;\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": true,
                 "signature": "public BeanConvenzione ottieniConvezioneAttiva(int)",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#ottieniConvezioneAttiva(int)\r\n     */\r\n]",
-                "innerComments": "Optional[[/* Test banners allowed */\r\n, /* Test banners not allowed */\r\n]]"
+                "innerComments": "Optional[[/* Test banners allowed */\r\n, /* Test banners not allowed */\r\n]]",
+                "generated_comment": "/**\n * Retrieves the active agreement bean based on the provided number test.\n * \n * @param numTest the number test to determine the type of agreement to retrieve\n * @return the active agreement bean with the specified parameters, or null if no agreement is found\n */\npublic BeanConvenzione ottieniConvezioneAttiva(int numTest) {\n    BeanConvenzione convenzione = new BeanConvenzione();\n    convenzione.setAttiva(true);\n    convenzione.setDataFine(new Date());\n    convenzione.setDataInizio(new Date());\n    convenzione.setId(12);\n    convenzione.setIdPuntoDiRistoro(3);\n    convenzione.setPrezzo(100);\n    \n    if (numTest == 1) {\n        /* Test banners allowed */\n        convenzione.setMaxBanner(4);\n        return convenzione;\n    } else if (numTest == 2) {\n        /* Test banners not allowed */\n        convenzione.setMaxBanner(3);\n        return convenzione;\n    } else {\n        return null;\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": true,
                 "signature": "public ArrayList<BeanPuntoDiRistoro> ottieniListaConvenzioneAttivaPR()",
                 "comments": "Optional[/* (Non-Javadoc)\r\n     * @See unisa.gps.etour.repository.IDBConvenzione#ottieniListaConvenzioneAttivaPR()\r\n     */\r\n]",
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * This method retrieves a list of active BeanPuntoDiRistoro objects that have a current convention.\n * \n * @return An ArrayList of BeanPuntoDiRistoro objects representing the list of active points of refreshment with a current convention.\n */"
             },
             {
                 "body": "Optional[{\r\n    DBConvenzione.numTest = numTest;\r\n}]",
@@ -55,13 +61,15 @@
                 "hasInnerComment": false,
                 "signature": "public static void setNumTest(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the number of tests for a specific convention.\n * \n * @param numTest the number of tests to set\n */\npublic static void setNumTest(int numTest) {\n    DBConvenzione.numTest = numTest;\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "DBConvenzione",
         "variables": [
             "private  static int numTest"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DBConvenzione class represents a database handler for managing conventions.\n * It provides methods for creating, updating, deleting, and retrieving convention data\n * from the database. The class also includes functionality for setting and retrieving\n * the number of tests associated with a specific convention.\n * \n * This class contains the following methods:\n * - public boolean cancellaConvenzione(int id): Cancels a specific convention identified by the given ID.\n * - public ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int id): Retrieves the historical data of a specific convention based on the provided ID.\n * - public boolean inserisciConvenzione(BeanConvenzione convenzione): Inserts a new convention into the system.\n * - public boolean modificaConvenzione(BeanConvenzione convenzione): Modifies a BeanConvenzione object.\n * - public BeanConvenzione ottieniConvezioneAttiva(int numTest): Retrieves the active agreement bean based on the provided number test.\n * - public ArrayList<BeanPuntoDiRistoro> ottieniListaConvenzioneAttivaPR(): Retrieves a list of active BeanPuntoDiRistoro objects that have a current convention.\n * - public static void setNumTest(int numTest): Sets the number of tests for a specific convention.\n * \n * The class also includes a private static variable:\n * - private static int numTest: Represents the number of tests associated with a specific convention.\n * \n * Note: This class is part of the unisa.gps.etour.repository package.\n */"
     }
 ]

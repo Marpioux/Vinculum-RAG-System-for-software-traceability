@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels(String, String, String)",
                 "comments": null,
-                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for entering commission data.\n * \n * @param caption the caption for the action button\n * @param caller the caller identifier\n * @param font the font for the panels\n * \n * This method sets the font for the panels, creates labels, text fields, and buttons for entering commission data,\n * and attaches them to the frame. It also configures the layout of the panels and sets visibility for one of the panels.\n */ \nvoid setupPanels(String caption, String caller, String font) {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the current object by adding an ActionListener to the Annulla button.\n * When the Annulla button is clicked, it disposes of the current object and enables the parent component.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter and does not return any value.\n */"
             },
             {
                 "body": "Optional[{\r\n    Commissionamento comm = new Commissionamento();\r\n    comm.setIdCommissionamento((Principale.config).getIdCommissionamento());\r\n    comm.setNomeAgenzia(nome_agenzia.getText());\r\n    comm.setNumStanza(num_stanza.getText());\r\n    comm.setInizioComm(DateUtils.convertDate(inizio_comm.getText()));\r\n    comm.setFineComm(DateUtils.convertDate(fine_comm.getText()));\r\n    comm.setScadenzaComm(DateUtils.convertDate(scadenza_comm.getText()));\r\n    comm.setNumTel(num_tel_agenzia.getText());\r\n    return comm;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " Commissionamento readDatiComm()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Reads data from the user interface and creates a new Commissionamento object with the provided information.\n * \n * @return Commissionamento object with the data read from the user interface\n */ \nCommissionamento readDatiComm() {\n    Commissionamento comm = new Commissionamento();\n    comm.setIdCommissionamento((Principale.config).getIdCommissionamento());\n    comm.setNomeAgenzia(nome_agenzia.getText());\n    comm.setNumStanza(num_stanza.getText());\n    comm.setInizioComm(DateUtils.convertDate(inizio_comm.getText()));\n    comm.setFineComm(DateUtils.convertDate(fine_comm.getText()));\n    comm.setScadenzaComm(DateUtils.convertDate(scadenza_comm.getText()));\n    comm.setNumTel(num_tel_agenzia.getText());\n    return comm;\n}\n```"
             },
             {
                 "body": "Optional[{\r\n    nome_agenzia.setText(comm.getNomeAgenzia());\r\n    num_stanza.setText(comm.getNumStanza());\r\n    inizio_comm.setText(DateUtils.giveStringOfDate(comm.getInizioComm()));\r\n    fine_comm.setText(DateUtils.giveStringOfDate(comm.getFineComm()));\r\n    scadenza_comm.setText(DateUtils.giveStringOfDate(comm.getScadenzaComm()));\r\n    num_tel_agenzia.setText(comm.getNumTel());\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void writeDatiComm(Commissionamento)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes the data of a commissioning to the corresponding fields in the GUI.\n * \n * @param comm the Commissionamento object containing the data to be displayed\n */\nvoid writeDatiComm(Commissionamento comm) {\n    nome_agenzia.setText(comm.getNomeAgenzia());\n    num_stanza.setText(comm.getNumStanza());\n    inizio_comm.setText(DateUtils.giveStringOfDate(comm.getInizioComm()));\n    fine_comm.setText(DateUtils.giveStringOfDate(comm.getFineComm()));\n    scadenza_comm.setText(DateUtils.giveStringOfDate(comm.getScadenzaComm()));\n    num_tel_agenzia.setText(comm.getNumTel());\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!((num_stanza.getText()).length() <= 4)) {\r\n        msg = new MessageDialog(this, \" Il numero della stanza deve avere al piu' 4 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((num_stanza.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il numero di stanza! \");\r\n        return true;\r\n    }\r\n    if ((nome_agenzia.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il nome dell'agenzia! \");\r\n        return true;\r\n    }\r\n    if (!((nome_agenzia.getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il nome dell'agenzia deve avere al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((scadenza_comm.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca la data di scadenza! \");\r\n        return true;\r\n    }\r\n    if (!(DateUtils.dataCorretta(scadenza_comm.getText()))) {\r\n        msg = new MessageDialog(this, \" La data di scadenza e' non corretta! \");\r\n        return true;\r\n    }\r\n    if ((num_tel_agenzia.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il numero di telefono! \");\r\n        return true;\r\n    }\r\n    if (!((num_tel_agenzia.getText()).length() <= 16)) {\r\n        msg = new MessageDialog(this, \" Il numero di telefono deve avere al piu' 16 caratteri! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "protected boolean errori()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for errors in the input fields of a form.\n * \n * This method validates the input fields of a form to ensure that they meet certain criteria:\n * - The room number must be no more than 4 characters long.\n * - The room number cannot be empty.\n * - The agency name must be no more than 20 characters long.\n * - The agency name cannot be empty.\n * - The expiration date must be provided and in the correct format.\n * - The phone number must be no more than 16 characters long.\n * - The phone number cannot be empty.\n * \n * @return true if any of the validation criteria are not met, false otherwise\n */\nprotected boolean errori() {\n    Frame msg;\n    if (!((num_stanza.getText()).length() <= 4)) {\n        msg = new MessageDialog(this, \" Il numero della stanza deve avere al piu' 4 caratteri! \");\n        return true;\n    }\n    if ((num_stanza.getText()).equals(\"\")) {\n        msg = new MessageDialog(this, \" Manca il numero di stanza! \");\n        return true;\n    }\n    if ((nome_agenzia.getText()).equals(\"\")) {\n        msg = new MessageDialog(this, \" Manca il nome dell'agenzia! \");\n        return true;\n    }\n    if (!((nome_agenzia.getText()).length() <= 20)) {\n        msg = new MessageDialog(this, \" Il nome dell'agenzia deve avere al piu' 20 caratteri! \");\n        return true;\n    }\n    if ((scadenza_comm.getText()).equals(\"\")) {\n        msg = new MessageDialog(this, \" Manca la data di scadenza! \");\n        return true;\n    }\n    if (!(DateUtils.dataCorretta(scadenza_comm.getText()))) {\n        msg = new MessageDialog(this, \" La data di scadenza e' non corretta! \");\n        return true;\n    }\n    if ((num_tel_agenzia.getText()).equals(\"\")) {\n        msg = new MessageDialog(this, \" Manca il numero di telefono! \");\n        return true;\n    }\n    if (!((num_tel_agenzia.getText()).length() <= 16)) {\n        msg = new MessageDialog(this, \" Il numero di telefono deve avere al piu' 16 caratteri! \");\n        return true;\n    }\n    return false;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    nome_agenzia.setText(\"\");\r\n    num_stanza.setText(\"\");\r\n    inizio_comm.setText(\"\");\r\n    fine_comm.setText(\"\");\r\n    scadenza_comm.setText(\"\");\r\n    num_tel_agenzia.setText(\"\");\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " void cleanFields()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Clears all the text fields in the UI related to agency information.\n * This method sets the text of the following fields to an empty string:\n * - nome_agenzia\n * - num_stanza\n * - inizio_comm\n * - fine_comm\n * - scadenza_comm\n * - num_tel_agenzia\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    Commissionamento c;\r\n    L = (Principale.db).foundCommissionamenti(new String(nome_agenzia.getText()));\r\n    if (L != null) {\r\n        if (lista.getItemCount() > 0)\r\n            lista.removeAll();\r\n        if (!L.isEmpty()) {\r\n            panel5.setVisible(true);\r\n            pack();\r\n            for (int i = 1; i <= L.length(); i++) lista.addItem((L.getCommissionamento(i)).toString());\r\n        } else\r\n            msg = new AvvisoDialog(this, \"Agenzia \" + nome_agenzia.getText() + \" non trovata!\");\r\n    } else\r\n        msg = new MessageDialog(this, \"Problemi con il database!\");\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void creaLista()",
                 "comments": "Optional[// procedura utilizzata da Modifica e Cancella\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a list of commissions related to the agency specified in the input field.\n * Retrieves the commissions from the database and populates the list with them.\n * If the agency is not found in the database, displays a message dialog indicating the issue.\n * If there are any database connection problems, displays a message dialog with an error message.\n */\nvoid creaLista() {\n    Frame msg;\n    Commissionamento c;\n    L = (Principale.db).foundCommissionamenti(new String(nome_agenzia.getText()));\n    if (L != null) {\n        if (lista.getItemCount() > 0)\n            lista.removeAll();\n        if (!L.isEmpty()) {\n            panel5.setVisible(true);\n            pack();\n            for (int i = 1; i <= L.length(); i++) lista.addItem((L.getCommissionamento(i)).toString());\n        } else\n            msg = new AvvisoDialog(this, \"Agenzia \" + nome_agenzia.getText() + \" non trovata!\");\n    } else\n        msg = new MessageDialog(this, \"Problemi con il database!\");\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Disponibilita disp_da_cambiare = new Disponibilita();\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        Frame msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    disp_da_cambiare = Utils.getDispOfRoom(elenco_disp, comm.getNumStanza(), true);\r\n    if (tipo == Flag.COMMISSIONATA)\r\n        disp_da_cambiare.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), tipo, Flag.DISPONIBILE);\r\n    else\r\n        disp_da_cambiare.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), tipo, Flag.COMMISSIONATA);\r\n    (Principale.db).changeDisponibilita(disp_da_cambiare.getNumStanza(), disp_da_cambiare.getDispAnnoCorr(), disp_da_cambiare.getDispAnnoProx());\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void aggiornaDisp(Commissionamento, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the availability of a room based on a commissioning event.\n * \n * @param comm the commissioning event to update the availability for\n * @param tipo the type of availability to set (either Flag.COMMISSIONATA or Flag.DISPONIBILE)\n */\nvoid aggiornaDisp(Commissionamento comm, char tipo) {\n    // Create a new availability object\n    Disponibilita disp_da_cambiare = new Disponibilita();\n    \n    // Get the list of availabilities from the database\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\n    \n    // Check if the list of availabilities is null\n    if (elenco_disp == null) {\n        // Display an error message if there are issues with the database\n        Frame msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\n        return;\n    }\n    \n    // Get the availability object for the room from the list of availabilities\n    disp_da_cambiare = Utils.getDispOfRoom(elenco_disp, comm.getNumStanza(), true);\n    \n    // Update the availability based on the type parameter\n    if (tipo == Flag.COMMISSIONATA)\n        disp_da_cambiare.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), tipo, Flag.DISPONIBILE);\n    else\n        disp_da_cambiare.setDisponibilita(comm.getInizioComm(), comm.getFineComm(), tipo, Flag.COMMISSIONATA);\n    \n    // Update the availability in the database\n    (Principale.db).changeDisponibilita(disp_da_cambiare.getNumStanza(), disp_da_cambiare.getDispAnnoCorr(), disp_da_cambiare.getDispAnnoProx());\n}\n*/"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraCommissioni(String, String, String, String, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraCommissioni object with the specified parameters.\n * \n * @param title the title of the MascheraCommissioni object\n * @param data1 the first data parameter for setting up panels\n * @param data2 the second data parameter for setting up panels\n * @param caption the caption for setting up panels\n * @param c the caller object\n * @param int an integer parameter\n * \n * This constructor initializes the MascheraCommissioni object with the given title, caller object, and sets up panels using the provided data parameters and caption. It then calls the inizializza() method and packs the components.\n */\npublic MascheraCommissioni(String title, String data1, String data2, String caption, int c) {\n    super(title);\n    caller = c;\n    setupPanels(data1, data2, caption);\n    inizializza();\n    pack();\n}\n*/"
             }
         ],
         "signature": "MascheraCommissioni",
@@ -113,6 +123,7 @@
             " SubCommissioni padre",
             " ListaCommissionamenti L",
             " int caller"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraCommissioni class represents a user interface for entering commission data.\n * It provides methods for setting up panels, initializing the object, reading and writing commission data,\n * checking for errors in input fields, clearing text fields, creating a list of commissions related to an agency,\n * and updating the availability of a room based on a commissioning event.\n * \n * The class includes text fields for entering agency information, labels for guiding the user, buttons for actions,\n * panels for organizing the components, and a list for displaying commission data.\n * \n * The main functionalities of this class are:\n * - Setting up the panels for entering commission data\n * - Initializing the object by adding an ActionListener to a button\n * - Reading and writing commission data to and from the user interface\n * - Checking for errors in input fields to ensure data validity\n * - Clearing all text fields related to agency information\n * - Creating a list of commissions related to a specified agency\n * - Updating the availability of a room based on a commissioning event\n * \n * The class constructor initializes the MascheraCommissioni object with the specified title, caller object,\n * and sets up panels using the provided data parameters and caption. It then calls the inizializza() method and packs the components.\n * \n * Overall, the MascheraCommissioni class provides a user-friendly interface for managing commission data\n * and ensures data integrity and accuracy through error checking and validation mechanisms.\n */\npublic class MascheraCommissioni {\n    // class variables and methods omitted for brevity\n}\n*/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init(Stanza, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components with the provided stanza number and dates.\n * \n * @param stanza The stanza object containing the stanza number\n * @param data1 The start date for the stanza\n * @param data2 The end date for the stanza\n */\npublic void init(Stanza stanza, String data1, String data2) {\n    num_stanza.setText(stanza.getNumStanza());\n    inizio_comm.setText(data1);\n    fine_comm.setText(data2);\n    num_stanza.setEditable(false);\n    inizio_comm.setEditable(false);\n    fine_comm.setEditable(false);\n    \n    // ActionListener for the \"Annulla\" button\n    Annulla.addActionListener(new ActionListener() {\n        public void actionPerformed(ActionEvent e) {\n            dispose();\n            mask_ricerca.setEnabled(true);\n        }\n    });\n    \n    // ActionListener for the \"Azione\" button\n    Azione.addActionListener(new ActionListener() {\n        public void actionPerformed(ActionEvent e) {\n            startAzione();\n        }\n    });\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    mask_ricerca.setEnabled(true);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the mask_ricerca component.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the mask_ricerca component. \n * It is typically called when an action event occurs, such as clicking a button. \n * There is no return value for this method.\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startAzione() method to begin the action.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        Commissionamento comm = readDatiComm();\r\n        int j;\r\n        if ((j = (Principale.db).newIdCommissionamento()) == DataBase.OK) {\r\n            (Principale.config).updateIdCommissionamento();\r\n            if ((j = (Principale.db).writeCommissionamento(comm)) == DataBase.OK) {\r\n                aggiornaDisp(comm, Flag.COMMISSIONATA);\r\n                dispose();\r\n                mask_ricerca.restartAvvio();\r\n                mask_ricerca.setEnabled(true);\r\n            } else\r\n                msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the action of commissioning a new item. It checks for any errors, reads the commission data, generates a new commission ID, updates the configuration with the new ID, writes the commission data to the database, updates the availability of the item, disposes of the current frame, restarts the search mask, and enables the search mask. If there are any database issues encountered during the process, a message dialog is displayed with the specific error message.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -41,12 +45,14 @@
                 "hasInnerComment": false,
                 "signature": "public InserisciCommissioni(Stanza, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new InserisciCommissioni object with the specified parameters.\n * \n * @param stanza the room where the commission data will be inserted\n * @param data1 the first data parameter for the superclass constructor\n * @param data2 the second data parameter for the superclass constructor\n * \n * This constructor calls the superclass constructor with the provided data1 and data2 parameters,\n * along with additional parameters for the title, button label, and mode. It then initializes the\n * InserisciCommissioni object with the specified room and data parameters.\n */"
             }
         ],
         "signature": "InserisciCommissioni",
         "variables": [
             " MascheraRicercaStanza mask_ricerca"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a GUI component that initializes and displays information about a specific stanza, including its number and start/end dates.\n * It contains methods to initialize the GUI components with the provided stanza number and dates, as well as to dispose of the current window and enable the mask_ricerca component.\n * \n * Main functionalities:\n * - Initialize the GUI components with the provided stanza number and dates\n * - Dispose of the current window and enable the mask_ricerca component\n * \n * Overall behavior:\n * The class provides a user interface for displaying information about a specific stanza. It allows users to view the stanza number, start date, and end date, and provides buttons for performing actions such as closing the window and enabling other components. The class ensures that the GUI components are properly initialized and updated with the provided information.\n */\npublic class StanzaGUI {\n    public void init(Stanza stanza, String data1, String data2) {\n        num_stanza.setText(stanza.getNumStanza());\n        inizio_comm.setText(data1);\n        fine_comm.setText(data2);\n        num_stanza.setEditable(false);\n        inizio_comm.setEditable(false);\n        fine_comm.setEditable(false);\n        \n        // ActionListener for the \"Annulla\" button\n        Annulla.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent e) {\n                dispose();\n                mask_ricerca.setEnabled(true);\n            }\n        });\n        \n        // ActionListener for the \"Azione\" button\n        Azione.addActionListener(new ActionListener() {\n            public void actionPerformed(ActionEvent e) {\n                startAzione();\n            }\n        });\n    }\n    \n    public void actionPerformed(ActionEvent e) {\n        dispose();\n        mask_ricerca.setEnabled(true);\n    }\n}\n*/\n/**\n * This class represents a window for commissioning new items. It contains methods for handling the commissioning process, such as reading commission data, generating new commission IDs, updating the configuration, writing commission data to the database, and updating item availability. The class also includes methods for error checking and displaying error messages.\n * \n * The main functionalities of this class include:\n * - Starting the commissioning action when triggered by an event\n * - Disposing of the current window and enabling the search mask component\n * - Handling database interactions for commissioning new items\n * \n * Overall, this class provides a user interface for commissioning new items and ensures that the commissioning process is executed smoothly. It encapsulates the necessary logic and functionality to manage the commissioning workflow effectively.\n */\n/**\n * The InserisciCommissioni class represents a form for inserting commission data into a specified room.\n * This class extends a superclass constructor with the provided data parameters and initializes the InserisciCommissioni object.\n * \n * The main functionalities of this class include:\n * - Displaying a form for inserting commission data\n * - Setting the title, button label, and mode for the form\n * - Initializing the form with the specified room and data parameters\n * \n * This class contains a constructor that takes a room, a string data parameter, and another string data parameter as input.\n * The constructor calls the superclass constructor with the provided data parameters and initializes the InserisciCommissioni object.\n * \n * The MascheraRicercaStanza variable 'mask_ricerca' is also declared in this class.\n */"
     }
 ]

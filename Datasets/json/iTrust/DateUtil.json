@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public static String yearsAgo(long)",
                 "comments": "Optional[/**\r\n * Returns a MM/dd/yyyy format of the date for the given years ago\r\n *\r\n * @param years\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representing the date that was a specified number of years ago from the current date.\n * \n * @param years the number of years to go back in time\n * @return a string representation of the date that was 'years' years ago in the format \"MM/dd/yyyy\"\n */"
             },
             {
                 "body": "Optional[{\r\n    Calendar cal = new GregorianCalendar();\r\n    cal.setTime(date);\r\n    firstMonth %= 12;\r\n    secondMonth %= 12;\r\n    if (secondMonth >= firstMonth) {\r\n        return ((cal.get(Calendar.MONTH) >= firstMonth) && (cal.get(Calendar.MONTH) <= secondMonth));\r\n    }\r\n    return ((cal.get(Calendar.MONTH) >= firstMonth) || (cal.get(Calendar.MONTH) <= secondMonth));\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public static boolean isInMonthRange(java.util.Date, int, int)",
                 "comments": "Optional[/**\r\n * Checks to see if a given date is within a range of months <strong>INCLUSIVELY</strong>, agnostic of\r\n * the year. <br />\r\n * <br />\r\n *\r\n * The range \"wraps\" so that if the first month is after the second month, then the definition of \"is in\r\n * month range\" is:<br />\r\n * the date falls outside of secondMonth, firstMonth, but including secondMonth and firstMonth.\r\n *\r\n * Modular arithmetic is used to adjust month values into the valid range.\r\n *\r\n * @param date\r\n * @param firstMonth\r\n * @param secondMonth\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the given date falls within the specified range of months.\n * \n * @param date the date to check\n * @param firstMonth the starting month of the range (0-11)\n * @param secondMonth the ending month of the range (0-11)\n * @return true if the date is within the specified month range, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return isInMonthRange(new Date(), firstMonth, secondMonth);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public static boolean currentlyInMonthRange(int, int)",
                 "comments": "Optional[/**\r\n * Same as isInMonthRange but uses the current date as the date value.\r\n *\r\n * @see DateUtil#isInMonthRange(Date, int, int)\r\n * @param firstMonth\r\n * @param secondMonth\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the current date falls within the specified range of months.\n * \n * @param firstMonth the first month in the range (1-12)\n * @param secondMonth the second month in the range (1-12)\n * @return true if the current date is within the specified month range, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    Calendar cal = new GregorianCalendar();\r\n    cal.add(Calendar.YEAR, -years);\r\n    return cal.getTime();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public static Date getDateXyearsAgoFromNow(int)",
                 "comments": "Optional[/**\r\n * Returns the date a certain number of years ago\r\n * @param years how many years ago\r\n * @return the date it was however many years ago\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a Date object representing a date that is X years ago from the current date.\n * \n * @param years the number of years to subtract from the current date\n * @return a Date object representing the date X years ago from now\n */"
             },
             {
                 "body": "Optional[{\r\n    return new java.sql.Date(getDateXyearsAgoFromNow(years).getTime());\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public static java.sql.Date getSQLdateXyearsAgoFromNow(int)",
                 "comments": "Optional[/**\r\n * Returns the date a certain number of years ago\r\n * @param years how many years ago\r\n * @return the date it was however many years ago\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a java.sql.Date object representing a date X years ago from the current date.\n * \n * @param years the number of years to go back in time\n * @return a java.sql.Date object representing the date X years ago from now\n */"
             },
             {
                 "body": "Optional[{\r\n    Calendar cal = new GregorianCalendar();\r\n    cal.add(Calendar.DAY_OF_YEAR, -days);\r\n    return cal.getTime();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public static Date getDateXDaysAgoFromNow(int)",
                 "comments": "Optional[/**\r\n * Returns the date a certain number of days ago\r\n * @param days how many days ago\r\n * @return the date it was however many days ago\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a Date object representing a date that is a specified number of days ago from the current date.\n * \n * @param days the number of days to go back in time from the current date\n * @return a Date object representing the date that is 'days' days ago from the current date\n */"
             },
             {
                 "body": "Optional[{\r\n    return new java.sql.Date(getDateXDaysAgoFromNow(days).getTime());\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public static java.sql.Date getSQLdateXDaysAgoFromNow(int)",
                 "comments": "Optional[/**\r\n * Returns the date a certain number of days ago\r\n * @param days how many days ago\r\n * @return the date it was however many days ago\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a java.sql.Date object representing a date that is a specified number of days ago from the current date.\n * \n * @param days the number of days ago from the current date\n * @return a java.sql.Date object representing the date that is X days ago from now\n */"
             },
             {
                 "body": "Optional[{\r\n    GregorianCalendar cal = new GregorianCalendar();\r\n    cal.add(Calendar.YEAR, -yearsAgo1);\r\n    cal.set(Calendar.MONTH, monthValue1);\r\n    cal.set(Calendar.DAY_OF_MONTH, 1);\r\n    month1.setTime(cal.getTimeInMillis());\r\n    cal.add(Calendar.YEAR, yearsAgo1);\r\n    cal.add(Calendar.YEAR, -yearsAgo2);\r\n    cal.set(Calendar.MONTH, monthValue2);\r\n    cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));\r\n    month2.setTime(cal.getTimeInMillis());\r\n}]",
@@ -63,13 +70,15 @@
                 "hasInnerComment": false,
                 "signature": "public static void setSQLMonthRange(java.sql.Date, int, int, java.sql.Date, int, int)",
                 "comments": "Optional[/**\r\n * <!--Pass in INSTANTIATED sql date objects and they will be set to the specified range, ie, FROM\r\n * <current year> - yearsAgo1/monthValue1/01 TO <current year> - yearsAgo2/monthValue2/<last day of\r\n * month2>--> Pass in INSTANTIATED sql date objects and they will be set to the specified range, ie, FROM\r\n * &lt;current year&gt; - yearsAgo1/monthValue1/01 TO &lt;current year&gt; -\r\n * yearsAgo2/monthValue2/&lt;last day of month2&gt;\r\n *\r\n * @param month1\r\n *            First sql.Date object to be set\r\n * @param monthValue1\r\n * @param yearsAgo1\r\n * @param month2\r\n *            Second sql.Date object to be set\r\n * @param monthValue2\r\n * @param yearsAgo2\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the start and end dates of a specified month range based on the input parameters.\n * \n * @param startDate1 the starting date of the first month range\n * @param yearsAgo1 the number of years ago from the current year for the first month range\n * @param monthValue1 the month value (0-11) for the first month range\n * @param endDate2 the ending date of the second month range\n * @param yearsAgo2 the number of years ago from the current year for the second month range\n * @param monthValue2 the month value (0-11) for the second month range\n * \n * @return void\n * \n * This method sets the start and end dates for two specified month ranges based on the input parameters. \n * The start date of the first month range is calculated by subtracting the specified number of years ago from the current year\n * and setting the month and day values accordingly. The end date of the first month range is calculated by adding the specified \n * number of years ago from the current year, setting the month value, and setting the day value to the last day of the month. \n * The same process is repeated for the second month range. The calculated start and end dates are stored in the provided \n * java.sql.Date objects.\n */"
             }
         ],
         "constructors": [],
         "signature": "DateUtil",
         "variables": [
             "public  static  final long YEAR_IN_MS"
-        ]
+        ],
+        "generated_class_comment": "*/\" } ] }]\n/**\n * This class provides utility methods for working with dates in Java.\n * It includes methods for checking if a date falls within a specified month range,\n * getting the current date within a month range, and calculating a date a certain number of years ago.\n * \n * The main functionalities of this class include:\n * - Checking if a given date falls within a specified range of months\n * - Getting the current date within a specified month range\n * - Calculating a date that is a certain number of years ago from the current date\n * \n * The overall behavior of this class is to provide convenient methods for date manipulation\n * and comparison based on specific criteria such as month ranges and years ago calculations.\n */\n **/\nSure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class provides utility methods for manipulating dates in Java.\n * It includes methods to get the date a certain number of years or days ago from the current date.\n * \n * The class contains the following methods:\n * 1. getDateXYearsAgoFromNow(int years) - Returns a java.sql.Date object representing a date X years ago from the current date.\n * 2. getDateXDaysAgoFromNow(int days) - Returns a Date object representing a date that is a specified number of days ago from the current date.\n * 3. getSQLdateXDaysAgoFromNow(int days) - Returns a java.sql.Date object representing a date that is a specified number of days ago from the current date.\n * \n * Each method takes an integer parameter specifying the number of years or days to go back in time from the current date.\n * \n * The class aims to provide convenient date manipulation functionalities for Java developers.\n */\n/**\n * This class provides a method to set the start and end dates of a specified month range based on the input parameters.\n * The setSQLMonthRange method takes in two instantiated sql.Date objects and sets them to the specified range, \n * from the current year minus yearsAgo1/monthValue1/01 to the current year minus yearsAgo2/monthValue2/last day of month2.\n * \n * @param startDate1 the starting date of the first month range\n * @param yearsAgo1 the number of years ago from the current year for the first month range\n * @param monthValue1 the month value (0-11) for the first month range\n * @param endDate2 the ending date of the second month range\n * @param yearsAgo2 the number of years ago from the current year for the second month range\n * @param monthValue2 the month value (0-11) for the second month range\n * \n * @return void\n * \n * This method sets the start and end dates of the specified month range based on the input parameters.\n */\npublic static void setSQLMonthRange(java.sql.Date startDate1, int yearsAgo1, int monthValue1, java.sql.Date endDate2, int yearsAgo2, int monthValue2) {\n    GregorianCalendar cal = new GregorianCalendar();\n    cal.add(Calendar.YEAR, -yearsAgo1);\n    cal.set(Calendar.MONTH, monthValue1);\n    cal.set(Calendar.DAY_OF_MONTH, 1);\n    startDate1.setTime(cal.getTimeInMillis());\n    \n    cal.add(Calendar.YEAR, yearsAgo1);\n    cal.add(Calendar.YEAR, -yearsAgo2);\n    cal.set(Calendar.MONTH, monthValue2);\n    cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DAY_OF_MONTH));\n    endDate2.setTime(cal.getTimeInMillis());\n}\n*/\n/**\n * This class provides utility methods for calculating date ranges based on specified month ranges and number of years ago.\n * The start date of the first month range is calculated by subtracting the specified number of years ago from the current year\n * and setting the month and day values accordingly. The end date of the first month range is calculated by adding the specified\n * number of years ago from the current year, setting the month value, and setting the day value to the last day of the month.\n * The same process is repeated for the second month range. The calculated start and end dates are stored in the provided\n * java.sql.Date objects.\n */"
     }
 ]

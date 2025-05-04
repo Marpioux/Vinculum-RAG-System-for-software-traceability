@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanel()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panel by creating a message label, two buttons, and attaching them to the frame.\n * The message label displays a warning message about closing the stay.\n * The \"Annulla\" button cancels the operation, while the \"Stampa e chiudi\" button prints and closes.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    button1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n    button2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            padre.startChiusura();\r\n            startAzione();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the buttons in the user interface and adds action listeners to handle button clicks.\n * When button1 is clicked, it triggers the startAzione() method.\n * When button2 is clicked, it first calls the startChiusura() method on the parent component and then triggers the startAzione() method.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startAzione() method to begin the desired action.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    padre.startChiusura();\r\n    startAzione();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the \"Chiusura\" process in the \"padre\" object and then initiates the \"Azione\" process. \n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    setVisible(false);\r\n    dispose();\r\n    padre.dispose();\r\n    padre.conto.setEnabled(true);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Hides the current window, disposes of it, disposes of the parent window, and enables a specific button in the parent window.\n * This method does not take any parameters.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public AskChiudiConto(MascheraVisualizzazioneConto)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AskChiudiConto object with the specified parent frame.\n * \n * @param parent the parent MascheraVisualizzazioneConto frame\n * \n * This constructor initializes the AskChiudiConto object with the given parent frame, sets the parent frame to disabled,\n * sets up the panel, initializes the object, packs it, and makes it visible.\n */"
             }
         ],
         "signature": "AskChiudiConto",
@@ -62,6 +68,7 @@
             " Panel panel2",
             " Label message",
             " GridBagLayout gridbag"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AskChiudiConto class represents a dialog window that prompts the user to confirm the closure of a stay.\n * It provides options for the user to either cancel the operation or print and close the stay.\n * \n * This class contains methods for setting up the panel with a warning message label and two buttons,\n * initializing the buttons and adding action listeners to handle button clicks,\n * starting the desired action when a button is clicked,\n * initiating the \"Chiusura\" process in the parent object and then starting the \"Azione\" process,\n * and hiding the current window, disposing of it, disposing of the parent window, and enabling a specific button in the parent window.\n * \n * The AskChiudiConto class has the following variables:\n * - Button button1: represents the \"Annulla\" button\n * - Button button2: represents the \"Stampa e chiudi\" button\n * - Button button3: not used in the current implementation\n * - MascheraVisualizzazioneConto padre: reference to the parent frame\n * - Panel panel1: panel for displaying the warning message label\n * - Panel panel2: panel for holding the buttons\n * - Label message: label for displaying the warning message\n * - GridBagLayout gridbag: layout manager for arranging components in the panel\n * \n * The AskChiudiConto class constructor takes a MascheraVisualizzazioneConto object as a parameter,\n * initializes the dialog window with the specified parent frame, disables the parent frame,\n * sets up the panel, initializes the buttons and action listeners, packs the window, and makes it visible.\n */"
     }
 ]

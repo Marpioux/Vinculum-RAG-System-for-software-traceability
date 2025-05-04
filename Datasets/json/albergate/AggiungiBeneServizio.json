@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupNuovi()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo i pannelli\r\n, //Creo il pannello in alto\r\n, //Attacco il pannello in alto al frame\r\n, //Creo il pannello supplemento\r\n, //Creo il pannello riduzione\r\n]]"
+                "innerComments": "Optional[[//Creo i pannelli\r\n, //Creo il pannello in alto\r\n, //Attacco il pannello in alto al frame\r\n, //Creo il pannello supplemento\r\n, //Creo il pannello riduzione\r\n]]",
+                "generated_comment": "/**\n * This method is used to set up new panels for the user interface.\n * It creates a panel for selecting types, a panel for adding a supplement, and a panel for adding a reduction.\n * The method initializes various components such as labels, text fields, buttons, and layout constraints for each panel.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    prima_scelta[3].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[3].getState()) {\r\n                inComuneDE(11, BeneServizio.SUPPLEMENTI);\r\n            }\r\n        }\r\n    });\r\n    prima_scelta[4].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[4].getState()) {\r\n                inComuneDE(12, BeneServizio.RIDUZIONI);\r\n            }\r\n        }\r\n    });\r\n    annulla1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    annulla2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    conferma1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            scriviSuDB(tf_supp.getText(), tf_stanza_supp.getText(), tf_mot_supp.getText());\r\n        }\r\n    });\r\n    conferma2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            scriviSuDB(new String(\"-\" + tf_rid.getText()), tf_stanza_rid.getText(), tf_mot_rid.getText());\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components for managing supplementary and reduction services.\n * This method sets up the necessary listeners for the selection of supplementary and reduction services,\n * as well as the actions for confirming or canceling the selections.\n * \n * @param prima_scelta an array of Checkbox objects representing the choices for supplementary and reduction services\n * @param annulla1 a Button object for canceling the selection of supplementary services\n * @param annulla2 a Button object for canceling the selection of reduction services\n * @param conferma1 a Button object for confirming the selection of supplementary services\n * @param conferma2 a Button object for confirming the selection of reduction services\n * @param padre the parent Frame object for enabling/disabling during the process\n * @param tf_supp a TextField object for entering supplementary service details\n * @param tf_stanza_supp a TextField object for entering the room number for supplementary services\n * @param tf_mot_supp a TextField object for entering the reason for selecting supplementary services\n * @param tf_rid a TextField object for entering reduction service details\n * @param tf_stanza_rid a TextField object for entering the room number for reduction services\n * @param tf_mot_rid a TextField object for entering the reason for selecting reduction services\n */\npublic void inizializza() {\n    // Add ItemListeners for the selection of supplementary and reduction services\n    prima_scelta[3.addItemListener(new ItemListener() {\n        public void itemStateChanged(ItemEvent e) {\n            if (prima_scelta[3.getState()) {\n                inComuneDE(11, BeneServizio.SUPPLEMENTI);\n            }\n        }\n    });\n    prima_scelta[4.addItemListener(new ItemListener() {\n        public void itemStateChanged(ItemEvent e) {\n            if (prima_scelta[4.getState()) {\n                inComuneDE(12, BeneServizio.RIDUZIONI);\n            }\n        }\n    });\n    \n    // Add ActionListeners for canceling and confirming the selections\n    annulla1.addActionListener(new ActionListener() {\n        public void actionPerformed(ActionEvent e) {\n            dispose();\n            padre.setEnabled(true);\n        }\n    });\n    annulla2.addActionListener(new ActionListener() {\n        public void actionPerformed(ActionEvent e) {\n            dispose();\n            padre.setEnabled(true);\n        }\n    });\n    conferma1.addActionListener(new ActionListener() {\n        public void actionPerformed(ActionEvent e) {\n            scriviSuDB(tf_supp.getText(), tf_stanza_supp.getText(), tf_mot_supp.getText());\n        }\n    });\n    conferma2.addActionListener(new ActionListener() {\n        public void actionPerformed(ActionEvent e) {\n            scriviSuDB(new String(\"-\" + tf_rid.getText()), tf_stanza_rid.getText(), tf_mot_rid.getText());\n        }\n    });\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (prima_scelta[3].getState()) {\r\n        inComuneDE(11, BeneServizio.SUPPLEMENTI);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if the fourth choice is selected and if so, it calls the inComuneDE method with the parameters 11 and the SUPPLEMENTI enum from the BeneServizio class.\n * \n * @param e the ItemEvent object representing the event that occurred\n * @return void as this method does not return any value\n */"
             },
             {
                 "body": "Optional[{\r\n    if (prima_scelta[4].getState()) {\r\n        inComuneDE(12, BeneServizio.RIDUZIONI);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state changes. If the fifth choice is selected,\n * it invokes the inComuneDE method with the parameters 12 and BeneServizio.RIDUZIONI.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the method. \n * There is no return value as the method is void.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    scriviSuDB(tf_supp.getText(), tf_stanza_supp.getText(), tf_mot_supp.getText());\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It retrieves the text from three text fields and passes them as parameters to the scriviSuDB method to write the data to a database.\n * \n * @param e the ActionEvent object that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    scriviSuDB(new String(\"-\" + tf_rid.getText()), tf_stanza_rid.getText(), tf_mot_rid.getText());\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It takes the input from three text fields - tf_rid, tf_stanza_rid, and tf_mot_rid - and writes the concatenated string \"-{tf_rid input}\" to the database along with tf_stanza_rid and tf_mot_rid inputs. \n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    level = 0;\r\n    for (int i = 1; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    this.add(panel[numero_pannello]);\r\n    panel[numero_pannello].setVisible(true);\r\n    setVisible(true);\r\n    codice = composeCode(level, c);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void inComuneDE(int, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the level to 0 and updates the visibility of panels based on the provided number.\n * Removes all panels except the one specified by the given number, sets its visibility to true,\n * and sets the visibility of the entire panel to true. \n * Additionally, composes a code based on the level and character provided.\n * \n * @param numero_pannello The number of the panel to be displayed.\n * @param c The character used to compose the code.\n */"
             },
             {
                 "body": "Optional[{\r\n    MessageDialog msg;\r\n    completeCode();\r\n    Float px = Float.valueOf(sup_rid);\r\n    extra = new BeneServizio((new String(codice)) + tornaCodId((Principale.config).getIdBeneservizio()), mot, px.floatValue());\r\n    if (padre instanceof MascheraAddebiti) {\r\n        if (((Principale.db).readStanza(stanza) != null) && Utils.isFloatPos(sup_rid) && (mot.length() < 33)) {\r\n            ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(stanza, false);\r\n            if (L_sogg != null) {\r\n                if (!L_sogg.isEmpty()) {\r\n                    int j;\r\n                    if ((j = (Principale.db).newIdBeneservizio()) == DataBase.OK) {\r\n                        (Principale.config).updateIdBeneservizio();\r\n                        if ((j = (Principale.db).writeBeneServizio(extra)) == DataBase.OK) {\r\n                            Addebito da_addebitare = new Addebito(stanza, extra.getCodExtra(), 1, px.floatValue());\r\n                            if ((j = (Principale.db).writeAddebito(da_addebitare)) == DataBase.OK) {\r\n                                dispose();\r\n                                if (stanza.equals(((MascheraAddebiti) padre).stanza_prec)) {\r\n                                    (((MascheraAddebiti) padre).elenco_addebiti).addAddebito(da_addebitare);\r\n                                    (((MascheraAddebiti) padre).elenco_extra_addebitati).addBeneServizio(extra);\r\n                                    /* travaso delle quantita modificate nel nuovo array per poi \r\n\t\t\t\t\t\t                   aggiungere il supplemento o riduzione appena inseriti */\r\n                                    int[] nuove_quantita_mod = new int[((MascheraAddebiti) padre).elenco_addebiti.length()];\r\n                                    for (int i = 0; i < ((MascheraAddebiti) padre).quantita_mod.length; i++) nuove_quantita_mod[i] = ((MascheraAddebiti) padre).quantita_mod[i];\r\n                                    nuove_quantita_mod[nuove_quantita_mod.length - 1] = 0;\r\n                                    ((MascheraAddebiti) padre).quantita_mod = nuove_quantita_mod;\r\n                                    ((MascheraAddebiti) padre).continuaAggiornamento();\r\n                                    /* se il numero di stanza era stato cambiato senza addebiti\r\n\t\t\t\t\t\t\t\t\t\t   allora rimetto il precedente numero di stanza nel textfield\r\n\t\t\t\t\t\t\t\t\t\t   della finestra Addebiti */\r\n                                }\r\n                                if (!(((MascheraAddebiti) padre).num_stanza.getText()).equals(((MascheraAddebiti) padre).stanza_prec))\r\n                                    ((MascheraAddebiti) padre).num_stanza.setText(((MascheraAddebiti) padre).stanza_prec);\r\n                                padre.setEnabled(true);\r\n                            } else\r\n                                msg = new MessageDialog(this, \"Errore nell'addebitare: \" + DataBase.strErrore(j));\r\n                        } else\r\n                            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n                    } else\r\n                        msg = new MessageDialog(this, \"Errore nell'aggiornamento: \" + DataBase.strErrore(j));\r\n                } else\r\n                    msg = new MessageDialog(this, \" La stanza inserita non e' occupata! \");\r\n            } else\r\n                msg = new MessageDialog(this, \" Problemi con il database! \");\r\n        } else\r\n            msg = new MessageDialog(this, \"Errore nei parametri!\");\r\n    } else {\r\n        // si tratta della maschera del conto ristorazione\r\n        dispose();\r\n        Addebito da_addebitare = new Addebito(\"RIST\", extra.getCodExtra(), 1, px.floatValue());\r\n        (((MascheraContoRistorazione) padre).elenco_addebiti).addAddebito(da_addebitare);\r\n        (((MascheraContoRistorazione) padre).elenco_extra_addebitati).addBeneServizio(extra);\r\n        /* travaso delle quantita modificate nel nuovo array per poi \r\n               aggiungere il supplemento o riduzione appena inseriti */\r\n        int[] nuove_quantita_mod = new int[((MascheraContoRistorazione) padre).elenco_addebiti.length()];\r\n        for (int i = 0; i < ((MascheraContoRistorazione) padre).quantita_mod.length; i++) nuove_quantita_mod[i] = ((MascheraContoRistorazione) padre).quantita_mod[i];\r\n        nuove_quantita_mod[nuove_quantita_mod.length - 1] = 1;\r\n        ((MascheraContoRistorazione) padre).quantita_mod = nuove_quantita_mod;\r\n        ((MascheraContoRistorazione) padre).continuaAggiornamento();\r\n        padre.setEnabled(true);\r\n    }\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": true,
                 "signature": " void scriviSuDB(String, String, String)",
                 "comments": null,
-                "innerComments": "Optional[[/* se il numero di stanza era stato cambiato senza addebiti\r\n\t\t\t\t\t\t\t\t\t\t   allora rimetto il precedente numero di stanza nel textfield\r\n\t\t\t\t\t\t\t\t\t\t   della finestra Addebiti */\r\n, /* travaso delle quantita modificate nel nuovo array per poi \r\n\t\t\t\t\t\t                   aggiungere il supplemento o riduzione appena inseriti */\r\n, /* travaso delle quantita modificate nel nuovo array per poi \r\n               aggiungere il supplemento o riduzione appena inseriti */\r\n, // si tratta della maschera del conto ristorazione\r\n]]"
+                "innerComments": "Optional[[/* se il numero di stanza era stato cambiato senza addebiti\r\n\t\t\t\t\t\t\t\t\t\t   allora rimetto il precedente numero di stanza nel textfield\r\n\t\t\t\t\t\t\t\t\t\t   della finestra Addebiti */\r\n, /* travaso delle quantita modificate nel nuovo array per poi \r\n\t\t\t\t\t\t                   aggiungere il supplemento o riduzione appena inseriti */\r\n, /* travaso delle quantita modificate nel nuovo array per poi \r\n               aggiungere il supplemento o riduzione appena inseriti */\r\n, // si tratta della maschera del conto ristorazione\r\n]]",
+                "generated_comment": "/**\n * Writes data to the database based on the provided parameters.\n * \n * @param codice The code of the data to be written to the database.\n * @param mot The description of the data.\n * @param sup_rid The amount of the data as a String.\n * \n * This method writes the data to the database and performs various checks and operations based on the type of parent window.\n * If the parent window is MascheraAddebiti, it checks if the room is occupied, if the amount is a positive float, and if the description length is less than 33 characters.\n * It then writes the data to the database, updates the relevant lists, and continues the update process.\n * If the parent window is MascheraContoRistorazione, it writes the data to the database and updates the relevant lists for the food bill.\n * \n * @return void\n */\nvoid scriviSuDB(String codice, String mot, String sup_rid) {\n    // method body\n}\n```"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public AggiungiBeneServizio(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AggiungiBeneServizio object with the specified parent Frame.\n * This constructor sets the title of the frame to \"Creazione di un nuovo bene/servizio/riduzione/supplemento\",\n * disables the parent frame, sets up the necessary components for creating a new item,\n * initializes the frame, sets its size to 450x600 pixels, and makes it visible.\n * \n * @param parent the parent Frame to which this frame belongs\n */"
             }
         ],
         "signature": "AggiungiBeneServizio",
@@ -110,6 +121,7 @@
             " Label label_stanza_rid",
             " Label label_mot_supp",
             " Label label_mot_rid"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AggiungiBeneServizio class represents a user interface for adding new services, reductions, and supplements.\n * It provides methods for setting up new panels, initializing GUI components, handling item state changes, and performing database operations.\n * The class includes constructors for creating a new AggiungiBeneServizio object with a specified parent Frame.\n * \n * Main functionalities:\n * - Setting up new panels for selecting types, adding supplements, and adding reductions\n * - Initializing GUI components such as labels, text fields, and buttons\n * - Handling item state changes for selecting supplementary and reduction services\n * - Performing database operations to write data based on user inputs\n * \n * Overall behavior:\n * - The class allows users to interact with the interface to add new services, reductions, and supplements.\n * - It includes methods for managing the visibility of panels, handling user inputs, and updating database records.\n * - The class provides a user-friendly interface for adding and managing various types of services in a hotel or hospitality setting.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

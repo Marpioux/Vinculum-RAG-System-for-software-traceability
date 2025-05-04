@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean qualifiesForDisease()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the person qualifies for a disease based on certain criteria.\n * \n * @return true if the person qualifies for the disease, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    List<PatientRiskFactor> factors = new ArrayList<PatientRiskFactor>();\r\n    factors.add(new GenderFactor(patient, Gender.Male));\r\n    factors.add(new AgeFactor(patient, 45));\r\n    factors.add(new EthnicityFactor(patient, Hispanic, AfricanAmerican, AmericanIndian));\r\n    factors.add(new WeightFactor(currentHealthRecord, 30));\r\n    factors.add(new HypertensionFactor(currentHealthRecord));\r\n    factors.add(new CholesterolFactor(currentHealthRecord));\r\n    factors.add(new SmokingFactor(factory, patient.getMID()));\r\n    factors.add(new PriorDiagnosisFactor(factory, patient.getMID(), 250.0, 251.0));\r\n    factors.add(new FamilyHistoryFactor(factory, patient.getMID(), 350.0, 460.0));\r\n    return factors;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "protected List<PatientRiskFactor> getDiseaseRiskFactors()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of risk factors associated with a patient's disease.\n * \n * @return a list of PatientRiskFactor objects representing the risk factors for the patient's disease\n */"
             },
             {
                 "body": "Optional[{\r\n    return \"Heart Disease\";\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the name of the disease, which is \"Heart Disease\".\n * \n * @return the name of the disease as a String\n */"
             }
         ],
         "constructors": [
@@ -33,10 +36,12 @@
                 "hasInnerComment": false,
                 "signature": "public HeartDiseaseRisks(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new HeartDiseaseRisks object with the specified DAOFactory and patient ID.\n * \n * @param factory the DAOFactory used to retrieve data from the database\n * @param patientID the unique identifier of the patient\n */\npublic HeartDiseaseRisks(DAOFactory factory, long patientID) {\n    super(factory, patientID);\n}\n \nThis constructor initializes a new HeartDiseaseRisks object with the given DAOFactory and patient ID. It calls the superclass constructor to set the DAOFactory and patient ID for the HeartDiseaseRisks object."
             }
         ],
         "signature": "HeartDiseaseRisks",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "Sure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a Disease object that checks if a person qualifies for a disease based on certain criteria.\n * It provides methods to retrieve disease risk factors and the name of the disease.\n * \n * The main functionalities of this class include:\n * - Checking if a person qualifies for a disease\n * - Retrieving a list of risk factors associated with a patient's disease\n * - Getting the name of the disease\n * \n * The overall behavior of this class is to encapsulate the logic for determining disease qualification and managing disease-related information.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The HeartDiseaseRisks class represents a specific type of health risk associated with heart disease for a given patient. \n * It extends the RiskAssessment class and provides additional functionalities to calculate and assess the risks of heart disease.\n * \n * This class requires a DAOFactory object to retrieve data from the database and a unique patient ID to identify the patient.\n * \n * The main functionalities of this class include:\n * - Calculating the risks of heart disease based on various factors such as age, gender, cholesterol levels, blood pressure, etc.\n * - Providing risk assessment results to help healthcare professionals make informed decisions about the patient's health.\n * \n * The HeartDiseaseRisks class inherits methods from the RiskAssessment class and adds specific implementations to handle heart disease risks.\n * \n * This class is intended to be used in healthcare applications to assess and monitor the risks of heart disease for individual patients.\n */\npublic class HeartDiseaseRisks extends RiskAssessment {\n\n    /**\n     * Constructs a new HeartDiseaseRisks object with the specified DAOFactory and patient ID.\n     * \n     * @param factory the DAOFactory used to retrieve data from the database\n     * @param patientID the unique identifier of the patient\n     */\n    public HeartDiseaseRisks(DAOFactory factory, long patientID) {\n        super(factory, patientID);\n    }\n}"
     }
 ]

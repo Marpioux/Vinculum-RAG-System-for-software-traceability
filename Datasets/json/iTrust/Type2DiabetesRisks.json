@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean qualifiesForDisease()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the patient qualifies for a disease based on their age.\n * \n * @return true if the patient's age is 12 or older, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    List<PatientRiskFactor> factors = new ArrayList<PatientRiskFactor>();\r\n    factors.add(new AgeFactor(patient, 45));\r\n    factors.add(new EthnicityFactor(patient, Hispanic, AfricanAmerican, AmericanIndian, Asian));\r\n    factors.add(new WeightFactor(currentHealthRecord, 25));\r\n    factors.add(new HypertensionFactor(currentHealthRecord));\r\n    factors.add(new CholesterolFactor(currentHealthRecord));\r\n    factors.add(new PriorDiagnosisFactor(factory, patient.getMID(), 250.0, 251.0));\r\n    factors.add(new FamilyHistoryFactor(factory, patient.getMID(), 250.0, 251.0));\r\n    return factors;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "protected List<PatientRiskFactor> getDiseaseRiskFactors()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the list of risk factors associated with a patient's disease.\n * \n * @return a List of PatientRiskFactor objects representing the risk factors\n * @see PatientRiskFactor\n */\nprotected List<PatientRiskFactor> getDiseaseRiskFactors() {\n    List<PatientRiskFactor> factors = new ArrayList<PatientRiskFactor>();\n    factors.add(new AgeFactor(patient, 45));\n    factors.add(new EthnicityFactor(patient, Hispanic, AfricanAmerican, AmericanIndian, Asian));\n    factors.add(new WeightFactor(currentHealthRecord, 25));\n    factors.add(new HypertensionFactor(currentHealthRecord));\n    factors.add(new CholesterolFactor(currentHealthRecord));\n    factors.add(new PriorDiagnosisFactor(factory, patient.getMID(), 250.0, 251.0));\n    factors.add(new FamilyHistoryFactor(factory, patient.getMID(), 250.0, 251.0));\n    return factors;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return \"Type 2 Diabetes\";\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the disease associated with Type 2 Diabetes.\n * \n * @return the name of the disease, which is \"Type 2 Diabetes\"\n */"
             }
         ],
         "constructors": [
@@ -33,10 +36,12 @@
                 "hasInnerComment": false,
                 "signature": "public Type2DiabetesRisks(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Type2DiabetesRisks object with the specified DAOFactory and patient ID.\n * \n * @param factory the DAOFactory used to access the database\n * @param patientID the unique identifier of the patient\n * \n * This constructor initializes a Type2DiabetesRisks object with the given DAOFactory and patient ID.\n * It calls the superclass constructor with the provided parameters to set up the object.\n */\n \npublic Type2DiabetesRisks(DAOFactory factory, long patientID) {\n    super(factory, patientID);\n}"
             }
         ],
         "signature": "Type2DiabetesRisks",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a DiseaseRiskCalculator that calculates the risk factors associated with a patient's disease.\n * It contains methods to determine if a patient qualifies for a disease based on their age and to retrieve the list of risk factors.\n * \n * The main functionalities of this class include:\n * - Checking if a patient qualifies for a disease based on their age\n * - Retrieving the list of risk factors associated with a patient's disease\n * \n * The overall behavior of this class is to provide a comprehensive analysis of a patient's risk factors for a specific disease.\n * \n * @author [Author Name]\n * @version 1.0\n * @see PatientRiskFactor\n */\npublic class DiseaseRiskCalculator {\n    /**\n     * Checks if the patient qualifies for a disease based on their age.\n     * \n     * @return true if the patient's age is 12 or older, false otherwise\n     */\n    public boolean qualifiesForDisease() {\n        return patient.getAge() >= 12;\n    }\n    \n    /**\n     * Retrieves the list of risk factors associated with a patient's disease.\n     * \n     * @return a List of PatientRiskFactor objects representing the risk factors\n     * @see PatientRiskFactor\n     */\n    protected List<PatientRiskFactor> getDiseaseRiskFactors() {\n        List<PatientRiskFactor> factors = new ArrayList<PatientRiskFactor>();\n        factors.add(new AgeFactor(patient, 45));\n        factors.add(new EthnicityFactor(patient, Hispanic, AfricanAmerican, AmericanIndian, Asian));\n        factors.add(new WeightFactor(currentHealthRecord, 25));\n        factors.add(new HypertensionFactor(currentHealthRecord));\n        factors.add(new CholesterolFactor(currentHealthRecord));\n        factors.add(new PriorDiagnosisFactor(factory, patient.getMID(), 250.0, 251.0));\n        factors.add(new FamilyHistoryFactor(factory, patient.getMID(), 250.0, 251.0));\n        return factors;\n    }\n}\n**/\n/**\n * The Type2DiabetesRisks class represents a set of risk factors and associated disease information for Type 2 Diabetes.\n * It provides methods to calculate the risk factors based on patient data and retrieve the name of the disease.\n * \n * This class includes methods to calculate the risk factors for Type 2 Diabetes based on patient data such as age, weight, and blood pressure.\n * The calculateRiskFactors method computes the risk factors and returns a list of factors that contribute to the risk of developing Type 2 Diabetes.\n * \n * The getName method retrieves the name of the disease associated with Type 2 Diabetes, which is \"Type 2 Diabetes\".\n * \n * The Type2DiabetesRisks class has a constructor that initializes a new object with the specified DAOFactory and patient ID.\n * It sets up the object by calling the superclass constructor with the provided parameters.\n */"
     }
 ]

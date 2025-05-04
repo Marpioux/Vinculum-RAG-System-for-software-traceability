@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCap()",
                 "comments": "Optional[/**\r\n * Returns the value of cap\r\n *\r\n * @return value cap.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the capital city associated with this object.\n * \n * @return the capital city as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cap = pCap;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCap(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of cap\r\n *\r\n * @param pCap value cap.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the cap of the object.\n * \n * @param pCap the cap to set\n * @return void\n */\npublic void setCap(String pCap) {\n    this.cap = pCap;\n}"
             },
             {
                 "body": "Optional[{\r\n    return city;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCitta()",
                 "comments": "Optional[/**\r\n * Returns the value of city\r\n *\r\n * @return Value of city.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the city associated with this object.\n * \n * @return the city as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.city = pCitta;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCitta(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of city\r\n *\r\n * @param pCitta New value for city.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the city for this object.\n * \n * @param pCitta the city to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return description;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescrizione()",
                 "comments": "Optional[/**\r\n * Returns the value of description\r\n *\r\n * @return value of description.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the object.\n * \n * @return the description of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.description = pDescrizione;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescrizione(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of description\r\n *\r\n * @param pDescrizione New value of description.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param description the new description to set\n * @return void\n */\npublic void setDescrizione(String description) {\n    this.description = description;\n}"
             },
             {
                 "body": "Optional[{\r\n    return giornoChiusura;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getGiornoChiusura()",
                 "comments": "Optional[/**\r\n * Returns the value of giornoChiusura\r\n *\r\n * @return value giornoChiusura.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the day of the week when the business is closed.\n * \n * @return a String representing the day of the week when the business is closed\n */"
             },
             {
                 "body": "Optional[{\r\n    this.giornoChiusura = pGiornoChiusura;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setGiornoChiusura(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of giornoChiusura\r\n *\r\n * @param pGiornoChiusura New giornoChiusura.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the day of the week when the business is closed.\n * \n * @param giornoChiusura the day of the week when the business is closed\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return location;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLocale()",
                 "comments": "Optional[/**\r\n * Returns the value of location\r\n *\r\n * @return locale values.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current location of the user.\n * \n * @return the current location as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.location = pLocalita;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLocale(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of location\r\n *\r\n * @param pLocalita New locale values.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the locale for the object.\n * \n * @param pLocalita the new locale to set\n * @return void\n * \n * This method sets the locale for the object to the specified locale. The locale is used for formatting dates, numbers, and currencies according to the specified language and region. \n */"
             },
             {
                 "body": "Optional[{\r\n    return mediaVoti;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getMediaVoti()",
                 "comments": "Optional[/**\r\n * Returns the value of mediaVoti\r\n *\r\n * @return value mediaVoti.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the average of the grades for this student.\n * \n * @return the average of the grades for this student as a double value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.mediaVoti = pMediaVoti;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMediaVoti(double)",
                 "comments": "Optional[/**\r\n * Sets the new value of mediaVoti\r\n *\r\n * @param pMediaVoti New mediaVoti.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the average grade for a student.\n * \n * @param mediaVoti the average grade to be set\n * \n * This method sets the average grade for a student to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the object.\n * \n * @return The name of the object as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.name = pNome;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNome(String)",
                 "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param pNome New value for name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param pNome the new name to set\n * @return void\n * \n * This method sets the name of the object to the specified name. \n * The name parameter must be a String representing the new name to set.\n */"
             },
             {
                 "body": "Optional[{\r\n    return numeroVoti;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getNumeroVoti()",
                 "comments": "Optional[/**\r\n * Returns the value of numeroVoti\r\n *\r\n * @return value numeroVoti.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of votes received.\n * \n * @return the number of votes received by the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.numeroVoti = pNumeroVoti;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNumeroVoti(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of numeroVoti\r\n *\r\n * @param pNumeroVoti New numeroVoti.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the number of votes for a particular item.\n * \n * @param pNumeroVoti the number of votes to set\n * \n * This method sets the number of votes for a particular item to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return orarioApertura;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getOrarioApertura()",
                 "comments": "Optional[/**\r\n * Returns the value of orarioApertura\r\n *\r\n * @return value orarioApertura.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the opening time of the location.\n * \n * @return the opening time of the location\n */"
             },
             {
                 "body": "Optional[{\r\n    this.orarioApertura = pOrarioApertura;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOrarioApertura(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of orarioApertura\r\n *\r\n * @param pOrarioApertura New orarioApertura.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the opening time for the establishment.\n * \n * @param orarioApertura the Date object representing the opening time\n * @return void\n */\npublic void setOrarioApertura(Date orarioApertura) {\n    this.orarioApertura = orarioApertura;\n}\n \nThis method sets the opening time for the establishment to the specified Date object."
             },
             {
                 "body": "Optional[{\r\n    return orarioChiusura;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getOrarioChiusura()",
                 "comments": "Optional[/**\r\n * Returns the value of orarioChiusura\r\n *\r\n * @return value orarioChiusura.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the closing time for the current instance.\n * \n * @return the closing time for the current instance\n */"
             },
             {
                 "body": "Optional[{\r\n    this.orarioChiusura = pOrarioChiusura;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOrarioChiusura(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of orarioChiusura\r\n *\r\n * @param pOrarioChiusura New orarioChiusura.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the closing time for the entity.\n * \n * @param orarioChiusura the closing time to be set\n * \n * This method sets the closing time of the entity to the specified Date value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return partitaIva;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPartitaIva()",
                 "comments": "Optional[/**\r\n * Returns the value of partitaIva\r\n *\r\n * @return value of partitaIva.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the partita IVA (Italian VAT number) associated with this object.\n * \n * @return the partita IVA\n */"
             },
             {
                 "body": "Optional[{\r\n    this.partitaIva = pPartitaIva;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPartitaIva(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of partitaIva\r\n *\r\n * @param pPartitaIva New value of partitaIva.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the Partita Iva (Italian VAT number) for the object.\n * \n * @param pPartitaIva the Partita Iva to set\n * @return void\n * \n * This method sets the Partita Iva for the object to the specified value. \n * The Partita Iva is a unique identification number assigned to Italian businesses for tax purposes.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return position;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public Punto3D getPosizione()",
                 "comments": "Optional[/**\r\n * Returns the value of position\r\n *\r\n * @return value of position.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the current position of the object in 3D space.\n * \n * @return the current position of the object as a Punto3D object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.position = pPosizione;\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPosizione(Punto3D)",
                 "comments": "Optional[/**\r\n * Sets the new position value\r\n *\r\n * @param pPosizione New position value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the position of the object to the specified 3D point.\n * \n * @param pPosizione the 3D point representing the new position of the object\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return province;\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getProvincia()",
                 "comments": "Optional[/**\r\n * Returns the value of the province\r\n *\r\n * @return value of the province.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the province associated with this object.\n * \n * @return the province as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.province = pProvincia;\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setProvincia(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of the province\r\n *\r\n * @param pProvincia New value for the province.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the province of the object.\n * \n * @param pProvincia the new province to set\n * \n * This method sets the province of the object to the specified province.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone;\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getTelefono()",
                 "comments": "Optional[/**\r\n * Returns the value of telephone\r\n *\r\n * @return Value of the phone.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the phone number associated with this object.\n * \n * @return the phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone = pTelefono;\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTelefono(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of telephone\r\n *\r\n * @param pTelefono New value for phone.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the phone number of the object.\n * \n * @param pTelefono the new phone number to set\n * @return void\n */\npublic void setTelefono(String pTelefono) {\n    this.phone = pTelefono;\n}"
             },
             {
                 "body": "Optional[{\r\n    return street;\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getVar()",
                 "comments": "Optional[/**\r\n * Returns the value of street\r\n *\r\n * @return value of street.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value of the variable 'street'.\n * \n * @return the value of the variable 'street'\n */"
             },
             {
                 "body": "Optional[{\r\n    this.street = pVia;\r\n}]",
@@ -239,7 +268,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVar(String)",
                 "comments": "Optional[/**\r\n * Sets the new value for street\r\n *\r\n * @param pVia New value for street.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of the street variable.\n * \n * @param pVia the new value for the street variable\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -247,7 +277,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of this object.\n * \n * @return The unique identifier of this object as an integer.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = pId;\r\n}]",
@@ -255,7 +286,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pId the new ID to set\n * \n * This method sets the ID of the object to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -265,7 +297,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPuntoDiRistoro(int, int, double, String, String, String, String, String, String, String, String, String, Punto3D, Date, Date, String)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pid\r\n * @param pNumeroVoti\r\n * @param pMediaVoti\r\n * @param pNome\r\n * @param pDescrizione\r\n * @param pTelefono\r\n * @param pLocalita\r\n * @param pCitta\r\n * @param pVia\r\n * @param pCap\r\n * @param pProvincia\r\n * @param pPartitaIva\r\n * @param pPosizione\r\n * @param pOrarioApertura\r\n * @param pOrarioChiusura\r\n * @param pGiornoChiusura\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanPuntoDiRistoro object with the specified parameters.\n * \n * @param pid the ID of the punto di ristoro\n * @param pNumeroVoti the number of votes received by the punto di ristoro\n * @param pMediaVoti the average rating of the punto di ristoro\n * @param pNome the name of the punto di ristoro\n * @param pDescrizione the description of the punto di ristoro\n * @param pTelefono the phone number of the punto di ristoro\n * @param pLocalita the locality of the punto di ristoro\n * @param pCitta the city of the punto di ristoro\n * @param pVia the street of the punto di ristoro\n * @param pCap the postal code of the punto di ristoro\n * @param pProvincia the province of the punto di ristoro\n * @param pPartitaIva the VAT number of the punto di ristoro\n * @param pPosizione the 3D position of the punto di ristoro\n * @param pOrarioApertura the opening time of the punto di ristoro\n * @param pOrarioChiusura the closing time of the punto di ristoro\n * @param pGiornoChiusura the day of the week when the punto di ristoro is closed\n */\npublic BeanPuntoDiRistoro(int pid, int pNumeroVoti, double pMediaVoti, String pNome, String pDescrizione, String pTelefono, String pLocalita, String pCitta, String pVia, String pCap, String pProvincia, String pPartitaIva, Punto3D pPosizione, Date pOrarioApertura, Date pOrarioChiusura, String pGiornoChiusura) {\n    setId(pid);\n    setNumeroVoti(pNumeroVoti);\n    setMediaVoti(pMediaVoti);\n    setNome(pNome);\n    setDescrizione(pDescrizione);\n    setTelefono(pTelefono);\n    setLocale(pLocalita);\n    setCitta(pCitta);\n    setVar(pVia);\n    setCap(pCap);\n    setProvincia(pProvincia);\n    setPartitaIva(pPartitaIva);\n    setPosizione(pPosizione);\n    setOrarioApertura(pOrarioApertura);\n    setOrarioChiusura(pOrarioChiusura);\n    setGiornoChiusura(pGiornoChiusura);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -273,7 +306,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPuntoDiRistoro()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of BeanPuntoDiRistoro.\n * This constructor does not take any parameters.\n * \n * @param None\n * @return A new instance of BeanPuntoDiRistoro\n */"
             }
         ],
         "signature": "BeanPuntoDiRistoro",
@@ -295,6 +329,7 @@
             "private Date orarioApertura",
             "private Date orarioChiusura",
             "private String giornoChiusura"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanPuntoDiRistoro class represents a data model for a restaurant location.\n * It contains attributes such as ID, number of votes, average rating, name, description, phone number,\n * location, city, street, postal code, province, VAT number, position in 3D space, opening and closing times,\n * and day of the week when the restaurant is closed.\n * \n * This class provides methods to retrieve and set values for each attribute, as well as constructors to create\n * instances of BeanPuntoDiRistoro with specified parameters or without any parameters.\n * \n * Main functionalities include:\n * - Retrieving and setting values for each attribute\n * - Constructing instances of BeanPuntoDiRistoro with specified parameters\n * \n * Overall behavior:\n * - This class serves as a data model for storing information about restaurant locations\n * - It allows for easy access and manipulation of restaurant location data\n * - Users can create new instances of BeanPuntoDiRistoro with specific parameters or without any parameters\n */\n**/"
     }
 ]

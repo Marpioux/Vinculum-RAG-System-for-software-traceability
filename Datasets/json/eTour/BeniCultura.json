@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public Beniculturali()",
                 "comments": "Optional[/**\r\n * This is the default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the Beniculturali class, which represents a management interface for Cultural Heritage.\n * Initializes the frame with the title \"Cultural Heritage\", sets its preferred size, frame icon, and default close operation.\n * Creates a JTextPane for displaying help information and initializes a HelpManager to load help content.\n * Sets the content pane, internal frame listeners for opening and closing events.\n * Upon opening the internal frame, establishes communication with the server eTour to retrieve data and populate the table.\n * Displays an error message if communication with the server fails.\n * Upon closing the internal frame, prompts the user to confirm closure and disposes all child frames if confirmed.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    tableModel.updateBC(PBC);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "protected void updateTableModel(BeanBeneCulturale PBC)",
                 "comments": "Optional[/**\r\n * Update the current model of the table of cultural property with the bean\r\n * Of the cultural supplied input.\r\n *\r\n * @param PBC BeanBeneCulturale - the bean with which to update the\r\n *             Model.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the table model with the given BeanBeneCulturale object.\n * \n * @param PBC the BeanBeneCulturale object to update the table model with\n * \n * This method updates the table model by calling the updateBC method on the tableModel object,\n * passing in the provided BeanBeneCulturale object. This allows for the table model to reflect\n * any changes made to the BeanBeneCulturale object.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    children.remove(pScheda);\r\n    pScheda.dispose();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "protected void closeScheda(SchedaBC pScheda)",
                 "comments": "Optional[/**\r\n * Closes the tab cultural selected.\r\n *\r\n * @param pScheda SchedaBC - the cultural card to close.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes the specified SchedaBC object from the list of children and disposes of it.\n * \n * @param pScheda the SchedaBC object to be removed and disposed\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (jContentPane == null) {\r\n        jContentPane = new JPanel();\r\n        jContentPane.setLayout(new BorderLayout());\r\n        jContentPane.add(getBCToolbar(), BorderLayout.NORTH);\r\n        jContentPane.add(getPannelloDestro(), BorderLayout.EAST);\r\n        jContentPane.add(getJScrollPane(), BorderLayout.CENTER);\r\n    }\r\n    return jContentPane;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getJContentPane()",
                 "comments": "Optional[/**\r\n * This method initializes the content pane of the frame.\r\n *\r\n * @return javax.swing.JPanel - the content pane.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the content pane for the main frame. If the content pane has not been initialized yet, it creates a new JPanel with a BorderLayout layout and adds the toolbar, right panel, and scroll pane to it. \n * \n * @return the content pane for the main frame\n */"
             },
             {
                 "body": "Optional[{\r\n    if (bcToolbar == null) {\r\n        bcToolbar = new JToolBar();\r\n        bcToolbar.setPreferredSize(new Dimension(1, 50));\r\n        bcToolbar.setFloatable(false);\r\n        bcToolbar.setOrientation(JToolBar.HORIZONTAL);\r\n        bcToolbar.setLayout(null);\r\n        bcToolbar.add(getBtnNuovoBC());\r\n        bcToolbar.addSeparator();\r\n        bcToolbar.add(getBtnModificaBC());\r\n        bcToolbar.addSeparator();\r\n        bcToolbar.add(getBtnSchedaBC());\r\n        bcToolbar.addSeparator();\r\n        bcToolbar.add(getBtnEliminaBC());\r\n    }\r\n    return bcToolbar;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "private JToolBar getBCToolbar()",
                 "comments": "Optional[/**\r\n * This method initializes the toolbar for features on\r\n * Management of cultural heritage.\r\n *\r\n * @return javax.swing.JToolBar - the toolbar for managing assets\r\n * Cultural.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the toolbar for managing business contacts.\n * If the toolbar has not been initialized yet, it creates a new instance\n * with specific properties and buttons for creating, editing, viewing, and deleting business contacts.\n * \n * @return the toolbar for managing business contacts\n */"
             },
             {
                 "body": "Optional[{\r\n    if (btnNuovoBC == null) {\r\n        btnNuovoBC = new JButton();\r\n        btnNuovoBC.setText(\"<html> New <br> Cultural Heritage </html>\");\r\n        btnNuovoBC.setBounds(5, 5, 140, 40);\r\n        btnNuovoBC.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"nuovoBC.png\")));\r\n        btnNuovoBC.setName(\"btnNuovoBC\");\r\n        btnNuovoBC.addMouseListener(bcHelp);\r\n        btnNuovoBC.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));\r\n        btnNuovoBC.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent pEvent) {\r\n                OpenOffice.orgMessengerMSNGaim(null, false);\r\n            }\r\n        });\r\n    }\r\n    return btnNuovoBC;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnNuovoBC()",
                 "comments": "Optional[/**\r\n * This method initializes the button to insert a new good\r\n * Cultural.\r\n *\r\n * @return javax.swing.JButton - the button for the insertion.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JButton used for creating a new Cultural Heritage entry. If the button has not been initialized yet, it creates a new instance with specific properties such as text, bounds, icon, name, mouse listener, cursor, and action listener. \n * \n * @return the JButton for creating a new Cultural Heritage entry\n */"
             },
             {
                 "body": "Optional[{\r\n    if (btnSchedaBC == null) {\r\n        btnSchedaBC = new JButton();\r\n        btnSchedaBC.setBounds(305, 5, 140, 40);\r\n        btnSchedaBC.setText(\"<html> Card <br> Cultural Heritage </html>\");\r\n        btnSchedaBC.setVerticalTextPosition(SwingConstants.TOP);\r\n        btnSchedaBC.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"scheda.png\")));\r\n        btnSchedaBC.setEnabled(false);\r\n        btnSchedaBC.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));\r\n        btnSchedaBC.setName(\"btnSchedaBC\");\r\n        btnSchedaBC.addMouseListener(bcHelp);\r\n        btnSchedaBC.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent pEvent) {\r\n                int selectedRow = tableBC.getSelectedRow();\r\n                BeanBeneCulturale todo = null;\r\n                try {\r\n                    todo = gestioneBC.ottieniBeneCulturale(tableModel.getID(selectedRow));\r\n                    OpenOffice.orgMessengerMSNGaim(todo, false);\r\n                } catch (Exception ex) {\r\n                    JLabel error = new JLabel(\"<html> <h2> Unable to communicate with the server eTour. </h2>...\");\r\n                    ImageIcon err = new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"error48.png\"));\r\n                    JOptionPane.showMessageDialog(jDesktopPane, error, \"Error!\", JOptionPane.ERROR_MESSAGE, err);\r\n                }\r\n            }\r\n        });\r\n    }\r\n    return btnSchedaBC;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnSchedaBC()",
                 "comments": "Optional[/**\r\n * This method initializes the button to access to details of property\r\n * Cultural selected.\r\n *\r\n * @return javax.swing.JButton - the button for the card.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JButton object representing a card button for Cultural Heritage information.\n * If the button has not been initialized yet, it creates a new JButton with specific properties and adds event listeners.\n * The button displays the text \"Card Cultural Heritage\" with a line break in between.\n * The button is disabled, has a hand cursor, and an icon representing a card.\n * When clicked, the button retrieves information about a selected Cultural Heritage item from a table and opens a messenger window.\n * If an exception occurs during the retrieval process, an error message is displayed.\n * \n * @return the JButton object representing the card button for Cultural Heritage information\n */"
             },
             {
                 "body": "Optional[{\r\n    if (btnModificaBC == null) {\r\n        btnModificaBC = new JButton();\r\n        btnModificaBC.setBounds(155, 5, 140, 40);\r\n        btnModificaBC.setText(\"<html> Edit Data <br> Cultural Heritage </html>\");\r\n        btnModificaBC.setEnabled(false);\r\n        btnModificaBC.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));\r\n        btnModificaBC.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"ModificaBC32.png\")));\r\n        btnModificaBC.setName(\"btnModificaBC\");\r\n        btnModificaBC.addMouseListener(bcHelp);\r\n        btnModificaBC.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent pEvent) {\r\n                int selectedRow = tableBC.getSelectedRow();\r\n                BeanBeneCulturale todo = null;\r\n                try {\r\n                    todo = gestioneBC.ottieniBeneCulturale(tableModel.getID(selectedRow));\r\n                    OpenOffice.orgMessengerMSNGaim(todo, true);\r\n                } catch (Exception ex) {\r\n                    JLabel error = new JLabel(\"<html> <h2> Unable to communicate with the server eTour. </h2>...\");\r\n                    ImageIcon err = new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"error48.png\"));\r\n                    JOptionPane.showMessageDialog(jDesktopPane, error, \"Error!\", JOptionPane.ERROR_MESSAGE, err);\r\n                }\r\n            }\r\n        });\r\n    }\r\n    return btnModificaBC;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnModificaBC()",
                 "comments": "Optional[/**\r\n * This method initializes the button to access the modification of a\r\n * Cultural.\r\n *\r\n * @return javax.swing.JButton - the button for the card.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JButton used to modify cultural heritage data.\n * If the button has not been initialized yet, it creates a new JButton with specific properties and adds an ActionListener to handle the modification process.\n * \n * @return the JButton used to modify cultural heritage data\n */"
             },
             {
                 "body": "Optional[{\r\n    if (btnEliminaBC == null) {\r\n        btnEliminaBC = new JButton();\r\n        btnEliminaBC.setBounds(455, 5, 140, 40);\r\n        btnEliminaBC.setText(\"<html> Delete <br> Cultural Heritage </html>\");\r\n        btnEliminaBC.setVerticalTextPosition(SwingConstants.TOP);\r\n        btnEliminaBC.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));\r\n        btnEliminaBC.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"EliminaBC32.png\")));\r\n        btnEliminaBC.setEnabled(false);\r\n        btnEliminaBC.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent pEvent) {\r\n                int selectedRow = tableBC.getSelectedRow();\r\n                String name = (String) tableModel.getValueAt(selectedRow, 0);\r\n                JPanel root = new JPanel(new BorderLayout());\r\n                JLabel message = new JLabel(\"Are you sure you want to delete the cultural heritage \" + name + \"?\");\r\n                message.setFont(new Font(\"Dialog\", Font.BOLD, 14));\r\n                JLabel alert = new JLabel(\"The deleted data can not be filled again.\", SwingConstants.CENTER);\r\n                alert.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"warning16.png\")));\r\n                root.add(message, BorderLayout.NORTH);\r\n                root.add(alert, BorderLayout.CENTER);\r\n                String[] options = {\"Delete\", \"Cancel\"};\r\n                int choice = JOptionPane.showInternalOptionDialog(jContentPane, root, \"Confirm Delete\", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"EliminaBC48.png\")), options, options[1]);\r\n                if (choice == JOptionPane.YES_OPTION) {\r\n                    try {\r\n                        gestioneBC.cancellaBeneCulturale(tableModel.getID(selectedRow));\r\n                        tableModel.removeSito(selectedRow);\r\n                        JLabel confirm = new JLabel(\"The cultural heritage \" + name + \" was deleted.\");\r\n                        confirm.setFont(new Font(\"Dialog\", Font.BOLD, 14));\r\n                        JOptionPane.showInternalMessageDialog(jContentPane, confirm, \"Cultural Heritage\", JOptionPane.OK_OPTION, new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"Ok32.png\")));\r\n                    } catch (Exception ex) {\r\n                        JLabel error = new JLabel(\"<html> <h2> Unable to communicate with the server eTour. </h2>...\");\r\n                        ImageIcon err = new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"error48.png\"));\r\n                        JOptionPane.showMessageDialog(jDesktopPane, error, \"Error!\", JOptionPane.ERROR_MESSAGE, err);\r\n                    }\r\n                }\r\n            }\r\n        });\r\n        btnEliminaBC.setName(\"btnEliminaBC\");\r\n        btnEliminaBC.addMouseListener(bcHelp);\r\n    }\r\n    return btnEliminaBC;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnEliminaBC()",
                 "comments": "Optional[/**\r\n * This method initializes the button for the elimination of property\r\n * Cultural selected.\r\n *\r\n * @return javax.swing.JButton - the delete button for.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a JButton used for deleting a cultural heritage entry. \n * If the JButton has not been initialized yet, it creates a new JButton with specific properties \n * such as text, icon, position, and event listeners. \n * When the button is clicked, a confirmation dialog is displayed to ensure the user wants to delete the selected cultural heritage. \n * If confirmed, the cultural heritage is deleted from the table and a success message is shown. \n * If an error occurs during the deletion process, an error message is displayed. \n * \n * @return JButton - the button used for deleting a cultural heritage entry\n */"
             },
             {
                 "body": "Optional[{\r\n    if (rightPanel == null) {\r\n        rightPanel = new JPanel();\r\n        rightPanel.setLayout(new BorderLayout());\r\n        rightPanel.add(getHelpPanel(), BorderLayout.CENTER);\r\n        rightPanel.add(getSearchPanel(), BorderLayout.CENTER);\r\n    }\r\n    return rightPanel;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getPannelloDestro()",
                 "comments": "Optional[/**\r\n * This method initializes the right side of the interface.\r\n *\r\n * @return javax.swing.JPanel - the right pane of the interface.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the right panel of the application. If the right panel has not been initialized yet, it creates a new JPanel with a BorderLayout, adds the help panel and search panel to it, and returns the initialized right panel.\n * \n * @return the right panel of the application\n */"
             },
             {
                 "body": "Optional[{\r\n    if (searchPanel == null) {\r\n        GridBagConstraints g = new GridBagConstraints();\r\n        searchPanel = new JPanel(new GridBagLayout());\r\n        searchPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(51, 102, 255), 3), \"Search for Cultural Heritage\", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), new Color(0, 102, 204)));\r\n        g.anchor = GridBagConstraints.CENTER;\r\n        g.insets = new Insets(5, 5, 5, 5);\r\n        g.gridwidth = 2;\r\n        g.gridx = 0;\r\n        g.gridy = 0;\r\n        searchPanel.add(new JLabel(\"Name of Cultural Heritage\"), g);\r\n        g.gridy = 1;\r\n        nomeBC = new JTextField();\r\n        nomeBC.setColumns(12);\r\n        nomeBC.setName(\"nomeBC\");\r\n        nomeBC.addMouseListener(bcHelp);\r\n        searchPanel.add(nomeBC, g);\r\n        g.gridy = 2;\r\n        searchPanel.add(new JLabel(\"Select search tags:\"), g);\r\n        g.fill = GridBagConstraints.VERTICAL;\r\n        g.gridy = 3;\r\n        g.weightx = 1.0;\r\n        g.weighty = 1.0;\r\n        g.insets = new Insets(5, 5, 10, 5);\r\n        pannelloTag = new TagPanel();\r\n        pannelloTag.setPreferredSize(new Dimension(180, 40));\r\n        pannelloTag.setName(\"pannelloTag\");\r\n        pannelloTag.addMouseListener(bcHelp);\r\n        searchPanel.add(pannelloTag, g);\r\n        g.insets = new Insets(5, 5, 5, 5);\r\n        g.weightx = 0;\r\n        g.weighty = 0;\r\n        g.gridwidth = 1;\r\n        g.gridy = 4;\r\n        g.fill = GridBagConstraints.NONE;\r\n        searchPanel.add(getBtnRicerca(), g);\r\n        g.gridx = 1;\r\n        searchPanel.add(getBtnAzzera(), g);\r\n    }\r\n    return searchPanel;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getSearchPanel()",
                 "comments": "Optional[/**\r\n * This method initializes the panel for finding property\r\n * Cultural.\r\n *\r\n * @return javax.swing.JPanel - the search panel.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a JPanel containing a search panel for cultural heritage. If the search panel has not been initialized yet, it creates a new JPanel with specific components such as text fields, labels, and buttons for searching and resetting the search criteria. The search panel is decorated with a titled border and specific layout constraints using GridBagLayout.\n * \n * @return JPanel - a panel containing components for searching cultural heritage\n */"
             },
             {
                 "body": "Optional[{\r\n    if (helpPanel == null) {\r\n        helpPanel = new JPanel();\r\n        helpPanel.setLayout(new BorderLayout());\r\n        helpPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(51, 102, 255), 3), \"Help\", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font(\"Dialog\", Font.BOLD, 12), new Color(0, 102, 204)));\r\n        textGuida.setPreferredSize(new Dimension(100, 80));\r\n        textGuida.setContentType(\"text/html\");\r\n        textGuida.setText(\"<html> Move your mouse pointer over a control of interest to display the context-sensitive help. </html>\");\r\n        textGuida.setEditable(false);\r\n        textGuida.setOpaque(false);\r\n        helpPanel.add(textGuida, BorderLayout.CENTER);\r\n    }\r\n    return helpPanel;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "private JPanel getHelpPanel()",
                 "comments": "Optional[/**\r\n * This method initializes the panel containing the online help.\r\n *\r\n * @return javax.swing.JPanel - the panel of the guide.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the help panel for displaying context-sensitive help information.\n * If the help panel has not been initialized yet, it creates a new JPanel with a titled border\n * and sets the content to display a default help message.\n * \n * @return the help panel containing the context-sensitive help information\n */"
             },
             {
                 "body": "Optional[{\r\n    if (jScrollPane == null) {\r\n        if (tableBC == null) {\r\n            tableModel = new SitoTableModel();\r\n            tableBC = new ScrollableTable(tableModel);\r\n            tableBC.setRowHeight(32);\r\n            tableBC.setDefaultRenderer(Double.class, new MediaVotiRenderer());\r\n            tableBC.setDefaultRenderer(Punto3D.class, new Punto3DRenderer());\r\n            tableBC.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);\r\n            tableBC.setSelectionForeground(Color.RED);\r\n            tableBC.setSelectionBackground(Color.white);\r\n            tableBC.setShowVerticalLines(false);\r\n            tableBC.setColumnSelectionAllowed(false);\r\n            tableBC.addMouseListener(bcHelp);\r\n            tableBC.setName(\"tableBC\");\r\n            ListSelectionModel selectionModel = tableBC.getSelectionModel();\r\n            selectionModel.addListSelectionListener(new ListSelectionListener() {\r\n                public void valueChanged(ListSelectionEvent pEvent) {\r\n                    if (tableBC.getSelectedRow() != -1) {\r\n                        btnEliminaBC.setEnabled(true);\r\n                        btnSchedaBC.setEnabled(true);\r\n                        btnModificaBC.setEnabled(true);\r\n                    } else {\r\n                        btnEliminaBC.setEnabled(false);\r\n                        btnSchedaBC.setEnabled(false);\r\n                        btnModificaBC.setEnabled(false);\r\n                    }\r\n                }\r\n            });\r\n            tableBC.addKeyListener(new KeyAdapter() {\r\n                public void keyPressed(KeyEvent pEvent) {\r\n                    int keyCode = pEvent.getKeyCode();\r\n                    if (keyCode == KeyEvent.VK_ENTER) {\r\n                        btnSchedaBC.doClick();\r\n                    } else if (keyCode == KeyEvent.VK_BACK_SPACE) {\r\n                        btnEliminaBC.doClick();\r\n                    } else if (keyCode == KeyEvent.VK_SPACE) {\r\n                        btnModificaBC.doClick();\r\n                    }\r\n                }\r\n            });\r\n        }\r\n        jScrollPane = new JScrollPane(tableBC);\r\n        jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);\r\n        jScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);\r\n    }\r\n    return jScrollPane;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "private JScrollPane getJScrollPane()",
                 "comments": "Optional[/**\r\n * This method initializes the bread and table scroll of cultural heritage.\r\n *\r\n * @return javax.swing.JScrollPane - the scrollPane.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the JScrollPane containing a ScrollableTable with specific settings.\n * If the JScrollPane has not been initialized yet, it creates a new ScrollableTable with a custom table model,\n * sets various properties such as row height, cell renderers, selection mode, and event listeners,\n * and then wraps the table in a JScrollPane with horizontal and vertical scroll bars.\n * \n * @return the JScrollPane containing the ScrollableTable\n */"
             },
             {
                 "body": "Optional[{\r\n    if (btnRicerca == null) {\r\n        btnRicerca = new JButton();\r\n        btnRicerca.setText(\"Search\");\r\n        btnRicerca.setPreferredSize(new Dimension(98, 26));\r\n        btnRicerca.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"Ricerca16.png\")));\r\n        btnRicerca.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));\r\n        btnRicerca.setName(\"btnRicerca\");\r\n        btnRicerca.addMouseListener(bcHelp);\r\n    }\r\n    return btnRicerca;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnRicerca()",
                 "comments": "Optional[/**\r\n * This method initializes the button to search for a good\r\n * Cultural.\r\n *\r\n * @return javax.swing.JButton - the search button.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the search button for the user interface.\n * If the button has not been initialized yet, it creates a new JButton with specific properties.\n * The button displays the text \"Search\", has a preferred size of 98x26 pixels, an icon for visual representation,\n * a hand cursor when hovered over, and is associated with a mouse listener for additional functionality.\n * \n * @return the search button for the user interface\n */"
             },
             {
                 "body": "Optional[{\r\n    if (btnAzzera == null) {\r\n        btnAzzera = new JButton();\r\n        btnAzzera.setText(\"Clear\");\r\n        btnAzzera.setHorizontalTextPosition(SwingConstants.LEADING);\r\n        btnAzzera.setPreferredSize(new Dimension(98, 26));\r\n        btnAzzera.setIcon(new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"Azzera16.png\")));\r\n        btnAzzera.setName(\"btnAzzera\");\r\n        btnAzzera.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));\r\n        btnAzzera.addMouseListener(bcHelp);\r\n        btnAzzera.addActionListener(new ActionListener() {\r\n            public void actionPerformed(ActionEvent arg0) {\r\n                nomeBC.setText(\"\");\r\n                pannelloTag.azzera();\r\n            }\r\n        });\r\n    }\r\n    return btnAzzera;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "private JButton getBtnAzzera()",
                 "comments": "Optional[/**\r\n * This method initializes the button to clear the form\r\n * Cultural research.\r\n *\r\n * @return javax.swing.JButton - the button to reset the form.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a JButton used to clear a text field and reset a panel.\n * If the button has not been initialized yet, it creates a new JButton with the text \"Clear\",\n * sets its text position to LEADING, sets its preferred size to 98x26, sets an icon,\n * sets its name to \"btnAzzera\", sets the cursor to HAND_CURSOR, adds a mouse listener,\n * and adds an action listener that clears the text field and resets a panel when clicked.\n * \n * @return the JButton used to clear a text field and reset a panel\n */"
             },
             {
                 "body": "Optional[{\r\n    SchedaBC newScheda;\r\n    if (PBC == null) {\r\n        newScheda = new SchedaBC(this);\r\n    } else {\r\n        for (int i = 0; i < children.size(); i++) {\r\n            SchedaBC current = children.get(i);\r\n            if (PBC.getId() == current.getId()) {\r\n                desktopManager.activateFrame(current);\r\n                return;\r\n            }\r\n        }\r\n        newScheda = new SchedaBC(this, PBC, pModifica);\r\n    }\r\n    jDesktopPane.add(newScheda, Integer.MAX_VALUE);\r\n    desktopManager.centerFrame(newScheda);\r\n    newScheda.setVisible(true);\r\n    children.add(newScheda);\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "private void OpenOffice.orgMessengerMSNGaim(BeanBeneCulturale PBC, boolean pModifica)",
                 "comments": "Optional[/**\r\n * This method opens a tab of the selected cultural or opens the\r\n * Window for entering a new cultural object.\r\n *\r\n * @param PBC BeanBeneCulturale - the bean of the cultural property of which\r\n *             Want to see the card.\r\n * @param pModifica boolean --\r\n *                 <ul>\r\n *                 <li> <i> True </i> - indicates that you are making a change\r\n *                 Data cultural.\r\n *                 <li> <i> False </i> indicates that you are viewing the card\r\n *                 The cultural property.\r\n *                 </ul>\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Opens a new instance of the OpenOffice.org Messenger MSN Gaim application.\n * If the provided BeanBeneCulturale object is null, a new SchedaBC object is created and added to the desktop.\n * If the provided BeanBeneCulturale object is not null, the method checks if a SchedaBC object with the same ID already exists.\n * If it does, the existing SchedaBC object is activated and brought to the front.\n * If no matching SchedaBC object is found, a new SchedaBC object is created with the provided BeanBeneCulturale object and modification flag.\n * The new SchedaBC object is added to the desktop, centered on the screen, and set to be visible.\n * \n * @param PBC the BeanBeneCulturale object to be displayed in the new SchedaBC instance\n * @param pModifica a boolean flag indicating whether the new SchedaBC instance should be in modification mode\n */\n \nprivate void OpenOffice.orgMessengerMSNGaim(BeanBeneCulturale PBC, boolean pModifica) {\n    SchedaBC newScheda;\n    if (PBC == null) {\n        newScheda = new SchedaBC(this);\n    } else {\n        for (int i = 0; i < children.size(); i++) {\n            SchedaBC current = children.get(i);\n            if (PBC.getId() == current.getId()) {\n                desktopManager.activateFrame(current);\n                return;\n            }\n        }\n        newScheda = new SchedaBC(this, PBC, pModifica);\n    }\n    jDesktopPane.add(newScheda, Integer.MAX_VALUE);\n    desktopManager.centerFrame(newScheda);\n    newScheda.setVisible(true);\n    children.add(newScheda);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ArrayList<BeanBeneCulturale> beniCulturali = null;\r\n    try {\r\n        if (pRicerca) {\r\n            // Additional logic for search can go here\r\n        } else {\r\n            beniCulturali = gestioneBC.ottieniBeniCulturali();\r\n        }\r\n    } catch (RemoteException e) {\r\n        JLabel error = new JLabel(\"<html> <h2> Unable to communicate with the server eTour. </h2>...\");\r\n        ImageIcon err = new ImageIcon(getClass().getResource(Home.URL_IMAGES + \"error48.png\"));\r\n        JOptionPane.showInternalMessageDialog(this, error, \"Error!\", JOptionPane.ERROR_MESSAGE, err);\r\n    } finally {\r\n        tableModel = new SitoTableModel(beniCulturali);\r\n        tableBC.setModel(tableModel);\r\n        organizzaRiga();\r\n    }\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "private void caricaTabella(boolean pRicerca)",
                 "comments": "Optional[/**\r\n * This method imports the cultural downloaded from the server in\r\n * Table.\r\n *\r\n * @param pRicerca boolean\r\n *                <ul>\r\n *                <li> <i> True </i> - include the search parameters.\r\n *                <li> <i> False </i> otherwise.\r\n *                </ul>\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the table with cultural heritage sites based on the specified search criteria.\n * If pRicerca is true, additional logic for search can be implemented.\n * If pRicerca is false, retrieves all cultural heritage sites from the server.\n * \n * @param pRicerca a boolean indicating whether to perform a search or retrieve all cultural heritage sites\n * \n * @return void\n * \n * @throws RemoteException if there is an issue communicating with the server eTour\n */"
             },
             {
                 "body": "Optional[{\r\n    ArrayList<BeanTag> beanTags = null;\r\n    try {\r\n        beanTags = tag.ottieniTags();\r\n        for (BeanTag b : beanTags) {\r\n            pannelloTag.insertTag(b);\r\n        }\r\n        pannelloTag.repaint();\r\n    } catch (RemoteException e) {\r\n        // Handle the exception if necessary\r\n    }\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "private void caricaTags()",
                 "comments": "Optional[/**\r\n * This method loads the tags available in the system and import them into\r\n * Panel tag.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads tags from a remote source and displays them in a panel.\n * \n * This method retrieves a list of tags using the ottieniTags() method from the 'tag' object.\n * It then iterates through the list of BeanTag objects and inserts each tag into the 'pannelloTag' panel.\n * Finally, it repaints the panel to reflect the changes.\n * \n * @throws RemoteException if there is an issue with the remote connection\n */"
             },
             {
                 "body": "Optional[{\r\n    // Name\r\n    tableBC.getColumnModel().getColumn(0).setPreferredWidth(120);\r\n    // Address\r\n    tableBC.getColumnModel().getColumn(1).setPreferredWidth(120);\r\n    // Phone\r\n    tableBC.getColumnModel().getColumn(2).setPreferredWidth(80);\r\n    // Location\r\n    tableBC.getColumnModel().getColumn(3).setPreferredWidth(80);\r\n    // City\r\n    tableBC.getColumnModel().getColumn(4).setPreferredWidth(80);\r\n    // CAP\r\n    tableBC.getColumnModel().getColumn(5).setPreferredWidth(50);\r\n    // Test\r\n    tableBC.getColumnModel().getColumn(6).setPreferredWidth(30);\r\n    // RATINGS\r\n    tableBC.getColumnModel().getColumn(7).setPreferredWidth(80);\r\n    // POSGEO\r\n    tableBC.getColumnModel().getColumn(8).setPreferredWidth(120);\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "private void organizzaRiga()",
                 "comments": "Optional[/**\r\n * This method sets the size of columns for the data assets\r\n * Cultural.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Organizes the width of each column in the tableBC table.\n * This method sets the preferred width for each column in the tableBC table to ensure proper display of data.\n * The columns are organized as follows:\n * 0 - Name (120)\n * 1 - Address (120)\n * 2 - Phone (80)\n * 3 - Location (80)\n * 4 - City (80)\n * 5 - CAP (50)\n * 6 - Test (30)\n * 7 - Ratings (80)\n * 8 - PosGeo (120)\n * \n * This method does not have any parameters and does not return any value.\n */"
             }
         ],
         "constructors": [
@@ -161,7 +180,8 @@
                 "hasInnerComment": false,
                 "signature": "public Beniculturali()",
                 "comments": "Optional[/**\r\n * This is the default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Beniculturali internal frame with the title \"Cultural Heritage\" and sets its properties such as preferred size, frame icon, close operation, and internal frame listeners. \n * Initializes a JTextPane for displaying help information and attempts to load help content from a specified URL. \n * Sets the content pane, initializes an ArrayList for storing child frames, and adds internal frame listeners for opening and closing events. \n * When the internal frame is opened, establishes communication with the server eTour to retrieve data for managing cultural heritage, displays an error message if communication fails, and loads data into the table and tag components. \n * When the internal frame is closing, prompts the user to confirm closing the management of cultural heritage and closes all child frames associated with this administration if confirmed.\n */\npublic Beniculturali() {\n    // constructor body\n}\n**/"
             }
         ],
         "signature": "Beniculturali",
@@ -190,6 +210,7 @@
             "private IGestioneBeniCulturaliAgenzia gestioneBC",
             "private IGestioneTagComune tag",
             "protected IGestioneBeniCulturaliComune ricercaBC"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Beniculturali class represents a management interface for Cultural Heritage within an internal frame.\n * It provides functionalities for managing cultural heritage assets, including creating, editing, viewing, and deleting entries.\n * The frame is initialized with the title \"Cultural Heritage\" and set with preferred size, frame icon, and default close operation.\n * A JTextPane is used for displaying help information, and a HelpManager is initialized to load help content.\n * The content pane contains components for managing cultural heritage assets, such as a toolbar, search panel, and table display.\n * Internal frame listeners are added for opening and closing events, establishing communication with a remote server to retrieve data.\n * Error handling is implemented to display messages in case of communication failure with the server.\n * The class includes methods for updating the table model, closing a selected cultural card, and organizing the table columns.\n * Additional functionalities include loading tags from the system and displaying them in a panel.\n * The class also includes a method for opening a new tab for a selected cultural heritage or for entering a new cultural object.\n * \n * @author [Author Name]\n * @version [Version Number]\n * @see [Related Classes/Methods]\n */ \npublic class Beniculturali {\n    // class variables and methods\n}\n*/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPid()",
                 "comments": "Optional[/**\r\n * Unique 10-digit number that does not start with 9\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the process ID (PID) of the current process.\n * \n * @return the process ID (PID) of the current process\n */"
             },
             {
                 "body": "Optional[{\r\n    this.pid = pid;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPid(long)",
                 "comments": "Optional[/**\r\n * Unique 10-digit number that does not start with 9\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the process ID (pid) of the object.\n * \n * @param pid the process ID to set\n * \n * This method sets the process ID of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return procedureID;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getProcedureID()",
                 "comments": "Optional[/**\r\n * Unique identifier for a laboratory procedure of a patient\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the procedure.\n * \n * @return the ID of the procedure as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.procedureID = procedureID;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setProcedureID(long)",
                 "comments": "Optional[/**\r\n * Unique identifier for a laboratory procedure of a patient\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the procedure ID for this object.\n * \n * @param procedureID the new procedure ID to set\n * \n * This method sets the procedure ID for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return loinc;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLoinc()",
                 "comments": "Optional[/**\r\n * Digits of the format nnnnn-n\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the LOINC code associated with this object.\n * \n * @return the LOINC code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.loinc = loinc;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLoinc(String)",
                 "comments": "Optional[/**\r\n * Digits of the format nnnnn-n\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the LOINC code for this object.\n * \n * @param loinc the LOINC code to set\n * \n * This method sets the LOINC code for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return status;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStatus()",
                 "comments": "Optional[/**\r\n * One of (NOT YET RECEIVED, PENDING, COMPLETED)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the status of the object.\n * \n * @return the status of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.status = status;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStatus(String)",
                 "comments": "Optional[/**\r\n * One of (NOT YET RECEIVED, PENDING, COMPLETED)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the status of the object.\n * \n * @param status the new status to be set\n * \n * This method sets the status of the object to the specified status. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return commentary;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCommentary()",
                 "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the commentary associated with this object.\n * \n * @return the commentary as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.commentary = commentary;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCommentary(String)",
                 "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the commentary for this object.\n * \n * @param commentary the new commentary to set\n * \n * This method sets the commentary for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return results;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getResults()",
                 "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the results of a certain operation.\n * \n * @return The results of the operation as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.results = results;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setResults(String)",
                 "comments": "Optional[/**\r\n * Up to 500 alphanumeric characters\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the results of the method.\n * \n * @param results the results to be set\n * \n * This method sets the results of the method to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovID;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getOvID()",
                 "comments": "Optional[/**\r\n * Office VisitID\tIdentifier that specifies the office visit in\r\n * which the laboratory procedure was ordered\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the object.\n * \n * @return the unique identifier of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.ovID = ovID;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOvID(long)",
                 "comments": "Optional[/**\r\n * Office VisitID\tIdentifier that specifies the office visit in\r\n * which the laboratory procedure was ordered\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param ovID the ID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return timestamp;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public Timestamp getTimestamp()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the timestamp associated with this object.\n * \n * @return the timestamp value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.timestamp = timestamp;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTimestamp(Timestamp)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the timestamp for this object.\n * \n * @param timestamp the timestamp to set\n * \n * This method sets the timestamp for this object to the specified timestamp value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return rights;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getRights()",
                 "comments": "Optional[/**\r\n * permission granted by lhcp who ordered test:\r\n * \"ALLOWED\", \"RESTRICTED\"\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the rights associated with this object.\n * \n * @return the rights as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.rights = rights;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRights(String)",
                 "comments": "Optional[/**\r\n * permission granted by lhcp who ordered test:\r\n * \"ALLOWED\", \"RESTRICTED\"\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the rights for this object.\n * \n * @param rights a String representing the rights to be set\n * \n * This method sets the rights of the object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.rights = Allow;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void allow()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the rights of the current user to allow access.\n * \n * This method sets the rights of the current user to allow access. \n * It updates the 'rights' variable to 'Allow', indicating that the user has permission to access certain resources.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.rights = Restrict;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void restrict()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the rights of the object to be restricted.\n * \n * This method restricts the rights of the object by setting its rights to a restricted state.\n * \n * @param Restrict the rights to be set as restricted\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.status = Completed;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public void statusComplete()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the status of the object to Completed.\n * \n * This method does not take any parameters and does not return any value.\n * It simply updates the status of the object to Completed.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.status = Pending;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void statusPending()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the status of the object to \"Pending\".\n * \n * This method does not take any parameters and simply updates the status of the object to \"Pending\".\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.status = Not_Received;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public void statusNotReceived()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the status of an object to \"Not Received\".\n * \n * This method does not take any parameters and simply updates the status of the object to \"Not Received\".\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -193,7 +216,8 @@
                 "hasInnerComment": false,
                 "signature": "public LabProcedureBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the LabProcedureBean class.\n * It initializes a new instance of LabProcedureBean with default values.\n */"
             }
         ],
         "signature": "LabProcedureBean",
@@ -212,6 +236,7 @@
             "private long ovID",
             "private Timestamp timestamp",
             "private String rights"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a LaboratoryProcedure object that stores information about a laboratory procedure for a patient.\n * It contains methods to get and set the process ID, procedure ID, and LOINC code for the procedure.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the process ID, which is a unique 10-digit number that does not start with 9\n * - Storing and retrieving the procedure ID, which is a unique identifier for a laboratory procedure of a patient\n * - Storing and retrieving the LOINC code, which is a code used to identify laboratory tests and results\n * \n * The overall behavior of this class is to provide a way to manage and access information about laboratory procedures for patients.\n */\npublic class LaboratoryProcedure {\n    private long pid;\n    private long procedureID;\n    private String loinc;\n    \n    /**\n     * Returns the process ID (PID) of the current process.\n     * \n     * @return the process ID (PID) of the current process\n     */\n    public long getPid() {\n        return pid;\n    }\n    \n    /**\n     * Sets the process ID (pid) of the object.\n     * \n     * @param pid the process ID to set\n     * \n     * This method sets the process ID of the object to the specified value.\n     * \n     * @return void\n     */\n    public void setPid(long pid) {\n        this.pid = pid;\n    }\n    \n    /**\n     * Returns the ID of the procedure.\n     * \n     * @return the ID of the procedure as a long value\n     */\n    public long getProcedureID() {\n        return procedureID;\n    }\n    \n    /**\n     * Sets the procedure ID for this object.\n     * \n     * @param procedureID the new procedure ID to set\n     * \n     * This method sets the procedure ID for this object to the specified value.\n     * \n     * @return void\n     */\n    public void setProcedureID(long procedureID) {\n        this.procedureID = procedureID;\n    }\n    \n    /**\n     * Returns the LOINC code for the procedure.\n     * \n     * @return the LOINC code for the procedure as a String\n     */\n    public String getLoinc() {\n        return loinc;\n    }\n}\n*/\n/**\n * This class represents an object that contains information about a medical test result.\n * It includes attributes such as LOINC code, status, and commentary.\n * \n * The LOINC code is a unique identifier for the test result, following the format nnnnn-n.\n * The status can be one of the following: NOT YET RECEIVED, PENDING, or COMPLETED.\n * The commentary field can contain up to 500 alphanumeric characters.\n * \n * This class provides methods to retrieve and set the LOINC code, status, and commentary.\n * \n * @author [Your Name]\n * @version 1.0\n */\n*/\n/**\n * This class represents an object that stores information related to a laboratory procedure.\n * It provides methods to set and retrieve commentary, results, and office visit ID.\n * \n * The main functionalities of this class include:\n * - Setting and retrieving commentary for the laboratory procedure\n * - Setting and retrieving results of the laboratory procedure\n * - Setting and retrieving the unique identifier of the office visit in which the procedure was ordered\n * \n * The overall behavior of this class is to store and manage information related to a laboratory procedure,\n * allowing users to access and update the data as needed.\n * \n * Note: The commentary and results are limited to 500 alphanumeric characters.\n */\n/**\n * This class represents an ordered object with an ID, timestamp, and rights.\n * It provides methods to get and set the ID, timestamp, and rights of the object.\n * The ID is a unique identifier for the object.\n * The timestamp represents the time when the object was created.\n * The rights indicate the permission granted by the user who ordered the test, which can be either \"ALLOWED\" or \"RESTRICTED\".\n * \n * Main functionalities include:\n * - Getting and setting the ID of the object\n * - Getting and setting the timestamp associated with the object\n * - Getting and setting the rights granted to the object\n * - Allowing the rights to be set to \"ALLOWED\"\n * \n * Overall behavior:\n * - The class allows for the manipulation of the ID, timestamp, and rights of the ordered object.\n * - It enforces restrictions on the rights that can be granted, ensuring they are either \"ALLOWED\" or \"RESTRICTED\".\n * - The class provides methods to access and modify the attributes of the ordered object.\n */\n**/\n/**\n * This class represents an object that manages user rights and status.\n * It provides methods to set the rights of the current user, restrict the rights of an object, and update the status of the object.\n * \n * The main functionalities of this class include:\n * - Setting the rights of the current user to allow access\n * - Restricting the rights of an object\n * - Updating the status of the object to Completed, Pending, or Not Received\n * \n * The behavior of this class is as follows:\n * - The setRightsAllow method sets the rights of the current user to allow access by updating the 'rights' variable to 'Allow'.\n * - The restrict method restricts the rights of the object by setting its rights to a restricted state.\n * - The statusComplete method updates the status of the object to Completed.\n * - The statusPending method updates the status of the object to Pending.\n * - The statusNotReceived method updates the status of the object to Not Received.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The LabProcedureBean class represents a bean object that encapsulates information about a lab procedure.\n * It contains attributes such as procedure ID, LOINC code, status, commentary, results, timestamp, and rights.\n * The class provides methods to update the status of the lab procedure, add commentary, and retrieve information about the procedure.\n * The status of the lab procedure can be set to \"Not Received\", \"Pending\", or \"Completed\".\n * Additionally, the rights attribute can be set to \"Allow\" or \"Restrict\" based on user permissions.\n * This class also includes a default constructor that initializes a new instance of LabProcedureBean with default values.\n */"
     }
 ]

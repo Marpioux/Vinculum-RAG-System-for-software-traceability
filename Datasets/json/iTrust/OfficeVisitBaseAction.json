@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "private long checkOfficeVisitID(String)",
                 "comments": "Optional[/**\r\n * Asserts whether this unique office visit identifier both exists and is associated with the patient in\r\n * the database.\r\n *\r\n * @param input\r\n *            The presumed identifier as a String.\r\n * @return The same identifier as a long of the existing office visit.\r\n * @throws iTrustException\r\n *             If the visit does not exist or if there is a DB problem.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the provided office visit ID exists for a given patient.\n * \n * @param input the office visit ID to be checked\n * @return the office visit ID if it exists for the given patient\n * @throws iTrustException if the office visit ID is not a valid number or if the office visit does not exist for the patient\n */\nprivate long checkOfficeVisitID(String input) {\n    try {\n        encode(input);\n        long ovID = Long.valueOf(input);\n        if (ovDAO.checkOfficeVisitExists(ovID, pid))\n            return ovID;\n        else\n            throw new iTrustException(\"Office Visit \" + ovID + \" with Patient MID \" + pid + \" does not exist\");\n    } catch (NumberFormatException e) {\n        throw new iTrustException(\"Office Visit ID is not a number: \" + e.getMessage());\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return ovID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getOvID()",
                 "comments": "Optional[/**\r\n * For obtaining the unique identifier of the office visit this action is associated with.\r\n *\r\n * @return A long of the identifier.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the object.\n * \n * @return the unique identifier of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    String str = input.replaceAll(\"<\", \"&lt;\");\r\n    str = str.replaceAll(\">\", \"&gt;\");\r\n    str = str.replaceAll(\"\\n\", \"<br />\");\r\n    return str;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String encode(String)",
                 "comments": "Optional[/**\r\n * Converts all characters of the input string to their HTML special characters equivalent representation.\r\n * Explicitly, the less than symbol becomes lt, the greater than symbol becomes gt and a newline feed\r\n * becomes br.\r\n *\r\n * @param input\r\n *            The string to encode.\r\n * @return The encoded string.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method takes a String input and encodes special characters to their corresponding HTML entities.\n * \n * @param input the String to be encoded\n * @return the encoded String with special characters replaced by their HTML entity equivalents\n */"
             }
         ],
         "constructors": [
@@ -33,13 +36,15 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitBaseAction(DAOFactory, String, String)",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n *\r\n * @param factory\r\n *            A database access object factory for supplying a runtime context.\r\n * @param pidString\r\n *            The patient's MID as a String, to be passed to the super constructor (for PatientBaseAction)\r\n * @param ovIDString\r\n *            The unique identifier of the office visit as a String.\r\n * @throws iTrustException\r\n *             If any of the supplied parameters is incorrect or there is a DB problem.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new OfficeVisitBaseAction object with the specified DAOFactory, patient ID, and office visit ID.\n * \n * @param factory the DAOFactory to be used for accessing data objects\n * @param pidString the patient ID as a String\n * @param ovIDString the office visit ID as a String\n */\npublic OfficeVisitBaseAction(DAOFactory factory, String pidString, String ovIDString) {\n    super(factory, pidString);\n    this.ovDAO = factory.getOfficeVisitDAO();\n    this.ovID = checkOfficeVisitID(ovIDString);\n}\n*/"
             }
         ],
         "signature": "OfficeVisitBaseAction",
         "variables": [
             "private OfficeVisitDAO ovDAO",
             "protected long ovID"
-        ]
+        ],
+        "generated_class_comment": "*/\\r\\n]\", \"innerComments\": null, \"generated_comment\": \"/**\\n * Returns the unique identifier of the office visit associated with this action.\\n * \\n * @return the unique identifier of the office visit\\n */\\npublic long getOvID() {\\n return ovID;\\n}\\n*/\" } ], \"classComments\": \"Optional[/**\\r\\n * This class is responsible for checking the existence of an office visit ID for a given patient.\\r\\n *\\r\\n * @author iTrust\\r\\n */\\r\\n]\", \"className\": \"CheckOfficeVisitIDAction\" } ]\n/**\n * This class represents an OfficeVisitBaseAction which is a base class for actions related to office visits.\n * It provides functionality for accessing and manipulating office visit data in the database.\n * \n * @param factory A database access object factory for supplying a runtime context.\n * @param pidString The patient's MID as a String, to be passed to the super constructor (for PatientBaseAction).\n * @param ovIDString The unique identifier of the office visit as a String.\n * @throws iTrustException If any of the supplied parameters is incorrect or there is a DB problem.\n */\npublic OfficeVisitBaseAction(DAOFactory factory, String pidString, String ovIDString) {\n    super(factory, pidString);\n    this.ovDAO = factory.getOfficeVisitDAO();\n    this.ovID = checkOfficeVisitID(ovIDString);\n}\n*/\n/**\n * This class represents an OfficeVisitBaseAction object with the specified DAOFactory, patient ID, and office visit ID.\n * It extends the BaseAction class and provides functionalities related to office visits for a specific patient.\n * \n * @param factory the DAOFactory to be used for accessing data objects\n * @param pidString the patient ID as a String\n * @param ovIDString the office visit ID as a String\n */\npublic OfficeVisitBaseAction(DAOFactory factory, String pidString, String ovIDString) {\n    super(factory, pidString);\n    this.ovDAO = factory.getOfficeVisitDAO();\n    this.ovID = checkOfficeVisitID(ovIDString);\n}\n*/"
     }
 ]

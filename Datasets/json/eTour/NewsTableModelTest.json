@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "protected void setUp()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the test fixture by initializing the tableModel with a new instance of NewsTableModel.\n * \n * This method is protected and does not take any parameters. It calls the setUp method of the superclass before initializing the tableModel.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    ArrayList<BeanNews> test = new ArrayList<>();\r\n    for (int i = 0; i < 10; i++) {\r\n        test.add(new BeanNews(\"text\" + i, new Date(), new Date(), 5, i));\r\n    }\r\n    tableModel = new NewsTableModel(test);\r\n    for (int i = 0; i < 10; i++) {\r\n        assertSame(test.get(i).getId(), tableModel.getID(i));\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testCostruttoreConArrayList()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method tests the constructor of the NewsTableModel class with an ArrayList of BeanNews objects.\n * It creates a new ArrayList of BeanNews objects, adds 10 BeanNews objects to it with different values,\n * creates a new NewsTableModel object with the ArrayList, and then asserts that the ID of each BeanNews object\n * in the ArrayList is the same as the ID returned by the NewsTableModel object.\n */"
             },
             {
                 "body": "Optional[{\r\n    tableModel = new NewsTableModel(null);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testCostruttoreConArrayListNull()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method tests the constructor of the NewsTableModel class with a null ArrayList parameter.\n * \n * @param None\n * \n * @return None\n * \n * The method initializes a new NewsTableModel object with a null ArrayList parameter, \n * which is used to populate the table model. This is done to test the behavior of the constructor \n * when passed a null parameter. No return value is expected as the method only initializes the table model.\n */"
             },
             {
                 "body": "Optional[{\r\n    tableModel = new NewsTableModel(new ArrayList<BeanNews>());\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testCostruttoreConArrayListVuoto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the table model with an empty ArrayList of BeanNews objects.\n * \n * @param None\n * @return None\n */\npublic void testCostruttoreConArrayListVuoto() {\n    tableModel = new NewsTableModel(new ArrayList<BeanNews>());\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    tableModel.insertNews(aNewsModificata);\r\n    assertSame(aNews.getNews(), tableModel.getValueAt(0, 0));\r\n    assertSame(aNews.getPriorita(), tableModel.getValueAt(0, 1));\r\n    assertSame(aNewsModificata.getNews(), tableModel.getValueAt(1, 0));\r\n    assertSame(aNewsModificata.getPriorita(), tableModel.getValueAt(1, 1));\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testGetValueAtParametriCorretti()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts two news objects into the table model and asserts that the correct values are retrieved at the specified row and column indexes.\n * \n * @param aNews the first news object to be inserted into the table model\n * @param aNewsModificata the second news object to be inserted into the table model\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        tableModel.getValueAt(12, 0);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testGetValueAtRigaSballata()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method tests the behavior of the getValueAt method in the table model when an invalid row index is provided.\n * \n * @param None\n * @return None\n * \n * The method attempts to retrieve the value at row index 12 and column index 0 in the table model. It expects an IllegalArgumentException to be thrown, indicating that the row index is out of bounds. If the exception is not thrown, the test fails. This method is used for testing purposes to ensure that the getValueAt method handles invalid row indexes correctly.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        tableModel.getValueAt(0, -121334);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testGetValueAtColonnaSballata()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to test the behavior of the getValueAt method in the tableModel class when providing an invalid column index.\n * \n * @param None\n * @return None\n * \n * The method attempts to retrieve the value at row 0 and an invalid column index (-121334) from the tableModel. \n * It expects an IllegalArgumentException to be thrown and passes the test if the exception is caught successfully.\n */"
             },
             {
                 "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    assertSame(aNews.getId(), tableModel.getID(0));\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testInsertNewsParametroCorretto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a news object into the table model and verifies that the correct ID is associated with the news.\n * \n * @param aNews the news object to be inserted into the table model\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        tableModel.insertNews(null);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testInsertNewsParametroNull()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a news item into the table model with a null parameter.\n * This method is used to test the behavior of the insertNews method when a null parameter is passed.\n * \n * @param None\n * @return None\n * \n * @throws IllegalArgumentException if a null parameter is passed to the insertNews method\n */"
             },
             {
                 "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    tableModel.updateNews(aNewsModificata);\r\n    assertSame(aNewsModificata.getNews(), tableModel.getValueAt(0, 0));\r\n    assertSame(aNewsModificata.getPriorita(), tableModel.getValueAt(0, 1));\r\n    assertSame(aNewsModificata.getId(), tableModel.getID(0));\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testUpdateNewsParametroCorretto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates a news in the table model with the correct parameters.\n * \n * This method inserts a new news object into the table model and then updates it with a modified news object. \n * It then asserts that the values of the modified news object match the values in the table model at the specified indices.\n * \n * @param aNews the news object to be inserted into the table model\n * @param aNewsModificata the modified news object to update in the table model\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        tableModel.updateNews(null);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testUpdateNewsParametroNull()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method tests the behavior of the updateNews method in the tableModel class when a null parameter is passed. \n * It verifies that an IllegalArgumentException is thrown as expected. \n * \n * @param None\n * @return None\n * @throws IllegalArgumentException if a null parameter is passed to the updateNews method\n */"
             },
             {
                 "body": "Optional[{\r\n    tableModel.insertNews(aNews);\r\n    assertSame(aNews.getId(), tableModel.removeNews(0));\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testRemoveNewsParametroCorretto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a news into the table model and then removes it by its index.\n * \n * @param aNews the news to be inserted into the table model\n * @return the ID of the news that was removed\n */\npublic void testRemoveNewsParametroCorretto() {\n    tableModel.insertNews(aNews);\n    assertSame(aNews.getId(), tableModel.removeNews(0));\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        tableModel.removeNews(-1231);\r\n        fail(\"Should be thrown\");\r\n    } catch (IllegalArgumentException success) {\r\n    }\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void testRemoveNewsRigaSballata()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes a news item from the table model at the specified index.\n * \n * @param index the index of the news item to be removed\n * @throws IllegalArgumentException if the index is negative\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -113,7 +126,8 @@
                 "hasInnerComment": false,
                 "signature": "public NewsTableModelTest(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new NewsTableModelTest with the specified name.\n * \n * @param pName the name of the NewsTableModelTest\n * \n * This constructor initializes aNews with an example news object containing the title \"An example of news\", \n * start and end dates set to the current date, a priority of 2, and a status of 1. \n * It also initializes aNewsModificata with an amended news object containing the title \"A news amended sample\", \n * start and end dates set to the current date, a priority of 3, and a status of 1.\n */"
             }
         ],
         "signature": "NewsTableModelTest",
@@ -121,6 +135,7 @@
             "private NewsTableModel tableModel",
             "private BeanNews aNews",
             "private BeanNews aNewsModificata"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The NewsTableModelTest class is a test class for the NewsTableModel class. It contains a series of test methods that validate the behavior of the NewsTableModel class under different scenarios.\n * \n * This class includes test methods for the constructor of the NewsTableModel class with various parameters, such as an ArrayList of BeanNews objects, a null ArrayList, and an empty ArrayList. It also tests methods for inserting, updating, and removing news items from the table model.\n * \n * The setUp method initializes the table model with a new instance of NewsTableModel before each test method is executed. The test methods cover different aspects of the NewsTableModel class, including parameter validation, data retrieval, and manipulation.\n * \n * Overall, the NewsTableModelTest class serves as a comprehensive test suite for the NewsTableModel class, ensuring that it functions correctly and handles various scenarios as expected.\n */"
     }
 ]

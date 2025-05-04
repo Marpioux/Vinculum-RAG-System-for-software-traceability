@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the initial configuration of the GUI components.\n * This method sets the font to ConfigurazioneSistema.font_sub, creates and configures two panels (panel0 and panel1),\n * adds buttons (Stanze, BeniServizi, Configurazione, Annulla) to panel1, and adds panel0 and panel1 to the main layout.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            pass.setEnabled(true);\r\n            pass.p.setEnabled(true);\r\n        }\r\n    });\r\n    Stanze.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            gestioneStanze();\r\n        }\r\n    });\r\n    BeniServizi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            gestioneBeniServizi();\r\n        }\r\n    });\r\n    Configurazione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConfigurazione();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up action listeners for various buttons.\n * This method adds action listeners to the Annulla, Stanze, BeniServizi, and Configurazione buttons.\n * When the Annulla button is clicked, it disposes of the current window and enables the pass and pass.p components.\n * When the Stanze button is clicked, it calls the gestioneStanze() method.\n * When the BeniServizi button is clicked, it calls the gestioneBeniServizi() method.\n * When the Configurazione button is clicked, it calls the startConfigurazione() method.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    pass.setEnabled(true);\r\n    pass.p.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the pass button and its associated components.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    gestioneStanze();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the method gestioneStanze() to handle the event.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    gestioneBeniServizi();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the method gestioneBeniServizi() to handle the event.\n * \n * @param e the ActionEvent object representing the event that occurred\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startConfigurazione();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the configuration process.\n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_stanze = new SubStanze();\r\n    call_stanze.setVisible(true);\r\n    call_stanze.s = this;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " void gestioneStanze()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current window and opens a new window for managing rooms.\n * The new window allows the user to interact with room data.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_beniservizi = new SubBeniServizi();\r\n    call_beniservizi.setVisible(true);\r\n    call_beniservizi.s = this;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void gestioneBeniServizi()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component, creates a new instance of SubBeniServizi, sets it as visible, and assigns the current component as a reference in the new instance.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_config = new ConfigurazioneSistema(Principale.config, false, Principale.db);\r\n    call_config.setVisible(true);\r\n    call_config.padre = this;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void startConfigurazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object, creates a new instance of ConfigurazioneSistema with the specified configuration and database,\n * sets it as visible, and assigns the current object as its parent.\n * \n * @param config the configuration to be used for the new ConfigurazioneSistema instance\n * @param db the database to be used for the new ConfigurazioneSistema instance\n */\nvoid startConfigurazione() {\n    this.setEnabled(false);\n    call_config = new ConfigurazioneSistema(Principale.config, false, Principale.db);\n    call_config.setVisible(true);\n    call_config.padre = this;\n}\n*/"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public SubGestione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the SubGestione class.\n * Initializes a new SubGestione object with the title \"Gestione albergo\".\n * Calls the setup, init, and pack methods to set up the object.\n */"
             }
         ],
         "signature": "SubGestione",
@@ -99,6 +109,7 @@
             " SubStanze call_stanze",
             " SubBeniServizi call_beniservizi",
             " ConfigurazioneSistema call_config"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubGestione class represents a GUI component for managing hotel operations.\n * It provides functionalities for handling rooms, goods and services, and system configuration.\n * The class contains methods for setting up the initial configuration of the GUI components, initializing the components, and handling action events for various buttons.\n * \n * The main functionalities of the SubGestione class include:\n * - Setting up the GUI components with the initial configuration\n * - Initializing the GUI components and setting up action listeners for buttons\n * - Disposing of the current window and enabling specific components when the Annulla button is clicked\n * - Handling events for the Stanze, BeniServizi, and Configurazione buttons by invoking corresponding methods\n * - Disabling the current window and opening new windows for managing rooms, goods and services, and system configuration\n * \n * Overall, the SubGestione class provides a user-friendly interface for managing hotel operations and interacting with different functionalities.\n * \n * @author [Author Name]\n * @version [Version Number]\n */"
     }
 ]

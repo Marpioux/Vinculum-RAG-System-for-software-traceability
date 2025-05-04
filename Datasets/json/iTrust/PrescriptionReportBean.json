@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionBean getPrescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the PrescriptionBean object associated with this instance.\n * \n * @return the PrescriptionBean object representing the prescription\n */"
             },
             {
                 "body": "Optional[{\r\n    this.prescription = prescription;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPrescription(PrescriptionBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the prescription for the current patient.\n * \n * @param prescription the PrescriptionBean object representing the prescription to be set\n * @return void\n * \n * This method sets the prescription for the current patient by assigning the provided PrescriptionBean object to the prescription field of the class. \n * The prescription parameter must not be null. \n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return officeVisit;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitBean getOfficeVisit()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the OfficeVisitBean object associated with this method.\n * \n * @return the OfficeVisitBean object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.officeVisit = officeVisit;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOfficeVisit(OfficeVisitBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the office visit for this object.\n * \n * @param officeVisit the OfficeVisitBean to set\n * @return void\n * \n * This method sets the office visit for this object to the specified OfficeVisitBean. \n * The office visit represents a visit to a medical office or facility. \n * If the parameter officeVisit is null, the office visit for this object will be set to null.\n */"
             }
         ],
         "constructors": [
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionReportBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the PrescriptionReportBean class.\n * It initializes a new instance of PrescriptionReportBean with no parameters.\n * \n * @param None\n * @return A new instance of PrescriptionReportBean\n */"
             }
         ],
         "signature": "PrescriptionReportBean",
         "variables": [
             " PrescriptionBean prescription",
             " OfficeVisitBean officeVisit"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a patient's medical record, which includes information about their prescription and office visit.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the PrescriptionBean object associated with the patient\n * - Retrieving and setting the OfficeVisitBean object associated with the patient\n * \n * The overall behavior of this class is to store and manage the patient's medical information, specifically their prescription and office visit details.\n * \n * The getPrescription() method retrieves the PrescriptionBean object associated with this instance.\n * \n * The setPrescription(PrescriptionBean) method sets the prescription for the current patient by assigning the provided PrescriptionBean object to the prescription field of the class.\n * \n * The getOfficeVisit() method retrieves the OfficeVisitBean object associated with this instance.\n * \n * The setOfficeVisit(OfficeVisitBean) method sets the office visit for this object to the specified OfficeVisitBean.\n * \n * If the parameter officeVisit is null, the office visit for this object will be set to null.\n */\npublic class MedicalRecord {\n    // class implementation here\n}\n**/\n/**\n * The PrescriptionReportBean class represents a bean that contains information about a prescription report.\n * It contains a PrescriptionBean object to store information about the prescription and an OfficeVisitBean object to store information about the office visit.\n * \n * This class provides methods to set and get the prescription and office visit objects, as well as a default constructor to initialize a new instance of PrescriptionReportBean with no parameters.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving information about a prescription report\n * - Providing access to the prescription and office visit objects\n * \n * Overall, the PrescriptionReportBean class encapsulates data related to a prescription report and provides methods to interact with this data.\n */"
     }
 ]

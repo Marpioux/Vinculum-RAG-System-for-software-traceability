@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastOVDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the last date of the ovulation cycle.\n * \n * @return a String representing the last ovulation date\n */"
             },
             {
                 "body": "Optional[{\r\n    LastOVDate = lastOVDate;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastOVDate(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last ovulation date for the user.\n * \n * @param lastOVDate the last ovulation date to be set\n * \n * This method sets the last ovulation date for the user to the specified date. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return LastOVDateM;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastOVDateM()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the last date of the month in the format \"MM/dd/yyyy\".\n * \n * @return the last date of the month as a String in the format \"MM/dd/yyyy\"\n */"
             },
             {
                 "body": "Optional[{\r\n    LastOVDateM = lastOVDateM;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastOVDateM(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last ovulation date for a specific month.\n * \n * @param lastOVDateM the last ovulation date to set for the month\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return LastOVDateD;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastOVDateD()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the last date of the ovulation cycle in the form of a String.\n * \n * @return the last date of the ovulation cycle as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    LastOVDateD = lastOVDateD;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastOVDateD(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last date of the OV (Overall) date for a specific object.\n * \n * @param lastOVDateD the last OV date to be set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return LastOVDateY;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastOVDateY()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the last overall date in year format.\n * \n * @return a String representing the last overall date in year format\n */"
             },
             {
                 "body": "Optional[{\r\n    LastOVDateY = lastOVDateY;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastOVDateY(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last overall date year for the object.\n * \n * @param lastOVDateY the year value to set as the last overall date year\n * \n * This method sets the last overall date year for the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return PatientName;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the patient.\n * \n * @return The name of the patient as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    PatientName = patientName;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the patient.\n * \n * @param patientName the new name of the patient\n * @return void\n * \n * This method sets the name of the patient to the specified value. \n * The new name is passed as a parameter and assigned to the PatientName variable.\n */"
             },
             {
                 "body": "Optional[{\r\n    return Address1;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddress1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the value of the Address1 field.\n * \n * @return the value of the Address1 field as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    Address1 = address1;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddress1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the address line 1 for the object.\n * \n * @param address1 the address line 1 to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return Address2;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddress2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the value of the Address2 field.\n * \n * @return the Address2 value as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    Address2 = address2;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddress2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second address line for the object.\n * \n * @param address2 the second address line to set\n * \n * This method sets the second address line for the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return patient;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientBean getPatient()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the patient object associated with this instance.\n * \n * @return the PatientBean object representing the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patient = patient;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatient(PatientBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient associated with this object.\n * \n * @param patient the PatientBean object to be set\n * @return void\n * \n * This method sets the patient attribute of the current object to the provided PatientBean object. \n * The patient attribute represents the patient associated with this object. \n * If the provided PatientBean object is null, the patient attribute will be set to null.\n */"
             }
         ],
         "constructors": [
@@ -137,7 +153,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientVisitBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the PatientVisitBean class.\n * It initializes a new instance of PatientVisitBean with default values.\n * No parameters are required for this constructor.\n */"
             }
         ],
         "signature": "PatientVisitBean",
@@ -150,6 +167,7 @@
             "private String LastOVDateD",
             "private String LastOVDateY",
             "private String LastOVDate"
-        ]
+        ],
+        "generated_class_comment": "Sure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a user's ovulation cycle information.\n * It provides methods to get and set the last ovulation date, last ovulation date for a specific month,\n * and the last date of the ovulation cycle.\n * \n * The class stores the last ovulation date, last ovulation date for a specific month, and the last date of the ovulation cycle\n * as String values.\n * \n * Users can retrieve the last ovulation date, last ovulation date for a specific month, and the last date of the ovulation cycle\n * using the provided getter methods.\n * \n * Users can also set the last ovulation date, last ovulation date for a specific month using the provided setter methods.\n * \n * Overall, this class helps users manage and track their ovulation cycle information.\n */\n/**\n * This class represents a medical record for a patient. It stores information such as the patient's name, last overall date in day and year format, and last overall visit date. \n * The class provides methods to retrieve and set these attributes. \n * \n * The main functionalities of this class include:\n * - Storing and retrieving the name of the patient\n * - Storing and retrieving the last overall visit date in day and year format\n * \n * The overall behavior of this class is to provide a convenient way to manage and access medical record information for a specific patient. \n * Users can set and retrieve the patient's name, as well as the last overall visit date in day and year format. \n * \n * Note: It is important to ensure that the data stored in this class is accurate and up-to-date to maintain the integrity of the medical records.\n */\n```\n/**\n * This class represents an Address object that contains information about a physical address.\n * It provides methods to get and set the address lines and the associated patient.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the first address line (Address1)\n * - Setting and getting the second address line (Address2)\n * - Associating a patient object with the address\n * \n * The class has the following methods:\n * - getAddress1(): Returns the value of the Address1 field as a String\n * - setAddress1(String address1): Sets the address line 1 for the object\n * - getAddress2(): Returns the value of the Address2 field as a String\n * - setAddress2(String address2): Sets the second address line for the object\n * - getPatient(): Retrieves the patient object associated with this instance\n * - setPatient(PatientBean patient): Sets the patient object for the address\n * \n * Overall, this class provides a convenient way to store and manage address information for a patient.\n */\n/**\n * The PatientVisitBean class represents a bean object that stores information related to a patient visit.\n * It contains attributes such as patient details, address, and last visit date.\n * This class provides methods to set and get the patient associated with the visit, as well as other visit details.\n * \n * The main functionalities of this class include:\n * - Setting and getting the patient associated with the visit\n * - Setting and getting the patient's name, address, and last visit date\n * \n * The behavior of this class is as follows:\n * - The default constructor initializes a new instance of PatientVisitBean with default values\n * - The setPatient method sets the patient attribute of the current object to the provided PatientBean object\n * - If the provided PatientBean object is null, the patient attribute will be set to null\n * \n * Overall, the PatientVisitBean class serves as a data structure for storing and managing patient visit information.\n */\n**/"
     }
 ]

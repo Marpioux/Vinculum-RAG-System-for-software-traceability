@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciTurista(BeanTurista)",
                 "comments": "Optional[/**\r\n * Method for the insertion of a Tourist\r\n *\r\n * @param pTurista container for all data relating to tourism by Insert\r\n * @return Boolean: True if the insertion is successful, False otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a tourist into the system.\n * \n * @param turista the tourist to be inserted into the system\n * @return true if the tourist was successfully inserted, false otherwise\n */\nabstract boolean inserisciTurista(BeanTurista turista);"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPreferenzeGeneriche(BeanPreferenzeGeneriche)",
                 "comments": "Optional[/**\r\n * Method for including the General Preferences Tourist\r\n *\r\n * @param pPreferenzeGeneriche General Preferences for inclusion\r\n * @return Boolean: True if the insertion is successful, False otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts the generic preferences for a user.\n * \n * @param preferenzeGeneriche the generic preferences to be inserted\n * @return true if the generic preferences were successfully inserted, false otherwise\n * \n * This method inserts the provided generic preferences for a user into the system. \n * If the insertion is successful, it returns true. If the insertion fails, it returns false.\n * If no preferences are provided, it returns Optional.empty.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanPreferenzeGeneriche ottieniPreferenzeGeneriche(int)",
                 "comments": "Optional[/**\r\n * Method for the extraction Preferences generously given Tourists\r\n *\r\n * @param pIdTurista Identifier Turista which you want to Get the General Preferences\r\n * @return Preferences General information relating to tourism\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the generic preferences for a specified bean based on the provided ID.\n *\n * @param id the ID of the bean for which to retrieve preferences\n * @return an Optional containing the generic preferences for the specified bean if found, otherwise returns an empty Optional\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaPreferenzeGeneriche(BeanPreferenzeGeneriche)",
                 "comments": "Optional[/**\r\n * Method for changing the Preferences generously given Tourists\r\n *\r\n * @param pPreferenzeGenericheNuove The Preferenze General for inclusion\r\n * @return Boolean: True if the modification is successful, False otherwise\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies the generic preferences with the provided {@code BeanPreferenzeGeneriche} object.\n * \n * @param preferences the {@code BeanPreferenzeGeneriche} object containing the preferences to be modified\n * @return {@code true} if the preferences were successfully modified, {@code false} otherwise\n */\nabstract boolean modificaPreferenzeGeneriche(BeanPreferenzeGeneriche preferences);"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanPreferenzeGeneriche cancellaPreferenzeGeneriche(int)",
                 "comments": "Optional[/**\r\n * Method for the removal of preferences associated with the General Tourist\r\n *\r\n * @param pIdTurista of tourists for whom you want to Delete the General Preferences\r\n * @return Preferences General erased\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a generic preference bean based on the given ID.\n * \n * @param id the ID of the preference bean to be deleted\n * @return an Optional containing the deleted preference bean if found, otherwise Optional.empty\n */"
             },
             {
                 "body": "Optional.empty",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPreferenzaDiRicerca(int, BeanPreferenzaDiRicerca)",
                 "comments": "Optional[/**\r\n * Method to insert a Search Preferences\r\n *\r\n * @param pIdTurista of tourists for which you intend to Insert a Search Preferences\r\n * @param pPreferenzaDiRicerca Search Preferences to be included\r\n * @return Boolean: True if the insertion is successful, False otherwise\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preference of search into the system for a given user.\n * \n * @param userId the unique identifier of the user for whom the preference of search is being inserted\n * @param preference the preference of search being inserted\n * @return true if the preference of search was successfully inserted, false otherwise\n * \n * This method inserts a preference of search for the specified user. The preference is encapsulated in a BeanPreferenzaDiRicerca object. \n * If the preference is successfully inserted, it returns true. If an error occurs during the insertion process, it returns false.\n * If the user does not exist, it returns Optional.empty.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanPreferenzaDiRicerca[] ottieniPreferenzeDiRicerca(int)",
                 "comments": "Optional[/**\r\n * Method for extracting the set of Search Preferences given Tourist\r\n *\r\n * @param pIdTurista of tourists for whom you want to Extract search preferences\r\n * @return the search preferences associated with the Tourist information\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns an array of BeanPreferenzaDiRicerca objects based on the given user ID.\n * If no preferences are found for the user, an empty Optional object is returned.\n * \n * @param userID the ID of the user for whom preferences are to be retrieved\n * @return an array of BeanPreferenzaDiRicerca objects representing the user's preferences, \n *         or an empty Optional object if no preferences are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanPreferenzaDiRicerca cancellaPreferenzeDiRicerca(int, int)",
                 "comments": "Optional[/**\r\n * Method for deleting a Search Preference given its ID and Tourists\r\n *\r\n * @param pIdTurista of tourists for whom you want to Delete a Search Preferences\r\n * @param pIdPreferenzaDiRicerca Search Preferences to cancel\r\n * @return The preference of search Deleted\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes the preference of a specific search for a given user.\n * \n * @param userId the ID of the user whose preferences are being deleted\n * @param searchId the ID of the search preference to be deleted\n * @return an Optional containing the deleted preference if it existed, otherwise returns an empty Optional\n */"
             },
             {
                 "body": "Optional.empty",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanVisitaBC[] ottieniBeniCulturaliVisitati(int)",
                 "comments": "Optional[/**\r\n * Method to extract the list references to the Cultural Heritage Visited by a tourist\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return list of references to the Cultural Heritage Visited\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns an array of BeanVisitaBC objects representing the cultural assets visited by a user with the specified ID.\n * \n * @param userID the ID of the user whose visited cultural assets are to be retrieved\n * @return an array of BeanVisitaBC objects representing the cultural assets visited by the user with the specified ID, or an empty Optional if no assets are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanVisitaPR[] ottieniPuntiDiRistoroVisitati(int)",
                 "comments": "Optional[/**\r\n * Method for the extraction of the list when making reference to Refreshments Visited by a tourist\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return list of references to Refreshments Visited\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns an array of BeanVisitaPR objects representing the points of refreshment visited by a user.\n * The method takes an integer parameter representing the user's ID.\n * If the user has visited any points of refreshment, an array of BeanVisitaPR objects is returned.\n * If the user has not visited any points of refreshment, an empty Optional object is returned.\n * \n * @param userID the ID of the user for whom to retrieve the visited points of refreshment\n * @return an array of BeanVisitaPR objects representing the points of refreshment visited by the user, or an empty Optional if no points have been visited\n */"
             },
             {
                 "body": "Optional.empty",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciBeneCulturaleVisitato(BeanVisitaBC)",
                 "comments": "Optional[/**\r\n * Method for the insertion of a cultural Visited\r\n *\r\n * @param pVisitaBC package containing all information relating to Visit\r\n * @return true if the item is added successfully, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a cultural asset visited into the system.\n * \n * @param visitaBC the BeanVisitaBC object representing the cultural asset visit to be inserted\n * @return true if the cultural asset visit was successfully inserted, false otherwise\n */\nabstract boolean inserisciBeneCulturaleVisitato(BeanVisitaBC visitaBC) {\n    // Implementation details omitted\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPuntoDiRistoroVisitato(BeanVisitaPR)",
                 "comments": "Optional[/**\r\n * Method for inserting a refreshment Visited\r\n *\r\n * @param pVisitaPR package containing all information relating to Visit\r\n * @return true if the item is added successfully, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a visited point of interest into the list of visited points of interest during a visit.\n * \n * @param visitaPR the BeanVisitaPR object representing the visit to which the point of interest is being added\n * @return true if the point of interest was successfully added to the list of visited points of interest, false otherwise\n */\nabstract boolean inserisciPuntoDiRistoroVisitato(BeanVisitaPR visitaPR) {\n    // Implementation details omitted\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciBeneCulturalePreferito(int, int)",
                 "comments": "Optional[/**\r\n * Method for the insertion of a cultural object in the list of Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdBeneCulturale of Cultural Heritage\r\n * @return true if the insertion is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preferred cultural asset into the system for a specific user.\n * \n * @param userId the ID of the user for whom the cultural asset is being inserted\n * @param culturalAssetId the ID of the cultural asset to be inserted\n * @return true if the cultural asset was successfully inserted as preferred for the user, false otherwise\n * \n * This method inserts a preferred cultural asset into the system for a specific user. \n * It takes the user ID and the cultural asset ID as parameters and returns true if the insertion was successful. \n * If the insertion fails, it returns false. \n * If the user or cultural asset IDs are invalid, an empty Optional is returned.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPuntoDiRistoroPreferito(int, int)",
                 "comments": "Optional[/**\r\n * Method for inserting a refreshment to my Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdPuntoDiRistoro point identification Refreshment\r\n * @return true if the insertion is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preferred point of refreshment at the specified coordinates.\n * \n * @param x the x-coordinate of the point of refreshment\n * @param y the y-coordinate of the point of refreshment\n * @return true if the point of refreshment was successfully inserted, false otherwise\n */\nabstract boolean inserisciPuntoDiRistoroPreferito(int x, int y);"
             },
             {
                 "body": "Optional.empty",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaBeneCulturalePreferito(int, int)",
                 "comments": "Optional[/**\r\n * Method for the cancellation of a cultural object from the list of Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdBeneCulturale of Cultural Heritage\r\n * @return true if the cancellation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a preferred cultural asset.\n *\n * This method deletes a preferred cultural asset identified by the given parameters.\n *\n * @param id1 the first identifier of the cultural asset\n * @param id2 the second identifier of the cultural asset\n * @return true if the preferred cultural asset was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaPuntoDiRistoroPreferito(int, int)",
                 "comments": "Optional[/**\r\n * Method for deleting a refreshment from the list of Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @param pIdPuntoDiRistoro point identification Refreshment\r\n * @return true if the cancellation is successful, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a preferred point of refreshment for a given user.\n * \n * @param userId the unique identifier of the user whose preferred point of refreshment is to be cancelled\n * @param pointOfRefreshmentId the unique identifier of the preferred point of refreshment to be cancelled\n * @return true if the preferred point of refreshment was successfully cancelled, false otherwise\n */\nabstract boolean cancellaPuntoDiRistoroPreferito(int userId, int pointOfRefreshmentId) {\n    // Implementation details omitted\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanBeneCulturale[] ottieniBeniCulturaliPreferiti(int)",
                 "comments": "Optional[/**\r\n * Method to extract the list of Cultural Heritage Favorites\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return List of Cultural Heritage Favorites\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves an array of preferred cultural assets based on the specified user ID.\n * \n * @param userID the unique identifier of the user whose preferred cultural assets are to be retrieved\n * @return an array of preferred cultural assets associated with the user ID, or an empty Optional if no assets are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -143,11 +160,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanPuntoDiRistoro[] ottieniPuntiDiRistoroPreferiti(int)",
                 "comments": "Optional[/**\r\n * Method to extract the list of Refreshments\r\n *\r\n * @param pIdTurista Identifier Turista\r\n * @return list of eateries Favorites\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves an array of preferred dining points for a given user ID.\n *\n * @param userId the unique identifier of the user whose preferred dining points are to be retrieved\n * @return an array of preferred dining points for the specified user ID, or an empty Optional if no points are found\n */\nabstract BeanPuntoDiRistoro[] ottieniPuntiDiRistoroPreferiti(int userId) {\n    // Implementation details omitted\n    return Optional.empty();\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "IGestioneTuristaClient",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IGestioneTuristaClient interface provides methods for managing tourist-related data in the system.\n * It includes functionalities for inserting, modifying, and retrieving tourist information, preferences, and visited locations.\n * This interface serves as a contract for classes that implement it to ensure consistent behavior across different implementations.\n * \n * The main functionalities of this interface include:\n * - Inserting and managing tourist data such as preferences and visited locations\n * - Modifying tourist preferences and visited locations\n * - Retrieving tourist preferences, visited cultural assets, and dining points\n * - Managing preferred cultural assets and dining points for tourists\n * \n * The behavior of this interface is defined by the implemented methods, which interact with the system to perform the specified actions.\n * Each method has a specific purpose and input parameters to facilitate the management of tourist-related data.\n * \n * Implementing classes are expected to provide concrete implementations for each method to ensure proper functionality.\n * The methods are designed to handle exceptions and provide feedback on the success or failure of the operations.\n * \n * This interface serves as a central point for managing tourist data in the system and ensures consistency and reliability in handling tourist-related operations.\n */\n**/"
     }
 ]

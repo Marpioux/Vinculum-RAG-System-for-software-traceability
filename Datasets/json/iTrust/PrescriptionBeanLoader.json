@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PrescriptionBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of PrescriptionBeans from a ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded\n * @return a List of PrescriptionBean objects loaded from the ResultSet\n * \n * This method iterates through the ResultSet and creates a PrescriptionBean object for each row.\n * It then adds each PrescriptionBean to an ArrayList and returns the list of PrescriptionBeans.\n */"
             },
             {
                 "body": "Optional[{\r\n    PrescriptionBean pres = new PrescriptionBean();\r\n    pres.setId(rs.getLong(\"ID\"));\r\n    pres.setVisitID((long) rs.getInt(\"VisitID\"));\r\n    pres.setStartDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new java.util.Date(rs.getDate(\"StartDate\").getTime())));\r\n    pres.setEndDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new java.util.Date(rs.getDate(\"EndDate\").getTime())));\r\n    pres.setDosage(rs.getInt(\"Dosage\"));\r\n    pres.setInstructions(rs.getString(\"Instructions\"));\r\n    pres.setMedication(medLoader.loadSingle(rs));\r\n    return pres;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single PrescriptionBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the PrescriptionBean\n * @return the PrescriptionBean object loaded from the ResultSet\n */\npublic PrescriptionBean loadSingle(ResultSet rs) {\n    PrescriptionBean pres = new PrescriptionBean();\n    pres.setId(rs.getLong(\"ID\"));\n    pres.setVisitID((long) rs.getInt(\"VisitID\"));\n    pres.setStartDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new java.util.Date(rs.getDate(\"StartDate\").getTime())));\n    pres.setEndDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new java.util.Date(rs.getDate(\"EndDate\").getTime())));\n    pres.setDosage(rs.getInt(\"Dosage\"));\n    pres.setInstructions(rs.getString(\"Instructions\"));\n    pres.setMedication(medLoader.loadSingle(rs));\n    return pres;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ps.setLong(1, pres.getVisitID());\r\n    ps.setString(2, pres.getMedication().getNDCode());\r\n    ps.setDate(3, new java.sql.Date(pres.getStartDate().getTime()));\r\n    ps.setDate(4, new java.sql.Date(pres.getEndDate().getTime()));\r\n    ps.setInt(5, pres.getDosage());\r\n    ps.setString(6, pres.getInstructions());\r\n    return ps;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, PrescriptionBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of a PrescriptionBean object into a PreparedStatement for database insertion.\n * \n * @param ps the PreparedStatement object to load the parameters into\n * @param pres the PrescriptionBean object containing the parameters to be loaded\n * @return the PreparedStatement object with the parameters loaded\n * \n * @throws SQLException if a database access error occurs\n */\npublic PreparedStatement loadParameters(PreparedStatement ps, PrescriptionBean pres) {\n    ps.setLong(1, pres.getVisitID());\n    ps.setString(2, pres.getMedication().getNDCode());\n    ps.setDate(3, new java.sql.Date(pres.getStartDate().getTime()));\n    ps.setDate(4, new java.sql.Date(pres.getEndDate().getTime()));\n    ps.setInt(5, pres.getDosage());\n    ps.setString(6, pres.getInstructions());\n    return ps;\n}\n*/"
             }
         ],
         "constructors": [
@@ -33,12 +36,14 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionBeanLoader()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor creates a new instance of PrescriptionBeanLoader.\n * It initializes the medLoader variable by instantiating a new MedicationBeanLoader object.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "signature": "PrescriptionBeanLoader",
         "variables": [
             "private MedicationBeanLoader medLoader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PrescriptionLoader class is responsible for loading PrescriptionBean objects from a ResultSet.\n * It provides methods to load a single PrescriptionBean object or a list of PrescriptionBean objects.\n * \n * This class contains two main methods:\n * - loadSingle(ResultSet rs): This method loads a single PrescriptionBean object from the given ResultSet.\n *   It sets the ID, VisitID, StartDate, EndDate, Dosage, Instructions, and Medication fields of the PrescriptionBean.\n * \n * - loadList(ResultSet rs): This method loads a list of PrescriptionBean objects from a ResultSet.\n *   It iterates through the ResultSet and creates a PrescriptionBean object for each row.\n *   It then adds each PrescriptionBean to an ArrayList and returns the list of PrescriptionBeans.\n * \n * The PrescriptionLoader class works in conjunction with the MedicationLoader class to load Medication objects for each PrescriptionBean.\n * \n * This class follows the DAO (Data Access Object) design pattern to separate the data access logic from the business logic.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The PrescriptionBeanLoader class is responsible for loading PrescriptionBean objects from a database and \n * converting them into PreparedStatement objects for database insertion. It contains methods to load PrescriptionBean \n * objects from ResultSet objects, as well as to load the parameters of a PrescriptionBean object into a \n * PreparedStatement for database insertion.\n * \n * This class utilizes a MedicationBeanLoader object to load MedicationBean objects associated with PrescriptionBean \n * objects. It provides functionalities to set and retrieve various attributes of PrescriptionBean objects, such as \n * visit ID, medication details, start and end dates, dosage, and instructions.\n * \n * The PrescriptionBeanLoader class ensures proper handling of database access errors by throwing SQLExceptions \n * when necessary. It is designed to facilitate the interaction between PrescriptionBean objects and the database, \n * allowing for seamless data retrieval and storage operations.\n */\npublic class PrescriptionBeanLoader {\n    private MedicationBeanLoader medLoader;\n\n    /**\n     * Constructs a new PrescriptionBeanLoader object and initializes a MedicationBeanLoader object for loading \n     * associated MedicationBean objects.\n     */\n    public PrescriptionBeanLoader() {\n        medLoader = new MedicationBeanLoader();\n    }\n\n    // Other methods and functionalities of the class can be added here\n}\n*/\n/**\n * The PrescriptionBeanLoader class is responsible for loading PrescriptionBean objects.\n * It contains a private instance of MedicationBeanLoader to assist in loading medication information.\n * \n * This class provides functionality to load PrescriptionBean objects from a data source.\n * It initializes the medLoader variable by creating a new instance of MedicationBeanLoader.\n * \n * The main purpose of this class is to facilitate the loading of PrescriptionBean objects and their associated medication information.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

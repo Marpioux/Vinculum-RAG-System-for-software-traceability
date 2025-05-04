@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getReporterMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the reporter associated with this object.\n * \n * @return the unique identifier of the reporter\n */"
             },
             {
                 "body": "Optional[{\r\n    this.reporterMID = reporterMID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setReporterMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the reporter's member ID.\n * \n * @param reporterMID the new member ID of the reporter\n * @return void\n * \n * This method sets the member ID of the reporter to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientMID;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatientMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the patient.\n * \n * @return the unique identifier of the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientMID = patientMID;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLoggedInMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the logged in patient's medical record number (MID).\n * \n * @param patientMID the medical record number (MID) of the logged in patient\n * @return void\n * \n * This method sets the medical record number (MID) of the logged in patient to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return time;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Timestamp getTime()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the timestamp representing the time value of this object.\n * \n * @return the timestamp representing the time value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.time = time;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTime(Timestamp)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the time for this object to the specified Timestamp.\n * \n * @param time the Timestamp to set as the time for this object\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return systolicBloodPressure;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getSystolicBloodPressure()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the systolic blood pressure measurement.\n * \n * @return The systolic blood pressure measurement as an integer value.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.systolicBloodPressure = systolicBloodPressure;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSystolicBloodPressure(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the systolic blood pressure of the patient to the specified value.\n * \n * @param systolicBloodPressure the new systolic blood pressure value to set\n * \n * This method updates the systolic blood pressure of the patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return diastolicBloodPressure;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getDiastolicBloodPressure()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the diastolic blood pressure reading.\n * \n * @return the diastolic blood pressure reading as an integer value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.diastolicBloodPressure = diastolicBloodPressure;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDiastolicBloodPressure(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the diastolic blood pressure of the patient.\n * \n * @param diastolicBloodPressure the diastolic blood pressure value to set\n * \n * This method sets the diastolic blood pressure of the patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return glucoseLevel;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getGlucoseLevel()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current glucose level.\n * \n * @return the current glucose level as an integer\n */"
             },
             {
                 "body": "Optional[{\r\n    this.glucoseLevel = glucoseLevel;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setGlucoseLevel(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the glucose level of the object.\n * \n * @param glucoseLevel the new glucose level to be set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return reporterRole;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getReporterRole()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the role of the reporter.\n * \n * @return the role of the reporter as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.reporterRole = reporterRole;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setReporterRole(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the role of the reporter.\n * \n * @param reporterRole the role of the reporter to be set\n * \n * This method sets the role of the reporter to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -121,7 +135,8 @@
                 "hasInnerComment": false,
                 "signature": "public RemoteMonitoringDataBean()",
                 "comments": "Optional[/**\r\n * Constructor with no parameters\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new RemoteMonitoringDataBean object with default values.\n */"
             },
             {
                 "body": "{\r\n    this.patientMID = patientMID;\r\n}",
@@ -129,7 +144,8 @@
                 "hasInnerComment": false,
                 "signature": "public RemoteMonitoringDataBean(long)",
                 "comments": "Optional[/**\r\n * Constructor with loggedInMID parameter\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new RemoteMonitoringDataBean with the given patientMID.\n * \n * @param patientMID the unique identifier of the patient associated with the remote monitoring data\n * \n * This constructor initializes the patientMID field of the RemoteMonitoringDataBean with the provided patientMID.\n */\npublic RemoteMonitoringDataBean(long patientMID) {\n    this.patientMID = patientMID;\n}"
             }
         ],
         "signature": "RemoteMonitoringDataBean",
@@ -141,6 +157,7 @@
             "private int glucoseLevel",
             "private String reporterRole",
             "private long reporterMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Report class represents a report object that contains information about a specific medical report.\n * This class includes methods to retrieve and set the unique identifier of the reporter, the unique identifier of the patient,\n * the timestamp of the report, and other relevant information.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the unique identifier of the reporter associated with the report\n * - Retrieving and setting the unique identifier of the patient related to the report\n * - Retrieving the timestamp representing the time value of the report\n * \n * This class provides methods to access and modify the data stored in a report object, allowing for easy management\n * and manipulation of report information. It is designed to facilitate the handling of medical reports within a healthcare system.\n */\n/**\n * This class represents a patient's blood pressure measurement, including systolic and diastolic readings.\n * It provides methods to set and retrieve the systolic and diastolic blood pressure values.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the systolic and diastolic blood pressure measurements of a patient\n * - Setting the time of the blood pressure measurement\n * \n * Overall behavior:\n * - This class allows for the storage and retrieval of blood pressure measurements for a patient.\n * - It provides methods to set and get the systolic and diastolic blood pressure values.\n * - The class also includes a method to set the time of the blood pressure measurement.\n * \n * @author [Your Name]\n * @version 1.0\n */\n **/\n\", \"hasComment\": true, \"hasInnerComment\": false, \"signature\": \"public RemoteMonitoringDataBean()\", \"comments\": \"Optional[/**\\r\\n * Constructor with no parameters\\r\\n */\\r\\n]\", \"innerComments\": null, \"generated_comment\": \"/**\\n * Constructs a new RemoteMonitoringDataBean object with default values.\\n */\" } ], \"packageName\": \"com.example\", \"className\": \"RemoteMonitoringDataBean\", \"imports\": [ \"java.util.Date\" ]}\n/**\n * The RemoteMonitoringDataBean class represents data collected from remote monitoring devices for a specific patient.\n * It stores information such as patient's unique identifier, timestamp of the data, blood pressure readings (systolic and diastolic),\n * glucose level, reporter's role, and reporter's unique identifier.\n * \n * This class provides a constructor to initialize the patientMID field with the given patient's unique identifier.\n * It also includes getter and setter methods for all the fields to access and modify the data stored in the object.\n * \n * The main functionalities of this class include storing and retrieving remote monitoring data for a patient,\n * as well as providing access to the information for further processing or analysis.\n * \n * Overall, the RemoteMonitoringDataBean class serves as a container for remote monitoring data related to a specific patient,\n * allowing for easy management and manipulation of the collected information.\n */\npublic class RemoteMonitoringDataBean {\n    private long patientMID;\n    private Timestamp time;\n    private int systolicBloodPressure;\n    private int diastolicBloodPressure;\n    private int glucoseLevel;\n    private String reporterRole;\n    private long reporterMID;\n    \n    /**\n     * Constructs a new RemoteMonitoringDataBean with the given patientMID.\n     * \n     * @param patientMID the unique identifier of the patient associated with the remote monitoring data\n     * \n     * This constructor initializes the patientMID field of the RemoteMonitoringDataBean with the provided patientMID.\n     */\n    public RemoteMonitoringDataBean(long patientMID) {\n        this.patientMID = patientMID;\n    }\n    \n    // Getter and setter methods for all the fields\n}\n*/"
     }
 ]

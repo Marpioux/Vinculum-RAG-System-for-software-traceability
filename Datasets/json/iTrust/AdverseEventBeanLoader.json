@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<AdverseEventBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of AdverseEventBean objects from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to load\n * @return a List of AdverseEventBean objects loaded from the ResultSet\n * \n * This method iterates over the ResultSet and calls loadSingle method to load each row as an AdverseEventBean object.\n * It then adds each loaded object to an ArrayList and returns the list of loaded AdverseEventBean objects.\n */"
             },
             {
                 "body": "Optional[{\r\n    AdverseEventBean adverseEvent = new AdverseEventBean();\r\n    adverseEvent.setMID(rs.getString(\"PatientMID\"));\r\n    adverseEvent.setDrug(rs.getString(\"PresImmu\"));\r\n    adverseEvent.setDescription(rs.getString(\"Comment\"));\r\n    adverseEvent.setCode(rs.getString(\"Code\"));\r\n    adverseEvent.setDate(rs.getTimestamp(\"TimeLogged\").toString());\r\n    adverseEvent.setId(rs.getInt(\"id\"));\r\n    adverseEvent.setStatus(rs.getString(\"Status\"));\r\n    return adverseEvent;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public AdverseEventBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single AdverseEventBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the AdverseEventBean\n * @return the AdverseEventBean object loaded from the ResultSet\n */\npublic AdverseEventBean loadSingle(ResultSet rs) {\n    AdverseEventBean adverseEvent = new AdverseEventBean();\n    adverseEvent.setMID(rs.getString(\"PatientMID\"));\n    adverseEvent.setDrug(rs.getString(\"PresImmu\"));\n    adverseEvent.setDescription(rs.getString(\"Comment\"));\n    adverseEvent.setCode(rs.getString(\"Code\"));\n    adverseEvent.setDate(rs.getTimestamp(\"TimeLogged\").toString());\n    adverseEvent.setId(rs.getInt(\"id\"));\n    adverseEvent.setStatus(rs.getString(\"Status\"));\n    return adverseEvent;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, AdverseEventBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters from the given AdverseEventBean into the provided PreparedStatement.\n * \n * @param statement the PreparedStatement to load parameters into\n * @param event the AdverseEventBean containing the parameters to be loaded\n * @return the PreparedStatement with loaded parameters\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n */\npublic PreparedStatement loadParameters(PreparedStatement statement, AdverseEventBean event) {\n    throw new IllegalStateException(\"unimplemented!\");\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "AdverseEventBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The AdverseEventBeanLoader class is responsible for loading AdverseEventBean objects from a ResultSet,\n * as well as loading parameters from an AdverseEventBean into a PreparedStatement.\n * \n * This class provides methods to load a single AdverseEventBean object from a ResultSet,\n * load a list of AdverseEventBean objects from a ResultSet, and load parameters from an AdverseEventBean\n * into a PreparedStatement.\n * \n * The loadSingle method loads a single AdverseEventBean object from the given ResultSet by mapping the\n * data fields to the corresponding properties of the AdverseEventBean object.\n * \n * The loadList method loads a list of AdverseEventBean objects from the given ResultSet by iterating over\n * the ResultSet and calling the loadSingle method for each row, then adding the loaded objects to an ArrayList.\n * \n * The loadParameters method is currently unimplemented and throws an IllegalStateException if called.\n * \n * This class encapsulates the functionality for loading AdverseEventBean objects and their parameters,\n * providing a convenient way to interact with ResultSet and PreparedStatement objects.\n */"
     }
 ]

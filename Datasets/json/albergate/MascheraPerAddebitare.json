@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels(String)",
                 "comments": "Optional[// Creazione della finestra\r\n]",
-                "innerComments": "Optional[[// creo l'elenco degli addebiti alla stanza e degli extra\r\n, // creo i textfield\r\n, // creo i pulsanti\r\n, // creo le label\r\n, // creo il primo pannello vuoto\r\n, // creo pannello di informazione degli addebiti\r\n, // creo pannello per addebita\r\n, // creo pannello vuoto per num_stanza o coperti\r\n, // creo pannello per aggiungi\r\n, // creo pannello per annulla\r\n, // creo pannello per conferma\r\n, // costruisco la finestra definitiva attaccando i pannelli\r\n]]"
+                "innerComments": "Optional[[// creo l'elenco degli addebiti alla stanza e degli extra\r\n, // creo i textfield\r\n, // creo i pulsanti\r\n, // creo le label\r\n, // creo il primo pannello vuoto\r\n, // creo pannello di informazione degli addebiti\r\n, // creo pannello per addebita\r\n, // creo pannello vuoto per num_stanza o coperti\r\n, // creo pannello per aggiungi\r\n, // creo pannello per annulla\r\n, // creo pannello per conferma\r\n, // costruisco la finestra definitiva attaccando i pannelli\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for displaying and managing room charges and extras.\n * \n * @param fontName the name of the font to be used for the panels\n */\nvoid setupPanels(String fontName) {\n    // Set the font for the panels\n    this.setFont(ConfigurazioneSistema.font_base);\n    \n    // Create and configure the components for displaying room charges and extras\n    // Create lists for displaying charges and extras\n    addebiti = new List(10, false);\n    addebiti.setFont(ConfigurazioneSistema.font_allineato);\n    extra = new List(10, false);\n    extra.setFont(ConfigurazioneSistema.font_allineato);\n    \n    // Create text fields for displaying additional information\n    extra_add = new TextField(\"\", 40);\n    totale = new TextField(\"\", 20);\n    extra_add.setEditable(false);\n    totale.setEditable(false);\n    \n    // Create buttons for performing actions\n    addebita = new Button(\"Addebita\");\n    deaddebita = new Button(\"Togli dall'addebito\");\n    aggiungi = new Button(\"Aggiungi nuovo bene/servizio\");\n    annulla = new Button(\"Annulla\");\n    conferma = new Button(bottone_conf);\n    \n    // Create labels for displaying information\n    etich4 = new Label(\"Informazioni sugli addebiti\");\n    etich4.setFont(ConfigurazioneSistema.font_titolo);\n    etich5 = new Label(\"Ultimo addebito effettuato\");\n    etich6 = new Label(\"Lista degli addebiti\");\n    etich7 = new Label(\"Totale dell'addebito\");\n    \n    // Create panels for organizing the components\n    panel1 = new Panel();\n    panel2 = new Panel();\n    panel3 = new Panel();\n    panel4 = new Panel();\n    panel5 = new Panel();\n    panel6 = new Panel();\n    panel7 = new Panel();\n    \n    // Configure the layout of the panels\n    // Add components to panel2\n    panel2.setLayout(gridbag);\n    Utils.constrain(panel2, etich4, 0, 0, 3, 1);\n    Utils.constrain(panel2, etich5, 0, 2, 3, 1, 10, 0, 0, 0);\n    Utils.constrain(panel2, extra_add, 0, 3, 1, 1, 0, 20, 0, 0);\n    Utils.constrain(panel2, etich6, 0, 5, 3, 1, 10, 0, 0, 0);\n    Utils.constrain(panel2, addebiti, 0, 6, 2, 4, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 20, 0, 20);\n    Utils.constrain(panel2, etich7, 0, 12, 3, 1, 10, 0, 0, 0);\n    Utils.constrain(panel2, totale, 0, 13, 1, 1, 0, 20, 0, 0);\n    \n    // Add components to panel3\n    panel3.setLayout(gridbag);\n    Utils.constrain(panel3, addebita, 0, 0, 1, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1.0, 0.0, 0, 0, 0, 5);\n    Utils.constrain(panel3, deaddebita, 1, 0, 1, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.CENTER, 1.0, 0.0, 0, 5, 0, 0);\n    \n    // Add components to panel5\n    panel5.setLayout(gridbag);\n    Utils.constrain(panel5, aggiungi, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 5, 5, 5, 5);\n    \n    // Add components to panel6\n    panel6.setLayout(gridbag);\n    Utils.constrain(panel6, annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 0, 0, 0, 0);\n    \n    // Add components to panel7\n    panel7.setLayout(gridbag);\n    Utils.constrain(panel7, conferma, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 0.0, 0, 0, 0, 0);\n    \n    // Set up the final layout by attaching the panels\n    this.setLayout(gridbag);\n    Utils.constrain(this, panel1, 0, 0, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\n    Utils.constrain(this, panel2, 1, 0, 1, 4, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\n    Utils.constrain(this, panel3, 0, 1, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.0, 0.0, 5, 0, 5, 0);\n    Utils.constrain(this, panel4, 0, 2, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 0, 5, 0);\n    Utils.constrain(this, panel5, 0, 3, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\n    Utils.constrain(this, panel6, 0, 4, 1, 1, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 0.0, 0.0, 5, 0, 5, 0);\n    Utils.constrain(this, panel7, 1, 4, 2, 1, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 0.0, 0.0, 5, 0, 5, 0);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    aggiungi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAggiungi();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": "Optional[// Per la gestione degli eventi della finestra\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the components and event listeners for the current frame.\n * This method sets up the action listeners for the \"annulla\" and \"aggiungi\" buttons.\n * When the \"annulla\" button is clicked, the current frame is disposed and the parent frame is enabled.\n * When the \"aggiungi\" button is clicked, the method startAggiungi() is called.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It is typically used as an ActionListener for buttons or menu items to close a window and return focus to the parent window.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startAggiungi();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the aggiungi process.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    nuovo = new AggiungiBeneServizio(this);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAggiungi()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes a new instance of AggiungiBeneServizio and assigns it to the 'nuovo' variable.\n * \n * This method does not take any parameters.\n * \n * The behavior of this method is to create a new AggiungiBeneServizio object using the current instance as a parameter.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraPerAddebitare(String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraPerAddebitare object with the specified title and button label.\n * \n * @param titolo the title of the window\n * @param bottone_conf the label for the confirmation button\n * \n * This constructor initializes the MascheraPerAddebitare object by calling the superclass constructor with the specified title,\n * setting up panels with the confirmation button, initializing the object, and packing the components.\n */"
             }
         ],
         "signature": "MascheraPerAddebitare",
@@ -82,6 +88,7 @@
             " AggiungiBeneServizio nuovo",
             " boolean addebito",
             " int quantita_mod"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraPerAddebitare class represents a window for managing room charges and extras.\n * This class provides functionalities for displaying and managing room charges, extras, and related information.\n * It includes components such as lists, text fields, buttons, and labels for interacting with the user.\n * The main functionalities of this class include setting up panels for displaying room charges and extras, initializing components and event listeners,\n * disposing of the window, enabling the parent window, starting the aggiungi process, and constructing the window with a specified title and button label.\n * \n * The behavior of this class involves setting up the panels with the specified font, creating and configuring components for displaying charges and extras,\n * adding action listeners for buttons, disposing of the window and enabling the parent window when necessary, and initializing a new instance of AggiungiBeneServizio.\n * \n * This class encapsulates the functionality related to managing room charges and extras in a graphical user interface.\n * It provides a user-friendly interface for interacting with room charges, extras, and related information.\n */\n **/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "private void processOfficeVisits()",
                 "comments": "Optional[/**\r\n * Adds all the office visits for the logged in HCP to a list.\r\n *\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method processes all office visits for the logged-in healthcare provider (LHCP).\n * It retrieves a list of all office visits for the LHCP from the database, iterates through each visit,\n * creates a PatientVisitBean object for each visit, sets the patient information and visit date,\n * checks if the patient is already in the list of visits, and adds the visit to the list if not.\n * \n * @throws iTrustException if a database error occurs\n */"
             },
             {
                 "body": "Optional[{\r\n    Iterator<PatientVisitBean> it = visits.iterator();\r\n    PatientVisitBean visitBean;\r\n    while (it.hasNext()) {\r\n        visitBean = it.next();\r\n        if (visitBean.getPatientName().equals(pb.getFullName())) {\r\n            if (visitBean.getLastOVDateY().compareTo(date) < 0) {\r\n                visitBean.setLastOVDate(date);\r\n            }\r\n            return true;\r\n        }\r\n    }\r\n    return false;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "private boolean PatientInList(PatientBean, String)",
                 "comments": "Optional[/**\r\n * Checks to see if a patient is in the list of  visits\r\n * @param pb patient to check\r\n * @param date date of the visit\r\n * @return True if the patient is in the list of visits.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a patient is in the list of patient visits and updates the last visit date if necessary.\n * \n * @param pb the PatientBean object representing the patient to check\n * @param date the String representing the date of the visit\n * @return true if the patient is in the list and the last visit date is updated, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        processOfficeVisits();\r\n    } catch (iTrustException ie) {\r\n    }\r\n    //log transaction\r\n    transDAO.logTransaction(TransactionType.VIEW_PATIENT_LIST, loggedInMID);\r\n    return visits;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "public List<PatientVisitBean> getPatients()",
                 "comments": "Optional[/**\r\n * Get the list of patients an HCP has had office visits with\r\n *\r\n * @return the list of patients an HCP has had office visits with\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": "Optional[[//log transaction\r\n]]"
+                "innerComments": "Optional[[//log transaction\r\n]]",
+                "generated_comment": "/**\n * Retrieves a list of patient visits for the logged in user.\n * This method processes office visits and logs the transaction of viewing the patient list.\n * \n * @return A list of PatientVisitBean objects representing the patient visits\n */"
             },
             {
                 "body": "Optional[{\r\n    return personnelDAO.getPersonnel(loggedInMID);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public PersonnelBean getPersonnel()",
                 "comments": "Optional[/**\r\n * Returns a PersonnelBean for the logged in HCP\r\n * @return PersonnelBean for the logged in HCP\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the personnel information for the currently logged in user.\n * \n * @return the PersonnelBean object containing the personnel information for the logged in user\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewPatientOfficeVisitHistoryAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the office visits.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewPatientOfficeVisitHistoryAction with the specified DAOFactory and loggedInMID.\n * This constructor initializes the loggedInMID, personnelDAO, transDAO, officevisitDAO, patientDAO, and visits.\n * \n * @param factory the DAOFactory used to retrieve data access objects\n * @param loggedInMID the MID of the logged in user\n */"
             }
         ],
         "signature": "ViewPatientOfficeVisitHistoryAction",
@@ -52,6 +57,7 @@
             "private PersonnelDAO personnelDAO",
             "private OfficeVisitDAO officevisitDAO",
             "private ArrayList<PatientVisitBean> visits"
-        ]
+        ],
+        "generated_class_comment": "}]\", \"hasComment\": false, \"hasInnerComment\": false, \"signature\": \"public class OfficeVisitProcessor\", \"comments\": null, \"innerComments\": null, \"generated_comment\": \"/**\\n * This class is responsible for processing office visits for a logged-in healthcare provider (LHCP).\\n * It contains methods to retrieve all office visits for the LHCP, create PatientVisitBean objects for each visit,\\n * and add visits to a list if the patient is not already in the list.\\n */\" } ], \"classSignature\": \"public class OfficeVisitProcessor\" }\n\", \"hasComment\": false, \"hasInnerComment\": false, \"signature\": \"public class PatientVisitDAO\", \"comments\": null, \"innerComments\": null, \"generated_comment\": \"/**\\n * This class represents a Data Access Object (DAO) for managing patient visits.\\n * It provides methods for checking if a patient is in the list of visits and updating the last visit date if necessary.\\n * Additionally, it allows for retrieving a list of patient visits for a healthcare provider.\\n */\" }]\n/**\n * The ViewPatientOfficeVisitHistoryAction class represents an action that allows a user to view the office visit history of a patient.\n * This class provides functionality for retrieving and displaying patient office visit information.\n * \n * The class contains instance variables for storing the logged in user's MID, patient DAO, transaction DAO, personnel DAO, office visit DAO, and a list of patient visit beans.\n * \n * The main functionalities of this class include:\n * - Retrieving and displaying the office visit history of a patient\n * - Initializing the necessary data access objects for retrieving patient and office visit information\n * \n * The ViewPatientOfficeVisitHistoryAction class has a constructor that takes a DAOFactory and a logged in MID as parameters to set up the necessary defaults for the action.\n * \n * This class also provides a method getPersonnel() that returns the personnel information for the currently logged in user.\n * \n * Overall, the ViewPatientOfficeVisitHistoryAction class serves as a controller for viewing and managing patient office visit history, providing essential functionality for healthcare professionals to access and review patient visit data.\n */\n**/"
     }
 ]

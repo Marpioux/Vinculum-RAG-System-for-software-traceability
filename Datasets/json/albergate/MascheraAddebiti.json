@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void inizExtra()",
                 "comments": "Optional[// Travaso dati degli extra nelle strutture dati apposite\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the extra items in the GUI by populating the extra dropdown menu with items from the database.\n * \n * This method retrieves a list of extra items from the database and adds them to the extra dropdown menu in the GUI.\n * If the extra dropdown menu already contains items, they are removed before adding the new items.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    num_stanza = new TextField(\"\", 4);\r\n    num_stanza.setEditable(true);\r\n    // creo le label\r\n    etich1 = new Label(\"Gestione degli addebiti              \");\r\n    etich1.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich2 = new Label(\"Scegliere l'extra da addebitare \");\r\n    etich3 = new Label(\"Addebitare alla stanza numero \");\r\n    // creo pannello di sinistra\r\n    this.remove(panel1);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etich1, 0, 0, 6, 1);\r\n    Utils.constrain(panel1, etich2, 0, 1, 6, 1, 10, 0, 0, 0);\r\n    Utils.constrain(panel1, extra, 0, 2, 6, 4, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 20, 0, 20);\r\n    this.remove(panel4);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, etich3, 0, 0, 1, 1, 5, 5, 5, 5);\r\n    Utils.constrain(panel4, num_stanza, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // aggiungo i pannelli appena creati al resto\r\n    Utils.constrain(this, panel1, 0, 0, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 2, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanello()",
                 "comments": "Optional[// Creazione della finestra\r\n]",
-                "innerComments": "Optional[[// creo le label\r\n, // creo pannello di sinistra\r\n, // aggiungo i pannelli appena creati al resto\r\n]]"
+                "innerComments": "Optional[[// creo le label\r\n, // creo pannello di sinistra\r\n, // aggiungo i pannelli appena creati al resto\r\n]]",
+                "generated_comment": "/**\n * Sets up the panel for managing charges.\n * This method creates and configures the necessary components for managing charges, such as labels and text fields.\n * It removes the existing panels, creates new panels, and adds them to the main panel.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            scriviSuDB(num_stanza.getText());\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    addebita.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                addebito = true;\r\n                aggiornaAddebiti();\r\n            }\r\n        }\r\n    });\r\n    deaddebita.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                addebito = false;\r\n                aggiornaAddebiti();\r\n            }\r\n        }\r\n    });\r\n    num_stanza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                addebito = true;\r\n                aggiornaAddebiti();\r\n            }\r\n        }\r\n    });\r\n    extra.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                addebito = true;\r\n                aggiornaAddebiti();\r\n            }\r\n        }\r\n    });\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " void inizializza()",
                 "comments": "Optional[// Per la gestione degli eventi della finestra\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components for managing room charges.\n * This method sets up action listeners for the confirm, charge, and debit buttons, as well as for entering room number and extra charges.\n * When the confirm button is clicked, it writes the room number to the database, closes the window, and enables the parent window.\n * When the charge button is clicked, it checks for errors and updates the charges if no errors are found.\n * When the debit button is clicked, it checks for errors and updates the charges if no errors are found.\n * When entering the room number or extra charges, it checks for errors and updates the charges if no errors are found.\n */"
             },
             {
                 "body": "Optional[{\r\n    scriviSuDB(num_stanza.getText());\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It writes the content of the 'num_stanza' text field to the database using the 'scriviSuDB' method. \n * It then disposes of the current window and enables the parent window. \n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        addebito = true;\r\n        aggiornaAddebiti();\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there is an error present, \n * and if not, sets the 'addebito' variable to true and updates the addebiti. \n * \n * @param e the ActionEvent that triggered this method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        addebito = false;\r\n        aggiornaAddebiti();\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there is an error present, and if not, sets the 'addebito' variable to false and updates the addebiti. \n * \n * @param e the ActionEvent that triggered the method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        addebito = true;\r\n        aggiornaAddebiti();\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there is an error present, \n * and if not, sets the 'addebito' variable to true and updates the addebiti. \n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        addebito = true;\r\n        aggiornaAddebiti();\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there is an error present, and if not, sets the 'addebito' flag to true and updates the addebiti. \n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((num_stanza.getText()).equals(\"\") && (extra.getSelectedIndex() == -1)) {\r\n        MessageDialog p = new MessageDialog(this, \"Manca stanza e selezione!\");\r\n        return true;\r\n    } else if ((num_stanza.getText()).equals(\"\")) {\r\n        MessageDialog p = new MessageDialog(this, \"Manca stanza!\");\r\n        return true;\r\n    } else if (extra.getSelectedIndex() == -1) {\r\n        MessageDialog p = new MessageDialog(this, \"Manca selezione!\");\r\n        return true;\r\n    } else if ((num_stanza.getText()).length() > 4) {\r\n        MessageDialog p = new MessageDialog(this, \"Errore nel numero di stanza!\");\r\n        return true;\r\n    } else\r\n        return false;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean errore()",
                 "comments": "Optional[// mancanza dei dati necessari per l'addebito: num_stanza e extra.\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for errors in the input fields for room number and selection.\n * \n * @return true if there is an error in the input fields, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    stanza_prec = new String(num_stanza.getText());\r\n    aggiornaAvideo();\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void annullaAddebitiStanzaPrec()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method cancels any pending charges for the previous room.\n * It updates the value of the variable stanza_prec with the room number entered by the user.\n * It then calls the method aggiornaAvideo() to update the display.\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!(stanza_prec.equals(num_stanza.getText())))\r\n        AltraStanza();\r\n    else\r\n        aggiornaAvideo();\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void aggiornaAddebiti()",
                 "comments": "Optional[// aggiornate sugli addebiti.\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the charges for the current room. \n * Compares the previous room number with the current room number entered by the user. \n * If they are different, calls the method AltraStanza() to switch to a different room. \n * If they are the same, calls the method aggiornaAvideo() to update the charges for the current room.\n */"
             },
             {
                 "body": "Optional[{\r\n    boolean modifiche = false;\r\n    for (int i = 0; i < quantita_mod.length; i++) modifiche = modifiche || (quantita_mod[i] != 0);\r\n    return modifiche;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean thereIsModifiche()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if there are any modifications in the quantita_mod array.\n * \n * @return true if there are modifications, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    FinModifiche p;\r\n    if ((Principale.db).readStanza(num_stanza.getText()) != null) {\r\n        ListaSoggiornanti L;\r\n        if ((L = (Principale.db).foundSoggiornanti(num_stanza.getText(), false)) != null) {\r\n            if (!L.isEmpty()) {\r\n                if (!stanza_prec.equals(\"\") && thereIsModifiche()) {\r\n                    p = new FinModifiche(this, \"Attenzione: cambio di stanza!\");\r\n                } else {\r\n                    riscriviElencoAddebiti();\r\n                    annullaAddebitiStanzaPrec();\r\n                }\r\n            } else {\r\n                msg = new AvvisoDialog(this, \"Nessun soggiornante occupa la stanza!\");\r\n                num_stanza.setText(stanza_prec);\r\n            }\r\n        } else {\r\n            msg = new MessageDialog(this, \"Problemi con il database: errore.\");\r\n        }\r\n    } else {\r\n        msg = new MessageDialog(this, \"Stanza inesistente!\");\r\n        num_stanza.setText(stanza_prec);\r\n    }\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": " void AltraStanza()",
                 "comments": "Optional[// confermati o meno.\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks if a room exists in the database and if there are any occupants in the room. \n * If the room exists and has occupants, it prompts the user to confirm any changes made to the room. \n * If the room exists but has no occupants, it displays a message indicating that the room is empty. \n * If there are any issues with the database, it displays an error message. \n * If the room does not exist, it displays a message indicating that the room is nonexistent. \n * \n * @param num_stanza the room number to be checked\n * @param stanza_prec the previous room number\n */\nvoid AltraStanza() {\n    Frame msg;\n    FinModifiche p;\n    if ((Principale.db).readStanza(num_stanza.getText()) != null) {\n        ListaSoggiornanti L;\n        if ((L = (Principale.db).foundSoggiornanti(num_stanza.getText(), false)) != null) {\n            if (!L.isEmpty()) {\n                if (!stanza_prec.equals(\"\") && thereIsModifiche()) {\n                    p = new FinModifiche(this, \"Attenzione: cambio di stanza!\");\n                } else {\n                    riscriviElencoAddebiti();\n                    annullaAddebitiStanzaPrec();\n                }\n            } else {\n                msg = new AvvisoDialog(this, \"Nessun soggiornante occupa la stanza!\");\n                num_stanza.setText(stanza_prec);\n            }\n        } else {\n            msg = new MessageDialog(this, \"Problemi con il database: errore.\");\n        }\n    } else {\n        msg = new MessageDialog(this, \"Stanza inesistente!\");\n        num_stanza.setText(stanza_prec);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    MessageDialog msg;\r\n    elenco_addebiti = (Principale.db).foundAddebiti(num_stanza.getText());\r\n    elenco_extra_addebitati = new ListaBeniServizi();\r\n    if (elenco_addebiti != null) {\r\n        // inizializzo l'array delle modifiche e degli extra addebitati\r\n        quantita_mod = new int[elenco_addebiti.length()];\r\n        BeneServizio extra;\r\n        for (int i = 0; i < quantita_mod.length; i++) {\r\n            quantita_mod[i] = 0;\r\n            extra = (Principale.db).readBeneServizio((elenco_addebiti.getAddebito(i + 1)).getCodExtra());\r\n            if (extra == null) {\r\n                msg = new MessageDialog(this, \"Uno degli extra addebitati non e' stato trovato!\");\r\n                extra = new BeneServizio((elenco_addebiti.getAddebito(i + 1)).getCodExtra(), \"Sconosciuto\", 0);\r\n            }\r\n            elenco_extra_addebitati.addBeneServizio(extra);\r\n        }\r\n    } else\r\n        msg = new MessageDialog(this, \"Errore nel database!\");\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": true,
                 "signature": " void riscriviElencoAddebiti()",
                 "comments": null,
-                "innerComments": "Optional[[// inizializzo l'array delle modifiche e degli extra addebitati\r\n]]"
+                "innerComments": "Optional[[// inizializzo l'array delle modifiche e degli extra addebitati\r\n]]",
+                "generated_comment": "/**\n * This method retrieves a list of charges associated with a specific room number and initializes an array of modifications and additional charges.\n * If the list of charges is not null, it initializes the array of modifications and additional charges by retrieving the corresponding extra services from the database.\n * If an extra service is not found in the database, it creates a new BeneServizio object with default values.\n * If there is an error in retrieving the list of charges from the database, an error message is displayed.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    for (int i = 1; i <= elenco_addebiti.length(); i++) if (((elenco_addebiti.getAddebito(i)).getCodExtra()).equals(b.getCodExtra()))\r\n        return i;\r\n    return -1;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " int posExtraInAddebiti(BeneServizio)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Finds the position of a specific extra service in the list of charges.\n * \n * @param b The extra service to search for in the list of charges.\n * @return The position of the extra service in the list of charges, or -1 if the extra service is not found.\n */\nint posExtraInAddebiti(BeneServizio b) {\n    for (int i = 1; i <= elenco_addebiti.length(); i++) {\n        if (((elenco_addebiti.getAddebito(i)).getCodExtra()).equals(b.getCodExtra())) {\n            return i;\n        }\n    }\n    return -1;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    int[] supp;\r\n    BeneServizio extra_scelto = elenco_extra.getBeneServizio(extra.getSelectedIndex() + 1);\r\n    int pos;\r\n    if ((pos = posExtraInAddebiti(extra_scelto)) < 0 && addebito) {\r\n        Addebito a = new Addebito(num_stanza.getText(), extra_scelto.getCodExtra(), 0, 0);\r\n        elenco_addebiti.addAddebito(a);\r\n        elenco_extra_addebitati.addBeneServizio(extra_scelto);\r\n        // allungo l'array delle quantita' modificate\r\n        supp = new int[elenco_addebiti.length()];\r\n        for (int i = 0; i < quantita_mod.length; i++) supp[i] = quantita_mod[i];\r\n        supp[supp.length - 1] = 1;\r\n        quantita_mod = supp;\r\n        pos = quantita_mod.length;\r\n        extra_add.setText(extra.getSelectedItem());\r\n        continuaAggiornamento();\r\n    } else {\r\n        if (pos < 0) {\r\n            // sto cercando di togliere da un addebito inesistente\r\n            msg = new AvvisoDialog(this, \"Stai cercando di togliere da un addebito ormai inesistente!\");\r\n        } else {\r\n            // aggiorno tale array per contenere l'addebito appena effettuato\r\n            if (addebito) {\r\n                quantita_mod[pos - 1]++;\r\n                extra_add.setText(extra.getSelectedItem());\r\n                continuaAggiornamento();\r\n            } else if ((quantita_mod[pos - 1] + (elenco_addebiti.getAddebito(pos)).getQuantita()) > 0) {\r\n                quantita_mod[pos - 1]--;\r\n                extra_add.setText(extra.getSelectedItem());\r\n                continuaAggiornamento();\r\n            } else\r\n                msg = new AvvisoDialog(this, \"Stai cercando di togliere da un addebito ormai inesistente!\");\r\n        }\r\n    }\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": true,
                 "signature": " void aggiornaAvideo()",
                 "comments": null,
-                "innerComments": "Optional[[// allungo l'array delle quantita' modificate\r\n, // sto cercando di togliere da un addebito inesistente\r\n, // aggiorno tale array per contenere l'addebito appena effettuato\r\n]]"
+                "innerComments": "Optional[[// allungo l'array delle quantita' modificate\r\n, // sto cercando di togliere da un addebito inesistente\r\n, // aggiorno tale array per contenere l'addebito appena effettuato\r\n]]",
+                "generated_comment": "/**\n * Updates the video service in the billing system.\n * If the selected extra service is not already in the billing system, a new billing entry is created.\n * If the extra service is already in the billing system, the quantity is updated accordingly.\n * \n * @param extra the selected extra service to be updated\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    int i = 1;\r\n    BeneServizio e;\r\n    float conto = 0;\r\n    if (addebiti.getItemCount() > 0)\r\n        addebiti.removeAll();\r\n    while (i <= elenco_addebiti.length()) {\r\n        if (((elenco_addebiti.getAddebito(i)).getQuantita() + quantita_mod[i - 1]) > 0) {\r\n            e = elenco_extra_addebitati.getBeneServizio(i);\r\n            if (Integer.parseInt(e.getCodExtra()) >= 40000000 && Integer.parseInt(e.getCodExtra()) < 50000000)\r\n                addebiti.addItem(\"S \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\r\n            else if (Integer.parseInt(e.getCodExtra()) >= 50000000)\r\n                addebiti.addItem(\"R \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\r\n            else\r\n                addebiti.addItem(Utils.completaStringa(e.getDescrizione(), 10) + Utils.completaStringa(\" x \" + (elenco_addebiti.getAddebito(i)).getQuantita(), 5) + \" +(\" + quantita_mod[i - 1] + \")\");\r\n            conto = conto + (elenco_addebiti.getAddebito(i)).getTotAddebito() + quantita_mod[i - 1] * e.getPxUnitario();\r\n        }\r\n        i++;\r\n    }\r\n    totale.setText((Principale.config).getValuta() + \".\" + conto);\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": " void continuaAggiornamento()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Continues the update process by adding items to the 'addebiti' list based on the 'elenco_addebiti' data.\n * If the 'addebiti' list is not empty, it will be cleared before adding new items.\n * Items are added to the list based on the quantity and type of 'BeneServizio' objects in 'elenco_extra_addebitati'.\n * The total cost of the items added to the list is calculated and displayed in the 'totale' field.\n */\nvoid continuaAggiornamento() {\n    int i = 1;\n    BeneServizio e;\n    float conto = 0;\n    \n    if (addebiti.getItemCount() > 0)\n        addebiti.removeAll();\n    \n    while (i <= elenco_addebiti.length()) {\n        if (((elenco_addebiti.getAddebito(i)).getQuantita() + quantita_mod[i - 1) > 0) {\n            e = elenco_extra_addebitati.getBeneServizio(i);\n            \n            if (Integer.parseInt(e.getCodExtra()) >= 40000000 && Integer.parseInt(e.getCodExtra()) < 50000000)\n                addebiti.addItem(\"S \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\n            else if (Integer.parseInt(e.getCodExtra()) >= 50000000)\n                addebiti.addItem(\"R \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\n            else\n                addebiti.addItem(Utils.completaStringa(e.getDescrizione(), 10) + Utils.completaStringa(\" x \" + (elenco_addebiti.getAddebito(i)).getQuantita(), 5) + \" +(\" + quantita_mod[i - 1 + \")\");\n            \n            conto = conto + (elenco_addebiti.getAddebito(i)).getTotAddebito() + quantita_mod[i - 1 * e.getPxUnitario();\n        }\n        i++;\n    }\n    \n    totale.setText((Principale.config).getValuta() + \".\" + conto);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    for (int i = 1; i <= elenco_addebiti.length(); i++) {\r\n        if (quantita_mod[i - 1] != 0) {\r\n            if ((quantita_mod[i - 1] + (elenco_addebiti.getAddebito(i)).getQuantita()) > 0) {\r\n                int j = (Principale.db).addAddebito(stanza, (elenco_addebiti.getAddebito(i)).getCodExtra(), quantita_mod[i - 1]);\r\n                if (j < 0)\r\n                    DataBase.visErrore(j);\r\n            } else {\r\n                int j = (Principale.db).delAddebito(stanza, (elenco_addebiti.getAddebito(i)).getCodExtra());\r\n                if (j < 0)\r\n                    DataBase.visErrore(j);\r\n            }\r\n        }\r\n    }\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": " void scriviSuDB(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes the updated addebiti to the database based on the modified quantities.\n * \n * @param stanza the room for which the addebiti are being updated\n * @param quantita_mod an array containing the modified quantities for each addebito\n * @param elenco_addebiti the list of addebiti to be updated\n * \n * This method iterates through the addebiti in elenco_addebiti and updates them in the database based on the modified quantities in quantita_mod.\n * If the modified quantity is greater than 0, a new addebito is added to the database. If the modified quantity is 0, the addebito is deleted from the database.\n * \n * @return void\n */\nvoid scriviSuDB(String stanza) {\n    for (int i = 1; i <= elenco_addebiti.length(); i++) {\n        if (quantita_mod[i - 1 != 0) {\n            if ((quantita_mod[i - 1 + (elenco_addebiti.getAddebito(i)).getQuantita()) > 0) {\n                int j = (Principale.db).addAddebito(stanza, (elenco_addebiti.getAddebito(i)).getCodExtra(), quantita_mod[i - 1);\n                if (j < 0)\n                    DataBase.visErrore(j);\n            } else {\n                int j = (Principale.db).delAddebito(stanza, (elenco_addebiti.getAddebito(i)).getCodExtra());\n                if (j < 0)\n                    DataBase.visErrore(j);\n            }\n        }\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ok.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            padre.scriviSuDB(padre.stanza_prec);\r\n            inComune();\r\n        }\r\n    });\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            inComune();\r\n        }\r\n    });\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up action listeners for the \"ok\" and \"annulla\" buttons.\n * When the \"ok\" button is clicked, it triggers the actionPerformed method to write data to the database\n * using the padre object and then calls the inComune method. \n * When the \"annulla\" button is clicked, it simply calls the inComune method.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    padre.scriviSuDB(padre.stanza_prec);\r\n    inComune();\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It writes the previous room to the database and then calls the inComune method.\n * \n * @param e the ActionEvent object that triggered the method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    inComune();\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the inComune() method.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    padre.riscriviElencoAddebiti();\r\n    padre.annullaAddebitiStanzaPrec();\r\n    padre.setEnabled(true);\r\n    dispose();\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": " void inComune()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method performs a series of actions related to a common operation.\n * It calls the method 'riscriviElencoAddebiti' on the 'padre' object,\n * then cancels any previous charges on the current room by calling 'annullaAddebitiStanzaPrec',\n * enables the 'padre' object, and finally disposes of the current window.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "constructors": [
@@ -185,7 +207,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraAddebiti(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraAddebiti object with the specified parent Frame.\n * This constructor sets the title of the frame to \"Addebito spese e servizi extra\" \n * and the message to \"Conferma l'addebito\". It also disables the parent frame, \n * initializes extra components, sets up the panel, initializes the frame, \n * packs it, and makes it visible.\n * \n * @param parent the parent Frame to which this MascheraAddebiti belongs\n */"
             },
             {
                 "body": "{\r\n    super(title);\r\n    padre = parent;\r\n    padre.setEnabled(false);\r\n    titolo = new String(title);\r\n    this.setLayout(gridbag);\r\n    ok = new Button(\"Salva le modifiche\");\r\n    annulla = new Button(\"Annulla le modifiche\");\r\n    Utils.constrain(this, msg, 0, 0, 5, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 1.0, 1.0, 20, 20, 20, 20);\r\n    Utils.constrain(this, annulla, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 1.0, 20, 20, 20, 20);\r\n    Utils.constrain(this, ok, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 1.0, 20, 20, 20, 20);\r\n    this.pack();\r\n    init();\r\n    setVisible(true);\r\n}",
@@ -193,7 +216,8 @@
                 "hasInnerComment": false,
                 "signature": "public FinModifiche(MascheraAddebiti, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new FinModifiche object with the specified title and parent frame.\n * The parent frame is disabled while the FinModifiche frame is active.\n * \n * @param parent the parent MascheraAddebiti frame\n * @param title the title of the FinModifiche frame\n */\npublic FinModifiche(MascheraAddebiti parent, String title) {\n    super(title);\n    padre = parent;\n    padre.setEnabled(false);\n    titolo = new String(title);\n    this.setLayout(gridbag);\n    ok = new Button(\"Salva le modifiche\");\n    annulla = new Button(\"Annulla le modifiche\");\n    Utils.constrain(this, msg, 0, 0, 5, 2, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 1.0, 1.0, 20, 20, 20, 20);\n    Utils.constrain(this, annulla, 1, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 1.0, 20, 20, 20, 20);\n    Utils.constrain(this, ok, 3, 2, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 1.0, 1.0, 20, 20, 20, 20);\n    this.pack();\n    init();\n    setVisible(true);\n}\n*/"
             }
         ],
         "signature": "MascheraAddebiti",
@@ -209,7 +233,8 @@
             " GridBagLayout gridbag",
             " String titolo",
             " MascheraAddebiti padre"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraAddebiti class represents a GUI window for managing room charges and extra services.\n * It provides functionality for adding, updating, and removing charges associated with specific room numbers.\n * The class includes methods for initializing the extra items, setting up the panel layout, and handling event listeners.\n * It also allows users to write the updated charges to the database and enables the parent window after completing the operations.\n * \n * The class includes the following main functionalities:\n * - Initializing the extra items in the GUI dropdown menu\n * - Setting up the panel layout for managing charges\n * - Handling event listeners for confirming, charging, and debiting charges\n * - Checking for errors in input fields for room number and selection\n * - Cancelling pending charges for the previous room\n * - Updating charges for the current room based on modifications\n * - Checking for modifications in the quantity of charges\n * - Handling the switching of rooms and updating charges accordingly\n * - Writing the updated charges to the database\n * - Enabling the parent window and disposing of the current window\n * \n * The FinModifiche class extends the functionality of the MascheraAddebiti class by providing additional features for confirming and cancelling modifications.\n * It includes methods for initializing the GUI components, setting up action listeners, and performing common operations.\n * \n * Overall, the MascheraAddebiti and FinModifiche classes work together to facilitate the management of room charges and extra services in a user-friendly manner.\n */"
     },
     {
         "methods": [

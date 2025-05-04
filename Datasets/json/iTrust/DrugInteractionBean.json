@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFirstDrug()",
                 "comments": "Optional[/**\r\n * @return the firstDrug\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the first drug in the list of drugs.\n * \n * @return the first drug in the list\n */"
             },
             {
                 "body": "Optional[{\r\n    this.firstDrug = firstDrug;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFirstDrug(String)",
                 "comments": "Optional[/**\r\n * @param firstDrug the firstDrug to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the first drug for this object.\n * \n * @param firstDrug the name of the first drug to set\n * @return void\n * \n * This method sets the first drug for this object using the provided name. \n * The first drug is a String value representing the name of the drug. \n * If the provided name is null, the first drug will be set to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return secondDrug;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSecondDrug()",
                 "comments": "Optional[/**\r\n * @return the secondDrug\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the second drug in the list.\n * \n * @return the second drug in the list as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.secondDrug = secondDrug;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSecondDrug(String)",
                 "comments": "Optional[/**\r\n * @param secondDrug the secondDrug to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second drug for this object.\n * \n * @param secondDrug the name of the second drug to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return description;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": "Optional[/**\r\n * @return the description\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the object.\n * \n * @return the description of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.description = description;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescription(String)",
                 "comments": "Optional[/**\r\n * @param description the description to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param description the new description to set\n * \n * This method sets the description of the object to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [],
@@ -56,6 +62,7 @@
             " String firstDrug",
             " String secondDrug",
             " String description"
-        ]
+        ],
+        "generated_class_comment": "*/\\r\\n]\", \"innerComments\": null, \"generated_comment\": \"/**\\n * Retrieves the description of this object.\\n * \\n * @return the description of this object\\n */\" }, { \"body\": \"Optional[{\\r\\n this.description = description;\\r\\n}]\", \"hasComment\": true, \"hasInnerComment\": false, \"signature\": \"public void setDescription(String)\", \"comments\": \"Optional[/**\\r\\n * @param description the description to set\\r\\n */\\r\\n]\", \"innerComments\": null, \"generated_comment\": \"/**\\n * Sets the description for this object.\\n * \\n * @param description the description to set\\n * @return void\\n * \\n * This method sets the description for this object using the provided String value. \\n * If the provided description is null, the description will be set to null.\\n */\" } ], \"class_comments\": \"Optional[/**\\r\\n * This class represents a list of drugs with their descriptions.\\r\\n * It provides methods to get and set the first and second drugs in the list, as well as the description.\\r\\n */\\r\\n]\", \"class_name\": \"DrugList\", \"package_name\": \"com.example\" } ]\n/**\n * The DrugInteractionBean class represents a bean object that stores information about drug interactions.\n * It contains three variables: firstDrug, secondDrug, and description, which hold the names of the drugs involved\n * in the interaction and a description of the interaction, respectively.\n * \n * This class provides methods to get and set the values of these variables, allowing for easy manipulation of drug interaction data.\n * \n * The main functionalities of this class include:\n * - Storing information about drug interactions\n * - Providing access to the names of the drugs involved and a description of the interaction\n * - Allowing for the modification of these values through getter and setter methods\n * \n * Overall, the DrugInteractionBean class serves as a convenient way to manage and work with drug interaction data in a Java application.\n */\n **/"
     }
 ]

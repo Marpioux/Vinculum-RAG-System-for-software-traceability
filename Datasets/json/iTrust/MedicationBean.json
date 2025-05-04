@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getNDCode()",
                 "comments": "Optional[/**\r\n * Gets the ND Code for this procedure\r\n *\r\n * @return The ND Code for this procedure\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ND code associated with this object.\n * \n * @return The ND code as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    NDCode = code;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNDCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ND code for this object.\n * \n * @param code the ND code to set\n * \n * This method sets the ND code for this object to the specified code.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return description;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": "Optional[/**\r\n * Gets the ND Description for this procedure\r\n *\r\n * @return The ND Description for this procedure\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the description of the object.\n * \n * @return the description of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.description = description;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescription(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param description the new description to set\n * \n * This method sets the description of the object to the specified string. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    String code = getNDCode();\r\n    if (code.length() > 5)\r\n        return code.substring(0, 5) + \"-\" + code.substring(5);\r\n    else\r\n        return code;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getNDCodeFormatted()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the formatted version of the ND code. If the original ND code is longer than 5 characters,\n * it will be split into two parts separated by a hyphen after the 5th character.\n * \n * @return the formatted ND code\n */"
             },
             {
                 "body": "Optional[{\r\n    return (other != null) && this.getClass().equals(other.getClass()) && this.equals((MedicationBean) other);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean equals(Object)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this MedicationBean object with the specified object for equality.\n * Returns true if the specified object is also a MedicationBean and has the same class as this object,\n * and all corresponding fields are equal. \n * \n * @param other the object to be compared for equality with this MedicationBean\n * @return true if the specified object is equal to this MedicationBean, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": true,
                 "signature": "public int hashCode()",
                 "comments": null,
-                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]",
+                "generated_comment": "/**\n * Returns a hash code value for the object. This method is not designed for generating meaningful hash codes and should not be relied upon for hash code functionality.\n * \n * @return an arbitrary constant value of 42\n */"
             },
             {
                 "body": "Optional[{\r\n    return description.equals(other.description) && NDCode.equals(other.NDCode);\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "private boolean equals(MedicationBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this MedicationBean object to another MedicationBean object for equality.\n * Two MedicationBean objects are considered equal if their descriptions and ND codes are equal.\n * \n * @param other the MedicationBean object to compare to\n * @return true if the two MedicationBean objects are equal, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -73,7 +81,8 @@
                 "hasInnerComment": false,
                 "signature": "public MedicationBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the MedicationBean class.\n * It initializes a new instance of the MedicationBean class with default values.\n */"
             },
             {
                 "body": "{\r\n    NDCode = code;\r\n}",
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public MedicationBean(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MedicationBean with the specified NDCode.\n * \n * @param code the NDCode to be assigned to the MedicationBean\n * \n * @return a new MedicationBean object with the specified NDCode\n */"
             },
             {
                 "body": "{\r\n    NDCode = code;\r\n    this.description = description;\r\n}",
@@ -89,13 +99,15 @@
                 "hasInnerComment": false,
                 "signature": "public MedicationBean(String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MedicationBean with the specified NDCode and description.\n * \n * @param code the NDCode of the medication\n * @param description the description of the medication\n */\npublic MedicationBean(String code, String description) {\n    NDCode = code;\n    this.description = description;\n}\n*/"
             }
         ],
         "signature": "MedicationBean",
         "variables": [
             "private String NDCode",
             "private String description"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a Procedure object that contains information about a medical procedure.\n * It provides methods to get and set the ND Code and Description of the procedure.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the ND Code associated with the procedure\n * - Retrieving and setting the Description of the procedure\n * - Formatting the ND Code in a specific way if it is longer than 5 characters\n * \n * The overall behavior of this class is to store and manipulate information related to a medical procedure.\n * It ensures that the ND Code and Description are properly managed and can be accessed as needed.\n * \n * Note: The ND Code is a unique identifier for medical procedures, and the Description provides additional details about the procedure.\n */\n**/\n/**\n * This class represents a MedicationBean object that stores information about a medication, including its description and ND code.\n * It provides methods to format the ND code, compare MedicationBean objects for equality, and generate hash codes.\n * \n * The getNDCodeFormatted() method returns the formatted version of the ND code. If the original ND code is longer than 5 characters,\n * it will be split into two parts separated by a hyphen after the 5th character.\n * \n * The equals(Object other) method compares this MedicationBean object with the specified object for equality. It returns true if the specified object\n * is also a MedicationBean and has the same class as this object, and all corresponding fields are equal.\n * \n * The hashCode() method returns an arbitrary constant value of 42. This method is not designed for generating meaningful hash codes and should not be relied upon for hash code functionality.\n * \n * The private equals(MedicationBean other) method compares this MedicationBean object to another MedicationBean object for equality based on their description and ND code.\n * \n * Overall, this class provides functionality for working with MedicationBean objects, including formatting ND codes, comparing objects for equality, and generating hash codes.\n */\n/**\n * The MedicationBean class represents a medication object with a unique NDCode and a description.\n * It provides methods to compare two MedicationBean objects based on their NDCode and description.\n * \n * @author [Your Name]\n * @version 1.0\n */\n \n/**\n * This is the default constructor for the MedicationBean class.\n * It initializes a new instance of the MedicationBean class with default values.\n */\npublic MedicationBean() {\n}\n\n/**\n * Constructs a new MedicationBean with the specified NDCode.\n * \n * @param code the NDCode to be assigned to the MedicationBean\n * @return a new MedicationBean object with the specified NDCode\n */\npublic MedicationBean(String code) {\n    NDCode = code;\n}\n\n/**\n * Constructs a new MedicationBean with the specified NDCode and description.\n * \n * @param code the NDCode of the medication\n * @param description the description of the medication\n */\npublic MedicationBean(String code, String description) {\n    NDCode = code;\n    this.description = description;\n}\n\n/**\n * Compares this MedicationBean object with another object to determine if they are equal.\n * Two MedicationBean objects are considered equal if their descriptions and ND codes are equal.\n * \n * @param other the MedicationBean object to compare to\n * @return true if the two MedicationBean objects are equal, false otherwise\n */\n@Override\npublic boolean equals(Object other) {\n    if (this == other) {\n        return true;\n    }\n    if (other == null || getClass() != other.getClass()) {\n        return false;\n    }\n    MedicationBean that = (MedicationBean) other;\n    return Objects.equals(NDCode, that.NDCode) && Objects.equals(description, that.description);\n}\n\n/**\n * Returns a hash code value for the MedicationBean object.\n * \n * @return a hash code value for the MedicationBean object\n */\n@Override\npublic int hashCode() {\n    return Objects.hash(NDCode, description);\n}\n\n/**\n * Returns a string representation of the MedicationBean object.\n * \n * @return a string representation of the MedicationBean object\n */\n@Override\npublic String toString() {\n    return \"MedicationBean{\" +\n            \"NDCode='\" + NDCode + '\\'' +\n            \", description='\" + description + '\\'' +\n            '}';\n}\n*/"
     }
 ]

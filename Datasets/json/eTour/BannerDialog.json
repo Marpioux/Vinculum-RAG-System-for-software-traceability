@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It opens a file dialog to allow the user to select an image file. \n * If the user cancels the dialog or no file is selected, the method returns without further action. \n * If an image file is selected, it reads the image using ImageIO and resizes it if necessary to fit within the specified banner size. \n * The resized image is then displayed in a JLabel component. \n * \n * @param e the ActionEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    anteprima.setIcon(pBanner);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSelectedBanner(ImageIcon)",
                 "comments": "Optional[/**\r\n * This method initializes the image contained in the preview.\r\n *\r\n * @param pBanner ImageIcon - an image of a banner.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the selected banner image to be displayed in the preview panel.\n * \n * @param pBanner the ImageIcon representing the selected banner image\n * @return void\n * \n * This method sets the selected banner image to be displayed in the preview panel.\n */"
             },
             {
                 "body": "Optional[{\r\n    return (ImageIcon) anteprima.getIcon();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public ImageIcon getSelectedBanner()",
                 "comments": "Optional[/**\r\n * This method returns the image contained in the preview.\r\n *\r\n * @return ImageIcon - the image of the banner.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the selected banner image icon from the current instance.\n * \n * @return The selected banner image icon.\n */"
             },
             {
                 "body": "Optional[{\r\n    JFileChooser apriFile = new JFileChooser();\r\n    apriFile.setDialogTitle(\"Select a new image\");\r\n    apriFile.setAcceptAllFileFilterUsed(false);\r\n    apriFile.setMultiSelectionEnabled(false);\r\n    // File Filter for the window to open the file.\r\n    apriFile.setFileFilter(new FileFilter() {\r\n\r\n        public boolean accept(File arg0) {\r\n            if (arg0.isDirectory()) {\r\n                return true;\r\n            }\r\n            String name = arg0.getName().toLowerCase();\r\n            return name.endsWith(\"jpg\") || name.endsWith(\"gif\") || name.endsWith(\"png\");\r\n        }\r\n\r\n        public String getDescription() {\r\n            return \"Images (*.png, *.gif, *.jpg)\";\r\n        }\r\n    });\r\n    int returnVal = apriFile.showOpenDialog(this);\r\n    return returnVal == JFileChooser.APPROVE_OPTION ? apriFile.getSelectedFile() : null;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": true,
                 "signature": "private File apriFileDialog()",
                 "comments": "Optional[/**\r\n * This method opens the dialog for selecting a file from disk.\r\n *\r\n * @return\r\n * <ul>\r\n * <li> File - the selected file.\r\n * <li> Null - if you have not selected any files.\r\n * </ul>\r\n */\r\n]",
-                "innerComments": "Optional[[// File Filter for the window to open the file.\r\n]]"
+                "innerComments": "Optional[[// File Filter for the window to open the file.\r\n]]",
+                "generated_comment": "/**\n * Opens a file dialog window for the user to select an image file (PNG, GIF, JPG).\n * \n * @return the selected file by the user, or null if no file was selected\n */"
             },
             {
                 "body": "Optional[{\r\n    if (arg0.isDirectory()) {\r\n        return true;\r\n    }\r\n    String name = arg0.getName().toLowerCase();\r\n    return name.endsWith(\"jpg\") || name.endsWith(\"gif\") || name.endsWith(\"png\");\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean accept(File)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Determines whether a file should be accepted based on its file type.\n * \n * @param arg0 the file to be checked for acceptance\n * @return true if the file is a directory or has a file extension of \"jpg\", \"gif\", or \"png\"; false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return \"Images (*.png, *.gif, *.jpg)\";\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the file types supported by this method.\n * The supported file types include PNG, GIF, and JPG images.\n * \n * @return a String representing the supported file types in the format \"Images (*.png, *.gif, *.jpg)\"\n */"
             }
         ],
         "constructors": [
@@ -57,7 +63,8 @@
                 "hasInnerComment": false,
                 "signature": "public BannerDialog()",
                 "comments": "Optional[/**\r\n * This is the default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BannerDialog with a default size of 420x160 pixels.\n * This dialog allows the user to preview and load an image for a banner.\n * The user can load an image file, which will be displayed in the preview area.\n * If the loaded image exceeds the predefined banner size, it will be resized to fit.\n * \n * @param none\n */"
             }
         ],
         "signature": "BannerDialog",
@@ -65,6 +72,7 @@
             "private  static  final Dimension BANNER_SIZE",
             "private JLabel anteprima",
             "private JButton btnCarica"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BannerDialog class represents a dialog window that allows the user to preview and load an image for a banner.\n * The dialog has a default size of 420x160 pixels and contains a JLabel component for displaying the previewed image.\n * Users can select an image file using a file dialog, which will be displayed in the preview area.\n * If the loaded image exceeds the predefined banner size, it will be resized to fit within the specified dimensions.\n * \n * This class includes methods for handling user actions, such as opening a file dialog to select an image file,\n * setting the selected banner image to be displayed in the preview panel, and retrieving the currently selected banner image.\n * \n * The BannerDialog class also defines a file filter for selecting only image files with extensions of \"jpg\", \"gif\", or \"png\".\n * \n * @author [Author Name]\n * @version [Version Number]\n */"
     }
 ]

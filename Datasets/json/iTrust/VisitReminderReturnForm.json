@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getHcpID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the HCP ID associated with this object.\n * \n * @return the HCP ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpID = hcpID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHcpID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCP ID for this object.\n * \n * @param hcpID the new HCP ID to set\n * @return void\n * \n * This method sets the HCP ID for this object to the specified value. \n * The HCP ID is a unique identifier for a healthcare provider.\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientID;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatientID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier for the patient.\n * \n * @return the patient's ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient ID for this object.\n * \n * @param patientID the unique identifier for the patient\n * \n * This method sets the patient ID for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return lastName;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the last name of the person.\n * \n * @return the last name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the person.\n * \n * @param lastName the new last name to set\n * \n * This method updates the last name of the person to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return firstName;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFirstName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the first name of the person.\n * \n * @return The first name of the person as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.firstName = firstName;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFirstName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the first name of the object.\n * \n * @param firstName the new first name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return phoneNumber;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhoneNumber()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the phone number associated with this object.\n * \n * @return the phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phoneNumber = phone1 + \"-\" + phone2 + \"-\" + phone3;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhoneNumber(String, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the phone number by concatenating the three input strings representing the phone number parts.\n * \n * @param phone1 the first part of the phone number\n * @param phone2 the second part of the phone number\n * @param phone3 the third part of the phone number\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitFlags.toArray(new VisitFlag[visitFlags.size()]);\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public VisitFlag[] getVisitFlags()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves an array of visit flags associated with the object.\n * \n * @return an array of VisitFlag objects representing the visit flags\n */"
             },
             {
                 "body": "Optional[{\r\n    this.visitFlags = new ArrayList<VisitFlag>();\r\n    for (VisitFlag flag : visitFlags) {\r\n        this.visitFlags.add(flag);\r\n    }\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitFlags(VisitFlag[])",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the visit flags for this object.\n * \n * @param visitFlags an array of VisitFlag objects to set as visit flags\n * \n * This method sets the visit flags for this object by creating a new ArrayList and adding each VisitFlag object from the input array to it. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null == visitFlags)\r\n        visitFlags = new ArrayList<VisitFlag>();\r\n    visitFlags.add(flag);\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void addVisitFlag(VisitFlag)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a visit flag to the list of visit flags.\n * If the list of visit flags is null, a new ArrayList is created.\n * \n * @param flag the VisitFlag to be added to the list\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -113,7 +126,8 @@
                 "hasInnerComment": false,
                 "signature": "public VisitReminderReturnForm(long, long, String, String, String, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new VisitReminderReturnForm object with the specified parameters.\n * \n * @param hcpID the ID of the healthcare provider associated with the visit reminder\n * @param patientID the ID of the patient associated with the visit reminder\n * @param lastName the last name of the patient\n * @param firstName the first name of the patient\n * @param phone1 the first part of the phone number\n * @param phone2 the second part of the phone number\n * @param phone3 the third part of the phone number\n * \n * The constructor initializes the VisitReminderReturnForm object with the given parameters.\n * It sets the healthcare provider ID, patient ID, last name, first name, and phone number of the patient.\n */\npublic VisitReminderReturnForm(long hcpID, long patientID, String lastName, String firstName, String phone1, String phone2, String phone3) {\n    this.hcpID = hcpID;\n    this.patientID = patientID;\n    this.lastName = lastName;\n    this.firstName = firstName;\n    setPhoneNumber(phone1, phone2, phone3);\n}\n*/"
             }
         ],
         "signature": "VisitReminderReturnForm",
@@ -124,6 +138,7 @@
             "private String firstName",
             "private String phoneNumber",
             "private ArrayList<VisitFlag> visitFlags"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PatientHealthRecord class represents a patient's health record in a healthcare system.\n * It contains information such as the patient's unique identifier, healthcare provider's unique identifier,\n * and the patient's last name.\n * \n * This class provides methods to get and set the patient's ID, healthcare provider's ID, and last name.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the patient's unique identifier\n * - Storing and retrieving the healthcare provider's unique identifier\n * - Storing and retrieving the patient's last name\n * \n * Overall, the PatientHealthRecord class encapsulates the essential information related to a patient's health record\n * and provides methods to interact with this information.\n */\npublic class PatientHealthRecord {\n    private long hcpID;\n    private long patientID;\n    private String lastName;\n\n    /**\n     * Returns the HCP ID associated with this object.\n     * \n     * @return the HCP ID as a long value\n     */\n    public long getHcpID() {\n        return hcpID;\n    }\n\n    /**\n     * Sets the HCP ID for this object.\n     * \n     * @param hcpID the new HCP ID to set\n     * @return void\n     * \n     * This method sets the HCP ID for this object to the specified value. \n     * The HCP ID is a unique identifier for a healthcare provider.\n     */\n    public void setHcpID(long hcpID) {\n        this.hcpID = hcpID;\n    }\n\n    /**\n     * Retrieves the unique identifier for the patient.\n     * \n     * @return the patient's ID as a long value\n     */\n    public long getPatientID() {\n        return patientID;\n    }\n\n    /**\n     * Sets the patient ID for this object.\n     * \n     * @param patientID the unique identifier for the patient\n     * \n     * This method sets the patient ID for this object to the specified value.\n     * \n     * @return void\n     */\n    public void setPatientID(long patientID) {\n        this.patientID = patientID;\n    }\n\n    /**\n     * Retrieves the last name of the person.\n     * \n     * @return the last name of the person as a String\n     */\n    public String getLastName() {\n        return lastName;\n    }\n\n    /**\n     * Sets the last name for this object.\n     * \n     * @param lastName the last name of the person\n     */\n    public void setLastName(String lastName) {\n        this.lastName = lastName;\n    }\n}\n**/\n/**\n * This class represents a person with attributes such as first name, last name, and phone number.\n * It provides methods to set and retrieve these attributes, as well as manage visit flags.\n * \n * The main functionalities of this class include setting and getting the first name, last name, and phone number of the person.\n * Additionally, it allows for setting the phone number by concatenating three input strings representing the phone number parts.\n * The class also provides functionality to manage visit flags associated with the person.\n * \n * Overall, this class encapsulates the data and behavior related to a person, allowing for easy manipulation and retrieval of their information.\n */\n/**\n * This class represents a VisitReminderReturnForm object, which is used to store information related to a visit reminder return form.\n * \n * The main functionalities of this class include:\n * - Storing the healthcare provider ID (hcpID) associated with the visit reminder\n * - Storing the patient ID (patientID) associated with the visit reminder\n * - Storing the last name (lastName) of the patient\n * - Storing the first name (firstName) of the patient\n * - Setting the phone number of the patient using setPhoneNumber method\n * - Retrieving an array of visit flags associated with the object using getVisitFlags method\n * - Setting the visit flags for this object using setVisitFlags method\n * - Adding a visit flag to the list of visit flags using addVisitFlag method\n * \n * The overall behavior of this class is to provide a way to manage and store information related to a visit reminder return form. It allows for setting and retrieving visit flags, as well as storing patient and healthcare provider information.\n */\n**/\n/**\n * The VisitReminderReturnForm class represents a form that contains information about a visit reminder for a patient.\n * It stores the healthcare provider ID, patient ID, last name, first name, and phone number of the patient.\n * Additionally, it can store a list of visit flags associated with the visit reminder.\n * \n * The main functionalities of this class include:\n * - Initializing a VisitReminderReturnForm object with the provided parameters\n * - Setting and getting the healthcare provider ID, patient ID, last name, first name, and phone number\n * - Managing visit flags associated with the visit reminder\n * \n * The overall behavior of this class is to provide a convenient way to store and retrieve information about a visit reminder for a patient.\n */"
     }
 ]

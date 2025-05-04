@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCP (Health Care Provider) MID (Member ID) for this object.\n * \n * @param mid the new HCP MID to set\n * @return void\n */\npublic void setHCPMID(long mid) {\n    hcpMID = mid;\n}"
             },
             {
                 "body": "Optional[{\r\n    return hcpMID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getHCPMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the HCPMID (Health Care Provider Member ID) associated with this object.\n * \n * @return the HCPMID of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpFirstName = firstName;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPFirstName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the first name of the healthcare provider.\n * \n * @param firstName the first name of the healthcare provider to be set\n * \n * This method sets the first name of the healthcare provider to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpFirstName;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPFirstName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the first name of the healthcare professional.\n * \n * @return The first name of the healthcare professional as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpLastName = lastName;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPLastName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the healthcare provider.\n * \n * @param lastName the last name to set for the healthcare provider\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpLastName;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPLastName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the last name of the healthcare provider.\n * \n * @return the last name of the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpAddress1 = address1;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPaddress1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the address line 1 of the healthcare provider.\n * \n * @param address1 the address line 1 to set\n */\npublic void setHCPaddress1(String address1) {\n    this.hcpAddress1 = address1;\n}\n \n/**\n * Sets the address line 1 of the healthcare provider.\n * \n * @param address1 the address line 1 to set\n */\n \n/**\n * Sets the address line 1 of the healthcare provider.\n * \n * @param address1 the address line 1 to set\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpAddress1;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPaddress1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the address line 1 of the healthcare provider.\n * \n * @return the address line 1 of the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpAddress2 = address2;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPaddress2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second line of the address for a healthcare provider.\n * \n * @param address2 the second line of the address to be set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpAddress2;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPaddress2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the address line 2 of the healthcare provider.\n * \n * @return the address line 2 of the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpCity = city;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPcity(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the city of the healthcare provider.\n * \n * @param city the city to set for the healthcare provider\n * \n * This method sets the city of the healthcare provider to the specified city.\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpCity;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPcity()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the city of the healthcare provider.\n * \n * @return the city of the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpState = state;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPstate(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the state of the HCP (Healthcare Provider) to the specified state.\n * \n * @param state the new state of the HCP\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpState;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPstate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the current state of the HCP (Health Care Provider) system.\n * \n * @return A String representing the current state of the HCP system.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpZip = zip;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPzip(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the zip code of the healthcare provider.\n * \n * @param zip the zip code to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpZip;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPzip()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the zip code of the healthcare provider.\n * \n * @return the zip code of the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpSpecialty = specialty;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPspecialty(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the specialty of the healthcare provider.\n * \n * @param specialty the specialty to be set for the healthcare provider\n * \n * This method sets the specialty of the healthcare provider to the specified value.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpSpecialty;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPspecialty()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the specialty of a healthcare provider.\n * \n * @return a String representing the specialty of the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpHospitalID = hospital;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPhospital(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCP hospital ID for this object.\n * \n * @param hospital the ID of the hospital to set for this object\n * @return void\n */\npublic void setHCPhospital(String hospital) {\n    this.hcpHospitalID = hospital;\n}"
             },
             {
                 "body": "Optional[{\r\n    return hcpHospitalID;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPhospital()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the hospital ID associated with the healthcare provider.\n * \n * @return The hospital ID of the healthcare provider.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.avgWaitingRmMinutes = waitingRoomMinutes;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAvgWaitingRoomMinutes(float)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the average waiting room minutes for the current object.\n * \n * @param waitingRoomMinutes the average waiting room minutes to set\n * \n * This method sets the average waiting room minutes for the current object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return avgWaitingRmMinutes;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public float getAvgWaitingRoomMinutes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the average waiting room minutes.\n * \n * @return the average waiting room minutes as a float value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.avgExamRmMinutues = examRoomMinutes;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAvgExamRoomMinutes(float)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the average exam room minutes for a specific exam room.\n * \n * @param examRoomMinutes the average exam room minutes to set\n */\npublic void setAvgExamRoomMinutes(float examRoomMinutes) {\n    this.avgExamRmMinutues = examRoomMinutes;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return avgExamRmMinutues;\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public float getAvgExamRoomMinutes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the average number of minutes spent in an exam room.\n * \n * @return the average number of minutes spent in an exam room as a float value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.avgVisitSatisfaction = visitSatisfaction;\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAvgVisitSatisfaction(float)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the average visit satisfaction rating for this object.\n * \n * @param visitSatisfaction the average visit satisfaction rating to set\n * \n * This method sets the average visit satisfaction rating for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return avgVisitSatisfaction;\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public float getAvgVisitSatisfaction()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the average visit satisfaction rating for this object.\n * \n * @return the average visit satisfaction rating as a float value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.avgTreatmentSatisfaction = treatmentSatisfaction;\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAvgTreatmentSatisfaction(float)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the average treatment satisfaction rating for this object.\n * \n * @param treatmentSatisfaction the average treatment satisfaction rating to set\n * \n * This method sets the average treatment satisfaction rating for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return avgTreatmentSatisfaction;\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public float getAvgTreatmentSatisfaction()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the average treatment satisfaction rating.\n * \n * @return the average treatment satisfaction rating as a float value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.percentSatResultsAvailable = percent;\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPercentSatisfactionResults(float)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the percentage of satisfaction results available.\n * \n * @param percent the percentage of satisfaction results available to set\n */\npublic void setPercentSatisfactionResults(float percent) {\n    this.percentSatResultsAvailable = percent;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return percentSatResultsAvailable;\r\n}]",
@@ -239,7 +268,8 @@
                 "hasInnerComment": false,
                 "signature": "public float getPercentSatisfactionResults()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the percentage of satisfaction results available.\n * \n * @return the percentage of satisfaction results available as a float value\n */"
             }
         ],
         "constructors": [],
@@ -266,6 +296,7 @@
             "public  final  static String PEDIATRICIAN_SPECIALTY",
             "public  final  static String OBGYN_SPECIALTY",
             "public  final  static String ANY_SPECIALTY"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a HealthcareProvider object that stores information about a healthcare provider, including their MID (Member ID), first name, and last name.\n * \n * The main functionalities of this class include setting and retrieving the HCP MID, first name, and last name of the healthcare provider. \n * \n * The class provides methods to set and get the HCP MID, first name, and last name, allowing users to update and retrieve information about the healthcare provider.\n * \n * Overall, this class encapsulates the data related to a healthcare provider and provides methods to interact with and manipulate this data.\n */\n**/\n/**\n * This class represents a HealthcareProvider object that stores information about a healthcare provider.\n * It provides methods to retrieve and set the last name, address line 1, and address line 2 of the healthcare provider.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the last name of the healthcare provider\n * - Retrieving and setting the address line 1 of the healthcare provider\n * - Retrieving and setting the address line 2 of the healthcare provider\n * \n * The overall behavior of this class is to store and manage information related to a healthcare provider, allowing users to access and update the provider's details as needed.\n */\n/**\n * The Provider class represents a healthcare provider and stores information about the provider such as name, address, city, state, and zip code.\n * This class provides methods to set and retrieve the provider's information.\n * \n * Main functionalities include:\n * - Setting and getting the name of the healthcare provider\n * - Setting and getting the address line 1 of the healthcare provider\n * - Setting and getting the address line 2 of the healthcare provider\n * - Setting and getting the city of the healthcare provider\n * - Setting and getting the state of the healthcare provider\n * - Setting and getting the zip code of the healthcare provider\n * \n * Overall behavior:\n * The Provider class allows users to create and manage healthcare provider objects by providing methods to set and retrieve information about the provider. Users can set the provider's name, address, city, state, and zip code, and retrieve this information as needed.\n */\n **/\n/**\n * The HealthcareProvider class represents a healthcare provider entity with various attributes such as name, address, specialty, hospital ID, and average waiting room minutes.\n * This class provides methods to set and retrieve information about the healthcare provider.\n * \n * Main functionalities include:\n * - Setting and getting the name of the healthcare provider\n * - Setting and getting the address of the healthcare provider\n * - Setting and getting the zip code of the healthcare provider\n * - Setting and getting the specialty of the healthcare provider\n * - Setting and getting the hospital ID associated with the healthcare provider\n * - Setting and getting the average waiting room minutes for the healthcare provider\n * \n * Overall behavior:\n * The HealthcareProvider class allows for the creation and manipulation of healthcare provider objects with the ability to store and retrieve relevant information.\n * Users can set and get various attributes of the healthcare provider, such as name, address, specialty, hospital ID, and average waiting room minutes.\n * This class encapsulates the data related to a healthcare provider and provides methods to interact with this data.\n */\n**/\nSure, here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a medical facility and stores information about various metrics related to patient experience.\n * It includes data such as average waiting room minutes, average exam room minutes, and average visit satisfaction rating.\n * \n * The class provides methods to set and get these metrics, allowing for easy access and manipulation of the data.\n * \n * Overall, this class aims to provide a way to track and analyze patient experience metrics in a medical facility setting.\n * It is designed to help healthcare professionals monitor and improve patient satisfaction and efficiency in the facility.\n */\n/**\n * This class represents a VisitSatisfaction object that stores information about visit satisfaction ratings and treatment satisfaction ratings.\n * It provides methods to set and retrieve the average visit satisfaction rating, average treatment satisfaction rating, and percentage of satisfaction results available.\n * \n * The main functionalities of this class include:\n * - Storing and managing average visit satisfaction rating\n * - Storing and managing average treatment satisfaction rating\n * - Storing and managing percentage of satisfaction results available\n * \n * The overall behavior of this class is to provide a way to track and analyze satisfaction ratings related to visits and treatments. Users can set and retrieve these ratings using the provided methods.\n */\n**/\n/**\n * The SurveyResultBean class represents a bean object that stores survey results for healthcare providers.\n * It contains various attributes such as provider information, average waiting room minutes, average exam room minutes,\n * average visit satisfaction, average treatment satisfaction, and percentage of satisfaction results available.\n * \n * This class provides methods to set and retrieve the values of these attributes, as well as constants for different\n * healthcare provider specialties. It also includes a method to calculate the overall satisfaction percentage based on\n * visit and treatment satisfaction values.\n * \n * The SurveyResultBean class serves as a data transfer object for survey results and can be used to store and retrieve\n * information related to healthcare provider surveys. It encapsulates the data and provides convenient methods to access\n * and manipulate the survey results.\n */\n **/"
     }
 ]

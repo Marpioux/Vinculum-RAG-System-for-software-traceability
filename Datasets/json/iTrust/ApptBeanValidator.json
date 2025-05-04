@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(ApptBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the given appointment bean by checking if the comment field is not null and\n * conforms to the specified format. If any errors are found during validation, a FormValidationException\n * is thrown with a list of errors.\n * \n * @param bean the appointment bean to validate\n * @throws FormValidationException if any errors are found during validation\n */"
             }
         ],
         "constructors": [],
         "signature": "ApptBeanValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ApptBeanValidator class is responsible for validating an ApptBean object by checking if the comment field is not null\n * and conforms to a specified format. If any errors are found during validation, a FormValidationException is thrown with\n * a list of errors.\n * \n * This class contains a single method, validate, which takes an ApptBean object as a parameter and performs the validation\n * process. The validate method checks if the comment field of the bean is null, and if not, it validates the format of the\n * comment using a predefined ValidationFormat. If any errors are found, they are added to an ErrorList object, and if the\n * ErrorList has errors, a FormValidationException is thrown.\n * \n * The ApptBeanValidator class does not have any constructors or instance variables, as it is designed to be a utility class\n * for validating ApptBean objects. It provides a simple and reusable way to validate appointment beans in a consistent manner.\n * \n * It is important to note that this class does not modify the input ApptBean object in any way, it only performs validation\n * checks on the comment field. Clients can use this class to ensure that their ApptBean objects meet the required validation\n * criteria before further processing or storage.\n */"
     }
 ]

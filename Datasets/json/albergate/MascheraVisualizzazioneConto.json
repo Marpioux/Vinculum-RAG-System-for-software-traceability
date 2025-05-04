@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup(String, String, String, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the graphical user interface for the application with the specified parameters.\n * This method initializes various GUI components such as labels, buttons, text fields, and text areas.\n * It also sets the font for the components and configures their layout using GridBagLayout.\n * \n * @param t0 the first parameter for initializing text fields\n * @param t1 the second parameter for initializing text fields\n * @param t2 the third parameter for initializing text fields\n * @param t3 the fourth parameter for initializing text fields\n * @param t4 the fifth parameter for initializing text fields\n */"
             },
             {
                 "body": "Optional[{\r\n    OK.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            conto.setEnabled(true);\r\n        }\r\n    });\r\n    Stampa.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startStampa();\r\n        }\r\n    });\r\n    Partenza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startChiudiConto();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by adding action listeners to the buttons.\n * When the \"OK\" button is clicked, disposes of the current window and enables the \"conto\" component.\n * When the \"Stampa\" button is clicked, calls the method \"startStampa()\".\n * When the \"Partenza\" button is clicked, calls the method \"startChiudiConto()\".\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    conto.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the conto button.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startStampa();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the printing process by invoking the startStampa() method.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startChiudiConto();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the process of closing an account.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    DataInputStream inStream;\r\n    try {\r\n        inStream = new DataInputStream(new FileInputStream(\"conto.abg\"));\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \" Errore nell'apertura del file del conto! \");\r\n        return;\r\n    }\r\n    try {\r\n        String newText = \"\";\r\n        String line;\r\n        while ((line = inStream.readLine()) != null) newText = newText + line + \"\\n\";\r\n        text.setText(newText);\r\n        inStream.close();\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \" Errore durante la lettura del file del conto! \");\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void readConto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Reads the contents of a file named \"conto.abg\" and displays it in a text component.\n * If an error occurs during file opening or reading, an error message dialog is displayed.\n */\nvoid readConto() {\n    Frame msg;\n    DataInputStream inStream;\n    try {\n        inStream = new DataInputStream(new FileInputStream(\"conto.abg\"));\n    } catch (IOException ex) {\n        msg = new MessageDialog(this, \" Errore nell'apertura del file del conto! \");\n        return;\n    }\n    try {\n        String newText = \"\";\n        String line;\n        while ((line = inStream.readLine()) != null) newText = newText + line + \"\\n\";\n        text.setText(newText);\n        inStream.close();\n    } catch (IOException ex) {\n        msg = new MessageDialog(this, \" Errore durante la lettura del file del conto! \");\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    AskChiudiConto ask;\r\n    Date today = new Date();\r\n    Date fine_effettiva;\r\n    if (conto.checkboxes[3].getState())\r\n        fine_effettiva = conto.fine_sogg_anticipato;\r\n    else\r\n        fine_effettiva = conto.data_fine_magg;\r\n    if (Utils.data1MinoreData2(fine_effettiva, today))\r\n        ask = new AskChiudiConto(this);\r\n    else {\r\n        msg = new AvvisoDialog(this, \" Non e' possibile chiudere il conto fino al giorno della partenza! \");\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " void startChiudiConto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the process of closing a bank account. \n * Checks if the account can be closed based on the current date and the account's closing date. \n * If the account can be closed, prompts the user with a confirmation dialog. \n * If the account cannot be closed yet, displays a warning message. \n * \n * @param conto the bank account to be closed\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    switch(chiusura) {\r\n        case 1:\r\n            chiudiStanza(testo1.getText(), conto.date_inizio[0], conto.date_fine[0], 1);\r\n            break;\r\n        case 2:\r\n            chiudiSingolo();\r\n            break;\r\n        case 3:\r\n            chiudiComitiva();\r\n            break;\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void startChiusura()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method initiates the closing process based on the value of the variable 'chiusura'.\n * If 'chiusura' is 1, it closes a room by calling the 'chiudiStanza' method with the specified text and date range.\n * If 'chiusura' is 2, it closes a single entity.\n * If 'chiusura' is 3, it closes a group of entities.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    long id;\r\n    Soggiornante sogg;\r\n    ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(stanza, false);\r\n    id = (L_sogg.getSoggiornante(1)).getIdPrenotazione();\r\n    ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n    Frame msg;\r\n    if (L_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    // cancellazione della prenotazione\r\n    (Principale.db).delPrenotazione(id);\r\n    // spostamento nello storico e cancellazione dei soggiornanti\r\n    for (int i = 1; i <= L_sogg.length(); i++) {\r\n        sogg = L_sogg.getSoggiornante(i);\r\n        if (!(sogg.getCognome()).equals(\"\") && !(sogg.getNome()).equals(\"\") && !(sogg.getIndirizzo()).equals(\"\") && !(sogg.getComune()).equals(\"\") && !(sogg.getCitta()).equals(\"\") && !(sogg.getNumTel()).equals(\"\") && !(sogg.getCap()).equals(\"\") && !(sogg.getNumDoc()).equals(\"\")) {\r\n            int j = (Principale.db).writeStorico(sogg.toCliente());\r\n            if (j != DataBase.OK) {\r\n                msg = new MessageDialog(this, \" Problemi con il database nella scrittura nello storico! \");\r\n                return;\r\n            }\r\n        }\r\n        (Principale.db).delSoggiornante(stanza, sogg.getIdSoggiornante());\r\n    }\r\n    // cancellazione degli addebiti\r\n    (Principale.db).delAddebito(stanza);\r\n    // cancellazione dei supp e rid dai beni/servizi\r\n    (Principale.db).delSuppRid(stanza);\r\n    // cancellazione delle telefonate\r\n    (Principale.db).delTelefonate(stanza);\r\n    // aggiornamento delle disponibilita: questo devono essere fatto affinche'\r\n    // le informazioni riportate dalla machera di visualizzazione delle disponibilita'\r\n    // sia coerente\r\n    if (conto.qualcuno_tramite_agenzia) {\r\n        Utils.aggiornaDisp(L_disp, stanza, data_inizio, data_fine, Flag.DISPONIBILE, Flag.OCCUPATA, true);\r\n        Utils.restoreCommissioni(stanza);\r\n    } else {\r\n        Disponibilita disp = (Principale.db).readDisponibilita(stanza);\r\n        if (disp != null) {\r\n            disp.setDisponibilita(data_inizio, data_fine, Flag.DISPONIBILE, Flag.OCCUPATA);\r\n            (Principale.db).changeDisponibilita(disp.getNumStanza(), disp.getDispAnnoCorr(), disp.getDispAnnoProx());\r\n        }\r\n    }\r\n    if (caller == 1)\r\n        startStampa();\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": true,
                 "signature": " void chiudiStanza(String, Date, Date, int)",
                 "comments": null,
-                "innerComments": "Optional[[// aggiornamento delle disponibilita: questo devono essere fatto affinche'\r\n, // le informazioni riportate dalla machera di visualizzazione delle disponibilita'\r\n, // cancellazione della prenotazione\r\n, // spostamento nello storico e cancellazione dei soggiornanti\r\n, // cancellazione degli addebiti\r\n, // cancellazione dei supp e rid dai beni/servizi\r\n, // cancellazione delle telefonate\r\n, // sia coerente\r\n]]"
+                "innerComments": "Optional[[// aggiornamento delle disponibilita: questo devono essere fatto affinche'\r\n, // le informazioni riportate dalla machera di visualizzazione delle disponibilita'\r\n, // cancellazione della prenotazione\r\n, // spostamento nello storico e cancellazione dei soggiornanti\r\n, // cancellazione degli addebiti\r\n, // cancellazione dei supp e rid dai beni/servizi\r\n, // cancellazione delle telefonate\r\n, // sia coerente\r\n]]",
+                "generated_comment": "/**\n * Closes a room by deleting a reservation, moving guests to the historical database, \n * deleting charges, supplements, and reductions, and updating availability information.\n * \n * @param stanza The room number to be closed.\n * @param data_inizio The start date of the reservation.\n * @param data_fine The end date of the reservation.\n * @param caller The caller identifier.\n * \n * @return void\n * \n * This method closes a room by performing the following actions:\n * 1. Retrieves the reservation ID from the database.\n * 2. Deletes the reservation from the database.\n * 3. Moves guests to the historical database and deletes them from the current database.\n * 4. Deletes charges, supplements, reductions, and phone calls associated with the room.\n * 5. Updates availability information based on the reservation dates.\n * 6. If the caller is 1, initiates the printing process.\n * \n * If any database operation encounters an error, a message dialog is displayed.\n */\nvoid chiudiStanza(String stanza, Date data_inizio, Date data_fine, int caller)\n**/"
             },
             {
                 "body": "Optional[{\r\n    if (conto.checkboxes[3].getState()) {\r\n        (Principale.db).anticipaFineSogg(conto.sogg_x_conto_sing.getNumStanza(), conto.sogg_x_conto_sing.getIdSoggiornante(), conto.fine_sogg_anticipato);\r\n    }\r\n    (Principale.db).reversePagato(conto.sogg_x_conto_sing.getNumStanza(), conto.sogg_x_conto_sing.getIdSoggiornante());\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void chiudiSingolo()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Closes a single account by checking if a specific checkbox is selected and then anticipates the end of the stay for the corresponding guest if necessary. \n * It also reverses the payment status for the guest associated with the account.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    for (int i = 0; i < conto.L_st.length; i++) chiudiStanza(conto.L_st[i], conto.date_inizio[i], conto.date_fine[i], 2);\r\n    startStampa();\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void chiudiComitiva()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Closes all the rooms in the group and starts printing the invoice.\n * \n * This method iterates through the list of rooms in the group and closes each room by calling the chiudiStanza method with the corresponding start and end dates. \n * After closing all the rooms, it initiates the printing of the invoice for the group.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Properties prop = new Properties();\r\n    Toolkit tk = Toolkit.getDefaultToolkit();\r\n    PrintJob pj = tk.getPrintJob(this, \"Stampa del conto\", prop);\r\n    if (pj != null) {\r\n        Graphics g = pj.getGraphics();\r\n        text.printAll(g);\r\n        g.dispose();\r\n        pj.end();\r\n    }\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " void startStampa()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initiates the printing process by creating a PrintJob object and sending the contents of a text component to the printer.\n * \n * This method creates a new Properties object and gets the default Toolkit. It then creates a PrintJob with the specified title \"Stampa del conto\" and properties. If the PrintJob is successfully created, it retrieves the Graphics object from the PrintJob and prints all the contents of the text component onto it. Finally, it disposes of the Graphics object and ends the PrintJob.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "constructors": [
@@ -105,7 +117,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraVisualizzazioneConto(String, String, String, String, String, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraVisualizzazioneConto object with the specified parameters.\n * \n * @param t0 the first string parameter for setup\n * @param t1 the second string parameter for setup\n * @param t2 the third string parameter for setup\n * @param t3 the fourth string parameter for setup\n * @param t4 the fifth string parameter for setup\n * @param tipo the integer parameter for chiusura\n * \n * This constructor initializes the MascheraVisualizzazioneConto object with the title \"Visualizzazione del conto\",\n * sets the chiusura attribute to the specified tipo value, calls the setup method with the provided string parameters,\n * reads the conto, initializes the object, and packs it.\n */"
             }
         ],
         "signature": "MascheraVisualizzazioneConto",
@@ -130,6 +143,7 @@
             " BufferedReader inStream",
             " int chiusura",
             " MascheraCalcoloConto conto"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraVisualizzazioneConto class represents a graphical user interface for displaying account information.\n * It contains methods for setting up the GUI components, initializing the interface, and handling user actions.\n * The class includes functionality for reading account data from a file, closing accounts, printing invoices, and more.\n * \n * This class provides the following functionalities:\n * - Setting up the GUI components with specified parameters\n * - Initializing buttons and text fields with appropriate values\n * - Adding action listeners to buttons for user interaction\n * - Reading account information from a file and displaying it in a text area\n * - Initiating the closing process for individual accounts or groups of accounts\n * - Printing invoices for closed accounts\n * \n * The class includes the following main methods:\n * - setup(String t0, String t1, String t2, String t3, String t4): Sets up the GUI components with the specified parameters.\n * - init(): Initializes the GUI components by adding action listeners to the buttons.\n * - readConto(): Reads the contents of a file named \"conto.abg\" and displays it in a text component.\n * - startChiudiConto(): Starts the process of closing a bank account based on the current date and account's closing date.\n * - startChiusura(): Initiates the closing process based on the value of the variable 'chiusura'.\n * - startStampa(): Initiates the printing process by sending the contents of a text component to the printer.\n * \n * The class also includes a constructor that initializes the MascheraVisualizzazioneConto object with the specified parameters.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

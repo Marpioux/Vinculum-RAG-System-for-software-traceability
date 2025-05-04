@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public int ottieniNumeroElementiRicerca()",
                 "comments": "Optional[// Method declarations\r\n]",
-                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]",
+                "generated_comment": "/**\n * Returns the number of elements in the search results.\n * \n * @return The number of elements in the search results as an integer.\n */"
             },
             {
                 "body": "Optional[{\r\n    // Method implementation\r\n    // Placeholder return\r\n    return 0;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public int ottieniNumeroPagineRicerca()",
                 "comments": null,
-                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]",
+                "generated_comment": "/**\n * This method returns the number of pages found during a search operation.\n * \n * @return The number of pages found during the search.\n */"
             },
             {
                 "body": "Optional[{\r\n    // Method implementation\r\n    // Placeholder return\r\n    return null;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "public Object ottieniPaginaRisultatiBeneCulturale()",
                 "comments": null,
-                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]",
+                "generated_comment": "/**\n * Ottiene la pagina dei risultati relativi al bene culturale.\n * \n * @return la pagina dei risultati relativi al bene culturale\n */"
             },
             {
                 "body": "Optional[{\r\n    // Method implementation\r\n    // Placeholder return\r\n    return null;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": true,
                 "signature": "public Object ottieniPaginaRisultatiPuntoDiRistoro()",
                 "comments": null,
-                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]"
+                "innerComments": "Optional[[// Method implementation\r\n, // Placeholder return\r\n]]",
+                "generated_comment": "/**\n * Retrieves the results page for a specific point of interest.\n * \n * This method fetches and returns the results page for a specific point of interest, such as a restaurant or cafe.\n * \n * @return the results page for the point of interest, or null if no results are found\n */"
             },
             {
                 "body": "Optional[{\r\n    // Method implementation\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": true,
                 "signature": "public void search()",
                 "comments": null,
-                "innerComments": "Optional[[// Method implementation\r\n]]"
+                "innerComments": "Optional[[// Method implementation\r\n]]",
+                "generated_comment": "/**\n * This method performs a search operation. It does not take any parameters.\n * The method implementation should be provided within the body of the method.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -49,10 +54,12 @@
                 "hasInnerComment": true,
                 "signature": "public RicercaAvanzata(int)",
                 "comments": "Optional[// Class constructor\r\n]",
-                "innerComments": "[// Constructor implementation\r\n]"
+                "innerComments": "[// Constructor implementation\r\n]",
+                "generated_comment": "/**\n * Constructs a new RicercaAvanzata object with the specified integer parameter.\n * \n * @param intValue the integer value to be used in the constructor\n * @return a new RicercaAvanzata object\n */"
             }
         ],
         "signature": "RicercaAvanzata",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The RicercaAvanzata class represents an advanced search functionality for retrieving search results related to cultural heritage sites, points of interest, and other relevant information.\n * \n * This class provides methods to obtain the number of elements and pages in the search results, retrieve specific result pages for cultural heritage sites and points of interest, and perform search operations.\n * \n * The class includes a constructor that initializes a new RicercaAvanzata object with an integer parameter.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n */"
     }
 ]

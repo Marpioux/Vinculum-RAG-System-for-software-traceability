@@ -11,6 +11,7 @@
             "public  static  final String ERRORE_DATI",
             "public  static  final String ERRORE_FILE",
             "public  static  final String ERRORE_NUM_BANNER"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MessaggiErrore class contains static final String variables that represent different error messages that can occur in the application.\n * These error messages are used to provide meaningful feedback to the user when errors occur during the execution of the program.\n * \n * The class does not contain any methods or constructors, as it is meant to be a simple container for error messages.\n * \n * The error messages included in this class are:\n * - ERRORE_CONNESSIONE_DBMS: Represents an error related to a database connection.\n * - ERRORE_DBMS: Represents a generic database error.\n * - ERRORE_SCONOSCIUTO: Represents an unknown error.\n * - ERRORE_FORMATO_BEAN: Represents an error related to the format of a JavaBean.\n * - ERRORE_DATI: Represents an error related to data.\n * - ERRORE_FILE: Represents an error related to a file.\n * - ERRORE_NUM_BANNER: Represents an error related to the number of banners.\n * \n * This class is intended to be used as a reference for error messages throughout the application, allowing for consistent error handling and messaging.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public static String encode(String)",
                 "comments": "Optional[/**\r\n *  Escapes a few key HTML characters\r\n * @param input String to check and escape\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Encodes a given string by replacing special characters with their corresponding HTML entities.\n * \n * @param input the string to be encoded\n * @return the encoded string with special characters replaced by HTML entities\n */\npublic static String encode(String input) {\n    if (input == null)\n        return input;\n    String str = input.replaceAll(\"<\", \"&lt;\");\n    str = str.replaceAll(\">\", \"&gt;\");\n    str = str.replaceAll(\"\\n\", \"<br />\");\n    return str;\n}"
             },
             {
                 "body": "Optional[{\r\n    return !(input.contains(\"http://\"));\r\n}]",
@@ -15,11 +16,13 @@
                 "hasInnerComment": false,
                 "signature": "public static boolean URLOnSite(String)",
                 "comments": "Optional[/**\r\n * Checks URL\r\n *\r\n * @param input URL to check\r\n * @return false if the input contains http://, true otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a given URL is on the site by verifying if it contains \"http://\".\n * \n * @param input the URL to be checked\n * @return true if the URL is on the site, false otherwise\n */"
             }
         ],
         "constructors": [],
         "signature": "HtmlEncoder",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The HtmlEncoder class provides methods for encoding HTML entities and checking URLs.\n * \n * This class contains two static methods:\n * \n * 1. encode(String input): Encodes a given string by replacing special characters with their corresponding HTML entities.\n *    - Parameters:\n *        - input: the string to be encoded\n *    - Returns:\n *        - the encoded string with special characters replaced by HTML entities\n * \n * 2. URLOnSite(String input): Checks if a given URL is on the site by verifying if it contains \"http://\".\n *    - Parameters:\n *        - input: the URL to be checked\n *    - Returns:\n *        - true if the URL is on the site, false otherwise\n * \n * This class is designed to provide utility methods for handling HTML encoding and URL checking in Java applications.\n */\npublic class HtmlEncoder {\n    // Methods and variables are implemented here\n}\n**/"
     }
 ]

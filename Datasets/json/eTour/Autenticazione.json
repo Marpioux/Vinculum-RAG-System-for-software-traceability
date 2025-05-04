@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public int login(String, String, byte)",
                 "comments": null,
-                "innerComments": "Optional[[// Check if the string username and password\r\n, // If the type is Turista\r\n, // Invoke the method to obtain the Bean del Turista\r\n, // Check that the Bean is not null and\r\n, // Assuming VISITORS is replaced with a constant value\r\n, // Given the username\r\n, // Passwords match\r\n, // If the type is OP_PUNTO_DI_RISTORO\r\n, // Not implemented was the operational point of\r\n, // Assuming OP_PUNTO_DI_RISTORO is replaced with a constant value\r\n, // Refreshment\r\n, // If not match any known type\r\n, // If the data are incorrect returns -1\r\n]]"
+                "innerComments": "Optional[[// Check if the string username and password\r\n, // If the type is Turista\r\n, // Invoke the method to obtain the Bean del Turista\r\n, // Check that the Bean is not null and\r\n, // Assuming VISITORS is replaced with a constant value\r\n, // Given the username\r\n, // Passwords match\r\n, // If the type is OP_PUNTO_DI_RISTORO\r\n, // Not implemented was the operational point of\r\n, // Assuming OP_PUNTO_DI_RISTORO is replaced with a constant value\r\n, // Refreshment\r\n, // If not match any known type\r\n, // If the data are incorrect returns -1\r\n]]",
+                "generated_comment": "/**\n * Attempts to log in a user with the provided username and password.\n * \n * @param pUsername the username of the user trying to log in\n * @param pPassword the password of the user trying to log in\n * @param pTipologiaUtente the type of user trying to log in (0 for Turista, 1 for OP_PUNTO_DI_RISTORO)\n * @return the ID of the user if login is successful, -1 otherwise\n * @throws RemoteException if there is an error with the database or an unknown error occurs\n */\npublic int login(String pUsername, String pPassword, byte pTipologiaUtente) {\n    // Check if the string username and password meet the required criteria\n    if (ControlloDati.controllaStringa(pUsername, true, true, \"_-\", null, 6, 12) && ControlloDati.controllaStringa(pPassword, true, true, \"_-\", null, 5, 12)) {\n        try {\n            switch(pTipologiaUtente) {\n                // If the type is Turista\n                case 0:\n                    // Invoke the method to obtain the Bean del Turista\n                    // Given the username\n                    bTurista = tourist.ottieniTurista(pUsername);\n                    // Check that the Bean is not null and\n                    // Passwords match\n                    if (bTurista != null && bTurista.getPassword().equals(pPassword)) {\n                        return bTurista.getId();\n                    }\n                // If the type is OP_PUNTO_DI_RISTORO\n                case 1:\n                    // Not implemented was the operational point of\n                    // Refreshment\n                    return -1;\n                // If not match any known type\n                default:\n                    return -1;\n            }\n        } catch (SQLException e) {\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n        } catch (Exception e) {\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n        }\n    }\n    // If the data are incorrect returns -1\n    return -1;\n}"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public Authentication()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the Authentication class.\n * It initializes a new instance of the Authentication class by calling the constructor of its superclass.\n */"
             }
         ],
         "signature": "Authentication",
@@ -25,6 +27,7 @@
             "private  static  final long serialVersionUID",
             "private DBTurista tourist",
             "private BeanTurista bTurista"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Authentication class provides methods for user authentication and login functionality.\n * It includes a method to attempt to log in a user with the provided username, password, and user type.\n * The class also contains a default constructor to initialize a new instance of the Authentication class.\n * \n * The login method checks if the provided username and password meet the required criteria and then\n * verifies the user type to determine the appropriate login procedure. If the login is successful,\n * the method returns the ID of the user; otherwise, it returns -1. Exceptions are thrown if there\n * are errors with the database or if an unknown error occurs during the login process.\n * \n * The Authentication class also includes variables to store the serial version UID, an instance of the\n * DBTurista class for database operations related to tourists, and a BeanTurista object to hold\n * information about a tourist during the login process.\n */\n**/"
     }
 ]

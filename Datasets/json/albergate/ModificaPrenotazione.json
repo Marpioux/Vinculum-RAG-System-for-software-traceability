@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the frame and sets up the necessary components for editing a reservation.\n * This method populates the text fields with the reservation data, disables certain fields based on the reservation details,\n * and adds action listeners for the \"Azione\" and \"Assegna\" buttons.\n * \n * @param p the reservation object containing the data to be displayed and edited\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errori()) {\r\n        Prenotazione pren = readDatiPren();\r\n        pren.setIdPrenotazione(p.getIdPrenotazione());\r\n        pren.setDataPren(p.getDataPren());\r\n        int j;\r\n        j = (Principale.db).changePrenotazione(pren.getIdPrenotazione(), pren.getNumStanza(), pren.getNumPers(), pren.getNome(), pren.getCognome(), pren.getNumTel(), pren.getInizioSogg(), pren.getFineSogg(), pren.getDataPren(), pren.getCaparra(), pren.getRichLettoAgg(), pren.getPensionamento(), pren.getTramiteAgenzia(), pren.getNomeAgenzia(), pren.getRichParticolari());\r\n        dispose();\r\n        parent.creaLista(1);\r\n        parent.setEnabled(true);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method handles the action event triggered by a user interacting with a GUI component.\n * It checks for any errors in the input data, creates a new 'Prenotazione' object with the data entered by the user,\n * updates the existing 'Prenotazione' object with the new data, and saves the changes to the database.\n * If the operation is successful, it disposes of the current window, updates the parent window's list of bookings,\n * and enables the parent window for further user interaction.\n * \n * @param e the ActionEvent object representing the user's action\n */"
             },
             {
                 "body": "Optional[{\r\n    startAssegnazione();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the process of assigning tasks to employees.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    Utils.aggiornaDisp(elenco_disp, p.getNumStanza(), p.getInizioSogg(), p.getFineSogg(), Flag.ASSEGNATA, Flag.BLOCCATA, true);\r\n    msg = new AvvisoDialog(this, \" Assegnata la stanza \" + p.getNumStanza() + \" alla prenotazione \");\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAssegnazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the assignment process by retrieving a list of available rooms from the database and assigning a room to a reservation.\n * If there are any issues with reading the availability from the database, a message dialog is displayed.\n * \n * @param p the reservation for which a room is being assigned\n */\nvoid startAssegnazione() {\n    Frame msg;\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\n    \n    if (elenco_disp == null) {\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\n        return;\n    }\n    \n    Utils.aggiornaDisp(elenco_disp, p.getNumStanza(), p.getInizioSogg(), p.getFineSogg(), Flag.ASSEGNATA, Flag.BLOCCATA, true);\n    msg = new AvvisoDialog(this, \" Assegnata la stanza \" + p.getNumStanza() + \" alla prenotazione \");\n}\n*/"
             }
         ],
         "constructors": [
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public ModificaPrenotazione(Prenotazione, Stanza, RicercaPrenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ModificaPrenotazione object with the given Prenotazione, Stanza, and RicercaPrenotazione objects.\n * \n * @param pren the Prenotazione object to be modified\n * @param room the Stanza object associated with the Prenotazione\n * @param papa the RicercaPrenotazione object that initiated the modification\n * \n * This constructor initializes the ModificaPrenotazione object with the specified Prenotazione, Stanza, and RicercaPrenotazione objects.\n * It sets the title, action command, priority, and pension status based on the provided Prenotazione object.\n * The parent object is set to the RicercaPrenotazione object that initiated the modification.\n * The init() method is called to initialize the object's components.\n */\npublic ModificaPrenotazione(Prenotazione pren, Stanza room, RicercaPrenotazione papa) {\n    super(room, \"\", \"\", \"Modifica dei dati della prenotazione\", \"Modifica\", 2, pren.getPensionamento());\n    p = pren;\n    parent = papa;\n    init();\n}\n*/"
             }
         ],
         "signature": "ModificaPrenotazione",
         "variables": [
             " Prenotazione p",
             " RicercaPrenotazione parent"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ModificaPrenotazione class represents a window for editing reservation data. \n * It allows users to view and modify reservation details, such as room number, number of guests, guest information, and booking dates. \n * The class provides methods for initializing the frame with reservation data, handling user actions, and starting the room assignment process. \n * \n * The main functionalities of this class include:\n * - Initializing the frame with reservation data and setting up components for editing\n * - Handling user actions when saving changes to the reservation\n * - Starting the process of assigning a room to the reservation\n * \n * The class contains constructors for creating a new ModificaPrenotazione object with the specified reservation, room, and parent objects. \n * It also includes variables for storing the reservation and parent objects for reference within the class. \n * \n * Overall, the ModificaPrenotazione class provides a user-friendly interface for editing reservation data, updating the database with changes, and assigning rooms to reservations. \n */\npublic class ModificaPrenotazione {\n    // Variables\n    private Prenotazione p;\n    private RicercaPrenotazione parent;\n    \n    // Constructors\n    /**\n     * Constructs a new ModificaPrenotazione object with the given Prenotazione, Stanza, and RicercaPrenotazione objects.\n     * \n     * @param pren the Prenotazione object to be modified\n     * @param room the Stanza object associated with the Prenotazione\n     * @param papa the RicercaPrenotazione object that initiated the modification\n     * \n     * This constructor initializes the ModificaPrenotazione object with the specified objects.\n     * It sets the title, action command, priority, and pension status based on the provided Prenotazione object.\n     * The parent object is set to the RicercaPrenotazione object that initiated the modification.\n     * The init() method is called to initialize the object's components.\n     */\n    public ModificaPrenotazione(Prenotazione pren, Stanza room, RicercaPrenotazione papa) {\n        super(room, \"\", \"\", \"Modifica dei dati della prenotazione\", \"Modifica\", 2, pren.getPensionamento());\n        p = pren;\n        parent = papa;\n        init();\n    }\n    \n    // Methods\n    /**\n     * Initializes the frame and sets up the necessary components for editing a reservation.\n     * This method populates the text fields with the reservation data, disables certain fields based on the reservation details,\n     * and adds action listeners for the \"Azione\" and \"Assegna\" buttons.\n     * \n     * @param p the reservation object containing the data to be displayed and edited\n     * @return void\n     */\n    public void init() {\n        // Method body\n    }\n    \n    /**\n     * This method handles the action event triggered by a user interacting with a GUI component.\n     * It checks for any errors in the input data, updates the existing reservation object with the new data,\n     * and saves the changes to the database.\n     * If the operation is successful, it disposes of the current window, updates the parent window's list of bookings,\n     * and enables the parent window for further user interaction.\n     * \n     * @param e the ActionEvent object representing the user's action\n     */\n    public void actionPerformed(ActionEvent e) {\n        // Method body\n    }\n    \n    /**\n     * This method is called when an action event occurs. It starts the process of assigning tasks to employees.\n     * \n     * @param e the ActionEvent that triggered this method\n     * @return void\n     */\n    public void actionPerformed(ActionEvent e) {\n        // Method body\n    }\n    \n    /**\n     * Starts the assignment process by retrieving a list of available rooms from the database and assigning a room to a reservation.\n     * If there are any issues with reading the availability from the database, a message dialog is displayed.\n     * \n     * @param p the reservation for which a room is being assigned\n     */\n    void startAssegnazione() {\n        // Method body\n    }\n}\n*/"
     }
 ]

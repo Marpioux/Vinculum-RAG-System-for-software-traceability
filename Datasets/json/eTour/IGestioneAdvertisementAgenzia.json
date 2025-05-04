@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciNews(BeanNews)",
                 "comments": "Optional[/**\r\n * Method that inserts a new news item into the system.\r\n *\r\n * @param news Bean containing news data\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a news item into the system.\n *\n * @param news the news item to be inserted\n * @return true if the news item was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaNews(int)",
                 "comments": "Optional[/**\r\n * Method that removes a news item from the system.\r\n *\r\n * @param newsID ID of the news item to be erased\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a news item with the specified ID.\n * \n * @param newsId the ID of the news item to be deleted\n * @return true if the news item was successfully deleted, false otherwise\n * \n * This method deletes a news item with the given ID from the system. \n * If the news item is successfully deleted, it returns true. \n * If the news item does not exist or cannot be deleted, it returns false.\n * If the news item ID is invalid, an empty Optional is returned.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaNews(BeanNews)",
                 "comments": "Optional[/**\r\n * Method that amends the text of a news item.\r\n *\r\n * @param news Bean containing news data\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a news object with the given information.\n * \n * @param news the news object to be modified\n * @return true if the news object was successfully modified, false otherwise\n */\nabstract boolean modificaNews(BeanNews news);"
             },
             {
                 "body": "Optional.empty",
@@ -31,11 +34,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanNews> ottieniAllNews()",
                 "comments": "Optional[/**\r\n * Returns the list of active news items.\r\n *\r\n * @return ArrayList of BeanNews\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves all news articles from the database.\n * \n * @return An ArrayList of BeanNews objects containing all news articles, or an empty Optional if no news articles are found.\n */"
             }
         ],
         "constructors": [],
         "signature": "IGestioneAdvertisementAgenzia",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IGestioneAdvertisementAgenzia interface represents a contract for managing news items within a system. \n * It defines methods for inserting, deleting, modifying, and retrieving news items.\n * \n * This interface provides the following functionalities:\n * - inserisciNews(BeanNews): Inserts a new news item into the system.\n * - cancellaNews(int): Removes a news item from the system based on its ID.\n * - modificaNews(BeanNews): Amends the text of a news item.\n * - ottieniAllNews(): Retrieves all active news items from the system.\n * \n * Implementing classes must provide concrete implementations for these methods to interact with the underlying data source.\n * \n * Note: It is important to handle RemoteExceptions that may occur during the execution of these methods.\n */"
     }
 ]

@@ -8,13 +8,15 @@
                 "hasInnerComment": false,
                 "signature": "public NoHealthRecordsException()",
                 "comments": "Optional[/**\r\n * The default constructor, which just passes a pre-specified message to an iTrustException.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new NoHealthRecordsException with a default message.\n * This exception is thrown when attempting to access health records for a patient\n * who does not have any records in the system.\n */\npublic NoHealthRecordsException() {\n    super(MESSAGE);\n}\n*/"
             }
         ],
         "signature": "NoHealthRecordsException",
         "variables": [
             "public  static  final String MESSAGE",
             "private  static  final long serialVersionUID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The NoHealthRecordsException class represents an exception that is thrown when attempting to access health records for a patient who does not have any records in the system.\n * This exception extends the iTrustException class and provides a default message to be passed when the exception is thrown.\n * \n * The main functionalities of this class include:\n * - Providing a default constructor that initializes the exception with a pre-specified message.\n * \n * This class also defines two static final variables:\n * - MESSAGE: Represents the default message to be passed when the exception is thrown.\n * - serialVersionUID: Represents the version number for serialization.\n * \n * Example usage:\n * try {\n *     // Code that may throw NoHealthRecordsException\n * } catch (NoHealthRecordsException e) {\n *     // Handle the exception\n * }\n */"
     }
 ]

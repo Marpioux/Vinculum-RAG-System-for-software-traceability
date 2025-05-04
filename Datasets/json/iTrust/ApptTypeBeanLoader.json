@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ApptTypeBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of ApptTypeBean objects from a ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into the list\n * @return a List of ApptTypeBean objects populated with data from the ResultSet\n * \n * This method iterates through the ResultSet and calls the loadSingle method to create\n * ApptTypeBean objects, which are then added to the list. The list is then returned\n * containing all the ApptTypeBean objects loaded from the ResultSet.\n */"
             },
             {
                 "body": "Optional[{\r\n    ps.setString(1, apptType.getName());\r\n    ps.setInt(2, apptType.getDuration());\r\n    return ps;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, ApptTypeBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of an Appointment Type bean into a PreparedStatement.\n * \n * @param ps the PreparedStatement to load the parameters into\n * @param apptType the Appointment Type bean containing the parameters to be loaded\n * @return the PreparedStatement with the parameters loaded\n * \n * @throws SQLException if a database access error occurs\n */\npublic PreparedStatement loadParameters(PreparedStatement ps, ApptTypeBean apptType) throws SQLException {\n    ps.setString(1, apptType.getName());\n    ps.setInt(2, apptType.getDuration());\n    return ps;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ApptTypeBean apptType = new ApptTypeBean();\r\n    apptType.setName(rs.getString(\"appt_type\"));\r\n    apptType.setDuration(rs.getInt(\"duration\"));\r\n    return apptType;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public ApptTypeBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single appointment type bean from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the appointment type\n * @return the loaded ApptTypeBean object with the name and duration set based on the ResultSet data\n */"
             }
         ],
         "constructors": [],
         "signature": "ApptTypeBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ApptTypeBeanLoader class is responsible for loading and handling ApptTypeBean objects from a database ResultSet.\n * It provides methods for loading a single ApptTypeBean object, loading a list of ApptTypeBean objects, and loading parameters\n * of an ApptTypeBean object into a PreparedStatement for database operations.\n * \n * This class encapsulates the logic for loading and processing ApptTypeBean objects, making it easier to interact with\n * and manipulate data related to appointment types in a database.\n * \n * The main functionalities of this class include:\n * - Loading a single ApptTypeBean object from a ResultSet\n * - Loading a list of ApptTypeBean objects from a ResultSet\n * - Loading parameters of an ApptTypeBean object into a PreparedStatement\n * \n * The behavior of this class is such that it iterates through a ResultSet to load ApptTypeBean objects, either singly or in a list,\n * and provides methods for setting and retrieving parameters of an ApptTypeBean object for database operations.\n * \n * This class serves as a utility for handling ApptTypeBean objects in a database context, providing a convenient way to\n * interact with and manipulate data related to appointment types.\n */"
     }
 ]

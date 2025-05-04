@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public abstract String getDescription()",
                 "comments": "Optional[/**\r\n * @return A textual description of what the patient's status is that's causing the risk.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the object. If no description is available, an empty Optional is returned.\n * \n * @return an Optional containing the description of the object, or an empty Optional if no description is available\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "protected abstract boolean hasFactor()",
                 "comments": "Optional[/**\r\n * @return A boolean indicating whether the patient has the increased risk.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks if the object has a factor. \n * \n * @return true if the object has a factor, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    if (hasRisk == null)\r\n        hasRisk = hasFactor();\r\n    return hasRisk;\r\n}]",
@@ -23,13 +25,15 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasRiskFactor()",
                 "comments": "Optional[/**\r\n * @return A boolean indicating whether the patient has the increased risk.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the object has a risk factor.\n * \n * This method determines if the object has a risk factor by checking if the variable 'hasRisk' is null. If 'hasRisk' is null, it calls the method 'hasFactor()' to determine if the object has a risk factor. The result is stored in 'hasRisk' for future reference.\n * \n * @return true if the object has a risk factor, false otherwise\n */"
             }
         ],
         "constructors": [],
         "signature": "PatientRiskFactor",
         "variables": [
             "private Boolean hasRisk"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PatientRiskFactor class represents a patient's risk factor for a certain medical condition.\n * It provides methods to retrieve a textual description of the patient's status causing the risk,\n * check if the patient has an increased risk factor, and determine if the patient has a specific risk factor.\n * \n * This class contains a private Boolean variable 'hasRisk' to store the risk factor status of the patient.\n * \n * The getDescription() method returns a textual description of the patient's risk factor status.\n * \n * The hasFactor() method checks if the patient has an increased risk factor.\n * \n * The hasRiskFactor() method determines if the patient has a specific risk factor by checking the 'hasRisk' variable.\n * If 'hasRisk' is null, it calls the hasFactor() method to determine the risk factor status and stores the result in 'hasRisk'.\n * \n * Note: It is important to initialize the 'hasRisk' variable before using the hasRiskFactor() method.\n */"
     }
 ]

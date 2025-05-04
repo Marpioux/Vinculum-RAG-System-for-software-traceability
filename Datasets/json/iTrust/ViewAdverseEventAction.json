@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public AdverseEventBean getAdverseEvent(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves an AdverseEventBean object representing an adverse event report based on the specified ID.\n * \n * @param id the unique identifier of the adverse event report to retrieve\n * @return the AdverseEventBean object representing the adverse event report with the specified ID,\n *         or null if no such report exists\n */"
             },
             {
                 "body": "Optional[{\r\n    return adEventDAO.getUnremovedAdverseEventsByCode(code);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<AdverseEventBean> getUnremovedAdverseEventsByCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of unremoved adverse events by the specified code.\n * \n * @param code the code of the adverse event to search for\n * @return a list of AdverseEventBean objects representing the unremoved adverse events with the specified code\n */"
             },
             {
                 "body": "Optional[{\r\n    return adEventDAO.getNameForCode(code);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getNameForCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name associated with the given code from the adEventDAO.\n * \n * @param code the code for which to retrieve the name\n * @return the name associated with the given code, or null if no name is found\n */"
             }
         ],
         "constructors": [
@@ -33,12 +36,14 @@
                 "hasInnerComment": false,
                 "signature": "public ViewAdverseEventAction(DAOFactory)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewAdverseEventAction object with the given DAOFactory.\n * This constructor initializes the adEventDAO instance variable with the AdverseEventDAO\n * object obtained from the DAOFactory parameter.\n * \n * @param factory the DAOFactory used to retrieve the AdverseEventDAO object\n */"
             }
         ],
         "signature": "ViewAdverseEventAction",
         "variables": [
             "private AdverseEventDAO adEventDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ViewAdverseEventAction class represents an action that allows users to view and retrieve information about adverse event reports.\n * This class contains methods for retrieving specific adverse event reports based on ID or code, as well as getting the name associated with a specific code.\n * The class interacts with an AdverseEventDAO to retrieve and manipulate adverse event data.\n * \n * Main functionalities:\n * - Retrieve an AdverseEventBean object representing an adverse event report based on the specified ID\n * - Retrieve a list of unremoved adverse events by the specified code\n * - Retrieve the name associated with a given code from the adEventDAO\n * \n * Overall behavior:\n * - When instantiated with a DAOFactory, the ViewAdverseEventAction class initializes the adEventDAO for interacting with adverse event data.\n * - The class provides methods for retrieving specific adverse event information and interacting with the underlying data source.\n * - Users can use this class to view and retrieve information about adverse event reports in the system.\n */\n*/\n/**\n * The ViewAdverseEventAction class represents an action that allows users to view details of an adverse event.\n * It contains an instance variable adEventDAO, which is an object obtained from the DAOFactory parameter.\n * This class is used to retrieve and display information about adverse events stored in the database.\n * \n * @param factory the DAOFactory used to retrieve the AdverseEventDAO object\n */"
     }
 ]

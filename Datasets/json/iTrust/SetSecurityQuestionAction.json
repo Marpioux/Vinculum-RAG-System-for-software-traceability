@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void updateInformation(SecurityQA)",
                 "comments": "Optional[/**\r\n * Updates information in the database from the information held in the SecurityQA bean passed as a param\r\n *\r\n * @param a\r\n *            SecurityQuestionBean that holds new information\r\n * @throws Exception\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the security question and answer for a user.\n * \n * @param a the SecurityQA object containing the new security question and answer\n * @throws ValidationException if the security question and answer fail validation\n * \n * This method validates the new security question and answer using a SecurityQAValidator.\n * If the validation is successful, it updates the security question and answer in the database\n * using the AuthDAO. The loggedInMID parameter is used to determine which user's information\n * is being updated.\n */"
             },
             {
                 "body": "Optional[{\r\n    SecurityQA toRet = new SecurityQA();\r\n    toRet.setAnswer(authDAO.getSecurityAnswer(loggedInMID));\r\n    toRet.setQuestion(authDAO.getSecurityQuestion(loggedInMID));\r\n    return toRet;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public SecurityQA retrieveInformation()",
                 "comments": "Optional[/**\r\n * Returns a SecurityQA bean holding the security info for the currently logged in user\r\n *\r\n * @return SecurityQA for loggedInMid\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the security question and answer associated with the currently logged in user.\n * \n * @return a SecurityQA object containing the security question and answer\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!authDAO.checkUserExists(mid))\r\n        throw new iTrustException(\"MID \" + mid + \" is not a user!\");\r\n    return mid;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "private long checkMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a given Medical Record Number (MID) exists in the system.\n * \n * @param mid the Medical Record Number to be checked\n * @return the same MID if it exists in the system\n * @throws iTrustException if the MID does not exist in the system\n */\nprivate long checkMID(long mid) {\n    if (!authDAO.checkUserExists(mid))\n        throw new iTrustException(\"MID \" + mid + \" is not a user!\");\n    return mid;\n}"
             }
         ],
         "constructors": [
@@ -33,13 +36,15 @@
                 "hasInnerComment": false,
                 "signature": "public SetSecurityQuestionAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Sets up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param rLoggedInMID The MID of the user who is setting their security question.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SetSecurityQuestionAction object with the given DAOFactory and logged in member ID.\n * This constructor initializes the authDAO instance variable with the AuthDAO obtained from the factory.\n * It also validates and sets the logged in member ID.\n * \n * @param factory the DAOFactory used to obtain the AuthDAO\n * @param rLoggedInMID the logged in member ID to be validated and set\n */"
             }
         ],
         "signature": "SetSecurityQuestionAction",
         "variables": [
             "private AuthDAO authDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a controller for managing security question and answer information for users in a system. It provides methods for updating and retrieving security question and answer information for a user.\n * \n * The main functionalities of this class include:\n * - Updating security question and answer information in the database based on the information provided in a SecurityQA bean\n * - Retrieving the security question and answer associated with the currently logged in user\n * \n * The overall behavior of this class is to interact with a SecurityQAValidator to validate the security question and answer information before updating it in the database using an AuthDAO. It also handles retrieving the security question and answer information for a user.\n * \n * Class Methods:\n * - public void updateInformation(SecurityQA a): Updates information in the database from the information held in the SecurityQA bean passed as a parameter. This method validates the new security question and answer using a SecurityQAValidator and updates the information in the database using an AuthDAO.\n * \n * - public SecurityQA retrieveInformation(): Returns a SecurityQA bean holding the security information for the currently logged in user. This method retrieves the security question and answer associated with the currently logged in user from the database.\n * \n * Note: The loggedInMID parameter is used to determine which user's information is being updated or retrieved.\n */\n**/\n/**\n * The SetSecurityQuestionAction class represents an action that allows a user to set their security question in the system.\n * This class provides methods for checking if a given Medical Record Number (MID) exists in the system and setting up defaults for the action.\n * It also handles the validation of the logged-in member ID and initializes the AuthDAO instance variable with the AuthDAO obtained from the DAOFactory.\n * \n * The main functionalities of this class include:\n * - Checking if a given MID exists in the system\n * - Setting up defaults for the action\n * - Validating and setting the logged-in member ID\n * \n * This class ensures that the security question can be set by a user with a valid MID and handles exceptions if the MID does not exist in the system.\n * \n * @author [Author Name]\n * @version 1.0\n * @see AuthDAO\n * @see DAOFactory\n * @see iTrustException\n */\n **/"
     }
 ]

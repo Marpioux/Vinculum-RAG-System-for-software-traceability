@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientName()",
                 "comments": "Optional[/**\r\n * Returns the patient's name\r\n *\r\n * @return patient's full name\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the full name of the patient.\n * This method concatenates the first name and last name of the patient\n * to form the full name.\n * \n * @return the full name of the patient as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    return Integer.toString(pb.getAge());\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientAge()",
                 "comments": "Optional[/**\r\n * Returns the patient's age\r\n *\r\n * @return patient's age\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the age of the patient.\n * \n * @return a String representing the age of the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return pb.getGender().toString();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientGender()",
                 "comments": "Optional[/**\r\n * Returns the patient's gender\r\n *\r\n * @return patient's gender\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the gender of the patient.\n * \n * @return a String representation of the patient's gender\n */"
             },
             {
                 "body": "Optional[{\r\n    return pb.getEmergencyName() + \" \" + pb.getEmergencyPhone();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientEmergencyContact()",
                 "comments": "Optional[/**\r\n * Returns the patient's emergency contact\r\n *\r\n * @return patient's emergency contact\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the emergency contact information of the patient.\n * This method returns a String containing the name and phone number of the patient's emergency contact.\n * \n * @return a String representing the patient's emergency contact information in the format \"emergencyName emergencyPhone\"\n */"
             },
             {
                 "body": "Optional[{\r\n    return pb.getBloodType() + \"\";\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getBloodType()",
                 "comments": "Optional[/**\r\n * Returns the patient's blood type\r\n *\r\n * @return the patient's blood type\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the blood type of the person from the Person object.\n * \n * @return a String representing the blood type of the person\n */"
             },
             {
                 "body": "Optional[{\r\n    return allergyDAO.getAllergies(this.pid);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<AllergyBean> getAllergies()",
                 "comments": "Optional[/**\r\n * Returns a list of allergies for the given patient\r\n *\r\n * @return a list of AllergyBeans\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of allergies for a specific patient.\n * \n * @return A list of AllergyBean objects representing the allergies of the patient.\n */ \npublic List<AllergyBean> getAllergies() {\n    return allergyDAO.getAllergies(this.pid);\n}"
             },
             {
                 "body": "Optional[{\r\n    List<PrescriptionBean> allPrescriptions = patientDAO.getCurrentPrescriptions(this.pid);\r\n    ArrayList<PrescriptionBean> warningList = new ArrayList<PrescriptionBean>();\r\n    for (int i = 0; i < allPrescriptions.size(); i++) {\r\n        if (PrescriptionAlerts.isAlert(allPrescriptions.get(i).getMedication().getNDCode()))\r\n            warningList.add(allPrescriptions.get(i));\r\n    }\r\n    return warningList;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PrescriptionBean> getCurrentPrescriptions()",
                 "comments": "Optional[/**\r\n * Returns a list of prescriptions the patient is currently taking\r\n *\r\n * @return a list of PrescriptionBeans for which the patient is currently taking\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current prescriptions for the patient with the specified patient ID.\n * Filters the prescriptions to only include those that trigger a prescription alert.\n * \n * @return a list of PrescriptionBean objects representing the current prescriptions that trigger a prescription alert\n */\npublic List<PrescriptionBean> getCurrentPrescriptions() {\n    List<PrescriptionBean> allPrescriptions = patientDAO.getCurrentPrescriptions(this.pid);\n    ArrayList<PrescriptionBean> warningList = new ArrayList<PrescriptionBean>();\n    for (int i = 0; i < allPrescriptions.size(); i++) {\n        if (PrescriptionAlerts.isAlert(allPrescriptions.get(i).getMedication().getNDCode()))\n            warningList.add(allPrescriptions.get(i));\n    }\n    return warningList;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        boolean dup = false;\r\n        List<DiagnosisBean> allDiagnoses = patientDAO.getDiagnoses(this.pid);\r\n        ArrayList<DiagnosisBean> warningList = new ArrayList<DiagnosisBean>();\r\n        for (DiagnosisBean bean : allDiagnoses) {\r\n            OfficeVisitBean ovb = ovDAO.getOfficeVisit(bean.getVisitID());\r\n            if (ovb == null) {\r\n                continue;\r\n            }\r\n            if (\"yes\".equals(bean.getClassification()) || (ovb.getVisitDate().getTime() > Calendar.getInstance().getTimeInMillis() - 30 * 24 * 60 * 60 * 1000)) {\r\n                for (DiagnosisBean wbean : warningList) {\r\n                    if (bean.getDescription().equals(wbean.getDescription())) {\r\n                        dup = true;\r\n                    }\r\n                }\r\n                if (!dup) {\r\n                    warningList.add(bean);\r\n                }\r\n            }\r\n        }\r\n        return warningList;\r\n    } catch (DBException dbe) {\r\n        throw new iTrustException(dbe.getMessage());\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<DiagnosisBean> getWarningDiagnoses()",
                 "comments": "Optional[/**\r\n * Returns a list of diagnoses that are in the range indicated by the DiagnosisRange enum\r\n *\r\n * @return list of DiagnosisBeans\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of warning diagnoses for the patient with the given patient ID.\n * A warning diagnosis is defined as a diagnosis that has a classification of \"yes\" or was made within the last 30 days.\n * \n * @return a List of DiagnosisBean objects representing the warning diagnoses for the patient\n * @throws iTrustException if a database error occurs\n */"
             },
             {
                 "body": "Optional[{\r\n    List<ProcedureBean> allImmunizations = patientDAO.getImmunizationProcedures(this.pid);\r\n    return allImmunizations;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ProcedureBean> getImmunizations()",
                 "comments": "Optional[/**\r\n * Returns a list of prescriptions the patient is currently taking\r\n *\r\n * @return a list of PrescriptionBeans for which the patient is currently taking\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of immunization procedures for the patient with the specified patient ID.\n * \n * @return A list of ProcedureBean objects representing the immunization procedures for the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    Email email = new Email();\r\n    List<PatientBean> reps = patientDAO.getRepresenting(pb.getMID());\r\n    List<String> toAddrs = new ArrayList<String>();\r\n    toAddrs.add(pb.getEmail());\r\n    for (PatientBean r : reps) {\r\n        toAddrs.add(r.getEmail());\r\n    }\r\n    email.setFrom(\"no-reply@itrust.com\");\r\n    // patient and personal representative\r\n    email.setToList(toAddrs);\r\n    email.setSubject(String.format(\"Emergency Report Viewed Notification\"));\r\n    email.setBody(\"Dear \" + pb.getFullName() + \",\\n An emergency report has been generated. \" + \"Please login to iTrust to see who has viewed your records.\");\r\n    return email;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": true,
                 "signature": "private Email makeEmail()",
                 "comments": "Optional[/**\r\n * Creates a fake e-mail to notify the user that an emergency report has been created and viewed.\r\n *\r\n * @return the e-mail to be sent\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": "Optional[[// patient and personal representative\r\n]]"
+                "innerComments": "Optional[[// patient and personal representative\r\n]]",
+                "generated_comment": "/**\n * Creates an email notification for a patient and their personal representatives when an emergency report is viewed.\n * Retrieves the list of personal representatives for the given patient from the database and sends an email notification to each of them.\n * \n * @return the constructed Email object with the notification details\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public EmergencyReportAction(DAOFactory, long, String)",
                 "comments": "Optional[/**\r\n * The super class handles validating the pid Logs viewing of the report\r\n *\r\n * @param factory The DAOFactory used in creating the DAOs for this action.\r\n * @param loggedInMID The MID of the user who is looking at the emergency report.\r\n * @param pidString The ID of the patient whose report is being generated.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new EmergencyReportAction object with the specified DAOFactory, patient ID, and logged in MID.\n * Initializes the patientDAO, allergyDAO, transDAO, ovDAO, loggedInMID, emailutil, and pb fields.\n * Logs a transaction of type VIEW_EMERGENCY_REPORT for the specified patient ID and logged in MID.\n * Sends an email using the EmailUtil class with the generated email message.\n * \n * @param factory the DAOFactory to be used for database operations\n * @param pidString the patient ID as a String\n * @param loggedInMID the logged in MID of the user\n */"
             }
         ],
         "signature": "EmergencyReportAction",
@@ -101,6 +112,7 @@
             "private PatientBean pb",
             "private EmailUtil emailutil",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "Sure, here is a comprehensive JavaDoc comment for the class:\n\n/**\n * The PatientInformation class represents a patient's information including their name, age, gender, and emergency contact details.\n * This class provides methods to retrieve and manipulate the patient's information.\n * \n * The main functionalities of this class include:\n * - Retrieving the patient's full name by concatenating their first name and last name\n * - Retrieving the patient's age as a String\n * - Retrieving the patient's gender as a String representation\n * - Retrieving the patient's emergency contact information including the name and phone number\n * \n * The overall behavior of this class is to provide easy access to the patient's information for use in a healthcare system or medical application.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * This class represents a Patient object in a medical system. It contains methods to retrieve and manipulate patient information such as emergency contact details, blood type, allergies, and current prescriptions.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the patient's emergency contact information\n * - Retrieving the patient's blood type\n * - Retrieving a list of allergies for the patient\n * - Retrieving a list of current prescriptions for the patient with potential warnings\n * \n * The overall behavior of this class is to provide access to important patient information that can be used by healthcare professionals to provide appropriate care and treatment to the patient.\n * \n * @author [Your Name]\n * @version 1.0\n */\npublic class Patient {\n    \n    private String emergencyName;\n    private String emergencyPhone;\n    private String bloodType;\n    private long pid;\n    private AllergyDAO allergyDAO;\n    private PatientDAO patientDAO;\n    \n    /**\n     * Retrieves the patient's emergency contact information in the format \"emergencyName emergencyPhone\"\n     * \n     * @return a String representing the patient's emergency contact information\n     */\n    public String getEmergencyContact() {\n        return emergencyName + \" \" + emergencyPhone;\n    }\n    \n    /**\n     * Returns the patient's blood type\n     * \n     * @return the patient's blood type\n     */\n    public String getBloodType() {\n        return bloodType;\n    }\n    \n    /**\n     * Retrieves a list of allergies for a specific patient.\n     * \n     * @return A list of AllergyBean objects representing the allergies of the patient.\n     */\n    public List<AllergyBean> getAllergies() {\n        return allergyDAO.getAllergies(this.pid);\n    }\n    \n    /**\n     * Returns a list of current prescriptions the patient is taking with potential warnings.\n     * \n     * @return a list of PrescriptionBeans for which the patient is currently taking\n     */\n    public List<PrescriptionBean> getCurrentPrescriptions() {\n        List<PrescriptionBean> allPrescriptions = patientDAO.getCurrentPrescriptions(this.pid);\n        ArrayList<PrescriptionBean> warningList = new ArrayList<PrescriptionBean>();\n        \n        for (int i = 0; i < allPrescriptions.size(); i++) {\n            if (PrescriptionAlerts.isAlert(allPrescriptions.get(i).getMedication().getNDCode())) {\n                warningList.add(allPrescriptions.get(i));\n            }\n        }\n        \n        return warningList;\n    }\n}\n```\n/**\n * The iTrustException class represents an exception that can be thrown in the iTrust system.\n * It is used to handle errors and unexpected situations that may occur during the execution of the system.\n * \n * This class includes methods for retrieving current prescriptions for a patient and filtering them to only include those that trigger a prescription alert.\n * It also includes a method for getting warning diagnoses based on certain criteria.\n * \n * The getCurrentPrescriptions method retrieves the current prescriptions for a patient with a specified patient ID and filters them to only include those that trigger a prescription alert.\n * \n * The getWarningDiagnoses method returns a list of diagnoses that are in the range indicated by the DiagnosisRange enum.\n * \n * @return a list of DiagnosisBeans representing the warning diagnoses\n * @throws iTrustException if an error occurs during the retrieval of warning diagnoses\n */\n**/\n/**\n * This class represents a PatientService that provides various functionalities related to patients in the system.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of warning diagnoses for a patient based on certain criteria\n * - Retrieving a list of immunization procedures for a patient\n * - Creating a fake email notification for a patient and their personal representatives\n * \n * The overall behavior of this class is to interact with the database through the PatientDAO to retrieve and manipulate patient-related data.\n * \n * Class: PatientService\n * \n * Methods:\n * 1. public List<DiagnosisBean> getWarningDiagnoses()\n *    - Retrieves a list of warning diagnoses for the patient with the given patient ID.\n *    - A warning diagnosis is defined as a diagnosis that has a classification of \"yes\" or was made within the last 30 days.\n *    - Returns a List of DiagnosisBean objects representing the warning diagnoses for the patient.\n *    - Throws iTrustException if a database error occurs.\n * \n * 2. public List<ProcedureBean> getImmunizations()\n *    - Retrieves a list of immunization procedures for the patient with the specified patient ID.\n *    - Returns a list of ProcedureBean objects representing the immunization procedures for the patient.\n * \n * 3. private Email makeEmail()\n *    - Creates a fake email to notify the user that an emergency report has been generated.\n *    - Sends the email to the patient and their personal representatives.\n * \n * This class encapsulates the logic for handling patient-related operations and serves as a bridge between the application and the database.\n */\n```\n/**\n * This class represents an action that is taken when an emergency report is viewed. It creates an email notification for the patient and their personal representatives when the emergency report is viewed. It retrieves the list of personal representatives for the patient from the database and sends an email notification to each of them.\n * \n * The class contains a constructor that initializes the necessary DAOs and fields for handling the emergency report view action. It logs the viewing of the report and sends an email notification using the EmailUtil class.\n * \n * @param factory The DAOFactory used in creating the DAOs for this action.\n * @param loggedInMID The MID of the user who is looking at the emergency report.\n * @param pidString The ID of the patient whose report is being generated.\n * @throws iTrustException if there are any issues during the action execution.\n * \n * @return the constructed Email object with the notification details.\n */\n*/\n/**\n * The EmergencyReportAction class is responsible for sending an email using the EmailUtil class with the generated email message.\n * It interacts with the DAOFactory for database operations and requires the patient ID as a String and the logged in MID of the user.\n * \n * This class contains private variables for TransactionDAO, PatientDAO, AllergyDAO, OfficeVisitDAO, PatientBean, EmailUtil, and the logged in MID.\n * \n * The main functionalities of this class include sending an emergency report email with the generated message, utilizing the EmailUtil class for email sending.\n * \n * @param factory the DAOFactory to be used for database operations\n * @param pidString the patient ID as a String\n * @param loggedInMID the logged in MID of the user\n */"
     }
 ]

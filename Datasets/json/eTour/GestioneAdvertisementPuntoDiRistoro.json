@@ -8,12 +8,14 @@
                 "hasInnerComment": false,
                 "signature": "public GestioneAdvertisementPuntoDiRistoro()",
                 "comments": "Optional[/**\r\n * Constructor, call the constructor of the superclass.\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of GestioneAdvertisementPuntoDiRistoro.\n * This constructor initializes the object by calling the constructor of its superclass.\n */"
             }
         ],
         "signature": "GestioneAdvertisementPuntoDiRistoro",
         "variables": [
             "private  static  final long serialVersionUID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The GestioneAdvertisementPuntoDiRistoro class represents a component responsible for managing advertisements related to a restaurant point.\n * This class provides functionalities for creating, updating, and deleting advertisements specific to a restaurant location.\n * It also handles the communication with remote services to retrieve and display relevant advertisements.\n * \n * The main purpose of this class is to centralize the management of advertisements for a restaurant point, ensuring consistency and ease of access.\n * \n * This class includes a constructor that initializes the object by calling the constructor of its superclass.\n * \n * Note: This class implements Serializable and has a serialVersionUID for serialization purposes.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by setting the editability of text fields and checkboxes, and adding action listeners to trigger the startCerca method when certain events occur.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * - Sets testo1 to be editable\n * - Sets testo2, testo3, and testo4 to be non-editable\n * - Disables mycheckboxes\n * - Adds an action listener to Azione button to call startCerca method\n * - Adds an action listener to testo1 text field to call startCerca method\n * \n * Return Value:\n * None\n */"
             },
             {
                 "body": "Optional[{\r\n    startCerca();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the search process.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startCerca();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the search process by calling the startCerca() method.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    MessageDialog msg;\r\n    Stanza room;\r\n    if ((room = (Principale.db).readStanza(testo1.getText())) != null) {\r\n        writeDatiStanza(room);\r\n        Azione.setEnabled(true);\r\n    } else\r\n        msg = new MessageDialog(this, \"Stanza inesistente!\");\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " void startCerca()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts a search for a specific room in the database using the text entered in a text field.\n * If the room is found, the method writes the room data and enables a specific action button.\n * If the room is not found, a message dialog is displayed indicating that the room does not exist.\n * \n * @param none\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -41,10 +45,12 @@
                 "hasInnerComment": false,
                 "signature": "public VediStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the VediStanza class.\n * Initializes the title, search button text, and number of columns for displaying room data.\n * Calls the init() method to set up the initial state of the class.\n */"
             }
         ],
         "signature": "VediStanza",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The VediStanza class represents a GUI component for viewing room data and performing searches in a database.\n * It provides functionality for initializing GUI components, handling action events, and starting search processes.\n * \n * Main Functionalities:\n * - Initializes the GUI components by setting the editability of text fields and checkboxes\n * - Adds action listeners to trigger the startCerca method when certain events occur\n * - Starts a search for a specific room in the database using the text entered in a text field\n * - Writes the room data and enables a specific action button if the room is found\n * - Displays a message dialog if the room is not found\n * \n * Overall Behavior:\n * The VediStanza class allows users to view and search for room data in a database. \n * It provides a user-friendly interface with interactive elements for performing search operations.\n * The class encapsulates the logic for initializing the GUI components, handling user input, and processing search results.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

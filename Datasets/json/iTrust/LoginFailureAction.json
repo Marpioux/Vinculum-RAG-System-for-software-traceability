@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String recordLoginFailure()",
                 "comments": "Optional[/**\r\n * Calls authDAO to record the login failure in the database\r\n *\r\n * @return How many login failure attempts or a DBException message\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Records a login failure for the given IP address.\n * \n * @return A message indicating the login failure and the number of failed attempts.\n * @throws DBException if there is an error accessing the database.\n */\npublic String recordLoginFailure() {\n    try {\n        authDAO.recordLoginFailure(ipAddr);\n        int loginFailures = authDAO.getLoginFailures(ipAddr);\n        transactionDAO.logTransaction(TransactionType.LOGIN_FAILURE, 0L, 0L, \"IP: \" + ipAddr);\n        return \"Login failed, attempt \" + loginFailures;\n    } catch (DBException e) {\n        e.printStackTrace();\n        return e.getMessage();\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return authDAO.getLoginFailures(ipAddr) < 3;\r\n    } catch (DBException e) {\r\n        System.err.println(\"Denying access due to DBException\");\r\n        return false;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isValidForLogin()",
                 "comments": "Optional[/**\r\n * Checks to see if the current user can login (#failures<3)\r\n *\r\n * @return true if the user is valid to login\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the current IP address is valid for login based on the number of login failures.\n * \n * @return true if the number of login failures for the current IP address is less than 3, false otherwise\n */\npublic boolean isValidForLogin() {\n    try {\n        return authDAO.getLoginFailures(ipAddr) < 3;\n    } catch (DBException e) {\n        System.err.println(\"Denying access due to DBException\");\n        return false;\n    }\n}"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public LoginFailureAction(DAOFactory, String)",
                 "comments": "Optional[/**\r\n * Set up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param ipAddr The IP address of the user making the login attempt.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new LoginFailureAction object with the given DAOFactory and IP address.\n * \n * @param factory the DAOFactory used to retrieve the AuthDAO and TransactionDAO objects\n * @param ipAddr the IP address associated with the login failure\n */\npublic LoginFailureAction(DAOFactory factory, String ipAddr) {\n    this.authDAO = factory.getAuthDAO();\n    this.ipAddr = ipAddr;\n    this.transactionDAO = factory.getTransactionDAO();\n}\n*/"
             }
         ],
         "signature": "LoginFailureAction",
@@ -34,6 +37,7 @@
             "private AuthDAO authDAO",
             "private String ipAddr",
             "private TransactionDAO transactionDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class provides functionality for recording login failures and determining if a user is valid for login based on the number of failed attempts.\n * \n * The class contains two methods:\n * 1. recordLoginFailure(): Records a login failure for the given IP address by calling authDAO to record the failure in the database. It also logs the transaction and returns a message indicating the login failure and the number of failed attempts. It may throw a DBException if there is an error accessing the database.\n * \n * 2. isValidForLogin(): Checks if the current IP address is valid for login by checking if the number of login failures is less than 3. It returns true if the user is valid to login, otherwise false. It may catch a DBException and print an error message to deny access.\n * \n * Overall, this class helps in managing login failures and determining the validity of a user for login based on the number of failed attempts. It handles database interactions and provides feedback to the user regarding login failures.\n */\npublic class LoginManager {\n    // Class implementation here\n}\n*/\n/**\n * The LoginFailureAction class represents an action that handles login failures and determines if a user is allowed to login based on the number of failed attempts.\n * \n * This class provides methods to check if the number of login failures for a specific IP address is less than 3, and denies access if the limit is exceeded.\n * \n * The class contains a constructor that initializes the AuthDAO, IP address, and TransactionDAO objects used for processing login failures.\n * \n * The main functionality of this class is to validate login attempts by checking the number of failed login attempts associated with a specific IP address.\n * \n * If a DBException occurs during the validation process, access is denied and an error message is logged.\n * \n * The class also defines a constant MAX_LOGIN_ATTEMPTS to set the maximum number of allowed login failures before access is denied.\n */\n*/"
     }
 ]

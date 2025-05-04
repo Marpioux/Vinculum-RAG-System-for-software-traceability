@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getApptType()",
                 "comments": "Optional[/**\r\n * @return the apptType\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the appointment type associated with this object.\n * \n * @return The appointment type as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.apptType = apptType;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setApptType(String)",
                 "comments": "Optional[/**\r\n * @param apptType the apptType to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the appointment type for this appointment.\n * \n * @param apptType the type of appointment to set\n * \n * This method sets the appointment type for this appointment to the specified type.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return patient;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatient()",
                 "comments": "Optional[/**\r\n * @return the patient\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the patient ID associated with this object.\n * \n * @return the patient ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patient = patient;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatient(long)",
                 "comments": "Optional[/**\r\n * @param patient the patient to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient ID for this object.\n * \n * @param patient the ID of the patient to set\n */\npublic void setPatient(long patient) {\n    this.patient = patient;\n}\n \n/**\n * Sets the patient ID for this object.\n * \n * @param patient the ID of the patient to set\n * @return void\n * \n * This method sets the patient ID for this object to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcp;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getHcp()",
                 "comments": "Optional[/**\r\n * @return the hcp\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the handicap value for a player.\n * \n * @return the handicap value for the player\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcp = hcp;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHcp(long)",
                 "comments": "Optional[/**\r\n * @param hcp the hcp to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the handicap value for the player.\n * \n * @param hcp the handicap value to set\n * \n * This method sets the handicap value for the player to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return date;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public Timestamp getDate()",
                 "comments": "Optional[/**\r\n * @return the date\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the date associated with this object.\n * \n * @return the date as a Timestamp object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.date = date;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDate(Timestamp)",
                 "comments": "Optional[/**\r\n * @param date the date to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of the object to the specified Timestamp value.\n * \n * @param date the Timestamp value to set as the date of the object\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return comment;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getComment()",
                 "comments": "Optional[/**\r\n * @return the comment\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the comment associated with this object.\n * \n * @return the comment as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.comment = comment;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setComment(String)",
                 "comments": "Optional[/**\r\n * @param comment the comment to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the comment for this object.\n * \n * @param comment the new comment to set\n * \n * This method sets the comment for this object to the specified string. \n * If the comment is null, an empty string will be set instead. \n * \n * @return void\n */"
             }
         ],
         "constructors": [],
@@ -90,6 +100,7 @@
             "private long hcp",
             "private Timestamp date",
             "private String comment"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ApptBean class represents an appointment object with various attributes such as appointment type, patient ID, handicap value, date, and comment.\n * This class provides methods to retrieve and set these attributes, allowing for easy manipulation and management of appointment data.\n * \n * Main functionalities include:\n * - Retrieving and setting the appointment type\n * - Retrieving and setting the patient ID\n * - Retrieving and setting the handicap value\n * - Retrieving and setting the date of the appointment\n * - Retrieving and setting any additional comments related to the appointment\n * \n * The class ensures data encapsulation by providing private variables for each attribute and public getter and setter methods to access and modify these attributes.\n * Additionally, the class includes comprehensive JavaDoc comments for each method, describing their purpose and usage.\n * \n * Overall, the ApptBean class serves as a convenient and efficient way to manage appointment data within a Java application.\n */"
     }
 ]

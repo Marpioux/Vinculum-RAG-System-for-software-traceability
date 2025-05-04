@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier of the visit.\n * \n * @return the unique identifier of the visit\n */"
             },
             {
                 "body": "Optional[{\r\n    return this.patientID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatientID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the patient.\n * \n * @return the patient's ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    return this.hcpID;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getHcpID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the HCP ID associated with this object.\n * \n * @return the HCP ID\n */"
             },
             {
                 "body": "Optional[{\r\n    return this.notes;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getNotes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the notes associated with this object.\n * \n * @return a String representing the notes of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    Date d = null;\r\n    try {\r\n        d = new SimpleDateFormat(\"MM/dd/yyyy\").parse(visitDateStr);\r\n    } catch (ParseException e) {\r\n        System.out.println(e.toString());\r\n    }\r\n    return d;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getVisitDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the visit date from a string representation and returns it as a Date object.\n * \n * @return the visit date as a Date object, or null if the string representation is invalid\n * \n * @param visitDateStr the string representation of the visit date in the format \"MM/dd/yyyy\"\n * \n * @throws ParseException if the string representation cannot be parsed into a valid date\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitDateStr;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getVisitDateStr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the visit date as a string representation.\n * \n * @return the visit date as a string\n */"
             },
             {
                 "body": "Optional[{\r\n    return diagnoses;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<DiagnosisBean> getDiagnoses()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of DiagnosisBeans representing the diagnoses associated with this object.\n * \n * @return A List of DiagnosisBeans containing the diagnoses.\n */"
             },
             {
                 "body": "Optional[{\r\n    return prescriptions;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PrescriptionBean> getPrescriptions()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of PrescriptionBeans.\n * \n * This method returns a list of PrescriptionBean objects containing information about prescriptions.\n * \n * @return List<PrescriptionBean> A list of PrescriptionBean objects representing prescriptions.\n */"
             },
             {
                 "body": "Optional[{\r\n    return procedures;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ProcedureBean> getProcedures()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of ProcedureBeans.\n * \n * This method returns a list of ProcedureBeans containing information about procedures.\n * \n * @return List<ProcedureBean> A list of ProcedureBeans representing procedures.\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitID;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getVisitID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier for the visit.\n * \n * @return the visit ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.diagnoses = diagnoses;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDiagnoses(List<DiagnosisBean>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the list of diagnoses for this object.\n * \n * @param diagnoses the list of DiagnosisBean objects to set\n * \n * This method sets the list of diagnoses for this object to the specified list of DiagnosisBean objects.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpID = hcpID;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHcpID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCP ID for this object.\n * \n * @param hcpID the new HCP ID to set\n * @return void\n * \n * This method sets the HCP ID for this object to the specified value. \n * The HCP ID is a unique identifier for healthcare providers. \n * \n */"
             },
             {
                 "body": "Optional[{\r\n    this.prescriptions = prescriptions;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPrescriptions(List<PrescriptionBean>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the list of prescriptions for this object.\n * \n * @param prescriptions the list of PrescriptionBean objects to set\n * \n * This method sets the list of prescriptions for this object to the specified list of PrescriptionBean objects.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.notes = notes;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNotes(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the notes for this object.\n * \n * @param notes the notes to set\n * \n * This method sets the notes for the object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient ID for this object.\n * \n * @param patientID the unique identifier for the patient\n * @return void\n * \n * This method sets the patient ID for this object to the specified value. \n * The patient ID is a long value that uniquely identifies a patient. \n * If the patient ID is already set, calling this method will update the patient ID to the new value.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.procedures = procedures;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setProcedures(List<ProcedureBean>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the list of procedures for this object.\n * \n * @param procedures the list of ProcedureBean objects to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.visitDateStr = visitDate;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitDateStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the visit date string for the object.\n * \n * @param visitDate the visit date string to be set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return hospitalID;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHospitalID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the hospital.\n * \n * @return The hospital ID as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hospitalID = hospitalID;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHospitalID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the hospital ID for this object.\n * \n * @param hospitalID the new hospital ID to set\n * @return void\n * \n * This method sets the hospital ID for this object to the specified value. \n * The hospital ID is a unique identifier for a hospital and is used for identification purposes.\n */"
             }
         ],
         "constructors": [
@@ -161,7 +180,8 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new OfficeVisitBean object with no parameters.\n * This constructor initializes a new instance of the OfficeVisitBean class with default values.\n * \n * @param none\n * @return a new OfficeVisitBean object\n */"
             },
             {
                 "body": "{\r\n    this.visitID = visitID;\r\n}",
@@ -169,7 +189,8 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitBean(long)",
                 "comments": "Optional[/**\r\n * For use ONLY by DAOs\r\n *\r\n * @param visitID\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new OfficeVisitBean with the specified visit ID.\n * \n * @param visitID the unique identifier for the office visit\n * @return a new OfficeVisitBean object with the given visit ID\n */"
             }
         ],
         "signature": "OfficeVisitBean",
@@ -183,6 +204,7 @@
             "private List<DiagnosisBean> diagnoses",
             "private List<PrescriptionBean> prescriptions",
             "private List<ProcedureBean> procedures"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a Visit object, which contains information about a visit to a healthcare provider.\n * It stores the unique identifier of the visit, the patient's ID, the healthcare provider's ID, notes associated with the visit,\n * and the visit date.\n * \n * The main functionalities of this class include retrieving the unique identifier of the visit, the patient's ID, the healthcare provider's ID,\n * the notes associated with the visit, and the visit date. It also provides a method to parse a string representation of the visit date\n * and return it as a Date object.\n * \n * The overall behavior of this class is to encapsulate the data related to a visit and provide methods to access and manipulate this data.\n * It ensures that the data is stored and retrieved in a consistent and structured manner.\n */\n/**\n * The VisitBean class represents a visit made by a patient to a healthcare facility.\n * \n * This class contains information about the visit, including the visit date, diagnoses, prescriptions, procedures, and a unique visit ID.\n * \n * The visit date is stored as a string representation and can be retrieved using the getVisitDateStr() method.\n * \n * The diagnoses associated with the visit are stored in a list of DiagnosisBeans, which can be retrieved using the getDiagnoses() method.\n * \n * The prescriptions given during the visit are stored in a list of PrescriptionBeans, which can be retrieved using the getPrescriptions() method.\n * \n * The procedures performed during the visit are stored in a list of ProcedureBeans, which can be retrieved using the getProcedures() method.\n * \n * The unique identifier for the visit is stored as a long value and can be retrieved using the getVisitID() method.\n */\n **/\n/**\n * The Visit class represents a visit made by a patient to a healthcare provider. \n * It contains information about the visit, including diagnoses, prescriptions, notes, and the healthcare provider ID.\n * \n * This class provides methods to set and retrieve the visit ID, diagnoses, prescriptions, notes, and healthcare provider ID.\n * \n * The main functionalities of this class include:\n * - Setting and getting the visit ID as a long value\n * - Setting and getting the list of diagnoses for the visit\n * - Setting and getting the healthcare provider ID\n * - Setting and getting the list of prescriptions for the visit\n * - Setting and getting notes for the visit\n * \n * The overall behavior of this class is to store and manage information related to a patient visit, allowing for easy access and manipulation of the data.\n */\n **/\n/**\n * This class represents a medical visit object that contains information about a patient's visit to a hospital.\n * It includes details such as the patient ID, list of procedures performed during the visit, visit date, and hospital ID.\n * \n * The main functionalities of this class include setting and retrieving the patient ID, procedures list, visit date string,\n * and hospital ID. It also allows for updating the patient ID and hospital ID if needed.\n * \n * The overall behavior of this class is to provide a way to store and manage information related to a medical visit,\n * allowing for easy access and manipulation of the data. It ensures that the necessary details are accurately recorded\n * and can be retrieved as needed for further processing.\n */\n/**\n * The OfficeVisitBean class represents an office visit object that contains information about a patient's visit to a healthcare provider.\n * This class stores details such as visit ID, patient ID, healthcare provider ID, notes, visit date, hospital ID, diagnoses, prescriptions, and procedures.\n * The visit ID is a unique identifier for the office visit and is used for identification purposes.\n * \n * This class provides constructors to create new OfficeVisitBean objects with default values or with specified visit IDs.\n * It also includes getter and setter methods to access and modify the attributes of the office visit.\n * \n * The main functionalities of this class include storing and retrieving information related to an office visit, such as patient details, healthcare provider details, and medical procedures.\n * It allows for the addition of diagnoses, prescriptions, and procedures associated with the visit.\n * \n * Overall, the OfficeVisitBean class facilitates the management of office visit data within a healthcare system and supports the tracking of patient interactions with healthcare providers.\n */\n**/"
     }
 ]

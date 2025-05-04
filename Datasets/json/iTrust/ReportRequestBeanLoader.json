@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ReportRequestBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of ReportRequestBean objects from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into ReportRequestBean objects\n * @return a List of ReportRequestBean objects populated with data from the ResultSet\n * @throws SQLException if a database access error occurs\n */\npublic List<ReportRequestBean> loadList(ResultSet rs) throws SQLException {\n    ArrayList<ReportRequestBean> list = new ArrayList<ReportRequestBean>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}"
             },
             {
                 "body": "Optional[{\r\n    ReportRequestBean b = new ReportRequestBean();\r\n    b.setID(rs.getLong(\"ID\"));\r\n    b.setRequesterMID(rs.getLong(\"RequesterMID\"));\r\n    b.setPatientMID(rs.getLong(\"PatientMID\"));\r\n    b.setRequestedDate(rs.getTimestamp(\"RequestedDate\"));\r\n    b.setViewedDate(rs.getTimestamp(\"ViewedDate\"));\r\n    b.setStatus(rs.getString(\"Status\"));\r\n    return b;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReportRequestBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single ReportRequestBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the ReportRequestBean\n * @return the loaded ReportRequestBean object\n */\npublic ReportRequestBean loadSingle(ResultSet rs) {\n    ReportRequestBean b = new ReportRequestBean();\n    b.setID(rs.getLong(\"ID\"));\n    b.setRequesterMID(rs.getLong(\"RequesterMID\"));\n    b.setPatientMID(rs.getLong(\"PatientMID\"));\n    b.setRequestedDate(rs.getTimestamp(\"RequestedDate\"));\n    b.setViewedDate(rs.getTimestamp(\"ViewedDate\"));\n    b.setStatus(rs.getString(\"Status\"));\n    return b;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, ReportRequestBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters into a PreparedStatement based on the given ReportRequestBean.\n * \n * @param preparedStatement the PreparedStatement to load parameters into\n * @param reportRequestBean the ReportRequestBean containing the parameters to be loaded\n * @return the PreparedStatement with parameters loaded\n * @throws IllegalStateException if the method is called as it is unimplemented\n */"
             }
         ],
         "constructors": [],
         "signature": "ReportRequestBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ReportRequestLoader class is responsible for loading ReportRequestBean objects from a ResultSet.\n * It provides methods to load a single ReportRequestBean object or a list of ReportRequestBean objects from the ResultSet.\n * \n * The loadSingle method loads a single ReportRequestBean object from the ResultSet by setting its ID, requesterMID, patientMID, requestedDate, viewedDate, and status.\n * \n * The loadList method retrieves a list of ReportRequestBean objects from the ResultSet by iterating through the ResultSet and calling the loadSingle method for each row.\n * \n * This class helps in populating ReportRequestBean objects with data from the database and handling database access errors by throwing SQLExceptions.\n */\npublic class ReportRequestLoader {\n    // class implementation here\n}\n*/\n/**\n * The ReportRequestBeanLoader class is responsible for loading ReportRequestBean objects from a ResultSet and preparing PreparedStatement objects with parameters based on the ReportRequestBean.\n * \n * This class provides methods for loading ReportRequestBean objects from a ResultSet, setting the viewed date and status properties, and returning the loaded ReportRequestBean object. It also includes a method for loading parameters into a PreparedStatement based on the given ReportRequestBean.\n * \n * The main functionalities of this class include:\n * - Loading ReportRequestBean objects from a ResultSet\n * - Setting the viewed date and status properties of the ReportRequestBean\n * - Loading parameters into a PreparedStatement based on the ReportRequestBean\n * \n * Overall, the ReportRequestBeanLoader class facilitates the loading and preparation of ReportRequestBean objects for further processing and manipulation.\n */"
     }
 ]

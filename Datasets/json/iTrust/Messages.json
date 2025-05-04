@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public static String getString(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a string value from the resource bundle using the specified key.\n * If the key is not found in the resource bundle, it returns a placeholder string with the key enclosed in exclamation marks.\n * \n * @param key the key used to retrieve the string value from the resource bundle\n * @return the string value associated with the specified key, or a placeholder string if the key is not found\n */"
             }
         ],
         "constructors": [],
@@ -15,6 +16,7 @@
         "variables": [
             "private  static  final String BUNDLE_NAME",
             "private  static  final ResourceBundle RESOURCE_BUNDLE"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Messages class is responsible for retrieving string values from a resource bundle using specified keys.\n * It provides a method to retrieve a string value associated with a key from the resource bundle. If the key is not found,\n * it returns a placeholder string with the key enclosed in exclamation marks.\n * \n * This class contains a static method getString(String key) that retrieves the string value from the resource bundle\n * using the specified key. If the key is not found, it catches a MissingResourceException and returns a placeholder string.\n * \n * The class also defines two private static final variables: BUNDLE_NAME and RESOURCE_BUNDLE, which hold the name of the resource bundle\n * and the resource bundle itself, respectively.\n * \n * Overall, the Messages class provides a convenient way to retrieve localized string values from a resource bundle\n * and handle missing keys gracefully by returning placeholder strings.\n */"
     }
 ]

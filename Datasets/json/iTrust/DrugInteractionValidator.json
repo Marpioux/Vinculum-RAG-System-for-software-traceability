@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(DrugInteractionBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param d A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates a DrugInteractionBean object by checking the format of its first drug, second drug, and description.\n * If any errors are found during validation, a FormValidationException is thrown with a list of errors.\n * \n * @param d the DrugInteractionBean object to validate\n */\npublic void validate(DrugInteractionBean d) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"FirstDrug\", d.getFirstDrug(), ValidationFormat.ND, false));\n    errorList.addIfNotNull(checkFormat(\"SecondDrug\", d.getSecondDrug(), ValidationFormat.ND, false));\n    errorList.addIfNotNull(checkFormat(\"description\", d.getDescription(), ValidationFormat.DRUG_INT_COMMENTS, false));\n    if (errorList.hasErrors())\n        throw new FormValidationException(errorList);\n}\n**/"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public DrugInteractionValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor creates a new instance of the DrugInteractionValidator class.\n * It does not take any parameters.\n * \n * @param None\n * @return A new DrugInteractionValidator object\n */"
             }
         ],
         "signature": "DrugInteractionValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The DrugInteractionValidator class is responsible for validating DrugInteractionBean objects by checking the format of their first drug, second drug, and description fields.\n * If any errors are found during validation, a FormValidationException is thrown with a list of errors.\n * \n * This class contains a public method validate(DrugInteractionBean d) that performs the validation process and throws an exception if any errors are detected.\n * \n * Additionally, the class includes a default constructor that initializes a new instance of DrugInteractionValidator.\n * \n * It is important to note that this class relies on the ErrorList and FormValidationException classes to handle errors and exceptions during the validation process.\n * \n * Overall, the DrugInteractionValidator class plays a crucial role in ensuring the integrity and accuracy of DrugInteractionBean objects within the application.\n */\npublic class DrugInteractionValidator {\n    \n    /**\n     * Performs the act of validating the bean in question, which varies depending on the\n     * type of validator. If the validation does not succeed, a {@link FormValidationException} is thrown.\n     * \n     * @param d A bean of the type to be validated.\n     */\n    public void validate(DrugInteractionBean d) {\n        ErrorList errorList = new ErrorList();\n        errorList.addIfNotNull(checkFormat(\"FirstDrug\", d.getFirstDrug(), ValidationFormat.ND, false));\n        errorList.addIfNotNull(checkFormat(\"SecondDrug\", d.getSecondDrug(), ValidationFormat.ND, false));\n        errorList.addIfNotNull(checkFormat(\"description\", d.getDescription(), ValidationFormat.DRUG_INT_COMMENTS, false));\n        if (errorList.hasErrors())\n            throw new FormValidationException(errorList);\n    }\n    \n    /**\n     * The default constructor.\n     */\n    public DrugInteractionValidator() {\n    }\n}\n**/\n/**\n * The DrugInteractionValidator class is responsible for validating drug interactions between different medications.\n * It provides methods to check for potential interactions between drugs and provides warnings if any are found.\n * This class helps ensure the safety of patients by identifying possible risks associated with taking multiple medications.\n * \n * The constructor creates a new instance of the DrugInteractionValidator class.\n * It does not take any parameters.\n * \n * @param None\n * @return A new DrugInteractionValidator object\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaBeneCulturale(int)",
                 "comments": "Optional[/**\r\n * Implements the method for the elimination of a cultural asset.\r\n *\r\n * @see unisa.gps.etour.control.GestioneBeniCulturali.IGestioneBeniCulturaliAgenzia#cancellaBeneCulturale(int)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a cultural asset from the database.\n * \n * @param pBeneCulturaleID the ID of the cultural asset to be canceled\n * @return true if the cultural asset is successfully canceled, false otherwise\n * @throws RemoteException if the ID of the cultural asset is invalid, if there is an error with the database, or if an unknown error occurs\n */\npublic boolean cancellaBeneCulturale(int pBeneCulturaleID) {\n    if (!ControlloBeniCulturali.controllaIdBeneCulturale(pBeneCulturaleID)) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n    }\n    try {\n        return dbbc.cancellaBeneCulturale(pBeneCulturaleID);\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (!ControlloBeniCulturali.controllaDatiBeneCulturale(pBeneCulturale)) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n    }\r\n    try {\r\n        return dbbc.inserisciBeneCulturale(pBeneCulturale);\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciBeneCulturale(BeanBeneCulturale)",
                 "comments": "Optional[/**\r\n * Implements the method for the insertion of a new cultural object.\r\n *\r\n * @see unisa.gps.etour.control.GestioneBeniCulturali.IGestioneBeniCulturaliAgenzia#inserisciBeneCulturale(unisa.gps.etour.bean.BeanBeneCulturale)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a cultural asset into the database.\n * \n * @param pBeneCulturale the cultural asset to be inserted\n * @return true if the cultural asset is successfully inserted, false otherwise\n * @throws RemoteException if the data of the cultural asset does not pass the validation check, \n * if there is an error with the database operation, or if an unknown error occurs\n */\npublic boolean inserisciBeneCulturale(BeanBeneCulturale pBeneCulturale) {\n    if (!ControlloBeniCulturali.controllaDatiBeneCulturale(pBeneCulturale)) {\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\n    }\n    try {\n        return dbbc.inserisciBeneCulturale(pBeneCulturale);\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return dbbc.ottieniListaBC();\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanBeneCulturale> ottieniBeniCulturali()",
                 "comments": "Optional[/**\r\n * Implements the method for obtaining all the cultural assets currently in the system.\r\n *\r\n * @see unisa.gps.etour.control.GestioneBeniCulturali.IGestioneBeniCulturaliAgenzia#ottieniBeniCulturali()\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Ottiene la lista dei beni culturali presenti nel database.\n * \n * @return una lista di oggetti BeanBeneCulturale contenenti le informazioni sui beni culturali\n * @throws RemoteException se si verifica un errore durante l'accesso al database o un errore sconosciuto\n */\npublic ArrayList<BeanBeneCulturale> ottieniBeniCulturali() {\n    try {\n        return dbbc.ottieniListaBC();\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n}\n```"
             },
             {
                 "body": "Optional[{\r\n    if (!ControlloBeniCulturali.controllaDatiBeneCulturale(pBeneCulturale)) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n    }\r\n    try {\r\n        return dbbc.modificaBeneCulturale(pBeneCulturale);\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean modificaBeneCulturale(BeanBeneCulturale)",
                 "comments": "Optional[/**\r\n * Implements the method for changing a cultural asset in the system.\r\n *\r\n * @see unisa.gps.etour.control.GestioneBeniCulturali.IGestioneBeniCulturaliAgenzia#modificaBeneCulturale(unisa.gps.etour.bean.BeanBeneCulturale)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a cultural asset in the database.\n * \n * @param pBeneCulturale the cultural asset to be modified\n * @return true if the cultural asset is successfully modified, false otherwise\n * @throws RemoteException if the data of the cultural asset is not valid or if an error occurs while modifying the cultural asset in the database\n */\npublic boolean modificaBeneCulturale(BeanBeneCulturale pBeneCulturale) {\n    if (!ControlloBeniCulturali.controllaDatiBeneCulturale(pBeneCulturale)) {\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\n    }\n    try {\n        return dbbc.modificaBeneCulturale(pBeneCulturale);\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (!ControlloBeniCulturali.controllaIdBeneCulturale(pBeneCulturaleID) || !(pTagID > 0)) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n    }\r\n    ArrayList<BeanTag> tempTag;\r\n    boolean contieneTag = false;\r\n    try {\r\n        tempTag = dbtag.ottieniTagBeneCulturale(pBeneCulturaleID);\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n    for (BeanTag t : tempTag) {\r\n        if (t.getId() == pTagID) {\r\n            contieneTag = true;\r\n        }\r\n    }\r\n    if (!contieneTag) {\r\n        try {\r\n            return dbtag.aggiungeTagBeneCulturale(pBeneCulturaleID, pTagID);\r\n        } catch (SQLException e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n        } catch (Exception e) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n        }\r\n    }\r\n    return false;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean aggiungiTagBeneCulturale(int, int)",
                 "comments": "Optional[/**\r\n * Implements the method for adding a tag to a cultural object.\r\n *\r\n * @see unisa.gps.etour.control.GestioneBeniCulturali.IGestioneBeniCulturaliAgenzia#aggiungiTagBeneCulturale(int, int)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a tag to a cultural asset.\n * \n * This method checks if the provided cultural asset ID and tag ID are valid. If the cultural asset ID is not valid or the tag ID is less than or equal to 0, an exception is thrown with an error message. \n * It then retrieves the list of tags associated with the cultural asset from the database and checks if the tag to be added is already present. If the tag is not already associated with the cultural asset, it adds the tag to the database.\n * \n * @param pBeneCulturaleID the ID of the cultural asset to which the tag will be added\n * @param pTagID the ID of the tag to be added\n * @return true if the tag is successfully added to the cultural asset, false otherwise\n * @throws RemoteException if there is an error with the data (e.g., invalid IDs) or with the database\n */\npublic boolean aggiungiTagBeneCulturale(int pBeneCulturaleID, int pTagID) {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (!ControlloBeniCulturali.controllaIdBeneCulturale(pBeneCulturaleID) || !(pTagID > 0)) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n    }\r\n    ArrayList<BeanTag> tempTag;\r\n    try {\r\n        tempTag = dbtag.ottieniTagBeneCulturale(pBeneCulturaleID);\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    }\r\n    for (BeanTag t : tempTag) {\r\n        if (t.getId() == pTagID) {\r\n            try {\r\n                return dbtag.cancellaTagBeneCulturale(pBeneCulturaleID, pTagID);\r\n            } catch (SQLException e) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n            } catch (Exception e) {\r\n                throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n            }\r\n        }\r\n    }\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean rimuoviTagBeneCulturale(int, int)",
                 "comments": "Optional[/**\r\n * Implements the method for removing a tag from a cultural object.\r\n *\r\n * @see unisa.gps.etour.control.GestioneBeniCulturali.IGestioneBeniCulturaliAgenzia#rimuoviTagBeneCulturale(int, int)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes a tag from a cultural asset.\n * \n * This method checks if the provided cultural asset ID and tag ID are valid, and if the tag exists for the given cultural asset.\n * If the IDs are not valid or the tag does not exist, an exception is thrown.\n * \n * @param pBeneCulturaleID the ID of the cultural asset from which the tag will be removed\n * @param pTagID the ID of the tag to be removed\n * @return true if the tag was successfully removed, false otherwise\n * @throws RemoteException if there is an error with the data, database, or an unknown error occurs\n */\npublic boolean rimuoviTagBeneCulturale(int pBeneCulturaleID, int pTagID) {\n    if (!ControlloBeniCulturali.controllaIdBeneCulturale(pBeneCulturaleID) || !(pTagID > 0)) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n    }\n    ArrayList<BeanTag> tempTag;\n    try {\n        tempTag = dbtag.ottieniTagBeneCulturale(pBeneCulturaleID);\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    }\n    for (BeanTag t : tempTag) {\n        if (t.getId() == pTagID) {\n            try {\n                return dbtag.cancellaTagBeneCulturale(pBeneCulturaleID, pTagID);\n            } catch (SQLException e) {\n                throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n            } catch (Exception e) {\n                throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n            }\n        }\n    }\n    return false;\n}\n*/"
             }
         ],
         "constructors": [
@@ -57,10 +63,12 @@
                 "hasInnerComment": false,
                 "signature": "public GestioneBeniCulturaliAgenzia()",
                 "comments": "Optional[/**\r\n * Constructor of class, invokes and initializes the class of common management\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of the GestioneBeniCulturaliAgenzia class.\n * This constructor calls the constructor of the superclass.\n */"
             }
         ],
         "signature": "GestioneBeniCulturaliAgenzia",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The GestioneBeniCulturaliAgenzia class represents a controller class that manages cultural assets in the system.\n * It provides methods for adding, modifying, deleting, and retrieving cultural assets, as well as for managing tags associated with cultural assets.\n * This class ensures data integrity and performs validation checks before interacting with the database.\n * \n * The main functionalities of this class include:\n * - Cancelling a cultural asset from the database\n * - Inserting a new cultural asset into the system\n * - Obtaining a list of all cultural assets in the system\n * - Modifying an existing cultural asset\n * - Adding a tag to a cultural asset\n * - Removing a tag from a cultural asset\n * \n * The behavior of this class is to handle exceptions and errors gracefully by throwing RemoteExceptions with specific error messages.\n * It also includes a constructor that initializes the class and invokes the constructor of the superclass.\n */"
     }
 ]

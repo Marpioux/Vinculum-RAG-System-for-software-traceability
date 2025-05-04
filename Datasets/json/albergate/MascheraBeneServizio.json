@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo i pannelli\r\n, //Creo il pannello in alto\r\n, // mi serve piu' lungo per l'aggiungi\r\n, //Attacco il pannello in alto al frame\r\n, //Creo il pannello del bar\r\n, //Creo il pannello dal ristorante\r\n, //Creo il pannello dei cibi\r\n, //Creo il pannello degli antipasti\r\n, //Creo il pannello dei primi\r\n, //Creo il pannello dei secondi\r\n, //Creo il pannello dei contorni\r\n, //Creo il pannello BAR-Bevande\r\n]]"
+                "innerComments": "Optional[[//Creo i pannelli\r\n, //Creo il pannello in alto\r\n, // mi serve piu' lungo per l'aggiungi\r\n, //Attacco il pannello in alto al frame\r\n, //Creo il pannello del bar\r\n, //Creo il pannello dal ristorante\r\n, //Creo il pannello dei cibi\r\n, //Creo il pannello degli antipasti\r\n, //Creo il pannello dei primi\r\n, //Creo il pannello dei secondi\r\n, //Creo il pannello dei contorni\r\n, //Creo il pannello BAR-Bevande\r\n]]",
+                "generated_comment": "/**\n * Sets up the graphical user interface for the application.\n * This method initializes the fonts, creates panels for different categories, \n * and adds checkboxes and labels for selecting options within each category.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    prima_scelta[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[0].getState()) {\r\n                inComuneABC(scelta_bar, 1, BeneServizio.BAR);\r\n            }\r\n        }\r\n    });\r\n    prima_scelta[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[1].getState()) {\r\n                inComuneABC(scelta_piatto, 2, BeneServizio.RISTORANTE);\r\n            }\r\n        }\r\n    });\r\n    prima_scelta[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (prima_scelta[2].getState()) {\r\n                inComuneABC(scelta_servizio, 3, BeneServizio.SERVIZI);\r\n            }\r\n        }\r\n    });\r\n    scelta_bar[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bar[0].getState()) {\r\n                inComuneGH(scelta_bevanda, 4, BeneServizio.BEVANDE);\r\n            }\r\n        }\r\n    });\r\n    scelta_bar[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bar[1].getState()) {\r\n                inComuneGH(scelta_cibo, 5, BeneServizio.CIBI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[0].getState()) {\r\n                inComuneILMN(scelta_antipasto, 6, BeneServizio.ANTIPASTI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[1].getState()) {\r\n                inComuneILMN(scelta_primo, 7, BeneServizio.PRIMI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[2].getState()) {\r\n                inComuneILMN(scelta_secondo, 8, BeneServizio.SECONDI);\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[3].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[3].getState()) {\r\n                inComuneILMN(scelta_contorno, 9, BeneServizio.CONTORNI);\r\n            }\r\n        }\r\n    });\r\n    annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the user interface by adding item listeners to various choice components.\n * \n * This method adds item listeners to the choice components prima_scelta, scelta_bar, scelta_piatto, and their respective sub-components.\n * When an item in a choice component is selected, the corresponding inComuneABC, inComuneGH, or inComuneILMN method is called with the appropriate parameters.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    if (prima_scelta[0].getState()) {\r\n        inComuneABC(scelta_bar, 1, BeneServizio.BAR);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. \n * If the first choice is selected, it calls the inComuneABC method with the specified parameters.\n * \n * @param e the ItemEvent that triggered the state change\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (prima_scelta[1].getState()) {\r\n        inComuneABC(scelta_piatto, 2, BeneServizio.RISTORANTE);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the second choice is selected and if so, it calls the inComuneABC method with the selected dish, a quantity of 2, and the type of service as a restaurant.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (prima_scelta[2].getState()) {\r\n        inComuneABC(scelta_servizio, 3, BeneServizio.SERVIZI);\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state changes in a GUI component.\n * It checks if the third choice in the prima_scelta array is selected, and if so,\n * it calls the inComuneABC method with the specified parameters.\n * \n * @param e The ItemEvent that triggered the state change\n * \n * @return void This method does not return any value\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_bar[0].getState()) {\r\n        inComuneGH(scelta_bevanda, 4, BeneServizio.BEVANDE);\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the first item in the scelta_bar array is selected,\n * and if so, it calls the inComuneGH method with the selected beverage, quantity 4, and type BEVANDE.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_bar[1].getState()) {\r\n        inComuneGH(scelta_cibo, 5, BeneServizio.CIBI);\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. \n * If the second item in the scelta_bar array is selected, it calls the inComuneGH method with the specified parameters.\n * \n * @param e the ItemEvent that triggered the state change\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_piatto[0].getState()) {\r\n        inComuneILMN(scelta_antipasto, 6, BeneServizio.ANTIPASTI);\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if the first item in the array of choices is selected, \n * and if so, it calls the inComuneILMN method with the selected antipasto choice, a quantity of 6, and the type of service as ANTIPASTI.\n * \n * @param e the ItemEvent that triggered the state change\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_piatto[1].getState()) {\r\n        inComuneILMN(scelta_primo, 7, BeneServizio.PRIMI);\r\n    }\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. If the second item in the scelta_piatto array is selected,\n * it calls the inComuneILMN method with the scelta_primo array, 7 as the quantity, and BeneServizio.PRIMI as the type.\n * \n * @param e The ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_piatto[2].getState()) {\r\n        inComuneILMN(scelta_secondo, 8, BeneServizio.SECONDI);\r\n    }\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. If the third item in the scelta_piatto array is selected,\n * it calls the inComuneILMN method with the selected second item, a quantity of 8, and the type of service as SECONDI.\n * \n * @param e The ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_piatto[3].getState()) {\r\n        inComuneILMN(scelta_contorno, 9, BeneServizio.CONTORNI);\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed in the GUI. \n * It checks if the fourth item in the scelta_piatto array is selected, \n * and if so, it calls the inComuneILMN method with the scelta_contorno array, \n * the value 9, and the BeneServizio.CONTORNI enum as parameters.\n * \n * @param e the ItemEvent object representing the event that occurred\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the method. \n * There is no return value as the method is void.\n */"
             },
             {
                 "body": "Optional[{\r\n    level = 0;\r\n    for (int i = 1; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    this.add(panel[numero_pannello]);\r\n    panel[numero_pannello].setVisible(true);\r\n    setVisible(true);\r\n    codice = composeCode(level, c);\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": " void inComuneABC(Checkbox[], int, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes all panels except the one specified by the given number and sets it as visible.\n * \n * @param panels an array of Checkbox objects representing the panels to be manipulated\n * @param numero_pannello the number of the panel to be set as visible\n * @param c a character used to compose a code\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    level = 1;\r\n    for (int i = 2; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    this.add(panel[numero_pannello]);\r\n    panel[numero_pannello].setVisible(true);\r\n    setVisible(true);\r\n    codice = composeCode(level, c);\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": " void inComuneGH(Checkbox[], int, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the level to 1, hides panels from index 2 to 12 if they are visible, \n * adds and shows the panel at the specified index, sets it to visible, \n * sets the overall visibility of the panel to true, and composes a code based on the level and character provided.\n * \n * @param checkboxes an array of Checkbox objects\n * @param numero_pannello the index of the panel to be added and shown\n * @param c the character used to compose the code\n */\nvoid inComuneGH(Checkbox[] checkboxes, int numero_pannello, char c) {\n    level = 1;\n    for (int i = 2; i < 13; ++i) {\n        if (panel[i].isVisible()) {\n            remove(panel[i]);\n        }\n    }\n    this.add(panel[numero_pannello]);\n    panel[numero_pannello].setVisible(true);\n    setVisible(true);\n    codice = composeCode(level, c);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    level = 1;\r\n    if (panel[1].isVisible())\r\n        remove(panel[1]);\r\n    for (int i = 3; i < 13; i++) if (panel[i].isVisible())\r\n        remove(panel[i]);\r\n    this.add(panel[numero_pannello]);\r\n    panel[numero_pannello].setVisible(true);\r\n    setVisible(true);\r\n    codice = composeCode(level, c);\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " void inComuneILMN(Checkbox[], int, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to display a specific panel based on the input parameters.\n * It sets the visibility of certain panels based on the input parameters and composes a code.\n * \n * @param checkboxes an array of Checkbox objects representing the panels\n * @param numero_pannello an integer representing the panel number to be displayed\n * @param c a character used in composing the code\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!((testo3.getText()).length() < 33)) {\r\n        msg = new MessageDialog(this, \" La descrizione del bene o servizio deve essere di al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((testo3.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca la descrizione del bene o servizio! \");\r\n        return true;\r\n    }\r\n    if ((testo4.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il prezzo del bene o servizio! \");\r\n        return true;\r\n    }\r\n    if (!(Utils.isFloatPos(testo4.getText()))) {\r\n        msg = new MessageDialog(this, \" Il prezzo deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean errore()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for errors in the input fields for a product or service.\n * \n * @return true if there are errors in the input fields, false otherwise\n */\nboolean errore() {\n    Frame msg;\n    \n    // Check if the description is longer than 32 characters\n    if (!((testo3.getText()).length() < 33)) {\n        msg = new MessageDialog(this, \" La descrizione del bene o servizio deve essere di al piu' 32 caratteri! \");\n        return true;\n    }\n    \n    // Check if the description field is empty\n    if ((testo3.getText()).equals(\"\")) {\n        msg = new MessageDialog(this, \" Manca la descrizione del bene o servizio! \");\n        return true;\n    }\n    \n    // Check if the price field is empty\n    if ((testo4.getText()).equals(\"\")) {\n        msg = new MessageDialog(this, \" Manca il prezzo del bene o servizio! \");\n        return true;\n    }\n    \n    // Check if the price is a positive number\n    if (!(Utils.isFloatPos(testo4.getText()))) {\n        msg = new MessageDialog(this, \" Il prezzo deve essere un numero positivo! \");\n        return true;\n    }\n    \n    return false;\n}"
             },
             {
                 "body": "Optional[{\r\n    codice[index] = tipo;\r\n    for (int i = index + 1; i < 3; ++i) codice[i] = ' ';\r\n    return codice;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": " char[] composeCode(int, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Composes a code by inserting a given character at a specified index and padding the rest of the code with spaces.\n * \n * @param index the index at which the character should be inserted\n * @param tipo the character to be inserted at the specified index\n * @return the composed code as a character array with the character inserted at the specified index and padded with spaces\n */"
             },
             {
                 "body": "Optional[{\r\n    if (codice[1] == ' ')\r\n        codice[1] = '0';\r\n    if (codice[2] == ' ')\r\n        codice[2] = '0';\r\n    return codice;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": " char[] completeCode()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method completes a code by adding '0' in place of any space character found at index 1 or 2.\n * \n * @return a char array representing the completed code\n */"
             },
             {
                 "body": "Optional[{\r\n    if (// necessario nella finestra di modifica\r\n    panel[10].isVisible())\r\n        remove(panel[10]);\r\n    if (// necessario nella finestra di cancellazione\r\n    panel[12].isVisible())\r\n        remove(panel[12]);\r\n    inComuneOP();\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": true,
                 "signature": " void o()",
                 "comments": null,
-                "innerComments": "Optional[[// necessario nella finestra di modifica\r\n, // necessario nella finestra di cancellazione\r\n]]"
+                "innerComments": "Optional[[// necessario nella finestra di modifica\r\n, // necessario nella finestra di cancellazione\r\n]]",
+                "generated_comment": "/**\n * This method removes specific panels from the user interface based on their visibility status.\n * If panel[10] is visible, it will be removed. If panel[12] is visible, it will also be removed.\n * Additionally, the method calls the inComuneOP() method after removing the panels.\n */"
             },
             {
                 "body": "Optional[{\r\n    if (panel[1].isVisible())\r\n        remove(panel[1]);\r\n    for (int i = 3; i < 13; ++i) {\r\n        if (panel[i].isVisible())\r\n            remove(panel[i]);\r\n    }\r\n    inComuneOP();\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": " void p()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method removes specific panels from the current panel based on their visibility status.\n * It first checks if panel[1] is visible and removes it if true. Then, it iterates through panels 3 to 12,\n * checking if each panel is visible and removing it if true. Finally, it calls the inComuneOP() method.\n */"
             },
             {
                 "body": "Optional[{\r\n    completeCode();\r\n    if (//per evitare warning\r\n    elenco.getItemCount() > 0)\r\n        elenco.removeAll();\r\n    creaLista();\r\n    this.add(panel[11]);\r\n    panel[11].setVisible(true);\r\n    setVisible(true);\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": true,
                 "signature": " void inComuneOP()",
                 "comments": null,
-                "innerComments": "Optional[[//per evitare warning\r\n]]"
+                "innerComments": "Optional[[//per evitare warning\r\n]]",
+                "generated_comment": "/**\n * This method performs a series of operations to update a list of items in a panel.\n * It first clears any existing items in the list to avoid warnings, then creates a new list of items.\n * Finally, it adds the new list to a specified panel and makes the panel visible.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    int i = 1;\r\n    BeneServizio b;\r\n    L = (Principale.db).elencoBeniServizi(new String(codice));\r\n    if (L != null) {\r\n        while (i <= L.length()) {\r\n            b = L.getBeneServizio(i);\r\n            elenco.addItem(b.toString());\r\n            i++;\r\n        }\r\n    }\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": " void creaLista()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a list of items to be displayed in a GUI component.\n * Retrieves a list of BeneServizio objects from the database based on a given code,\n * and adds their string representations to the GUI component.\n * \n * @param codice the code used to retrieve the list of BeneServizio objects\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -185,7 +207,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraBeneServizio(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraBeneServizio object with the specified title.\n * \n * @param title the title of the MascheraBeneServizio object\n * \n * This constructor initializes the MascheraBeneServizio object with the given title,\n * sets up the necessary components, and initializes the object. The size of the object\n * is set to 350x600 pixels.\n */"
             }
         ],
         "signature": "MascheraBeneServizio",
@@ -236,6 +259,7 @@
             " Frame padre",
             " int level",
             " char codice"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraBeneServizio class represents a graphical user interface for managing goods and services.\n * This class provides methods for setting up the GUI components, initializing the user interface, and handling user interactions.\n * It includes functionalities for creating panels, adding checkboxes and labels for selecting options, and displaying lists of items.\n * The class also contains methods for composing codes, checking for errors in input fields, and updating the list of items based on a code.\n * \n * @author [Author Name]\n * @version 1.0\n * \n * Constructor:\n * - public MascheraBeneServizio(String title): Constructs a new MascheraBeneServizio object with the specified title.\n * \n * Methods:\n * - public void setup(): Sets up the graphical user interface for the application by initializing fonts, creating panels, and adding checkboxes and labels.\n * - public void init(): Initializes the user interface by adding item listeners to various choice components.\n * - public void itemStateChanged(ItemEvent e): Handles item state changes in the GUI components.\n * - public boolean errore(): Checks for errors in the input fields for a product or service.\n * - public char[] composeCode(int index, char tipo): Composes a code by inserting a given character at a specified index and padding the rest of the code with spaces.\n * - public char[] completeCode(): Completes a code by adding '0' in place of any space character found at index 1 or 2.\n * - public void inComuneABC(Checkbox[] checkboxes, int numero_pannello, char c): Removes all panels except the one specified by the given number and sets it as visible.\n * - public void inComuneGH(Checkbox[] checkboxes, int numero_pannello, char c): Sets the level to 1, hides panels from index 2 to 12 if they are visible, adds and shows the panel at the specified index, sets it to visible, and composes a code based on the level and character provided.\n * - public void inComuneILMN(Checkbox[] checkboxes, int numero_pannello, char c): Displays a specific panel based on the input parameters by setting the visibility of certain panels and composing a code.\n * - public void actionPerformed(ActionEvent e): Disposes of the current window and enables the parent window.\n * - public void o(): Removes specific panels from the user interface based on their visibility status and calls the inComuneOP() method.\n * - public void p(): Removes specific panels from the current panel based on their visibility status and calls the inComuneOP() method.\n * - public void inComuneOP(): Performs a series of operations to update a list of items in a panel.\n * - public void creaLista(): Creates a list of items to be displayed in a GUI component.\n * \n * Variables:\n * - protected Label label: Represents a label component in the GUI.\n * - protected Label label1: Represents a label component in the GUI.\n * - ...\n * - Frame padre: Represents the parent frame of the GUI.\n * - int level: Represents the level of the operation.\n * - char codice: Represents a code used in the GUI operations.\n */\n */"
     }
 ]

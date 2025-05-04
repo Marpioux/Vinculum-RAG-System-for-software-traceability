@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isAttiva()",
                 "comments": "Optional[/**\r\n * Returns the value of active\r\n *\r\n * @return value of active.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the current status of the object.\n * \n * @return true if the object is active, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    active = pActs;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAttiva(boolean)",
                 "comments": "Optional[/**\r\n * Sets the new value of active\r\n *\r\n * @param pActs new value of active.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the activation status of the object.\n * \n * @param isActive a boolean value representing the activation status to be set\n * @return void\n */\npublic void setAttiva(boolean isActive) {\n    active = isActive;\n}"
             },
             {
                 "body": "Optional[{\r\n    return endDate;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDataFine()",
                 "comments": "Optional[/**\r\n * Returns the value of endDate\r\n *\r\n * @return value of endDate.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the end date of the data.\n * \n * @return the end date of the data\n */"
             },
             {
                 "body": "Optional[{\r\n    endDate = pDataFine;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDataFine(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value for endDate\r\n *\r\n * @param pDataFine new value for endDate.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the end date of the data.\n * \n * @param endDate the date to set as the end date\n * @return void\n */\npublic void setDataFine(Date endDate) {\n    this.endDate = endDate;\n}\nThis method sets the end date of the data to the specified date. The parameter endDate is the date to be set as the end date. This method does not return any value."
             },
             {
                 "body": "Optional[{\r\n    return startDate;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDataInizio()",
                 "comments": "Optional[/**\r\n * Returns the value of startDate\r\n *\r\n * @return value of startDate.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the start date of the data.\n * \n * @return the start date of the data\n */"
             },
             {
                 "body": "Optional[{\r\n    startDate = pDataInizio;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDataInizio(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of startDate\r\n *\r\n * @param pDataInizio new value for startDate.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the start date of the object.\n * \n * @param startDate the date to set as the start date\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return maxBanner;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getMaxBanner()",
                 "comments": "Optional[/**\r\n * Returns the value of maxBanner\r\n *\r\n * @return value of maxBanner.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the maximum banner size allowed.\n * \n * @return the maximum banner size as an integer\n */"
             },
             {
                 "body": "Optional[{\r\n    maxBanner = pMaxBanner;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMaxBanner(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of maxBanner\r\n *\r\n * @param pMaxBanner new maxBanner.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the maximum banner size to the specified value.\n * \n * @param pMaxBanner the maximum banner size to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return price;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getPrezzo()",
                 "comments": "Optional[/**\r\n * Returns the value of price\r\n *\r\n * @return value of price.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the price of the item.\n * \n * @return the price of the item as a double value\n */"
             },
             {
                 "body": "Optional[{\r\n    price = pPrezzo;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPrezzo(double)",
                 "comments": "Optional[/**\r\n * Sets the new value of price\r\n *\r\n * @param pPrezzo new value for price.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the price of the product.\n * \n * @param prezzo the new price to set for the product\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value of id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier of this object.\n * \n * @return the unique identifier of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdPuntoDiRistoro()",
                 "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value of idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the point of refreshment.\n * \n * @return the ID of the point of refreshment\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pId;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId new value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pId the new ID to set\n * @return void\n * \n * This method sets the ID of the object to the specified integer value.\n */"
             },
             {
                 "body": "Optional[{\r\n    idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro new idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the restaurant point.\n * \n * @param pIdPuntoDiRistoro the ID of the restaurant point to set\n * \n * This method sets the ID of the restaurant point to the specified value.\n * \n */"
             }
         ],
         "constructors": [
@@ -121,7 +135,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanConvenzione(int, int, Date, Date, double, boolean, int)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pMaxBanner\r\n * @param pDataInizio\r\n * @param pDataFine\r\n * @param pPrezzo\r\n * @param pActs\r\n * @param pIdPuntoDiRistoro\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanConvenzione object with the specified parameters.\n * \n * @param pId the ID of the convenzione\n * @param pMaxBanner the maximum number of banners allowed for the convenzione\n * @param pDataInizio the start date of the convenzione\n * @param pDataFine the end date of the convenzione\n * @param pPrezzo the price of the convenzione\n * @param pActs true if the convenzione is active, false otherwise\n * @param pIdPuntoDiRistoro the ID of the punto di ristoro associated with the convenzione\n */\npublic BeanConvenzione(int pId, int pMaxBanner, Date pDataInizio, Date pDataFine, double pPrezzo, boolean pActs, int pIdPuntoDiRistoro) {\n    setId(pId);\n    setMaxBanner(pMaxBanner);\n    setDataInizio(pDataInizio);\n    setDataFine(pDataFine);\n    setPrezzo(pPrezzo);\n    setAttiva(pActs);\n    setIdPuntoDiRistoro(pIdPuntoDiRistoro);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -129,7 +144,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanConvenzione()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the BeanConvenzione class.\n * It initializes a new instance of the BeanConvenzione class with no parameters.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * Creates a new BeanConvenzione object with default values for its attributes.\n */"
             }
         ],
         "signature": "BeanConvenzione",
@@ -142,6 +158,7 @@
             "private double price",
             "private boolean active",
             "private int idPuntoDiRistoro"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanConvenzione class represents a data object that encapsulates information about a convention.\n * It contains attributes such as ID, maximum banner size, start and end dates, price, activation status, and associated restaurant point ID.\n * This class provides methods to access and modify these attributes, as well as constructors to initialize the object with specified parameters.\n * \n * Main functionalities:\n * - Get and set the ID of the convention\n * - Get and set the maximum banner size allowed\n * - Get and set the start and end dates of the convention\n * - Get and set the price of the convention\n * - Get and set the activation status of the convention\n * - Get and set the ID of the associated restaurant point\n * \n * Overall behavior:\n * The BeanConvenzione class serves as a data container for convention-related information.\n * It allows for the creation of convention objects with specific attributes and provides methods to interact with these attributes.\n * Users can retrieve and update the data stored in a BeanConvenzione object, making it a versatile tool for managing convention details.\n */\n**/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<TransactionBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of TransactionBean objects from a ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into TransactionBean objects\n * @return a List of TransactionBean objects populated with data from the ResultSet\n * \n * This method iterates through the ResultSet and creates a new TransactionBean object for each row of data.\n * It then adds each TransactionBean object to a List and returns the populated List.\n */"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, TransactionBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters from a TransactionBean into a PreparedStatement.\n * \n * @param preparedStatement the PreparedStatement to load parameters into\n * @param transactionBean the TransactionBean containing the parameters to be loaded\n * @return the PreparedStatement with parameters loaded\n * @throws IllegalStateException if the method is unimplemented\n */"
             },
             {
                 "body": "Optional[{\r\n    TransactionBean t = new TransactionBean();\r\n    t.setAddedInfo(rs.getString(\"addedInfo\"));\r\n    t.setLoggedInMID(rs.getLong(\"loggedInMID\"));\r\n    t.setSecondaryMID(rs.getLong(\"secondaryMID\"));\r\n    t.setTimeLogged(rs.getTimestamp(\"timeLogged\"));\r\n    t.setTransactionType(TransactionType.parse(rs.getInt(\"transactionCode\")));\r\n    t.setTransactionID(rs.getLong(\"transactionID\"));\r\n    return t;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public TransactionBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single TransactionBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the TransactionBean\n * @return a TransactionBean object with the data loaded from the ResultSet\n */\npublic TransactionBean loadSingle(ResultSet rs) {\n    TransactionBean t = new TransactionBean();\n    t.setAddedInfo(rs.getString(\"addedInfo\"));\n    t.setLoggedInMID(rs.getLong(\"loggedInMID\"));\n    t.setSecondaryMID(rs.getLong(\"secondaryMID\"));\n    t.setTimeLogged(rs.getTimestamp(\"timeLogged\"));\n    t.setTransactionType(TransactionType.parse(rs.getInt(\"transactionCode\")));\n    t.setTransactionID(rs.getLong(\"transactionID\"));\n    return t;\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "TransactionBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a utility for loading and processing TransactionBean objects from a database ResultSet.\n * It provides methods for loading a list of TransactionBean objects from a ResultSet, loading parameters from a TransactionBean into a PreparedStatement, and creating a new TransactionBean object from ResultSet data.\n * \n * The loadList method iterates through the ResultSet and creates a new TransactionBean object for each row of data. It then adds each TransactionBean object to a List and returns the populated List.\n * \n * The loadParameters method loads parameters from a TransactionBean into a PreparedStatement, and the loadSingle method creates a new TransactionBean object from ResultSet data.\n * \n * Overall, this class facilitates the loading and processing of TransactionBean objects from a database ResultSet, providing essential functionality for working with transaction data in a Java application.\n */\n**/\n/**\n * The TransactionBeanLoader class is responsible for loading TransactionBean objects from a ResultSet.\n * It provides a method to load a single TransactionBean object from the ResultSet by mapping the data to the corresponding fields in the TransactionBean.\n * \n * This class is used to extract transaction data from a ResultSet and create TransactionBean objects with the extracted data.\n * \n * The loadSingle method takes a ResultSet as input and returns a TransactionBean object with the data loaded from the ResultSet.\n * It sets the addedInfo, loggedInMID, secondaryMID, timeLogged, transactionType, and transactionID fields of the TransactionBean object based on the data in the ResultSet.\n * \n * This class encapsulates the logic for loading TransactionBean objects from a ResultSet, providing a convenient way to handle transaction data retrieval and object creation.\n */"
     }
 ]

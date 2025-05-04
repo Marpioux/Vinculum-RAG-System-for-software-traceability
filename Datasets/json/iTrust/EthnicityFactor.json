@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the description of the patient's ethnicity.\n * \n * @return A string representing the patient's ethnicity.\n */"
             },
             {
                 "body": "Optional[{\r\n    for (Ethnicity ethnicity : atRisk) {\r\n        if (patient.getEthnicity().equals(ethnicity) && !Ethnicity.NotSpecified.equals(ethnicity))\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the patient has a specified ethnicity factor that puts them at risk.\n * \n * @return true if the patient has a specified ethnicity factor that puts them at risk, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public EthnicityFactor(PatientBean, Ethnicity)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new EthnicityFactor object with the specified PatientBean and Ethnicity.\n * \n * @param patient the PatientBean object representing the patient associated with this EthnicityFactor\n * @param ethnicity the Ethnicity object representing the ethnicity factor for the patient\n */\npublic EthnicityFactor(PatientBean patient, Ethnicity ethnicity) {\n    this.patient = patient;\n    this.ethnicity = ethnicity;\n}\n*/"
             }
         ],
         "signature": "EthnicityFactor",
         "variables": [
             "private Ethnicity atRisk",
             "private PatientBean patient"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The EthnicityFactor class represents a factor related to the ethnicity of a patient that may put them at risk for certain health conditions.\n * This class provides methods to retrieve the description of the patient's ethnicity and check if the patient has a specified ethnicity factor that puts them at risk.\n * \n * The main functionalities of this class include:\n * - Retrieving the description of the patient's ethnicity\n * - Checking if the patient has a specified ethnicity factor that puts them at risk\n * \n * The overall behavior of this class is to store the ethnicity factor associated with a patient and provide methods to interact with this information.\n * \n * Variables:\n * - private Ethnicity atRisk: Represents the ethnicity factor that may put the patient at risk\n * - private PatientBean patient: Represents the patient associated with this ethnicity factor\n * \n * Constructors:\n * - public EthnicityFactor(PatientBean patient, Ethnicity ethnicity): Constructs a new EthnicityFactor object with the specified PatientBean and Ethnicity.\n * \n * Methods:\n * - public String getDescription(): Retrieves the description of the patient's ethnicity.\n * - public boolean hasFactor(): Checks if the patient has a specified ethnicity factor that puts them at risk.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

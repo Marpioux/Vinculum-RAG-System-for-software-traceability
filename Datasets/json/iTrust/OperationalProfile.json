@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "private HashMap<TransactionType, Integer> createEmptyMap()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates and returns a new HashMap with keys of type TransactionType and values of type Integer.\n * The HashMap is initialized with all keys from the TransactionType enum, each mapped to the value 0.\n * \n * @return a new HashMap with keys of type TransactionType and values of type Integer\n */"
             },
             {
                 "body": "Optional[{\r\n    return totalCount;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public HashMap<TransactionType, Integer> getTotalCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a HashMap containing the total count of each TransactionType.\n * \n * @return a HashMap<TransactionType, Integer> representing the total count of each TransactionType\n */"
             },
             {
                 "body": "Optional[{\r\n    this.totalCount = totalCount;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTotalCount(HashMap<TransactionType, Integer>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the total count of transactions for each transaction type.\n * \n * @param totalCount a HashMap containing the transaction type as key and the total count as value\n * @return void\n * \n * This method sets the total count of transactions for each transaction type based on the provided HashMap. \n * The transaction type is used as the key in the HashMap, and the total count is used as the value. \n * If the provided HashMap is null, the total count will not be set.\n */"
             },
             {
                 "body": "Optional[{\r\n    return personnelCount;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public HashMap<TransactionType, Integer> getPersonnelCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the personnel count for each transaction type.\n * \n * @return a HashMap containing the personnel count for each TransactionType\n */"
             },
             {
                 "body": "Optional[{\r\n    this.personnelCount = personnelCount;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPersonnelCount(HashMap<TransactionType, Integer>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the personnel count for each transaction type.\n * \n * @param personnelCount a HashMap containing the personnel count for each TransactionType\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientCount;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public HashMap<TransactionType, Integer> getPatientCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the count of patients for each transaction type.\n * \n * @return a HashMap containing the count of patients for each transaction type\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientCount = patientCount;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientCount(HashMap<TransactionType, Integer>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient count for each transaction type.\n * \n * @param patientCount a HashMap containing the transaction type as key and the corresponding patient count as value\n * @return void\n */\npublic void setPatientCount(HashMap<TransactionType, Integer> patientCount) {\n    this.patientCount = patientCount;\n}"
             },
             {
                 "body": "Optional[{\r\n    this.numTotalTransactions = numTransactions;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNumTotalTransactions(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the total number of transactions for this object.\n * \n * @param numTransactions the new total number of transactions to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return numTotalTransactions;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getNumTotalTransactions()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the total number of transactions.\n * \n * @return the total number of transactions\n */"
             },
             {
                 "body": "Optional[{\r\n    return numPatientTransactions;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getNumPatientTransactions()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of patient transactions.\n * \n * @return the number of patient transactions\n */"
             },
             {
                 "body": "Optional[{\r\n    this.numPatientTransactions = numPatientTransactions;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNumPatientTransactions(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the number of patient transactions for this object.\n * \n * @param numPatientTransactions the new number of patient transactions to set\n * \n * This method sets the number of patient transactions for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return numPersonnelTransactions;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getNumPersonnelTransactions()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of personnel transactions.\n * \n * @return the number of personnel transactions\n */"
             },
             {
                 "body": "Optional[{\r\n    this.numPersonnelTransactions = numPersonnelTransactions;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNumPersonnelTransactions(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the number of personnel transactions.\n * \n * @param numPersonnelTransactions the number of personnel transactions to set\n * \n * This method sets the number of personnel transactions to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -113,7 +126,8 @@
                 "hasInnerComment": false,
                 "signature": "public OperationalProfile()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new OperationalProfile object with empty maps for total count, personnel count, and patient count.\n * The constructor initializes the totalCount, personnelCount, and patientCount maps with empty maps using the createEmptyMap() method.\n * These maps will be used to store the count of various operational metrics.\n */"
             }
         ],
         "signature": "OperationalProfile",
@@ -124,6 +138,7 @@
             "private HashMap<TransactionType,Integer> totalCount",
             "private HashMap<TransactionType,Integer> personnelCount",
             "private HashMap<TransactionType,Integer> patientCount"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a utility for managing transaction counts for different types of transactions.\n * It provides methods for creating an empty map with keys of type TransactionType and values of type Integer,\n * getting the total count of each TransactionType, and setting the total count of transactions for each transaction type.\n * \n * The createEmptyMap method initializes a new HashMap with keys from the TransactionType enum, each mapped to the value 0.\n * \n * The getTotalCount method returns a HashMap containing the total count of each TransactionType.\n * \n * The setTotalCount method sets the total count of transactions for each transaction type based on the provided HashMap.\n * If the provided HashMap is null, the total count will not be set.\n * \n * This class encapsulates the functionality related to managing transaction counts and provides a convenient way to\n * interact with and manipulate transaction data.\n */\n**/\n/**\n * This class represents a data structure that stores the personnel count, patient count, and total number of transactions for each transaction type.\n * It provides methods to retrieve and set the personnel count, patient count, and total number of transactions for each transaction type.\n * \n * The class includes the following main functionalities:\n * - Retrieving the personnel count for each transaction type using the getPersonnelCount() method\n * - Setting the personnel count for each transaction type using the setPersonnelCount() method\n * - Retrieving the count of patients for each transaction type using the getPatientCount() method\n * - Setting the patient count for each transaction type using the setPatientCount() method\n * - Setting the total number of transactions using the setNumTotalTransactions() method\n * \n * The behavior of this class is to store and manage the personnel count, patient count, and total number of transactions for each transaction type in a HashMap data structure.\n * It allows for easy retrieval and updating of these counts for analysis and reporting purposes.\n */\n**/\n/**\n * This class represents an object that tracks various types of transactions.\n * It provides methods to set and retrieve the total number of transactions, \n * the number of patient transactions, and the number of personnel transactions.\n * \n * The main functionalities of this class include:\n * - Setting and getting the total number of transactions\n * - Setting and getting the number of patient transactions\n * - Setting and getting the number of personnel transactions\n * \n * The class maintains three instance variables to store the total number of transactions,\n * the number of patient transactions, and the number of personnel transactions.\n * \n * This class is designed to be used in a system that requires tracking and managing different types of transactions.\n * \n * Note: It is important to ensure that the values set for the number of transactions are valid and within the appropriate range.\n */\n/**\n * The OperationalProfile class represents a profile of operational metrics for a system. It tracks the number of total transactions, patient transactions, and personnel transactions using HashMaps to store the counts for each transaction type.\n * \n * This class provides methods to set and retrieve the number of personnel transactions, as well as initialize the counts for total, patient, and personnel transactions. The class also includes methods to update and retrieve the counts for each transaction type.\n * \n * The OperationalProfile class serves as a central data structure for monitoring and analyzing operational performance, allowing users to track and analyze transaction metrics over time.\n */"
     }
 ]

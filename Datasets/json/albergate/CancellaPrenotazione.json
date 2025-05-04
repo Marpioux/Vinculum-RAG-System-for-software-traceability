@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the component by setting up various properties and listeners.\n * This method calls writeDatiPren() with the parameter p, sets the editability of testo elements,\n * disables myCheckbox and myCheckbox1, disables all checkboxes in the checkboxes array,\n * sets the text of testo[9] to the parsed date string of p.getDataPren(),\n * and adds an ActionListener to Azione that calls startCancella() when triggered.\n */"
             },
             {
                 "body": "Optional[{\r\n    startCancella();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the cancellation process.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    (Principale.db).delPrenotazione(p.getIdPrenotazione());\r\n    aggiornaDisp(p, Flag.DISPONIBILE);\r\n    Utils.restoreCommissioni(p.getNumStanza());\r\n    parent.creaLista(1);\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " void startCancella()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a booking and updates the availability status of the room.\n * This method deletes the booking from the database, updates the room's availability status,\n * restores any commissions associated with the booking, refreshes the booking list in the parent frame,\n * closes the current frame, and enables the parent frame.\n * \n * @param p the booking object to be cancelled\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -33,13 +36,15 @@
                 "hasInnerComment": false,
                 "signature": "public CancellaPrenotazione(Prenotazione, Stanza, RicercaPrenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new CancellaPrenotazione object with the given Prenotazione, Stanza, and RicercaPrenotazione objects.\n * \n * @param pren the Prenotazione object to be cancelled\n * @param room the Stanza object associated with the Prenotazione\n * @param papa the RicercaPrenotazione object that initiated the cancellation\n * \n * This constructor initializes the CancellaPrenotazione object with the specified Prenotazione, Stanza, and RicercaPrenotazione objects.\n * It sets the title to \"Cancellazione della prenotazione\", the button label to \"Cancella\", the priority to 3, and the pensionamento status based on the Prenotazione object.\n * It also initializes the 'p' field with the Prenotazione object and the 'parent' field with the RicercaPrenotazione object, and calls the 'init()' method.\n */\npublic CancellaPrenotazione(Prenotazione pren, Stanza room, RicercaPrenotazione papa) {\n    super(room, \"\", \"\", \"Cancellazione della prenotazione\", \"Cancella\", 3, pren.getPensionamento());\n    p = pren;\n    parent = papa;\n    init();\n}\n*/"
             }
         ],
         "signature": "CancellaPrenotazione",
         "variables": [
             " Prenotazione p",
             " RicercaPrenotazione parent"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The CancellaPrenotazione class represents a component used for cancelling a booking and updating the availability status of a room.\n * It contains methods for initializing the component, handling action events, and starting the cancellation process.\n * The class also includes a constructor for creating a new CancellaPrenotazione object with the specified Prenotazione, Stanza, and RicercaPrenotazione objects.\n * \n * The main functionalities of this class include:\n * - Initializing the component by setting up various properties and listeners\n * - Cancelling a booking and updating the availability status of the room\n * - Handling action events triggered during the cancellation process\n * \n * The overall behavior of the CancellaPrenotazione class is to provide a user interface for cancelling bookings, updating room availability, and refreshing the booking list in the parent frame.\n * It interacts with database operations, room availability management, and commission restoration to facilitate the cancellation process effectively.\n * \n * This class encapsulates the logic and functionality required for cancelling bookings and managing room availability in a hotel booking system.\n */"
     }
 ]

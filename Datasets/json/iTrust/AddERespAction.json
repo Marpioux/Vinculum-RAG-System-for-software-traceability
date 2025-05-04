@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long add(PersonnelBean)",
                 "comments": "Optional[/**\r\n * Adds the new user.  Event is logged.\r\n *\r\n * @param p bean containing the information for the new user\r\n * @return MID of the new user.\r\n * @throws FormValidationException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new personnel with the specified information and assigns them a new unique MID.\n * Validates the personnel information using AddPersonnelValidator.\n * Adds an empty personnel record to the database with the role of ER.\n * Sets the MID of the personnel to the newly generated MID.\n * Edits the personnel information in the database.\n * Generates a random password for the personnel and adds a user with the generated password.\n * Logs a transaction of type CREATE_DISABLE_ER for the addition of a new personnel with the specified role.\n * \n * @param p the PersonnelBean object containing the information of the personnel to be added\n * @return the newly generated MID for the added personnel\n */\npublic long add(PersonnelBean p) {\n    new AddPersonnelValidator().validate(p);\n    long newMID = personnelDAO.addEmptyPersonnel(Role.ER);\n    p.setMID(newMID);\n    personnelDAO.editPersonnel(p);\n    String pwd = authDAO.addUser(newMID, Role.ER, RandomPassword.getRandomPassword());\n    p.setPassword(pwd);\n    transDAO.logTransaction(TransactionType.CREATE_DISABLE_ER, loggedInMID, newMID, \"Added New \" + p.getRole().name());\n    return newMID;\n}\n*/"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public AddERespAction(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AddERespAction object with the given DAOFactory and loggedInMID.\n * This constructor initializes the personnelDAO, authDAO, and transDAO fields with the corresponding DAOs obtained from the factory.\n * It also sets the loggedInMID field to the provided loggedInMID value.\n * \n * @param factory the DAOFactory used to obtain the DAOs for personnel, authentication, and transactions\n * @param loggedInMID the ID of the currently logged in personnel\n */"
             }
         ],
         "signature": "AddERespAction",
@@ -26,6 +28,7 @@
             "private AuthDAO authDAO",
             "private TransactionDAO transDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AddERespAction class represents an action that adds a new emergency responder personnel to the system.\n * This class contains methods for adding a new emergency responder personnel, validating their information,\n * assigning them a unique MID, editing their information in the database, generating a random password for them,\n * and logging a transaction for the addition of the new personnel.\n * \n * The class has a constructor that initializes the necessary DAO objects for accessing personnel, authentication,\n * and transaction data, as well as the ID of the currently logged in personnel.\n * \n * The main functionalities of this class include:\n * - Adding a new emergency responder personnel to the system\n * - Validating the information of the new personnel using AddPersonnelValidator\n * - Assigning a new unique MID to the new personnel\n * - Editing the personnel information in the database\n * - Generating a random password for the new personnel and adding a user with the generated password\n * - Logging a transaction of type CREATE_DISABLE_ER for the addition of the new personnel with the role of ER\n * \n * This class follows the standard iTrust coding conventions and best practices for adding and managing personnel information.\n */\n*/"
     }
 ]

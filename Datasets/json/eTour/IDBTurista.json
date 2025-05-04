@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciTurista(BeanTurista)",
                 "comments": "Optional[/**\r\n * Add a tourist\r\n *\r\n * @param pTurista Tourist to add\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a tourist into the system.\n * \n * @param turista the tourist to be inserted into the system\n * @return true if the tourist was successfully inserted, false otherwise\n */\nabstract boolean inserisciTurista(BeanTurista turista);"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaTurista(BeanTurista)",
                 "comments": "Optional[/**\r\n * Modify a tourist\r\n *\r\n * @param pTurista Tourist to change\r\n * @throws SQLException\r\n * @return True if changed, otherwise false\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a tourist object with the given information.\n * \n * @param turista the tourist object to be modified\n * @return true if the tourist object was successfully modified, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean delete(int)",
                 "comments": "Optional[/**\r\n * Delete a tourist from the database\r\n *\r\n * @param pIdTurista Identifier of the tourist to delete\r\n * @throws SQLException\r\n * @return True if deleted, otherwise false\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes an item from the database based on the specified ID.\n * \n * @param id the ID of the item to be deleted\n * @return true if the item was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanTurista ottieniTurista(String)",
                 "comments": "Optional[/**\r\n * Returns the data of the Tourist\r\n *\r\n * @param pUsername Username of the tourist\r\n * @throws SQLException\r\n * @return Information about the tourist\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a tourist bean based on the provided ID.\n * \n * @param id the ID of the tourist to retrieve\n * @return an Optional containing the tourist bean if found, otherwise Optional.empty\n */\nabstract BeanTurista ottieniTurista(String id) {\n    // Implementation details omitted\n}"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciBeneCulturalePreferito(int, int)",
                 "comments": "Optional[/**\r\n * Attach a cultural heritage to the preferred tourist\r\n *\r\n * @param pIdTurista ID of the tourist\r\n * @param pIdBeneCulturale ID of the cultural heritage\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preferred cultural asset into the system for a given user.\n * \n * @param userId the unique identifier of the user\n * @param culturalAssetId the unique identifier of the cultural asset\n * @return true if the cultural asset was successfully inserted as preferred for the user, false otherwise\n */\nabstract boolean inserisciBeneCulturalePreferito(int userId, int culturalAssetId) {\n    // Implementation details are not provided, returns Optional.empty\n}"
             },
             {
                 "body": "Optional.empty",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPuntoDiRistoroPreferito(int, int)",
                 "comments": "Optional[/**\r\n * Attach a dining point to the tourist's favorites\r\n *\r\n * @param pIdTurista ID of the tourist\r\n * @param pIdPuntoDiRistoro ID of the dining point\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preferred point of refreshment at the specified coordinates.\n * \n * @param x the x-coordinate of the point of refreshment\n * @param y the y-coordinate of the point of refreshment\n * @return true if the point of refreshment was successfully inserted, false otherwise\n */\nabstract boolean inserisciPuntoDiRistoroPreferito(int x, int y) {\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaBeneCulturalePreferito(int, int)",
                 "comments": "Optional[/**\r\n * Delete a cultural favorite\r\n *\r\n * @param pIdTurista ID of the tourist\r\n * @param pIdBeneCulturale ID of the cultural heritage\r\n * @throws SQLException\r\n * @return True if deleted, otherwise false\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a preferred cultural asset from the list of favorites.\n *\n * This method takes in two integer parameters representing the unique identifiers of the cultural asset and the user. \n * It attempts to remove the specified cultural asset from the user's list of favorites.\n * If the deletion is successful, it returns true; otherwise, it returns false.\n *\n * @param culturalAssetId the unique identifier of the cultural asset to be removed from favorites\n * @param userId the unique identifier of the user whose favorite list is being modified\n * @return true if the cultural asset was successfully removed from favorites, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaPuntoDiRistoroPreferito(int, int)",
                 "comments": "Optional[/**\r\n * Delete a favorite resting spot\r\n *\r\n * @param pIdTurista ID of the tourist\r\n * @param pIdPuntoDiRistoro ID of the dining point\r\n * @throws SQLException\r\n * @return True if deleted, otherwise false\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to cancel a preferred point of refreshment.\n * \n * @param id the unique identifier of the user\n * @param pointId the unique identifier of the preferred point of refreshment\n * @return true if the preferred point of refreshment was successfully canceled, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanTurista> ottieniTuristi(String)",
                 "comments": "Optional[/**\r\n * Returns an ArrayList of tourists who have a username like the one given as argument\r\n *\r\n * @param pUsernameTurista Username of the tourists to search\r\n * @throws SQLException\r\n * @return Data for tourists\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a list of tourist beans based on a given search string.\n * \n * @param searchString the string used to search for tourist beans\n * @return an ArrayList of BeanTurista objects that match the search string, or an empty Optional if no matches are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanTurista> ottieniTuristi(boolean)",
                 "comments": "Optional[/**\r\n * Returns the list of tourists turned on or off\r\n *\r\n * @param condition True for those tourists turned off\r\n * @return Data for tourists\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of tourist beans based on the specified boolean parameter.\n * \n * @param flag a boolean value indicating whether to include active tourists (true) or inactive tourists (false)\n * @return an ArrayList of BeanTurista objects representing the list of tourists that match the specified criteria\n *         or an empty Optional if no matching tourists are found\n */\nabstract ArrayList<BeanTurista> ottieniTuristi(boolean flag) {\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanTurista ottieniTurista(int)",
                 "comments": "Optional[/**\r\n * Returns the data of the tourist with ID equal to that given in input\r\n *\r\n * @param pIdTurista ID of the tourist to find\r\n * @return Tourist with ID equal to the input, null if not found\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a BeanTurista object representing a tourist based on the provided ID.\n * If no tourist is found with the given ID, an empty Optional object is returned.\n * \n * @param id the ID of the tourist to retrieve\n * @return an Optional object containing the BeanTurista representing the tourist with the given ID, \n *         or an empty Optional if no tourist is found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanBeneCulturale> ottieniBeniCulturaliPreferiti(int)",
                 "comments": "Optional[/**\r\n * Returns the list of cultural favorites from a particular tourist\r\n *\r\n * @param pIdTurista ID of the tourist to find\r\n * @return List of Cultural Heritage Favorites\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of favorite cultural assets based on the specified user ID.\n *\n * @param userID the unique identifier of the user whose favorite cultural assets are to be retrieved\n * @return an ArrayList of BeanBeneCulturale objects representing the favorite cultural assets of the user, \n *         or an empty Optional if no favorite cultural assets are found for the specified user ID\n */"
             },
             {
                 "body": "Optional.empty",
@@ -103,11 +115,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanBeneCulturale> ottieniPuntoDiRistoroPreferiti(int)",
                 "comments": "Optional[/**\r\n * Returns a list of favorite resting spots by a particular tourist\r\n *\r\n * @param pIdTurista ID of the tourist to find\r\n * @return List of Refreshment Favorites\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves the preferred cultural points of refreshment for a given user.\n * \n * @param userId the unique identifier of the user whose preferred cultural points of refreshment are to be retrieved\n * @return an ArrayList of BeanBeneCulturale objects representing the preferred cultural points of refreshment for the user, \n *         or an empty Optional if no preferred points of refreshment are found\n */\nabstract ArrayList<BeanBeneCulturale> ottieniPuntoDiRistoroPreferiti(int userId) {\n    return Optional.empty();\n}"
             }
         ],
         "constructors": [],
         "signature": "IDBTurista",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBTurista interface represents a data access object (DAO) for managing tourist-related data in the system.\n * It defines methods for inserting, modifying, deleting, and retrieving tourist information from the database.\n * The interface also includes methods for managing preferred cultural assets and dining points for tourists.\n * \n * This interface serves as a contract for classes that implement it to provide functionality for interacting with tourist data.\n * The methods defined in this interface allow for seamless integration with the underlying data storage system.\n * \n * It is important to note that the methods in this interface may throw SQLExceptions, indicating potential database-related errors.\n * Implementing classes should handle these exceptions appropriately to ensure the reliability and robustness of the system.\n * \n * Overall, the IDBTurista interface encapsulates the essential operations for managing tourist data within the system,\n * providing a standardized way to interact with and manipulate tourist-related information.\n */"
     }
 ]

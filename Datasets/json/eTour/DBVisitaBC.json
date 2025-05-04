@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciVisitaBC(BeanVisitaBC)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a visit record into the database for a BeanVisitaBC object.\n * \n * @param visitaBC the BeanVisitaBC object containing the visit information to be inserted\n * @return true if the visit record was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean modificaVisitaBC(BeanVisitaBC)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a BeanVisitaBC object.\n * \n * @param visitaBC the BeanVisitaBC object to be modified\n * @return false if the modification was unsuccessful\n */"
             },
             {
                 "body": "Optional[{\r\n    ArrayList<BeanVisitaBC> finteVisite = new ArrayList<BeanVisitaBC>(0);\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\r\n    finteVisite.add(new BeanVisitaBC(5, 1, \"This show is not 'evil'\", 1, new Date(new Date().getTime() - 2591000000L)));\r\n    finteVisite.add(new BeanVisitaBC(3, 1, \"This show is not 'evil'\", 1, new Date(new Date().getTime() - 5182000000L)));\r\n    return finteVisite;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanVisitaBC> ottieniListaVisitaBC(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of fake visits for a specific exhibition center.\n * \n * @param exhibitionCenterId the ID of the exhibition center for which to retrieve the list of visits\n * @return an ArrayList of BeanVisitaBC objects representing fake visits for the specified exhibition center\n */\npublic ArrayList<BeanVisitaBC> ottieniListaVisitaBC(int exhibitionCenterId) {\n    ArrayList<BeanVisitaBC> finteVisite = new ArrayList<BeanVisitaBC>(0);\n    // Adding fake visits to the list\n    finteVisite.add(new BeanVisitaBC(4, 1, \"beautiful exhibition\", 1, new Date()));\n    finteVisite.add(new BeanVisitaBC(3, 1, \"show particular but interesting\", 1, new Date()));\n    // Additional fake visits added here...\n    return finteVisite;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return null;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanVisitaBC> ottieniListaVisitaBCTurista(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a list of BeanVisitaBC objects associated with a tourist based on the provided tourist ID.\n * \n * @param touristID the ID of the tourist for whom the list of BeanVisitaBC objects is being retrieved\n * @return an ArrayList of BeanVisitaBC objects representing the visits made by the tourist, or null if no visits are found\n */"
             },
             {
                 "body": "Optional[{\r\n    return null;\r\n}]",
@@ -39,11 +43,13 @@
                 "hasInnerComment": false,
                 "signature": "public BeanVisitaBC ottieniVisitaBC(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a BeanVisitaBC object based on the provided parameters.\n * \n * @param param1 the first parameter used to retrieve the BeanVisitaBC object\n * @param param2 the second parameter used to retrieve the BeanVisitaBC object\n * @return the BeanVisitaBC object retrieved based on the provided parameters, or null if no object is found\n */"
             }
         ],
         "constructors": [],
         "signature": "DBVisitaBC",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The DBVisitaBC class provides methods for interacting with the database to manage visit records for exhibition centers.\n * It includes methods for inserting, modifying, and retrieving visit records, as well as retrieving lists of visits for exhibition centers and tourists.\n * \n * This class serves as a data access layer for handling visit data in the application. It encapsulates the logic for interacting with the database\n * and provides a convenient interface for performing CRUD operations on visit records.\n * \n * The main functionalities of this class include:\n * - Inserting a visit record for a BeanVisitaBC object into the database\n * - Modifying a BeanVisitaBC object in the database\n * - Retrieving a list of fake visits for a specific exhibition center\n * - Retrieving a list of visits made by a tourist based on the tourist ID\n * - Retrieving a specific BeanVisitaBC object based on provided parameters\n * \n * This class follows the DAO (Data Access Object) design pattern to separate the data access logic from the business logic of the application.\n * It provides a layer of abstraction for interacting with the database, making it easier to manage and maintain the visit data in the system.\n * \n * Overall, the DBVisitaBC class plays a crucial role in managing visit data for exhibition centers and tourists, providing essential functionality\n * for creating, updating, and retrieving visit records in the application.\n */"
     }
 ]

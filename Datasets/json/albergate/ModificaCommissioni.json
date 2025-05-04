@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up the event listeners for the buttons.\n * When the 'lista' button is clicked, it retrieves the commission data based on the selected index,\n * writes the data to the screen, enables certain components, hides panel5, and repacks the frame.\n * When the 'nome_agenzia' button is clicked, it creates a new list of items.\n * When the 'Azione' button is clicked, it starts a new action.\n * When the 'Cerca' button is clicked, it creates a new list of items.\n */"
             },
             {
                 "body": "Optional[{\r\n    commissione = L.getCommissionamento(lista.getSelectedIndex() + 1);\r\n    writeDatiComm(commissione);\r\n    abilita();\r\n    panel5.setVisible(false);\r\n    pack();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It retrieves the commission from a list based on the selected index, \n * writes the commission data, enables certain functionality, hides a panel, and repacks the components. \n * \n * @param e the ActionEvent that triggered the method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It creates a new list by calling the creaLista() method.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the specific action associated with the event.\n * \n * @param e the ActionEvent object representing the event that occurred\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a new list using the method creaLista().\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    num_stanza.setEditable(false);\r\n    num_tel_agenzia.setEditable(false);\r\n    inizio_comm.setEditable(false);\r\n    fine_comm.setEditable(false);\r\n    scadenza_comm.setEditable(false);\r\n    num_stanza.setEditable(false);\r\n    Azione.setEnabled(false);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void deabilita()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the editing capabilities of various text fields and buttons in the GUI.\n * This method sets the 'editable' property of the following components to false:\n * - num_stanza\n * - num_tel_agenzia\n * - inizio_comm\n * - fine_comm\n * - scadenza_comm\n * - Azione\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    num_tel_agenzia.setEditable(true);\r\n    scadenza_comm.setEditable(true);\r\n    Azione.setEnabled(true);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " void abilita()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Enables certain components in the user interface to allow the user to perform actions.\n * This method enables the text fields for the agency phone number and commission expiration date,\n * as well as enabling a specific action button.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        Commissionamento comm = readDatiComm();\r\n        int j;\r\n        if ((j = (Principale.db).changeCommissionamento(commissione.getIdCommissionamento(), comm.getNumStanza(), comm.getNomeAgenzia(), comm.getNumTel(), comm.getInizioComm(), comm.getFineComm(), comm.getScadenzaComm(), comm.getScaduto())) == DataBase.OK) {\r\n            cleanFields();\r\n            deabilita();\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the action of updating a commission in the database.\n * It first checks for any errors, then reads the commission data and attempts to update it in the database.\n * If the update is successful, it cleans the input fields and disables them.\n * If there are any issues with the database, it displays an error message.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -73,12 +81,14 @@
                 "hasInnerComment": false,
                 "signature": "public ModificaCommissioni()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the ModificaCommissioni class.\n * Initializes the ModificaCommissioni object with default values and settings.\n * \n * @param none\n * \n * @return none\n * \n * The constructor sets the title of the window to \"Modifica i dati delle commissioni\",\n * sets the button text to \"Modifica\", and sets the number of columns to 2.\n * It also sets the nome_agenzia field as editable, disables other fields, and initializes the object.\n */"
             }
         ],
         "signature": "ModificaCommissioni",
         "variables": [
             " Commissionamento commissione"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ModificaCommissioni class represents a GUI application for modifying commission data.\n * It provides functionality for retrieving commission data, updating it in the database, and enabling/disabling certain components.\n * \n * The main functionalities of this class include:\n * - Initializing the GUI components and setting up event listeners for buttons.\n * - Retrieving commission data based on user selection and displaying it on the screen.\n * - Enabling editing capabilities for specific components to allow data modification.\n * - Starting the action of updating commission data in the database.\n * \n * The class contains the following methods:\n * - init(): Initializes the GUI components and sets up event listeners for buttons.\n * - actionPerformed(ActionEvent): Handles action events triggered by buttons and performs specific actions.\n * - deabilita(): Disables editing capabilities of text fields and buttons in the GUI.\n * - abilita(): Enables certain components in the user interface to allow user actions.\n * - startAzione(): Starts the action of updating a commission in the database.\n * \n * The class also includes a constructor that initializes the ModificaCommissioni object with default values and settings.\n * \n * Overall, the ModificaCommissioni class provides a user-friendly interface for modifying commission data efficiently and effectively.\n */"
     }
 ]

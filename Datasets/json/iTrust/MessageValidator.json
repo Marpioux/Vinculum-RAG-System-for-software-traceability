@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(MessageBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates a MessageBean object by checking the format of its body and subject fields.\n * \n * @param mBean the MessageBean object to validate\n * @throws FormValidationException if any validation errors are found\n */\npublic void validate(MessageBean mBean) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"body\", mBean.getBody(), ValidationFormat.MESSAGES_BODY, false));\n    errorList.addIfNotNull(checkFormat(\"subject\", mBean.getSubject(), ValidationFormat.MESSAGES_SUBJECT, false));\n    if (errorList.hasErrors())\n        throw new FormValidationException(errorList);\n}\n*/"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public MessageValidator()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the MessageValidator class.\n * It initializes a new instance of MessageValidator with no parameters.\n * \n * @param None\n * @return A new instance of MessageValidator\n */"
             }
         ],
         "signature": "MessageValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The MessageValidator class is responsible for validating MessageBean objects by checking the format of their body and subject fields.\n * \n * This class contains a public method, validate, which takes a MessageBean object as a parameter and validates its body and subject fields.\n * If any validation errors are found, a FormValidationException is thrown.\n * \n * Additionally, this class includes a constructor that initializes a new instance of MessageValidator with no parameters.\n * \n * Overall, the MessageValidator class provides a convenient way to validate MessageBean objects and ensure that they meet the required format criteria.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<RemoteMonitoringDataBean> getPatientsData()",
                 "comments": "Optional[/**\r\n * Returns a list of RemoteMonitoringDataBeans for the logged in HCP\r\n *\r\n * @return list of TransactionBeans\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the remote monitoring data for all patients associated with the currently logged in medical personnel.\n * This method logs a transaction of type TELEMEDICINE_MONITORING for the logged in medical personnel.\n * \n * @return A list of RemoteMonitoringDataBean objects containing the remote monitoring data for all patients.\n */"
             },
             {
                 "body": "Optional[{\r\n    Date lower;\r\n    Date upper;\r\n    try {\r\n        lower = new SimpleDateFormat(\"MM/dd/yyyy\").parse(startDate);\r\n        upper = new SimpleDateFormat(\"MM/dd/yyyy\").parse(endDate);\r\n        if (lower.after(upper))\r\n            throw new FormValidationException(\"Start date must be before end date!\");\r\n    } catch (ParseException e) {\r\n        throw new FormValidationException(\"Enter dates in MM/dd/yyyy\");\r\n    }\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID);\r\n    return rmDAO.getPatientDataByDate(patientMID, lower, upper);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<RemoteMonitoringDataBean> getPatientDataByDate(long, String, String)",
                 "comments": "Optional[/**\r\n * Returns a list of RemoteMonitoringDataBeans for the logged in HCP\r\n *\r\n * @return list of TransactionBeans\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the remote monitoring data for a patient within a specified date range.\n * \n * @param patientMID the MID of the patient whose data is being retrieved\n * @param startDate the start date of the date range in MM/dd/yyyy format\n * @param endDate the end date of the date range in MM/dd/yyyy format\n * @return a list of RemoteMonitoringDataBean objects containing the patient's data within the specified date range\n * @throws FormValidationException if the start date is after the end date or if the date format is incorrect\n */\npublic List<RemoteMonitoringDataBean> getPatientDataByDate(long patientMID, String startDate, String endDate) {\n    Date lower;\n    Date upper;\n    try {\n        lower = new SimpleDateFormat(\"MM/dd/yyyy\").parse(startDate);\n        upper = new SimpleDateFormat(\"MM/dd/yyyy\").parse(endDate);\n        if (lower.after(upper))\n            throw new FormValidationException(\"Start date must be before end date!\");\n    } catch (ParseException e) {\n        throw new FormValidationException(\"Enter dates in MM/dd/yyyy\");\n    }\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID);\n    return rmDAO.getPatientDataByDate(patientMID, lower, upper);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return rmDAO.getPatientsData(loggedInMID);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<RemoteMonitoringDataBean> getPatientDataWithoutLogging()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the patient data without logging for the currently logged in user.\n * \n * @return a list of RemoteMonitoringDataBean objects containing the patient data\n */"
             },
             {
                 "body": "Optional[{\r\n    return authDAO.getUserName(pid);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientName(long)",
                 "comments": "Optional[/**\r\n * returns the patient name\r\n *\r\n * @return patient name\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the patient with the specified ID.\n * \n * @param pid the unique identifier of the patient\n * @return the name of the patient associated with the given ID\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewMyRemoteMonitoringListAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Constructor\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the HCP retrieving the patient data.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewMyRemoteMonitoringListAction with the specified DAOFactory and logged in member ID.\n * \n * @param factory the DAOFactory used to retrieve RemoteMonitoringDAO, TransactionDAO, and AuthDAO instances\n * @param loggedInMID the ID of the logged in member\n */\npublic ViewMyRemoteMonitoringListAction(DAOFactory factory, long loggedInMID) {\n    this.loggedInMID = loggedInMID;\n    this.rmDAO = factory.getRemoteMonitoringDAO();\n    this.transDAO = factory.getTransactionDAO();\n    this.authDAO = factory.getAuthDAO();\n}\n*/"
             }
         ],
         "signature": "ViewMyRemoteMonitoringListAction",
@@ -50,6 +55,7 @@
             "private TransactionDAO transDAO",
             "private AuthDAO authDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a service that provides remote monitoring data for healthcare providers.\n * It contains methods to retrieve remote monitoring data for all patients associated with the currently logged in medical personnel,\n * as well as for a specific patient within a specified date range.\n * \n * The class includes methods to log transactions of type TELEMEDICINE_MONITORING for the logged in medical personnel.\n * \n * @author [Author Name]\n * @version 1.0\n */\n/**\n * This class provides methods for retrieving patient data and information from a remote monitoring system.\n * It includes functionalities for getting patient data within a specified date range, retrieving patient data without logging, and getting the name of a patient by their ID.\n * \n * The main functionalities of this class include:\n * - Retrieving patient data by date range for a specific patient\n * - Retrieving patient data without logging for the currently logged in user\n * - Getting the name of a patient by their ID\n * \n * The behavior of this class is as follows:\n * - The getPatientDataByDate method retrieves patient data within a specified date range for a specific patient. It validates the date range and logs the transaction.\n * - The getPatientDataWithoutLogging method retrieves patient data without logging for the currently logged in user.\n * - The getPatientName method retrieves the name of a patient by their ID, handling exceptions like DBException and iTrustException.\n * \n * @author [Author Name]\n * @version 1.0\n */\n/**\n * The ViewMyRemoteMonitoringListAction class represents an action that allows a healthcare provider (HCP) to view a list of remote monitoring data associated with their patients. This class provides functionalities for retrieving and displaying remote monitoring data for a specific HCP.\n * \n * The main functionalities of this class include:\n * - Retrieving remote monitoring data for the logged-in HCP's patients\n * - Displaying a list of remote monitoring data for the HCP to review\n * \n * This class requires a DAOFactory instance to create instances of RemoteMonitoringDAO, TransactionDAO, and AuthDAO for data retrieval and authentication purposes. The logged-in member ID is also required to identify the HCP accessing the patient data.\n * \n * The ViewMyRemoteMonitoringListAction class contains constructors to initialize the necessary DAO instances and the logged-in member ID. It also includes methods to retrieve and display the remote monitoring data for the HCP.\n */\n **/"
     }
 ]

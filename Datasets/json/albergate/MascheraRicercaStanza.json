@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo i TextField\r\n, //Creo i pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo la lista\r\n, //Creo il checkbox\r\n, //Creo il pannello in alto\r\n, //Creo un pannello con due pulsanti\r\n, //Creo il pannello contenente la lista\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo i TextField\r\n, //Creo i pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo la lista\r\n, //Creo il checkbox\r\n, //Creo il pannello in alto\r\n, //Creo un pannello con due pulsanti\r\n, //Creo il pannello contenente la lista\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the user interface by creating and configuring various components such as text fields, buttons, labels, lists, and checkboxes.\n * This method also sets the font for the components and arranges them within panels using the GridBagLayout.\n * \n * @param caller an integer value indicating the caller of the method\n * \n * If the caller is equal to 1, the panel containing the \"Nome agenzia\" label and text field is hidden.\n * \n * Note: This method does not have a return value.\n */"
             },
             {
                 "body": "Optional[{\r\n    //Ascoltatore del pulsante Avvio,se il pulsante viene premuto viene\r\n    //lanciata la procedura di ricerca stanze libere\r\n    Avvio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            ctrlAvvio();\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante Annulla,se il pulsante viene prumeto si torna\r\n    //alla maschera precedente\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if (caller == 3)\r\n                father.setEnabled(true);\r\n            else\r\n                padre.setEnabled(true);\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante ShowDisp,se il pulsante viene premuto si\r\n    //mostrera' una maschera con le disponibilita dell'albergo\r\n    ShowDisp.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            lookDisp();\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante Annulla1,se il pulsante viene premuto si\r\n    //vengono riabilitati i componenti del pannello in alto e\r\n    //disabilitati quelli del pannello in basso\r\n    Annulla1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAnnulla1();\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n    //la finestra riguardante l'inserimento della prenotazione\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startInserimento();\r\n        }\r\n    });\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startInserimento();\r\n        }\r\n    });\r\n    con_ag.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (con_ag.getState())\r\n                nome_ag.setEditable(true);\r\n            else {\r\n                nome_ag.setEditable(false);\r\n                nome_ag.setText(\"\");\r\n            }\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public void init()",
                 "comments": "Optional[//Gestione degli eventi\r\n]",
-                "innerComments": "Optional[[//Ascoltatore del pulsante Avvio,se il pulsante viene premuto viene\r\n, //Ascoltatore del pulsante Annulla,se il pulsante viene prumeto si torna\r\n, //Ascoltatore del pulsante ShowDisp,se il pulsante viene premuto si\r\n, //Ascoltatore del pulsante Annulla1,se il pulsante viene premuto si\r\n, //vengono riabilitati i componenti del pannello in alto e\r\n, //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n, //lanciata la procedura di ricerca stanze libere\r\n, //alla maschera precedente\r\n, //mostrera' una maschera con le disponibilita dell'albergo\r\n, //disabilitati quelli del pannello in basso\r\n, //la finestra riguardante l'inserimento della prenotazione\r\n]]"
+                "innerComments": "Optional[[//Ascoltatore del pulsante Avvio,se il pulsante viene premuto viene\r\n, //Ascoltatore del pulsante Annulla,se il pulsante viene prumeto si torna\r\n, //Ascoltatore del pulsante ShowDisp,se il pulsante viene premuto si\r\n, //Ascoltatore del pulsante Annulla1,se il pulsante viene premuto si\r\n, //vengono riabilitati i componenti del pannello in alto e\r\n, //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n, //lanciata la procedura di ricerca stanze libere\r\n, //alla maschera precedente\r\n, //mostrera' una maschera con le disponibilita dell'albergo\r\n, //disabilitati quelli del pannello in basso\r\n, //la finestra riguardante l'inserimento della prenotazione\r\n]]",
+                "generated_comment": "/**\n * Initializes the GUI components and sets up the event listeners for the buttons.\n * \n * This method sets up the event listeners for the \"Avvio\", \"Annulla\", \"ShowDisp\", \"Annulla1\", \"Conferma\", and \"lista\" buttons.\n * When the \"Avvio\" button is clicked, it calls the ctrlAvvio() method.\n * When the \"Annulla\" button is clicked, it disposes of the current window and enables the parent window if the caller is 3, otherwise enables the \"padre\" window.\n * When the \"ShowDisp\" button is clicked, it calls the lookDisp() method to display hotel availability.\n * When the \"Annulla1\" button is clicked, it calls the startAnnulla1() method to reset the GUI components.\n * When the \"Conferma\" button is clicked, it calls the startInserimento() method to open the reservation window.\n * When the \"lista\" button is clicked, it also calls the startInserimento() method.\n * Additionally, it sets up an item listener for the \"con_ag\" checkbox to enable/disable the \"nome_ag\" text field based on its state.\n * \n * @param No parameters\n * @return No return value\n */\npublic void init() {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ctrlAvvio();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the ctrlAvvio() method to handle the action event.\n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    if (caller == 3)\r\n        father.setEnabled(true);\r\n    else\r\n        padre.setEnabled(true);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window based on the caller value.\n * \n * @param e the ActionEvent that triggered this method\n * \n * This method disposes of the current window and then checks the value of the caller variable. If the caller is equal to 3, it enables the father window. Otherwise, it enables the padre window. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    lookDisp();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the lookDisp() method to display the current state of the application.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startAnnulla1();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the startAnnulla1() method.\n * \n * @param e the action event that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startInserimento();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the process of inserting data.\n * \n * @param e the action event that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startInserimento();\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the process of inserting data.\n * \n * @param e the action event that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (con_ag.getState())\r\n        nome_ag.setEditable(true);\r\n    else {\r\n        nome_ag.setEditable(false);\r\n        nome_ag.setText(\"\");\r\n    }\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state changes in a component.\n * If the state of the component representing the agreement checkbox is selected,\n * the text field for entering the name becomes editable.\n * If the state of the agreement checkbox is deselected, the text field becomes uneditable\n * and its content is cleared.\n * \n * @param e the ItemEvent that triggered this method\n */"
             },
             {
                 "body": "Optional[{\r\n    Date inizio_pren = DateUtils.convertDate(data_inizio.getText());\r\n    Date today = new Date();\r\n    if (inizio_pren.getYear() < today.getYear())\r\n        return false;\r\n    else if (inizio_pren.getYear() > today.getYear())\r\n        return true;\r\n    else // l'anno e' il medesimo\r\n    if (inizio_pren.getMonth() < today.getMonth())\r\n        return false;\r\n    else if (inizio_pren.getMonth() > today.getMonth())\r\n        return true;\r\n    else // l'anno e il mese sono i medesimi\r\n    if (inizio_pren.getDate() < today.getDate())\r\n        return false;\r\n    else\r\n        return true;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": true,
                 "signature": " boolean dataInizioIsNotBeforeToday()",
                 "comments": null,
-                "innerComments": "Optional[[// l'anno e' il medesimo\r\n, // l'anno e il mese sono i medesimi\r\n]]"
+                "innerComments": "Optional[[// l'anno e' il medesimo\r\n, // l'anno e il mese sono i medesimi\r\n]]",
+                "generated_comment": "/**\n * Checks if the specified start date is not before today's date.\n * \n * @return true if the start date is not before today's date, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (Utils.dateEPeriodoCorretti(this, data_inizio.getText(), data_fine.getText())) {\r\n        if (con_ag.getState() && nome_ag.getText().equals(\"\")) {\r\n            msg = new MessageDialog(this, \" Manca il nome dell'agenzia! \");\r\n            return;\r\n        }\r\n        ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n        if (L_disp == null) {\r\n            msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n            return;\r\n        }\r\n        if (caller == 3) {\r\n            if (Utils.data1MaggioreData2(DateUtils.convertDate(data_fine.getText()), save_date)) {\r\n                msg = new AvvisoDialog(this, \"ATTENZIONE: la data non puo' essere posticipata\");\r\n                data_fine.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(save_date)));\r\n            } else if (Utils.data1MinoreData2(DateUtils.convertDate(data_fine.getText()), DateUtils.convertDate(data_inizio.getText()))) {\r\n                msg = new AvvisoDialog(this, \"ATTENZIONE: la data non puo' essere precedente alla data di inizio\");\r\n                data_fine.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(save_date)));\r\n            } else {\r\n                stanze_disp = new ListaStanze();\r\n                startAvvio(L_disp, 0);\r\n            }\r\n        } else {\r\n            if (dataInizioIsNotBeforeToday()) {\r\n                stanze_disp = new ListaStanze();\r\n                startAvvio(L_disp, 0);\r\n            } else\r\n                msg = new MessageDialog(this, \" La data di inizio deve essere maggiore o uguale di quella odierna! \");\r\n        }\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void ctrlAvvio()",
                 "comments": "Optional[/*\tse la ricerca viene lanciata per un cambio stanza (caller = 3) si deve\r\n\t * \timpedire che la data di fine venga posticipata rispetto la fine del soggiorno\r\n\t *\to anticipata rispetto la data del cambio stanza.\r\n\t */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method controls the start of the application, ensuring that the selected start and end dates are valid and that all necessary information is provided.\n * It checks if the start and end dates are correct, if the agency name is provided when required, and if there are any issues with reading availability from the database.\n * If the caller is 3, it also checks if the end date can be postponed or if it is before the start date.\n * If the start date is not before today's date, it initializes a list of available rooms and starts the application.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    data_inizio.setEditable(true);\r\n    data_fine.setEditable(true);\r\n    con_ag.setEnabled(true);\r\n    if (con_ag.getState())\r\n        nome_ag.setEditable(true);\r\n    Annulla.setEnabled(true);\r\n    Avvio.setEnabled(true);\r\n    Annulla1.setEnabled(false);\r\n    Conferma.setEnabled(false);\r\n    if (lista.getItemCount() > 0)\r\n        lista.removeAll();\r\n    stanze_disp = new ListaStanze();\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAnnulla1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Enables editing of start and end dates, enables agency selection, enables editing of agency name if agency is selected,\n * enables cancel and start buttons, disables confirm button, clears the list of available rooms, and initializes a new list of available rooms.\n */\npublic void startAnnulla1() {\n    data_inizio.setEditable(true);\n    data_fine.setEditable(true);\n    con_ag.setEnabled(true);\n    if (con_ag.getState())\n        nome_ag.setEditable(true);\n    Annulla.setEnabled(true);\n    Avvio.setEnabled(true);\n    Annulla1.setEnabled(false);\n    Conferma.setEnabled(false);\n    if (lista.getItemCount() > 0)\n        lista.removeAll();\n    stanze_disp = new ListaStanze();\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (con_ag.getState())\r\n        startSearchComm(L_disp, k);\r\n    // le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n    Frame msg;\r\n    String str = new String(\"\");\r\n    ListaCommissionamenti L_comm = new ListaCommissionamenti();\r\n    ListaStanze elenco_stanze_disp = new ListaStanze();\r\n    // variabili necessarie per passaggio dei parametri della Inserisci\r\n    data1 = DateUtils.parseDate(data_inizio.getText());\r\n    data2 = DateUtils.parseDate(data_fine.getText());\r\n    // scansione delle disponibilita\r\n    Stanza stanza = null;\r\n    Disponibilita disp_attuale = null;\r\n    for (int i = 1; i <= L_disp.length(); i++) {\r\n        disp_attuale = L_disp.getDisponibilita(i);\r\n        if (disp_attuale.isDisponibile(DateUtils.convertDate(data_inizio.getText()), DateUtils.convertDate(data_fine.getText()), Flag.DISPONIBILE)) {\r\n            stanza = (Principale.db).readStanza(disp_attuale.getNumStanza());\r\n            if (stanza != null) {\r\n                elenco_stanze_disp.addStanza(stanza);\r\n                stanze_disp.addStanza(stanza);\r\n            } else\r\n                msg = new MessageDialog(this, \" Problemi con il database! \");\r\n        }\r\n    }\r\n    if (!stanze_disp.isEmpty()) {\r\n        Avvio.setEnabled(false);\r\n        Annulla.setEnabled(false);\r\n        data_inizio.setEditable(false);\r\n        data_fine.setEditable(false);\r\n        Annulla1.setEnabled(true);\r\n        Conferma.setEnabled(true);\r\n        con_ag.setEnabled(false);\r\n        nome_ag.setEditable(false);\r\n        for (int i = 1; i <= elenco_stanze_disp.length(); i++) lista.addItem(str + (elenco_stanze_disp.getStanza(i)).toString());\r\n    } else if (k == 0)\r\n        if (!con_ag.getState())\r\n            msg = new AvvisoDialog(this, \" Nessuna stanza disponibile in tale periodo! \");\r\n        else\r\n            msg = new AvvisoDialog(this, \" Nessuna stanza disponibile o commisionata in tale periodo! \");\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": true,
                 "signature": " void startAvvio(ListaDisponibilita, int)",
                 "comments": null,
-                "innerComments": "Optional[[// le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n, // variabili necessarie per passaggio dei parametri della Inserisci\r\n, // scansione delle disponibilita\r\n]]"
+                "innerComments": "Optional[[// le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n, // variabili necessarie per passaggio dei parametri della Inserisci\r\n, // scansione delle disponibilita\r\n]]",
+                "generated_comment": "/**\n * Starts the search for available rooms based on the given list of availability and a specified number.\n * If the availability state is true, it initiates the search process.\n * The method scans through the availability list and checks for available rooms within the specified date range.\n * If available rooms are found, they are added to the list of available rooms for selection.\n * \n * @param L_disp the list of availability to search through\n * @param k the specified number for search\n * \n * @return void\n * \n * @see DateUtils#parseDate(String)\n * @see DateUtils#convertDate(String)\n */"
             },
             {
                 "body": "Optional[{\r\n    // le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n    Frame msg;\r\n    Commissionamento c;\r\n    Stanza stanza = null;\r\n    Disponibilita disp_loc = null;\r\n    ListaCommissionamenti L_comm = new ListaCommissionamenti();\r\n    ;\r\n    ListaStanze elenco_stanze_disp = new ListaStanze();\r\n    Date d1 = DateUtils.convertDate(data_inizio.getText());\r\n    Date d2 = DateUtils.convertDate(data_fine.getText());\r\n    data1 = DateUtils.parseDate(data_inizio.getText());\r\n    data2 = DateUtils.parseDate(data_fine.getText());\r\n    L_comm = (Principale.db).foundCommissionamentiSenzaLike(nome_ag.getText());\r\n    if (L_comm == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle commissioni! \");\r\n        return;\r\n    }\r\n    if (!L_comm.isEmpty()) {\r\n        nomi_agenzie = new String[L_comm.length()];\r\n        int indice_nomi = 0;\r\n        for (int i = 1; i <= L_comm.length(); i++) {\r\n            c = L_comm.getCommissionamento(i);\r\n            // Controllo che le date inserite appartengano al periodo commissionato\r\n            if ((!Utils.data1MaggioreData2(c.getInizioComm(), d1)) && (!(c.getFineComm()).before(d2))) {\r\n                disp_loc = Utils.getDispOfRoom(L_disp, c.getNumStanza(), false);\r\n                if (disp_loc.isDisponibile(d1, d2, Flag.COMMISSIONATA)) {\r\n                    stanza = (Principale.db).readStanza(disp_loc.getNumStanza());\r\n                    if (stanza != null) {\r\n                        elenco_stanze_disp.addStanza(stanza);\r\n                        stanze_disp.addStanza(stanza);\r\n                        nomi_agenzie[indice_nomi] = new String(c.getNomeAgenzia());\r\n                        indice_nomi++;\r\n                    } else {\r\n                        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n                        return;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    if (!stanze_disp.isEmpty()) {\r\n        Avvio.setEnabled(false);\r\n        Annulla.setEnabled(false);\r\n        data_inizio.setEditable(false);\r\n        data_fine.setEditable(false);\r\n        Annulla1.setEnabled(true);\r\n        Conferma.setEnabled(true);\r\n        for (int i = 1; i <= elenco_stanze_disp.length(); i++) lista.addItem(\"COMMISSIONATA A \" + nomi_agenzie[i - 1] + \" \" + (elenco_stanze_disp.getStanza(i)).toString());\r\n    }\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": true,
                 "signature": " void startSearchComm(ListaDisponibilita, int)",
                 "comments": null,
-                "innerComments": "Optional[[// le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n, // Controllo che le date inserite appartengano al periodo commissionato\r\n]]"
+                "innerComments": "Optional[[// le date sono corrette se si arriva qui in quanto controllate in ctrlAvvio()\r\n, // Controllo che le date inserite appartengano al periodo commissionato\r\n]]",
+                "generated_comment": "/**\n * This method starts the search for available rooms for commissioning based on the specified dates and agency name.\n * It retrieves commissioning data from the database, checks if the specified dates fall within the commissioning period,\n * and adds available rooms to the list for selection.\n * \n * @param L_disp The list of available rooms\n * @param nome_ag The name of the agency for commissioning\n */\nvoid startSearchComm(ListaDisponibilita L_disp, int nome_ag) {\n    // Check if the dates are correct as they have been validated in ctrlAvvio()\n    Frame msg;\n    Commissionamento c;\n    Stanza stanza = null;\n    Disponibilita disp_loc = null;\n    ListaCommissionamenti L_comm = new ListaCommissionamenti();\n    ListaStanze elenco_stanze_disp = new ListaStanze();\n    Date d1 = DateUtils.convertDate(data_inizio.getText());\n    Date d2 = DateUtils.convertDate(data_fine.getText());\n    data1 = DateUtils.parseDate(data_inizio.getText());\n    data2 = DateUtils.parseDate(data_fine.getText());\n    \n    // Retrieve commissioning data from the database\n    L_comm = (Principale.db).foundCommissionamentiSenzaLike(nome_ag.getText());\n    if (L_comm == null) {\n        msg = new MessageDialog(this, \"Problems with the database in reading commissions!\");\n        return;\n    }\n    \n    if (!L_comm.isEmpty()) {\n        nomi_agenzie = new String[L_comm.length()];\n        int indice_nomi = 0;\n        \n        // Iterate through commissioning data and check for available rooms within the specified dates\n        for (int i = 1; i <= L_comm.length(); i++) {\n            c = L_comm.getCommissionamento(i);\n            \n            if ((!Utils.data1MaggioreData2(c.getInizioComm(), d1)) && (!(c.getFineComm()).before(d2))) {\n                disp_loc = Utils.getDispOfRoom(L_disp, c.getNumStanza(), false);\n                \n                if (disp_loc.isDisponibile(d1, d2, Flag.COMMISSIONATA)) {\n                    stanza = (Principale.db).readStanza(disp_loc.getNumStanza());\n                    \n                    if (stanza != null) {\n                        elenco_stanze_disp.addStanza(stanza);\n                        stanze_disp.addStanza(stanza);\n                        nomi_agenzie[indice_nomi] = new String(c.getNomeAgenzia());\n                        indice_nomi++;\n                    } else {\n                        msg = new MessageDialog(this, \"Problems with the database!\");\n                        return;\n                    }\n                }\n            }\n        }\n    }\n    \n    // Update UI based on available rooms\n    if (!stanze_disp.isEmpty()) {\n        Avvio.setEnabled(false);\n        Annulla.setEnabled(false);\n        data_inizio.setEditable(false);\n        data_fine.setEditable(false);\n        Annulla1.setEnabled(true);\n        Conferma.setEnabled(true);\n        \n        for (int i = 1; i <= elenco_stanze_disp.length(); i++) {\n            lista.addItem(\"COMMISSIONATA A \" + nomi_agenzie[i - 1] + \" \" + (elenco_stanze_disp.getStanza(i)).toString());\n        }\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita L_disp = (Principale.db).elencoDisponibilita();\r\n    if (L_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    startAnnulla1();\r\n    startAvvio(L_disp, 1);\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " void restartAvvio()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Restarts the availability by retrieving a list of availability from the database and then starting the cancellation process and the new availability process.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (lista.getSelectedIndex() != -1)\r\n        switch(caller) {\r\n            case 1:\r\n                visualInsertComm();\r\n                break;\r\n            case 2:\r\n                visualInsertPren();\r\n                break;\r\n            case 3:\r\n                returnFreeRoom();\r\n                break;\r\n        }\r\n    else\r\n        msg = new MessageDialog(this, \" Manca la selezione! \");\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": " void startInserimento()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method initiates the process of inserting data based on the selected index and the caller type.\n * If an item is selected in the list, it checks the caller type and performs the corresponding action:\n * - If caller is 1, it initiates the visual insertion of a communication.\n * - If caller is 2, it initiates the visual insertion of a reservation.\n * - If caller is 3, it returns a free room.\n * If no item is selected in the list, it displays a message dialog indicating the absence of selection.\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new MascheraDisponibilita(this, nome_ag.getText());\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": " void lookDisp()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a new MascheraDisponibilita object and assigns it to the figlio variable.\n * The MascheraDisponibilita object is initialized with a reference to the current object and the value of the nome_ag text field.\n * \n * @param none\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = stanze_disp.getStanza(lista.getSelectedIndex() + 1);\r\n    if (con_ag.getState())\r\n        pren = new InserisciPrenotazione(stanza, data1, data2, nome_ag.getText());\r\n    else\r\n        pren = new InserisciPrenotazione(stanza, data1, data2, \"\");\r\n    pren.setVisible(true);\r\n    pren.mask_ricerca = this;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": " void visualInsertPren()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object, retrieves a selected room from a list of available rooms, and creates a new InserisciPrenotazione object with the selected room, start and end dates, and agent name if specified. \n * If the agent checkbox is selected, the agent name is passed to the InserisciPrenotazione constructor, otherwise an empty string is passed. \n * The InserisciPrenotazione window is then displayed and the current object is set as the mask for search operations.\n * \n * @param lista The list of available rooms\n * @param con_ag The checkbox indicating if an agent is involved\n * @param nome_ag The name of the agent\n * @param data1 The start date of the reservation\n * @param data2 The end date of the reservation\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = stanze_disp.getStanza(lista.getSelectedIndex() + 1);\r\n    comm = new InserisciCommissioni(stanza, data1, data2);\r\n    comm.setVisible(true);\r\n    comm.mask_ricerca = this;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": " void visualInsertComm()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component, retrieves a specific stanza from a list of available stanzas, \n * creates a new InserisciCommissioni object with the retrieved stanza and specified dates, \n * sets the new object as visible, and assigns the current component as a mask for the new object's search functionality.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Stanza stanza = stanze_disp.getStanza(lista.getSelectedIndex() + 1);\r\n    father.stanza2.setText(stanza.getNumStanza());\r\n    father.setEnabled(true);\r\n    father.stanza1.setEditable(false);\r\n    father.Ricerca.setEnabled(false);\r\n    father.Conferma.setEnabled(true);\r\n    dispose();\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": " void returnFreeRoom()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a free room selected from a list of available rooms.\n * \n * This method retrieves a selected room from the list of available rooms and updates the GUI accordingly. \n * It sets the selected room number in the 'stanza2' text field, enables the parent frame, disables editing of the 'stanza1' text field,\n * disables the 'Ricerca' button, enables the 'Conferma' button, and disposes of the current frame.\n * \n * @param lista The list component containing available rooms\n */"
             }
         ],
         "constructors": [
@@ -169,7 +189,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraRicercaStanza(String, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraRicercaStanza object with the specified title and caller.\n * \n * @param title the title of the MascheraRicercaStanza\n * @param c the caller of the MascheraRicercaStanza\n * \n * This constructor initializes the MascheraRicercaStanza with the given title, sets the caller,\n * sets up the panels, initializes the components, and packs the frame.\n */"
             }
         ],
         "signature": "MascheraRicercaStanza",
@@ -207,6 +228,7 @@
             " String nomi_agenzie",
             " String data1",
             " String data2"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraRicercaStanza class represents a user interface for searching and selecting rooms in a hotel.\n * This class provides methods for setting up panels with various components such as text fields, buttons, labels, lists, and checkboxes.\n * It also includes event listeners for buttons like \"Avvio\", \"Annulla\", \"ShowDisp\", \"Annulla1\", and \"Conferma\" to handle user interactions.\n * The class allows users to search for available rooms, display hotel availability, and initiate the process of inserting reservations or commissions.\n * Additionally, it provides functionality to check the validity of start dates, handle date comparisons, and enable/disable components based on user actions.\n * \n * @see InserisciPrenotazione\n * @see InserisciCommissioni\n * @see ListaStanze\n * @see ListaDisponibilita\n * @see DateUtils\n * \n * Note: This class extends the Frame class and implements various functionalities related to room search and selection.\n */\n*/"
     }
 ]

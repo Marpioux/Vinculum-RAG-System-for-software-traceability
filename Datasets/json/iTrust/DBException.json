@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public SQLException getSQLException()",
                 "comments": "Optional[/**\r\n * @return The SQL Exception that was responsible for this error.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the SQLException associated with this method.\n * \n * @return the SQLException object that was thrown or caught by this method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (sqlException != null)\r\n        return sqlException.getMessage();\r\n    else\r\n        return super.getExtendedMessage();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getExtendedMessage()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the extended message for this exception. If the exception is a SQL exception, it returns the message from the SQL exception.\n * If the exception is not a SQL exception, it delegates to the superclass to get the extended message.\n * \n * @return The extended message for this exception, or the message from the SQL exception if applicable.\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public DBException(SQLException)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DBException with the specified SQLException.\n * \n * @param e the SQLException that caused the database exception\n * @throws NullPointerException if the SQLException is null\n * \n * This constructor creates a new DBException with a message indicating that a database exception has occurred.\n * The SQLException that caused the exception is stored for reference. \n * Please refer to the console log for the stacktrace of the exception.\n */"
             }
         ],
         "signature": "DBException",
         "variables": [
             "private  static  final long serialVersionUID",
             "private SQLException sqlException"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DBException class represents an exception that occurs in the database layer of an application.\n * This class provides methods to retrieve information about the SQLException that caused the exception,\n * as well as an extended message for the exception.\n * \n * The main functionalities of this class include:\n * - Retrieving the SQLException associated with the exception\n * - Getting an extended message for the exception, including the message from the SQLException if applicable\n * \n * The overall behavior of this class is to provide a way to handle and communicate database exceptions in a clear and structured manner.\n * \n * This class also includes a constructor that takes a SQLException as a parameter and stores it for reference.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The SQLHandler class is responsible for handling SQL exceptions in a Java application.\n * It provides methods for catching and handling SQLExceptions that may occur during database operations.\n * \n * The main functionalities of this class include:\n * - Catching and storing SQLExceptions that occur during database operations\n * - Providing methods for retrieving the stored SQLExceptions\n * \n * The overall behavior of this class is to act as a centralized handler for SQL exceptions, allowing the application to gracefully handle errors that may occur during database interactions.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

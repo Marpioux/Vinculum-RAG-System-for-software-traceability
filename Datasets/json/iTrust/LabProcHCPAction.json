@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LabProcedureBean> sortByLOINC(long)",
                 "comments": "Optional[/**\r\n * This method sorts by LOINC and returns the list\r\n *\r\n * @param id the ID to sort the list by\r\n * @return List sorted by LOINC\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of LabProcedureBeans sorted by the specified LOINC code.\n * \n * @param id the LOINC code used to sort the LabProcedureBeans\n * @return a list of LabProcedureBeans sorted by the specified LOINC code\n */"
             },
             {
                 "body": "Optional[{\r\n    List<LabProcedureBean> listLabProc = new ArrayList<LabProcedureBean>(0);\r\n    List<OfficeVisitBean> listOV = ovDAO.getAllOfficeVisitsForLHCP(loggedInMID);\r\n    for (OfficeVisitBean ov : listOV) {\r\n        if (listLabProc.isEmpty() == true) {\r\n            listLabProc = lpDAO.getLabProceduresForLHCPForNextMonth(ov.getID());\r\n        } else {\r\n            for (LabProcedureBean lb : lpDAO.getLabProceduresForLHCPForNextMonth(ov.getID())) {\r\n                listLabProc.add(lb);\r\n            }\r\n        }\r\n    }\r\n    return listLabProc;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LabProcedureBean> getLabProcForNextMonth()",
                 "comments": "Optional[/**\r\n * Returns a list of all the lab procedures for the next month\r\n *\r\n * @return all the lab procedures for the next month\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of LabProcedureBeans for the logged-in healthcare provider for the next month.\n * \n * This method first retrieves a list of OfficeVisitBeans for the logged-in healthcare provider using the OfficeVisitDAO.\n * It then iterates through each OfficeVisitBean and retrieves a list of LabProcedureBeans for each office visit using the LabProcedureDAO.\n * If the list of LabProcedureBeans is empty, it populates the list with LabProcedureBeans for the next month.\n * \n * @return A list of LabProcedureBeans for the next month for the logged-in healthcare provider.\n */"
             },
             {
                 "body": "Optional[{\r\n    LabProcedureBean pb = lpDAO.getLabProcedure(x);\r\n    if (checkAccess(x)) {\r\n        if (pb.getRights().equals(LabProcedureBean.Restrict)) {\r\n            pb.allow();\r\n        } else {\r\n            pb.restrict();\r\n        }\r\n        validator.validate(pb);\r\n        lpDAO.updateRights(pb);\r\n        transDAO.logTransaction(TransactionType.ENTER_EDIT_LAB_PROCEDURE, loggedInMID, pb.getPid(), \"Privacy Changed procedure id: \" + pb.getProcedureID());\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void changePrivacy(long)",
                 "comments": "Optional[/**\r\n * Changes the privacy settings\r\n *\r\n * @param x the ID of the procedure to change\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Changes the privacy settings of a lab procedure.\n * \n * This method retrieves a LabProcedureBean object using the specified procedure ID,\n * checks if the current user has access to modify the privacy settings, and then\n * toggles the privacy rights of the lab procedure between 'Allow' and 'Restrict'.\n * \n * @param x the procedure ID of the lab procedure to change privacy settings for\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    LabProcedureBean pb = lpDAO.getLabProcedure(x);\r\n    OfficeVisitBean ovbean = ovDAO.getOfficeVisit(pb.getOvID());\r\n    return (loggedInMID == ovbean.getHcpID());\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean checkAccess(long)",
                 "comments": "Optional[/**\r\n * Checks to see if the logged in HCP is the one who made the procedure.  Used to generate links for page to edit OfficeVisit\r\n *\r\n * @param x the ID of the HCP to check\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the logged in user has access to a specific lab procedure.\n * \n * @param x the ID of the lab procedure to check access for\n * @return true if the logged in user has access to the lab procedure, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public LabProcHCPAction(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new LabProcHCPAction object with the specified DAOFactory and loggedInMID.\n * This constructor initializes the transaction, lab procedure, and office visit DAOs using the provided factory.\n * It also sets the loggedInMID attribute to the specified value and creates a new LabProcedureValidator.\n * \n * @param factory the DAOFactory used to retrieve DAO objects\n * @param loggedInMID the MID of the logged in healthcare provider\n */"
             }
         ],
         "signature": "LabProcHCPAction",
@@ -51,6 +56,7 @@
             "private OfficeVisitDAO ovDAO",
             " long loggedInMID",
             "private LabProcedureValidator validator"
-        ]
+        ],
+        "generated_class_comment": "*/\" } ] }]\n/**\n * This class represents a LabProcedureController that handles operations related to lab procedures.\n * \n * The class provides methods to retrieve a list of LabProcedureBeans for the next month for the logged-in healthcare provider,\n * change the privacy settings of a lab procedure, and check if the logged in healthcare provider has access to a specific lab procedure.\n * \n * The getLabProceduresForNextMonth method retrieves a list of LabProcedureBeans scheduled for the next month for the logged-in healthcare provider.\n * \n * The changePrivacy method changes the privacy settings of a lab procedure by toggling the privacy rights between 'Allow' and 'Restrict'.\n * \n * The checkAccess method checks if the logged-in healthcare provider has access to a specific lab procedure.\n * \n * Overall, this class facilitates the management of lab procedures and ensures that privacy settings are properly handled for each procedure.\n */\n**/\n/**\n * The LabProcHCPAction class represents an action performed by a healthcare provider related to lab procedures.\n * This class provides functionalities for managing lab procedures, including creating, updating, and deleting lab procedures.\n * It interacts with the TransactionDAO, LabProcedureDAO, and OfficeVisitDAO to retrieve and update data related to lab procedures.\n * The loggedInMID attribute stores the MID of the logged in healthcare provider using this class.\n * The LabProcHCPAction class also includes a LabProcedureValidator for validating lab procedures before performing actions on them.\n * \n * This class is designed to facilitate the interaction between healthcare providers and lab procedures in the system.\n * It ensures that healthcare providers can efficiently manage lab procedures and maintain accurate records of lab tests.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

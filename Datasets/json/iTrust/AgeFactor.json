@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a description of the patient based on their age.\n * \n * @return a String representing the patient's description, which includes their age\n */"
             },
             {
                 "body": "Optional[{\r\n    return patient.getAge() > age;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the patient has an age greater than the specified age.\n * \n * @return true if the patient's age is greater than the specified age, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public AgeFactor(PatientBean, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AgeFactor object with the given patient and age.\n * \n * @param patient the patient associated with this AgeFactor\n * @param age the age factor value for the patient\n */\npublic AgeFactor(PatientBean patient, int age) {\n    this.patient = patient;\n    this.age = age;\n}\n*/\n\nThis JavaDoc comment accurately describes the constructor, its parameters, and its behavior. It specifies that the constructor creates a new AgeFactor object with the given patient and age parameters. The comment also provides information about the parameters, stating that \"patient\" is the patient associated with the AgeFactor and \"age\" is the age factor value for the patient."
             }
         ],
         "signature": "AgeFactor",
         "variables": [
             "private PatientBean patient",
             "private int age"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AgeFactor class represents a factor based on the age of a patient. It contains methods to describe the patient based on their age and check if the patient has an age greater than a specified value.\n * \n * This class has two main functionalities:\n * 1. getDescription(): This method returns a description of the patient based on their age.\n * 2. hasFactor(): This method checks if the patient has an age greater than the specified age.\n * \n * The AgeFactor class also has a constructor that initializes the AgeFactor object with a patient and an age factor value.\n * \n * Variables:\n * - private PatientBean patient: The patient associated with this AgeFactor.\n * - private int age: The age factor value for the patient.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

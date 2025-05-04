@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getUserName(String)",
                 "comments": "Optional[/**\r\n * Returns the person's name that matches the inputMID param\r\n *\r\n * @param inputMID The MID to look up.\r\n * @return the person's name\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the username associated with the given medical record ID (MID).\n * \n * @param inputMID the medical record ID (MID) as a String\n * @return the username associated with the given MID\n * @throws iTrustException if the MID is not in the correct form or if an error occurs while retrieving the username\n */"
             }
         ],
         "constructors": [
@@ -17,12 +18,14 @@
                 "hasInnerComment": false,
                 "signature": "public GetUserNameAction(DAOFactory)",
                 "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used for creating the DAOs for this action.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new GetUserNameAction with the specified DAOFactory.\n * \n * @param factory the DAOFactory used to interact with the data access objects\n * @throws IllegalArgumentException if factory is null\n */\npublic GetUserNameAction(DAOFactory factory) {\n    if (factory == null) {\n        throw new IllegalArgumentException(\"DAOFactory cannot be null\");\n    }\n    \n    this.factory = factory;\n}"
             }
         ],
         "signature": "GetUserNameAction",
         "variables": [
             "private DAOFactory factory"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The GetUserNameAction class is responsible for retrieving the username associated with a given medical record ID (MID).\n * This class provides a method to get the person's name that matches the input MID parameter.\n * \n * The class contains a constructor that initializes the DAOFactory used for creating the DAOs for this action.\n * \n * Main functionalities:\n * - Retrieve the username associated with a given MID\n * \n * Overall behavior:\n * - The GetUserNameAction class retrieves the username by calling the getUserName method from the AuthDAO class.\n * - If the input MID is not in the correct form, an iTrustException is thrown.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n */"
     }
 ]

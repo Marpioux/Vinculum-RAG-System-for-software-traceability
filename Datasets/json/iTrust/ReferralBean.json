@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean equals(Object)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this ReferralBean object to the specified object. \n * Returns true if the specified object is also a ReferralBean object and has the same class as this object, \n * and their contents are equal based on the equals method of ReferralBean. \n * \n * @param other the object to compare this ReferralBean object to\n * @return true if the objects are equal, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return (id == other.id && senderID == other.senderID && receiverID == other.receiverID && referralDetails.equals(other.referralDetails) && consultationDetails.equals(other.consultationDetails) && status.equals(other.status));\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "private boolean equals(ReferralBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this ReferralBean object with another ReferralBean object to determine if they are equal.\n * \n * @param other the other ReferralBean object to compare with\n * @return true if the two ReferralBean objects are equal based on their id, senderID, receiverID, referralDetails, consultationDetails, and status; false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "public int hashCode()",
                 "comments": null,
-                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]",
+                "generated_comment": "/**\n * Returns a hash code value for the object. This method is not designed to provide a meaningful hash code and will always return the constant value 42.\n * \n * @return the constant hash code value of 42\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getId()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of this object.\n * \n * @return the unique identifier of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = id;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param id the new ID to set\n * @return void\n * \n * This method sets the ID of the object to the specified value. \n * The ID is a unique identifier used to distinguish this object from others.\n */"
             },
             {
                 "body": "Optional[{\r\n    return senderID;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getSenderID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the sender ID associated with this message.\n * \n * @return the sender ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.senderID = senderID;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSenderID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the sender ID for this message.\n * \n * @param senderID the ID of the sender to set\n */\npublic void setSenderID(long senderID) {\n    this.senderID = senderID;\n}\n \n/**\n * Sets the sender ID for this message to the specified value.\n * \n * @param senderID the ID of the sender to set\n */\npublic void setSenderID(long senderID) {\n    this.senderID = senderID;\n}"
             },
             {
                 "body": "Optional[{\r\n    return receiverID;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getReceiverID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID of the receiver.\n * \n * @return the ID of the receiver as a long\n */"
             },
             {
                 "body": "Optional[{\r\n    this.receiverID = receiverID;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setReceiverID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the receiver ID for this object.\n * \n * @param receiverID the ID of the receiver to set\n * @return void\n */\npublic void setReceiverID(long receiverID) {\n    this.receiverID = receiverID;\n}\n \nThis method sets the receiver ID for the object to the specified value. The receiver ID is a unique identifier for the recipient of the object. The parameter receiverID is the ID of the receiver to set. This method does not return any value."
             },
             {
                 "body": "Optional[{\r\n    return referralDetails;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getReferralDetails()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the referral details associated with this object.\n * \n * @return a String representing the referral details\n */"
             },
             {
                 "body": "Optional[{\r\n    this.referralDetails = referralDetails;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setReferralDetails(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the referral details for this object.\n * \n * @param referralDetails the referral details to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return consultationDetails;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getConsultationDetails()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the details of the consultation.\n * \n * @return a String representing the consultation details\n */"
             },
             {
                 "body": "Optional[{\r\n    this.consultationDetails = consultationDetails;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setConsultationDetails(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the consultation details for this object.\n * \n * @param consultationDetails a String representing the details of the consultation\n * \n * This method sets the consultation details for this object to the specified String value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return status;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReferralStatus getStatus()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the status of the referral.\n * \n * @return the current status of the referral\n */"
             },
             {
                 "body": "Optional[{\r\n    this.status = status;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStatus(ReferralStatus)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the status of the referral.\n * \n * @param status the new status to set for the referral\n * \n * This method sets the status of the referral to the specified status. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientID;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatientID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier for the patient.\n * \n * @return the patient's ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient ID for this object.\n * \n * @param patientID the new patient ID to set\n * \n * This method sets the patient ID for this object to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -145,7 +162,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReferralBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a new instance of ReferralBean.\n * This constructor does not take any parameters.\n * \n * @param None\n * @return A new ReferralBean object\n */"
             }
         ],
         "signature": "ReferralBean",
@@ -157,6 +175,7 @@
             "private String referralDetails",
             "private String consultationDetails",
             "private ReferralStatus status"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ReferralBean class represents a referral object that contains information about a referral between two parties.\n * It includes details such as the ID, sender ID, receiver ID, referral details, consultation details, and status of the referral.\n * This class provides methods for comparing two ReferralBean objects for equality and generating a hash code value.\n * \n * The main functionalities of the ReferralBean class include:\n * - Comparing two ReferralBean objects for equality based on their attributes\n * - Generating a hash code value for the object\n * \n * The overall behavior of the ReferralBean class is to ensure that two ReferralBean objects can be compared for equality\n * and that a consistent hash code value is returned for each object. The equals method compares the attributes of two objects\n * to determine if they are equal, while the hashCode method returns a constant value of 42 as the hash code.\n * \n * This class is essential for managing and processing referral information in a healthcare system or any system that involves\n * the exchange of referrals between parties.\n */\npublic class ReferralBean {\n    // Class implementation goes here\n}\n**/\n/**\n * This class represents a Message object that can be used to send messages between users.\n * \n * The Message class has the following functionalities:\n * - Stores a unique identifier for each message\n * - Stores the sender's ID and receiver's ID for each message\n * - Provides methods to retrieve and set the sender's and receiver's IDs\n * \n * Overall behavior:\n * - Messages can be created with a unique identifier, sender ID, and receiver ID\n * - Sender and receiver IDs can be retrieved and updated as needed\n * \n * This class provides a convenient way to manage and send messages between users in a system.\n */\n**/\n/**\n * The ConsultationRequest class represents a request for a consultation between a sender and a receiver. \n * It contains information such as the sender ID, receiver ID, referral details, and consultation details.\n * \n * This class provides methods to set and retrieve the sender ID, receiver ID, referral details, and consultation details.\n * \n * The sender ID is a unique identifier for the sender of the request, while the receiver ID is a unique identifier for the recipient of the request.\n * \n * The referral details provide additional information about the referral process, and the consultation details contain information about the consultation itself.\n * \n * This class encapsulates the data related to a consultation request and allows for easy manipulation and retrieval of this information.\n */\n```\n/**\n * This class represents a ReferralBean object, which stores information about a referral.\n * It includes details such as consultation details, referral status, and patient ID.\n * \n * The main functionalities of this class include:\n * - Setting and retrieving consultation details\n * - Setting and retrieving referral status\n * - Setting and retrieving patient ID\n * \n * The overall behavior of this class is to provide a convenient way to manage and access referral information.\n */\npublic class ReferralBean {\n    // class implementation here\n}\n*/\n/**\n * The ReferralBean class represents a referral object that contains information about a referral made from one healthcare provider to another.\n * It stores details such as the ID of the referral, the ID of the patient being referred, the ID of the sender healthcare provider, the ID of the receiver healthcare provider,\n * referral details, consultation details, and the status of the referral.\n * \n * This class provides methods to set and get the various attributes of the referral, such as setting and getting the referral status, setting and getting the referral details,\n * and setting and getting the consultation details.\n * \n * The main functionalities of this class include creating a new referral object, setting and getting the attributes of the referral, and updating the status of the referral.\n * \n * Overall, the ReferralBean class encapsulates the necessary information about a referral and provides methods to interact with and manipulate this information.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long representPatient(String)",
                 "comments": "Optional[/**\r\n * Takes the patient's representee as a param and returns it as a long if the patient represents the input\r\n * param\r\n *\r\n * @param input\r\n *            the patient's representee mid\r\n * @return representee's mid as a long\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Represents a patient by setting the logged in user to represent the specified patient.\n * \n * @param input the String representation of the patient's MID to be represented\n * @return the long representation of the patient's MID if successful\n * @throws iTrustException if the input is not a valid number or if the logged in user does not represent the specified patient\n */\npublic long representPatient(String input) throws iTrustException {\n    try {\n        long reppeeMID = Long.valueOf(input);\n        if (patientDAO.represents(loggedInMID, reppeeMID)) {\n            loggedInMID = reppeeMID;\n            pid = reppeeMID;\n            isRepresenting = true;\n            return reppeeMID;\n        } else {\n            throw new iTrustException(\"You do not represent patient \" + reppeeMID);\n        }\n    } catch (NumberFormatException e) {\n        throw new iTrustException(\"MID is not a number\");\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return ovDAO.getAllOfficeVisits(pid);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<OfficeVisitBean> getAllOfficeVisits()",
                 "comments": "Optional[/**\r\n * Returns a list of all office visits for the pid\r\n *\r\n * @return list of OfficeVisitBeans for the pid\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all office visits for a given patient.\n * \n * @return a List of OfficeVisitBean objects representing all office visits for the specified patient\n * @param pid the patient ID for which to retrieve office visits\n */"
             },
             {
                 "body": "Optional[{\r\n    HashMap<String, String> myParams = ParameterUtil.convertMap(params);\r\n    List<Long> ovIDs = new ArrayList<Long>();\r\n    for (int i = 0; i < officeVisits.size(); i++) {\r\n        try {\r\n            if (params.get(\"ovOff\" + i) != null) {\r\n                int offset = Integer.valueOf(myParams.get(\"ovOff\" + i));\r\n                ovIDs.add(officeVisits.get(offset).getVisitID());\r\n            }\r\n        } catch (NumberFormatException e) {\r\n            // just skip it\r\n        }\r\n    }\r\n    transDAO.logTransaction(TransactionType.VIEW_PRESCRIPTION_REPORT, loggedInMID, pid, \"Getting reports for office visits \" + ovIDs.toString());\r\n    if (ovIDs.size() == 0)\r\n        return new ArrayList<PrescriptionReportBean>();\r\n    return ovDAO.getPrescriptionReports(ovIDs, pid);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "public List<PrescriptionReportBean> getPrescriptionReports(Map, List<OfficeVisitBean>)",
                 "comments": "Optional[// suppressing warnings because JSP doesn't have a generic for request.getParameterMap()\r\n]",
-                "innerComments": "Optional[[// just skip it\r\n]]"
+                "innerComments": "Optional[[// just skip it\r\n]]",
+                "generated_comment": "/**\n * Retrieves a list of PrescriptionReportBeans for the specified office visits.\n * \n * @param params a Map containing parameters for the method\n * @param officeVisits a List of OfficeVisitBeans to retrieve PrescriptionReportBeans for\n * @return a List of PrescriptionReportBeans for the specified office visits\n * \n * This method retrieves PrescriptionReportBeans for the specified office visits by extracting\n * the visit IDs from the provided officeVisits List based on the parameters in the params Map.\n * It then logs the transaction of viewing prescription reports for the specified office visits.\n * If no office visit IDs are found or provided, an empty List is returned.\n */\npublic List<PrescriptionReportBean> getPrescriptionReports(Map<String, String> params, List<OfficeVisitBean> officeVisits) {\n    // method body\n}\n**/"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getPatient(pid);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientBean getPatient()",
                 "comments": "Optional[/**\r\n * Returns a PatientBean for the pid\r\n *\r\n * @return PatientBean\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a PatientBean object from the database based on the provided patient ID.\n * \n * @param pid the unique identifier of the patient to retrieve\n * @return a PatientBean object representing the patient with the specified ID, or null if no such patient exists\n */"
             },
             {
                 "body": "Optional[{\r\n    HashMap<String, String> myParams = ParameterUtil.convertMap(paramMap);\r\n    List<Integer> ovOffsets = checkOfficeVisits(myParams, officeVisits);\r\n    String queryString = buildQueryString(ovOffsets);\r\n    if (isRepresenting)\r\n        queryString += \"&rep=\" + pid;\r\n    return queryString;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getQueryString(Map, List<OfficeVisitBean>)",
                 "comments": "Optional[// suppressing warnings because JSP doesn't have a generic for request.getParameterMap()\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Generates a query string based on the provided parameters and list of office visit beans.\n * \n * @param paramMap a map containing parameters for the query\n * @param officeVisits a list of OfficeVisitBean objects\n * @return a string representing the generated query string\n */\npublic String getQueryString(Map<String, String> paramMap, List<OfficeVisitBean> officeVisits) {\n    // Convert paramMap to a HashMap\n    HashMap<String, String> myParams = ParameterUtil.convertMap(paramMap);\n    \n    // Check office visits and get their offsets\n    List<Integer> ovOffsets = checkOfficeVisits(myParams, officeVisits);\n    \n    // Build the query string based on the office visit offsets\n    String queryString = buildQueryString(ovOffsets);\n    \n    // Append representing parameter if necessary\n    if (isRepresenting) {\n        queryString += \"&rep=\" + pid;\n    }\n    \n    return queryString;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ArrayList<Integer> list = new ArrayList<Integer>();\r\n    for (int i = 0; i < officeVisits.size(); i++) {\r\n        if (\"on\".equals(myParams.get(\"ov\" + i)))\r\n            list.add(i);\r\n    }\r\n    return list;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "private ArrayList<Integer> checkOfficeVisits(HashMap<String, String>, List<OfficeVisitBean>)",
                 "comments": "Optional[/**\r\n * Checks office visits\r\n *\r\n * @param myParams list of parameters\r\n * @param officeVisits list of office visits\r\n * @return Returns a java.util.ArrayList of Integers for the given office visits.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks the office visits based on the provided parameters and returns a list of indexes of the office visits that meet the criteria.\n * \n * @param myParams a HashMap containing the parameters used to filter the office visits\n * @param officeVisits a List of OfficeVisitBean objects representing the office visits to be checked\n * @return an ArrayList of Integer values representing the indexes of the office visits that meet the criteria\n */\nprivate ArrayList<Integer> checkOfficeVisits(HashMap<String, String> myParams, List<OfficeVisitBean> officeVisits) {\n    ArrayList<Integer> list = new ArrayList<Integer>();\n    for (int i = 0; i < officeVisits.size(); i++) {\n        if (\"on\".equals(myParams.get(\"ov\" + i)))\n            list.add(i);\n    }\n    return list;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    int n = ovOffsets.size();\r\n    if (n == 0)\r\n        return \"\";\r\n    String str = \"&n=\" + n;\r\n    for (int i = 0; i < ovOffsets.size(); i++) {\r\n        str += \"&ovOff\" + i + \"=\" + ovOffsets.get(i);\r\n    }\r\n    return str;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "private String buildQueryString(List<Integer>)",
                 "comments": "Optional[/**\r\n * Builds a query string for office visits\r\n *\r\n * @param ovOffsets offsets for the office visits\r\n * @return A SQL query in a Java String.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Builds a query string based on the given list of integers representing offsets.\n * The query string includes the number of offsets and each offset value.\n * \n * @param ovOffsets a list of integers representing offsets\n * @return a string representing the query string with the number of offsets and each offset value\n */"
             }
         ],
         "constructors": [
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionReportAction(DAOFactory, long, String)",
                 "comments": "Optional[/**\r\n * Super class validates pidString\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user who is making a prescription report.\r\n * @param pidString The MID of the patient in question.\r\n * @throws iTrustException\r\n * @throws DBException\r\n * @throws NoHealthRecordsException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PrescriptionReportAction object with the specified DAOFactory, patient ID, and logged in MID.\n * \n * @param factory the DAOFactory used to retrieve data access objects\n * @param pidString the patient ID for which the prescription report is being generated\n * @param loggedInMID the logged in MID of the user generating the report\n */\npublic PrescriptionReportAction(DAOFactory factory, long pidString, String loggedInMID) {\n    super(factory, pidString);\n    this.transDAO = factory.getTransactionDAO();\n    this.ovDAO = factory.getOfficeVisitDAO();\n    this.patientDAO = factory.getPatientDAO();\n    this.loggedInMID = loggedInMID;\n}\n*/"
             }
         ],
         "signature": "PrescriptionReportAction",
@@ -75,6 +83,7 @@
             "private TransactionDAO transDAO",
             "private PatientDAO patientDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "*/\\r\\n]\", \"innerComments\": null, \"generated_comment\": \"/**\\n * Retrieves a list of all office visits for the currently logged in patient.\\n * \\n * @return a list of OfficeVisitBean objects representing all office visits for the patient\\n */\\npublic List<OfficeVisitBean> getAllOfficeVisits() {\\n return ovDAO.getAllOfficeVisits(pid);\\n}\\n*/\" } ] }]\n/**\n * This class represents a utility for managing office visits and prescription reports for patients.\n * It provides methods for retrieving office visits and prescription reports for a given patient.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of all office visits for a specified patient\n * - Retrieving prescription reports for the specified office visits\n * \n * The behavior of this class is as follows:\n * - The getOfficeVisits method retrieves a list of all office visits for a given patient ID.\n * - The getPrescriptionReports method retrieves prescription reports for the specified office visits.\n * - The class handles exceptions such as NumberFormatException when processing office visits.\n * \n * @param pid the patient ID for which to retrieve office visits\n * @param params a Map containing parameters for the method\n * @param officeVisits a List of OfficeVisitBeans to retrieve PrescriptionReportBeans for\n * @return a List of OfficeVisitBeans or PrescriptionReportBeans based on the method called\n * \n * This class utilizes HashMap and ArrayList to manage parameters and office visit IDs.\n * It logs transactions for viewing prescription reports and handles empty lists of office visits.\n * \n * Note: The method getPrescriptionReports suppresses warnings due to JSP limitations.\n */\npublic class OfficeVisitManager {\n    // Class implementation here\n}\n*/\n/**\n * This class represents a transaction for viewing prescription reports for specified office visits.\n * If no office visit IDs are found or provided, an empty List is returned.\n * \n * The main functionalities of this class include:\n * - Retrieving prescription reports for the specified office visits\n * - Handling parameters and generating query strings for the prescription reports\n * \n * The behavior of this class is as follows:\n * - It provides methods to get prescription reports based on office visit IDs and parameters\n * - It handles the conversion of parameters and building query strings for the prescription reports\n * - It interacts with the database to retrieve patient information and prescription data\n * \n * Overall, this class serves as a utility for accessing and viewing prescription reports for office visits, providing necessary functionalities to retrieve and display relevant information.\n */\n/**\n * This class contains utility methods for handling parameters in a Java application.\n * It provides methods to convert a map of parameters, check office visits based on parameters, build a query string, and append a representing parameter if necessary.\n * \n * The main functionalities of this class include:\n * - Converting a map of parameters to a specific format\n * - Checking office visits based on the provided parameters and returning a list of indexes of office visits that meet the criteria\n * - Building a query string based on the office visit offsets\n * - Appending a representing parameter to the query string if necessary\n * \n * The overall behavior of this class is to facilitate parameter handling and processing in the application, specifically related to office visits.\n * \n * @author [Your Name]\n * @version 1.0\n */\n*/\n/**\n * The PrescriptionReportAction class is responsible for generating a prescription report based on the given patient ID and logged in MID.\n * \n * This class extends the superclass and initializes the necessary data access objects for transactions, office visits, and patients.\n * \n * The main functionality of this class is to build a query string for office visits using a list of integers representing offsets. The query string includes the number of offsets and each offset value.\n * \n * The class also provides a method to construct a PrescriptionReportAction object with the specified DAOFactory, patient ID, and logged in MID.\n * \n * Overall, the PrescriptionReportAction class facilitates the generation of prescription reports for a specific patient by retrieving and processing relevant data from the database.\n */\npublic class PrescriptionReportAction {\n    // class implementation goes here\n}\n*/\n/**\n * This class represents an action for generating a prescription report for a specific patient. It extends the ReportAction class and initializes the necessary data access objects for interacting with the database.\n * \n * The main functionalities of this class include retrieving prescription data for a patient, generating a report based on the prescription information, and providing access to the report for viewing or printing.\n * \n * The class constructor takes a DAOFactory object, a patient ID, and the logged-in MID as parameters. It initializes the TransactionDAO, OfficeVisitDAO, and PatientDAO objects for accessing transaction, office visit, and patient data in the database. The loggedInMID variable stores the MID of the currently logged-in user.\n * \n * Additionally, this class provides a method to check if the user is representing another patient, which can affect the data that is retrieved and displayed in the prescription report.\n */"
     }
 ]

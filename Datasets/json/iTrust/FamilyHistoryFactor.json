@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the description of the patient's family history of a specific disease.\n * \n * @return A string representing the patient's family history of the disease.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hasFamilyHistory(patientID, icdLower, icdUpper);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return false;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a patient has a family history of a certain medical condition within a specified range of ICD codes.\n * \n * @param patientID the ID of the patient to check for family history\n * @param icdLower the lower bound of the ICD code range to search for family history\n * @param icdUpper the upper bound of the ICD code range to search for family history\n * @return true if the patient has a family history within the specified ICD code range, false otherwise\n * @throws DBException if there is an error accessing the database\n */\npublic boolean hasFactor() {\n    try {\n        return factory.getRiskDAO().hasFamilyHistory(patientID, icdLower, icdUpper);\n    } catch (DBException e) {\n        e.printStackTrace();\n        return false;\n    }\n}"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public FamilyHistoryFactor(DAOFactory, long, double, double)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new FamilyHistoryFactor object with the specified DAOFactory, patient ID, lower ICD code, and upper ICD code.\n * \n * @param factory the DAOFactory used to access the database\n * @param patientID the unique identifier of the patient associated with this family history factor\n * @param icdLower the lower bound of the ICD code range for this family history factor\n * @param icdUpper the upper bound of the ICD code range for this family history factor\n */"
             }
         ],
         "signature": "FamilyHistoryFactor",
@@ -34,6 +37,7 @@
             "private DAOFactory factory",
             "private double icdUpper",
             "private double icdLower"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The FamilyHistoryFactor class represents a factor that checks for a patient's family history of a specific disease within a range of ICD codes.\n * \n * This class provides methods to retrieve the description of the patient's family history and to check if the patient has a family history of a certain medical condition within a specified range of ICD codes.\n * \n * The main functionalities of this class include:\n * - Retrieving the description of the patient's family history of a specific disease\n * - Checking if a patient has a family history of a certain medical condition within a specified range of ICD codes\n * \n * The overall behavior of this class is to interact with a database through a DAOFactory to retrieve and validate the patient's family history information.\n * \n * Constructors:\n * - public FamilyHistoryFactor(DAOFactory factory, long patientID, double icdLower, double icdUpper): Constructs a new FamilyHistoryFactor object with the specified DAOFactory, patient ID, lower ICD code, and upper ICD code.\n * \n * Methods:\n * - public String getDescription(): Retrieves the description of the patient's family history of a specific disease.\n * - public boolean hasFactor(): Checks if a patient has a family history of a certain medical condition within a specified range of ICD codes.\n * \n * Note: This class may throw a DBException if there is an error accessing the database.\n */\n```\n/**\n * This class represents a family history factor associated with a patient in a healthcare system.\n * It stores information such as the unique identifier of the patient, the lower and upper bounds of the ICD code range.\n * The class provides methods to access and manipulate this information.\n * \n * @param factory the DAOFactory used to access the database\n * @param patientID the unique identifier of the patient associated with this family history factor\n * @param icdLower the lower bound of the ICD code range for this family history factor\n * @param icdUpper the upper bound of the ICD code range for this family history factor\n */\n**/"
     }
 ]

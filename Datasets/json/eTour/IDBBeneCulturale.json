@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciBeneCulturale(BeanBeneCulturale)",
                 "comments": "Optional[/**\r\n * Add a cultural heritage, given input\r\n *\r\n * @param pBene Cultural Heritage for inclusion in database\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a cultural asset into the system.\n * \n * @param beneCulturale the cultural asset to be inserted\n * @return true if the cultural asset was successfully inserted, false otherwise\n */\nabstract boolean inserisciBeneCulturale(BeanBeneCulturale beneCulturale);"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaBeneCulturale(BeanBeneCulturale)",
                 "comments": "Optional[/**\r\n * Modify the information in the cultural\r\n *\r\n * @param pBene contains the information to modify the database\r\n * @throws SQLException\r\n * @return True if there was a modified false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a cultural asset represented by the given BeanBeneCulturale object.\n * \n * @param beneCulturale the cultural asset to be modified\n * @return true if the cultural asset was successfully modified, false otherwise\n */\nabstract boolean modificaBeneCulturale(BeanBeneCulturale beneCulturale);"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaBeneCulturale(int)",
                 "comments": "Optional[/**\r\n * Delete a cultural object from the database\r\n *\r\n * @param pIdBene cultural property to delete\r\n * @throws SQLException\r\n * @return True if it was deleted false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a cultural asset identified by the given ID.\n * \n * @param id the ID of the cultural asset to be deleted\n * @return true if the cultural asset was successfully deleted, false otherwise\n */\nabstract boolean cancellaBeneCulturale(int id);"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanBeneCulturale ottieniBeneCulturale(int)",
                 "comments": "Optional[/**\r\n * Returns the cultural object with id as input\r\n *\r\n * @param pid cultural property to be extracted from the database\r\n * @throws SQLException\r\n * @return cultural property obtained from the database\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a cultural asset based on the specified ID.\n * \n * @param id the unique identifier of the cultural asset to retrieve\n * @return an Optional containing the cultural asset if found, otherwise Optional.empty\n */"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanBeneCulturale> search(String, ArrayList<BeanTag>, int, int, Punto3D, double)",
                 "comments": "Optional[/**\r\n * Research. Returns the list of cultural property in their name or\r\n * Description given string as input, filtered according to tags and\r\n * Maximum distance. The returned list contains the number of goods given as input.\r\n * To browse the real list, which may contain more of\r\n * Ten elements, you use the parameter numPagina.\r\n *\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pNumPagina The page number you want to view. 0 for\r\n * 1 page (the first 10 results), 1 for 2 page (results\r\n * from 11 to 20) etc ...\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @param pNumeroElementiPerPagina number of items to return per page\r\n * @throws SQLException\r\n * @return list contained ten cultural\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method searches for cultural assets based on the given criteria.\n * It takes a search query, a list of tags, a minimum and maximum distance,\n * a 3D point representing the user's location, and a radius for the search.\n * It returns an ArrayList of cultural assets that match the criteria.\n * \n * @param query the search query to match against cultural assets\n * @param tags a list of tags to filter the search results\n * @param minDistance the minimum distance from the user's location\n * @param maxDistance the maximum distance from the user's location\n * @param userLocation the 3D point representing the user's location\n * @param radius the radius within which to search for cultural assets\n * @return an ArrayList of BeanBeneCulturale objects that match the search criteria\n */"
             },
             {
                 "body": "Optional.empty",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanBeneCulturale> ricercaAvanzata(int, String, ArrayList<BeanTag>, int, int, Punto3D, double)",
                 "comments": "Optional[/**\r\n * Advanced Search. Returns the list of cultural goods which have in\r\n * Name or description given string as input, sorted according to\r\n * Preferences of tourists and filtered according to the tag and the maximum distance. The\r\n * Returned list contains the number of goods given as input. To scroll\r\n * The actual list, which may contain multiple items, you\r\n * Use parameter numPagina.\r\n *\r\n * @param pIdTurista tourists who carried out the research\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pNumPagina The page number you want to view. 0 for\r\n * 1 page (the first 10 results), 1 for 2 page (results\r\n * from 11 to 20) etc ...\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @param pNumeroElementiPerPagina number of items to return per page\r\n * @throws SQLException\r\n * @return list contained ten cultural\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Performs an advanced search for cultural assets based on the specified criteria.\n * \n * @param id the ID of the cultural asset\n * @param keyword the keyword to search for in the cultural asset's description\n * @param tags the list of tags to filter the search results by\n * @param minRating the minimum rating required for the cultural asset\n * @param maxDistance the maximum distance from a specified point in 3D space\n * @param point the reference point in 3D space for distance calculations\n * @param radius the radius within which cultural assets should be located from the reference point\n * @return an ArrayList of BeanBeneCulturale objects that match the search criteria, or an empty Optional if no matches are found\n */\nabstract ArrayList<BeanBeneCulturale> ricercaAvanzata(int id, String keyword, ArrayList<BeanTag> tags, int minRating, int maxDistance, Punto3D point, double radius) {\n    // implementation details omitted\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract int ottieniNumeroElementiRicerca(String, ArrayList<BeanTag>, Punto3D, double)",
                 "comments": "Optional[/**\r\n * Method to get the number of elements to search.\r\n *\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @throws SQLException\r\n * @return number of pages.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to obtain the number of elements in a search based on the given parameters.\n * \n * @param searchQuery a String representing the search query\n * @param tagsList an ArrayList of BeanTag objects containing tags for the search\n * @param point a Punto3D object representing a point in 3D space\n * @param threshold a double value representing a threshold for the search\n * @return an integer value representing the number of elements in the search, or Optional.empty if no elements are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract int ottieniNumeroElementiRicercaAvanzata(int, String, ArrayList<BeanTag>, Punto3D, double)",
                 "comments": "Optional[/**\r\n * Method to get the number of elements to search.\r\n *\r\n * @param pIdTurista tourists who carried out the research\r\n * @param pKeyword string that contains the keyword to search the\r\n * Name or description of the cultural\r\n * @param pTags list of tags used to filter the search. the\r\n * Maximum number of tags to be included should not exceed five\r\n * Units. If you exceed this number the other tags\r\n * Excess will be ignored.\r\n * @param pPosizione position of the person who carried out the research\r\n * @param pDistanzaMassima Maximum distance from the user to search for good\r\n * @throws SQLException\r\n * @return number of pages.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the number of elements found in an advanced search.\n * \n * @param numero the number of elements to search for\n * @param stringParam a string parameter for the search\n * @param tagList an ArrayList of BeanTag objects for filtering the search\n * @param punto a Punto3D object representing a point in 3D space\n * @param value a double value for additional search criteria\n * @return the number of elements found in the advanced search, or an empty Optional if no elements are found\n */\nabstract int ottieniNumeroElementiRicercaAvanzata(int numero, String stringParam, ArrayList<BeanTag> tagList, Punto3D punto, double value) {\n    return Optional.empty();\n}\n**/"
             },
             {
                 "body": "Optional.empty",
@@ -71,11 +79,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanBeneCulturale> ottieniListaBC()",
                 "comments": "Optional[/**\r\n * Returns a list of all cultural\r\n *\r\n * @throws SQLException\r\n * @return List of all cultural\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a list of cultural assets (BeanBeneCulturale objects).\n * \n * @return an ArrayList of BeanBeneCulturale objects, or an empty Optional if the list is empty\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBBeneCulturale",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBBeneCulturale interface represents a database interface for managing cultural assets.\n * It provides methods for inserting, modifying, deleting, and retrieving cultural assets from the database.\n * Additionally, it offers advanced search capabilities based on various criteria such as keywords, tags, ratings, and distances.\n * The interface also includes methods for obtaining the number of search results and retrieving a list of all cultural assets.\n * \n * This interface defines the following main functionalities:\n * - inserisciBeneCulturale: Inserts a cultural asset into the system\n * - modificaBeneCulturale: Modifies a cultural asset in the database\n * - cancellaBeneCulturale: Deletes a cultural asset from the database\n * - ottieniBeneCulturale: Retrieves a cultural asset based on its ID\n * - search: Performs a search for cultural assets based on specified criteria\n * - ricercaAvanzata: Performs an advanced search for cultural assets based on specified criteria\n * - ottieniNumeroElementiRicerca: Obtains the number of elements in a search based on given parameters\n * - ottieniNumeroElementiRicercaAvanzata: Obtains the number of elements found in an advanced search\n * - ottieniListaBC: Retrieves a list of all cultural assets from the database\n * \n * The behavior of this interface is to interact with a database to manage cultural assets and provide search functionalities.\n * It serves as a bridge between the application and the database, allowing for seamless integration and manipulation of cultural data.\n */"
     }
 ]

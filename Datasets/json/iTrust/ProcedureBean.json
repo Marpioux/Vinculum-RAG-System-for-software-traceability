@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCPTCode()",
                 "comments": "Optional[/**\r\n * Gets the CPT Code for this procedure\r\n *\r\n * @return The CPT Code for this procedure\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the CPT code associated with the current object.\n * \n * @return the CPT code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    CPTCode = code;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCPTCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the CPT code for this object.\n * \n * @param code the CPT code to set\n * \n * This method sets the CPT code for this object to the specified code.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return description;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": "Optional[/**\r\n * Gets the CPT Description for this procedure\r\n *\r\n * @return The CPT Description for this procedure\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of this object.\n * \n * @return the description of this object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.description = description;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescription(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param description the new description to be set\n * \n * This method sets the description of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpid;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHcpid()",
                 "comments": "Optional[/**\r\n * Gets the HCP ID of the HCP administering the immunization\r\n * @return String\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the HCPID (Health Care Provider Identifier) associated with this object.\n * \n * @return the HCPID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpid = hcpid;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHcpid(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCPID (Health Care Provider ID) for this object.\n * \n * @param hcpid the HCPID to set\n * @return void\n * \n * This method sets the HCPID for the object to the specified value. \n * The HCPID is used to uniquely identify a health care provider.\n */"
             },
             {
                 "body": "Optional[{\r\n    return attribute;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAttribute()",
                 "comments": "Optional[/**\r\n * Gets the CPT attribute, used to determine if this is an immunization\r\n * @return String\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value of the attribute.\n * \n * @return the value of the attribute as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    attribute = attrib;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAttribute(String)",
                 "comments": "Optional[/**\r\n * Sets the CPT attribute, used to determine if this is an immunization\r\n * @param String\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of the attribute to the specified string.\n * \n * @param attrib the string value to set the attribute to\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovProcedureID;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getOvProcedureID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the overall procedure.\n * \n * @return the ID of the overall procedure\n */"
             },
             {
                 "body": "Optional[{\r\n    this.ovProcedureID = ovProcedureID;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOvProcedureID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the overbooking procedure.\n * \n * @param ovProcedureID the ID of the overbooking procedure to set\n * @return void\n * \n * This method sets the ID of the overbooking procedure to the specified value. \n * The ID is a long value that uniquely identifies the overbooking procedure. \n * If the specified ID is null, the method will set the ID to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return date;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the date associated with this object.\n * \n * @return the date associated with this object\n */"
             },
             {
                 "body": "Optional[{\r\n    date = d;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDate(Date)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date for this object.\n * \n * @param d the Date object to set as the date\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -105,7 +117,8 @@
                 "hasInnerComment": false,
                 "signature": "public ProcedureBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the ProcedureBean class.\n * It creates a new instance of ProcedureBean with no parameters.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * Initializes a new ProcedureBean object with default values.\n */"
             },
             {
                 "body": "{\r\n    CPTCode = code;\r\n}",
@@ -113,7 +126,8 @@
                 "hasInnerComment": false,
                 "signature": "public ProcedureBean(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ProcedureBean object with the specified CPT code.\n * \n * @param code the CPT code for the procedure\n * @return a new ProcedureBean object with the specified CPT code\n */"
             },
             {
                 "body": "{\r\n    CPTCode = code;\r\n    this.description = description;\r\n}",
@@ -121,7 +135,8 @@
                 "hasInnerComment": false,
                 "signature": "public ProcedureBean(String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ProcedureBean object with the given CPT code and description.\n * \n * @param code the CPT code for the procedure\n * @param description the description of the procedure\n * \n * This constructor initializes the CPTCode and description fields of the ProcedureBean object\n * with the values provided in the parameters.\n */"
             },
             {
                 "body": "{\r\n    CPTCode = code;\r\n    this.description = description;\r\n    this.attribute = attribute;\r\n}",
@@ -129,7 +144,8 @@
                 "hasInnerComment": false,
                 "signature": "public ProcedureBean(String, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ProcedureBean with the specified code, description, and attribute.\n * \n * @param code the CPT code of the procedure\n * @param description the description of the procedure\n * @param attribute the attribute of the procedure\n */\npublic ProcedureBean(String code, String description, String attribute) {\n    CPTCode = code;\n    this.description = description;\n    this.attribute = attribute;\n}"
             },
             {
                 "body": "{\r\n    CPTCode = code;\r\n    this.description = description;\r\n    this.attribute = attribute;\r\n    this.hcpid = hcpid;\r\n}",
@@ -137,7 +153,8 @@
                 "hasInnerComment": false,
                 "signature": "public ProcedureBean(String, String, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ProcedureBean object with the specified code, description, attribute, and hcpid.\n * \n * @param code the CPT code for the procedure\n * @param description the description of the procedure\n * @param attribute the attribute of the procedure\n * @param hcpid the healthcare provider ID associated with the procedure\n */"
             }
         ],
         "signature": "ProcedureBean",
@@ -148,6 +165,7 @@
             "private String attribute",
             "private Date date",
             "private String hcpid"
-        ]
+        ],
+        "generated_class_comment": "/** \n * This class represents a medical procedure and contains information about the CPT code, description, and HCP ID associated with the procedure.\n * \n * The main functionalities of this class include:\n * - Getting and setting the CPT code for the procedure\n * - Getting and setting the description of the procedure\n * - Getting the HCP ID of the healthcare provider administering the procedure\n * \n * The overall behavior of this class is to provide methods for accessing and updating the information related to a medical procedure. \n * It ensures that the data is stored and retrieved accurately, allowing for easy management and manipulation of procedure details.\n */\n/**\n * This class represents a Health Care Provider object, which stores information about a health care provider including their HCPID (Health Care Provider Identifier), CPT attribute, and overall procedure ID.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the HCPID associated with the object\n * - Getting and setting the CPT attribute used to determine if this is an immunization\n * - Retrieving and setting the overall procedure ID\n * \n * The HCPID is used to uniquely identify a health care provider, the CPT attribute is used to determine if this is an immunization, and the overall procedure ID represents the ID of the overall procedure.\n * \n * This class provides methods to interact with and manipulate the data stored in the Health Care Provider object.\n */\n**/\n/**\n * The ProcedureBean class represents a bean object that stores information about a medical procedure.\n * It contains attributes such as the ID of the overbooking procedure, the date associated with the procedure, and the CPT code for the procedure.\n * \n * This class provides methods to set and retrieve the ID of the overbooking procedure, get and set the date for the procedure, and construct a new ProcedureBean object with default or specified values.\n * \n * Main functionalities of the ProcedureBean class include:\n * - Setting and getting the ID of the overbooking procedure\n * - Setting and getting the date associated with the procedure\n * - Constructing a new ProcedureBean object with default or specified values\n * \n * Overall behavior of the ProcedureBean class:\n * - The default constructor creates a new instance of ProcedureBean with no parameters.\n * - The constructor with a CPT code parameter initializes a new ProcedureBean object with the specified CPT code.\n * - The setOvProcedureID method sets the ID of the overbooking procedure to the specified value.\n * - The getDate method retrieves the date associated with the object.\n * - The setDate method sets the date for the object.\n * \n * This class is designed to be used in a medical application to manage and store information about medical procedures.\n */\n/**\n * The ProcedureBean class represents a bean object that encapsulates information about medical procedures.\n * It stores data such as CPT code, description, attribute, and healthcare provider ID associated with the procedure.\n * \n * This class provides constructors to create ProcedureBean objects with different sets of parameters.\n * It also includes getter and setter methods for accessing and modifying the stored data.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving CPT code for the procedure\n * - Storing and retrieving description of the procedure\n * - Storing and retrieving attribute of the procedure\n * - Storing and retrieving healthcare provider ID associated with the procedure\n * \n * Overall, the ProcedureBean class serves as a data structure for managing information related to medical procedures.\n */\n**/\n/**\n * The Variables class represents a set of variables used to store information related to medical procedures.\n * It contains private fields for the procedure ID, CPT code, description, attribute, date, and healthcare provider ID.\n * \n * This class provides getters and setters for each variable to allow for easy access and modification of the data.\n * The main functionalities of this class include storing and retrieving information about medical procedures, such as the procedure ID,\n * CPT code, description, attribute, date, and healthcare provider ID.\n * \n * The overall behavior of this class is to serve as a data structure for storing information related to medical procedures.\n * It encapsulates the data and provides methods for accessing and updating the variables as needed.\n */"
     }
 ]

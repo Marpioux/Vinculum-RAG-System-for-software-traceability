@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by setting the editability of text fields and checkboxes,\n * disabling certain buttons, and adding action listeners to specific components.\n * \n * @param none\n * @return void\n * \n * The method sets the editability of text fields testo1, testo2, testo3, and testo4 to true, false, false, and false respectively.\n * It disables the checkboxes mycheckboxes and the buttons Azione. It also adds action listeners to the buttons Azione, testo1, and Cerca,\n * which call the methods startAzione(), startTesto1(), and startTesto1() respectively when triggered.\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the startAzione() method to begin the action.\n * \n * @param e the ActionEvent that triggered the method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startTesto1();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the testo1 process.\n * \n * @param e the action event that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startTesto1();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the startTesto1 method to begin the test.\n * \n * @param e the ActionEvent object that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    MessageDialog msg;\r\n    if (!errori()) {\r\n        Stanza room = readDatiStanza();\r\n        int j;\r\n        if ((j = (Principale.db).changeStanza(room.getNumStanza(), room.getPostiLetto(), room.getDispLettoAgg(), room.getPxBase(), room.getDescrizione())) == DataBase.OK) {\r\n            cleanFields();\r\n            testo1.setEditable(true);\r\n            testo2.setEditable(false);\r\n            testo3.setEditable(false);\r\n            testo4.setEditable(false);\r\n            mycheckboxes.setEnabled(false);\r\n            Azione.setEnabled(false);\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il data base: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the action by reading data from a room and updating it in the database.\n * If there are no errors, the room data is read and updated in the database. \n * The fields are then cleaned, and certain components are set to editable or disabled.\n * If there are any issues with the database, an error message is displayed.\n */\n \npublic void startAzione() {\n    MessageDialog msg;\n    if (!errori()) {\n        Stanza room = readDatiStanza();\n        int j;\n        if ((j = (Principale.db).changeStanza(room.getNumStanza(), room.getPostiLetto(), room.getDispLettoAgg(), room.getPxBase(), room.getDescrizione())) == DataBase.OK) {\n            cleanFields();\n            testo1.setEditable(true);\n            testo2.setEditable(false);\n            testo3.setEditable(false);\n            testo4.setEditable(false);\n            mycheckboxes.setEnabled(false);\n            Azione.setEnabled(false);\n        } else\n            msg = new MessageDialog(this, \"Problemi con il data base: \" + DataBase.strErrore(j));\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    MessageDialog msg;\r\n    Stanza room;\r\n    if ((room = (Principale.db).readStanza(testo1.getText())) != null) {\r\n        writeDatiStanza(room);\r\n        testo1.setEditable(false);\r\n        testo2.setEditable(true);\r\n        testo3.setEditable(true);\r\n        testo4.setEditable(true);\r\n        mycheckboxes.setEnabled(true);\r\n        Azione.setEnabled(true);\r\n    } else\r\n        msg = new MessageDialog(this, \"Stanza inesistente!\");\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void startTesto1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to start a test for a specific room. It reads the room information from the database based on the text entered in the testo1 field.\n * If the room exists in the database, it displays the room information, disables testo1 field, enables testo2, testo3, testo4 fields, checkboxes, and Azione button.\n * If the room does not exist, it displays a message dialog stating \"Stanza inesistente!\".\n */"
             }
         ],
         "constructors": [
@@ -57,10 +63,12 @@
                 "hasInnerComment": false,
                 "signature": "public ModificaStanze()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the ModificaStanze class.\n * \n * This constructor initializes the ModificaStanze object with a title, action command, and number of columns.\n * \n * @param none\n * \n * @return none\n */"
             }
         ],
         "signature": "ModificaStanze",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ModificaStanze class is responsible for modifying room data within a GUI interface.\n * It contains methods to initialize the GUI components, handle action events, and interact with a database to update room information.\n * \n * The class includes the following functionalities:\n * - The init() method initializes the GUI components by setting the editability of text fields and checkboxes, disabling certain buttons, and adding action listeners to specific components.\n * - The actionPerformed(ActionEvent) method is called when an action event occurs and triggers the startAzione() or startTesto1() methods.\n * - The startAzione() method reads room data, updates it in the database, and handles any errors that may occur during the process.\n * - The startTesto1() method reads room information from the database based on user input, displays the data, and enables editing of specific fields.\n * \n * Overall, the ModificaStanze class provides a user-friendly interface for modifying room data, interacts with a database to update information, and handles errors that may arise during the process.\n */"
     }
 ]

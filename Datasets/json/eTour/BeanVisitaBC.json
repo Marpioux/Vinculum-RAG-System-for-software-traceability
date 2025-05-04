@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCommento()",
                 "comments": "Optional[/**\r\n * Returns the value of comment\r\n *\r\n * @return value of comment.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the comment associated with this object.\n * \n * @return the comment as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    comment = pCommento;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCommento(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of comment\r\n *\r\n * @param pCommento New comment.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the comment for this object.\n * \n * @param pCommento the new comment to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return dataVisita;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDataVisita()",
                 "comments": "Optional[/**\r\n * Returns the value of dataVisita\r\n *\r\n * @return value dataVisita.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date of the visit.\n * \n * @return the date of the visit\n */"
             },
             {
                 "body": "Optional[{\r\n    dataVisita = pDataVisita;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDataVisita(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of dataVisita\r\n *\r\n * @param pDataVisita New dataVisita.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of the visit.\n * \n * @param pDataVisita the date of the visit to be set\n * \n * This method sets the date of the visit to the specified date.\n */"
             },
             {
                 "body": "Optional[{\r\n    return idBeneCulturale;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdBeneCulturale()",
                 "comments": "Optional[/**\r\n * Returns the value of idBeneCulturale\r\n *\r\n * @return value idBeneCulturale.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the ID of the cultural asset.\n * \n * @return the ID of the cultural asset\n */"
             },
             {
                 "body": "Optional[{\r\n    idBeneCulturale = pIdBeneCulturale;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdBeneCulturale(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idBeneCulturale\r\n *\r\n * @param pIdBeneCulturale New idBeneCulturale.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the cultural heritage asset.\n * \n * @param pIdBeneCulturale the ID of the cultural heritage asset to set\n * \n * This method sets the ID of the cultural heritage asset to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return idTurista;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdTurista()",
                 "comments": "Optional[/**\r\n * Returns the value of idTurista\r\n *\r\n * @return value idTurista.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the tourist.\n * \n * @return the ID of the tourist\n */"
             },
             {
                 "body": "Optional[{\r\n    idTurista = pIdTurista;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdTurista(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idTurista\r\n *\r\n * @param pIdTurista New idTurista.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the tourist.\n * \n * @param pIdTurista the ID of the tourist to set\n * \n * This method sets the ID of the tourist to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return rating;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getVoto()",
                 "comments": "Optional[/**\r\n * Returns the value of rating\r\n *\r\n * @return value of rating.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the rating of the object.\n * \n * @return the rating of the object as an integer value\n */"
             },
             {
                 "body": "Optional[{\r\n    rating = pVoto;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVoto(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of rating\r\n *\r\n * @param pVoto New value for rating.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the rating of an item.\n * \n * @param pVoto the new rating to set for the item\n * @return void\n * \n * This method sets the rating of the item to the specified value. \n * The rating is represented as an integer value.\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanVisitaBC(int, int, String, int, Date)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pVoto\r\n * @param pIdBeneCulturale\r\n * @param pCommento\r\n * @param pIdTurista\r\n * @param pDataVisita\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanVisitaBC object with the specified parameters.\n * \n * @param pVoto the rating given by the tourist for the cultural site\n * @param pIdBeneCulturale the ID of the cultural site being visited\n * @param pCommento the comment left by the tourist about the visit\n * @param pIdTurista the ID of the tourist visiting the cultural site\n * @param pDataVisita the date of the visit\n */"
             },
             {
                 "body": "{\r\n}",
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanVisitaBC()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of BeanVisitaBC.\n * This constructor does not take any parameters.\n * \n * @param None\n * @return A new instance of BeanVisitaBC\n */"
             }
         ],
         "signature": "BeanVisitaBC",
@@ -108,6 +120,7 @@
             "private String comment",
             "private int idTurista",
             "private Date dataVisita"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanVisitaBC class represents a bean object that encapsulates information about a visit to a cultural site.\n * It contains attributes such as the rating given by the tourist, the ID of the cultural site being visited,\n * the comment left by the tourist about the visit, the ID of the tourist visiting the cultural site,\n * and the date of the visit.\n * \n * This class provides methods to retrieve and set the values of these attributes, as well as constructors to create\n * new instances of BeanVisitaBC with the specified parameters.\n * \n * Main functionalities include:\n * - Retrieving and setting the rating given by the tourist\n * - Retrieving and setting the ID of the cultural site being visited\n * - Retrieving and setting the comment left by the tourist about the visit\n * - Retrieving and setting the ID of the tourist visiting the cultural site\n * - Retrieving and setting the date of the visit\n * \n * The constructors allow for the creation of new instances of BeanVisitaBC with the specified parameters,\n * and there is also an empty constructor available.\n * \n * This class is serializable and contains JavaDoc comments for each method, constructor, and variable to provide\n * comprehensive documentation for users.\n */"
     }
 ]

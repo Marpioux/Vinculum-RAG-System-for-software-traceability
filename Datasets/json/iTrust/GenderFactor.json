@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a description of the patient's gender.\n * \n * @return a string representing the patient's gender in lowercase\n */"
             },
             {
                 "body": "Optional[{\r\n    return gender.equals(patient.getGender()) && !gender.equals(Gender.NotSpecified);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the gender of the patient has a specific factor.\n * \n * @return true if the gender of the patient matches the specified factor and is not Gender.NotSpecified, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public GenderFactor(PatientBean, Gender)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new GenderFactor object with the specified PatientBean and Gender.\n * \n * @param patient the PatientBean object representing the patient associated with this GenderFactor\n * @param gender the Gender enum representing the gender of the patient\n */\npublic GenderFactor(PatientBean patient, Gender gender) {\n    this.patient = patient;\n    this.gender = gender;\n}\n*/"
             }
         ],
         "signature": "GenderFactor",
         "variables": [
             "private PatientBean patient",
             "private Gender gender"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The GenderFactor class represents a factor related to the gender of a patient.\n * It provides methods to retrieve a description of the patient's gender and check if the gender has a specific factor.\n * \n * The class has two main functionalities:\n * 1. getDescription(): Returns a description of the patient's gender in lowercase.\n * 2. hasFactor(): Checks if the gender of the patient matches a specified factor and is not Gender.NotSpecified.\n * \n * The GenderFactor class has the following attributes:\n * - private PatientBean patient: Represents the PatientBean object associated with this GenderFactor.\n * - private Gender gender: Represents the Gender enum indicating the gender of the patient.\n * \n * This class also includes a constructor to initialize a new GenderFactor object with the specified PatientBean and Gender.\n * \n * Note: It is important to ensure that the Gender enum used is not Gender.NotSpecified when calling the hasFactor() method.\n */"
     }
 ]

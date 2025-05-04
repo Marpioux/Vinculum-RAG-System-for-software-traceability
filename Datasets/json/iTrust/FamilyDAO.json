@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<FamilyMemberBean> getParents(long)",
                 "comments": "Optional[/**\r\n * Return the information of the mother and father of this patient\r\n *\r\n * @param pid -\r\n *            this patient\r\n * @return\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the parents of a patient based on the patient ID.\n * \n * @param pid the ID of the patient whose parents are to be retrieved\n * @return a list of FamilyMemberBean objects representing the parents of the patient\n * \n * The method queries the database to retrieve the parents of the patient with the specified ID.\n * It constructs a SQL query to select the parent's first name, last name, and MID from the Patients table\n * where the parent's MID matches the MotherMID or FatherMID of the patient.\n * The method then calls getFamilyMembers() method passing the constructed SQL query and retrieves a list of FamilyMemberBean objects\n * representing the parents of the patient.\n */"
             },
             {
                 "body": "Optional[{\r\n    return getFamilyMembers(pid, \"Sibling\", \"SELECT p2.FirstName AS FirstName, p2.LastName AS LastName, p2.MID as MID \" + \"FROM Patients p1, Patients p2 \" + \"WHERE p1.MID=? AND p1.MID<>p2.MID \" + \"AND( (p1.MotherMID=p2.MotherMID AND p2.MotherMID<>0)\" + \"  OR (p1.FatherMID=p2.FatherMID AND p1.FatherMID<>0))\", false);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<FamilyMemberBean> getSiblings(long)",
                 "comments": "Optional[/**\r\n * Return a list of patients who share at least one parent (and that parent is not '0') with this patient\r\n *\r\n * @param pid -\r\n *            this patient\r\n * @return A java.util.list of FamilyMemberBeans.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of siblings for a given patient ID.\n * Siblings are defined as individuals who share the same mother or father with the specified patient.\n * \n * @param pid the patient ID for which to retrieve siblings\n * @return a list of FamilyMemberBean objects representing the siblings of the specified patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return getFamilyMembers(pid, \"Child\", \"SELECT FirstName, LastName, MID FROM Patients \" + \"WHERE MotherMID=? or FatherMID=?\", true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<FamilyMemberBean> getChildren(long)",
                 "comments": "Optional[/**\r\n * Return a list of patients whose mother or father is this patient\r\n *\r\n * @param pid -\r\n *            this patient\r\n * @return A java.util.List of FamilyMemberBeans.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of FamilyMemberBeans representing the children of a given parent.\n * \n * @param pid the parent's ID\n * @return a list of FamilyMemberBeans representing the children of the parent\n * \n * The method queries the database for children of the parent with the specified ID (pid). \n * It constructs a list of FamilyMemberBeans using the retrieved data and returns it.\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    familyBeanLoader = new FamilyBeanLoader(relation);\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(query);\r\n        ps.setLong(1, pid);\r\n        if (secondParam)\r\n            ps.setLong(2, pid);\r\n        ResultSet rs = ps.executeQuery();\r\n        return familyBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "private List<FamilyMemberBean> getFamilyMembers(long, String, String, boolean)",
                 "comments": "Optional[/**\r\n * Private helper method (since all three are alike)\r\n *\r\n * @param pid\r\n * @param relation\r\n * @param query\r\n * @param secondParam -\r\n *            add the pid as the second parameter (the 3rd query was a little different)\r\n *\r\n * @return A java.util.List of FamilyMemberBeans.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of family members associated with a given person ID.\n * \n * @param pid the ID of the person whose family members are to be retrieved\n * @param query the SQL query to retrieve the family members\n * @param relation the relation of the family members to the person\n * @param secondParam a boolean flag indicating whether to include a second parameter in the query\n * @return a list of FamilyMemberBean objects representing the family members\n * @throws DBException if there is an error accessing the database\n */"
             }
         ],
         "constructors": [
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public FamilyDAO(DAOFactory)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new FamilyDAO with the specified DAOFactory.\n * \n * @param factory the DAOFactory used to create data access objects\n * @throws IllegalArgumentException if factory is null\n */\npublic FamilyDAO(DAOFactory factory) {\n    if (factory == null) {\n        throw new IllegalArgumentException(\"DAOFactory cannot be null\");\n    }\n    \n    this.factory = factory;\n}"
             }
         ],
         "signature": "FamilyDAO",
         "variables": [
             "private DAOFactory factory",
             "private FamilyBeanLoader familyBeanLoader"
-        ]
+        ],
+        "generated_class_comment": "*/\\r\\n]\", \"innerComments\": null, \"generated_comment\": \"/**\\n * Retrieves the siblings of a patient based on the patient ID.\\n * \\n * @param pid the ID of the patient whose siblings are to be retrieved\\n * @return a list of FamilyMemberBean objects representing the siblings of the patient\\n * \\n * The method queries the database to retrieve the siblings of the patient with the specified ID.\\n * It constructs a SQL query to select the sibling's first name, last name, and MID from the Patients table\\n * where the sibling's MotherMID or FatherMID matches that of the patient, and the sibling's MID is not the same as the patient's MID.\\n * The method then calls getFamilyMembers() method passing the constructed SQL query and retrieves a list of FamilyMemberBean objects\\n * representing the siblings of the patient.\\n */\" } ], \"class_comment\": \"/**\\n * This class provides methods to retrieve family members of a patient from the database.\\n * The class contains methods to retrieve parents and siblings of a patient based on the patient ID.\\n * The methods construct SQL queries to select the necessary information from the Patients table.\\n * The class then calls the getFamilyMembers() method to execute the query and retrieve the family members.\\n */\" }]\n/**\n * This class provides methods to retrieve information about family members related to a given patient.\n * It includes methods to retrieve siblings and children of a specified patient.\n * \n * The class contains methods to query the database for family members based on the relationship type (e.g., siblings, children).\n * It uses a FamilyBeanLoader to load the retrieved data into FamilyMemberBean objects.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of siblings for a given patient ID\n * - Retrieving a list of children for a given parent ID\n * \n * The class handles database connections, prepares and executes SQL queries, and loads the retrieved data into FamilyMemberBean objects.\n * \n * @author [Your Name]\n * @version 1.0\n */\n*/\n/**\n * The FamilyDAO class is responsible for managing the data access operations related to family members in the database.\n * It provides methods to retrieve and manipulate information about family members associated with a given person ID.\n * \n * This class contains a private DAOFactory instance for obtaining SQL connections and a FamilyBeanLoader instance for loading FamilyBean objects.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of family members associated with a given person ID using the getFamilyMembers method.\n * - Constructing a new FamilyDAO object with the specified DAOFactory using the constructor.\n * \n * The getFamilyMembers method is a private helper method that retrieves a list of FamilyMemberBean objects based on the provided person ID, relation, and SQL query.\n * \n * The constructor initializes the FamilyDAO object with the specified DAOFactory and throws an IllegalArgumentException if the factory is null.\n * \n * Overall, the FamilyDAO class provides a convenient way to interact with family member data in the database and encapsulates the logic for accessing and manipulating this information.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

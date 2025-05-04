@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<SurveyResultBean> getSurveyResultsForHospital(SurveyResultBean)",
                 "comments": "Optional[/**\r\n * Retrieves survey results for a whole hospital.\r\n * @param bean The SurveyResultBean containing the survey result specs.\r\n * @return A java.util.List of Survey Results.\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of survey results for a specific hospital based on the provided SurveyResultBean.\n * \n * @param bean the SurveyResultBean containing the hospital ID and specialty of the healthcare provider\n * @return a list of SurveyResultBean objects representing the survey results for the specified hospital\n */\npublic List<SurveyResultBean> getSurveyResultsForHospital(SurveyResultBean bean) {\n    transDAO.logTransaction(TransactionType.View_HCP_SURVEY_RESULTS, loggedInMID, 0, \"searched results by HCP hospital ID\");\n    return surveyResultDAO.getSurveyResultsForHospital(bean.getHCPhospital(), bean.getHCPspecialty());\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    validator.validate(bean);\r\n    transDAO.logTransaction(TransactionType.View_HCP_SURVEY_RESULTS, loggedInMID, 0, \"searched results by HCP zip code\");\r\n    return surveyResultDAO.getSurveyResultsForZip(bean.getHCPzip(), bean.getHCPspecialty());\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<SurveyResultBean> getSurveyResultsForZip(SurveyResultBean)",
                 "comments": "Optional[/**\r\n * Retrieves survey results for a given zip code.\r\n * @param bean The SurveyResultBean containing the survey result specs.\r\n * @return A java.util.List of Survey Results.\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of survey results for a given Healthcare Provider (HCP) zip code and specialty.\n * \n * @param bean the SurveyResultBean object containing the HCP zip code and specialty to search for\n * @return a list of SurveyResultBean objects representing the survey results for the specified HCP zip code and specialty\n * \n * This method validates the input SurveyResultBean object, logs the transaction of viewing HCP survey results,\n * and retrieves the survey results for the specified HCP zip code and specialty from the database.\n */"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewSurveyResultAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up defaults.\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person retrieving survey results.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewSurveyResultAction object with the specified DAOFactory and loggedInMID.\n * This constructor initializes the transaction and survey result DAOs using the provided factory,\n * sets the loggedInMID field to the specified value, and creates a new SurveySearchValidator.\n * \n * @param factory the DAOFactory used to retrieve transaction and survey result DAOs\n * @param loggedInMID the member ID of the logged-in user\n */"
             }
         ],
         "signature": "ViewSurveyResultAction",
@@ -34,6 +37,7 @@
             "private TransactionDAO transDAO",
             "private SurveySearchValidator validator",
             " long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a service that provides methods for retrieving survey results for healthcare providers.\n * It contains methods for retrieving survey results based on hospital ID, zip code, and specialty.\n * The class interacts with the database through the SurveyResultDAO to fetch the survey results.\n * \n * The main functionalities of this class include:\n * - Retrieving survey results for a whole hospital based on the provided SurveyResultBean.\n * - Retrieving survey results for a given zip code and specialty.\n * \n * The class logs transactions for viewing survey results by hospital ID and zip code.\n * \n * Overall, this class serves as a utility for fetching survey results for healthcare providers based on different criteria.\n */\npublic class SurveyResultsService {\n    // class implementation goes here\n}\n*/\n/**\n * The Results class represents an action that retrieves a list of survey results for a given Healthcare Provider (HCP) zip code and specialty.\n * This class allows users to search for survey results based on the HCP zip code and specialty provided in the SurveyResultBean object.\n * \n * The main functionalities of this class include validating the input SurveyResultBean object, logging the transaction of viewing HCP survey results,\n * and retrieving the survey results for the specified HCP zip code and specialty from the database.\n * \n * This class contains constructors to initialize the transaction and survey result DAOs, set the loggedInMID field, and create a new SurveySearchValidator.\n * \n * @throws iTrustException if there is an issue with the iTrust system\n * @throws FormValidationException if there is an issue with form validation\n */\n **/"
     }
 ]

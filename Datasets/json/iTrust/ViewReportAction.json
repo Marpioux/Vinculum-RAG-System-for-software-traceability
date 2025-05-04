@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<DiagnosisBean> getDiagnoses(long)",
                 "comments": "Optional[/**\r\n *  Get diagnosis list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of diagnoses\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of diagnoses for a given patient ID.\n * \n * @param pid the ID of the patient for whom to retrieve diagnoses\n * @return a list of DiagnosisBean objects representing the diagnoses for the specified patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getProcedures(pid);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ProcedureBean> getProcedures(long)",
                 "comments": "Optional[/**\r\n *  Get procedure list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of procedures\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of procedures associated with a specific patient ID.\n * \n * @param pid the ID of the patient whose procedures are to be retrieved\n * @return a list of ProcedureBean objects representing the procedures associated with the specified patient ID\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getCurrentPrescriptions(pid);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PrescriptionBean> getPrescriptions(long)",
                 "comments": "Optional[/**\r\n *  Get prescription list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of prescriptions\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the list of current prescriptions for a given patient.\n * \n * @param pid the unique identifier of the patient\n * @return a list of PrescriptionBean objects representing the current prescriptions for the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getDeclaredHCPs(pid);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PersonnelBean> getDeclaredHCPs(long)",
                 "comments": "Optional[/**\r\n *  Get declared HCPs list for the given patient\r\n * @param pid the patient of interest\r\n * @return list of declared HCPs\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of personnel beans representing the declared healthcare providers for a given patient ID.\n * \n * @param pid the patient ID for which to retrieve declared healthcare providers\n * @return a list of PersonnelBean objects representing the declared healthcare providers for the specified patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return personnelDAO.getPersonnel(mid);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public PersonnelBean getPersonnel(long)",
                 "comments": "Optional[/**\r\n * Returns a PersonnelBean when given an MID\r\n * @param mid HCP of interest\r\n * @return PersonnelBean of the given HCP\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a PersonnelBean object from the database based on the given personnel ID.\n * \n * @param personnelId the unique identifier of the personnel to retrieve\n * @return the PersonnelBean object corresponding to the specified personnel ID, or null if not found\n */"
             }
         ],
         "constructors": [
@@ -49,13 +54,15 @@
                 "hasInnerComment": false,
                 "signature": "public ViewReportAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the report.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewReportAction object with the given DAOFactory and patient ID.\n * This constructor initializes the patientDAO and personnelDAO fields by retrieving them from the provided DAOFactory.\n * \n * @param factory the DAOFactory used to retrieve the PatientDAO and PersonnelDAO objects\n * @param patientId the ID of the patient whose report is being viewed\n */"
             }
         ],
         "signature": "ViewReportAction",
         "variables": [
             "private PatientDAO patientDAO",
             "private PersonnelDAO personnelDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a PatientService that provides various methods to retrieve information about a patient, such as diagnoses, procedures, and prescriptions.\n * It interacts with a PatientDAO to fetch the necessary data from the database.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of diagnoses for a given patient ID\n * - Retrieving a list of procedures associated with a specific patient ID\n * - Retrieving the list of current prescriptions for a given patient\n * \n * The class contains methods to get diagnoses, procedures, and prescriptions for a patient based on their unique identifier.\n * Each method throws an iTrustException if there is an issue with retrieving the data.\n * \n * Additionally, the class includes JavaDoc comments for each method to provide information about the parameters, return values, and potential exceptions.\n * \n * Overall, the PatientService class serves as a bridge between the application logic and the data access layer, allowing for easy retrieval of patient-related information.\n */\npublic class PatientService {\n    // Methods for retrieving diagnoses, procedures, and prescriptions for a patient\n}\n**/\n/**\n * This class represents an action to view the current prescriptions for a patient.\n * It provides methods to retrieve declared healthcare providers for a patient and retrieve personnel information based on their ID.\n * \n * @param factory The DAOFactory used to create the DAOs used in this action.\n * @param loggedInMID The MID of the person viewing the report.\n */\npublic ViewReportAction(DAOFactory factory, long loggedInMID) {\n    patientDAO = factory.getPatientDAO();\n    personnelDAO = factory.getPersonnelDAO();\n}\n*/\n/**\n * The ViewReportAction class represents an action to view a report for a specific patient.\n * It allows users to retrieve and display the report information for the given patient ID.\n * \n * This class initializes the patientDAO and personnelDAO fields by retrieving them from the provided DAOFactory.\n * \n * @param factory the DAOFactory used to retrieve the PatientDAO and PersonnelDAO objects\n * @param patientId the ID of the patient whose report is being viewed\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getType()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the type of the object.\n * \n * @return the type of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.type = type;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setType(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the type of the object.\n * \n * @param type the new type to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return value;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getValue()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value stored in this object.\n * \n * @return the value stored in this object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.value = value;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setValue(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of the object.\n * \n * @param value the new value to set\n * @return void\n * \n * This method sets the value of the object to the specified value. \n * The value parameter is a string representing the new value to be set.\n * This method does not return any value.\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public VisitFlag(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new VisitFlag object with the specified type.\n * \n * @param type the type of the visit flag\n * @throws IllegalArgumentException if the type is null\n */\npublic VisitFlag(String type) {\n    if (type == null) {\n        throw new IllegalArgumentException(\"Type cannot be null\");\n    }\n    this.type = type;\n}"
             },
             {
                 "body": "{\r\n    this.type = type;\r\n    this.value = value;\r\n}",
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public VisitFlag(String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new VisitFlag object with the specified type and value.\n * \n * @param type the type of the visit flag\n * @param value the value of the visit flag\n */\npublic VisitFlag(String type, String value) {\n    this.type = type;\n    this.value = value;\n}"
             }
         ],
         "signature": "VisitFlag",
@@ -61,6 +67,7 @@
             "public  static  final String IMMUNIZATION",
             "private String type",
             "private String value"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The VisitFlag class represents a flag object used to mark visits in a system.\n * This class provides methods to retrieve and set the type and value of the flag.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the type of the flag\n * - Retrieving and setting the value stored in the flag\n * \n * The overall behavior of this class is to create and manage VisitFlag objects with a specified type and value.\n * The class ensures that the type is not null when constructing a new VisitFlag object.\n * \n * This class is designed to be used in systems where marking visits is necessary, such as in scheduling or tracking applications.\n */\n **/\n/**\n * The VisitFlag class represents a flag that can be associated with a visit in a medical setting.\n * It provides functionality to store and retrieve the type and value of the flag.\n * \n * This class includes constants for common types of visit flags such as DIAGNOSED, MISSED_MEDICATION, MISSING_MEDICATION, LAST_VISIT, and IMMUNIZATION.\n * \n * The main functionalities of this class include:\n * - Constructing a new VisitFlag object with a specified type and value\n * - Setting and getting the type and value of the flag\n * \n * The overall behavior of this class is to provide a way to track and manage different types of flags associated with visits, allowing for easy identification and categorization of visit-related information.\n */"
     }
 ]

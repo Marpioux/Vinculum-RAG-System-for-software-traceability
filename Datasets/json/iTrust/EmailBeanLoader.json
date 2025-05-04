@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<Email> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of Email objects from a ResultSet.\n * \n * @param rs the ResultSet containing the data to load\n * @return a List of Email objects loaded from the ResultSet\n */\npublic List<Email> loadList(ResultSet rs) {\n    List<Email> list = new ArrayList<Email>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}"
             },
             {
                 "body": "Optional[{\r\n    ps.setString(1, email.getToListStr());\r\n    ps.setString(2, email.getFrom());\r\n    ps.setString(3, email.getSubject());\r\n    ps.setString(4, email.getBody());\r\n    return ps;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, Email)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of an email into a PreparedStatement for database insertion.\n * \n * @param ps the PreparedStatement object to load parameters into\n * @param email the Email object containing the email details\n * @return the PreparedStatement object with the email parameters loaded\n */\npublic PreparedStatement loadParameters(PreparedStatement ps, Email email) {\n    ps.setString(1, email.getToListStr());\n    ps.setString(2, email.getFrom());\n    ps.setString(3, email.getSubject());\n    ps.setString(4, email.getBody());\n    return ps;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Email email = new Email();\r\n    email.setFrom(rs.getString(\"FromAddr\"));\r\n    email.setToList(Arrays.asList(rs.getString(\"ToAddr\").split(\",\")));\r\n    email.setBody(rs.getString(\"Body\"));\r\n    email.setSubject(rs.getString(\"Subject\"));\r\n    email.setTimeAdded(rs.getTimestamp(\"AddedDate\"));\r\n    return email;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public Email loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single email from a ResultSet and constructs an Email object.\n * \n * @param rs the ResultSet containing the email data\n * @return the Email object representing the loaded email\n */"
             }
         ],
         "constructors": [],
         "signature": "EmailBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The EmailDAO class provides methods for interacting with the database to retrieve, insert, and update Email objects.\n * It contains methods for loading a list of Email objects from a ResultSet, loading parameters of an Email into a PreparedStatement for database insertion,\n * and creating an Email object from a ResultSet.\n * \n * This class encapsulates the logic for handling Email objects in the database, including loading and saving email data.\n * It provides a convenient interface for interacting with Email objects and their corresponding database records.\n * \n * The main functionalities of this class include:\n * - Loading a list of Email objects from a ResultSet\n * - Loading parameters of an Email object into a PreparedStatement for database insertion\n * - Creating an Email object from a ResultSet\n * \n * The behavior of this class is to facilitate the interaction between Email objects and the database, allowing for seamless data retrieval and storage operations.\n * It abstracts away the complexities of database operations and provides a clean and efficient way to work with Email objects in a database environment.\n */\n**/\n/**\n * The EmailBeanLoader class is responsible for loading a single email from a ResultSet and constructing an Email object.\n * It provides a method to load the email data from the ResultSet and return an Email object representing the loaded email.\n * \n * This class does not have any constructors and variables, as it focuses on a single functionality of loading email data.\n * \n * The main functionality of this class is to take a ResultSet containing email data and extract the necessary information to create an Email object.\n * The loadSingle method is used to perform this operation and return the Email object.\n * \n * Overall, the EmailBeanLoader class serves as a utility for loading email data from a database ResultSet and converting it into an Email object.\n */"
     }
 ]

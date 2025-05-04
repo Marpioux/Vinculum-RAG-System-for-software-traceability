@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components with the data from the given 'prenotazione' object.\n * Sets the text fields with the room number, last name, first name, phone number, start date, and end date of the reservation.\n * Sets the 'editable' property of certain text fields to false.\n * Updates the 'counter_tot' variable based on the number of people in the reservation and additional bed request.\n * Changes the title of the GUI window based on the 'counter_ins' and 'counter_tot' values.\n * Adds an ActionListener to the 'Conferma' button to trigger the 'startConferma' method when clicked.\n * \n * @param prenotazione the reservation object containing the data to be displayed\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startConferma();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startConferma() method.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!erroriLocale()) {\r\n        Soggiornante sogg = readDatiSogg(prenotazione, counter_ins);\r\n        int j;\r\n        if ((j = (Principale.db).writeSoggiornante(sogg)) == DataBase.OK) {\r\n            Annulla.setEnabled(false);\r\n            cleanFields();\r\n            if (counter_ins == counter_tot) {\r\n                aggiornaDisp(sogg, Flag.OCCUPATA);\r\n                dispose();\r\n                padre.creaLista(1);\r\n                padre.setEnabled(true);\r\n            }\r\n            counter_ins++;\r\n            changeTitle(counter_ins, counter_tot);\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " void startConferma()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the confirmation process for a booking by writing the guest's information to the database.\n * If there are no local errors, it reads the guest's data, writes it to the database, and updates the display accordingly.\n * If the write operation is successful, it disables the \"Annulla\" button, clears the input fields, and updates the availability status.\n * If all guests have been processed, it closes the current window, updates the parent window's list, and enables it.\n * Increments the counter for processed guests and updates the title accordingly.\n * If there is an error with the database, displays a message dialog with the error information.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errori()) {\r\n        if (counter_ins == 1) {\r\n            Frame msg;\r\n            if ((testo2.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il cognome! \");\r\n                return true;\r\n            }\r\n            if ((testo3.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il nome! \");\r\n                return true;\r\n            }\r\n            if ((testo6.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero di documento! \");\r\n                return true;\r\n            }\r\n            if ((testo7.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero telefonico! \");\r\n                return true;\r\n            }\r\n            if ((testo8.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato l'indirizzo! \");\r\n                return true;\r\n            }\r\n            if ((testo9.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il C.A.P.! \");\r\n                return true;\r\n            }\r\n            if ((testo10.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il comune! \");\r\n                return true;\r\n            }\r\n            if ((testo11.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la citta! \");\r\n                return true;\r\n            }\r\n            if ((testo12.getText()).equals(\"\")) {\r\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la nazione! \");\r\n                return true;\r\n            }\r\n        }\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean erroriLocale()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if there are any errors in the input fields for the first guest.\n * \n * @return true if there are errors in the input fields for the first guest, false otherwise\n */\nboolean erroriLocale() {\n    if (!errori()) {\n        if (counter_ins == 1) {\n            Frame msg;\n            if ((testo2.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il cognome! \");\n                return true;\n            }\n            if ((testo3.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il nome! \");\n                return true;\n            }\n            if ((testo6.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero di documento! \");\n                return true;\n            }\n            if ((testo7.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il numero telefonico! \");\n                return true;\n            }\n            if ((testo8.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato l'indirizzo! \");\n                return true;\n            }\n            if ((testo9.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il C.A.P.! \");\n                return true;\n            }\n            if ((testo10.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitato il comune! \");\n                return true;\n            }\n            if ((testo11.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la citta! \");\n                return true;\n            }\n            if ((testo12.getText()).equals(\"\")) {\n                msg = new MessageDialog(this, \" Per il primo soggiornante inserito deve essere digitata la nazione! \");\n                return true;\n            }\n        }\n        return false;\n    }\n    return true;\n}\n*/"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public InserisciSoggiornante(RicercaPrenotazione, Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the InserisciSoggiornante class. Initializes a new instance of InserisciSoggiornante with the given RicercaPrenotazione and Prenotazione objects.\n * \n * @param parent the parent RicercaPrenotazione object\n * @param p the Prenotazione object\n * \n * This constructor sets the title and action command of the superclass using the pensionamento value from the Prenotazione object and the Flag.ADULTO constant. \n * It disables the parent RicercaPrenotazione object, assigns the Prenotazione object to the prenotazione field, and initializes the instance.\n */\npublic InserisciSoggiornante(RicercaPrenotazione parent, Prenotazione p) {\n    super(\"Inserimento dati\", \"Inserisci\", p.getPensionamento(), Flag.ADULTO);\n    padre = parent;\n    padre.setEnabled(false);\n    prenotazione = p;\n    inizializza();\n}\n*/"
             }
         ],
         "signature": "InserisciSoggiornante",
@@ -49,6 +54,7 @@
             " Prenotazione prenotazione",
             " int counter_ins",
             " int counter_tot"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The InserisciSoggiornante class represents a GUI component for inserting guest information in a reservation system.\n * It provides methods for initializing the GUI components with data from a given reservation object, starting the confirmation process for a booking, and checking for errors in the input fields.\n * The class includes a constructor that initializes a new instance with a RicercaPrenotazione and Prenotazione object.\n * \n * The main functionalities of this class include:\n * - Initializing the GUI components with reservation data\n * - Starting the confirmation process for a booking by writing guest information to the database\n * - Checking for errors in the input fields for the first guest\n * \n * The overall behavior of the class involves displaying and updating guest information, handling confirmation of bookings, and validating input fields to ensure data integrity.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

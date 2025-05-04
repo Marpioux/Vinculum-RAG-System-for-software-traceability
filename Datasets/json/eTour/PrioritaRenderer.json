@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public Component getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)",
                 "comments": "Optional[/**\r\n * This method returns the display component of the cell identified\r\n * from the row and column provided input.\r\n *\r\n * @param pTable JTable - the table.\r\n * @param pValue Object - the object contained in the selected cell.\r\n * @param pIsSelected boolean - true if the object selected.\r\n *                        False otherwise.\r\n * @param pHasFocus boolean - true if the object has the focus.\r\n *                        False otherwise.\r\n * @param pRow int - the row index.\r\n * @param pColumn int - the index of the column.\r\n * @return Component - the component to display\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a component that renders a cell in a JTable based on the value provided.\n * \n * @param pTable the JTable that the cell belongs to\n * @param pValue the value to be rendered in the cell, must be an Integer between 1 and 5\n * @param pIsSelected a boolean indicating whether the cell is selected\n * @param pHasFocus a boolean indicating whether the cell has focus\n * @param pRow the row index of the cell\n * @param pColumn the column index of the cell\n * @return the Component that renders the cell\n * @throws IllegalArgumentException if the value is not an Integer or is not between 1 and 5\n */\npublic Component getTableCellRendererComponent(JTable pTable, Object pValue, boolean pIsSelected, boolean pHasFocus, int pRow, int pColumn) {\n    if (!(pValue instanceof Integer)) {\n        throw new IllegalArgumentException(\"unexpected value cell\");\n    }\n    int value = (Integer) pValue;\n    if (value < 1 || value > 5) {\n        throw new IllegalArgumentException(\"Illegal value cell.\");\n    }\n    if (pIsSelected) {\n        setBackground(pTable.getSelectionBackground());\n    } else {\n        setBackground(pTable.getBackground());\n    }\n    setValue(value);\n    return this;\n}\n*/"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public PrioritaRenderer()",
                 "comments": "Optional[/**\r\n * This default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PrioritaRenderer with default settings.\n * This constructor sets the orientation to HORIZONTAL, the minimum value to 1, the maximum value to 5,\n * creates a label table with standard labels starting from 1, sets the major tick spacing to 1,\n * and enables painting ticks on the slider.\n */"
             }
         ],
         "signature": "PrioritaRenderer",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The PrioritaRenderer class is responsible for rendering cells in a JTable based on the value provided. \n * It provides a custom cell renderer that displays integer values between 1 and 5 in a slider format. \n * This class ensures that only valid integer values within the specified range are displayed and handles \n * the selection and focus states of the cell components. \n * \n * The PrioritaRenderer class contains a constructor that initializes the slider with default settings, \n * such as setting the orientation to HORIZONTAL, the minimum value to 1, the maximum value to 5, \n * creating a label table with standard labels starting from 1, setting the major tick spacing to 1, \n * and enabling the painting of ticks on the slider. \n * \n * This class also includes a method that returns the display component of the cell in the JTable, \n * based on the input parameters provided. It validates the input value, sets the background color \n * based on the selection state, and sets the value of the slider component. \n * \n * Overall, the PrioritaRenderer class enhances the visual representation of integer values in a JTable \n * by providing a customized rendering component with specific functionalities and behavior.\n */"
     }
 ]

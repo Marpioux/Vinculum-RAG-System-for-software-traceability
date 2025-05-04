@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void addLOINC(LOINCbean)",
                 "comments": "Optional[/**\r\n * Adds a LOINC\r\n *\r\n * @param hosp The LOINCbean representing the new code to be added.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new LOINC (Logical Observation Identifiers Names and Codes) entry to the database.\n * \n * @param hosp the LOINCbean object containing the details of the LOINC entry to be added\n * @throws iTrustException if the LOINC entry already exists in the database\n * @throws DBException if there is a problem with the database operation\n */\npublic void addLOINC(LOINCbean hosp) {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"INSERT INTO LOINC (LaboratoryProcedureCode, Component, KindOfProperty, TimeAspect, System, ScaleType, MethodType) \" + \"VALUES (?,?,?,?,?,?,?)\");\n        ps.setString(1, hosp.getLabProcedureCode());\n        ps.setString(2, hosp.getComponent());\n        ps.setString(3, hosp.getKindOfProperty());\n        ps.setString(4, hosp.getTimeAspect());\n        ps.setString(5, hosp.getSystem());\n        ps.setString(6, hosp.getScaleType());\n        ps.setString(7, hosp.getMethodType());\n        ps.executeUpdate();\n    } catch (SQLException e) {\n        e.printStackTrace();\n        if (1062 == e.getErrorCode())\n            throw new iTrustException(\"Error: LOINC already exists.\");\n        throw new DBException(e);\n    } finally {\n        DBUtil.closeConnection(conn, ps);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"Select * From LOINC Where LaboratoryProcedureCode = ? \");\r\n        ps.setString(1, visitID);\r\n        ResultSet rs = ps.executeQuery();\r\n        return LOINCLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LOINCbean> getProcedures(String)",
                 "comments": "Optional[/**\r\n * Returns all LOINCs associated with LaboratoryProcedureCode\r\n *\r\n * @param visitID The code of the Laboratory Procedure Code as a String.\r\n * @return A java.util.List of LOINCBeans matching the Laboratory Procedure Code.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of LOINCbean objects representing laboratory procedures associated with a given visit ID.\n * \n * @param visitID the visit ID for which to retrieve the procedures\n * @return a List of LOINCbean objects representing the procedures associated with the given visit ID\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE LOINC SET Component=?, KindOfProperty=?, TimeAspect=?, System=?, ScaleType=?, MethodType=? WHERE LaboratoryProcedureCode=?\");\r\n        ps.setString(1, ov.getComponent());\r\n        ps.setString(2, ov.getKindOfProperty());\r\n        ps.setString(3, ov.getTimeAspect());\r\n        ps.setString(4, ov.getSystem());\r\n        ps.setString(5, ov.getScaleType());\r\n        ps.setString(6, ov.getMethodType());\r\n        ps.setString(7, ov.getLabProcedureCode());\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public int update(LOINCbean)",
                 "comments": "Optional[/**\r\n * Updates the information in LOINC.\r\n *\r\n * @param ov\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates a LOINC record in the database with the provided LOINCbean object.\n * \n * @param ov the LOINCbean object containing the updated information\n * @return the number of rows affected by the update operation\n * @throws DBException if there is a problem with the database connection or SQL query\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM LOINC\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return LOINCLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LOINCbean> getAllLOINC()",
                 "comments": "Optional[/**\r\n * Returns all LOINCs as a list.\r\n *\r\n * @return A java.util.List of LOINCbeans.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all LOINC codes from the database.\n * \n * @return A list of LOINCbean objects representing all LOINC codes in the database.\n * @throws DBException if there is an error accessing the database.\n */"
             }
         ],
         "constructors": [
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public LOINCDAO(DAOFactory)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new LOINCDAO with the specified DAOFactory.\n * \n * @param factory the DAOFactory to be used by this LOINCDAO\n * \n * This constructor initializes the LOINCDAO with the given DAOFactory\n * and creates a new LOINCBeanLoader instance for loading LOINC beans.\n */\npublic LOINCDAO(DAOFactory factory) {\n    this.factory = factory;\n    LOINCLoader = new LOINCBeanLoader();\n}"
             }
         ],
         "signature": "LOINCDAO",
         "variables": [
             "private DAOFactory factory",
             "private LOINCBeanLoader LOINCLoader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The LOINCDatabase class represents a database utility for managing LOINC (Logical Observation Identifiers Names and Codes) entries.\n * It provides methods for adding new LOINC entries to the database.\n * \n * This class contains a method addLOINC(LOINCbean hosp) that allows the addition of a new LOINC entry to the database.\n * The method takes a LOINCbean object as a parameter, which contains the details of the LOINC entry to be added.\n * If the LOINC entry already exists in the database, an iTrustException is thrown.\n * If there is a problem with the database operation, a DBException is thrown.\n * \n * The addLOINC method establishes a database connection, prepares an SQL statement for inserting the LOINC entry into the database,\n * sets the values of the statement parameters using the details from the LOINCbean object, and executes the statement to insert the entry.\n * If an SQLException occurs during the database operation, it is caught and handled appropriately.\n * \n * @author [Your Name]\n * @version 1.0\n */\nThis class is responsible for interacting with the database to perform operations related to LOINC (Logical Observation Identifiers Names and Codes) objects. It contains methods for inserting new LOINC records, retrieving LOINC records based on Laboratory Procedure Code, and updating existing LOINC records.\n\nThe main functionalities of this class include:\n1. Inserting a new LOINC record into the database with details such as Component, KindOfProperty, TimeAspect, System, ScaleType, and MethodType.\n2. Retrieving a list of LOINC records associated with a specific Laboratory Procedure Code.\n3. Updating an existing LOINC record in the database with new values for Component, KindOfProperty, TimeAspect, System, ScaleType, and MethodType.\n\nOverall, this class provides a convenient interface for managing LOINC records in the database, allowing users to perform CRUD (Create, Read, Update, Delete) operations on LOINC objects efficiently. It handles database connections, prepared statements, result sets, and exceptions to ensure data integrity and reliability.\nDBException if there is a problem with the database connection or SQL query\\n */\" }]\n/**\n * The LOINCDAO class represents a Data Access Object (DAO) for interacting with the LOINC database.\n * This class provides methods for accessing and manipulating LOINC data in the database.\n * \n * The main functionalities of this class include:\n * - Retrieving LOINC records from the database\n * - Inserting new LOINC records into the database\n * - Updating existing LOINC records in the database\n * - Deleting LOINC records from the database\n * \n * This class requires a DAOFactory instance to be passed in during construction, which is used for obtaining SQL connections.\n * \n * The LOINCDAO class also contains a LOINCBeanLoader instance for loading LOINC beans from the database.\n * \n * This class may throw a DBException if there is an error accessing the database.\n */\n**/"
     }
 ]

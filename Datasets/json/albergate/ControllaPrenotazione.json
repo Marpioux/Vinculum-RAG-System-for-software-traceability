@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the method by writing pre-data, setting certain text fields as non-editable, \n * setting the text of a specific field with the parsed date from the given data, \n * and adding action listeners to two buttons for different actions.\n * \n * @param p the data object used for initialization\n */"
             },
             {
                 "body": "Optional[{\r\n    startRinnova();\r\n    dispose();\r\n    parent.dispose();\r\n    startUpdate();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the Rinnova process, disposes of the current window, disposes of the parent window, and then starts the update process.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startCancella();\r\n    dispose();\r\n    parent.dispose();\r\n    startUpdate();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the cancellation process, disposes of the current window, disposes of the parent window, and then starts the update process. \n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame supp = (parent.padre).p;\r\n    ((Principale) supp).updateBloccate();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " void startUpdate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initiates the update process by calling the updateBloccate method on the parent frame's Principale instance.\n * \n * This method does not take any parameters and does not return a value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp != null) {\r\n        (Principale.db).delPrenotazione(p.getIdPrenotazione());\r\n        Utils.aggiornaDisp(elenco_disp, p.getNumStanza(), p.getInizioSogg(), p.getFineSogg(), Flag.DISPONIBILE, Flag.BLOCCATA, true);\r\n        if (p.getTramiteAgenzia() == Const.SI)\r\n            Utils.restoreCommissioni(p.getNumStanza());\r\n        dispose();\r\n        padre.setEnabled(true);\r\n    } else\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita! \");\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startCancella()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a booking and updates availability in the database.\n * If the availability list is successfully retrieved from the database, \n * the booking is deleted, availability is updated, and commissions are restored if booked through an agency.\n * If there are issues with retrieving availability from the database, a message dialog is displayed.\n * \n * @param p the booking to be cancelled\n */"
             },
             {
                 "body": "Optional[{\r\n    p.setDataPren(new Date());\r\n    (Principale.db).changePrenotazione(p.getIdPrenotazione(), p.getNumStanza(), p.getNumPers(), p.getNome(), p.getCognome(), p.getNumTel(), p.getInizioSogg(), p.getFineSogg(), p.getDataPren(), p.getCaparra(), p.getRichLettoAgg(), p.getPensionamento(), p.getTramiteAgenzia(), p.getNomeAgenzia(), p.getRichParticolari());\r\n    dispose();\r\n    parent.setEnabled(true);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void startRinnova()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the current reservation with the current date and time, and saves the changes to the database.\n * \n * @param p the reservation object to be updated\n * \n * This method updates the specified reservation with the current date and time, and then saves the changes to the database. \n * It takes the reservation object as a parameter and updates the reservation details in the database using the changePrenotazione method.\n * After updating the reservation, it disposes of the current window and enables the parent window.\n */"
             }
         ],
         "constructors": [
@@ -57,13 +63,15 @@
                 "hasInnerComment": false,
                 "signature": "public ControllaPrenotazione(Prenotazione, Stanza, PrenotazioniScadute)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ControllaPrenotazione object with the given Prenotazione, Stanza, and PrenotazioniScadute.\n * \n * @param pren the Prenotazione object to be checked\n * @param room the Stanza object associated with the Prenotazione\n * @param papa the PrenotazioniScadute object containing expired bookings\n * \n * This constructor initializes the ControllaPrenotazione object with the provided parameters, sets the title to \"Controlla dei dati della prenotazione\", \n * the button label to \"Rinnova\", the priority to 5, and the pensionamento value from the Prenotazione object. It also initializes the p field with the pren parameter,\n * the parent field with the papa parameter, and calls the init() method to perform any additional setup tasks.\n */\npublic ControllaPrenotazione(Prenotazione pren, Stanza room, PrenotazioniScadute papa) {\n    super(room, \"\", \"\", \"Controlla dei dati della prenotazione\", \" Rinnova \", 5, pren.getPensionamento());\n    p = pren;\n    parent = papa;\n    init();\n}\n*/"
             }
         ],
         "signature": "ControllaPrenotazione",
         "variables": [
             " Prenotazione p",
             " PrenotazioniScadute parent"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ControllaPrenotazione class represents a window for checking and managing booking details.\n * It provides functionality for viewing booking information, renewing bookings, and canceling bookings.\n * This class includes methods for initializing the window, handling actions for renewal and cancellation,\n * updating booking status in the database, and displaying messages for database-related issues.\n * \n * The class contains fields for storing booking and parent booking information, which are used for managing bookings.\n * \n * The main functionalities of this class include:\n * - Initializing the window with booking details and setting up action listeners for renewal and cancellation\n * - Renewing a booking by updating the booking details with the current date and time\n * - Canceling a booking and updating availability in the database\n * - Displaying messages for database-related issues during booking cancellation\n * - Initiating the update process by calling the updateBloccate method on the parent frame's Principale instance\n * \n * This class is designed to provide a user-friendly interface for managing bookings and updating booking status.\n */"
     }
 ]

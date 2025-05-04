@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciVisitaPR(BeanVisitaPR)",
                 "comments": "Optional[/**\r\n * Add a visit to a refreshment\r\n *\r\n * @param pVis visit to add\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a visit record for a patient in the PR system.\n * \n * @param visitaPR the visit record to be inserted\n * @return true if the visit record was successfully inserted, false otherwise\n */\nabstract boolean inserisciVisitaPR(BeanVisitaPR visitaPR);"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaVisitaPR(BeanVisitaPR)",
                 "comments": "Optional[/**\r\n * Modify a visit\r\n *\r\n * @param pVis Visit to edit\r\n * @return True if changed, otherwise false\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a visit record for a PR (Public Relations) visit.\n * \n * @param visitaPR the BeanVisitaPR object representing the visit record to be modified\n * @return true if the visit record was successfully modified, false otherwise\n */\nabstract boolean modificaVisitaPR(BeanVisitaPR visitaPR) {\n    // Implementation details not provided\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanVisitaPR> ottieniListaVisitaPR(int)",
                 "comments": "Optional[/**\r\n * Extract the list of visits to a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @return List of visits\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of BeanVisitaPR objects based on the specified parameter.\n * \n * @param param the parameter used to filter the list of BeanVisitaPR objects\n * @return an ArrayList of BeanVisitaPR objects that match the specified parameter, or an empty Optional if no objects are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanVisitaPR ottieniVisitaPR(int, int)",
                 "comments": "Optional[/**\r\n * Extract a visit by a tourist at a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @param pIdTurista tourists\r\n * @return visit\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to retrieve a BeanVisitaPR object based on the provided parameters.\n * \n * @param param1 The first parameter used to retrieve the BeanVisitaPR object.\n * @param param2 The second parameter used to retrieve the BeanVisitaPR object.\n * @return An Optional object containing the retrieved BeanVisitaPR object, or Optional.empty if no object is found.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -39,11 +43,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanVisitaPR> ottieniListaVisitaPRTurista(int)",
                 "comments": "Optional[/**\r\n * Extract the list of visits of a tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @return List of visits\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a list of BeanVisitaPR objects associated with a tourist based on the tourist's ID.\n *\n * @param touristId the ID of the tourist for whom to retrieve the list of visits\n * @return an ArrayList of BeanVisitaPR objects representing the visits of the tourist, or an empty Optional if no visits are found\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBVisitaPR",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBVisitaPR interface represents a data access object for managing visit records in the Public Relations (PR) system.\n * It provides methods for inserting, modifying, and retrieving visit records associated with refreshments and tourists.\n * This interface serves as a contract for classes that implement it to ensure consistent behavior and data access operations.\n * \n * The main functionalities of this interface include:\n * - Inserting a visit record for a patient in the PR system\n * - Modifying a visit record for a PR visit\n * - Extracting a list of visit records based on specified parameters\n * - Extracting a visit record by a tourist at a refreshment\n * - Extracting a list of visit records associated with a tourist\n * \n * The behavior of this interface is defined by the implementations of its methods, which interact with the underlying data source\n * to perform CRUD (Create, Read, Update, Delete) operations on visit records. Each method is designed to handle specific\n * data access tasks related to visit records in the PR system.\n * \n * Implementing classes should provide concrete implementations for the abstract methods defined in this interface to ensure\n * proper functionality and data integrity in the PR system. Classes that implement this interface are expected to handle\n * exceptions such as SQLExceptions that may occur during data access operations.\n */"
     }
 ]

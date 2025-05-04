@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public abstract List<T> loadList(ResultSet)",
                 "comments": "Optional[/**\r\n * Loads a list of the bean of type T from a result set.  Typically makes iterated calls\r\n * to loadSingle.\r\n * @param rs The java.sql.ResultSet we are extracting.\r\n * @return A java.util.List<T> where T is the type for this loader.\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to load a list of objects of type T from a ResultSet.\n * \n * @param resultSet the ResultSet containing the data to be loaded into the list\n * @return an Optional object containing the list of objects of type T if the ResultSet is not empty, otherwise an empty Optional\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public abstract T loadSingle(ResultSet)",
                 "comments": "Optional[/**\r\n * Contains the instructions for mapping the rows in this java.sql.ResultSet into\r\n * beans of type <T>.\r\n * @param rs The java.sql.ResultSet to be loaded.\r\n * @return A Bean of type T containing the loaded information, typically of the first (or next) item in the result set.\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single object of type T from the given ResultSet.\n * \n * @param resultSet the ResultSet containing the data to load the object from\n * @return an Optional containing the loaded object of type T, or an empty Optional if no object could be loaded\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public abstract PreparedStatement loadParameters(PreparedStatement, T)",
                 "comments": "Optional[/**\r\n * Used for an insert or update, this method contains the instructions for mapping the fields within\r\n * a bean of type T into a prepared statement which modifies the appropriate table.\r\n * @param ps The prepared statement to be loaded.\r\n * @param bean The bean containing the data to be placed.\r\n * @return A prepared statement with the appropriately loaded parameters.\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to load parameters into a PreparedStatement object for a given entity of type T.\n * \n * @param preparedStatement the PreparedStatement object to load parameters into\n * @param entity the entity of type T containing the parameters to be loaded\n * @return an Optional object containing the loaded parameters, or Optional.empty if no parameters were loaded\n */"
             }
         ],
         "constructors": [],
         "signature": "BeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The BeanLoader class is an abstract class that provides methods for loading beans of type T from a ResultSet,\n * mapping rows in a ResultSet into beans of type T, and loading parameters into a PreparedStatement object for\n * insert or update operations. This class serves as a generic utility for handling database operations with\n * Java beans.\n * \n * The main functionalities of the BeanLoader class include:\n * - Loading a list of beans of type T from a ResultSet using the loadList method.\n * - Loading a single bean of type T from a ResultSet using the loadSingle method.\n * - Loading parameters into a PreparedStatement object for a given entity of type T using the loadParameters method.\n * \n * The behavior of the BeanLoader class is defined by the abstract methods it provides, which must be implemented\n * by concrete subclasses. These methods handle the mapping of data between ResultSet and Java beans, as well as\n * the loading of parameters for database operations.\n * \n * Overall, the BeanLoader class simplifies the process of working with Java beans and databases by providing\n * reusable methods for loading and mapping data, enhancing code reusability and maintainability.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public void insertString(int, String, AttributeSet)",
                 "comments": null,
-                "innerComments": "Optional[[// Note: the content is always a newline at the end\r\n, // If the maximum length is greater than or equal to the string, the part.\r\n, // Otherwise add what may\r\n]]"
+                "innerComments": "Optional[[// Note: the content is always a newline at the end\r\n, // If the maximum length is greater than or equal to the string, the part.\r\n, // Otherwise add what may\r\n]]",
+                "generated_comment": "/**\n * Inserts a string into the document at the specified offset with the given attributes.\n * If the input string is null, the method returns without performing any action.\n * The method ensures that the total length of the document does not exceed the maxLength specified.\n * If the capacity is sufficient to insert the entire input string, it is inserted as is.\n * If the capacity is less than the length of the input string, only a portion of the string that fits within the capacity is inserted.\n * \n * @param pOffset the offset at which to insert the string\n * @param pStringa the string to be inserted\n * @param pAttribute the attributes to apply to the inserted string\n */"
             }
         ],
         "constructors": [
@@ -17,13 +18,15 @@
                 "hasInnerComment": false,
                 "signature": "public LimitedDocument(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new LimitedDocument with the specified maximum length.\n * \n * @param pMaxLength the maximum length allowed for the document\n * @throws IllegalArgumentException if pMaxLength is negative\n * \n * The constructor initializes the maxLength field of the LimitedDocument object with the value of pMaxLength.\n */"
             }
         ],
         "signature": "LimitedDocument",
         "variables": [
             "private  static  final long serialVersionUID",
             "private int maxLength"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The LimitedDocument class represents a document with a specified maximum length for text content.\n * This class ensures that the total length of the document does not exceed the maxLength specified.\n * \n * The main functionalities of the LimitedDocument class include:\n * - Inserting a string into the document at a specified offset with given attributes, while respecting the maximum length constraint.\n * \n * The behavior of the LimitedDocument class is as follows:\n * - If the input string is null, the insertString method returns without performing any action.\n * - If the capacity is sufficient to insert the entire input string, it is inserted as is.\n * - If the capacity is less than the length of the input string, only a portion of the string that fits within the capacity is inserted.\n * \n * The LimitedDocument class has the following variables:\n * - serialVersionUID: a private static final long variable for serialization purposes\n * - maxLength: an integer variable representing the maximum length allowed for the document\n * \n * The LimitedDocument class has a constructor that initializes the maxLength field with the specified maximum length.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the frame by setting up the necessary components and disabling certain elements.\n * \n * This method calls writeDatiPren(p) to populate the frame with data from the parameter p.\n * It then disables editing for elements in the testo array, sets myCheckbox and myCheckbox1 to be disabled,\n * disables all checkboxes in the checkboxes array, sets the text of testo[9] to the parsed date string of p.getDataPren(),\n * and removes the component Azione from panel2.\n * \n * @param p the parameter used to populate the frame with data\n */"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public VediPrenotazione(Prenotazione, Stanza, RicercaPrenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new VediPrenotazione object with the given Prenotazione, Stanza, and RicercaPrenotazione objects.\n * \n * @param pren the Prenotazione object containing the data of the reservation\n * @param room the Stanza object representing the room associated with the reservation\n * @param papa the RicercaPrenotazione object representing the parent search reservation\n * \n * This constructor initializes the VediPrenotazione object by calling the superclass constructor with the room details, setting the title of the window, and initializing the reservation data.\n */\npublic VediPrenotazione(Prenotazione pren, Stanza room, RicercaPrenotazione papa) {\n    super(room, \"\", \"\", \"Visualizzazione dei dati della prenotazione\", \"\", 4, pren.getPensionamento());\n    p = pren;\n    parent = papa;\n    init();\n}\n*/"
             }
         ],
         "signature": "VediPrenotazione",
@@ -25,6 +27,7 @@
             " Prenotazione p",
             " RicercaPrenotazione parent",
             " char flag"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The VediPrenotazione class represents a frame for viewing reservation data. It contains methods for initializing the frame and disabling certain elements, as well as a constructor for creating a new VediPrenotazione object with the necessary data.\n * \n * This class includes a public void init() method that initializes the frame by populating it with data from the parameter p, disabling editing for specific elements, and removing a component from the panel. The constructor public VediPrenotazione(Prenotazione pren, Stanza room, RicercaPrenotazione papa) constructs a new VediPrenotazione object with the given Prenotazione, Stanza, and RicercaPrenotazione objects, initializing the frame with the reservation data and setting the title of the window.\n * \n * The VediPrenotazione class also includes the following variables:\n * - Prenotazione p: Represents the Prenotazione object containing the data of the reservation.\n * - RicercaPrenotazione parent: Represents the RicercaPrenotazione object representing the parent search reservation.\n * - char flag: Represents a flag variable.\n * \n * Overall, the VediPrenotazione class provides functionality for viewing reservation data, initializing the frame, and managing the elements within the frame.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean qualifiesForDisease()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the patient qualifies for a disease based on their age.\n * \n * @return true if the patient's age is less than 12, indicating they qualify for the disease; false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    List<PatientRiskFactor> factors = new ArrayList<PatientRiskFactor>();\r\n    factors.add(new EthnicityFactor(patient, Ethnicity.Caucasian));\r\n    factors.add(new FamilyHistoryFactor(factory, patient.getMID(), 250.0, 251.0));\r\n    factors.add(new ChildhoodInfectionFactor(factory, patient.getMID(), 79.30));\r\n    return factors;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "protected List<PatientRiskFactor> getDiseaseRiskFactors()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of risk factors associated with a patient's disease.\n * \n * @return a list of PatientRiskFactor objects representing the disease risk factors for the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return \"Type 1 Diabetes\";\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the disease.\n * \n * @return the name of the disease, which is \"Type 1 Diabetes\"\n */"
             }
         ],
         "constructors": [
@@ -33,10 +36,12 @@
                 "hasInnerComment": false,
                 "signature": "public Type1DiabetesRisks(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Type1DiabetesRisks object with the specified DAOFactory and patient ID.\n * \n * @param factory the DAOFactory used to retrieve data from the database\n * @param patientID the unique identifier of the patient\n */\npublic Type1DiabetesRisks(DAOFactory factory, long patientID) {\n    super(factory, patientID);\n}\n*/"
             }
         ],
         "signature": "Type1DiabetesRisks",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The Type1DiabetesRisks class represents a set of risk factors and criteria for determining the likelihood of a patient having Type 1 Diabetes.\n * This class provides methods to check if a patient qualifies for the disease based on their age, retrieve a list of disease risk factors for the patient,\n * and get the name of the disease.\n * \n * The qualifiesForDisease method checks if the patient qualifies for Type 1 Diabetes based on their age, returning true if the patient's age is less than 12.\n * \n * The getDiseaseRiskFactors method retrieves a list of PatientRiskFactor objects representing the risk factors associated with Type 1 Diabetes for the patient.\n * \n * The getName method returns the name of the disease, which is \"Type 1 Diabetes\".\n * \n * The Type1DiabetesRisks class has a constructor that initializes a new object with the specified DAOFactory and patient ID.\n * \n * Overall, this class encapsulates the functionality for assessing the risk of Type 1 Diabetes in a patient and provides essential methods for managing and retrieving relevant information.\n */\npublic class Type1DiabetesRisks {\n    // class implementation goes here\n}\n**/\n/**\n * This class represents a Type 1 Diabetes Risks object that extends the base class DAOFactory and takes in a patient ID.\n * It is used to retrieve and manage information related to the risks associated with Type 1 Diabetes for a specific patient.\n * \n * The main functionalities of this class include:\n * - Retrieving and updating Type 1 Diabetes risk information for a specific patient\n * \n * The overall behavior of this class is to provide a way to access and manipulate Type 1 Diabetes risk data for a given patient.\n * It serves as a bridge between the application and the data access layer, allowing for seamless interaction with the database.\n */"
     }
 ]

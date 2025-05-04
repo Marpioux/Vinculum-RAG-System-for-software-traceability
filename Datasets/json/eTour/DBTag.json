@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean aggiungeTagBeneCulturale(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a tag to a cultural asset.\n * \n * @param idBeneCulturale the ID of the cultural asset to which the tag will be added\n * @param idTag the ID of the tag to be added\n * @return true if the tag was successfully added, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return true;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean aggiungeTagPuntoDiRistoro(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a tag to a specific point of interest representing a restaurant.\n * \n * @param x the x-coordinate of the point of interest\n * @param y the y-coordinate of the point of interest\n * @return true if the tag was successfully added, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return true;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaTag(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method cancels a tag with the specified ID.\n * \n * @param tagId the ID of the tag to be canceled\n * @return true if the tag was successfully canceled, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return true;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaTagBeneCulturale(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a tag associated with a cultural asset.\n * \n * @param tagId the unique identifier of the tag to be deleted\n * @param culturalAssetId the unique identifier of the cultural asset\n * @return true if the tag was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return true;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaTagPuntoDiRistoro(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a tag associated with a specific point of interest in a restaurant.\n * \n * @param tagId the unique identifier of the tag to be deleted\n * @param pointOfInterestId the unique identifier of the point of interest in the restaurant\n * @return true if the tag was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return true;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciTag(BeanTag)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a tag into the system.\n * \n * @param tag the tag to be inserted into the system\n * @return true if the tag was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return false;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean modificaTag(BeanTag)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Modifies a BeanTag object.\n * \n * @param tag the BeanTag object to be modified\n * @return true if the BeanTag object was successfully modified, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": true,
                 "signature": "public ArrayList<BeanTag> ottieniListaTag()",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * This method returns a list of BeanTag objects.\n * \n * @return An ArrayList of BeanTag objects representing a list of tags.\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": true,
                 "signature": "public BeanTag ottieniTag(int)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * This method returns a BeanTag object based on the provided integer parameter.\n * \n * @param tagId the integer value representing the tag ID to retrieve\n * @return the BeanTag object corresponding to the provided tag ID, or null if no tag is found\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": true,
                 "signature": "public ArrayList<BeanTag> ottieniTagBeneCulturale(int)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Retrieves a list of BeanTag objects associated with a specific cultural asset.\n * \n * @param id the unique identifier of the cultural asset\n * @return an ArrayList of BeanTag objects representing the tags associated with the cultural asset\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": true,
                 "signature": "public ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * This method retrieves a list of BeanTag objects associated with a specific point of interest.\n * \n * @param id the unique identifier of the point of interest\n * @return an ArrayList of BeanTag objects representing the tags associated with the point of interest\n * \n * @throws NullPointerException if the id parameter is null\n * \n * @implNote This method is currently a placeholder and returns null. It should be implemented to query the database\n * for the tags associated with the specified point of interest and return them as a list of BeanTag objects.\n */"
             }
         ],
         "constructors": [
@@ -97,12 +108,14 @@
                 "hasInnerComment": false,
                 "signature": "public DBTag()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DBTag object with an empty ArrayList of BeanTag objects.\n */"
             }
         ],
         "signature": "DBTag",
         "variables": [
             "private ArrayList<BeanTag> b"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DBTag class represents a database manager for handling tag-related operations.\n * It provides methods for adding, deleting, modifying, and retrieving tags associated with cultural assets\n * and points of interest in a restaurant.\n * \n * This class contains a list of BeanTag objects that represent tags in the system.\n * \n * The main functionalities of this class include:\n * - Adding a tag to a cultural asset or a point of interest in a restaurant\n * - Deleting a tag by ID\n * - Modifying a BeanTag object\n * - Retrieving a list of tags or a specific tag based on ID\n * \n * The class also includes a constructor that initializes an empty ArrayList of BeanTag objects.\n * \n * Note: Some methods are currently placeholders and return null. They should be implemented to interact with the database.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

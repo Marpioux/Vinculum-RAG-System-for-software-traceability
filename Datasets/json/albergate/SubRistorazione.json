@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the graphical user interface for the application.\n * This method initializes the font, creates panels, buttons, images, and labels,\n * and sets their layout and constraints within the main panel.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Calcolo.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCalcolo();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up action listeners for the \"Annulla\" and \"Calcolo\" buttons.\n * \n * This method adds action listeners to the \"Annulla\" and \"Calcolo\" buttons. When the \"Annulla\" button is clicked, the current window is disposed and the parent window is enabled. When the \"Calcolo\" button is clicked, the startCalcolo() method is called.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables a specified component.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startCalcolo();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It starts the calculation process.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    rist = new MascheraContoRistorazione(this);\r\n    rist.setVisible(true);\r\n    rist.padre = this;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startCalcolo()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object, creates a new MascheraContoRistorazione instance with the current object as its parent, \n * sets the visibility of the new instance to true, and assigns the current object as the parent of the new instance.\n * \n * This method does not have any parameters and does not return any value.\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public SubRistorazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SubRistorazione object with the title \"Ristorazione\".\n * This constructor calls the superclass constructor with the specified title,\n * then calls the setup, init, and pack methods to initialize and set up the SubRistorazione object.\n */"
             }
         ],
         "signature": "SubRistorazione",
@@ -62,6 +68,7 @@
             " GridBagLayout gridbag",
             " Frame p",
             " MascheraContoRistorazione rist"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubRistorazione class represents a graphical user interface for a restaurant application.\n * This class includes methods for setting up the GUI components, initializing buttons and panels,\n * and handling user actions such as calculating the bill and navigating back to the main menu.\n * \n * The main functionalities of this class include:\n * - Setting up the graphical user interface with panels, buttons, images, and labels\n * - Initializing action listeners for the \"Annulla\" and \"Calcolo\" buttons\n * - Disposing of the current window and enabling a specified component\n * - Starting the calculation process for the restaurant bill\n * \n * The overall behavior of the SubRistorazione class is to provide a user-friendly interface for\n * managing restaurant-related tasks such as calculating the bill and navigating between different screens.\n * \n * This class contains variables for labels, panels, buttons, layouts, frames, and specific instances related to the restaurant application.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

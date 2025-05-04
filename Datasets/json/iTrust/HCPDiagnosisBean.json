@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getHCP()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the Handicap Index (HCP) of the player.\n * \n * @return the Handicap Index (HCP) of the player as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    HCPID = hcp;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCP(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCPID of the object to the specified value.\n * \n * @param hcp the new HCPID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return HCPname;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the healthcare professional (HCP).\n * \n * @return the name of the healthcare professional\n */"
             },
             {
                 "body": "Optional[{\r\n    HCPname = name;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the HCP (Health Care Provider).\n * \n * @param name the new name for the HCP\n * @return void\n * \n * This method sets the name of the HCP to the specified name. \n * The name parameter must be a String representing the new name for the HCP.\n */"
             },
             {
                 "body": "Optional[{\r\n    return numPatients;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getNumPatients()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the number of patients currently stored in the system.\n * \n * @return the number of patients as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    numPatients++;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void incNumPatients()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Increases the number of patients by 1.\n * This method does not take any parameters.\n * It increments the numPatients variable by 1.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return medList;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<MedicationBean> getMedList()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the list of medications.\n * \n * @return A List of MedicationBean objects representing the medications in the list.\n */"
             },
             {
                 "body": "Optional[{\r\n    medList = medlist;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMedList(List<MedicationBean>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the list of medications for this object.\n * \n * @param medList the list of medications to set\n * @return void\n * \n * This method sets the list of medications for this object to the specified list. \n * The list must be of type MedicationBean. \n * If the specified list is null, the method will set the medList to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return labList;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LabProcedureBean> getLabList()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of LabProcedureBean objects.\n * \n * @return a List of LabProcedureBean objects representing the lab procedures\n */"
             },
             {
                 "body": "Optional[{\r\n    labList = lablist;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLabList(List<LabProcedureBean>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the list of lab procedures for this object.\n * \n * @param labList the list of lab procedures to set\n * @return void\n * \n * This method sets the list of lab procedures for this object to the specified list. \n * The labList parameter should be a List of LabProcedureBean objects.\n * If labList is null, the method will set the labList to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return (visitSat != 0 && surveyCount != 0) ? Double.toString(((double) visitSat / (double) surveyCount)) : \"no results available\";\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getVisitSatisfaction()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the satisfaction rate of visits based on the number of surveys conducted.\n * \n * @return A String representing the satisfaction rate of visits, calculated as the ratio of visitSat to surveyCount.\n * If there are no survey results available, it returns \"no results available\".\n */"
             },
             {
                 "body": "Optional[{\r\n    visitSat += sat;\r\n    surveyCount++;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitSat(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the number of visits on Saturday and updates the survey count.\n * \n * @param sat the number of visits on Saturday to add\n * @return void\n */\npublic void setVisitSat(int sat) {\n    visitSat += sat;\n    surveyCount++;\n}"
             },
             {
                 "body": "Optional[{\r\n    return (treatmentSat != 0 && surveyCount != 0) ? Double.toString((double) treatmentSat / (double) surveyCount) : \"no results available\";\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getTreatmentSatisfaction()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the treatment satisfaction rating based on the number of surveys conducted.\n * If both the treatment satisfaction and survey count are not equal to zero, it calculates the average treatment satisfaction rating.\n * If either the treatment satisfaction or survey count is zero, it returns \"no results available\".\n * \n * @return a String representing the average treatment satisfaction rating or \"no results available\"\n */"
             },
             {
                 "body": "Optional[{\r\n    treatmentSat += sat;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTreatmentSat(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the treatment satisfaction level by adding the specified value to the current satisfaction level.\n * \n * @param sat the value to be added to the treatment satisfaction level\n */"
             }
         ],
         "constructors": [
@@ -121,7 +135,8 @@
                 "hasInnerComment": false,
                 "signature": "public HCPDiagnosisBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor initializes a new instance of the HCPDiagnosisBean class with default values for the number of patients, visit satisfaction, treatment satisfaction, and survey count.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * - Sets the number of patients to 0\n * - Sets the visit satisfaction to 0\n * - Sets the treatment satisfaction to 0\n * - Sets the survey count to 0\n */"
             }
         ],
         "signature": "HCPDiagnosisBean",
@@ -134,6 +149,7 @@
             "private int visitSat",
             "private int treatmentSat",
             "private int surveyCount"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The HCP class represents a healthcare professional (HCP) in the system. \n * It stores information such as the HCP's Handicap Index (HCPID), name, and the number of patients they are currently responsible for.\n * \n * This class provides methods to retrieve and set the HCP's Handicap Index and name, as well as methods to retrieve the number of patients and increment the count of patients.\n * \n * The HCP class encapsulates the data related to a healthcare professional and provides functionality to manage and access this information.\n * \n * @author [Your Name]\n * @version 1.0\n */\n **/\n/**\n * The Patient class represents a patient in a medical system. It stores information about the patient's medications and lab procedures.\n * \n * This class includes methods to manage the list of medications and lab procedures for the patient.\n * \n * The main functionalities of this class include:\n * - Incrementing the number of patients by 1\n * - Retrieving the list of medications\n * - Setting the list of medications\n * - Retrieving the list of lab procedures\n * - Setting the list of lab procedures\n * \n * The behavior of this class is to provide a way to store and manage the medical information of a patient. It allows for easy access to the patient's medications and lab procedures.\n * \n * Note: It is important to ensure that the specified lists for medications and lab procedures are of the correct type (MedicationBean and LabProcedureBean respectively). If a null list is provided, the corresponding list in the class will be set to null.\n */\n/**\n * This class represents a List of LabProcedureBean objects, which are used to store information about lab procedures.\n * If the labList is null, the method will set it to null.\n * \n * The class provides methods to calculate and retrieve satisfaction rates for visits and treatments based on surveys conducted.\n * It includes functionalities to update the survey counts and satisfaction ratings for visits and treatments.\n * \n * Overall Behavior:\n * - The class maintains a list of LabProcedureBean objects to store information about lab procedures.\n * - It calculates and retrieves satisfaction rates for visits and treatments based on surveys conducted.\n * - It updates the survey counts and satisfaction ratings for visits and treatments.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The HCPDiagnosisBean class represents a bean that encapsulates information related to a healthcare provider's diagnosis. \n * It stores data such as the healthcare provider's ID, name, number of patients, list of medications prescribed, list of lab procedures performed, visit satisfaction level, treatment satisfaction level, and survey count.\n * \n * This class provides methods to access and manipulate the data stored in the bean, including setting and getting the healthcare provider's ID and name, updating the number of patients, adding medications to the list, adding lab procedures to the list, updating visit and treatment satisfaction levels, and incrementing the survey count.\n * \n * The HCPDiagnosisBean class also includes a constructor that initializes a new instance of the class with default values for the number of patients, visit satisfaction, treatment satisfaction, and survey count.\n * \n * Overall, the HCPDiagnosisBean class serves as a data structure for storing and managing diagnosis-related information for a healthcare provider, facilitating the tracking and analysis of patient care and satisfaction levels.\n */\n **/"
     }
 ]

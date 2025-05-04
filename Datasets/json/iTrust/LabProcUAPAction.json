@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public void updateProcedure(LabProcedureBean)",
                 "comments": "Optional[/**\r\n * Updates a lab procedure\r\n *\r\n * @param b the procedure to update\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": "Optional[[//need to check if status is what's being changed - if new status!=old status send email\r\n]]"
+                "innerComments": "Optional[[//need to check if status is what's being changed - if new status!=old status send email\r\n]]",
+                "generated_comment": "/**\n * Updates a lab procedure in the database and logs the transaction.\n * If the status of the lab procedure is changed, an email notification is sent.\n * \n * @param b the LabProcedureBean object containing the updated information\n */\npublic void updateProcedure(LabProcedureBean b) {\n    validator.validate(b);\n    \n    // Check if status is being changed - if new status != old status send email\n    if (!b.getStatus().equals(lpDAO.getLabProcedure(b.getProcedureID()).getStatus())) {\n        new EmailUtil(factory).sendEmail(makeEmail(b));\n    }\n    \n    lpDAO.updateLabProcedure(b);\n    transDAO.logTransaction(TransactionType.ENTER_EDIT_LAB_PROCEDURE, loggedInMID, b.getPid(), \"UAP updated procedure id: \" + b.getProcedureID());\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    PatientBean p = new PatientDAO(factory).getPatient(b.getPid());\r\n    Email email = new Email();\r\n    email.setFrom(\"no-reply@itrust.com\");\r\n    email.setToList(Arrays.asList(p.getEmail()));\r\n    email.setSubject(\"A Lab Procedure Was Updated\");\r\n    email.setBody(String.format(\"Dear %s, \\n Your Lab Procedure (%s) has a new updated status of %s. Log on to iTrust to view.\", p.getFullName(), b.getLoinc(), b.getStatus()));\r\n    return email;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "private Email makeEmail(LabProcedureBean)",
                 "comments": "Optional[/**\r\n * Sends an e-mail informing the patient that their procedure has been updated\r\n *\r\n * @param b the procedure that was updated\r\n * @return an e-mail to the patient with the notice\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates an email notification for a patient when a lab procedure is updated.\n * \n * @param b the LabProcedureBean object containing information about the updated lab procedure\n * @return an Email object containing the notification email\n */\nprivate Email makeEmail(LabProcedureBean b) {\n    PatientBean p = new PatientDAO(factory).getPatient(b.getPid());\n    Email email = new Email();\n    email.setFrom(\"no-reply@itrust.com\");\n    email.setToList(Arrays.asList(p.getEmail()));\n    email.setSubject(\"A Lab Procedure Was Updated\");\n    email.setBody(String.format(\"Dear %s, \\n Your Lab Procedure (%s) has a new updated status of %s. Log on to iTrust to view.\", p.getFullName(), b.getLoinc(), b.getStatus()));\n    return email;\n}"
             },
             {
                 "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.VIEW_LAB_PROCEDURE, loggedInMID, id, \"UAP viewed procedures\");\r\n    return lpDAO.getAllLabProceduresDate(id);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LabProcedureBean> viewProcedures(long)",
                 "comments": "Optional[/**\r\n * Returns a list of all the lab procedures\r\n *\r\n * @param id MID of the UAP viewing the procedures\r\n * @return a list of all the lab procedures for that UAP\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Logs a transaction of type VIEW_LAB_PROCEDURE when a user with the given ID views lab procedures.\n * \n * @param id the ID of the user viewing the lab procedures\n * @return a list of LabProcedureBean objects representing all lab procedures associated with the user\n */"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public LabProcUAPAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Setup\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID UAP who is logged in\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new LabProcUAPAction object with the given DAOFactory and loggedInMID.\n * This constructor initializes the transaction and lab procedure DAOs using the provided factory,\n * sets the loggedInMID to the given value, creates a new LabProcedureValidator,\n * and stores the factory for future use.\n * \n * @param factory the DAOFactory used to retrieve transaction and lab procedure DAOs\n * @param loggedInMID the MID of the logged in user\n */"
             }
         ],
         "signature": "LabProcUAPAction",
@@ -43,6 +47,7 @@
             " long loggedInMID",
             "private LabProcedureValidator validator",
             "private DAOFactory factory"
-        ]
+        ],
+        "generated_class_comment": "public void sendEmail(LabProcedureBean b) {\n PatientBean p = new PatientDAO(factory).getPatient(b.getPid());\n Email email = new Email();\n email.setFrom(\"no-reply@itrust.com\");\n email.setToList(Arrays.asList(p.getEmail()));\n email.setSubject(\"A Lab Procedure Was Updated\");\n email.setBody(String.format(\"Dear %s, \\n Your Lab Procedure (%s) has been updated.\", p.getFullName(), b.getProcedureID()));\n new EmailUtil(factory).sendEmail(email);\n}]\", \"hasComment\": true, \"hasInnerComment\": false, \"signature\": \"public void sendEmail(LabProcedureBean)\", \"comments\": \"Optional[/**\\r\\n * Sends an email notification to the patient when a lab procedure is updated\\r\\n *\\r\\n * @param b the LabProcedureBean object containing the updated information\\r\\n */\\r\\n]\", \"innerComments\": \"Optional.empty\", \"generated_comment\": \"/**\\n * Sends an email notification to the patient when a lab procedure is updated.\\n * \\n * @param b the LabProcedureBean object containing the updated information\\n */\\npublic void sendEmail(LabProcedureBean b) {\\n PatientBean p = new PatientDAO(factory).getPatient(b.getPid());\\n Email email = new Email();\\n email.setFrom(\\\"no-reply@itrust.com\\\");\\n email.setToList(Arrays.asList(p.getEmail()));\\n email.setSubject(\\\"A Lab Procedure Was Updated\\\");\\n email.setBody(String.format(\\\"Dear %s, \\\\n Your Lab Procedure (%s) has been updated.\\\", p.getFullName(), b.getProcedureID()));\\n new EmailUtil(factory).sendEmail(email);\\n}\\n*/\" } ], \"class_comments\": \"Optional.empty\", \"class_generated_comment\": \"Optional.empty\" }]\n/** \n * This class contains methods related to handling lab procedures for a User Access Privilege (UAP) in the iTrust system.\n * \n * The main functionalities of this class include:\n * - Creating an email notification for a patient when a lab procedure is updated\n * - Viewing all lab procedures for a specific UAP\n * \n * The overall behavior of this class is to provide functionality for managing lab procedures within the iTrust system.\n * \n * Methods:\n * 1. makeEmail(LabProcedureBean b): Creates an email notification for a patient when a lab procedure is updated.\n *    Parameters:\n *    - b: The LabProcedureBean object containing information about the updated lab procedure\n *    Returns:\n *    - An Email object containing the notification email\n * \n * 2. viewProcedures(long id): Returns a list of all the lab procedures for a specific UAP.\n *    Parameters:\n *    - id: MID of the UAP viewing the procedures\n *    Returns:\n *    - A list of all the lab procedures for that UAP\n * \n * Exceptions:\n * - DBException: Thrown if there is an issue with the database operations\n */ \npublic class LabProcedureHandler {\n    // Class implementation goes here\n}\n*/\n/**\n * The LabProcUAPAction class represents an action that allows a User Access Privilege (UAP) to interact with lab procedures.\n * This class provides methods to retrieve a list of lab procedures associated with the logged-in user, as well as perform various actions on lab procedures.\n * \n * The LabProcUAPAction class requires a DAOFactory and the ID of the logged-in user to be instantiated. It initializes the transaction and lab procedure DAOs using the provided factory,\n * sets the loggedInMID to the given value, creates a new LabProcedureValidator, and stores the factory for future use.\n * \n * This class facilitates interactions with lab procedures for the logged-in user, including viewing lab procedures, updating lab procedures, and performing other related actions.\n * \n * @author [Your Name]\n * @version 1.0\n * @see DAOFactory\n * @see TransactionDAO\n * @see LabProcedureDAO\n * @see LabProcedureValidator\n */\n**/"
     }
 ]

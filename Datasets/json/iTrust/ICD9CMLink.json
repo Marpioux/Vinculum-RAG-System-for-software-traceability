@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int doStartTag()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to generate a hyperlink to a website that displays information about a specific medical code.\n * The medical code is passed as a parameter and is used to construct the URL for the hyperlink.\n * The generated hyperlink is written to the JSP output stream.\n * \n * @return int - SKIP_BODY constant indicating that the body of the tag should be skipped\n * @throws IOException if an error occurs while writing to the output stream\n */"
             },
             {
                 "body": "Optional[{\r\n    return SKIP_BODY;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int doEndTag()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when the custom tag handler's processing is complete and the end tag is encountered. \n * It returns a constant value indicating that the body of the tag should be skipped.\n * \n * @return an integer constant value representing that the body of the tag should be skipped\n */"
             },
             {
                 "body": "Optional[{\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void release()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Releases any resources held by this object.\n * This method does not take any parameters and does not return any value.\n * It is used to release any resources that may have been allocated by this object, such as file handles or network connections.\n * After calling this method, the object should no longer be used and may be eligible for garbage collection.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.pageContext = pageContext;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPageContext(PageContext)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the PageContext for this object.\n * \n * @param pageContext the PageContext to be set\n * \n * This method sets the PageContext for this object to the specified PageContext parameter.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.parent = parent;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setParent(Tag)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the parent tag of this tag.\n * \n * @param parent the parent tag to set\n * @return void\n */\npublic void setParent(Tag parent) {\n    this.parent = parent;\n}"
             },
             {
                 "body": "Optional[{\r\n    return parent;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public Tag getParent()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the parent tag of this Tag object.\n * \n * @return the parent tag of this Tag object\n */"
             },
             {
                 "body": "Optional[{\r\n    return code;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCode()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the code associated with this object.\n * \n * @return the code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.code = code;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the code for this object.\n * \n * @param code the code to set\n * \n * This method sets the code for this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.code = String.valueOf(code);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCode(double)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the code for this object.\n * \n * @param code the code to set for this object\n * @return void\n * \n * This method sets the code for this object by converting the double value provided into a String representation.\n */"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public ICD9CMLink()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of the ICD9CMLink class with no parameters.\n * This constructor initializes the object by calling the constructor of its superclass.\n */"
             }
         ],
         "signature": "ICD9CMLink",
@@ -89,6 +99,7 @@
             "private PageContext pageContext",
             "private Tag parent",
             "private String code"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a custom tag handler that generates a hyperlink to a website displaying information about a specific medical code.\n * The class contains methods for handling the start and end tags, as well as releasing any resources held by the object.\n * \n * The main functionalities of this class include:\n * - Generating a hyperlink to a website based on a medical code parameter\n * - Writing the generated hyperlink to the JSP output stream\n * - Handling the start and end tags of the custom tag\n * - Releasing any resources held by the object\n * \n * The overall behavior of this class is to provide a convenient way to create hyperlinks to medical code information websites within JSP pages.\n * \n * @author [Your Name]\n * @version 1.0\n */\npublic class MedicalCodeTagHandler extends SimpleTagSupport {\n    // Class implementation goes here\n}\n*/\n/**\n * This class represents a Tag object that is used in a web application. \n * It contains methods to set and retrieve the PageContext, parent tag, and code associated with the tag.\n * The main functionalities of this class include setting and getting the PageContext, parent tag, and code, as well as \n * providing access to the parent tag of the current Tag object.\n * \n * The setPageContext method sets the PageContext for this object to the specified PageContext parameter.\n * The setParent method sets the parent tag of this tag to the specified parent tag parameter.\n * The getParent method returns the parent tag of this Tag object.\n * The getCode method retrieves the code associated with this object.\n * The setCode method sets the code for this object to the specified value.\n * \n * Overall, this class provides functionality for managing Tag objects in a web application, allowing for easy access \n * to important properties such as the PageContext, parent tag, and code associated with each tag.\n */\n **/\n/**\n * The ICD9CMLink class represents a link between an ICD-9 code and a CML object.\n * This class contains methods to set and retrieve the code associated with the link.\n * \n * The main functionalities of this class include:\n * - Setting the code for the link by converting a double value into a String representation\n * - Constructing a new instance of the ICD9CMLink class with no parameters\n * \n * This class has the following instance variables:\n * - pageContext: a PageContext object\n * - parent: a Tag object\n * - code: a String representing the code associated with the link\n * \n * The behavior of this class is to provide a way to create and manage links between ICD-9 codes and CML objects.\n * It allows for setting and retrieving the code associated with the link, as well as constructing new instances of the class.\n */"
     }
 ]

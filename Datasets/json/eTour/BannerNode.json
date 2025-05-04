@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public PRNode getParent()",
                 "comments": "Optional[/**\r\n * Returns the node type PRNode father.\r\n *\r\n * @return PRNode - the parent node.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the parent node of this PRNode.\n * \n * @return the parent node of this PRNode\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getID()",
                 "comments": "Optional[/**\r\n * Returns the id of the banner for which information\r\n * are stored in this node.\r\n *\r\n * @return int - the id of the banner.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID associated with this object.\n * \n * @return the ID of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pid;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setID(int)",
                 "comments": "Optional[/**\r\n * Stores the id of the banner supplied input.\r\n *\r\n * @param pid int - an ID of a banner.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object to the specified value.\n * \n * @param pid the new ID to set for the object\n * @return void\n * \n * This method sets the ID of the object to the value specified by the parameter pid.\n * The ID is used to uniquely identify the object within the system.\n */"
             },
             {
                 "body": "Optional[{\r\n    return (ImageIcon) getUserObject();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public ImageIcon getBanner()",
                 "comments": "Optional[/**\r\n * Returns the banner image.\r\n *\r\n * @return ImageIcon - the image.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the banner image associated with this object.\n * \n * @return The ImageIcon representing the banner image\n */"
             },
             {
                 "body": "Optional[{\r\n    if (pImmagine == null) {\r\n        throw new IllegalArgumentException(\"Image is invalid.\");\r\n    }\r\n    setUserObject(pImmagine);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBanner(ImageIcon)",
                 "comments": "Optional[/**\r\n * Save the image provided as input.\r\n *\r\n * @param pImmagine ImageIcon - the image to be stored.\r\n * @throws IllegalArgumentException - if the supplied parameter is null.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the banner image for this object.\n * \n * @param pImmagine the ImageIcon representing the banner image to be set\n * @throws IllegalArgumentException if the provided ImageIcon is null\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public BannerNode()",
                 "comments": "Optional[/**\r\n * This is the default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BannerNode object with no parameters.\n * This constructor calls the superclass constructor to initialize the object.\n */"
             },
             {
                 "body": "{\r\n    super();\r\n    if (pBanner == null) {\r\n        throw new IllegalArgumentException(\"Image is invalid.\");\r\n    }\r\n    setUserObject(pBanner);\r\n    id = pid;\r\n}",
@@ -57,12 +63,14 @@
                 "hasInnerComment": false,
                 "signature": "public BannerNode(ImageIcon, int)",
                 "comments": "Optional[/**\r\n * Create a node with the image of the banner and\r\n * your id supplied as parameters.\r\n *\r\n * @param pBanner ImageIcon - the image of the banner.\r\n * @param pid int - the id of the banner.\r\n * @throws IllegalArgumentException - if the image provided as input is invalid.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BannerNode with the specified ImageIcon and id.\n * \n * @param pBanner the ImageIcon to be set as the user object of the node\n * @param pid the id to be assigned to the node\n * @throws IllegalArgumentException if the ImageIcon is null\n */\npublic BannerNode(ImageIcon pBanner, int pid) {\n    super();\n    if (pBanner == null) {\n        throw new IllegalArgumentException(\"Image is invalid.\");\n    }\n    setUserObject(pBanner);\n    id = pid;\n}\n*/"
             }
         ],
         "signature": "BannerNode",
         "variables": [
             "private int id"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BannerNode class represents a node in a tree structure that stores information about a banner image.\n * It extends the PRNode class and includes methods to retrieve and set the parent node, ID, banner image, and related functionalities.\n * \n * This class provides the following main functionalities:\n * - Retrieving the parent node of the current BannerNode\n * - Getting and setting the ID associated with the banner\n * - Accessing the banner image stored in the node\n * - Setting a new banner image for the node\n * \n * The BannerNode class encapsulates the ID of the banner as a private integer variable.\n * It includes constructors to create a new BannerNode object with or without initial values.\n * \n * Overall, the BannerNode class serves as a container for banner-related information within a tree structure,\n * allowing for easy access and manipulation of banner data in a hierarchical manner.\n */\n **/"
     }
 ]

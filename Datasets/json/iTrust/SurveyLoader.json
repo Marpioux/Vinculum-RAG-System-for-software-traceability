@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<SurveyBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of SurveyBean objects from a ResultSet.\n * \n * @param resultSet the ResultSet containing the data to load\n * @return a list of SurveyBean objects loaded from the ResultSet\n * @throws IllegalStateException if the method is unimplemented\n */"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, SurveyBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters from a SurveyBean object into a PreparedStatement.\n * \n * @param preparedStatement the PreparedStatement object to load parameters into\n * @param surveyBean the SurveyBean object containing the parameters to be loaded\n * @return the PreparedStatement object with parameters loaded\n * @throws IllegalStateException if the method is not implemented\n */"
             },
             {
                 "body": "Optional[{\r\n    SurveyBean survey = new SurveyBean();\r\n    survey.setVisitID(rs.getLong(\"VisitID\"));\r\n    survey.setSurveyDate(rs.getTimestamp(\"SurveyDate\"));\r\n    survey.setExamRoomMinutes(rs.getInt(\"ExamRoomMinutes\"));\r\n    survey.setWaitingRoomMinutes(rs.getInt(\"WaitingRoomMinutes\"));\r\n    survey.setTreatmentSatisfaction(rs.getInt(\"TreatmentSatisfaction\"));\r\n    survey.setVisitSatisfaction(rs.getInt(\"VisitSatisfaction\"));\r\n    return survey;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public SurveyBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single SurveyBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the SurveyBean object\n * @return a SurveyBean object with data loaded from the ResultSet\n */\npublic SurveyBean loadSingle(ResultSet rs) {\n    SurveyBean survey = new SurveyBean();\n    survey.setVisitID(rs.getLong(\"VisitID\"));\n    survey.setSurveyDate(rs.getTimestamp(\"SurveyDate\"));\n    survey.setExamRoomMinutes(rs.getInt(\"ExamRoomMinutes\"));\n    survey.setWaitingRoomMinutes(rs.getInt(\"WaitingRoomMinutes\"));\n    survey.setTreatmentSatisfaction(rs.getInt(\"TreatmentSatisfaction\"));\n    survey.setVisitSatisfaction(rs.getInt(\"VisitSatisfaction\"));\n    return survey;\n}"
             }
         ],
         "constructors": [],
         "signature": "SurveyLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a SurveyBeanLoader that is responsible for loading SurveyBean objects from a ResultSet.\n * It provides methods to load a list of SurveyBean objects, load parameters from a SurveyBean object into a PreparedStatement,\n * and load a single SurveyBean object from a ResultSet.\n * \n * The loadList method loads a list of SurveyBean objects from a ResultSet.\n * \n * The loadParameters method loads parameters from a SurveyBean object into a PreparedStatement.\n * \n * The loadSingle method loads a single SurveyBean object from the given ResultSet.\n * \n * This class ensures that the necessary data is extracted from the ResultSet and mapped to the SurveyBean object.\n * If any method is unimplemented, it will throw an IllegalStateException.\n */\n**/\n/**\n * The SurveyLoader class is responsible for loading data from a ResultSet into a SurveyBean object.\n * It provides a method to load a single survey from the ResultSet and populate the SurveyBean object with the data.\n * \n * The loadSingle method takes a ResultSet as input and extracts the VisitID, SurveyDate, ExamRoomMinutes, WaitingRoomMinutes,\n * TreatmentSatisfaction, and VisitSatisfaction values from the ResultSet to set them in the SurveyBean object.\n * \n * This class encapsulates the logic for loading survey data from a ResultSet and mapping it to a SurveyBean object,\n * providing a convenient way to work with survey data in a structured manner.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int doStartTag()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is responsible for generating the navigation bar for the Health Care Provider User Action Panel (HCP-UAP) in the iTrust system.\n * It iterates through the array of page titles and URLs, and based on the current page title, it highlights the corresponding link.\n * If the page title matches the current title, it displays the title without a link. Otherwise, it generates a hyperlink to navigate to the corresponding page.\n * Additionally, it includes a link to switch the patient and formats the navigation bar with appropriate HTML tags.\n * \n * @return SKIP_BODY to indicate that the body of the tag should be skipped\n */"
             },
             {
                 "body": "Optional[{\r\n    return SKIP_BODY;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int doEndTag()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when the end tag of a custom tag is encountered in a JSP page. \n * It is responsible for performing any clean-up tasks and returning a value indicating \n * whether the body of the tag should be skipped or processed. \n * \n * @return an integer value representing the action to be taken for the tag body. \n *         Possible return values include SKIP_BODY to skip processing the body, \n *         EVAL_BODY_INCLUDE to include the body for processing, and EVAL_PAGE to \n *         continue processing the JSP page. \n */"
             },
             {
                 "body": "Optional[{\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void release()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Releases any resources held by this object.\n * This method does not take any parameters and does not return any value.\n * It is used to release any resources that this object may have acquired during its lifetime.\n * After calling this method, the object should no longer be used and should be eligible for garbage collection.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.pageContext = pageContext;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPageContext(PageContext)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the PageContext for this object.\n * \n * @param pageContext the PageContext to be set\n * \n * This method sets the PageContext object for this object to the specified PageContext parameter.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.parent = parent;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setParent(Tag)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the parent tag of this tag.\n * \n * @param parent the parent tag to set\n * @return void\n */\npublic void setParent(Tag parent) {\n    this.parent = parent;\n}"
             },
             {
                 "body": "Optional[{\r\n    return parent;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public Tag getParent()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the parent Tag of this Tag.\n * \n * @return the parent Tag of this Tag, or null if this Tag has no parent\n */"
             },
             {
                 "body": "Optional[{\r\n    return thisTitle;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getThisTitle()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the title of this object.\n * \n * @return the title of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.thisTitle = thisPage;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setThisTitle(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the title of this object to the specified string.\n * \n * @param thisTitle the new title to set for this object\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -73,7 +81,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientNavigation()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor creates a new instance of the PatientNavigation class.\n * It initializes the object by calling the constructor of the superclass.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "signature": "PatientNavigation",
@@ -83,6 +92,7 @@
             "private String pageTitles",
             "private String pageURLs",
             "private String thisTitle"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a custom JSP tag handler for generating a navigation bar for the Health Care Provider User Action Panel (HCP-UAP) in the iTrust system.\n * It contains methods to handle the start and end tags of the custom tag, which are responsible for generating the navigation bar and performing clean-up tasks, respectively.\n * The doStartTag method generates the navigation bar by iterating through an array of page titles and URLs, highlighting the current page title and providing links to other pages.\n * It also includes a link to switch the patient and formats the navigation bar with appropriate HTML tags.\n * The doEndTag method is called when the end tag of the custom tag is encountered, and it returns a value indicating whether the body of the tag should be skipped or processed.\n * \n * @author [Author Name]\n * @version 1.0\n */\npublic class HCPNavigationTagHandler extends TagSupport {\n    \n    /**\n     * This method is responsible for generating the navigation bar for the Health Care Provider User Action Panel (HCP-UAP) in the iTrust system.\n     * It iterates through the array of page titles and URLs, and based on the current page title, it highlights the corresponding link.\n     * If the page title matches the current title, it displays the title without a link. Otherwise, it generates a hyperlink to navigate to the corresponding page.\n     * Additionally, it includes a link to switch the patient and formats the navigation bar with appropriate HTML tags.\n     * \n     * @return SKIP_BODY to indicate that the body of the tag should be skipped\n     */\n    public int doStartTag() {\n        try {\n            JspWriter out = pageContext.getOut();\n            out.write(\"<span class=\\\"navigation\\\">\");\n            for (int i = 0; i < pageTitles.length; i++) {\n                if (pageTitles[i].equals(thisTitle)) {\n                    out.write(pageTitles[i]);\n                } else {\n                    out.write(\"<a href=\\\"/iTrust/auth/hcp-uap/\" + pageURLs[i] + \"\\\">\" + pageTitles[i] + \"</a>\");\n                }\n                out.write(\" | \");\n            }\n            out.write(\"<a href=\\\"/iTrust/auth/hcp-uap/editPHR.jsp?switch=true\\\">Switch Patient</a>\");\n            out.write(\"<br /></span>\");\n        } catch (IOException e) {\n            e.printStackTrace();\n        }\n        return SKIP_BODY;\n    }\n    \n    /**\n     * This method is called when the end tag of a custom tag is encountered in a JSP page.\n     * It is responsible for performing any clean-up tasks and returning a value indicating whether the body of the tag should be skipped or processed.\n     * \n     * @return an integer value representing the action to be taken for the tag body\n     */\n    public int doEndTag() {\n        return SKIP_BODY;\n    }\n}\n```\n/**\n * The TagHandler class is a base class for custom tag handlers in JavaServer Pages (JSP).\n * It provides methods for setting the PageContext and parent Tag, as well as retrieving the parent Tag.\n * \n * This class defines the standard methods required for custom tag handlers, such as doStartTag, doEndTag, and release.\n * Custom tag handlers can extend this class to implement specific functionality for processing custom tags in JSP pages.\n * \n * The main functionalities of this class include setting and retrieving the PageContext and parent Tag, as well as releasing resources held by the object.\n * \n * The behavior of this class is to provide a foundation for custom tag handlers to implement custom tag processing logic in JSP pages.\n * It allows for the handling of custom tags by providing methods for interacting with the JSP page context and parent tags.\n * \n * @author [Your Name]\n * @version 1.0\n */\n**/\n/**\n * The PatientNavigation class represents a navigation system for patients within a healthcare application.\n * It provides functionality for navigating between different pages, setting and retrieving page titles,\n * and managing the current page context.\n * \n * This class contains instance variables for the page context, parent tag, page titles, page URLs, and the current page title.\n * \n * The getThisTitle() method retrieves the title of the current page.\n * \n * The setThisTitle(String thisTitle) method sets the title of the current page to the specified string.\n * \n * The PatientNavigation class has a constructor that creates a new instance of the class and initializes it by calling the constructor of the superclass.\n * \n * Overall, the PatientNavigation class serves as a central component for patient navigation within the application,\n * providing essential functionality for managing page titles and navigating between different pages.\n */"
     }
 ]

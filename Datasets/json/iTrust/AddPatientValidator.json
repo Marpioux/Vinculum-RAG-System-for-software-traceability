@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(PatientBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the given PatientBean object by checking the format of its first name, last name, and email fields.\n * If any of the fields do not match the specified format, an error message is added to the ErrorList.\n * If any errors are found, a FormValidationException is thrown with the list of errors.\n * \n * @param p the PatientBean object to be validated\n * @throws FormValidationException if any errors are found during validation\n */"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public AddPatientValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the AddPatientValidator class.\n * It does not take any parameters.\n * \n * This constructor initializes a new instance of the AddPatientValidator class.\n * It is used to validate the input data when adding a new patient to the system.\n */"
             }
         ],
         "signature": "AddPatientValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The AddPatientValidator class is responsible for validating the input data when adding a new patient to the system.\n * It contains methods to validate a PatientBean object by checking the format of its first name, last name, and email fields.\n * If any of the fields do not match the specified format, an error message is added to the ErrorList.\n * If any errors are found during validation, a FormValidationException is thrown with the list of errors.\n * \n * This class has a default constructor that initializes a new instance of the AddPatientValidator class.\n * \n * Methods:\n * 1. public void validate(PatientBean p) - Performs the act of validating the bean in question by checking the format of its fields.\n *    If the validation does not succeed, a FormValidationException is thrown.\n * \n * Overall, the AddPatientValidator class ensures that the input data for adding a new patient is valid and meets the specified format requirements.\n */"
     }
 ]

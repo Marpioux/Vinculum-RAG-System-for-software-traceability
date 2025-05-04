@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "private void checkRepresented(long, String)",
                 "comments": null,
-                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]"
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]",
+                "generated_comment": "/**\n * Checks if a given patient ID string represents a valid patient in the system.\n * \n * @param repPIDString the patient ID string to be checked\n * @param loggedInMID the MID of the logged-in user performing the check\n * @throws iTrustException if the patient ID string does not represent a valid patient\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovDAO.getOfficeVisit(ovID);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitBean getOfficeVisit()",
                 "comments": "Optional[/**\r\n * Returns the office visit as an OfficeVisitBean for the ovID that was initially passed to the\r\n * constructor\r\n *\r\n * @return the OfficeVisitBean for the ovID\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves an OfficeVisitBean object representing a specific office visit.\n * \n * @return The OfficeVisitBean object representing the office visit\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovDAO.getPrescriptions(ovID);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PrescriptionBean> getPrescriptions()",
                 "comments": "Optional[/**\r\n * Returns the prescriptions associated with the ovID initially passed to the constructor\r\n *\r\n * @return list of PrescriptionBeans for the ovID\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of PrescriptionBeans associated with a specific ovID.\n * \n * @return a list of PrescriptionBean objects\n */"
             },
             {
                 "body": "Optional[{\r\n    String name = null;\r\n    try {\r\n        name = personnelDAO.getName(hcpID);\r\n    } catch (iTrustException e) {\r\n        e.printStackTrace();\r\n        name = e.getMessage();\r\n    }\r\n    return name;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPName(long)",
                 "comments": "Optional[/**\r\n * Returns the name of the HCP for the hcpID passed as a param\r\n *\r\n * @param hcpID\r\n * @return the name of the HCP\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of a healthcare personnel (HCP) based on the given HCP ID.\n * \n * @param hcpID the ID of the healthcare personnel\n * @return the name of the healthcare personnel if found, or an error message if an iTrustException occurs\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewOfficeVisitAction(DAOFactory, long, String)",
                 "comments": "Optional[/**\r\n * Super class handles validating the loggedInMid and ovIDString\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing their office visits.\r\n * @param ovIDString\r\n *            The unique identifier of the office visit as a String.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewOfficeVisitAction object with the given DAOFactory, loggedInMID, and ovIDString.\n * \n * @param factory the DAOFactory used to retrieve data access objects\n * @param loggedInMID the logged in MID of the user\n * @param ovIDString the ID of the office visit to view\n * \n * This constructor initializes the ViewOfficeVisitAction object by calling the superclass constructor with the loggedInMID and ovIDString converted to strings.\n * It also initializes the personnelDAO and ovDAO fields by retrieving the corresponding data access objects from the DAOFactory.\n */\npublic ViewOfficeVisitAction(DAOFactory factory, long loggedInMID, String ovIDString) {\n    super(factory, String.valueOf(loggedInMID), ovIDString);\n    this.personnelDAO = factory.getPersonnelDAO();\n    this.ovDAO = factory.getOfficeVisitDAO();\n}\n*/"
             },
             {
                 "body": "{\r\n    super(factory, repPIDString, ovIDString);\r\n    this.personnelDAO = factory.getPersonnelDAO();\r\n    this.patientDAO = factory.getPatientDAO();\r\n    this.ovDAO = factory.getOfficeVisitDAO();\r\n    checkRepresented(loggedInMID, repPIDString);\r\n}",
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewOfficeVisitAction(DAOFactory, long, String, String)",
                 "comments": "Optional[/**\r\n * Super class handles validating the pidString and ovIDString. Usually used for representing a patient.\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param repPIDString The MID of the representative viewing the records.\r\n * @param ovIDString\r\n *            The unique identifier of the office visit as a String.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewOfficeVisitAction object with the specified DAOFactory, patient ID, office visit ID, and logged in personnel ID.\n * \n * @param factory the DAOFactory used to retrieve DAO objects\n * @param repPIDString the patient ID of the represented patient\n * @param ovIDString the ID of the office visit to view\n * @param loggedInMID the ID of the logged in personnel\n * \n * The constructor initializes the ViewOfficeVisitAction object by calling the superclass constructor with the DAOFactory, represented patient ID, and office visit ID. \n * It then retrieves the PersonnelDAO, PatientDAO, and OfficeVisitDAO objects from the DAOFactory. \n * Finally, it calls the checkRepresented method to verify that the logged in personnel is authorized to view the represented patient's information.\n */\npublic ViewOfficeVisitAction(DAOFactory factory, long repPIDString, String ovIDString, String loggedInMID) {\n    super(factory, repPIDString, ovIDString);\n    this.personnelDAO = factory.getPersonnelDAO();\n    this.patientDAO = factory.getPatientDAO();\n    this.ovDAO = factory.getOfficeVisitDAO();\n    checkRepresented(loggedInMID, repPIDString);\n}\n*/"
             }
         ],
         "signature": "ViewOfficeVisitAction",
@@ -57,6 +63,7 @@
             "private OfficeVisitDAO ovDAO",
             "private PersonnelDAO personnelDAO",
             "private PatientDAO patientDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a controller for viewing office visits in the iTrust system. It provides methods for checking if a patient ID string represents a valid patient in the system, retrieving an OfficeVisitBean object for a specific office visit, and getting a list of prescriptions associated with an office visit.\n * \n * The main functionalities of this class include:\n * - Checking if a given patient ID string represents a valid patient in the system\n * - Retrieving an OfficeVisitBean object representing a specific office visit\n * - Getting a list of prescriptions associated with an office visit\n * \n * The overall behavior of this class is to facilitate the viewing of office visits and related information in the iTrust system. It ensures that only valid patient IDs are used, retrieves office visit and prescription information, and handles any exceptions that may occur during the process.\n */\n/**\n * This class represents an action to view an office visit, retrieving information related to the visit such as prescriptions and healthcare personnel.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of PrescriptionBeans associated with a specific office visit ID\n * - Getting the name of a healthcare personnel (HCP) based on the given HCP ID\n * \n * The class constructor initializes the ViewOfficeVisitAction object with the provided DAOFactory, loggedInMID, and ovIDString. It also sets up the necessary DAOs for accessing data related to office visits and personnel.\n * \n * Overall, this class serves as a controller for viewing office visit details and interacting with the data access objects to retrieve relevant information.\n */\n/**\n * The ViewOfficeVisitAction class represents an action that allows a user to view an office visit record.\n * This class extends the Action superclass and is used to handle the logic for viewing office visit information.\n * \n * The constructor initializes a new ViewOfficeVisitAction object with the specified DAOFactory, patient ID, office visit ID, and logged in personnel ID.\n * It retrieves the corresponding data access objects from the DAOFactory and checks if the logged in personnel is authorized to view the records.\n * \n * @param factory the DAOFactory used to retrieve DAO objects\n * @param repPIDString the patient ID of the represented patient\n * @param ovIDString the ID of the office visit to view\n * @param loggedInMID the ID of the logged in personnel\n * \n * The constructor initializes the ViewOfficeVisitAction object by calling the superclass constructor with the DAOFactory, represented patient ID, and office visit ID.\n * It also checks if the logged in personnel is authorized to view the records.\n * \n * @throws iTrustException if there is an issue with accessing or validating the office visit information\n */\npublic ViewOfficeVisitAction(DAOFactory factory, long loggedInMID, String ovIDString) {\n    super(factory, String.valueOf(loggedInMID), ovIDString);\n    this.personnelDAO = factory.getPersonnelDAO();\n    this.ovDAO = factory.getOfficeVisitDAO();\n}\n\n/**\n * Constructs a new ViewOfficeVisitAction object with the specified DAOFactory, patient ID, office visit ID, and logged in personnel ID.\n * \n * Super class handles validating the pidString and ovIDString. Usually used for representing a patient.\n * \n * @param factory The DAOFactory used to create the DAOs used in this action.\n * @param repPIDString The MID of the representative viewing the records.\n * @param ovIDString The unique identifier of the office visit as a String.\n * @throws iTrustException if there is an issue with accessing or validating the office visit information\n */\npublic ViewOfficeVisitAction(DAOFactory factory, long loggedInMID, String ovIDString, String repPIDString) {\n    super(factory, repPIDString, ovIDString);\n    this.personnelDAO = factory.getPersonnelDAO();\n    this.patientDAO = factory.getPatientDAO();\n    this.ovDAO = factory.getOfficeVisitDAO();\n    checkRepresented(loggedInMID, repPIDString);\n}\n*/\n/**\n * This class represents an action to view an office visit. It extends the ViewAction class\n * and retrieves the PersonnelDAO, PatientDAO, and OfficeVisitDAO objects from the DAOFactory.\n * It also calls the checkRepresented method to verify that the logged in personnel is authorized\n * to view the represented patient's information.\n */"
     }
 ]

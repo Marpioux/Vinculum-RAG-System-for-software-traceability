@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanTurista> ottieniTuristi()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a list of tourists from the database.\n * \n * @return An ArrayList of BeanTurista objects representing the tourists\n * @throws RemoteException if an error occurs during the database operation or if the format of the BeanTurista object is incorrect\n */\npublic ArrayList<BeanTurista> ottieniTuristi() {\n    ArrayList<BeanTurista> toReturn;\n    try {\n        toReturn = turista.ottieniTuristi(\"\");\n        if (null == toReturn) {\n            throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n        }\n    } catch (SQLException e) {\n        System.out.println(\"Error in method ottieniTuristi: \" + e.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception ee) {\n        System.out.println(\"Error in method ottieniTuristi: \" + ee.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n    if (null == toReturn) {\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\n    }\n    return toReturn;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    ArrayList<BeanTurista> toReturn;\r\n    try {\r\n        toReturn = turista.ottieniTuristi(statoAccount);\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Error in method ottieniTuristi (boolean): \" + e.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception ee) {\r\n        System.out.println(\"Error in method ottieniTuristi (boolean): \" + ee.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n    if (null == toReturn) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n    }\r\n    return toReturn;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanTurista> ottieniTuristi(boolean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of tourists based on the specified account status.\n * \n * @param statoAccount a boolean value indicating the account status of the tourists to retrieve\n * @return an ArrayList of BeanTurista objects representing the tourists with the specified account status\n * @throws RemoteException if an error occurs while retrieving the tourists or if the retrieved list is null\n */\npublic ArrayList<BeanTurista> ottieniTuristi(boolean statoAccount) {\n    ArrayList<BeanTurista> toReturn;\n    try {\n        toReturn = turista.ottieniTuristi(statoAccount);\n    } catch (SQLException e) {\n        System.out.println(\"Error in method ottieniTuristi (boolean): \" + e.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception ee) {\n        System.out.println(\"Error in method ottieniTuristi (boolean): \" + ee.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n    if (null == toReturn) {\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\n    }\n    return toReturn;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (pIdTurista < 0) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n    }\r\n    BeanTurista toChange;\r\n    try {\r\n        toChange = turista.ottieniTurista(pIdTurista);\r\n        if (toChange.isAttiva()) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        toChange.setAttiva(true);\r\n        if (turista.modificaTurista(toChange)) {\r\n            return true;\r\n        }\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Error in method attivaTurista: \" + e.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception ee) {\r\n        System.out.println(\"Error in method attivaTurista: \" + ee.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n    return false;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean attivaTurista(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Activates a tourist with the specified ID.\n * \n * @param pIdTurista the ID of the tourist to activate\n * @return true if the tourist was successfully activated, false otherwise\n * @throws RemoteException if there is an error in the data or database access\n * \n * This method activates a tourist by setting their 'attiva' status to true. \n * If the ID provided is negative, an error is thrown. \n * If the tourist is already active, an error is thrown. \n * If the activation is successful, the method returns true. \n * If there is an error in the database access, a RemoteException with the appropriate error message is thrown.\n */\npublic boolean attivaTurista(int pIdTurista) {\n    if (pIdTurista < 0) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n    }\n    BeanTurista toChange;\n    try {\n        toChange = turista.ottieniTurista(pIdTurista);\n        if (toChange.isAttiva()) {\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n        }\n        toChange.setAttiva(true);\n        if (turista.modificaTurista(toChange)) {\n            return true;\n        }\n    } catch (SQLException e) {\n        System.out.println(\"Error in method attivaTurista: \" + e.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception ee) {\n        System.out.println(\"Error in method attivaTurista: \" + ee.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n    return false;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (pIdTurista < 0) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n    }\r\n    BeanTurista toChange;\r\n    try {\r\n        toChange = turista.ottieniTurista(pIdTurista);\r\n        if (!toChange.isAttiva()) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        toChange.setAttiva(false);\r\n        if (turista.modificaTurista(toChange)) {\r\n            return true;\r\n        }\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Error in method disattivaTurista: \" + e.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception ee) {\r\n        System.out.println(\"Error in method disattivaTurista: \" + ee.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n    return false;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean disattivaTurista(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disattiva un turista nel sistema.\n * \n * @param pIdTurista l'ID del turista da disattivare\n * @return true se il turista è stato disattivato con successo, false altrimenti\n * @throws RemoteException se si verifica un errore durante il processo di disattivazione\n */\npublic boolean disattivaTurista(int pIdTurista) {\n    if (pIdTurista < 0) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n    }\n    BeanTurista toChange;\n    try {\n        toChange = turista.ottieniTurista(pIdTurista);\n        if (!toChange.isAttiva()) {\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n        }\n        toChange.setAttiva(false);\n        if (turista.modificaTurista(toChange)) {\n            return true;\n        }\n    } catch (SQLException e) {\n        System.out.println(\"Error in method disattivaTurista: \" + e.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception ee) {\n        System.out.println(\"Error in method disattivaTurista: \" + ee.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n    return false;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (pIdTurista < 0) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n    }\r\n    try {\r\n        if (turista.cancellaTurista(pIdTurista)) {\r\n            return true;\r\n        }\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Error in delete method: \" + e.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception ee) {\r\n        System.out.println(\"Error in delete method: \" + ee.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n    return false;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean delete(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a tourist from the database based on their ID.\n * \n * @param pIdTurista the ID of the tourist to be deleted\n * @return true if the tourist was successfully deleted, false otherwise\n * @throws RemoteException if the ID is less than 0, if there is an error with the database, or if an unknown error occurs\n */\npublic boolean delete(int pIdTurista) {\n    if (pIdTurista < 0) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n    }\n    try {\n        if (turista.cancellaTurista(pIdTurista)) {\n            return true;\n        }\n    } catch (SQLException e) {\n        System.out.println(\"Error in delete method: \" + e.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception ee) {\n        System.out.println(\"Error in delete method: \" + ee.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n    return false;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (pIdTurista < 0) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n    }\r\n    ArrayList<BeanVisitaBC> toReturn;\r\n    try {\r\n        toReturn = feedbackBC.ottieniListaVisitaBCTurista(pIdTurista);\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Error in method ottieniFeedbackBC: \" + e.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception ee) {\r\n        System.out.println(\"Error in method ottieniFeedbackBC: \" + ee.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n    if (null == toReturn) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n    }\r\n    return toReturn;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanVisitaBC> ottieniFeedbackBC(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the feedback for a specific tourist from the database.\n * \n * @param pIdTurista the ID of the tourist for which to retrieve feedback\n * @return an ArrayList of BeanVisitaBC objects representing the feedback for the tourist\n * @throws RemoteException if an error occurs while retrieving the feedback\n */\npublic ArrayList<BeanVisitaBC> ottieniFeedbackBC(int pIdTurista) throws RemoteException {\n    if (pIdTurista < 0) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n    }\n    ArrayList<BeanVisitaBC> toReturn;\n    try {\n        toReturn = feedbackBC.ottieniListaVisitaBCTurista(pIdTurista);\n    } catch (SQLException e) {\n        System.out.println(\"Error in method ottieniFeedbackBC: \" + e.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception ee) {\n        System.out.println(\"Error in method ottieniFeedbackBC: \" + ee.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n    if (null == toReturn) {\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\n    }\n    return toReturn;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (pIdTurista < 0) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n    }\r\n    ArrayList<BeanVisitaPR> toReturn;\r\n    try {\r\n        toReturn = feedbackPR.ottieniListaVisitaPRTurista(pIdTurista);\r\n    } catch (SQLException e) {\r\n        System.out.println(\"Error in method ottieniFeedbackPR: \" + e.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\r\n    } catch (Exception ee) {\r\n        System.out.println(\"Error in method ottieniFeedbackPR: \" + ee.toString());\r\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\r\n    }\r\n    if (null == toReturn) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\r\n    }\r\n    return toReturn;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanVisitaPR> ottieniFeedbackPR(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the feedback of a tourist for a specific PR (Punto di Ristoro) based on the provided tourist ID.\n * \n * @param pIdTurista the ID of the tourist for whom the feedback is being retrieved\n * @return an ArrayList of BeanVisitaPR objects containing the feedback for the tourist\n * @throws RemoteException if the provided tourist ID is negative, if there is an error retrieving the feedback from the database,\n * or if the retrieved feedback is null or in an incorrect format\n */\npublic ArrayList<BeanVisitaPR> ottieniFeedbackPR(int pIdTurista) throws RemoteException {\n    if (pIdTurista < 0) {\n        throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n    }\n    ArrayList<BeanVisitaPR> toReturn;\n    try {\n        toReturn = feedbackPR.ottieniListaVisitaPRTurista(pIdTurista);\n    } catch (SQLException e) {\n        System.out.println(\"Error in method ottieniFeedbackPR: \" + e.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_DBMS);\n    } catch (Exception ee) {\n        System.out.println(\"Error in method ottieniFeedbackPR: \" + ee.toString());\n        throw new RemoteException(MessaggiErrore.ERRORE_SCONOSCIUTO);\n    }\n    if (null == toReturn) {\n        throw new RemoteException(MessaggiErrore.ERRORE_FORMATO_BEAN);\n    }\n    return toReturn;\n}\n*/"
             }
         ],
         "constructors": [
@@ -65,13 +72,15 @@
                 "hasInnerComment": false,
                 "signature": "public GestioneTuristiAgenzia()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of GestioneTuristiAgenzia.\n * This constructor initializes the feedbackBC and feedbackPR objects by creating new instances of DBVisitaBC and DBVisitaPR.\n * If an exception occurs during the initialization process, a RemoteException with the error message \"ERRORE_SCONOSCIUTO\" is thrown.\n */"
             }
         ],
         "signature": "GestioneTuristiAgenzia",
         "variables": [
             "private IDBVisitaBC feedbackBC",
             "private IDBVisitaPR feedbackPR"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The GestioneTuristiAgenzia class is responsible for managing tourists within the agency system.\n * It provides methods to retrieve, activate, deactivate, and delete tourists from the database.\n * Additionally, it allows for the retrieval of feedback for tourists from both BC (Beach Club) and PR (Punto di Ristoro) locations.\n * \n * The class contains the following main functionalities:\n * 1. ottieniTuristi(): Retrieves a list of tourists from the database.\n * 2. attivaTurista(int pIdTurista): Activates a tourist with the specified ID.\n * 3. disattivaTurista(int pIdTurista): Deactivates a tourist with the specified ID.\n * 4. delete(int pIdTurista): Deletes a tourist from the database based on their ID.\n * 5. ottieniFeedbackBC(int pIdTurista): Retrieves feedback for a specific tourist from BC locations.\n * 6. ottieniFeedbackPR(int pIdTurista): Retrieves feedback for a specific tourist from PR locations.\n * \n * The class also initializes the feedbackBC and feedbackPR objects using instances of DBVisitaBC and DBVisitaPR in the constructor.\n * If an exception occurs during the initialization process, a RemoteException with the error message \"ERRORE_SCONOSCIUTO\" is thrown.\n * \n * Overall, GestioneTuristiAgenzia provides essential functionalities for managing tourists and their feedback within the agency system.\n */\n**/"
     }
 ]

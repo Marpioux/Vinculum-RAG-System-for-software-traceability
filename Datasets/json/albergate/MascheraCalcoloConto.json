@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Visualizza.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo i TextField e li rendo non editabili\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello in alto a destra\r\n, //Creo il pannello conto su una stanza\r\n, //Creo il pannello conto su un cliente\r\n, //Creo il pannello conto su piu' stanze\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Visualizza.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo i TextField e li rendo non editabili\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello in alto a destra\r\n, //Creo il pannello conto su una stanza\r\n, //Creo il pannello conto su un cliente\r\n, //Creo il pannello conto su piu' stanze\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the user interface by creating buttons, labels, text fields, checkboxes, and panels with specific layouts.\n * It sets the font for the panels, creates buttons for various actions, creates labels for different sections, creates text fields for user input,\n * creates checkboxes for user selection, and organizes all components within panels and attaches them to the main frame.\n * \n * This method does not have any parameters.\n * \n * This method does not return any value.\n */"
             },
             {
                 "body": "Optional[{\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                tipo_conto = 1;\r\n                testo[0].setEditable(true);\r\n                Visualizza.setEnabled(true);\r\n                for (int i = 1; i < 5; ++i) {\r\n                    testo[i].setEditable(false);\r\n                    testo[i].setText(\"\");\r\n                }\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                tipo_conto = 2;\r\n                Visualizza.setEnabled(true);\r\n                for (int i = 1; i < 4; ++i) testo[i].setEditable(true);\r\n                testo[0].setEditable(false);\r\n                testo[0].setText(\"\");\r\n                testo[4].setEditable(false);\r\n                testo[4].setText(\"\");\r\n            }\r\n        }\r\n    });\r\n    checkboxes[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[2].getState()) {\r\n                tipo_conto = 3;\r\n                Visualizza.setEnabled(true);\r\n                testo[4].setEditable(true);\r\n                for (int i = 0; i < 4; ++i) {\r\n                    testo[i].setEditable(false);\r\n                    testo[i].setText(\"\");\r\n                }\r\n            }\r\n        }\r\n    });\r\n    checkboxes[3].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (!checkboxes[3].getState()) {\r\n                testo[5].setEditable(false);\r\n                testo[5].setText(\"\");\r\n            } else {\r\n                testo[5].setEditable(true);\r\n                testo[5].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(new Date())));\r\n            }\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    Visualizza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startVisualizza();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the checkboxes and text fields based on the selected item.\n * \n * This method sets up the behavior for each checkbox item listener, updating the text fields accordingly.\n * If the first checkbox is selected, it enables the first text field and disables the rest.\n * If the second checkbox is selected, it enables the second to fourth text fields and disables the first and fifth.\n * If the third checkbox is selected, it enables the fifth text field and disables the first to fourth.\n * If the fourth checkbox is not selected, it disables the sixth text field, otherwise, it enables it with the current date.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        tipo_conto = 1;\r\n        testo[0].setEditable(true);\r\n        Visualizza.setEnabled(true);\r\n        for (int i = 1; i < 5; ++i) {\r\n            testo[i].setEditable(false);\r\n            testo[i].setText(\"\");\r\n        }\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state has changed in the checkboxes. \n * It sets the type of account to 1 if the first checkbox is selected, enables the text field for the first checkbox, \n * enables the 'Visualizza' button, and disables and clears the text fields for the other checkboxes. \n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        tipo_conto = 2;\r\n        Visualizza.setEnabled(true);\r\n        for (int i = 1; i < 4; ++i) testo[i].setEditable(true);\r\n        testo[0].setEditable(false);\r\n        testo[0].setText(\"\");\r\n        testo[4].setEditable(false);\r\n        testo[4].setText(\"\");\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state is changed in a checkbox. \n * It checks if the second checkbox is selected, sets the account type to 2, enables a button called Visualizza, \n * and allows editing for text fields 1 to 3 while disabling editing for text fields 0 and 4. \n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[2].getState()) {\r\n        tipo_conto = 3;\r\n        Visualizza.setEnabled(true);\r\n        testo[4].setEditable(true);\r\n        for (int i = 0; i < 4; ++i) {\r\n            testo[i].setEditable(false);\r\n            testo[i].setText(\"\");\r\n        }\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state is changed in the checkboxes. \n * It checks if the third checkbox is selected, sets the tipo_conto variable to 3, enables the Visualizza button, \n * and allows editing of the fourth text field. It also disables editing and clears the text of the other text fields. \n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!checkboxes[3].getState()) {\r\n        testo[5].setEditable(false);\r\n        testo[5].setText(\"\");\r\n    } else {\r\n        testo[5].setEditable(true);\r\n        testo[5].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(new Date())));\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state is changed in a checkbox. \n * If the state of the fourth checkbox is not selected, it disables the fifth text field and clears its text. \n * If the state of the fourth checkbox is selected, it enables the fifth text field and sets its text to the current date.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It is typically called when an action event occurs, such as clicking a button.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startVisualizza();\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the startVisualizza() method to begin displaying visual content.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errori()) {\r\n        this.setEnabled(false);\r\n        if (checkboxes[0].getState())\r\n            startContoStanza();\r\n        else {\r\n            if (checkboxes[1].getState()) {\r\n                startContoSingolo();\r\n            } else\r\n                startContoComitiva();\r\n        }\r\n        displayConto();\r\n    }\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void startVisualizza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current visualizza window and starts the appropriate conto based on the selected checkboxes.\n * If there are no errors, this method will disable the current window, check the state of checkboxes, and start the corresponding conto:\n * - If the first checkbox is selected, it will start the conto stanza.\n * - If the second checkbox is selected, it will start the conto singolo.\n * - If neither checkbox is selected, it will start the conto comitiva.\n * Finally, it will display the conto on the screen.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    visual = new MascheraVisualizzazioneConto(testo[0].getText(), testo[1].getText(), testo[2].getText(), testo[3].getText(), testo[4].getText(), tipo_conto);\r\n    visual.setVisible(true);\r\n    visual.conto = this;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void displayConto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Displays the account information in a visual form.\n * This method creates a new instance of MascheraVisualizzazioneConto \n * and sets the text fields with the values from the testo array.\n * The type of account is also passed to the visual form.\n * \n * @param testo an array of Strings containing account information\n * @param tipo_conto the type of account\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    ListaSoggiornanti L_sogg;\r\n    if ((stanza).equals(\"\")) {\r\n        msg = new AvvisoDialog(this, \" Inserire il numero di stanza \");\r\n        return true;\r\n    } else if ((Principale.db).readStanza(stanza) == null) {\r\n        msg = new MessageDialog(this, \" La stanza \" + stanza + \" e' inesistente! \");\r\n        return true;\r\n    } else {\r\n        L_sogg = (Principale.db).foundSoggiornanti(stanza, false);\r\n        if (L_sogg == null) {\r\n            msg = new MessageDialog(this, \" Problemi con il database! \");\r\n            return true;\r\n        } else if (L_sogg.length() == 0) {\r\n            msg = new MessageDialog(this, \" La stanza \" + stanza + \" non e' attualmente occupata \");\r\n            return true;\r\n        }\r\n    }\r\n    return false;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean problemiStanza(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if there are any issues with the specified room number.\n * \n * @param stanza the room number to be checked\n * @return true if there are issues with the room number, false otherwise\n * \n * The method first checks if the room number is empty and displays a message if it is.\n * It then checks if the room number exists in the database and displays a message if it does not.\n * If the room number exists, it retrieves a list of occupants for that room.\n * If there are any issues with the database or if the room is not currently occupied, \n * appropriate messages are displayed.\n * \n * @see Frame\n * @see ListaSoggiornanti\n * @see AvvisoDialog\n * @see MessageDialog\n */"
             },
             {
                 "body": "Optional[{\r\n    for (int i = 0; i < L_st.length; i++) for (int j = 0; j < L_st.length; j++) if ((!L_st[i].equals(\"\")) && (!L_st[j].equals(\"\")) && (i != j) && (L_st[i].equals(L_st[j])))\r\n        return j;\r\n    return -1;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " int chkDouble()",
                 "comments": "Optional[//\tcontrolla che nella lista non vi siano stanze ripetute piu' volte\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for duplicate elements in an array of strings.\n * \n * @return the index of the first duplicate element found in the array, or -1 if no duplicates are found\n */"
             },
             {
                 "body": "Optional[{\r\n    Date data_fine_stanza = null;\r\n    Date fine_sogg = null;\r\n    Date[] date_fine_loc = new Date[elenco.length];\r\n    for (int i = 0; i < elenco.length; i++) {\r\n        ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(elenco[i], false);\r\n        if (L_sogg != null) {\r\n            data_fine_stanza = new Date(0, 0, 1);\r\n            for (int j = 1; j <= L_sogg.length(); j++) {\r\n                fine_sogg = L_sogg.getSoggiornante(j).getFineSogg();\r\n                if (Utils.data1MaggioreData2(fine_sogg, data_fine_stanza))\r\n                    data_fine_stanza = new Date(fine_sogg.getYear(), fine_sogg.getMonth(), fine_sogg.getDate());\r\n            }\r\n            date_fine_loc[i] = data_fine_stanza;\r\n        } else\r\n            return null;\r\n    }\r\n    return date_fine_loc;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": " Date[] tornaDateFineMagg(String[])",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an array of Date objects representing the end dates of the stays for each room in the given list of room numbers.\n * If a room number is not found in the database, null is returned for that room.\n * \n * @param elenco an array of Strings representing the room numbers\n * @return an array of Date objects representing the end dates of the stays for each room, or null if a room number is not found\n */\nDate[] tornaDateFineMagg(String[] elenco) {\n    Date data_fine_stanza = null;\n    Date fine_sogg = null;\n    Date[] date_fine_loc = new Date[elenco.length];\n    for (int i = 0; i < elenco.length; i++) {\n        ListaSoggiornanti L_sogg = (Principale.db).trovaSoggiornanti(elenco[i], false);\n        if (L_sogg != null) {\n            data_fine_stanza = new Date(0, 0, 1);\n            for (int j = 1; j <= L_sogg.length(); j++) {\n                fine_sogg = L_sogg.getSoggiornante(j).getFineSogg();\n                if (Utils.data1MaggioreData2(fine_sogg, data_fine_stanza))\n                    data_fine_stanza = new Date(fine_sogg.getYear(), fine_sogg.getMonth(), fine_sogg.getDate());\n            }\n            date_fine_loc[i] = data_fine_stanza;\n        } else\n            return null;\n    }\n    return date_fine_loc;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Date data_inizio_stanza = null;\r\n    Date inizio_sogg = null;\r\n    Date[] date_inizio_loc = new Date[elenco.length];\r\n    for (int i = 0; i < elenco.length; i++) {\r\n        ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(elenco[i], false);\r\n        if (L_sogg != null) {\r\n            data_inizio_stanza = new Date(3000, 0, 1);\r\n            for (int j = 1; j <= L_sogg.length(); j++) {\r\n                inizio_sogg = L_sogg.getSoggiornante(j).getInizioSogg();\r\n                if (Utils.data1MinoreData2(inizio_sogg, data_inizio_stanza))\r\n                    data_inizio_stanza = new Date(inizio_sogg.getYear(), inizio_sogg.getMonth(), inizio_sogg.getDate());\r\n            }\r\n            date_inizio_loc[i] = data_inizio_stanza;\r\n        } else\r\n            return null;\r\n    }\r\n    return date_inizio_loc;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": " Date[] tornaDateInizioMin(String[])",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method takes an array of strings representing room numbers and returns an array of Date objects representing the minimum start date of each room's occupants.\n * It iterates through each room number, retrieves the list of occupants for that room, and finds the earliest start date among them.\n * If the list of occupants is empty or null for a room, it returns null for that room's start date.\n * \n * @param elenco an array of strings representing room numbers\n * @return an array of Date objects representing the minimum start date of each room's occupants\n */"
             },
             {
                 "body": "Optional[{\r\n    qualcuno_tramite_agenzia = false;\r\n    qualcuno_senza_agenzia = false;\r\n    Prenotazione pren;\r\n    for (int i = 0; i < elenco.length; i++) {\r\n        ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(elenco[i], false);\r\n        if (L_sogg != null) {\r\n            for (int j = 1; j <= L_sogg.length(); j++) {\r\n                pren = (Principale.db).readPrenotazione((L_sogg.getSoggiornante(j)).getIdPrenotazione());\r\n                if (pren == null)\r\n                    return false;\r\n                else {\r\n                    if (pren.getTramiteAgenzia() == Const.SI)\r\n                        qualcuno_tramite_agenzia = qualcuno_tramite_agenzia || true;\r\n                    else\r\n                        qualcuno_senza_agenzia = qualcuno_tramite_agenzia || true;\r\n                }\r\n            }\r\n        } else\r\n            return false;\r\n    }\r\n    return true;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean aggiornamentoFlagsEffettuato(String[])",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Verifies if at least one reservation in the given list is made through an agency or not.\n * \n * @param elenco the list of reservation IDs to be checked\n * @return true if at least one reservation is made through an agency, false otherwise\n */\nboolean aggiornamentoFlagsEffettuato(String[] elenco) {\n    boolean qualcuno_tramite_agenzia = false;\n    boolean qualcuno_senza_agenzia = false;\n    Prenotazione pren;\n    \n    for (int i = 0; i < elenco.length; i++) {\n        ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(elenco[i], false);\n        \n        if (L_sogg != null) {\n            for (int j = 1; j <= L_sogg.length(); j++) {\n                pren = (Principale.db).readPrenotazione((L_sogg.getSoggiornante(j)).getIdPrenotazione());\n                \n                if (pren == null)\n                    return false;\n                else {\n                    if (pren.getTramiteAgenzia() == Const.SI)\n                        qualcuno_tramite_agenzia = true;\n                    else\n                        qualcuno_senza_agenzia = true;\n                }\n            }\n        } else {\n            return false;\n        }\n    }\n    \n    return qualcuno_tramite_agenzia;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    Soggiornante sogg = new Soggiornante();\r\n    if (checkboxes[0].getState()) {\r\n        if (problemiStanza(testo[0].getText()))\r\n            return true;\r\n        L_st = new String[1];\r\n        L_st[0] = new String(testo[0].getText());\r\n    } else if (checkboxes[1].getState()) {\r\n        L_st = new String[1];\r\n        L_st[0] = new String(testo[3].getText());\r\n        sogg = (Principale.db).foundSoggiornante(testo[3].getText(), testo[2].getText(), testo[1].getText());\r\n        if (sogg == null) {\r\n            msg = new AvvisoDialog(this, \" Nessun soggiornante presente nella stanza \" + testo[3].getText() + \" risponde al nominativo inserito! \");\r\n            return true;\r\n        }\r\n        ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(testo[3].getText(), false);\r\n        if (L_sogg == null) {\r\n            msg = new MessageDialog(this, \" Problemi con il database! \");\r\n            return true;\r\n        }\r\n        if (sogg.getPagato() == Const.SI) {\r\n            msg = new AvvisoDialog(this, \" Il soggiornante selezionato o ha gia' pagato o se ne e' gia' andato! \");\r\n            return true;\r\n        } else {\r\n            // procedo con il verificare se il cliente e' l'ultimo rimasto\r\n            ListaSoggiornanti sogg_no_pagato = new ListaSoggiornanti();\r\n            for (int i = 1; i <= L_sogg.length(); i++) if (L_sogg.getSoggiornante(i).getPagato() == Const.NO)\r\n                sogg_no_pagato.addSoggiornante(L_sogg.getSoggiornante(i));\r\n            if (sogg_no_pagato.length() == 1) {\r\n                msg = new AvvisoDialog(this, \" Il soggiornante e' l'ultimo rimasto. Scegliere 'conto per stanza'! \");\r\n                return true;\r\n            }\r\n            sogg_x_conto_sing = sogg;\r\n        }\r\n    } else if (checkboxes[2].getState()) {\r\n        L_st = Utils.parseStanze(testo[4].getText());\r\n        if (L_st == null) {\r\n            msg = new MessageDialog(this, \" Errore nell'elenco delle stanze. Inserire le stanze nell'elenco nel modo seguente: 101,102,103,...\");\r\n            return true;\r\n        } else {\r\n            Stanza room;\r\n            for (int i = 0; i < L_st.length; i++) if (problemiStanza(L_st[i]))\r\n                return true;\r\n            int res = chkDouble();\r\n            if (res != -1) {\r\n                msg = new MessageDialog(this, \" Errore nell'elenco delle stanze. La stanza \" + L_st[res] + \" e presente piu' volte nell'elenco! \");\r\n                return true;\r\n            }\r\n        }\r\n    }\r\n    if (checkboxes[0].getState() || checkboxes[2].getState()) {\r\n        date_fine = tornaDateFineMagg(L_st);\r\n        date_inizio = tornaDateInizioMin(L_st);\r\n    } else {\r\n        Prenotazione pren = (Principale.db).readPrenotazione(sogg.getIdPrenotazione());\r\n        if (pren != null) {\r\n            date_fine = new Date[1];\r\n            date_inizio = new Date[1];\r\n            date_fine[0] = sogg.getFineSogg();\r\n            date_inizio[0] = sogg.getInizioSogg();\r\n        } else\r\n            date_fine = null;\r\n    }\r\n    if (date_fine == null || date_inizio == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n        return true;\r\n    }\r\n    // la variabile data_fine contiene le date di fine corrette\r\n    data_fine_magg = new Date(0, 0, 1);\r\n    for (int i = 0; i < date_fine.length; i++) if (Utils.data1MaggioreData2(date_fine[i], data_fine_magg))\r\n        data_fine_magg = date_fine[i];\r\n    // ora la variabile data_fine_magg contiene la data di fine maggiore\r\n    if (!aggiornamentoFlagsEffettuato(L_st)) {\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n        return true;\r\n    }\r\n    // da ora in poi le flags per l'agenzia contengono valori significativi\r\n    // questo if deve essere messo prima di quello che segue\r\n    if (qualcuno_tramite_agenzia && qualcuno_senza_agenzia) {\r\n        msg = new MessageDialog(this, \" L'elenco delle stanze include stanze commissionate e non! Procedere al calcolo separato. \");\r\n        return true;\r\n    }\r\n    // L'if che segue deve essere posto dopo a quello che precede\r\n    if (checkboxes[2].getState() && qualcuno_tramite_agenzia) {\r\n        msg = new MessageDialog(this, \" Il conto comitiva non e' possibile per le agenzie! \");\r\n        return true;\r\n    }\r\n    // se arrivo qui significa che si puo' fare il conto normale,\r\n    // rimane da verificare se si desidera fare una partenza anticipata\r\n    // e in tal caso verificare che la data inserita sia corretta!\r\n    if ((checkboxes[3].getState()) && (DateUtils.dataCorretta(testo[5].getText()))) {\r\n        Date data = DateUtils.convertDate(testo[5].getText());\r\n        Date data_oggi = new Date();\r\n        // controllo che la data di partenza anticipata abbia senso:\r\n        // 1) controllo che il cliente abbia soggiornato almento un giorno\r\n        for (int i = 0; i < date_inizio.length; i++) if (Utils.data1MaggioreData2(date_inizio[i], DateUtils.giornoPrimaDi(data))) {\r\n            msg = new MessageDialog(this, \" I clienti devono soggiornare almeno un giorno prima di partire! \");\r\n            return true;\r\n        }\r\n        // 2) controllo che la partenza anticipata non sia prima di oggi\r\n        if (Utils.data1MinoreData2(data, data_oggi)) {\r\n            msg = new AvvisoDialog(this, \" La data non puo' essere precedente a quella odierna! \");\r\n            testo[5].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(data_oggi)));\r\n            return true;\r\n        } else\r\n            // 3)  controllo che il fine soggiorno anticipato (ossia il giorno prima della\r\n            //     partenza anticipata) non sia dopo il fine soggiorno effettivo\r\n            for (int i = 0; i < date_fine.length; i++) if (Utils.data1MaggioreData2(data, date_fine[i])) {\r\n                msg = new AvvisoDialog(this, \" Non si tratta di una partenza anticipata per la stanza \" + L_st[i] + \" con tale data! \");\r\n                testo[5].setText(DateUtils.parseDate(DateUtils.giveStringOfDate(data_oggi)));\r\n                return true;\r\n            }\r\n        fine_sogg_anticipato = DateUtils.giornoPrimaDi(data);\r\n    } else {\r\n        if ((checkboxes[3].getState()) && !DateUtils.dataCorretta(testo[5].getText())) {\r\n            msg = new MessageDialog(this, \" La data di partenza anticipata e' errata! \");\r\n            return true;\r\n        } else {\r\n            // il checkboxes[3] non e' attivo\r\n            fine_sogg_anticipato = data_fine_magg;\r\n            if (qualcuno_tramite_agenzia && checkboxes[1].getState()) {\r\n                msg = new MessageDialog(this, \" Il cliente e' in una stanza di agenzia! Se deve andarsene scegliere 'partenza anticipata'. \");\r\n                return true;\r\n            }\r\n        }\r\n    }\r\n    return false;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": true,
                 "signature": " boolean errori()",
                 "comments": null,
-                "innerComments": "Optional[[// la variabile data_fine contiene le date di fine corrette\r\n, // ora la variabile data_fine_magg contiene la data di fine maggiore\r\n, // da ora in poi le flags per l'agenzia contengono valori significativi\r\n, // se arrivo qui significa che si puo' fare il conto normale,\r\n, // rimane da verificare se si desidera fare una partenza anticipata\r\n, // procedo con il verificare se il cliente e' l'ultimo rimasto\r\n, // questo if deve essere messo prima di quello che segue\r\n, // L'if che segue deve essere posto dopo a quello che precede\r\n, // e in tal caso verificare che la data inserita sia corretta!\r\n, // controllo che la data di partenza anticipata abbia senso:\r\n, // 1) controllo che il cliente abbia soggiornato almento un giorno\r\n, // 2) controllo che la partenza anticipata non sia prima di oggi\r\n, // 3)  controllo che il fine soggiorno anticipato (ossia il giorno prima della\r\n, //     partenza anticipata) non sia dopo il fine soggiorno effettivo\r\n, // il checkboxes[3] non e' attivo\r\n]]"
+                "innerComments": "Optional[[// la variabile data_fine contiene le date di fine corrette\r\n, // ora la variabile data_fine_magg contiene la data di fine maggiore\r\n, // da ora in poi le flags per l'agenzia contengono valori significativi\r\n, // se arrivo qui significa che si puo' fare il conto normale,\r\n, // rimane da verificare se si desidera fare una partenza anticipata\r\n, // procedo con il verificare se il cliente e' l'ultimo rimasto\r\n, // questo if deve essere messo prima di quello che segue\r\n, // L'if che segue deve essere posto dopo a quello che precede\r\n, // e in tal caso verificare che la data inserita sia corretta!\r\n, // controllo che la data di partenza anticipata abbia senso:\r\n, // 1) controllo che il cliente abbia soggiornato almento un giorno\r\n, // 2) controllo che la partenza anticipata non sia prima di oggi\r\n, // 3)  controllo che il fine soggiorno anticipato (ossia il giorno prima della\r\n, //     partenza anticipata) non sia dopo il fine soggiorno effettivo\r\n, // il checkboxes[3] non e' attivo\r\n]]",
+                "generated_comment": "/**\n * This method checks for any errors in the input data provided by the user.\n * It validates the input based on the selected checkboxes and performs various checks to ensure data consistency.\n * \n * @return true if any errors are found in the input data, false otherwise\n */\nboolean errori() {\n    // method body implementation\n}\n```"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!qualcuno_tramite_agenzia) {\r\n        if (checkboxes[3].getState())\r\n            CalcoloConto.calcolaContoStanza(testo[0].getText(), 1, false, fine_sogg_anticipato);\r\n        else\r\n            CalcoloConto.calcolaContoStanza(testo[0].getText(), 1, false, null);\r\n    } else {\r\n        CalcoloConto.calcolaContoStanzaAgenzia(testo[0].getText());\r\n    }\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": " void startContoStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the process of calculating the bill for a room stay. \n * If the stay was not booked through an agency, it calculates the bill based on the specified parameters. \n * If the stay was booked through an agency, it calculates the bill using agency-specific calculations. \n * \n * @param testo The text input for the room stay details.\n * @param checkboxes The checkboxes indicating special conditions for the stay.\n * @param qualcuno_tramite_agenzia A boolean flag indicating if the stay was booked through an agency.\n * @param fine_sogg_anticipato A boolean flag indicating if the stay has an early checkout.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (qualcuno_tramite_agenzia) {\r\n        Frame msg;\r\n        Date fine_effettiva;\r\n        if (checkboxes[3].getState())\r\n            fine_effettiva = fine_sogg_anticipato;\r\n        else\r\n            fine_effettiva = data_fine_magg;\r\n        if (Utils.data1MinoreData2(fine_effettiva, new Date()))\r\n            msg = new AskChiudiSingoloConAgenzia(this);\r\n        else\r\n            msg = new MessageDialog(this, \" La data e' posteriore ad oggi: non e' possibile chiudere! \");\r\n        return;\r\n    } else if ((checkboxes[3].getState()))\r\n        CalcoloConto.calcolaContoSingolo(sogg_x_conto_sing, fine_sogg_anticipato);\r\n    else\r\n        CalcoloConto.calcolaContoSingolo(sogg_x_conto_sing, null);\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": " void startContoSingolo()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the process of closing a single account.\n * If the account is managed through an agency, a message is displayed indicating whether it is possible to close the account based on the selected end date.\n * If the end date is before the current date, a confirmation dialog is displayed to close the account with the agency.\n * If the end date is after the current date, a message dialog is displayed indicating that it is not possible to close the account.\n * If the account is not managed through an agency, the account calculation is performed based on the selected end date.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((checkboxes[3].getState()))\r\n        CalcoloConto.calcolaContoComitiva(L_st, fine_sogg_anticipato);\r\n    else\r\n        CalcoloConto.calcolaContoComitiva(L_st, null);\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": " void startContoComitiva()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the process of calculating the bill for a group of guests staying at a lodging establishment. \n * If the checkbox for early departure is selected, the bill will be calculated based on the early departure date provided.\n * If the checkbox is not selected, the bill will be calculated based on the standard departure date.\n * \n * @param checkboxes an array of checkboxes representing various options selected by the user\n * @param L_st the standard departure date for the group\n * @param fine_sogg_anticipato the early departure date for the group, if selected\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[3].getState()) {\r\n        Date new_data = DateUtils.convertDate(testo[5].getText());\r\n        new_data = DateUtils.giornoPrimaDi(new_data);\r\n        (Principale.db).anticipaFineSogg(sogg_x_conto_sing.getNumStanza(), sogg_x_conto_sing.getIdSoggiornante(), new_data);\r\n    }\r\n    (Principale.db).reversePagato(sogg_x_conto_sing.getNumStanza(), sogg_x_conto_sing.getIdSoggiornante());\r\n    for (int i = 0; i < testo.length - 1; i++) testo[i].setText(\"\");\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": " void startChiudiSingoloConAgenzia()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the process of closing a single stay with an agency. \n * It checks if a specific checkbox is selected, and if so, it anticipates the end date of the stay for the corresponding guest by one day. \n * It then reverses the payment status for the guest and clears the text fields in the user interface. \n * \n * @param checkboxes an array of checkboxes representing different options in the user interface\n * @param testo an array of text fields in the user interface\n * @param sogg_x_conto_sing the guest associated with the stay\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -169,7 +189,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraCalcoloConto(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraCalcoloConto object with the specified parent Frame.\n * \n * @param parent the parent Frame for the MascheraCalcoloConto object\n * \n * This constructor initializes the MascheraCalcoloConto object with the title \"Calcolo del Conto\",\n * disables the parent Frame, sets up the necessary panels, initializes the object, and packs it.\n */"
             }
         ],
         "signature": "MascheraCalcoloConto",
@@ -202,6 +223,7 @@
             " int tipo_conto",
             " boolean qualcuno_tramite_agenzia",
             " boolean qualcuno_senza_agenzia"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraCalcoloConto class represents a user interface for calculating bills in a lodging establishment.\n * It provides functionality for selecting different types of accounts, entering relevant information, and generating bills.\n * The class includes methods for setting up panels with buttons, labels, text fields, and checkboxes, initializing the user interface,\n * handling item state changes in checkboxes, starting the bill calculation process, and displaying account information visually.\n * \n * This class contains constructors for creating a new instance of the user interface with a specified parent Frame.\n * It also includes variables for buttons, text fields, labels, panels, checkboxes, layout, parent Frame, visual display, account details,\n * and flags for agency bookings. \n * \n * The main functionalities of this class include:\n * - Setting up panels for the user interface with specific components and layouts\n * - Initializing checkboxes and text fields based on user selections\n * - Handling item state changes in checkboxes to update text fields and enable/disable buttons\n * - Starting the bill calculation process based on selected account types and input data\n * - Displaying account information visually in a separate window\n * - Checking for errors in user input data and displaying relevant messages\n * - Calculating bills for single room stays, individual guests, and group bookings\n * - Handling early departures, agency bookings, and special conditions for bill calculations\n * \n * This class encapsulates the functionality for managing bill calculations in a lodging establishment,\n * providing a user-friendly interface for inputting data, generating bills, and displaying account information.\n * \n * @see Button\n * @see TextField\n * @see Label\n * @see Panel\n * @see Checkbox\n * @see GridBagLayout\n * @see Frame\n * @see MascheraVisualizzazioneConto\n * @see Soggiornante\n * @see Date\n * @see CalcoloConto\n */\n */"
     }
 ]

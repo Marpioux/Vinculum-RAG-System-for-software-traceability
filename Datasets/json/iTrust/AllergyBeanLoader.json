@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<AllergyBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of AllergyBeans from a ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into AllergyBeans\n * @return a List of AllergyBeans populated with data from the ResultSet\n */\npublic List<AllergyBean> loadList(ResultSet rs) {\n    ArrayList<AllergyBean> list = new ArrayList<AllergyBean>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    AllergyBean allergy = new AllergyBean();\r\n    allergy.setId(rs.getLong(\"ID\"));\r\n    allergy.setPatientID(rs.getLong(\"PatientID\"));\r\n    allergy.setDescription(rs.getString(\"Description\"));\r\n    allergy.setFirstFound(rs.getTimestamp(\"FirstFound\"));\r\n    return allergy;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public AllergyBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single AllergyBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to load into the AllergyBean object\n * @return the AllergyBean object loaded with data from the ResultSet\n */\npublic AllergyBean loadSingle(ResultSet rs) {\n    AllergyBean allergy = new AllergyBean();\n    allergy.setId(rs.getLong(\"ID\"));\n    allergy.setPatientID(rs.getLong(\"PatientID\"));\n    allergy.setDescription(rs.getString(\"Description\"));\n    allergy.setFirstFound(rs.getTimestamp(\"FirstFound\"));\n    return allergy;\n}"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, AllergyBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of an AllergyBean into a PreparedStatement.\n * \n * @param ps the PreparedStatement to load the parameters into\n * @param allergyBean the AllergyBean containing the parameters to be loaded\n * @return the PreparedStatement with the parameters loaded\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n */"
             }
         ],
         "constructors": [],
         "signature": "AllergyBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The AllergyBeanLoader class is responsible for loading AllergyBean objects from a ResultSet,\n * as well as loading the parameters of an AllergyBean into a PreparedStatement.\n * \n * This class provides the following main functionalities:\n * - Loading a list of AllergyBeans from a ResultSet using the loadList method\n * - Loading a single AllergyBean object from a ResultSet using the loadSingle method\n * - Loading the parameters of an AllergyBean into a PreparedStatement using the loadParameters method\n * \n * The behavior of this class is as follows:\n * - The loadList method iterates over the ResultSet and populates a List of AllergyBeans with the data\n * - The loadSingle method creates a single AllergyBean object with data from the ResultSet\n * - The loadParameters method is currently unimplemented and will throw an IllegalStateException if called\n * \n * This class provides essential functionality for working with AllergyBeans and handling database operations.\n */\npublic class AllergyBeanLoader {\n    // Class implementation\n}\n*/"
     }
 ]

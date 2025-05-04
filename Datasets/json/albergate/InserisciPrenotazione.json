@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init(Stanza, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components with the given room information, start and end dates, and agency name.\n * \n * @param room the room object containing information to be displayed\n * @param data_i the start date of the booking\n * @param data_f the end date of the booking\n * \n * The method sets the text fields with the room number, start and end dates, description, current date, and agency name.\n * It also configures the text fields to be non-editable based on certain conditions.\n * Additionally, it sets the state of a checkbox and adds action listeners to two buttons for canceling or performing an action.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    mask_ricerca.setEnabled(true);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the mask_ricerca component.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the mask_ricerca component. \n * It is typically called when an action event occurs, such as a button click. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startAzione() method to begin the action.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    AskDialog ask;\r\n    int answer = 0;\r\n    if (!errori()) {\r\n        Prenotazione pren = readDatiPren();\r\n        pren.setDataPren(new Date());\r\n        int j;\r\n        if ((j = (Principale.db).newIdPrenotazione()) == DataBase.OK) {\r\n            (Principale.config).updateIdPrenotazione();\r\n            if ((j = (Principale.db).writePrenotazione(pren)) == DataBase.OK) {\r\n                if (!myCheckbox1.getState())\r\n                    ask = new AskDialog(this, \" Assegnare la stanza o Bloccarla fino al ricevimento della caparra? \", \" Assegnare \", \" Bloccare \", pren);\r\n                else\r\n                    startAggiornaDisp(pren, Flag.ASSEGNATA);\r\n            } else\r\n                msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the process of creating a new reservation. It checks for any errors, reads the reservation data, sets the reservation date, generates a new reservation ID, updates the ID counter, writes the reservation to the database, and prompts the user to assign a room or block it until a deposit is received. If successful, it either creates a dialog for room assignment or calls another method to update the availability status of the room. If there are any database errors, it displays an error message.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    aggiornaDisp(p, tipo);\r\n    dispose();\r\n    mask_ricerca.restartAvvio();\r\n    mask_ricerca.setEnabled(true);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAggiornaDisp(Prenotazione, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the availability of a reservation and performs necessary actions to restart the search mask.\n * \n * @param prenotazione the reservation to update availability for\n * @param tipo the type of update to perform\n * \n * @return void\n */\nvoid startAggiornaDisp(Prenotazione prenotazione, char tipo) {\n    aggiornaDisp(prenotazione, tipo);\n    dispose();\n    mask_ricerca.restartAvvio();\n    mask_ricerca.setEnabled(true);\n}\n*/"
             }
         ],
         "constructors": [
@@ -49,13 +54,15 @@
                 "hasInnerComment": false,
                 "signature": "public InserisciPrenotazione(Stanza, String, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a new InserisciPrenotazione object with the specified room, start date, end date, and agency name.\n * \n * @param room the room for the reservation\n * @param data_i the start date of the reservation\n * @param data_f the end date of the reservation\n * @param nome_ag the name of the agency making the reservation\n * \n * The constructor initializes the InserisciPrenotazione object by calling the superclass constructor with the provided parameters.\n * It also sets the agency name and initializes the reservation details.\n */"
             }
         ],
         "signature": "InserisciPrenotazione",
         "variables": [
             " MascheraRicercaStanza mask_ricerca",
             " String agenzia"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The InserisciPrenotazione class represents a GUI interface for inserting reservation data.\n * It provides methods for initializing the reservation details, handling user actions, and updating reservation availability.\n * \n * This class includes the following functionalities:\n * - Initializing reservation details such as room number, dates, and agency name\n * - Handling user actions for confirming or canceling the reservation\n * - Updating reservation availability based on user choices\n * \n * The main behavior of this class involves displaying a form for entering reservation details, validating the input data,\n * and processing the reservation request by interacting with the database.\n * \n * Note: This class extends a superclass that provides common functionality for managing reservations.\n */\n**/"
     }
 ]

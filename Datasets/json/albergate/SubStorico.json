@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the graphical user interface for the application.\n * This method sets the font to a predefined system font, creates and configures two panels,\n * adds buttons to one of the panels, and lays out the components using GridBagLayout and GridLayout.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            start_ricerca();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up the action listeners for the \"Annulla\" and \"Ricerca\" buttons.\n * \n * This method adds an ActionListener to the \"Annulla\" button that disposes of the current window and enables a specified component.\n * It also adds an ActionListener to the \"Ricerca\" button that calls the start_ricerca() method.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables a specified component.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    start_ricerca();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the start_ricerca() method to initiate a search process.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new MascheraRicercaStorico(this);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void start_ricerca()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes a new instance of MascheraRicercaStorico and assigns it to the variable figlio.\n * This method is used to start the search process in the application.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": true,
                 "signature": "public SubStorico()",
                 "comments": null,
-                "innerComments": "[//setVisible(true);\r\n]"
+                "innerComments": "[//setVisible(true);\r\n]",
+                "generated_comment": "/**\n * Constructs a new SubStorico object with the title \"Storico Clienti\".\n * This constructor calls the superclass constructor with the specified title,\n * then sets up the GUI components, initializes the object, and packs the components.\n * Note that the visibility of the SubStorico object is commented out and needs to be uncommented\n * in order to make the object visible on the screen.\n */"
             }
         ],
         "signature": "SubStorico",
@@ -62,6 +68,7 @@
             " GridBagLayout gridbag",
             " Frame p",
             " Frame figlio"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubStorico class represents a graphical user interface for managing historical client data.\n * This class includes methods for setting up the GUI components, initializing the object, and handling action events.\n * The main functionalities of this class include creating and configuring panels, adding buttons, setting up action listeners,\n * and initiating search processes. The class utilizes GridBagLayout and GridLayout for laying out components.\n * \n * The SubStorico class contains the following variables:\n * - Label label\n * - Panel panel0\n * - Panel panel1\n * - Button Ricerca\n * - Button Annulla\n * - GridBagLayout gridbag\n * - Frame p\n * - Frame figlio\n * \n * The class includes the following methods:\n * - void setup(): Sets up the graphical user interface by configuring panels, adding buttons, and laying out components.\n * - void init(): Initializes GUI components and sets up action listeners for the \"Annulla\" and \"Ricerca\" buttons.\n * - public void actionPerformed(ActionEvent): Disposes of the current window and enables a specified component.\n * - void start_ricerca(): Initializes a new instance of MascheraRicercaStorico to start the search process.\n * \n * The SubStorico class also includes a constructor that constructs a new SubStorico object with the title \"Storico Clienti\".\n * The constructor sets up the GUI components, initializes the object, and packs the components. Note that the visibility\n * of the SubStorico object is commented out and needs to be uncommented to make the object visible on the screen.\n */"
     }
 ]

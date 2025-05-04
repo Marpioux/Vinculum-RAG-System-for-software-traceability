@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Disabilita i TextField\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Disabilita i TextField\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for displaying and editing billing information.\n * This method initializes labels, text fields, buttons, and panels, and sets their properties.\n * The billing information includes room number, description, quantity, charge per item, and total charges for the room.\n * The method also creates a button for navigating back to the previous screen.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    writeDatiTel();\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the object by writing telephone data and setting up an ActionListener for the \"Annulla\" button.\n * This method calls the writeDatiTel() method to write telephone data and sets up an ActionListener for the \"Annulla\" button to dispose of the current window and enable the parent window.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    String d = new String(\"\");\r\n    BeneServizio extra = (Principale.db).readBeneServizio(add.getCodExtra());\r\n    if (extra == null)\r\n        d = new String(\"\");\r\n    else\r\n        d = new String(extra.getDescrizione());\r\n    num_stanza.setText(add.getNumStanza());\r\n    desc.setText(d);\r\n    quantita.setText(\"\" + add.getQuantita());\r\n    tot.setText(\"\" + add.getTotAddebito());\r\n    tot_addebiti.setText(\"\" + addebiti_totali);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " void writeDatiTel()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes data related to a telephone service to the user interface.\n * Retrieves the description of the additional service associated with the given code and displays it.\n * Sets the room number, description, quantity, total addebito, and total addebiti on the UI components.\n * \n * @param add the additional service object containing the necessary data\n */ \nvoid writeDatiTel() {\n    String d = new String(\"\");\n    BeneServizio extra = (Principale.db).readBeneServizio(add.getCodExtra());\n    if (extra == null)\n        d = new String(\"\");\n    else\n        d = new String(extra.getDescrizione());\n    num_stanza.setText(add.getNumStanza());\n    desc.setText(d);\n    quantita.setText(\"\" + add.getQuantita());\n    tot.setText(\"\" + add.getTotAddebito());\n    tot_addebiti.setText(\"\" + addebiti_totali);\n}\n*/"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public VediAddebito(Frame, Addebito, float)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new VediAddebito object with the specified Frame, Addebito, and float parameters.\n * \n * @param p the Frame object to set as the parent frame\n * @param a the Addebito object to display\n * @param tot the total amount of addebiti to display\n * \n * The constructor initializes the VediAddebito object with the given parameters, sets the title of the frame to \"Visualizzazione dei dati dell'addebito scelto\",\n * disables the parent frame, sets up the panels for displaying the addebito data, initializes the components, packs the frame, and makes it visible.\n */\npublic VediAddebito(Frame p, Addebito a, float tot) {\n    super(\"Visualizzazione dei dati dell'addebito scelto\");\n    padre = p;\n    add = a;\n    addebiti_totali = tot;\n    padre.setEnabled(false);\n    setupPanels();\n    inizializza();\n    pack();\n    setVisible(true);\n}\n**/"
             }
         ],
         "signature": "VediAddebito",
@@ -64,6 +69,7 @@
             " Frame padre",
             " Addebito add",
             " float addebiti_totali"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The VediAddebito class represents a user interface for displaying and editing billing information.\n * This class includes methods for setting up panels, initializing components, handling user actions, and writing data to the interface.\n * The billing information displayed includes room number, description, quantity, charge per item, and total charges for the room.\n * The class also provides a button for navigating back to the previous screen.\n * \n * The main functionalities of the VediAddebito class are:\n * - Setting up panels with labels, text fields, buttons, and panels\n * - Initializing components and setting their properties\n * - Writing telephone data to the user interface\n * - Handling user actions such as button clicks\n * \n * The overall behavior of the class involves creating a user interface for viewing and editing billing information.\n * It initializes components, sets up panels, writes data to the interface, and enables navigation back to the previous screen.\n * \n * The class includes the following variables:\n * - num_stanza: TextField for room number\n * - desc: TextField for description\n * - quantita: TextField for quantity\n * - tot: TextField for total charges per item\n * - tot_addebiti: TextField for total charges on the room\n * - etich1-6: Labels for displaying information\n * - panel1, panel2: Panels for organizing components\n * - Annulla: Button for navigating back\n * - gridbag: GridBagLayout for panel layout\n * - padre: Frame object for the parent frame\n * - add: Addebito object for billing information\n * - addebiti_totali: Total amount of charges to display\n * \n * The class constructor initializes a new VediAddebito object with the specified parameters and sets up the user interface.\n * \n * @see Addebito\n * @see Frame\n */\n**/"
     }
 ]

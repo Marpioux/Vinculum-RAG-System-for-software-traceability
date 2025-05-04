@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFirstName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the first name of the person.\n * \n * @return the first name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.firstName = firstName;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFirstName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the first name of the object.\n * \n * @param firstName the new first name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return lastName;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the last name of the person.\n * \n * @return the last name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the person.\n * \n * @param lastName the new last name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return getFirstName() + \" \" + getLastName();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFullName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the full name of the person by concatenating the first name and last name.\n * \n * @return the full name of the person\n */"
             },
             {
                 "body": "Optional[{\r\n    return mid;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getMid()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the middle value of the current object.\n * \n * @return the middle value of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.mid = mid;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMid(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the mid (message ID) of the object.\n * \n * @param mid the message ID to set\n * @return void\n */\npublic void setMid(long mid) {\n    this.mid = mid;\n}"
             },
             {
                 "body": "Optional[{\r\n    return relation;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getRelation()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the relation associated with this object.\n * \n * @return The relation as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.relation = relation;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRelation(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the relation of the object.\n * \n * @param relation the relation to be set\n * \n * This method sets the relation of the object to the specified value. \n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public FamilyMemberBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of the FamilyMemberBean class.\n * This constructor does not take any parameters.\n * \n * @param None\n * @return A new instance of FamilyMemberBean\n */"
             }
         ],
         "signature": "FamilyMemberBean",
@@ -90,6 +100,7 @@
             "private String relation",
             "private String firstName",
             "private String lastName"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a person with a first name, last name, and a middle value.\n * It provides methods to get and set the first name, last name, and middle value of the person.\n * Additionally, it has a method to retrieve the full name of the person by concatenating the first name and last name.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the first name of the person\n * - Storing and retrieving the last name of the person\n * - Storing and retrieving the middle value of the person\n * - Generating the full name of the person by combining the first name and last name\n * \n * Overall, this class encapsulates the data and behavior related to a person's name and middle value.\n */\npublic class Person {\n    private String firstName;\n    private String lastName;\n    private long mid;\n    \n    /**\n     * Returns the first name of the person.\n     * \n     * @return the first name of the person as a String\n     */\n    public String getFirstName() {\n        return firstName;\n    }\n    \n    /**\n     * Sets the first name of the object.\n     * \n     * @param firstName the new first name to set\n     * @return void\n     */\n    public void setFirstName(String firstName) {\n        this.firstName = firstName;\n    }\n    \n    /**\n     * Retrieves the last name of the person.\n     * \n     * @return the last name of the person as a String\n     */\n    public String getLastName() {\n        return lastName;\n    }\n    \n    /**\n     * Sets the last name of the person.\n     * \n     * @param lastName the new last name to set\n     * @return void\n     */\n    public void setLastName(String lastName) {\n        this.lastName = lastName;\n    }\n    \n    /**\n     * Returns the full name of the person by concatenating the first name and last name.\n     * \n     * @return the full name of the person\n     */\n    public String getFullName() {\n        return getFirstName() + \" \" + getLastName();\n    }\n    \n    /**\n     * Retrieves the middle value of the current object.\n     * \n     * @return the middle value of the person\n     */\n    public long getMid() {\n        return mid;\n    }\n}\n*/\n/**\n * The FamilyMemberBean class represents a bean object that stores information about a family member.\n * It contains attributes such as message ID (mid), relation, first name, and last name.\n * This class provides methods to set and retrieve these attributes.\n * \n * Main functionalities include:\n * - Storing and managing information about a family member\n * - Setting and getting the message ID, relation, first name, and last name of the family member\n * \n * Overall behavior:\n * - The class allows for the creation of instances representing different family members\n * - It provides methods to set and retrieve information about each family member\n * - The class is designed to be used in conjunction with other classes to manage family member data\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza(Cliente)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components for displaying client information.\n * Removes panel2, sets constraints for various components in panel1, removes Annulla button from panel3,\n * packs the frame, disables input fields, writes client data to the fields, and sets the frame visible.\n * \n * @param cli the Cliente object containing the client information to be displayed\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered this method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered this action. \n * There is no return value as this method is void.\n */"
             },
             {
                 "body": "Optional[{\r\n    testo1.setEditable(false);\r\n    testo2.setEditable(false);\r\n    testo3.setEditable(false);\r\n    testo4.setEditable(false);\r\n    testo5.setEditable(false);\r\n    testo6.setEditable(false);\r\n    testo7.setEditable(false);\r\n    testo8.setEditable(false);\r\n    testo9.setEditable(false);\r\n    testo10.setEditable(false);\r\n    testo11.setEditable(false);\r\n    testo12.setEditable(false);\r\n    testo13.setEditable(false);\r\n    testo14.setEditable(false);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " void disableFields()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables all text fields in the GUI.\n * This method sets the editable property of each text field to false,\n * preventing users from entering or modifying text in the fields.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    testo1.setText(cliente.getNumStanza());\r\n    testo2.setText(cliente.getCognome());\r\n    testo3.setText(cliente.getNome());\r\n    testo4.setText(cliente.getLuogoNasc());\r\n    testo5.setText(DateUtils.giveStringOfDate(cliente.getDataNasc()));\r\n    testo6.setText(cliente.getNumDoc());\r\n    testo7.setText(cliente.getNumTel());\r\n    testo8.setText(cliente.getIndirizzo());\r\n    testo9.setText(cliente.getCap());\r\n    testo10.setText(cliente.getComune());\r\n    testo11.setText(cliente.getCitta());\r\n    testo12.setText(cliente.getNazione());\r\n    testo13.setText(DateUtils.giveStringOfDate(cliente.getInizioSogg()));\r\n    testo14.setText(DateUtils.giveStringOfDate(cliente.getFineSogg()));\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void writeDatiCliente(Cliente)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes the data of a client to a set of text fields in the user interface.\n * \n * @param cliente the Cliente object containing the client's information\n * \n * This method populates a series of text fields with the data from the provided Cliente object. \n * The text fields are used to display the client's room number, last name, first name, place of birth, \n * date of birth, document number, phone number, address, postal code, city, country, check-in date, \n * and check-out date. The date values are formatted using the DateUtils class before being displayed.\n */"
             }
         ],
         "constructors": [
@@ -41,12 +45,14 @@
                 "hasInnerComment": false,
                 "signature": "public VediCliente(Frame, Cliente)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new VediCliente object with the specified Frame and Cliente parameters.\n * \n * @param p the Frame object that serves as the parent frame for this VediCliente object\n * @param cli the Cliente object whose data will be displayed in this VediCliente object\n * \n * The constructor initializes the VediCliente object with a title of \"Visualizzazione dei dati del cliente\" \n * and buttons labeled \"Fine\". The parent frame is set to the specified Frame parameter, which is then disabled. \n * The Cliente object is used to initialize the data displayed in the VediCliente object. \n * Finally, the VediCliente object is packed to ensure proper layout.\n */"
             }
         ],
         "signature": "VediCliente",
         "variables": [
             " Frame padre"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The VediCliente class represents a GUI component for displaying client information.\n * This class includes methods for initializing the GUI components, disabling text fields, writing client data to the fields,\n * and handling user actions. The main functionalities of this class include:\n * - Initializing the GUI components with client information\n * - Disabling text fields to prevent user input\n * - Writing client data to the text fields for display\n * - Handling user actions such as confirming and closing the window\n * \n * The constructor of the VediCliente class takes a Frame object as the parent frame and a Cliente object containing the client data.\n * The constructor sets the title of the window, disables the parent frame, initializes the GUI components with client data,\n * and packs the frame for proper layout.\n * \n * The methods in this class include:\n * - inizializza(Cliente): Initializes the GUI components with client information and handles user actions\n * - actionPerformed(ActionEvent): Disposes of the current window and enables the parent window\n * - disableFields(): Disables all text fields in the GUI to prevent user input\n * - writeDatiCliente(Cliente): Writes the data of a client to the text fields for display\n * \n * Overall, the VediCliente class provides a user-friendly interface for viewing and interacting with client information.\n */"
     }
 ]

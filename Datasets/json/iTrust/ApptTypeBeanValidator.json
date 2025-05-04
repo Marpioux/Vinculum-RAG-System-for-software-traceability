@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(ApptTypeBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the given Appointment Type Bean by checking the format of its name and duration.\n * If any errors are found, a FormValidationException is thrown with a list of errors.\n * \n * @param a the Appointment Type Bean to validate\n * @throws FormValidationException if any errors are found during validation\n */\npublic void validate(ApptTypeBean a) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"Appointment Type Name\", a.getName(), ValidationFormat.APPT_TYPE_NAME, false));\n    errorList.addIfNotNull(checkFormat(\"Appointment Type Duration\", a.getDuration() + \"\", ValidationFormat.APPT_TYPE_DURATION, false));\n    if (errorList.hasErrors())\n        throw new FormValidationException(errorList);\n}\n```"
             }
         ],
         "constructors": [],
         "signature": "ApptTypeBeanValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ApptTypeBeanValidator class is responsible for validating Appointment Type Beans by checking the format of their name and duration.\n * It contains a method, validate, which takes an instance of ApptTypeBean as a parameter and validates its name and duration fields.\n * If any errors are found during validation, a FormValidationException is thrown with a list of errors.\n * \n * This class ensures that Appointment Type Beans adhere to the specified format requirements for their name and duration, \n * providing a reliable way to validate and ensure data integrity in the application.\n * \n * Usage:\n * ApptTypeBeanValidator validator = new ApptTypeBeanValidator();\n * validator.validate(apptTypeBean);\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<RiskChecker> getDiseaseAtRisk()",
                 "comments": "Optional[/**\r\n * @return A list of diseases that this patient is at risk for\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of disease checkers that are at risk based on the criteria set by the RiskChecker interface.\n * \n * @return A list of RiskChecker objects representing diseases that are at risk.\n */"
             }
         ],
         "constructors": [
@@ -17,12 +18,14 @@
                 "hasInnerComment": false,
                 "signature": "public ChronicDiseaseMediator(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Given a factory and patient ID, and sets up a list of all risk checkers\r\n *\r\n * @param factory The DAOFactory to be used in creating the necessary DAOs to perform the checks.\r\n * @param pid The MID of the patient in question.\r\n * @throws DBException\r\n * @throws NoHealthRecordsException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ChronicDiseaseMediator object with the given DAOFactory and patient ID.\n * Initializes a list of RiskCheckers including HeartDiseaseRisks, Type1DiabetesRisks, and Type2DiabetesRisks\n * for the specified patient.\n * \n * @param factory the DAOFactory used to access data from the database\n * @param pid the ID of the patient for whom the risk checkers are being created\n */"
             }
         ],
         "signature": "ChronicDiseaseMediator",
         "variables": [
             "private List<RiskChecker> riskCheckers"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ChronicDiseaseMediator class serves as a mediator for chronic disease risk checkers.\n * It provides methods to retrieve a list of diseases that a patient is at risk for based on the criteria set by the RiskChecker interface.\n * \n * This class contains a list of RiskChecker objects that represent different chronic diseases such as Heart Disease, Type 1 Diabetes, and Type 2 Diabetes.\n * The constructor initializes this list of risk checkers for a specific patient using a DAOFactory and patient ID.\n * \n * The getDiseaseAtRisk method iterates through the list of risk checkers and returns a list of diseases that the patient is at risk for.\n * \n * Overall, the ChronicDiseaseMediator class helps in identifying and managing chronic disease risks for a given patient.\n * \n * @author [Your Name]\n * @version 1.0\n * @since [Date]\n */\n**/\n/**\n * This class represents a simple data structure for storing and manipulating a list of integers.\n * It provides methods for adding, removing, and accessing elements in the list, as well as\n * for checking if the list is empty or full. The list is implemented using an array and has\n * a fixed size that is specified upon creation of the object.\n * \n * The main functionalities of this class include:\n * - Adding an element to the list\n * - Removing an element from the list\n * - Accessing an element at a specific index\n * - Checking if the list is empty\n * - Checking if the list is full\n * \n * The behavior of this class is such that elements can be added to the list until it reaches\n * its maximum capacity, at which point it is considered full and no more elements can be added.\n * Elements can be removed from the list, which may result in empty spaces that can be filled\n * with new elements. The list maintains the order of elements as they are added and removed.\n */\npublic class IntegerList {\n    // class implementation goes here\n}"
     }
 ]

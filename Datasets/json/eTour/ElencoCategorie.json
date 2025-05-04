@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public float getMaxDist()",
                 "comments": "Optional[/**\r\n * Access method attribute maxDist\r\n *\r\n * @return the maximum distance of all the terms in all categories\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the maximum distance value stored in this object.\n * \n * @return the maximum distance value\n */"
             },
             {
                 "body": "Optional[{\r\n    return categories;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public Hashtable<String, Categoria> getAllCategorie()",
                 "comments": "Optional[/**\r\n * Access method to the table of categories\r\n *\r\n * @return categories\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves all categories stored in the Hashtable.\n * \n * @return a Hashtable containing all categories, where the key is a String representing the category name\n *         and the value is a Categoria object representing the category itself\n */"
             },
             {
                 "body": "Optional[{\r\n    return totTermini;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public Hashtable<String, float[]> getTotTermini()",
                 "comments": "Optional[/**\r\n * Method of accessing the table of total time\r\n *\r\n * @return totTermini\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the total number of terms in a Hashtable.\n * \n * @return a Hashtable containing String keys and float array values representing the total number of terms\n */"
             },
             {
                 "body": "Optional[{\r\n    if (esisteCategoria(pNomeCategoria)) {\r\n        // if there is the appropriate category\r\n        // returns the category associated with pNomeCategoria\r\n        return categories.get(pNomeCategoria);\r\n    }\r\n    // otherwise null\r\n    return null;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": true,
                 "signature": "public Categoria getCategoria(String)",
                 "comments": "Optional[/**\r\n * Method to access a category in the table of categories\r\n *\r\n * @param pNomeCategoria\r\n * @return object categories representing the category name PNomeCategoria\r\n */\r\n]",
-                "innerComments": "Optional[[// if there is the appropriate category\r\n, // returns the category associated with pNomeCategoria\r\n, // otherwise null\r\n]]"
+                "innerComments": "Optional[[// if there is the appropriate category\r\n, // returns the category associated with pNomeCategoria\r\n, // otherwise null\r\n]]",
+                "generated_comment": "/**\n * Retrieves the category associated with the given name.\n * \n * @param pNomeCategoria the name of the category to retrieve\n * @return the category object associated with the given name, or null if the category does not exist\n */"
             },
             {
                 "body": "Optional[{\r\n    if (esisteTermine(pTermine)) {\r\n        // if the term is present in table\r\n        // return the value associated\r\n        return totTermini.get(pTermine);\r\n    }\r\n    // null otherwise\r\n    return null;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": true,
                 "signature": "public float[] getTermine(String)",
                 "comments": "Optional[/**\r\n * Method of accessing the values of a particular term in this\r\n * Category table\r\n *\r\n * @param pTermine\r\n * @return Returns the values associated with the term pTermine\r\n */\r\n]",
-                "innerComments": "Optional[[// if the term is present in table\r\n, // return the value associated\r\n, // null otherwise\r\n]]"
+                "innerComments": "Optional[[// if the term is present in table\r\n, // return the value associated\r\n, // null otherwise\r\n]]",
+                "generated_comment": "/**\n * Retrieves the value associated with the specified term from the total terms table.\n * \n * @param pTermine the term to retrieve the value for\n * @return the value associated with the term if it exists in the table, null otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!esisteCategoria(pNomeCategoria)) {\r\n        // if the category exists\r\n        // returns false\r\n        return false;\r\n    }\r\n    // otherwise load the category in the table\r\n    categories.put(pNomeCategoria, pCategoria);\r\n    // returns true\r\n    return true;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean addCategoria(String, Categoria)",
                 "comments": "Optional[/**\r\n * Method which allows you to add a category to the table of categories\r\n *\r\n * @param pNomeCategoria category name to add\r\n * @param pCategoria associated object category\r\n * @return true if the operation was successfully carried out, false otherwise\r\n */\r\n]",
-                "innerComments": "Optional[[// if the category exists\r\n, // returns false\r\n, // otherwise load the category in the table\r\n, // returns true\r\n]]"
+                "innerComments": "Optional[[// if the category exists\r\n, // returns false\r\n, // otherwise load the category in the table\r\n, // returns true\r\n]]",
+                "generated_comment": "/**\n * Adds a new category to the table if it does not already exist.\n * \n * @param pNomeCategoria the name of the category to be added\n * @param pCategoria the category object to be added\n * @return true if the category was successfully added, false if the category already exists\n */\npublic boolean addCategoria(String pNomeCategoria, Categoria pCategoria) {\n    if (!esisteCategoria(pNomeCategoria)) {\n        // if the category exists\n        // returns false\n        return false;\n    }\n    // otherwise load the category in the table\n    categories.put(pNomeCategoria, pCategoria);\n    // returns true\n    return true;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (!esisteCategoria(pNomeCategoria)) {\r\n        // if the category does not exist\r\n        // returns false\r\n        return false;\r\n    }\r\n    // update the table of categories\r\n    categories.put(pNomeCategoria, pCategoria);\r\n    // returns true\r\n    return true;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean setCategoria(String, Categoria)",
                 "comments": "Optional[/**\r\n * Edit a category of the category table\r\n *\r\n * @param pNomeCategoria category name to edit\r\n * @param pCategoria associated object to this category\r\n * @return true if the operation was successfully carried out, false otherwise\r\n */\r\n]",
-                "innerComments": "Optional[[// if the category does not exist\r\n, // returns false\r\n, // update the table of categories\r\n, // returns true\r\n]]"
+                "innerComments": "Optional[[// if the category does not exist\r\n, // returns false\r\n, // update the table of categories\r\n, // returns true\r\n]]",
+                "generated_comment": "/**\n * Updates the category with the given name to the new category provided.\n * If the category with the given name does not exist, the method returns false.\n * \n * @param pNomeCategoria the name of the category to be updated\n * @param pCategoria the new category to update to\n * @return true if the category was successfully updated, false if the category does not exist\n */"
             },
             {
                 "body": "Optional[{\r\n    totTermini.put(pTermine, pVal);\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTermine(String, float[])",
                 "comments": "Optional[/**\r\n * Method which allows you to set the value of a term in the tables of total time\r\n *\r\n * @param pTermine term name\r\n * @param pVal value to associate with the term\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of a termine in the totTermini map.\n * \n * @param pTermine the termine to be set\n * @param pVal the value to be assigned to the termine\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    maxDist = pMaxDist;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMaxDist(float)",
                 "comments": "Optional[/**\r\n * Method which allows to set the value of the maximum distance of terms from one category\r\n *\r\n * @param pMaxDist\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the maximum distance value for this object.\n * \n * @param pMaxDist the maximum distance value to set\n * @return void\n */\npublic void setMaxDist(float pMaxDist) {\n    maxDist = pMaxDist;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    // create a new list\r\n    List<String> toReturn = new ArrayList<>();\r\n    for (Enumeration<String> val = categories.keys(); val.hasMoreElements(); ) {\r\n        // iterates through categories\r\n        // adds to the list the name of a category\r\n        toReturn.add(val.nextElement());\r\n    }\r\n    return toReturn;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": true,
                 "signature": "public Iterable<String> getCategorie()",
                 "comments": "Optional[/**\r\n * Method which allows to derive a collection of names of all categories in the categories table\r\n *\r\n * @return string iterable Collection\r\n */\r\n]",
-                "innerComments": "Optional[[// create a new list\r\n, // iterates through categories\r\n, // adds to the list the name of a category\r\n]]"
+                "innerComments": "Optional[[// create a new list\r\n, // iterates through categories\r\n, // adds to the list the name of a category\r\n]]",
+                "generated_comment": "/**\n * Retrieves a list of categories from the collection.\n * \n * This method iterates through the keys of the categories collection and adds the name of each category to a new list. \n * \n * @return An Iterable of Strings containing the names of all categories in the collection.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        // try to extract the category name PKEY from the table of categories\r\n        categories.get(PKEY);\r\n        // if the transaction does not raise exceptions, category exists and returns true\r\n        return true;\r\n    } catch (NullPointerException e) {\r\n        // false otherwise\r\n        return false;\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean esisteCategoria(String)",
                 "comments": "Optional[/**\r\n * Method aids to verify the existence of a category in the table of categories\r\n *\r\n * @param PKEY name of the category\r\n * @return true if the category exists, false otherwise\r\n */\r\n]",
-                "innerComments": "Optional[[// try to extract the category name PKEY from the table of categories\r\n, // if the transaction does not raise exceptions, category exists and returns true\r\n, // false otherwise\r\n]]"
+                "innerComments": "Optional[[// try to extract the category name PKEY from the table of categories\r\n, // if the transaction does not raise exceptions, category exists and returns true\r\n, // false otherwise\r\n]]",
+                "generated_comment": "/**\n * Checks if a category with the specified name exists in the table of categories.\n * \n * @param categoryName the name of the category to check for existence\n * @return true if the category exists, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        if (totTermini.get(PKEY) != null) {\r\n            return true;\r\n        }\r\n    } catch (NullPointerException e) {\r\n        return false;\r\n    }\r\n    return false;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean esisteTermine(String)",
                 "comments": "Optional[/**\r\n * Method aids to verify the existence of a term in the table of total time\r\n *\r\n * @param PKEY term\r\n * @return true if the term exists, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a term exists in the collection.\n * \n * @param term the term to check for existence\n * @return true if the term exists in the collection, false otherwise\n */\npublic boolean esisteTermine(String term) {\n    try {\n        if (totTermini.get(term) != null) {\n            return true;\n        }\n    } catch (NullPointerException e) {\n        return false;\n    }\n    return false;\n}"
             }
         ],
         "constructors": [
@@ -105,7 +117,8 @@
                 "hasInnerComment": false,
                 "signature": "public ElencoCategorie()",
                 "comments": "Optional[/**\r\n * The constructor initializes the two hash tables that contain\r\n * Categories and terms of all categories\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ElencoCategorie object.\n * This constructor initializes the categories and totTermini Hashtables.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "signature": "ElencoCategorie",
@@ -114,6 +127,7 @@
             "private Hashtable<String,Categoria> categories",
             "private Hashtable<String,float[]> totTermini",
             "private float maxDist"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ElencoCategorie class represents a collection of categories and terms associated with those categories.\n * It provides methods to retrieve, add, update, and check the existence of categories and terms.\n * The class also keeps track of the maximum distance value of terms from one category.\n * \n * This class includes the following functionalities:\n * - Retrieving the maximum distance value stored in the object\n * - Retrieving all categories stored in the Hashtable\n * - Retrieving the total number of terms in a Hashtable\n * - Retrieving a specific category by name\n * - Retrieving the value associated with a specific term\n * - Adding a new category to the table of categories\n * - Updating an existing category in the table of categories\n * - Setting the value of a term in the total terms table\n * - Setting the value of the maximum distance of terms from one category\n * - Retrieving a collection of names of all categories in the categories table\n * - Checking the existence of a category in the table of categories\n * - Checking the existence of a term in the table of total time\n * \n * The class initializes two HashTables, one for categories and one for terms of all categories, upon construction.\n * \n * Overall, the ElencoCategorie class provides a comprehensive set of functionalities for managing categories and terms,\n * allowing for easy retrieval, addition, and updating of data within the collection.\n */\n */"
     }
 ]

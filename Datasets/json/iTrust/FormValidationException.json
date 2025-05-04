@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<String> getErrorList()",
                 "comments": "Optional[/**\r\n * Returns the error list as a java.util.List of Strings.\r\n * @return The error list\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a list of error messages.\n * \n * @return a List of Strings containing error messages\n */"
             },
             {
                 "body": "Optional[{\r\n    return \"This form has not been validated correctly. The following field are not properly filled in: \" + errorList.toString();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getMessage()",
                 "comments": "Optional[/**\r\n * The error message will be displayed at the top of the iTrust page as in other iTrust Exceptions.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the error message detailing which fields in the form have not been properly validated.\n * \n * @return A string message indicating the fields that are not properly filled in.\n */"
             },
             {
                 "body": "Optional[{\r\n    out.print(\"<h2>Information not valid</h2><div class=\\\"errorList\\\">\");\r\n    for (String errorMessage : errorList) {\r\n        out.print(errorMessage + \"<br />\");\r\n    }\r\n    out.print(\"</div>\");\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void printHTML(JspWriter)",
                 "comments": "Optional[/**\r\n * The special formatting for error messages is then kept in one place.\r\n * @param out The output writer (in this case a JSPWriter) where the formatted list will go.\r\n * @throws IOException If the writer is incorrect.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Prints a formatted HTML error message to the JspWriter.\n * \n * This method takes a JspWriter as a parameter and prints an HTML error message\n * containing a heading \"Information not valid\" followed by a list of error messages\n * from the errorList. Each error message is displayed in a separate line within a\n * <div> element with the class \"errorList\".\n * \n * @param out the JspWriter object to write the HTML error message to\n */"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public FormValidationException(String)",
                 "comments": "Optional[/**\r\n * Constructor with error messages passed as a list of parameters to the method.\r\n * @param errorMessages The list of error messages to be returned in the special form validation box.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new FormValidationException with the specified error messages.\n * \n * @param errorMessages an array of error messages to be added to the exception\n * @throws NullPointerException if errorMessages is null\n */\npublic FormValidationException(String... errorMessages) {\n    errorList = new ErrorList();\n    for (String msg : errorMessages) {\n        errorList.addIfNotNull(msg);\n    }\n}\n \nThis constructor creates a new FormValidationException object with the provided error messages. The error messages are added to the exception's error list. If the errorMessages parameter is null, a NullPointerException is thrown."
             },
             {
                 "body": "{\r\n    this.errorList = errorList;\r\n}",
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public FormValidationException(ErrorList)",
                 "comments": "Optional[/**\r\n * Constructor with error messages as a special ErrorList data type.\r\n * @param errorList An ErrorList object which contains the list of error messages.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new FormValidationException with the specified list of errors.\n * \n * @param errorList the list of errors associated with the exception\n * @throws NullPointerException if errorList is null\n */\npublic FormValidationException(ErrorList errorList) {\n    this.errorList = errorList;\n}"
             }
         ],
         "signature": "FormValidationException",
         "variables": [
             "private  static  final long serialVersionUID",
             "private ErrorList errorList"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a utility for handling error messages in a web application.\n * It provides methods to retrieve error messages, generate error messages, and print\n * formatted HTML error messages to a JspWriter.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of error messages\n * - Generating a detailed error message indicating which fields in a form are not properly validated\n * - Printing a formatted HTML error message to a JspWriter\n * \n * The overall behavior of this class is to facilitate the handling and display of error messages\n * in a user-friendly and consistent manner. It encapsulates the logic for retrieving, generating,\n * and formatting error messages, making it easy to integrate error handling functionality into\n * a web application.\n */\n/**\n * The errorList class represents a list of error messages that can be displayed in a special form validation box.\n * Each error message is displayed in a separate line within a <div> element with the class \"errorList\".\n * \n * This class provides constructors to create a FormValidationException object with error messages passed as a list of parameters or as an ErrorList object.\n * \n * The main functionalities of this class include:\n * - Adding error messages to the error list\n * - Displaying error messages in a special form validation box\n * \n * The behavior of this class is to store and manage error messages in a structured way, allowing for easy retrieval and display of error messages in a user-friendly format.\n * \n * @param out the JspWriter object to write the HTML error message to\n */\n**/\n/**\n * The FormValidationException class represents an exception that is thrown when form validation fails.\n * It contains an ErrorList object that stores a list of errors encountered during validation.\n * \n * @author [Your Name]\n * @version 1.0\n */\npublic class FormValidationException extends Exception {\n\n    private static final long serialVersionUID = 1L;\n    private ErrorList errorList;\n\n    /**\n     * Constructs a new FormValidationException with the specified ErrorList.\n     * \n     * @param errorList the list of errors encountered during form validation\n     */\n    public FormValidationException(ErrorList errorList) {\n        this.errorList = errorList;\n    }\n\n    /**\n     * Returns the list of errors encountered during form validation.\n     * \n     * @return the list of errors\n     */\n    public ErrorList getErrorList() {\n        return errorList;\n    }\n}\n**/"
     }
 ]

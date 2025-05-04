@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the user interface by setting the editability of various text fields and buttons,\n * adding action listeners to various components, and defining the behavior of these components.\n * \n * This method sets the 'nome_agenzia' text field as editable, while setting 'num_stanza', 'num_tel_agenzia',\n * 'inizio_comm', 'fine_comm', 'scadenza_comm', and 'num_stanza' text fields as non-editable. It also disables\n * the 'Azione' button. Additionally, it adds action listeners to the 'lista', 'nome_agenzia', and 'Cerca' components,\n * and defines the behavior of these components when triggered. When an item in the 'lista' component is selected,\n * the corresponding commission is retrieved and displayed in the user interface. The 'Azione' button is then enabled,\n * a panel is hidden, and the user interface is repacked. When the 'nome_agenzia' text field is interacted with,\n * a list of items is created. When the 'Cerca' button is clicked, the list is also created. Finally, when the 'Azione'\n * button is clicked, the 'startAzione' method is called.\n */"
             },
             {
                 "body": "Optional[{\r\n    commissione = L.getCommissionamento((lista.getSelectedIndexes())[0] + 1);\r\n    writeDatiComm(commissione);\r\n    Azione.setEnabled(true);\r\n    panel5.setVisible(false);\r\n    pack();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It retrieves the commission from the selected index in the list, writes the commission data, enables a specific action, hides a panel, and repacks the frame.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a new list by calling the creaLista() method.\n * \n * @param e the ActionEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a new list by calling the creaLista() method.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It triggers the startAzione() method.\n * \n * @param e the action event that occurred\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!errori()) {\r\n        int j;\r\n        if ((j = (Principale.db).delCommissionamento(commissione.getIdCommissionamento())) == DataBase.OK) {\r\n            aggiornaDisp(commissione, Flag.DISPONIBILE);\r\n            num_tel_agenzia.setEditable(false);\r\n            scadenza_comm.setEditable(false);\r\n            Azione.setEnabled(false);\r\n            cleanFields();\r\n            nome_agenzia.setEditable(true);\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the action of deleting a commission from the database.\n * It checks for any errors before proceeding with the deletion process. If no errors are found,\n * it deletes the commission from the database, updates its availability status, disables certain fields,\n * and clears the input fields. If there are any issues with the database during the deletion process,\n * a message dialog displaying the error is shown.\n */"
             }
         ],
         "constructors": [
@@ -57,12 +63,14 @@
                 "hasInnerComment": false,
                 "signature": "public CancellaCommissioni()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor creates a new CancellaCommissioni object with default values for the title, message, button text, and dialog type.\n * It calls the superclass constructor with empty strings for the title, message, and button text, sets the dialog type to \"Cancella dati delle commissioni\", and initializes the dialog by calling the init() method.\n */"
             }
         ],
         "signature": "CancellaCommissioni",
         "variables": [
             " Commissionamento commissione"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The CancellaCommissioni class represents a user interface for deleting commission data. \n * It provides functionality for initializing the UI components, handling user actions, and \n * deleting commission data from the database. The class includes methods for setting the \n * editability of text fields and buttons, adding action listeners to components, retrieving \n * and displaying commission data, and deleting commissions from the database. \n * \n * The main functionalities of this class include:\n * - Initializing the user interface by setting the editability of various text fields and buttons\n * - Adding action listeners to components such as 'lista', 'nome_agenzia', 'Cerca', and 'Azione'\n * - Retrieving and displaying commission data when an item in the 'lista' component is selected\n * - Deleting commission data from the database and updating its availability status\n * \n * The overall behavior of this class is to provide a user-friendly interface for managing commission data. \n * It ensures that users can easily delete commission data, handle errors during the deletion process, \n * and interact with the UI components effectively. The class encapsulates the logic for deleting \n * commissions and provides a seamless user experience for managing commission data.\n */"
     }
 ]

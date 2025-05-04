@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isChecked()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the item is checked.\n * \n * @return true if the item is checked, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    this.checked = checked;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setChecked(boolean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the checked status of the object.\n * \n * @param checked the new checked status to set\n * @return void\n * \n * This method sets the checked status of the object to the specified value. \n * If the value is true, the object is considered checked; if false, it is considered unchecked.\n */"
             },
             {
                 "body": "Optional[{\r\n    return code;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCode()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the code associated with this object.\n * \n * @return the code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.code = code;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the code for this object.\n * \n * @param code the code to set\n * \n * This method sets the code for this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return prescriberMID;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPrescriberMID()",
                 "comments": "Optional[/**\r\n * @return the patient MID\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the prescriber's unique identifier (MID).\n * \n * @return the prescriber's unique identifier (MID)\n */"
             },
             {
                 "body": "Optional[{\r\n    prescriberMID = mID;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPrescriberMID(long)",
                 "comments": "Optional[/**\r\n * @param mID the patients MID\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the prescriber's Member ID.\n * \n * @param mID the prescriber's Member ID to set\n * @return void\n */\npublic void setPrescriberMID(long mID) {\n    prescriberMID = mID;\n}"
             },
             {
                 "body": "Optional[{\r\n    return drug;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDrug()",
                 "comments": "Optional[/**\r\n * @return the drug the event is being reported for\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the drug associated with this object.\n * \n * @return the drug associated with this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.drug = drug;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDrug(String)",
                 "comments": "Optional[/**\r\n * @param drug sets the drug the event is being reported for\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the drug for this object.\n * \n * @param drug the drug to be set\n * @return void\n * \n * This method sets the drug for this object to the specified drug parameter. \n * The drug parameter should be a String representing the name of the drug. \n * If the drug parameter is null, the drug for this object will be set to null.\n */"
             }
         ],
         "constructors": [],
@@ -73,6 +81,7 @@
             " String drug",
             " boolean checked",
             " String code"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Prescription class represents a prescription object that contains information about a medication prescription.\n * It includes methods to check if the prescription is checked, set the checked status, retrieve and set the code associated with the prescription, \n * and retrieve and set the prescriber's unique identifier (MID).\n * \n * The checked status of the prescription can be determined using the isChecked() method, and it can be set using the setChecked() method.\n * The code associated with the prescription can be retrieved using the getCode() method, and it can be set using the setCode() method.\n * The prescriber's unique identifier (MID) can be retrieved using the getPrescriberMID() method, and it can be set using the setPrescriberMID() method.\n * \n * This class provides a way to manage and manipulate prescription information, allowing for easy access to important details such as the checked status, code, and prescriber's unique identifier.\n */\n**/\n/**\n * The HCPLinkBean class represents a bean object that contains information related to a healthcare provider link.\n * This class includes variables for the prescriber's Member ID, the drug associated with the event being reported, \n * a boolean flag for checking, and a code string.\n * \n * The main functionalities of this class include setting and retrieving the prescriber's Member ID, setting and \n * retrieving the drug associated with the event, and managing the checking status and code string.\n * \n * The setPrescriberMID method allows for setting the prescriber's Member ID, while the getDrug method retrieves \n * the drug associated with the event. The setDrug method sets the drug for the object, and the isChecked method \n * checks the status of the boolean flag. The setCode method sets the code string for the object.\n * \n * This class provides essential functionality for managing healthcare provider links and their associated information.\n */"
     }
 ]

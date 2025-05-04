@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the patient's condition.\n * \n * @return A String representing the description of the patient's condition, in this case \"Patient has hypertension\".\n */"
             },
             {
                 "body": "Optional[{\r\n    return (record.getBloodPressureSystolic() > systolicThreshold) || (record.getBloodPressureDiastolic() > diastolicThreshold);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the blood pressure readings in the record have a factor that exceeds the specified systolic or diastolic thresholds.\n * \n * @return true if either the systolic or diastolic blood pressure readings in the record exceed their respective thresholds, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public HypertensionFactor(HealthRecord)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new HypertensionFactor object with the given HealthRecord.\n * \n * @param currentHealthRecord the HealthRecord object that contains the health information\n * @return a new HypertensionFactor object with the specified HealthRecord\n */"
             }
         ],
         "signature": "HypertensionFactor",
@@ -33,6 +36,7 @@
             "private  static  final int systolicThreshold",
             "private  static  final int diastolicThreshold",
             "private HealthRecord record"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The HypertensionFactor class represents a factor that checks for hypertension in a patient's health record.\n * It contains methods to determine if the blood pressure readings in the record exceed specified thresholds.\n * \n * The main functionalities of this class include:\n * - Providing a description of the patient's condition (hypertension)\n * - Checking if the blood pressure readings in the record have a factor that exceeds systolic or diastolic thresholds\n * \n * The class has the following variables:\n * - systolicThreshold: a static final int representing the systolic blood pressure threshold\n * - diastolicThreshold: a static final int representing the diastolic blood pressure threshold\n * - record: a HealthRecord object containing the health information of the patient\n * \n * The class has the following methods:\n * - public String getDescription(): Returns the description of the patient's condition\n * - public boolean hasFactor(): Checks if the blood pressure readings in the record have a factor that exceeds the specified thresholds\n * \n * This class also has a constructor:\n * - public HypertensionFactor(HealthRecord currentHealthRecord): Constructs a new HypertensionFactor object with the given HealthRecord\n * \n * Overall, the HypertensionFactor class provides functionality to analyze blood pressure readings in a health record and identify hypertension in a patient.\n */"
     }
 ]

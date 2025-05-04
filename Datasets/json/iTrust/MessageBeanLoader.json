@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<MessageBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of MessageBeans from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into MessageBeans\n * @return a List of MessageBeans populated with data from the ResultSet\n * \n * This method iterates through the ResultSet and calls loadSingle method to load each row into a MessageBean.\n * It then adds each MessageBean to a List and returns the populated List.\n */"
             },
             {
                 "body": "Optional[{\r\n    ps.setLong(1, message.getFrom());\r\n    ps.setLong(2, message.getTo());\r\n    ps.setString(3, message.getBody());\r\n    ps.setString(4, message.getSubject());\r\n    ps.setInt(5, message.getRead());\r\n    if (message.getParentMessageId() != 0L) {\r\n        ps.setLong(6, message.getParentMessageId());\r\n    }\r\n    return ps;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, MessageBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of a MessageBean into a PreparedStatement for database insertion.\n * \n * @param ps the PreparedStatement object to load parameters into\n * @param message the MessageBean containing the data to be inserted\n * @return the PreparedStatement object with parameters loaded\n */\npublic PreparedStatement loadParameters(PreparedStatement ps, MessageBean message) {\n    ps.setLong(1, message.getFrom());\n    ps.setLong(2, message.getTo());\n    ps.setString(3, message.getBody());\n    ps.setString(4, message.getSubject());\n    ps.setInt(5, message.getRead());\n    if (message.getParentMessageId() != 0L) {\n        ps.setLong(6, message.getParentMessageId());\n    }\n    return ps;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    MessageBean message = new MessageBean();\r\n    message.setMessageId(rs.getLong(\"message_id\"));\r\n    message.setFrom(rs.getLong(\"from_id\"));\r\n    message.setTo(rs.getLong(\"to_id\"));\r\n    message.setSubject(rs.getString(\"subject\"));\r\n    message.setBody(rs.getString(\"message\"));\r\n    message.setSentDate(rs.getTimestamp(\"sent_date\"));\r\n    message.setRead(rs.getInt(\"been_read\"));\r\n    message.setParentMessageId(rs.getLong(\"parent_msg_id\"));\r\n    return message;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public MessageBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single message from a ResultSet and maps it to a MessageBean object.\n * \n * @param rs the ResultSet containing the message data\n * @return a MessageBean object representing the loaded message\n */\npublic MessageBean loadSingle(ResultSet rs) {\n    MessageBean message = new MessageBean();\n    message.setMessageId(rs.getLong(\"message_id\"));\n    message.setFrom(rs.getLong(\"from_id\"));\n    message.setTo(rs.getLong(\"to_id\"));\n    message.setSubject(rs.getString(\"subject\"));\n    message.setBody(rs.getString(\"message\"));\n    message.setSentDate(rs.getTimestamp(\"sent_date\"));\n    message.setRead(rs.getInt(\"been_read\"));\n    message.setParentMessageId(rs.getLong(\"parent_msg_id\"));\n    return message;\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "MessageBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a utility for handling MessageBeans in a database context.\n * It provides methods for loading MessageBeans from a ResultSet and for loading the parameters\n * of a MessageBean into a PreparedStatement for database insertion.\n * \n * The loadList method retrieves a list of MessageBeans from the given ResultSet by iterating through\n * the ResultSet and calling the loadSingle method to load each row into a MessageBean. It then adds\n * each MessageBean to a List and returns the populated List.\n * \n * The loadParameters method loads the parameters of a MessageBean into a PreparedStatement for database insertion.\n * It sets the values of the PreparedStatement based on the data in the MessageBean, including the sender, recipient,\n * message body, subject, read status, and parent message ID if applicable.\n * \n * This class encapsulates the functionality for interacting with MessageBeans in a database environment,\n * providing convenience methods for loading and inserting data. It serves as a bridge between the\n * application logic and the database layer, facilitating the manipulation of MessageBeans in a database context.\n */\n/**\n * The MessageBeanLoader class is responsible for loading message data from a ResultSet and mapping it to a MessageBean object.\n * It provides a method to load a single message and return it as a MessageBean object.\n * \n * This class contains the following functionalities:\n * - Loading a single message from a ResultSet and mapping it to a MessageBean object\n * \n * The main method in this class is:\n * - public MessageBean loadSingle(ResultSet rs) : Loads a single message from a ResultSet and maps it to a MessageBean object\n * \n * The overall behavior of this class is to facilitate the loading of message data from a ResultSet and provide it in a structured format using the MessageBean object.\n */"
     }
 ]

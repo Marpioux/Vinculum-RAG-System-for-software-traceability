@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "private long checkPersonnelID(String)",
                 "comments": "Optional[/**\r\n * Asserts whether the input is a valid, existing personnel's MID.\r\n *\r\n * @param input\r\n *            The presumed MID\r\n * @return The existing personnel's ID as a long.\r\n * @throws iTrustException\r\n *             If the personnel does not exist or there is a DB Problem.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the given personnel ID exists in the database.\n * \n * @param input the personnel ID to be checked\n * @return the personnel ID if it exists in the database\n * @throws iTrustException if the personnel ID is not a valid number or if the personnel does not exist\n */\nprivate long checkPersonnelID(String input) {\n    try {\n        long pid = Long.valueOf(input);\n        if (factory.getPersonnelDAO().checkPersonnelExists(pid))\n            return pid;\n        else\n            throw new iTrustException(\"Personnel does not exist\");\n    } catch (NumberFormatException e) {\n        throw new iTrustException(\"Personnel ID is not a number: \" + e.getMessage());\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return pid;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPid()",
                 "comments": "Optional[/**\r\n * Retrieves the identifier of the patient as a long.\r\n *\r\n * @return The patient's MID.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the process ID (PID) of this object.\n * \n * @return the process ID (PID) of this object\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public PersonnelBaseAction(DAOFactory, String)",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n *\r\n * @param factory\r\n *            A factory to create a database access object.\r\n * @param pidString\r\n *            The personnel's ID to associate with this action.\r\n * @throws iTrustException\r\n *             If the personnel's ID is incorrect or there is a DB problem.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PersonnelBaseAction with the specified DAOFactory and personnel ID.\n * \n * @param factory the DAOFactory to be used for database operations\n * @param pidString the personnel ID as a String\n * @throws IllegalArgumentException if the personnel ID is invalid\n */\npublic PersonnelBaseAction(DAOFactory factory, String pidString) {\n    this.factory = factory;\n    this.pid = checkPersonnelID(pidString);\n}\n*/"
             }
         ],
         "signature": "PersonnelBaseAction",
         "variables": [
             "private DAOFactory factory",
             "protected long pid"
-        ]
+        ],
+        "generated_class_comment": "Sure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class contains methods for checking the existence of personnel IDs and retrieving patient identifiers.\n * It provides functionality to validate personnel IDs and retrieve patient IDs from the database.\n * The main purpose of this class is to ensure the validity of personnel and patient identifiers within the system.\n * \n * The class includes a method to check if a given personnel ID exists in the database and throw an exception if it does not.\n * It also includes a method to retrieve the patient identifier as a long value.\n * \n * Overall, this class serves as a utility for handling personnel and patient identifiers in the system, ensuring data integrity and accuracy.\n */\n \nPlease note that the comment provided above is a general description and may need to be tailored to fit the specific functionalities and behaviors of the class.\n/**\n * The PersonnelBaseAction class represents a base action for personnel-related operations.\n * It provides functionality to associate a personnel ID with a specific action and perform database operations using a DAOFactory.\n * \n * This class requires a DAOFactory to create database access objects and a personnel ID as a String to associate with the action.\n * The constructor validates the personnel ID and throws an IllegalArgumentException if it is invalid.\n * \n * The main functionalities of this class include:\n * - Creating a new PersonnelBaseAction object with a specified DAOFactory and personnel ID\n * - Validating the personnel ID and associating it with the action\n * \n * The behavior of this class is to initialize the DAOFactory and personnel ID upon construction, and provide methods to perform personnel-related actions using the associated ID.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

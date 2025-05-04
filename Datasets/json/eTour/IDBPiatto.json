@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPiatto(BeanPiatto)",
                 "comments": "Optional[/**\r\n * Add a dish\r\n *\r\n * @param pPiatto plate to add\r\n * @return true if the dish was added, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a dish into the system.\n * \n * @param piatto the dish to be inserted\n * @return true if the dish was successfully inserted, false otherwise\n */\nabstract boolean inserisciPiatto(BeanPiatto piatto) {\n    // Implementation details omitted\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaPiatto(BeanPiatto)",
                 "comments": "Optional[/**\r\n * Modify the data in a dish in the database\r\n *\r\n * @param pPiatto data of the dish to be modified in the database\r\n * @return true if there was a modification, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a dish in the system based on the provided BeanPiatto object.\n * \n * @param piatto the BeanPiatto object containing the details of the dish to be modified\n * @return true if the dish was successfully modified, false otherwise\n */\nabstract boolean modificaPiatto(BeanPiatto piatto) {\n    // Implementation details not provided\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaPiatto(int)",
                 "comments": "Optional[/**\r\n * Delete a dish from the database\r\n *\r\n * @param pIdPiatto ID of the dish to delete\r\n * @return true if it was deleted, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a dish from the menu based on the provided dish ID.\n * \n * @param dishId the ID of the dish to be deleted\n * @return true if the dish was successfully deleted, false otherwise\n * \n * This method deletes a dish from the menu by its unique ID. If the dish with the specified ID exists in the menu, it will be removed and the method will return true. If the dish does not exist, the method will return false. If an error occurs during the deletion process, Optional.empty will be returned.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,11 +34,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanPiatto> ottieniPiatto(int)",
                 "comments": "Optional[/**\r\n * Returns a list of dishes on a menu\r\n *\r\n * @param pIdMenu ID of the menu\r\n * @return list of dishes in the menu\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of BeanPiatto objects based on the specified integer parameter.\n * \n * @param id the integer parameter used to retrieve the list of BeanPiatto objects\n * @return an ArrayList of BeanPiatto objects corresponding to the specified integer parameter, \n *         or an empty Optional if no objects are found\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBPiatto",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBPiatto interface represents a data access object for managing dishes in a menu system.\n * It defines methods for inserting, modifying, deleting, and retrieving dishes from the database.\n * \n * This interface provides an abstraction layer for interacting with dish data, allowing for easy\n * integration with different database implementations. Implementing classes are expected to\n * provide concrete implementations for the defined methods.\n * \n * The main functionalities of this interface include:\n * - Inserting a new dish into the system\n * - Modifying an existing dish in the database\n * - Deleting a dish from the menu based on its ID\n * - Retrieving a list of dishes in a menu based on the menu ID\n * \n * Implementing classes should ensure that the methods in this interface are implemented\n * in a way that accurately reflects the behavior of the underlying database system.\n * \n * It is important to note that the methods in this interface may throw SQLExceptions, and\n * implementing classes should handle these exceptions appropriately.\n */"
     }
 ]

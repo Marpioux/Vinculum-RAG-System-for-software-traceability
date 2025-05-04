@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getID()",
                 "comments": "Optional[/**\r\n * Returns the id of the point of comfort for which information\r\n * are stored in this node.\r\n *\r\n * @return int - the id of refreshment.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID associated with this object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pid;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setID(int)",
                 "comments": "Optional[/**\r\n * Stores the id of the refreshment provided input.\r\n *\r\n * @param pid - an ID of an eating place.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object to the specified value.\n * \n * @param pid the new ID to set for the object\n * @return void\n * \n * This method sets the ID of the object to the specified integer value. \n * The ID is used to uniquely identify the object within a system. \n * If the ID is already set, calling this method will overwrite the existing ID with the new value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return (String) super.getUserObject();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Return the name of refreshment.\r\n *\r\n * @return String - the name of refreshment.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name associated with this object.\n * \n * @return the name of this object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    if (pNome == null || pNome.equals(\"\")) {\r\n        throw new IllegalArgumentException(\"Name of refreshment supplied invalid input.\");\r\n    }\r\n    setUserObject(pNome);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNome(String)",
                 "comments": "Optional[/**\r\n * Stores the name of the refreshment provided input.\r\n *\r\n * @param pNome - the name of a refreshment.\r\n * @throws IllegalArgumentException - if the name provided as input is invalid.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the refreshment.\n * \n * @param pNome the name of the refreshment to be set\n * @throws IllegalArgumentException if the input name is null or empty\n * \n * This method sets the name of the refreshment to the specified input name. \n * If the input name is null or empty, an IllegalArgumentException is thrown.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public PRNode()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PRNode object with no parameters.\n * This constructor calls the superclass constructor to initialize the object.\n */"
             },
             {
                 "body": "{\r\n    super();\r\n    if (pNome == null || pNome.equals(\"\")) {\r\n        throw new IllegalArgumentException(\"Name of refreshment supplied invalid input.\");\r\n    }\r\n    setUserObject(pNome);\r\n    id = pid;\r\n}",
@@ -49,12 +54,14 @@
                 "hasInnerComment": false,
                 "signature": "public PRNode(String, int)",
                 "comments": "Optional[/**\r\n * Create a node with the name of refreshment and\r\n * your id supplied as parameters.\r\n *\r\n * @param pNome - the name of refreshment.\r\n * @param pid   - the id of refreshment.\r\n * @throws IllegalArgumentException - if the name provided as input is invalid.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PRNode with the specified name and ID.\n * \n * @param pNome the name of the refreshment to be set as the user object of the node\n * @param pid the ID to be assigned to the node\n * @throws IllegalArgumentException if the name of the refreshment is null or empty\n */\npublic PRNode(String pNome, int pid) {\n    super();\n    if (pNome == null || pNome.equals(\"\")) {\n        throw new IllegalArgumentException(\"Name of refreshment supplied invalid input.\");\n    }\n    setUserObject(pNome);\n    id = pid;\n}\n*/"
             }
         ],
         "signature": "PRNode",
         "variables": [
             "private int id"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PRNode class represents a node that stores information about a point of refreshment.\n * It contains methods to get and set the ID and name of the refreshment, as well as constructors\n * to create a new PRNode object with or without parameters.\n * \n * The ID of the refreshment is stored as an integer value, and the name of the refreshment is stored as a String.\n * The class provides methods to access and modify these values, ensuring that the input is valid and handling exceptions\n * if necessary.\n * \n * The PRNode class is designed to be used in conjunction with other classes or data structures that require\n * the storage and retrieval of information about points of refreshment. It encapsulates the data related to a point of refreshment\n * and provides a convenient way to manage and interact with this information.\n * \n * Overall, the PRNode class serves as a fundamental building block for applications that deal with points of refreshment,\n * offering a simple and effective way to represent and manipulate data related to refreshment points.\n */\n **/"
     }
 ]

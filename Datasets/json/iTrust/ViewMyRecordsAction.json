@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long representPatient(String)",
                 "comments": "Optional[/**\r\n * Takes the patient's representee as a param and returns it as a long if the patient represents the input\r\n * param\r\n *\r\n * @param input\r\n *            the patient's representee mid\r\n * @return representee's mid as a long\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Represents a patient by updating the logged in user's MID to the provided MID if the user has permission to represent the patient.\n * \n * @param input the String representation of the patient's MID to be represented\n * @return the long representation of the patient's MID if successful\n * @throws iTrustException if the input is not a valid number or if the logged in user does not have permission to represent the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getPatient(loggedInMID);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientBean getPatient()",
                 "comments": "Optional[/**\r\n * Returns a PatientBean for the currently logged in patient\r\n *\r\n * @return PatientBean for the currently logged in patient\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the patient information for the currently logged in user.\n * \n * @return the PatientBean object containing the patient information\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getPatient(mid);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientBean getPatient(long)",
                 "comments": "Optional[/**\r\n * Returns a PatientBean for the specified MID\r\n * @param mid id of the requested bean\r\n * @return PatientBean for the specified MID\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a patient from the database based on the provided patient ID.\n * \n * @param mid the unique identifier of the patient to retrieve\n * @return the PatientBean object representing the patient with the specified ID, or null if no such patient exists\n */"
             },
             {
                 "body": "Optional[{\r\n    return personnelDAO.getPersonnel(mid);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public PersonnelBean getPersonnel(long)",
                 "comments": "Optional[/**\r\n * Returns a PersonnelBean for the requested MID\r\n * @param mid id of the requested bean\r\n * @return a PersonnelBean for the requested MID\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a personnel bean with the specified ID from the data access object.\n * \n * @param id the unique identifier of the personnel bean to retrieve\n * @return the personnel bean with the specified ID, or null if not found\n */"
             },
             {
                 "body": "Optional[{\r\n    return emailDAO.getEmailsByPerson(getPatient().getEmail());\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<Email> getEmailHistory()",
                 "comments": "Optional[/**\r\n * Returns a PatientBean for the currently logged in patient\r\n *\r\n * @return PatientBean for the currently logged in patient\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the email history for the current patient.\n * \n * @return a list of Email objects representing the email history for the current patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return allergyDAO.getAllergies(loggedInMID);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<AllergyBean> getAllergies()",
                 "comments": "Optional[/**\r\n * Returns a list of AllergyBeans for the currently logged in patient\r\n *\r\n * @return a list of AllergyBeans for the currently logged in patient\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of allergies associated with the currently logged in patient.\n * \n * @return a List of AllergyBean objects representing the allergies of the logged in patient\n */"
             },
             {
                 "body": "Optional[{\r\n    List<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\r\n    List<FamilyMemberBean> parents = null;\r\n    try {\r\n        parents = familyDAO.getParents(loggedInMID);\r\n        fam.addAll(parents);\r\n        fam.addAll(familyDAO.getSiblings(loggedInMID));\r\n        fam.addAll(familyDAO.getChildren(loggedInMID));\r\n    } catch (DBException e) {\r\n        throw new iTrustException(e.getMessage());\r\n    }\r\n    if (parents != null) {\r\n        List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\r\n        for (FamilyMemberBean parent : parents) {\r\n            try {\r\n                grandparents.addAll(familyDAO.getParents(parent.getMid()));\r\n            } catch (DBException e) {\r\n                throw new iTrustException(e.getMessage());\r\n            }\r\n        }\r\n        fam.addAll(grandparents);\r\n        for (FamilyMemberBean gp : grandparents) {\r\n            gp.setRelation(\"Grandparent\");\r\n        }\r\n    }\r\n    return fam;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<FamilyMemberBean> getFamily()",
                 "comments": "Optional[/**\r\n * Returns a list of Parents, Siblings, and Children of the currently logged in patient\r\n *\r\n * @return list of FamilyMemberBeans\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of family members for the logged-in user.\n * This method fetches the parents, siblings, and children of the logged-in user\n * and also includes grandparents if parents are present.\n * \n * @return A list of FamilyMemberBean objects representing the family members of the logged-in user\n * @throws iTrustException if there is an issue retrieving family members from the database\n */\npublic List<FamilyMemberBean> getFamily() {\n    List<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\n    List<FamilyMemberBean> parents = null;\n    try {\n        parents = familyDAO.getParents(loggedInMID);\n        fam.addAll(parents);\n        fam.addAll(familyDAO.getSiblings(loggedInMID));\n        fam.addAll(familyDAO.getChildren(loggedInMID));\n    } catch (DBException e) {\n        throw new iTrustException(e.getMessage());\n    }\n    if (parents != null) {\n        List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\n        for (FamilyMemberBean parent : parents) {\n            try {\n                grandparents.addAll(familyDAO.getParents(parent.getMid()));\n            } catch (DBException e) {\n                throw new iTrustException(e.getMessage());\n            }\n        }\n        fam.addAll(grandparents);\n        for (FamilyMemberBean gp : grandparents) {\n            gp.setRelation(\"Grandparent\");\n        }\n    }\n    return fam;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    List<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\r\n    List<FamilyMemberBean> parents = null;\r\n    try {\r\n        parents = familyDAO.getParents(loggedInMID);\r\n        fam.addAll(parents);\r\n        fam.addAll(familyDAO.getSiblings(loggedInMID));\r\n    } catch (DBException e) {\r\n        throw new iTrustException(e.getMessage());\r\n    }\r\n    if (parents != null) {\r\n        List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\r\n        for (FamilyMemberBean parent : parents) {\r\n            try {\r\n                grandparents.addAll(familyDAO.getParents(parent.getMid()));\r\n            } catch (DBException e) {\r\n                throw new iTrustException(e.getMessage());\r\n            }\r\n        }\r\n        fam.addAll(grandparents);\r\n        for (FamilyMemberBean gp : grandparents) {\r\n            gp.setRelation(\"Grandparent\");\r\n        }\r\n    }\r\n    return fam;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<FamilyMemberBean> getFamilyHistory()",
                 "comments": "Optional[/**\r\n * Returns a list of Parents, Siblings, and Grand Parents of the currently logged in patient\r\n *\r\n * @return list of FamilyMemberBeans\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the family history of the logged-in user.\n * This method fetches the parents, siblings, and grandparents of the logged-in user\n * and returns a list of FamilyMemberBean objects representing these family members.\n * \n * @return A list of FamilyMemberBean objects representing the family history of the logged-in user.\n * @throws iTrustException if there is an issue retrieving the family history from the database.\n */\npublic List<FamilyMemberBean> getFamilyHistory() {\n    List<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\n    List<FamilyMemberBean> parents = null;\n    try {\n        parents = familyDAO.getParents(loggedInMID);\n        fam.addAll(parents);\n        fam.addAll(familyDAO.getSiblings(loggedInMID));\n    } catch (DBException e) {\n        throw new iTrustException(e.getMessage());\n    }\n    if (parents != null) {\n        List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\n        for (FamilyMemberBean parent : parents) {\n            try {\n                grandparents.addAll(familyDAO.getParents(parent.getMid()));\n            } catch (DBException e) {\n                throw new iTrustException(e.getMessage());\n            }\n        }\n        fam.addAll(grandparents);\n        for (FamilyMemberBean gp : grandparents) {\n            gp.setRelation(\"Grandparent\");\n        }\n    }\n    return fam;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return hrDAO.getAllHealthRecords(loggedInMID);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<HealthRecord> getAllHealthRecords()",
                 "comments": "Optional[/**\r\n * Returns a list of HealthRecords for the currently logged in patient\r\n *\r\n * @return a list of HealthRecords for the currently logged in patient\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves all health records associated with the currently logged in user.\n * \n * @return A list of HealthRecord objects containing all health records for the logged in user.\n */"
             },
             {
                 "body": "Optional[{\r\n    return hrDAO.getAllHealthRecords(mid);\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<HealthRecord> getFamilyHealthRecords(long)",
                 "comments": "Optional[/**\r\n * Returns a list of HealthRecords for the specified family member\r\n *\r\n * @return a list of HealthRecords for the specified family member\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of health records for a specific family member identified by their unique ID.\n * \n * @param memberId the unique ID of the family member whose health records are to be retrieved\n * @return a list of HealthRecord objects containing the health records of the specified family member\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovDAO.getAllOfficeVisits(loggedInMID);\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<OfficeVisitBean> getAllOfficeVisits()",
                 "comments": "Optional[/**\r\n * Returns a list of OfficeVisitBeans for all office visits for the currently logged in patient\r\n *\r\n * @return  a list of OfficeVisitBeans for all office visits for the currently logged in patient\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all office visits associated with the currently logged in medical personnel.\n * \n * @return A list of OfficeVisitBean objects representing all office visits associated with the currently logged in medical personnel.\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovDAO.getOfficeVisit(visitID);\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitBean getCompleteOfficeVisit(long)",
                 "comments": "Optional[/**\r\n * Returns a complete OfficeVisitBean given a visitID\r\n *\r\n * @return a complete OfficeVisitBean given a visitID\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a complete office visit by its unique identifier.\n * \n * @param visitID the unique identifier of the office visit to retrieve\n * @return the OfficeVisitBean object representing the complete office visit\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getRepresented(loggedInMID);\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PatientBean> getRepresented()",
                 "comments": "Optional[/**\r\n * Returns a list of PatientBeans of all patients the currently logged in patient represents\r\n *\r\n * @return a list of PatientBeans of all patients the currently logged in patient represents\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of patients represented by the currently logged in user.\n * \n * @return A list of PatientBean objects representing the patients represented by the currently logged in user.\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientDAO.getRepresenting(loggedInMID);\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PatientBean> getRepresenting()",
                 "comments": "Optional[/**\r\n * Returns a list of PatientBeans of all patients the currently logged in patient represents\r\n *\r\n * @return a list of PatientBeans of all patients the currently logged in patient represents\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of PatientBeans representing the logged-in user.\n * \n * @return a List of PatientBeans representing the logged-in user\n */"
             },
             {
                 "body": "Optional[{\r\n    return surveyDAO.isSurveyCompleted(visitID);\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isSurveyCompleted(long)",
                 "comments": "Optional[/**\r\n * Has a survey been created for this office visit\r\n *\r\n * @param visitID ID of the office visit in question\r\n * @return true if the survey has been completed, otherwise false\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a survey is completed for a given visit ID.\n * \n * @param visitID the ID of the visit for which the survey completion status is checked\n * @return true if the survey is completed for the specified visit ID, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return labDAO.getLabProceduresForPatient(loggedInMID);\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LabProcedureBean> getLabs()",
                 "comments": "Optional[/**\r\n * Returns a list of lab procedures\r\n *\r\n * @return a list of lab procedures for the logged in patient\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of lab procedures for the currently logged in patient.\n * \n * @return A list of LabProcedureBean objects representing the lab procedures for the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    return reportRequestDAO.getAllReportRequestsForPatient(loggedInMID);\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ReportRequestBean> getReportRequests()",
                 "comments": "Optional[/**\r\n * Returns all the report requests for the logged in patient\r\n * @return the report requests for the logged in patient\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of report requests for the currently logged in patient.\n * \n * @return A list of ReportRequestBean objects representing the report requests for the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    List<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n    if (records.size() == 0)\r\n        return false;\r\n    for (HealthRecord record : records) {\r\n        if (record.getBloodPressureSystolic() > 240 || record.getBloodPressureDiastolic() > 120)\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean doesFamilyMemberHaveHighBP(FamilyMemberBean)",
                 "comments": "Optional[/**\r\n * Checks to see if family members have high blood pressure\r\n *\r\n * @param member the family member in question\r\n * @return true if the family member has the risk factor, otherwise false.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a family member has high blood pressure based on their health records.\n * \n * @param member the FamilyMemberBean object representing the family member\n * @return true if the family member has high blood pressure, false otherwise\n */\npublic boolean doesFamilyMemberHaveHighBP(FamilyMemberBean member) {\n    List<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\n    if (records.size() == 0)\n        return false;\n    for (HealthRecord record : records) {\n        if (record.getBloodPressureSystolic() > 240 || record.getBloodPressureDiastolic() > 120)\n            return true;\n    }\n    return false;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    List<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n    if (records.size() == 0)\r\n        return false;\r\n    for (HealthRecord record : records) {\r\n        if (record.getCholesterolHDL() < 35 || record.getCholesterolLDL() > 250)\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean doesFamilyMemberHaveHighCholesterol(FamilyMemberBean)",
                 "comments": "Optional[/**\r\n * Checks to see if family members have high cholesterol\r\n *\r\n * @param member the family member in question\r\n * @return true if the family member has the risk factor, otherwise false.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a family member has high cholesterol based on their health records.\n * \n * @param member The FamilyMemberBean object representing the family member to check.\n * @return true if the family member has high cholesterol (HDL < 35 or LDL > 250) in any of their health records, false otherwise.\n */"
             },
             {
                 "body": "Optional[{\r\n    List<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n    if (diagnoses.size() == 0)\r\n        return false;\r\n    for (DiagnosisBean diag : diagnoses) {\r\n        if (diag.getICDCode().startsWith(\"250\"))\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean doesFamilyMemberHaveDiabetes(FamilyMemberBean)",
                 "comments": "Optional[/**\r\n * Checks to see if family members have diabetes\r\n *\r\n * @param member the family member in question\r\n * @return true if the family member has the risk factor, otherwise false.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a family member has been diagnosed with diabetes based on their medical history.\n * \n * @param member the FamilyMemberBean object representing the family member to check\n * @return true if the family member has been diagnosed with diabetes, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    List<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n    if (diagnoses.size() == 0)\r\n        return false;\r\n    for (DiagnosisBean diag : diagnoses) {\r\n        if (diag.getICDCode().startsWith(\"199\"))\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean doesFamilyMemberHaveCancer(FamilyMemberBean)",
                 "comments": "Optional[/**\r\n * Checks to see if family members have cancer\r\n *\r\n * @param member the family member in question\r\n * @return true if the family member has the risk factor, otherwise false.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a family member has been diagnosed with cancer based on their medical history.\n * \n * @param member the FamilyMemberBean object representing the family member to check for cancer diagnosis\n * @return true if the family member has been diagnosed with cancer (ICD code starting with \"199\"), false otherwise\n */\npublic boolean doesFamilyMemberHaveCancer(FamilyMemberBean member) {\n    List<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\n    if (diagnoses.size() == 0)\n        return false;\n    for (DiagnosisBean diag : diagnoses) {\n        if (diag.getICDCode().startsWith(\"199\"))\n            return true;\n    }\n    return false;\n}\n```"
             },
             {
                 "body": "Optional[{\r\n    List<DiagnosisBean> diagnoses = patientDAO.getDiagnoses(member.getMid());\r\n    if (diagnoses.size() == 0)\r\n        return false;\r\n    for (DiagnosisBean diag : diagnoses) {\r\n        if (diag.getICDCode().startsWith(\"402\"))\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean doesFamilyMemberHaveHeartDisease(FamilyMemberBean)",
                 "comments": "Optional[/**\r\n * Checks to see if family members have heart disease\r\n *\r\n * @param member the family member in question\r\n * @return true if the family member has the risk factor, otherwise false.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a family member has a history of heart disease based on their diagnoses.\n * \n * @param member the FamilyMemberBean representing the family member to check\n * @return true if the family member has been diagnosed with a heart disease (ICD code starting with \"402\"), false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    List<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\r\n    if (records.size() == 0)\r\n        return false;\r\n    for (HealthRecord record : records) {\r\n        if (record.isSmoker())\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isFamilyMemberSmoker(FamilyMemberBean)",
                 "comments": "Optional[/**\r\n * Checks to see if family members smoke\r\n *\r\n * @param member the family member in question\r\n * @return true if the family member has the risk factor, otherwise false.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a given family member is a smoker based on their health records.\n * \n * @param member the FamilyMemberBean object representing the family member to check\n * @return true if the family member is a smoker based on their health records, false otherwise\n */\npublic boolean isFamilyMemberSmoker(FamilyMemberBean member) {\n    List<HealthRecord> records = hrDAO.getAllHealthRecords(member.getMid());\n    if (records.size() == 0)\n        return false;\n    for (HealthRecord record : records) {\n        if (record.isSmoker())\n            return true;\n    }\n    return false;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    PatientBean patient = patientDAO.getPatient(member.getMid());\r\n    if (patient.getCauseOfDeath() == null)\r\n        return \"\";\r\n    DiagnosisBean diag = icdDAO.getICDCode(patient.getCauseOfDeath());\r\n    if (diag == null)\r\n        return \"\";\r\n    return diag.getDescription();\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFamilyMemberCOD(FamilyMemberBean)",
                 "comments": "Optional[/**\r\n * Checks to see if family member is dead, and if so, what their cause of death was\r\n *\r\n * @param member the family member in question\r\n * @return the cause of death for the family member\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the cause of death of a family member from the database.\n * \n * @param member the FamilyMemberBean object representing the family member\n * @return the description of the cause of death if found, an empty string otherwise\n */\npublic String getFamilyMemberCOD(FamilyMemberBean member) {\n    PatientBean patient = patientDAO.getPatient(member.getMid());\n    if (patient.getCauseOfDeath() == null)\n        return \"\";\n    DiagnosisBean diag = icdDAO.getICDCode(patient.getCauseOfDeath());\n    if (diag == null)\n        return \"\";\n    return diag.getDescription();\n}"
             }
         ],
         "constructors": [
@@ -201,7 +225,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewMyRecordsAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the records.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewMyRecordsAction object with the given DAOFactory and logged in MID.\n * Initializes the various DAO objects needed for accessing patient, personnel, allergy, family, health records, office visit, survey, lab procedure, fake email, report request, and ICD code data.\n * \n * @param factory the DAOFactory object used to create DAO instances\n * @param loggedInMID the MID of the logged in user\n */"
             }
         ],
         "signature": "ViewMyRecordsAction",
@@ -218,6 +243,7 @@
             "private ICDCodesDAO icdDAO",
             "private ReportRequestDAO reportRequestDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "Sure, here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a PatientController in the iTrust system. It is responsible for handling operations related to patients, such as representing a patient and retrieving patient information.\n * \n * The main functionalities of this class include:\n * 1. Representing a patient by updating the logged in user's MID to the provided MID if the user has permission to represent the patient.\n * 2. Retrieving patient information for the currently logged in user.\n * 3. Retrieving patient information for a specific patient based on the provided MID.\n * \n * The overall behavior of this class is to provide methods for interacting with patient data in the iTrust system. It ensures that only authorized users can represent patients and access patient information.\n * \n * @author [Your Name]\n * @version 1.0\n * @since [Date]\n */\n \nPlease replace [Your Name] and [Date] with your actual name and the date when the JavaDoc comment was written.\n/**\n * The PatientDAO class is responsible for retrieving and updating patient information in the database.\n * It provides methods to get patient details, personnel details, email history, and allergy information.\n * \n * This class contains methods to retrieve PatientBean and PersonnelBean objects based on their unique identifiers,\n * as well as methods to retrieve email history and allergy information for a specific patient.\n * \n * The getPatient(long) method retrieves a PatientBean for the specified MID from the database.\n * If no patient is found with the provided MID, it returns null.\n * \n * The getPersonnel(long) method retrieves a PersonnelBean for the requested MID from the data access object.\n * If no personnel is found with the provided MID, it returns null.\n * \n * The getEmailHistory() method returns the email history for the currently logged in patient as a list of Email objects.\n * \n * The getAllergies(long) method retrieves all allergies for the patient with the specified MID.\n * \n * This class encapsulates the data access logic for patient-related information and provides a convenient\n * interface for interacting with the database to retrieve and update patient data.\n */\n*/\n/**\n * This class represents a service that provides access to information about the family members and allergies of the currently logged-in patient.\n * It includes methods to retrieve a list of allergies and family members associated with the patient.\n * \n * The getAllergies method returns a list of AllergyBeans for the currently logged-in patient.\n * \n * The getFamily method retrieves a list of family members for the logged-in user, including parents, siblings, and children.\n * If parents are present, it also includes grandparents in the list of family members.\n * \n * This class handles exceptions by throwing iTrustException when database errors occur.\n * \n * @author [Author Name]\n * @version 1.0\n */\n**/\n/**\n * This class provides a method to retrieve family members (including parents, siblings, and grandparents) of the currently logged in patient.\n * It first retrieves the parents of the logged in patient using the familyDAO.getParents() method, then adds them to the list of family members.\n * Next, it retrieves the siblings of the logged in patient and adds them to the list.\n * If the parents list is not null, it then retrieves the grandparents of each parent and adds them to the list as well.\n * Finally, it sets the relation of each grandparent to \"Grandparent\" and returns the complete list of family members.\n * \n * @return List of FamilyMemberBean objects representing the family members of the logged in patient\n * @throws iTrustException if there is an issue retrieving family members from the database\n */\npublic List<FamilyMemberBean> getFamily() {\n    List<FamilyMemberBean> fam = new ArrayList<FamilyMemberBean>();\n    List<FamilyMemberBean> parents = null;\n    \n    try {\n        parents = familyDAO.getParents(loggedInMID);\n        fam.addAll(parents);\n        fam.addAll(familyDAO.getSiblings(loggedInMID));\n    } catch (DBException e) {\n        throw new iTrustException(e.getMessage());\n    }\n    \n    if (parents != null) {\n        List<FamilyMemberBean> grandparents = new ArrayList<FamilyMemberBean>();\n        \n        for (FamilyMemberBean parent : parents) {\n            try {\n                grandparents.addAll(familyDAO.getParents(parent.getMid()));\n            } catch (DBException e) {\n                throw new iTrustException(e.getMessage());\n            }\n        }\n        \n        fam.addAll(grandparents);\n        \n        for (FamilyMemberBean gp : grandparents) {\n            gp.setRelation(\"Grandparent\");\n        }\n    }\n    \n    return fam;\n}\n*/\n/**\n * This class represents a data access object (DAO) for retrieving and managing health records in the iTrust system.\n * It provides methods for retrieving all health records associated with the currently logged-in user.\n * \n * The main functionalities of this class include:\n * - Retrieving all health records for the currently logged-in user\n * \n * The behavior of this class is as follows:\n * - The getAllHealthRecords method retrieves all health records associated with the currently logged-in user.\n * - It returns a list of HealthRecord objects containing the health records for the logged-in user.\n * - If there is an issue retrieving the health records from the database, an iTrustException is thrown.\n * \n * @see HealthRecord\n * @see iTrustException\n */\n**/\n/**\n * The HealthRecordDAO class is responsible for retrieving health records from the database and providing access to them.\n * It contains methods for retrieving health records for a specific family member, all office visits for the currently logged in patient, and a complete office visit based on a visit ID.\n * \n * The getFamilyHealthRecords method returns a list of HealthRecords for the specified family member identified by their unique ID.\n * \n * The getAllOfficeVisits method returns a list of OfficeVisitBeans for all office visits associated with the currently logged in medical personnel.\n * \n * The getCompleteOfficeVisit method returns a complete OfficeVisitBean for a specific office visit identified by its visit ID.\n * \n * This class ensures that the appropriate health records and office visits are retrieved and made available for further processing within the system.\n */\n**/\n/**\n * This class represents a PatientDAO object that provides methods for retrieving patient information from the database.\n * It contains methods for retrieving office visits, patients represented by the currently logged-in user, and checking if a survey has been completed for a specific office visit.\n * \n * The main functionalities of this class include:\n * - Retrieving office visits by their unique identifier\n * - Retrieving a list of patients represented by the currently logged-in user\n * - Retrieving a list of patients representing the logged-in user\n * - Checking if a survey has been completed for a specific office visit\n * \n * This class interacts with the database through the PatientDAO and SurveyDAO objects to retrieve patient and survey information.\n * \n * Overall, this class provides essential functionalities for managing patient information and survey completion status in the system.\n */\n **/\n/**\n * This class represents a collection of methods for retrieving health information for a patient.\n * It includes methods for checking if a survey is completed for a visit ID, retrieving lab procedures,\n * retrieving report requests, and checking if a family member has high blood pressure.\n * \n * The method 'isSurveyCompletedForVisit' checks if a survey is completed for a given visit ID.\n * \n * The method 'getLabs' retrieves a list of lab procedures for the currently logged in patient.\n * \n * The method 'getReportRequests' retrieves a list of report requests for the currently logged in patient.\n * \n * The method 'doesFamilyMemberHaveHighBP' checks if a family member has high blood pressure by\n * iterating through their health records and checking for high blood pressure readings.\n * \n * Overall, this class provides essential functionalities for accessing and analyzing health information\n * for patients and their family members.\n */\n/**\n * This class contains methods to check if family members have high blood pressure or high cholesterol based on their health records.\n * \n * The method doesFamilyMemberHaveHighBP(FamilyMemberBean member) checks if a family member has high blood pressure by retrieving their health records\n * and checking if any of the blood pressure readings are above the threshold values (systolic > 240 or diastolic > 120). \n * It returns true if the family member has high blood pressure, otherwise false.\n * \n * The method doesFamilyMemberHaveHighCholesterol(FamilyMemberBean member) checks if a family member has high cholesterol by retrieving their health records\n * and checking if any of the cholesterol readings are below the HDL threshold (HDL < 35) or above the LDL threshold (LDL > 250). \n * It returns true if the family member has high cholesterol, otherwise false.\n * \n * Both methods utilize the HealthRecordDAO to retrieve the health records of the family member and iterate through them to check for the respective risk factors.\n * \n * @param member The FamilyMemberBean object representing the family member to check.\n * @return true if the family member has the risk factor, otherwise false.\n * @throws iTrustException if there is an issue retrieving the health records.\n */\n*/\n/**\n * The FamilyMedicalHistoryChecker class is responsible for checking the medical history of family members\n * to determine if they have been diagnosed with specific conditions such as diabetes or cancer.\n * \n * This class contains methods to check if a family member has been diagnosed with diabetes or cancer\n * based on their medical history. It retrieves the diagnoses of the family member from the database\n * using the PatientDAO class and checks if any of the diagnoses match the specified condition codes.\n * \n * The main functionalities of this class include:\n * - Checking if a family member has been diagnosed with diabetes\n * - Checking if a family member has been diagnosed with cancer\n * \n * The doesFamilyMemberHaveDiabetes method takes a FamilyMemberBean object as input and checks if the\n * family member has been diagnosed with diabetes based on their medical history. It returns true if\n * the family member has diabetes and false otherwise.\n * \n * The doesFamilyMemberHaveCancer method takes a FamilyMemberBean object as input and checks if the\n * family member has been diagnosed with cancer based on their medical history. It returns true if\n * the family member has cancer and false otherwise.\n * \n * This class provides a convenient way to assess the risk factors for specific conditions within a family\n * and can be used in healthcare applications to inform medical decisions and interventions.\n */\n*/\n* @throws iTrustException\\r\\n */\\r\\n]\", \"innerComments\": null, \"generated_comment\": \"/**\\n * Checks if a family member is a smoker based on their health records.\\n * \\n * @param member the FamilyMemberBean representing the family member to check\\n * @return true if the family member is a smoker, false otherwise\\n */\" }]\n/** \n * This class provides methods to retrieve information about family members from the database.\n * It includes methods to check if a family member is a smoker based on their health records,\n * and to retrieve the cause of death of a family member if they are deceased.\n * \n * Note: This class requires access to the HealthRecordDAO, PatientDAO, and ICDDAO for database operations.\n */\n*/\n/**\n * The ViewMyRecordsAction class represents an action that allows a user to view their medical records.\n * This class initializes various Data Access Objects (DAOs) for accessing patient, personnel, allergy, family, health records,\n * office visit, survey, lab procedure, fake email, report request, and ICD code data.\n * \n * The main functionalities of this class include:\n * - Initializing DAO objects for accessing different types of medical data\n * - Allowing a user to view their own medical records\n * \n * This class requires a DAOFactory object to create DAO instances and the logged in MID of the user.\n * \n * Example usage:\n * \n * DAOFactory factory = new DAOFactory();\n * long loggedInMID = 12345;\n * ViewMyRecordsAction viewMyRecordsAction = new ViewMyRecordsAction(factory, loggedInMID);\n * \n * viewMyRecordsAction.execute(); // Execute the action to view the user's medical records\n * \n * Note: This class assumes that the necessary DAO implementations have been provided by the DAOFactory.\n */\n**/"
     }
 ]

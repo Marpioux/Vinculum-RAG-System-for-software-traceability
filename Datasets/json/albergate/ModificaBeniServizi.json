@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setupPannello()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the panel for selecting a category to modify a specific item or service.\n * This method initializes the necessary components such as labels, list, and buttons on the panel.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    scelta_piatto[4].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[4].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.DESSERT);\r\n                p();\r\n            }\r\n        }\r\n    });\r\n    scelta_piatto[5].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_piatto[5].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.FRUTTA);\r\n                p();\r\n            }\r\n        }\r\n    });\r\n    scelta_servizio[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_servizio[0].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.RICREATIVI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_servizio[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_servizio[1].getState()) {\r\n                level = 1;\r\n                codice = composeCode(level, BeneServizio.ALTRO);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_bevanda[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bevanda[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.CAFFETTERIA);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_bevanda[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bevanda[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.ANALCOLICI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_bevanda[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_bevanda[2].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.ALCOLICI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_cibo[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_cibo[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.DOLCI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_cibo[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_cibo[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.SALATI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_antipasto[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_antipasto[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.FREDDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_antipasto[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_antipasto[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.CALDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_primo[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_primo[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.SOLIDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_primo[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_primo[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.LIQUIDI);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_secondo[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_secondo[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.CARNE);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_secondo[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_secondo[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.PESCE);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_contorno[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_contorno[0].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.VERDURA_COTTA);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_contorno[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_contorno[1].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.VERDURA_CRUDA);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    scelta_contorno[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (scelta_contorno[2].getState()) {\r\n                level = 2;\r\n                codice = composeCode(level, BeneServizio.FORMAGGIO);\r\n                o();\r\n            }\r\n        }\r\n    });\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    annulla3.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    elenco.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            beneSelezionato();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void initialize()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by adding item listeners to various choice components.\n * \n * This method adds item listeners to different choice components such as scelta_piatto, scelta_servizio, scelta_bevanda, scelta_cibo, scelta_antipasto, scelta_primo, scelta_secondo, scelta_contorno, conferma, annulla3, and elenco.\n * Depending on the selected item in each choice component, the level and codice variables are set accordingly using the composeCode method.\n * The method also calls different methods (p(), o(), startConferma(), beneSelezionato()) based on the selected items to perform specific actions.\n * \n * @param e the ItemEvent that triggered the itemStateChanged method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_piatto[4].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.DESSERT);\r\n        p();\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. If the fifth item in the scelta_piatto array is selected, \n * it sets the level to 1, generates a code using the composeCode method with the level and BeneServizio.DESSERT parameters, \n * and then calls the p() method. \n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_piatto[5].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.FRUTTA);\r\n        p();\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when the state of an item changes. \n * If the sixth item in the scelta_piatto array is selected, it sets the level to 1, \n * composes a code using the level and the FRUTTA constant from the BeneServizio enum, \n * and then calls the p() method. \n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_servizio[0].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.RICREATIVI);\r\n        o();\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. If the first item in the scelta_servizio array is selected,\n * it sets the level to 1, composes a code based on the level and a specific type of service, and then performs an operation.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_servizio[1].getState()) {\r\n        level = 1;\r\n        codice = composeCode(level, BeneServizio.ALTRO);\r\n        o();\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. If the second item in the scelta_servizio array is selected,\n * it sets the level to 1, composes a code based on the level and the BeneServizio.ALTRO constant, and calls the o() method.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_bevanda[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.CAFFETTERIA);\r\n        o();\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if the first item in the scelta_bevanda array is selected.\n * If the first item is selected, it sets the level to 2, composes a code using the level and the CAFFETTERIA constant from the BeneServizio enum,\n * and calls the o() method. \n * \n * @param e the ItemEvent that triggered the state change\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_bevanda[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.ANALCOLICI);\r\n        o();\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. \n * If the second item in the scelta_bevanda array is selected, \n * it sets the level to 2, composes a code based on the level and the type of beverage (ANALCOLICI), \n * and performs a specific action. \n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_bevanda[2].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.ALCOLICI);\r\n        o();\r\n    }\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if the third item in the scelta_bevanda array is selected,\n * sets the level to 2, composes a code based on the level and the type of item selected (in this case, Alcolici), and performs an action.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_cibo[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.DOLCI);\r\n        o();\r\n    }\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the first item in the scelta_cibo array is selected, \n * sets the level to 2, composes a code based on the level and the type of service (in this case, DOLCI), and performs an operation.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_cibo[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.SALATI);\r\n        o();\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the second item in the scelta_cibo array is selected,\n * sets the level to 2, composes a code based on the level and the BeneServizio.SALATI enum value, and calls the o() method.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_antipasto[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.FREDDI);\r\n        o();\r\n    }\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if the first element in the array of choices for antipasto is selected. \n * If the first element is selected, it sets the level to 2, composes a code based on the level and the type of item (in this case, FREDDI), and performs a specific action.\n * \n * @param e the ItemEvent that triggered the state change\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_antipasto[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.CALDI);\r\n        o();\r\n    }\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the second item in the scelta_antipasto array is selected, \n * sets the level to 2, composes a code based on the level and type of service, and performs a specific action. \n * \n * @param e the ItemEvent that triggered the state change\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_primo[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.SOLIDI);\r\n        o();\r\n    }\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. \n * If the first element of scelta_primo is selected, it sets the level to 2, \n * composes a code based on the level and the type of item selected (SOLIDI), \n * and calls the method o(). \n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_primo[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.LIQUIDI);\r\n        o();\r\n    }\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. If the second item in the scelta_primo array is selected, \n * it sets the level to 2, composes a code using the level and the BeneServizio.LIQUIDI enum, and calls the o() method.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_secondo[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.CARNE);\r\n        o();\r\n    }\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. If the first element of the scelta_secondo array is selected,\n * it sets the level to 2, composes a code based on the level and the BeneServizio.CARNE constant, and then calls the o() method.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_secondo[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.PESCE);\r\n        o();\r\n    }\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. If the second item in the selection has been chosen,\n * it sets the level to 2, composes a code based on the level and the type of item (in this case, PESCE), and then\n * performs an operation. \n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_contorno[0].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.VERDURA_COTTA);\r\n        o();\r\n    }\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. If the first element of the scelta_contorno array is selected,\n * it sets the level to 2, composes a code using the level and the VERDURA_COTTA constant from the BeneServizio class,\n * and then calls the o() method. \n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_contorno[1].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.VERDURA_CRUDA);\r\n        o();\r\n    }\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. If the second item in the scelta_contorno array is selected,\n * it sets the level to 2, composes a code using the level and the constant VERDURA_CRUDA from the BeneServizio enum,\n * and then calls the o() method.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if (scelta_contorno[2].getState()) {\r\n        level = 2;\r\n        codice = composeCode(level, BeneServizio.FORMAGGIO);\r\n        o();\r\n    }\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed in the GUI. \n * If the third element in the array \"scelta_contorno\" is selected, it sets the level to 2, \n * composes a code using the level and the type of item (in this case, FORMAGGIO), \n * and then calls the method \"o()\".\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    startConferma();\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startConferma() method to initiate the confirmation process.\n * \n * @param e the ActionEvent object that triggered the action\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    beneSelezionato();\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the beneSelezionato() method.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    int id;\r\n    MessageDialog msg;\r\n    if (!errore()) {\r\n        Float px = Float.valueOf(testo4.getText());\r\n        int j;\r\n        if ((j = (Principale.db).changeBeneServizio(extra.getCodExtra(), testo3.getText(), px.floatValue())) == DataBase.OK) {\r\n            for (int i = 1; i < 13; ++i) if (panel[i].isVisible())\r\n                remove(panel[i]);\r\n            panel[0].setVisible(true);\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il data base: \" + DataBase.strErrore(j));\r\n    }\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": " void startConferma()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the confirmation process by updating a specific record in the database with new information.\n * If there are no errors, the method retrieves a Float value from a text field, changes the information in the database,\n * and updates the user interface accordingly. If an error occurs during the database operation, an error message is displayed.\n * \n * @param none\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    extra = L.getBeneServizio((elenco.getSelectedIndexes())[0] + 1);\r\n    remove(panel[11]);\r\n    this.add(panel[10]);\r\n    testo3.setText(extra.getDescrizione());\r\n    testo4.setText(extra.getPxUnitario() + \"\");\r\n    panel[10].setVisible(true);\r\n    setVisible(true);\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": " void beneSelezionato()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Selects a specific item from a list and displays its details in a panel.\n * Retrieves the selected item from a list of services, updates the display panel\n * with the item's description and unit price, and makes the panel visible.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "constructors": [
@@ -209,7 +234,8 @@
                 "hasInnerComment": false,
                 "signature": "public ModificaBeniServizi()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the ModificaBeniServizi class.\n * Initializes a new instance of ModificaBeniServizi with a specified title.\n * \n * @param title the title of the window\n * \n * This constructor calls the constructor of the superclass with the specified title,\n * sets up the panel for modifying goods or services, and initializes the window.\n */"
             }
         ],
         "signature": "ModificaBeniServizi",
@@ -218,6 +244,7 @@
             " Label elenco_extra1",
             " Label elenco_extra2",
             " Button annulla3"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ModificaBeniServizi class represents a GUI application for modifying goods or services.\n * This class provides methods for setting up the panel, initializing GUI components, handling item state changes,\n * and performing actions based on user selections. It also includes methods for starting the confirmation process,\n * selecting a specific item from a list, and updating the display panel with item details.\n * \n * The class includes constructors for creating instances of ModificaBeniServizi with a specified title.\n * \n * Main functionalities:\n * - Setting up the panel for selecting a category to modify a specific item or service\n * - Initializing GUI components and adding item listeners to various choice components\n * - Handling item state changes and performing specific actions based on user selections\n * - Starting the confirmation process by updating a specific record in the database with new information\n * - Selecting a specific item from a list and displaying its details in a panel\n * \n * Overall behavior:\n * The ModificaBeniServizi class provides a user-friendly interface for modifying goods or services.\n * Users can select different categories and items, update information, and confirm changes through the GUI.\n * The class ensures a smooth user experience by handling user interactions and database operations efficiently.\n */"
     }
 ]

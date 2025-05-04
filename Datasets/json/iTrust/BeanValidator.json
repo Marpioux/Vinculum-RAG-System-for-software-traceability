@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public abstract void validate(T)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the given object of type T.\n * \n * @param object the object to be validated\n * @return an empty Optional if the object is valid, otherwise a non-empty Optional containing information about the validation error\n */"
             },
             {
                 "body": "Optional[{\r\n    String errorMessage = name + \": \" + format.getDescription();\r\n    if (value == null || \"\".equals(value))\r\n        return isNullable ? \"\" : errorMessage;\r\n    else if (format.getRegex().matcher(value).matches())\r\n        return \"\";\r\n    else\r\n        return errorMessage;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "protected String checkFormat(String, String, ValidationFormat, boolean)",
                 "comments": "Optional[/**\r\n * Check the format against the given enum. isNullable will check if the string is empty or a Java null.\r\n * Otherwise, an error message will be returned. Use this in conjunction with {@link ErrorList}.\r\n *\r\n * @param name\r\n * @param value\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks if a given value matches a specified validation format.\n * \n * @param name the name of the value being checked\n * @param value the value to be checked against the validation format\n * @param format the validation format to be applied\n * @param isNullable flag indicating if the value can be null or empty\n * @return an error message if the value does not match the validation format, \n *         or an empty string if the value is valid or nullable\n */"
             },
             {
                 "body": "Optional[{\r\n    String str = \"\";\r\n    if (longValue != null)\r\n        str = String.valueOf(longValue);\r\n    return checkFormat(name, str, format, isNullable);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "protected String checkFormat(String, Long, ValidationFormat, boolean)",
                 "comments": "Optional[/**\r\n * Check a long value against a particular format. isNullable will check if it is empty or a Java null.\r\n * Otherwise, an error message will be returned. Use this in conjunction with {@link ErrorList}.\r\n *\r\n * @param name\r\n * @param longValue\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks the format of a given string representation of a Long value based on a specified validation format.\n * If the Long value is not null, it is converted to a string before checking the format.\n * \n * @param name the name of the value being checked\n * @param longValue the Long value to be checked for format compliance\n * @param format the validation format to be applied\n * @param isNullable a boolean flag indicating if the value can be null\n * @return a String representing the checked value in the specified format\n */"
             },
             {
                 "body": "Optional[{\r\n    String str = \"\";\r\n    if (doubleValue != null)\r\n        str = String.valueOf(doubleValue);\r\n    return checkFormat(name, str, format, isNullable);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "protected String checkFormat(String, Double, ValidationFormat, boolean)",
                 "comments": "Optional[/**\r\n * Check the format against the given enum. isNullable will check if it is a Java null. Otherwise, an\r\n * error message will be returned. Use this in conjunction with {@link ErrorList}.\r\n *\r\n * @param name\r\n * @param doubleValue\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks the format of a given string representation of a double value based on a specified validation format.\n * If the double value is not null, it is converted to a string. The method then calls another method to perform the format check.\n * \n * @param name the name of the value being checked\n * @param doubleValue the double value to be checked (can be null)\n * @param format the validation format to be applied\n * @param isNullable flag indicating if the value is nullable\n * \n * @return a string representing the checked value based on the specified format\n */"
             },
             {
                 "body": "Optional[{\r\n    String str = \"\";\r\n    if (gen != null)\r\n        str = gen.toString();\r\n    return checkFormat(name, str, format, isNullable);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "protected String checkGender(String, Gender, ValidationFormat, boolean)",
                 "comments": "Optional[/**\r\n * Check against the proper gender\r\n *\r\n * @param name\r\n * @param gen\r\n * @param format\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks the gender of a person and returns a formatted string representation based on the specified validation format.\n * \n * @param name The name of the person for whom the gender is being checked\n * @param gen The gender of the person (can be null)\n * @param format The validation format to be applied to the gender string\n * @param isNullable Flag indicating if the gender can be null\n * @return A formatted string representation of the gender based on the specified validation format\n */"
             },
             {
                 "body": "Optional[{\r\n    if (isNullable && (value == null || \"\".equals(value)))\r\n        return \"\";\r\n    try {\r\n        int intValue = Integer.valueOf(value);\r\n        if (lower <= intValue && intValue <= upper)\r\n            return \"\";\r\n    } catch (NumberFormatException e) {\r\n        // just fall through to returning the error message\r\n    }\r\n    return name + \" must be an integer in [\" + lower + \",\" + upper + \"]\";\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": true,
                 "signature": "protected String checkInt(String, String, int, int, boolean)",
                 "comments": "Optional[/**\r\n * The that an integer is the proper format, and is in the correct range\r\n *\r\n * @param name\r\n * @param value\r\n * @param lower\r\n * @param upper\r\n * @param isNullable\r\n * @return\r\n */\r\n]",
-                "innerComments": "Optional[[// just fall through to returning the error message\r\n]]"
+                "innerComments": "Optional[[// just fall through to returning the error message\r\n]]",
+                "generated_comment": "/**\n * Checks if a given string value represents an integer within a specified range.\n * \n * @param value the string value to be checked\n * @param name the name of the value being checked\n * @param lower the lower bound of the acceptable range (inclusive)\n * @param upper the upper bound of the acceptable range (inclusive)\n * @param isNullable flag indicating if the value can be null or empty\n * @return an empty string if the value is a valid integer within the specified range, \n *         otherwise returns an error message indicating the expected range\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        double doubleValue = Double.valueOf(value);\r\n        if (lower <= doubleValue && doubleValue < upper)\r\n            return \"\";\r\n    } catch (NumberFormatException e) {\r\n        // just fall through to returning the error message\r\n    }\r\n    return name + \" must be a decimal in [\" + lower + \",\" + upper + \")\";\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": true,
                 "signature": "protected String checkDouble(String, String, double, double)",
                 "comments": "Optional[/**\r\n * Check that a double is in the proper format and is in the correct range\r\n *\r\n * @param name\r\n * @param value\r\n * @param lower\r\n * @param upper\r\n * @return\r\n */\r\n]",
-                "innerComments": "Optional[[// just fall through to returning the error message\r\n]]"
+                "innerComments": "Optional[[// just fall through to returning the error message\r\n]]",
+                "generated_comment": "/**\n * Checks if the given value is a valid decimal within the specified range.\n * \n * @param name the name of the value being checked\n * @param value the value to be checked for being a valid decimal\n * @param lower the lower bound of the acceptable range (inclusive)\n * @param upper the upper bound of the acceptable range (exclusive)\n * @return an empty string if the value is a valid decimal within the range, \n *         otherwise a message indicating that the value must be a decimal in the specified range\n */"
             },
             {
                 "body": "Optional[{\r\n    if (\"true\".equals(value) || \"false\".equals(value))\r\n        return \"\";\r\n    else\r\n        return name + \" must be either 'true' or 'false'\";\r\n}]",
@@ -63,11 +70,13 @@
                 "hasInnerComment": false,
                 "signature": "protected String checkBoolean(String, String)",
                 "comments": "Optional[/**\r\n * Check that the value fits the \"true\" or \"false\"\r\n *\r\n * @param name\r\n * @param value\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the given value is a valid boolean string ('true' or 'false').\n * \n * @param value the value to be checked if it is a valid boolean string\n * @param name the name of the value being checked\n * @return an empty string if the value is a valid boolean string, otherwise a message indicating that the value must be either 'true' or 'false'\n */"
             }
         ],
         "constructors": [],
         "signature": "BeanValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The BeanValidator class provides methods for validating various types of data, including strings, numbers, and booleans.\n * It contains a set of utility methods for checking the format and range of values, as well as validating gender and boolean strings.\n * \n * This class includes the following methods:\n * - validate(T object): Validates the given object of type T and returns an Optional containing information about any validation errors.\n * - checkFormat(String name, String value, ValidationFormat format, boolean isNullable): Checks if a string value matches a specified validation format.\n * - checkFormat(String name, Long longValue, ValidationFormat format, boolean isNullable): Checks the format of a Long value based on a specified validation format.\n * - checkFormat(String name, Double doubleValue, ValidationFormat format, boolean isNullable): Checks the format of a double value based on a specified validation format.\n * - checkGender(String name, Gender gen, ValidationFormat format, boolean isNullable): Checks the gender of a person and returns a formatted string representation.\n * - checkInt(String name, String value, int lower, int upper, boolean isNullable): Checks if a string value represents an integer within a specified range.\n * - checkDouble(String name, String value, double lower, double upper): Checks if a value is a valid decimal within a specified range.\n * - checkBoolean(String name, String value): Checks if a value is a valid boolean string ('true' or 'false').\n * \n * Each method returns an error message if the validation fails, or an empty string if the value is valid or nullable.\n * \n * Note: This class does not contain any constructors or variables.\n */"
     }
 ]

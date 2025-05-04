@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long addPatient(PatientBean)",
                 "comments": "Optional[/**\r\n * Creates a new patient, returns the new MID. Adds a new user to the table along with a random password.\r\n *\r\n * @return the new MID of the patient\r\n * @throws DBException\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new patient to the system.\n * \n * This method validates the input PatientBean object, generates a new patient ID, sets the ID and a random password for the patient,\n * adds the patient to the database, logs the transaction, and returns the new patient's ID.\n * \n * @param p The PatientBean object representing the new patient to be added\n * @return The ID of the newly added patient\n */"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public AddPatientAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Just the factory and logged in MID\r\n *\r\n * @param factory\r\n * @param loggedInMID\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AddPatientAction object with the given DAOFactory and loggedInMID.\n * This constructor initializes the patientDAO, transDAO, loggedInMID, and authDAO fields using the provided factory.\n * \n * @param factory the DAOFactory used to retrieve the necessary DAO objects\n * @param loggedInMID the MID of the currently logged in user\n */"
             }
         ],
         "signature": "AddPatientAction",
@@ -26,6 +28,7 @@
             "private PatientDAO patientDAO",
             "private AuthDAO authDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AddPatientAction class represents an action that adds a new patient to the system.\n * \n * This class contains methods for adding a new patient, validating the input PatientBean object,\n * generating a new patient ID, setting the ID and a random password for the patient, adding the patient to the database,\n * logging the transaction, and returning the new patient's ID.\n * \n * The class also includes a constructor that initializes the patientDAO, transDAO, loggedInMID, and authDAO fields using the provided factory.\n * \n * Main functionalities of this class include:\n * - Adding a new patient to the system\n * - Validating the input PatientBean object\n * - Generating a new patient ID\n * - Setting the ID and a random password for the patient\n * - Adding the patient to the database\n * - Logging the transaction\n * - Returning the new patient's ID\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

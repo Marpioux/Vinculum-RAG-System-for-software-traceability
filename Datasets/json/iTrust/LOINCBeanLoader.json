@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<LOINCbean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of LOINCbeans from a ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into LOINCbeans\n * @return a List of LOINCbeans populated with data from the ResultSet\n */\npublic List<LOINCbean> loadList(ResultSet rs) {\n    ArrayList<LOINCbean> list = new ArrayList<LOINCbean>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}"
             },
             {
                 "body": "Optional[{\r\n    LOINCbean LOINC = new LOINCbean();\r\n    LOINC.setLabProcedureCode(rs.getString(\"LaboratoryProcedureCode\"));\r\n    LOINC.setComponent(rs.getString(\"Component\"));\r\n    LOINC.setKindOfProperty(rs.getString(\"KindOfProperty\"));\r\n    LOINC.setTimeAspect(rs.getString(\"TimeAspect\"));\r\n    LOINC.setSystem(rs.getString(\"System\"));\r\n    LOINC.setScaleType(rs.getString(\"ScaleType\"));\r\n    LOINC.setMethodType(rs.getString(\"MethodType\"));\r\n    return LOINC;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public LOINCbean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single LOINCbean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the LOINCbean object\n * @return the LOINCbean object loaded from the ResultSet\n */\npublic LOINCbean loadSingle(ResultSet rs) {\n    LOINCbean LOINC = new LOINCbean();\n    LOINC.setLabProcedureCode(rs.getString(\"LaboratoryProcedureCode\"));\n    LOINC.setComponent(rs.getString(\"Component\"));\n    LOINC.setKindOfProperty(rs.getString(\"KindOfProperty\"));\n    LOINC.setTimeAspect(rs.getString(\"TimeAspect\"));\n    LOINC.setSystem(rs.getString(\"System\"));\n    LOINC.setScaleType(rs.getString(\"ScaleType\"));\n    LOINC.setMethodType(rs.getString(\"MethodType\"));\n    return LOINC;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, LOINCbean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters from a LOINCbean object into a PreparedStatement.\n * \n * @param statement the PreparedStatement object to load parameters into\n * @param loincBean the LOINCbean object containing the parameters to be loaded\n * @return the PreparedStatement object with parameters loaded\n * \n * @throws IllegalStateException if the method is not implemented\n */\npublic PreparedStatement loadParameters(PreparedStatement statement, LOINCbean loincBean) {\n    throw new IllegalStateException(\"unimplemented!\");\n}"
             }
         ],
         "constructors": [],
         "signature": "LOINCBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a utility for loading LOINCbean objects from a ResultSet. It provides methods to load a single LOINCbean object and a list of LOINCbean objects from the ResultSet data.\n * \n * The main functionalities of this class include:\n * - Loading a single LOINCbean object from the given ResultSet using the loadSingle method\n * - Loading a list of LOINCbean objects from the ResultSet using the loadList method\n * \n * The overall behavior of this class is to extract data from the ResultSet and populate LOINCbean objects with the extracted data. It uses the ResultSet to retrieve values for the various properties of the LOINCbean object such as LaboratoryProcedureCode, Component, KindOfProperty, TimeAspect, System, ScaleType, and MethodType.\n * \n * @author [Author Name]\n * @version 1.0\n */\npublic class LOINCLoader {\n    // Class implementation goes here\n}\n**/\n/**\n * The LOINCBeanLoader class is responsible for loading LOINCbean objects from a database ResultSet and vice versa. \n * It provides methods to load LOINCbean objects from a ResultSet, set scale and method types, and load parameters \n * from a LOINCbean object into a PreparedStatement.\n * \n * This class encapsulates the logic for handling LOINCbean objects and database interactions, making it easier \n * to work with LOINC data in a Java application.\n * \n * Main functionalities include:\n * - Loading LOINCbean objects from a database ResultSet\n * - Setting scale and method types for LOINCbean objects\n * - Loading parameters from a LOINCbean object into a PreparedStatement\n * \n * Overall behavior:\n * The LOINCBeanLoader class acts as a bridge between LOINCbean objects and database operations. It allows for seamless \n * retrieval and manipulation of LOINC data, providing a convenient way to work with LOINC information in a Java application.\n */\n **/"
     }
 ]

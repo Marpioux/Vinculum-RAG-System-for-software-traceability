@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the initial layout of the GUI by creating and adding components such as images, labels, buttons, and panels.\n * \n * @param None\n * @return None\n */\nvoid setup() {\n    Immagine figura = new Immagine(\"camera2.jpg\");\n    Etichetta etich = new Etichetta(\"Prenotazioni.gif\");\n    this.setFont(ConfigurazioneSistema.font_sub);\n    panel0 = new Panel();\n    panel0.setLayout(gridbag);\n    panel0.setBackground(Color.white);\n    Utils.constrain(panel0, etich, 0, 0, 2, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\n    Utils.constrain(panel0, figura, 2, 0, 10, 12, GridBagConstraints.VERTICAL, GridBagConstraints.CENTER, 0.5, 1.0, 0, 0, 0, 0);\n    panel1 = new Panel();\n    panel1.setLayout(new GridLayout(5, 1));\n    Inserimento = new Button(\" Inserimento \");\n    Modifica = new Button(\" Modifica \");\n    Cancellazione = new Button(\" Cancellazione \");\n    Ricerca = new Button(\" Ricerca... \");\n    Annulla = new Button(\" Indietro \");\n    panel1.add(Inserimento);\n    panel1.add(Modifica);\n    panel1.add(Cancellazione);\n    panel1.add(Ricerca);\n    panel1.add(Annulla);\n    this.setLayout(gridbag);\n    Utils.constrain(this, panel0, 0, 0, 12, 12, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n    Utils.constrain(this, panel1, 12, 0, 1, 12, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 0, 0, 0);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if (Principale.call_list != null)\r\n                (Principale.call_list).dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Inserimento.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            insPrenotazione();\r\n        }\r\n    });\r\n    Modifica.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            modPrenotazione();\r\n        }\r\n    });\r\n    Cancellazione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            cancPrenotazione();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            vediPrenotazione();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by adding action listeners to the buttons.\n * When the \"Annulla\" button is clicked, it disposes the current frame, disposes the call list frame if it exists, and enables the parent frame.\n * When the \"Inserimento\" button is clicked, it calls the insPrenotazione() method.\n * When the \"Modifica\" button is clicked, it calls the modPrenotazione() method.\n * When the \"Cancellazione\" button is clicked, it calls the cancPrenotazione() method.\n * When the \"Ricerca\" button is clicked, it calls the vediPrenotazione() method.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    if (Principale.call_list != null)\r\n        (Principale.call_list).dispose();\r\n    p.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and any associated call list window if it exists. \n * Enables the parent component after disposing the windows.\n * \n * @param e the ActionEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    insPrenotazione();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the insPrenotazione() method to insert a new booking.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    modPrenotazione();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method handles the action event triggered by a user interacting with a GUI component.\n * It calls the modPrenotazione() method to modify a booking in the system.\n * \n * @param e the ActionEvent object representing the event triggered by the user\n * \n * @return void as this method does not return any value\n */"
             },
             {
                 "body": "Optional[{\r\n    cancPrenotazione();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels the current reservation when an action event is triggered.\n * \n * @param e the ActionEvent that triggered the cancellation\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    vediPrenotazione();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the method vediPrenotazione() to display a reservation.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    ric_stanza = new MascheraRicercaStanza(\"Ricerca stanze per prenotazioni\", 2);\r\n    ric_stanza.setVisible(true);\r\n    ric_stanza.padre = this;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void insPrenotazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and opens a new window for searching rooms for bookings.\n * The new window is an instance of MascheraRicercaStanza with the title \"Ricerca stanze per prenotazioni\" and mode 2.\n * The new window is set to be visible and its parent component is set to be this component.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    ric_pren = new RicercaPrenotazione(\"Ricerca prenotazione per modifica\", 1);\r\n    ric_pren.setVisible(true);\r\n    ric_pren.padre = this;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void modPrenotazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and opens a new window for searching and modifying a booking.\n * The method sets the current component as disabled, creates a new instance of the RicercaPrenotazione class\n * with the specified title and mode, sets the visibility of the new window to true, and assigns the current\n * component as the parent of the new window.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    ric_pren = new RicercaPrenotazione(\"Ricerca prenotazione per cancellazione\", 2);\r\n    ric_pren.setVisible(true);\r\n    ric_pren.padre = this;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void cancPrenotazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and opens a new window for searching and canceling a reservation.\n * The method sets the current component to be disabled, creates a new instance of RicercaPrenotazione window\n * with the specified title and mode, sets the visibility of the window to true, and assigns the current component\n * as the parent of the new window.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    ric_pren = new RicercaPrenotazione(\"Ricerca prenotazione per visualizzazione\", 4);\r\n    ric_pren.setVisible(true);\r\n    ric_pren.padre = this;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void vediPrenotazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and opens a new window for searching and viewing a booking.\n * The new window is an instance of RicercaPrenotazione with a specified title and size.\n * The parent component of the new window is set to be the current component.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "constructors": [
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public SubPrenotazione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SubPrenotazione object with the default title \"Prenotazione\".\n * This constructor calls the constructor of the superclass with the specified title,\n * then initializes the SubPrenotazione object by calling the setup, init, and pack methods.\n */"
             }
         ],
         "signature": "SubPrenotazione",
@@ -114,6 +126,7 @@
             " Frame p",
             "static  public MascheraRicercaStanza ric_stanza",
             "static  public RicercaPrenotazione ric_pren"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubPrenotazione class represents a GUI component for managing bookings. \n * It provides functionalities for inserting, modifying, canceling, and searching bookings. \n * The class includes buttons for these operations and displays relevant information using images and labels. \n * The layout of the GUI is set up in the setup() method, which creates and adds components to the frame. \n * The init() method initializes the GUI components by adding action listeners to the buttons. \n * When a button is clicked, it triggers a specific action such as inserting a booking, modifying a booking, canceling a booking, or searching for a booking. \n * The class also includes methods for handling these actions, such as insPrenotazione(), modPrenotazione(), cancPrenotazione(), and vediPrenotazione(). \n * These methods disable the current component and open new windows for performing the respective operations. \n * The SubPrenotazione class extends Frame and includes various GUI components such as labels, panels, buttons, and layouts. \n * Overall, this class provides a user-friendly interface for managing bookings in a system.\n */"
     }
 ]

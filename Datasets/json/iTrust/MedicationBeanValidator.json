@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(MedicationBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates a MedicationBean object by checking the format of its ND Code and Description fields.\n * \n * @param m the MedicationBean object to validate\n * @throws FormValidationException if there are errors in the format of the ND Code or Description fields\n */\npublic void validate(MedicationBean m) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"ND Code\", m.getNDCode(), ValidationFormat.ND, false));\n    errorList.addIfNotNull(checkFormat(\"Description\", m.getDescription(), ValidationFormat.ND_CODE_DESCRIPTION, false));\n    if (errorList.hasErrors())\n        throw new FormValidationException(errorList);\n}\n*/"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public MedicationBeanValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for MedicationBeanValidator class.\n * This constructor creates a new instance of MedicationBeanValidator.\n * No parameters are required for this constructor.\n */"
             }
         ],
         "signature": "MedicationBeanValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The MedicationBeanValidator class is responsible for validating MedicationBean objects by checking the format of their ND Code and Description fields.\n * \n * This class contains a method, validate(MedicationBean m), which performs the validation process. If the format of the ND Code or Description fields is incorrect, a FormValidationException is thrown.\n * \n * Additionally, this class includes a default constructor, public MedicationBeanValidator(), which creates a new instance of MedicationBeanValidator without requiring any parameters.\n * \n * Overall, the MedicationBeanValidator class ensures that MedicationBean objects adhere to the specified format requirements for their ND Code and Description fields.\n */"
     }
 ]

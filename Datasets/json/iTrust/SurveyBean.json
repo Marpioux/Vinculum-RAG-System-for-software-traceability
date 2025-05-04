@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the visit ID for this object.\n * \n * @param iD the visit ID to set\n * \n * This method sets the visit ID for this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getVisitID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the visit ID associated with this object.\n * \n * @return the visit ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.surveyDate = (surveyDate == null ? null : (Date) surveyDate.clone());\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSurveyDate(Date)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the survey date for this object.\n * \n * @param surveyDate the date to set as the survey date\n * @return void\n * \n * This method sets the survey date for this object. If the input date is null, the survey date will be set to null.\n * Otherwise, a clone of the input date will be set as the survey date to ensure immutability.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        setSurveyDate(new SimpleDateFormat(dateFormat).parse(s));\r\n    } catch (ParseException ex) {\r\n        System.out.println(ex.getMessage());\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSurveyDateString(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the survey date based on the provided date string using the specified date format.\n * \n * @param dateString the date string to be parsed and set as the survey date\n * @throws ParseException if the date string cannot be parsed using the specified date format\n */\npublic void setSurveyDateString(String dateString) {\n    try {\n        setSurveyDate(new SimpleDateFormat(dateFormat).parse(dateString));\n    } catch (ParseException ex) {\n        System.out.println(ex.getMessage());\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return (surveyDate == null ? null : (Date) surveyDate.clone());\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getSurveyDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the survey date.\n * \n * @return the survey date, or null if the survey date is null\n */"
             },
             {
                 "body": "Optional[{\r\n    if (surveyDate == null)\r\n        return \"\";\r\n    return new SimpleDateFormat(dateFormat).format(getSurveyDate());\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSurveyDateString()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a formatted string representation of the survey date.\n * If the survey date is null, an empty string is returned.\n * \n * @return a string representation of the survey date in the specified date format\n */"
             },
             {
                 "body": "Optional[{\r\n    this.waitingRoomMinutes = waitingRoomMinutes;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setWaitingRoomMinutes(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the number of minutes a patient must wait in the waiting room before being seen by a doctor.\n * \n * @param waitingRoomMinutes the number of minutes a patient must wait in the waiting room\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return waitingRoomMinutes;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getWaitingRoomMinutes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the number of minutes a patient has been waiting in the waiting room.\n * \n * @return the number of minutes the patient has been waiting in the waiting room\n */"
             },
             {
                 "body": "Optional[{\r\n    this.examRoomMinutes = examRoomMinutes;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setExamRoomMinutes(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the number of minutes allocated for an exam room.\n * \n * @param examRoomMinutes the number of minutes allocated for an exam room\n * \n * This method sets the number of minutes allocated for an exam room. \n * The input parameter examRoomMinutes specifies the number of minutes to be set.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return examRoomMinutes;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getExamRoomMinutes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the number of minutes allocated for an exam room.\n * \n * @return the number of minutes allocated for an exam room\n */"
             },
             {
                 "body": "Optional[{\r\n    this.visitSatisfaction = visitSatisfaction;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitSatisfaction(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the satisfaction level of the visit.\n * \n * @param visitSatisfaction the satisfaction level to be set\n * \n * This method sets the satisfaction level of the visit to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitSatisfaction;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getVisitSatisfaction()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the satisfaction rating of a visit.\n * \n * @return The satisfaction rating of the visit as an integer value.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.treatmentSatisfaction = treatmentSatisfaction;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTreatmentSatisfaction(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the treatment satisfaction level for a patient.\n * \n * @param treatmentSatisfaction the new treatment satisfaction level to set\n * \n * This method sets the treatment satisfaction level for a patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return treatmentSatisfaction;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getTreatmentSatisfaction()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the satisfaction rating of the treatment received.\n * \n * @return the satisfaction rating of the treatment as an integer value\n */"
             }
         ],
         "constructors": [],
@@ -124,6 +138,7 @@
             "private int visitSatisfaction",
             "private int treatmentSatisfaction",
             "public  final  static String dateFormat"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a Visit object that stores information about a visit, including the visit ID and survey date.\n * \n * The main functionalities of this class include setting and retrieving the visit ID, setting the survey date, and parsing a date string to set the survey date based on a specified date format.\n * \n * The visit ID can be set using the setVisitID method and retrieved using the getVisitID method. The survey date can be set using the setSurveyDate method, which ensures immutability by cloning the input date if it is not null. The setSurveyDateString method allows for setting the survey date based on a provided date string using a specified date format.\n * \n * Overall, this class provides methods for managing the visit ID and survey date of a Visit object, ensuring data integrity and immutability where necessary.\n */\npublic class Visit {\n    // class implementation goes here\n}\n**/\n/**\n * The Survey class represents a survey conducted in a medical facility to gather feedback from patients.\n * It stores information such as the survey date, waiting room minutes, and patient responses.\n * \n * The main functionalities of this class include setting and getting the survey date, setting and getting the waiting room minutes,\n * adding patient responses, and generating a formatted string representation of the survey date.\n * \n * The class ensures that the survey date is properly formatted and handles exceptions when parsing date strings.\n * It also provides methods to calculate the waiting time in the waiting room and retrieve patient responses.\n * \n * Overall, the Survey class serves as a tool for managing and analyzing patient feedback in a medical setting.\n */\n```\n/**\n * The ExamRoom class represents an exam room in a medical facility. \n * It stores information about the number of minutes allocated for an exam room, \n * the satisfaction level of a visit, and the satisfaction rating of a treatment.\n * \n * This class provides methods to set and retrieve the number of minutes allocated for an exam room,\n * set and retrieve the satisfaction level of a visit, and set and retrieve the satisfaction rating of a treatment.\n * \n * The ExamRoom class encapsulates the data related to an exam room and provides \n * functionality to manage and access this information. \n * \n * @author [Your Name]\n * @version 1.0\n */\n \npublic class ExamRoom {\n    \n    private int examRoomMinutes;\n    private int visitSatisfaction;\n    private int treatmentSatisfaction;\n    \n    /**\n     * Sets the number of minutes allocated for an exam room.\n     * \n     * @param examRoomMinutes the number of minutes allocated for an exam room\n     * \n     * This method sets the number of minutes allocated for an exam room. \n     * The input parameter examRoomMinutes specifies the number of minutes to be set.\n     */\n    public void setExamRoomMinutes(int examRoomMinutes) {\n        this.examRoomMinutes = examRoomMinutes;\n    }\n    \n    /**\n     * Retrieves the number of minutes allocated for an exam room.\n     * \n     * @return the number of minutes allocated for an exam room\n     */\n    public int getExamRoomMinutes() {\n        return examRoomMinutes;\n    }\n    \n    /**\n     * Sets the satisfaction level of the visit.\n     * \n     * @param visitSatisfaction the satisfaction level to be set\n     * \n     * This method sets the satisfaction level of the visit to the specified value.\n     */\n    public void setVisitSatisfaction(int visitSatisfaction) {\n        this.visitSatisfaction = visitSatisfaction;\n    }\n    \n    /**\n     * Retrieves the satisfaction rating of a visit.\n     * \n     * @return The satisfaction rating of the visit as an integer value.\n     */\n    public int getVisitSatisfaction() {\n        return visitSatisfaction;\n    }\n    \n    /**\n     * Sets the satisfaction rating of a treatment.\n     * \n     * @param treatmentSatisfaction the satisfaction rating of the treatment to be set\n     * \n     * This method sets the satisfaction rating of a treatment to the specified value.\n     */\n    public void setTreatmentSatisfaction(int treatmentSatisfaction) {\n        this.treatmentSatisfaction = treatmentSatisfaction;\n    }\n    \n    // Additional methods and functionalities can be added here as needed\n    \n}\n**/\n/**\n * The SurveyBean class represents a survey object that collects feedback from patients about their visit to a healthcare facility.\n * It contains attributes such as visitID, surveyDate, waitingRoomMinutes, examRoomMinutes, visitSatisfaction, and treatmentSatisfaction to capture various aspects of the patient experience.\n * \n * This class provides methods to set and retrieve the values of these attributes, as well as calculate the overall satisfaction level of the visit based on the ratings provided by the patient.\n * \n * The setTreatmentSatisfaction method allows setting the treatment satisfaction level for a patient, while the getTreatmentSatisfaction method retrieves the satisfaction rating of the treatment received.\n * \n * Additionally, this class includes a static constant dateFormat for formatting date values.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

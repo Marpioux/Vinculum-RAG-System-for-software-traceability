@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long addEmptyOfficeVisit(long)",
                 "comments": "Optional[/**\r\n * Adds an empty office visit\r\n *\r\n * @param loggedInMID\r\n *            For logging purposes\r\n * @return Office visit ID (primary key) of the new office visit\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds an empty office visit for a patient with the given patient ID.\n * \n * @param pid the patient ID for whom the office visit is being added\n * @return the ID of the added office visit\n */\npublic long addEmptyOfficeVisit(long pid) {\n    OfficeVisitBean ov = new OfficeVisitBean();\n    ov.setHcpID(loggedInMID);\n    ov.setPatientID(pid);\n    long visitID = ovDAO.add(ov);\n    transDAO.logTransaction(TransactionType.DOCUMENT_OFFICE_VISIT, loggedInMID, pid, \"visit id: \" + visitID);\n    return visitID;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return ovDAO.getAllOfficeVisits(pid);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<OfficeVisitBean> getAllOfficeVisits()",
                 "comments": "Optional[/**\r\n * Lists all office visits for a particular patient, regardless of who originally documented the office\r\n * visit.\r\n *\r\n * @return List of office visits,\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all office visits for a specific patient.\n * \n * @return a List of OfficeVisitBean objects representing all office visits for the specified patient\n * @param pid the patient ID for which to retrieve office visits\n */"
             },
             {
                 "body": "Optional[{\r\n    return factory.getAuthDAO().getUserName(pid);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getUserName()",
                 "comments": "Optional[/**\r\n * Returns the full name of the patient with this MID\r\n *\r\n * @return name in the form of a string\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the username associated with the specified user ID.\n * \n * @param pid the user ID for which to retrieve the username\n * @return the username associated with the specified user ID\n */"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public AddOfficeVisitAction(DAOFactory, String)",
                 "comments": "Optional[/**\r\n * Sets up the defaults for the class\r\n * @param factory\r\n * @param pidString\r\n *            Patient ID to be validated by the superclass, {@link PatientBaseAction}\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AddOfficeVisitAction with the specified DAOFactory and patient ID.\n * \n * @param factory the DAOFactory used to access data access objects\n * @param pidString the patient ID as a String\n */\npublic AddOfficeVisitAction(DAOFactory factory, String pidString) {\n    super(factory, pidString);\n    this.factory = factory;\n    this.transDAO = factory.getTransactionDAO();\n    ovDAO = factory.getOfficeVisitDAO();\n}\n*/"
             }
         ],
         "signature": "AddOfficeVisitAction",
@@ -41,6 +45,7 @@
             "private DAOFactory factory",
             "private OfficeVisitDAO ovDAO",
             "private TransactionDAO transDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AddOfficeVisitAction class is responsible for handling actions related to adding office visits for patients.\n * It provides methods for adding empty office visits, retrieving all office visits for a specific patient,\n * and getting the username associated with a user ID.\n * \n * This class contains constructors for setting up the defaults and initializing necessary data access objects.\n * \n * Main functionalities include:\n * - Adding an empty office visit for a patient\n * - Retrieving a list of all office visits for a specific patient\n * - Getting the username associated with a user ID\n * \n * Overall behavior:\n * - Allows users to add office visits for patients\n * - Facilitates the retrieval of office visit information for a specific patient\n * - Provides functionality to get the username associated with a user ID\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the user interface components by setting the editability of certain text fields and checkboxes,\n * disabling specific buttons, and adding action listeners to the \"Azione\", \"testo1\", and \"Cerca\" components.\n * \n * @param None\n * @return None\n * \n * The method sets the \"testo1\" text field as editable, while setting \"testo2\", \"testo3\", and \"testo4\" text fields\n * as non-editable. It also disables the \"mycheckboxes\" checkbox and the \"Azione\" button. \n * \n * The method adds an action listener to the \"Azione\" button that calls the \"startAzione\" method when clicked.\n * It also adds action listeners to the \"testo1\" text field and the \"Cerca\" button that call the \"startTesto1\" method\n * when triggered. \n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the startAzione() method to begin the action.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startTesto1();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the testo1 process.\n * \n * @param e the action event that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startTesto1();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the testo1 process.\n * \n * @param e the action event that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    MessageDialog msg;\r\n    int j;\r\n    if ((j = (Principale.db).delStanza(testo1.getText())) != DataBase.OK)\r\n        msg = new MessageDialog(this, \"Problemi con il data base: \" + DataBase.strErrore(j));\r\n    else {\r\n        cleanFields();\r\n        Azione.setEnabled(false);\r\n    }\r\n    testo1.setEditable(true);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the action of deleting a room from the database based on the text entered in a text field.\n * If the deletion is successful, it cleans the input fields and disables the action button.\n * If there are any issues with the database, it displays an error message.\n */\nvoid startAzione() {\n    MessageDialog msg;\n    int j;\n    if ((j = (Principale.db).delStanza(testo1.getText())) != DataBase.OK)\n        msg = new MessageDialog(this, \"Problemi con il data base: \" + DataBase.strErrore(j));\n    else {\n        cleanFields();\n        Azione.setEnabled(false);\n    }\n    testo1.setEditable(true);\n}\n \nParameters: None\nReturn: void\n*/"
             },
             {
                 "body": "Optional[{\r\n    MessageDialog msg;\r\n    Stanza room;\r\n    if ((room = (Principale.db).readStanza(testo1.getText())) != null) {\r\n        writeDatiStanza(room);\r\n        testo1.setEditable(false);\r\n        Azione.setEnabled(true);\r\n    } else\r\n        msg = new MessageDialog(this, \"Stanza inesistente!\");\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void startTesto1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the test for a specific room by reading the room information from the database,\n * displaying it, and enabling a specific action if the room exists. If the room does not exist,\n * a message dialog is displayed indicating that the room is non-existent.\n * \n * @param none\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -57,10 +63,12 @@
                 "hasInnerComment": false,
                 "signature": "public CancellaStanze()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the CancellaStanze class.\n * Initializes the title, action command, and number of buttons for the cancellation of rooms.\n * \n * @param none\n * \n * @return none\n */"
             }
         ],
         "signature": "CancellaStanze",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The CancellaStanze class represents a user interface for the cancellation of rooms. \n * It provides functionalities for deleting rooms from a database, displaying room information, \n * and handling specific actions related to room management. \n * \n * The class includes methods for initializing the user interface components, \n * starting the deletion process for a room, and initiating specific actions for room operations. \n * \n * The main functionalities of the class include:\n * - Initializing the user interface components by setting editability and disabling specific buttons\n * - Deleting a room from the database based on user input and displaying error messages if necessary\n * - Reading room information from the database and enabling specific actions for existing rooms\n * \n * The class also includes constructors for setting the title, action command, and number of buttons \n * for the cancellation of rooms. \n * \n * Overall, the CancellaStanze class provides a user-friendly interface for managing room operations \n * and interacting with a database for room management purposes.\n */"
     }
 ]

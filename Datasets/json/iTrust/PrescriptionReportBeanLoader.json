@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<PrescriptionReportBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of PrescriptionReportBean objects from a ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into the list\n * @return a List of PrescriptionReportBean objects loaded from the ResultSet\n * \n * This method iterates over the ResultSet and creates a new PrescriptionReportBean object for each row of data.\n * Each PrescriptionReportBean object is added to the list, which is then returned.\n */"
             },
             {
                 "body": "Optional[{\r\n    PrescriptionReportBean pres = new PrescriptionReportBean();\r\n    pres.setOfficeVisit(ovLoader.loadSingle(rs));\r\n    pres.setPrescription(presLoader.loadSingle(rs));\r\n    return pres;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionReportBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single PrescriptionReportBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the PrescriptionReportBean\n * @return a PrescriptionReportBean object with data loaded from the ResultSet\n */\npublic PrescriptionReportBean loadSingle(ResultSet rs) {\n    PrescriptionReportBean pres = new PrescriptionReportBean();\n    pres.setOfficeVisit(ovLoader.loadSingle(rs));\n    pres.setPrescription(presLoader.loadSingle(rs));\n    return pres;\n}"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, PrescriptionReportBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters into a PreparedStatement object based on the values in a PrescriptionReportBean object.\n * \n * @param statement the PreparedStatement object to load parameters into\n * @param reportBean the PrescriptionReportBean object containing the values to be loaded into the PreparedStatement\n * @return the PreparedStatement object with parameters loaded\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n */"
             }
         ],
         "constructors": [
@@ -33,13 +36,15 @@
                 "hasInnerComment": false,
                 "signature": "public PrescriptionReportBeanLoader()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor creates a new instance of the PrescriptionReportBeanLoader class.\n * It initializes the ovLoader with a new OfficeVisitLoader object and the presLoader with a new PrescriptionBeanLoader object.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "signature": "PrescriptionReportBeanLoader",
         "variables": [
             "private PrescriptionBeanLoader presLoader",
             "private OfficeVisitLoader ovLoader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a PrescriptionReportLoader that is responsible for loading PrescriptionReportBean objects from a ResultSet.\n * It provides methods to load a single PrescriptionReportBean object, a list of PrescriptionReportBean objects, and to load parameters into a PreparedStatement.\n * \n * The loadList method iterates over the ResultSet and creates a new PrescriptionReportBean object for each row of data.\n * Each PrescriptionReportBean object is added to a list, which is then returned.\n * \n * The loadSingle method loads a single PrescriptionReportBean object from the given ResultSet by setting the OfficeVisit and Prescription properties.\n * \n * The loadParameters method is currently unimplemented and throws an IllegalStateException.\n * \n * Overall, this class provides functionality to load PrescriptionReportBean objects from a ResultSet and handle related operations.\n */\n **/\n/**\n * The PrescriptionReportBeanLoader class is responsible for loading parameters into a PreparedStatement object based on the values in a PrescriptionReportBean object.\n * It contains methods to load parameters into a PreparedStatement object using values from a PrescriptionReportBean object.\n * \n * This class has a constructor that initializes an OfficeVisitLoader and a PrescriptionBeanLoader object.\n * \n * Main functionalities include:\n * - Loading parameters into a PreparedStatement object based on values in a PrescriptionReportBean object\n * \n * Overall behavior:\n * - This class facilitates the process of loading parameters into a PreparedStatement object by utilizing values from a PrescriptionReportBean object.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

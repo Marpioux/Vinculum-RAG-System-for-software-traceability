@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    name = Pnom;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNome(String)",
                 "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param Pnom New value for name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param name the new name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return price;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getPrezzo()",
                 "comments": "Optional[/**\r\n * Returns the value of price\r\n *\r\n * @return value of price.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the price of the item.\n * \n * @return the price of the item as a double value\n */"
             },
             {
                 "body": "Optional[{\r\n    price = pPrezzo;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPrezzo(double)",
                 "comments": "Optional[/**\r\n * Sets the new value of price\r\n *\r\n * @param pPrezzo New value for price.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the price of the product.\n * \n * @param prezzo the new price to set for the product\n * @return void\n */\npublic void setPrezzo(double prezzo) {\n    price = prezzo;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value of id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID of the object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    return idMenu;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdMenu()",
                 "comments": "Optional[/**\r\n * Returns the value of idMenu\r\n *\r\n * @return value of idMenu.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the menu.\n * \n * @return The unique identifier of the menu as an integer value.\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pid;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pid the new ID to set\n * \n * This method sets the ID of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    idMenu = pIdMenu;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdMenu(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idMenu\r\n *\r\n * @param pIdMenu New idMenu.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the menu.\n * \n * @param pIdMenu the new ID of the menu\n * \n * This method sets the ID of the menu to the specified value.\n */"
             }
         ],
         "constructors": [
@@ -73,7 +81,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPiatto(int, String, double, int)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param Pnom\r\n * @param pPrezzo\r\n * @param pIdMenu\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanPiatto object with the specified id, nome, prezzo, and idMenu.\n * \n * @param pid the id of the BeanPiatto object\n * @param Pnom the nome of the BeanPiatto object\n * @param pPrezzo the prezzo of the BeanPiatto object\n * @param pIdMenu the idMenu of the BeanPiatto object\n */\npublic BeanPiatto(int pid, String Pnom, double pPrezzo, int pIdMenu) {\n    setId(pid);\n    setNome(Pnom);\n    setPrezzo(pPrezzo);\n    setIdMenu(pIdMenu);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPiatto()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of BeanPiatto with no parameters.\n * This constructor initializes a new BeanPiatto object with default values.\n */"
             }
         ],
         "signature": "BeanPiatto",
@@ -91,6 +101,7 @@
             "private double price",
             "private int idMenu",
             "private  static  final long serialVersionUID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanPiatto class represents a food item in a menu. It contains information such as the ID, name, price, and menu ID of the food item.\n * This class provides methods to retrieve and set the values of these attributes, as well as constructors to create new instances of BeanPiatto objects.\n * \n * Main functionalities include:\n * - Retrieving and setting the ID of the food item\n * - Retrieving and setting the name of the food item\n * - Retrieving and setting the price of the food item\n * - Retrieving and setting the menu ID of the food item\n * \n * The class also includes constructors to initialize new BeanPiatto objects with specified values or default values.\n * \n * Overall behavior:\n * - The BeanPiatto class encapsulates the data related to a food item and provides methods to interact with this data.\n * - It allows for the creation of new food items with specific attributes and enables the manipulation of these attributes.\n * - The class is designed to be used in a menu management system where food items need to be represented and managed.\n */"
     }
 ]

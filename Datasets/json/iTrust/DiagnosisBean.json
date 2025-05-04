@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getICDCode()",
                 "comments": "Optional[/**\r\n * Gets the ICD Code for this procedure\r\n *\r\n * @return The ICD Code for this procedure\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ICD code associated with this object.\n * \n * @return The ICD code as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    icdCode = code;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setICDCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ICD code for the current object.\n * \n * @param code the ICD code to be set\n * @return void\n */\npublic void setICDCode(String code) {\n    icdCode = code;\n}"
             },
             {
                 "body": "Optional[{\r\n    return classification;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getClassification()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the classification of the object.\n * \n * @return The classification of the object as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    return description;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": "Optional[/**\r\n * Gets the ICD Description for this procedure\r\n *\r\n * @return The ICD Description for this procedure\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the object.\n * \n * @return the description of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.description = description;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescription(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param description the new description to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return description + \"(\" + icdCode + \")\";\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFormattedDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a formatted description of the medical condition, including the ICD code in parentheses.\n * \n * @return the formatted description of the medical condition\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovDiagnosisID;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getOvDiagnosisID()",
                 "comments": "Optional[/**\r\n * Optional - for use with editing an office visit\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier for the overall diagnosis.\n * \n * @return the unique identifier for the overall diagnosis\n */"
             },
             {
                 "body": "Optional[{\r\n    this.ovDiagnosisID = ovDiagnosisID;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOvDiagnosisID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the diagnosis associated with the overall diagnosis.\n * \n * @param ovDiagnosisID the ID of the diagnosis to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    visitID = vid;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the visit ID for this object.\n * \n * @param vid the visit ID to set\n * \n * This method sets the visit ID for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitID;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getVisitID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier for a visit.\n * \n * @return the visit ID as a long value\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public DiagnosisBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a new instance of the DiagnosisBean class.\n * This constructor initializes a new DiagnosisBean object with default values.\n */"
             },
             {
                 "body": "{\r\n    this.icdCode = code;\r\n    this.description = description;\r\n    if (null != classification && classification.equals(\"yes\")) {\r\n        this.classification = classification;\r\n    } else {\r\n        this.classification = \"no\";\r\n    }\r\n}",
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public DiagnosisBean(String, String, String)",
                 "comments": "Optional[/**\r\n * This functionality will be moved elsewhere.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DiagnosisBean with the specified ICD code, description, and classification.\n * \n * @param code the ICD code for the diagnosis\n * @param description the description of the diagnosis\n * @param classification the classification of the diagnosis (optional, defaults to \"no\" if not provided or not equal to \"yes\")\n */"
             }
         ],
         "signature": "DiagnosisBean",
@@ -107,6 +119,7 @@
             "private String description",
             "private String classification",
             "private long visitID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a medical procedure with an associated ICD code, classification, and description.\n * It provides methods to retrieve and set the ICD code, classification, and description of the procedure.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the ICD code associated with the procedure\n * - Retrieving the classification of the procedure\n * - Retrieving and setting the description of the procedure\n * \n * The overall behavior of this class is to store and manage the information related to a medical procedure,\n * including its ICD code, classification, and description. It allows for easy access to and modification of\n * these attributes, providing a convenient way to work with medical procedure data.\n */\n**/\n/**\n * This class represents a medical diagnosis for an office visit. It includes information such as the description of the medical condition, the ICD code, and the unique identifiers for the diagnosis and the visit.\n * \n * The main functionalities of this class include:\n * - Formatting the description of the medical condition with the ICD code in parentheses\n * - Retrieving and setting the unique identifier for the overall diagnosis\n * - Setting and retrieving the visit ID associated with the diagnosis\n * \n * Overall, this class provides a way to manage and store information about medical diagnoses in the context of office visits.\n */\n/**\n * The DiagnosisBean class represents a diagnosis entity in a medical system.\n * It stores information about a specific diagnosis, including the ICD code, description,\n * classification, diagnosis ID, and visit ID.\n * \n * This class provides two constructors:\n * 1. public DiagnosisBean() - Creates a new instance of the DiagnosisBean class with default values.\n * \n * 2. public DiagnosisBean(String code, String description, String classification) - Constructs a new DiagnosisBean\n *    with the specified ICD code, description, and classification.\n *    \n *    Optional functionality:\n *    This functionality will be moved elsewhere.\n *    \n * The main functionalities of this class include:\n * - Storing and retrieving information about a diagnosis\n * - Setting default values for the classification if not provided or not equal to \"yes\"\n * \n * The overall behavior of this class is to provide a data structure for managing diagnosis information\n * and ensuring that the classification is set to \"no\" by default if not explicitly specified as \"yes\".\n */"
     }
 ]

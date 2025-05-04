@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getColumnCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of columns in the dataset.\n * \n * @return the number of columns in the dataset\n */"
             },
             {
                 "body": "Optional[{\r\n    return data.size();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getRowCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of rows in the data collection.\n * \n * @return the number of rows in the data collection\n */"
             },
             {
                 "body": "Optional[{\r\n    return headers[col];\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getColumnName(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the column at the specified index.\n * \n * @param col the index of the column to retrieve the name from\n * @return the name of the column at the specified index\n * \n * @throws IndexOutOfBoundsException if the specified index is out of bounds\n */"
             },
             {
                 "body": "Optional[{\r\n    return data.get(row)[col];\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public Object getValueAt(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value at the specified row and column in the data structure.\n * \n * @param row the row index of the value to retrieve\n * @param col the column index of the value to retrieve\n * @return the value at the specified row and column\n * @throws IndexOutOfBoundsException if the row or column index is out of bounds\n */"
             },
             {
                 "body": "Optional[{\r\n    return columnClasses[col];\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Class<?> getColumnClass(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the class type of the column at the specified index.\n * \n * @param col the index of the column for which to retrieve the class type\n * @return the class type of the column at the specified index\n * @throws ArrayIndexOutOfBoundsException if the specified index is out of bounds\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isCellEditable(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Determines if a cell at the specified row and column indices is editable.\n * \n * @param row the row index of the cell\n * @param column the column index of the cell\n * @return true if the cell is editable, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    if (row >= getRowCount()) {\r\n        Object[] newRow = new Object[headers.length];\r\n        newRow[col] = value;\r\n        data.add(newRow);\r\n    } else {\r\n        data.get(row)[col] = value;\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setValueAt(Object, int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value at the specified row and column in the data structure.\n * If the specified row is greater than or equal to the current number of rows, a new row is added with the given value at the specified column.\n * If the specified row is within the current number of rows, the value at the specified column in the existing row is updated.\n * \n * @param value the value to set at the specified row and column\n * @param row the row index where the value should be set\n * @param col the column index where the value should be set\n */\npublic void setValueAt(Object value, int row, int col) {\n    if (row >= getRowCount()) {\n        Object[] newRow = new Object[headers.length];\n        newRow[col] = value;\n        data.add(newRow);\n    } else {\n        data.get(row)[col] = value;\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (value.length != headers.length) {\r\n        System.out.println(value.length);\r\n        System.out.println(headers.length);\r\n        throw new IllegalArgumentException();\r\n    }\r\n    if (row >= getRowCount()) {\r\n        data.add(value);\r\n    } else {\r\n        data.remove(row);\r\n        data.add(row, value);\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setValueAt(Object[], int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value at the specified row and column index in the table.\n * If the length of the value array does not match the length of the headers array,\n * an IllegalArgumentException is thrown.\n * If the row index is greater than or equal to the current row count,\n * the value is added as a new row. Otherwise, the existing row at the specified index is replaced.\n * \n * @param value an array of Objects representing the values to be set\n * @param row the index of the row where the value should be set\n * \n * @throws IllegalArgumentException if the length of the value array does not match the length of the headers array\n */\npublic void setValueAt(Object[] value, int row) {\n    if (value.length != headers.length) {\n        System.out.println(value.length);\n        System.out.println(headers.length);\n        throw new IllegalArgumentException();\n    }\n    if (row >= getRowCount()) {\n        data.add(value);\n    } else {\n        data.remove(row);\n        data.add(row, value);\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -73,7 +81,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReportTableModel(BeanBeneCulturale[], BeanPuntoDiRistoro[])",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a ReportTableModel object with data from arrays of BeanBeneCulturale and BeanPuntoDiRistoro objects.\n * Each object in the arrays is used to create a new row in the table model.\n * \n * @param bc an array of BeanBeneCulturale objects containing cultural heritage data\n * @param pr an array of BeanPuntoDiRistoro objects containing restaurant data\n */\npublic ReportTableModel(BeanBeneCulturale[] bc, BeanPuntoDiRistoro[] pr) {\n    data = new Vector<>();\n    for (int i = 0; i < pr.length; i++) {\n        Object[] newRow = new Object[5];\n        newRow[0] = pr[i].getName();\n        newRow[1] = pr[i].getDescrizione();\n        newRow[2] = pr[i].getVar();\n        newRow[3] = pr[i].getCitta();\n        newRow[4] = pr[i].getProvincia();\n        data.add(newRow);\n    }\n    for (int i = 0; i < bc.length; i++) {\n        Object[] newRow = new Object[5];\n        newRow[0] = bc[i].getName();\n        newRow[1] = bc[i].getDescrizione();\n        newRow[2] = bc[i].getVar();\n        newRow[3] = bc[i].getCitta();\n        newRow[4] = bc[i].getProvincia();\n        data.add(newRow);\n    }\n}\n*/"
             }
         ],
         "signature": "ReportTableModel",
@@ -82,6 +91,7 @@
             "private  static  final String headers",
             "private  static  final Class columnClasses",
             "private Vector<Object[]> data"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ReportTableModel class represents a data model for a table that combines information from arrays of BeanBeneCulturale and BeanPuntoDiRistoro objects.\n * It provides methods to retrieve and set data in the table, as well as information about the structure of the table.\n * \n * The main functionalities of this class include:\n * - Retrieving the number of columns in the dataset\n * - Retrieving the number of rows in the data collection\n * - Retrieving the name of a column at a specified index\n * - Retrieving the value at a specified row and column in the data structure\n * - Retrieving the class type of a column at a specified index\n * - Determining if a cell at specified row and column indices is editable\n * - Setting the value at a specified row and column in the data structure\n * - Setting the value at a specified row and column index in the table\n * \n * The overall behavior of this class is to provide a flexible and efficient way to manage and display tabular data that combines cultural heritage and restaurant information.\n * It ensures data integrity by performing bounds checking and handling exceptions appropriately.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

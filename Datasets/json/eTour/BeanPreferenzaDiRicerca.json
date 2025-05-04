@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the object.\n * \n * @return the name of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    name = pNom;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNome(String)",
                 "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param pNom New value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param pNom the new name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of this object.\n * \n * @return the unique identifier of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pId;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pId the new ID to set\n * \n * This method sets the ID of the object to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPreferenzaDiRicerca(int, String)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pNom\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanPreferenzaDiRicerca object with the specified id and nome.\n * \n * @param pId the id to set for the BeanPreferenzaDiRicerca object\n * @param pNom the nome to set for the BeanPreferenzaDiRicerca object\n */\npublic BeanPreferenzaDiRicerca(int pId, String pNom) {\n    setId(pId);\n    setNome(pNom);\n}"
             },
             {
                 "body": "{\r\n}",
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPreferenzaDiRicerca()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the BeanPreferenzaDiRicerca class.\n * It initializes a new instance of BeanPreferenzaDiRicerca with no parameters.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * - Creates a new instance of BeanPreferenzaDiRicerca with default values for all fields.\n */"
             }
         ],
         "signature": "BeanPreferenzaDiRicerca",
@@ -57,6 +63,7 @@
             "private  static  final long serialVersionUID",
             "private int id",
             "private String name"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanPreferenzaDiRicerca class represents an object that stores preferences for search criteria.\n * It contains methods to retrieve and set the unique identifier and name of the object.\n * This class also includes constructors to initialize the object with specified values or default values.\n * \n * Main functionalities:\n * - Retrieve and set the unique identifier of the object\n * - Retrieve and set the name of the object\n * \n * Overall behavior:\n * - The class provides methods to access and modify the unique identifier and name of the object.\n * - It includes constructors to create instances of BeanPreferenzaDiRicerca with specified values or default values.\n * - The class ensures data encapsulation by using private variables for the unique identifier and name.\n * \n * @author [Author Name]\n * @version [Version Number]\n */"
     }
 ]

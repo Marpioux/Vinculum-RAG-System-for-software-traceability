@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPrescriber()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the prescriber associated with this object.\n * \n * @return the prescriber as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    Prescriber = prescriber;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPrescriber(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the prescriber for this object.\n * \n * @param prescriber the prescriber to set\n */\npublic void setPrescriber(String prescriber) {\n    Prescriber = prescriber;\n}\n \n/**\n * Sets the prescriber for this object.\n * \n * @param prescriber the prescriber to set\n */\npublic void setPrescriber(String prescriber) {\n    Prescriber = prescriber;\n}"
             },
             {
                 "body": "Optional[{\r\n    return status;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStatus()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current status of the object.\n * \n * @return the status of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.status = status;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStatus(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the status of the object to the specified value.\n * \n * @param status the new status to set\n * \n * This method sets the status of the object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * @return the id\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier of this object.\n * \n * @return the integer value representing the ID of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = id;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * @param id the id to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param id the new ID to set\n * \n * This method sets the ID of the object to the specified integer value.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return date;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDate()",
                 "comments": "Optional[/**\r\n * @return the date\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date stored in the instance variable.\n * \n * @return the date as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.date = date;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDate(String)",
                 "comments": "Optional[/**\r\n * @param date the date to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date for this object.\n * \n * @param date a String representing the date to be set\n * @return void\n * \n * This method sets the date of the object to the specified date string.\n */"
             },
             {
                 "body": "Optional[{\r\n    return code;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCode()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the code associated with the object.\n * \n * @return the code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.code = code;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the code for this object.\n * \n * @param code the new code to set\n * \n * This method sets the code for this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return MID;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getMID()",
                 "comments": "Optional[/**\r\n * @return the patient MID\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the object.\n * \n * @return the unique identifier of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    MID = mID;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMID(String)",
                 "comments": "Optional[/**\r\n * @param mID the patients MID\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the MID (Manufacturer ID) for this object.\n * \n * @param mID the new MID to set\n * @return void\n * \n * Sets the MID (Manufacturer ID) for this object to the specified value. \n * This method does not return anything.\n */"
             },
             {
                 "body": "Optional[{\r\n    return drug;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDrug()",
                 "comments": "Optional[/**\r\n * @return the drug the event is being reported for\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the drug associated with this object.\n * \n * @return the drug associated with this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.drug = drug;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDrug(String)",
                 "comments": "Optional[/**\r\n * @param drug sets the drug the event is being reported for\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the drug for this object.\n * \n * @param drug the drug to be set\n * \n * This method sets the drug for this object to the specified drug. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return description;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": "Optional[/**\r\n * @return the description\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the object.\n * \n * @return the description of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.description = description;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescription(String)",
                 "comments": "Optional[/**\r\n * @param description the description to set\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param description the new description to set\n * @return void\n */"
             }
         ],
         "constructors": [],
@@ -141,6 +157,7 @@
             " String status",
             " String Prescriber",
             " int id"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AdverseEventBean class represents an object that stores information about an adverse event, such as a medication error or side effect. \n * It contains various attributes including a unique identifier (id), a patient's Manufacturer ID (MID), the drug associated with the event, a description of the event, a specific code, the date of the event, the current status, and the prescriber involved. \n * \n * This class provides methods to retrieve and set values for each attribute, allowing for easy manipulation and access to the data stored within the object. \n * \n * The main functionalities of this class include:\n * - Storing and managing information related to adverse events\n * - Providing access to the details of each event, such as the drug, description, and date\n * - Allowing for the modification of event details, such as updating the status or prescriber information\n * \n * Overall, the AdverseEventBean class serves as a convenient way to organize and work with data pertaining to adverse events, making it easier to track and manage such incidents within a system.\n */"
     }
 ]

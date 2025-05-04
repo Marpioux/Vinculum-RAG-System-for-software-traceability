@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciMenu(BeanMenu)",
                 "comments": "Optional[/**\r\n * Adds a menu in the database\r\n *\r\n * @param pMenu menu to add\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a menu into the system.\n * \n * @param menu the BeanMenu object representing the menu to be inserted\n * @return true if the menu was successfully inserted, false otherwise\n * \n * This method is abstract and must be implemented by subclasses. It takes a BeanMenu object as a parameter\n * and attempts to insert it into the system. If the insertion is successful, it returns true. If the insertion\n * fails for any reason, it returns false. If no menu is provided, it returns Optional.empty.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaMenu(BeanMenu)",
                 "comments": "Optional[/**\r\n * Modify a menu in the database\r\n *\r\n * @param pMenu Contains the data to change\r\n * @return True if there was a modification, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies the menu with the given BeanMenu object.\n * \n * @param menu the BeanMenu object to be used for modifying the menu\n * @return true if the menu was successfully modified, false otherwise\n */\nabstract boolean modificaMenu(BeanMenu menu);"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaMenu(int)",
                 "comments": "Optional[/**\r\n * Delete a menu from the database\r\n *\r\n * @param pIdMenu menu to delete\r\n * @return True if it was deleted, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a menu item with the specified ID.\n * \n * @param menuId the ID of the menu item to be deleted\n * @return true if the menu item was successfully deleted, false otherwise\n * \n * This method cancels the menu item with the given ID. \n * If the menu item is successfully deleted, it returns true. \n * If the menu item does not exist or cannot be deleted, it returns false.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanMenu ottieniMenuDelGiorno(int, String)",
                 "comments": "Optional[/**\r\n * Returns the menu of the day of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification of refreshment\r\n * @param pGiorno day of the week in which the menu is daily\r\n * @return daily menu of refreshment\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the menu of the day for a specific bean based on the given parameters.\n * \n * @param id the unique identifier of the bean\n * @param name the name of the bean\n * @return an Optional containing the menu of the day for the specified bean, or an empty Optional if the menu is not available\n */"
             },
             {
                 "body": "Optional.empty",
@@ -39,11 +43,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanMenu> ottieniMenu(int)",
                 "comments": "Optional[/**\r\n * Returns a list of the menu of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification of refreshment\r\n * @return list of menus\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to retrieve a list of BeanMenu objects based on the specified parameter.\n * \n * @param param the integer parameter used to determine which menu items to retrieve\n * @return an ArrayList of BeanMenu objects corresponding to the specified parameter, or an empty Optional if no menu items are found\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBMenu",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBMenu interface represents a database interface for managing menu items in a restaurant system.\n * It defines methods for inserting, modifying, deleting, and retrieving menu items from the database.\n * \n * This interface provides an abstraction for interacting with menu data in a flexible and modular way.\n * Implementing classes must define the behavior of each method to interact with the underlying database system.\n * \n * The main functionalities of this interface include:\n * - Inserting a new menu item into the database\n * - Modifying an existing menu item in the database\n * - Deleting a menu item from the database\n * - Retrieving the menu of the day for a specific refreshment point\n * - Retrieving a list of menu items for a specific refreshment point\n * \n * Implementing classes should provide concrete implementations for each method to handle database operations.\n * \n * This interface follows the standard JavaBean conventions for method signatures and return types.\n * \n * Note: All methods in this interface return Optional.empty by default, indicating that the operation was not successful.\n * Implementing classes should handle database exceptions and return appropriate results based on the operation outcome.\n */"
     }
 ]

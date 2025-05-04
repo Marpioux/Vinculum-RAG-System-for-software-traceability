@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public PersonnelBean getPersonnel(String)",
                 "comments": "Optional[/**\r\n * Retrieves a PersonnelBean for the mid passed as a param\r\n *\r\n * @param input\r\n *            the mid for which the PersonnelBean will be returned\r\n * @return PersonnelBean\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]"
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]",
+                "generated_comment": "/**\n * Retrieves a personnel bean based on the given personnel ID.\n * \n * @param input the personnel ID to search for\n * @return the personnel bean associated with the given ID\n * @throws iTrustException if the personnel ID is not found or if an error occurs during processing\n */\npublic PersonnelBean getPersonnel(String input) throws iTrustException {\n    try {\n        long mid = Long.valueOf(input);\n        PersonnelBean personnel = personnelDAO.getPersonnel(mid);\n        if (personnel != null) {\n            transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, mid, //$NON-NLS-1$\n            Messages.getString(\"ViewPersonnelAction.0\") + mid);\n            return personnel;\n        } else\n            //$NON-NLS-1$\n            throw new iTrustException(Messages.getString(\"ViewPersonnelAction.1\"));\n    } catch (NumberFormatException e) {\n        e.printStackTrace();\n        //$NON-NLS-1$\n        throw new iTrustException(Messages.getString(\"ViewPersonnelAction.2\"));\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return emailDAO.getEmailsByPerson(personnelDAO.getPersonnel(loggedInMID).getEmail());\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<Email> getEmailHistory()",
                 "comments": "Optional[/**\r\n * Returns a PatientBean for the currently logged in personnel\r\n *\r\n * @return The PatientBean\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the email history for the currently logged in personnel.\n * \n * @return a List of Email objects representing the email history for the logged in personnel\n */"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewPersonnelAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person retrieving personnel beans.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewPersonnelAction object with the specified DAOFactory and loggedInMID.\n * This constructor initializes the emailDAO, personnelDAO, and transDAO fields using the provided DAOFactory.\n * \n * @param factory the DAOFactory used to create the DAO objects for email, personnel, and transactions\n * @param loggedInMID the ID of the currently logged in personnel\n */"
             }
         ],
         "signature": "ViewPersonnelAction",
@@ -34,6 +37,7 @@
             "private TransactionDAO transDAO",
             "private FakeEmailDAO emailDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a utility for retrieving personnel information based on a given personnel ID.\n * It provides a method to get a PersonnelBean object for the specified personnel ID.\n * \n * The main functionality of this class is to retrieve a PersonnelBean object for a given personnel ID.\n * It first converts the input personnel ID to a long value and then retrieves the corresponding PersonnelBean\n * object from the personnelDAO. If the PersonnelBean is found, it logs a transaction and returns the PersonnelBean.\n * If the PersonnelBean is not found, it throws an iTrustException.\n * \n * Overall, this class serves as a utility for retrieving personnel information and handling exceptions related to personnel retrieval.\n * \n * @author [Author Name]\n * @version 1.0\n */\n/**\n * The ViewPersonnelAction class is responsible for retrieving and displaying personnel information for the currently logged in personnel.\n * It provides methods to access and display email history for the logged in personnel.\n * \n * This class contains fields for PersonnelDAO, TransactionDAO, FakeEmailDAO, and the ID of the currently logged in personnel.\n * \n * The main functionalities of this class include:\n * - Retrieving email history for the logged in personnel\n * - Providing access to personnel information for the currently logged in personnel\n * \n * The ViewPersonnelAction class initializes the DAO objects for email, personnel, and transactions using the provided DAOFactory.\n * \n * Note: This class assumes that the logged in personnel has the necessary permissions to view personnel information.\n */"
     }
 ]

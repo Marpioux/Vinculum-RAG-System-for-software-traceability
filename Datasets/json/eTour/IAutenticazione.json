@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract int login(String, String, byte)",
                 "comments": "Optional[/**\r\n * Method to authenticate a registered user (Turista - Operatore\r\n * Ristorazione)\r\n *\r\n * @param pUsername Registered User username\r\n * @param pPassword Registered User password\r\n * @param pTipologiaUtente User type to be authenticated\r\n * @return If the data are correct user ID logged in, otherwise -1\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to log in a user with the provided username, password, and security level.\n * \n * @param username the username of the user trying to log in\n * @param password the password of the user trying to log in\n * @param securityLevel the security level of the user\n * @return an integer representing the result of the login process:\n *         -1 if the login failed\n *         0 if the login was successful with normal security level\n *         1 if the login was successful with elevated security level\n *         2 if the login was successful with highest security level\n *         3 if the login was successful with admin privileges\n *         Optional.empty if the login process encountered an error\n */\nabstract int login(String username, String password, byte securityLevel) {\n    // method body goes here\n}"
             }
         ],
         "constructors": [],
@@ -15,6 +16,7 @@
         "variables": [
             " byte VISITORS",
             " byte OP_PUNTO_DI_RISTORO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This interface represents a system for user authentication.\n * It defines a method for logging in a user with a specified username, password, and security level.\n * The login method returns an integer representing the result of the login process:\n * -1 if the login failed\n * 0 if the login was successful with normal security level\n * 1 if the login was successful with elevated security level\n * 2 if the login was successful with highest security level\n * 3 if the login was successful with admin privileges\n * Optional.empty if the login process encountered an error\n * \n * The interface also includes constants for different user types:\n * - VISITORS: representing regular visitors\n * - OP_PUNTO_DI_RISTORO: representing restaurant operators\n * \n * Implementing classes should provide the logic for authenticating users based on the provided credentials.\n */"
     }
 ]

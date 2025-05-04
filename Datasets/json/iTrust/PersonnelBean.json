@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getMessageFilter()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the message filter currently set for this object.\n * \n * @return the message filter as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.messageFilter = messageFilter;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMessageFilter(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the message filter for this object.\n * \n * @param messageFilter the message filter to be set\n * @return void\n * \n * This method sets the message filter for this object to the specified value. \n * The message filter is used to filter messages based on certain criteria.\n */"
             },
             {
                 "body": "Optional[{\r\n    return email;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmail()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the email address associated with this object.\n * \n * @return the email address as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.email = email;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmail(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the email address of the user.\n * \n * @param email the new email address to be set\n * @return void\n * \n * This method sets the email address of the user to the specified value. \n * The email address must be a valid email format. \n * If the email address is null or empty, it will not be set and the previous email address will remain unchanged.\n */"
             },
             {
                 "body": "Optional[{\r\n    return AMID;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getAMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the AMID (Application Module ID) associated with this object.\n * \n * @return the AMID value as a long\n */"
             },
             {
                 "body": "Optional[{\r\n    AMID = amid;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the AMID (Application Module ID) for this object.\n * \n * @param amid the new AMID to set\n * @return void\n */\npublic void setAMID(long amid) {\n    AMID = amid;\n}"
             },
             {
                 "body": "Optional[{\r\n    return city;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCity()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the city associated with this object.\n * \n * @return the name of the city\n */"
             },
             {
                 "body": "Optional[{\r\n    this.city = city;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCity(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the city of the object.\n * \n * @param city the new city to set\n */\npublic void setCity(String city) {\n    this.city = city;\n}\n \n/**\n * Sets the city of the object to the specified city.\n * \n * @param city the new city to set\n */\npublic void setCity(String city) {\n    this.city = city;\n}"
             },
             {
                 "body": "Optional[{\r\n    return confirmPassword;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getConfirmPassword()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the confirm password entered by the user.\n * \n * @return the confirm password entered by the user\n */"
             },
             {
                 "body": "Optional[{\r\n    this.confirmPassword = confirmPassword;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setConfirmPassword(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the confirmation password for the user.\n * \n * @param confirmPassword the confirmation password to be set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return firstName;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFirstName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the first name of the person.\n * \n * @return the first name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.firstName = firstName;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFirstName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the first name of the person.\n * \n * @param firstName the new first name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return lastName;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the last name of the person.\n * \n * @return the last name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the person.\n * \n * @param lastName the last name to be set\n * @return void\n * \n * This method sets the last name of the person to the specified value. \n * If the specified last name is null, the last name will be set to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return getFirstName() + \" \" + getLastName();\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFullName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the full name of the person by concatenating their first name and last name.\n * \n * @return the full name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    return MID;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier of the object.\n * \n * @return the unique identifier of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    MID = mid;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the MID (Message ID) for this object.\n * \n * @param mid the new MID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return password;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPassword()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the password associated with this object.\n * \n * @return the password as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.password = password;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPassword(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the password for the user.\n * \n * @param password the new password to set\n * @return void\n * \n * This method sets the password for the user to the specified value. \n * The password parameter must be a string representing the new password.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return phone1 + \"-\" + phone2 + \"-\" + phone3;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the full phone number by concatenating the three phone number components.\n * \n * @return the full phone number in the format: phone1-phone2-phone3\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone1;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the phone number associated with this object.\n * \n * @return the phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone1 = phone1;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhone1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the phone number for the first phone field.\n * \n * @param phone1 a String representing the phone number to be set\n * \n * This method sets the phone number for the first phone field to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone2;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the second phone number associated with this object.\n * \n * @return the second phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone2 = phone2;\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhone2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second phone number of the object.\n * \n * @param phone2 the second phone number to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone3;\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone3()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the phone number associated with phone3.\n * \n * @return the phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone3 = phone3;\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhone3(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the third phone number of the object.\n * \n * @param phone3 the new third phone number to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return role;\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public Role getRole()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the role associated with this object.\n * \n * @return the role of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.role = role;\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRole(Role)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the role of the object.\n * \n * @param role the role to be set\n * @return void\n */\npublic void setRole(Role role) {\n    this.role = role;\n}\n \nThis method sets the role of the object to the specified role parameter. The role parameter is the new role to be assigned to the object. This method does not return any value."
             },
             {
                 "body": "Optional[{\r\n    return securityAnswer;\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSecurityAnswer()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the security answer associated with this object.\n * \n * @return the security answer as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.securityAnswer = securityAnswer;\r\n}]",
@@ -239,7 +268,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSecurityAnswer(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the security answer for the user.\n * \n * @param securityAnswer the security answer to set\n * \n * This method sets the security answer for the user by assigning the provided value to the securityAnswer field.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return securityQuestion;\r\n}]",
@@ -247,7 +277,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSecurityQuestion()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the security question associated with the user.\n * \n * @return the security question as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.securityQuestion = securityQuestion;\r\n}]",
@@ -255,7 +286,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSecurityQuestion(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the security question for the user.\n * \n * @param securityQuestion the security question to be set\n * \n * This method sets the security question for the user by assigning the provided security question to the \n * securityQuestion instance variable of the object. The security question is used for authentication \n * purposes and can be used to reset the user's password. \n */"
             },
             {
                 "body": "Optional[{\r\n    return state;\r\n}]",
@@ -263,7 +295,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getState()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current state of the object.\n * \n * @return the state of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.state = state;\r\n}]",
@@ -271,7 +304,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setState(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the state of the object to the specified value.\n * \n * @param state the new state to set for the object\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return streetAddress1;\r\n}]",
@@ -279,7 +313,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStreetAddress1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the street address line 1 of the current object.\n * \n * @return the street address line 1 as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.streetAddress1 = streetAddress1;\r\n}]",
@@ -287,7 +322,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStreetAddress1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the first line of the street address for this object.\n * \n * @param streetAddress1 the new value for the first line of the street address\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return streetAddress2;\r\n}]",
@@ -295,7 +331,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStreetAddress2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the second line of the street address.\n * \n * @return the second line of the street address as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.streetAddress2 = streetAddress2;\r\n}]",
@@ -303,7 +340,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStreetAddress2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second line of the street address for this object.\n * \n * @param streetAddress2 the second line of the street address to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (getZip2() != null && !\"\".equals(getZip2()))\r\n        return getZip1() + \"-\" + getZip2();\r\n    else\r\n        return getZip1();\r\n}]",
@@ -311,7 +349,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getZip()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the full ZIP code by concatenating two parts of the ZIP code.\n * If the second part of the ZIP code is not null or empty, it concatenates the two parts with a hyphen.\n * If the second part of the ZIP code is null or empty, it returns just the first part of the ZIP code.\n * \n * @return the full ZIP code if both parts are present, or the first part of the ZIP code if the second part is missing\n */"
             },
             {
                 "body": "Optional[{\r\n    return zip1;\r\n}]",
@@ -319,7 +358,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getZip1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the zip code associated with this object.\n * \n * @return the zip code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.zip1 = zip1;\r\n}]",
@@ -327,7 +367,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setZip1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the zip code for the address.\n * \n * @param zip1 the new zip code to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return zip2;\r\n}]",
@@ -335,7 +376,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getZip2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the zip code 2 associated with this object.\n * \n * @return the zip code 2 as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.zip2 = zip2;\r\n}]",
@@ -343,7 +385,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setZip2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the zip code for a secondary address.\n * \n * @param zip2 the zip code to set for the secondary address\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return specialty;\r\n}]",
@@ -351,7 +394,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSpecialty()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the specialty of the object.\n * \n * @return the specialty of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.specialty = specialty;\r\n}]",
@@ -359,7 +403,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSpecialty(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the specialty of the object.\n * \n * @param specialty the specialty to be set\n * \n * This method sets the specialty of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    for (int i = 0; i < list.size(); i++) {\r\n        if (list.get(i).MID == this.MID)\r\n            return i;\r\n    }\r\n    return -1;\r\n}]",
@@ -367,7 +412,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIndexIn(List<PersonnelBean>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the index of the PersonnelBean object with the same MID as the current object in the given list.\n * \n * @param list the list of PersonnelBean objects to search through\n * @return the index of the PersonnelBean object with the same MID as the current object, or -1 if not found\n */"
             }
         ],
         "constructors": [],
@@ -395,6 +441,7 @@
             "private String email",
             "private String specialty",
             "private String messageFilter"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents an object that stores information about a user, including their email address, message filter, and AMID.\n * \n * The main functionalities of this class include:\n * - Setting and retrieving the message filter for the user\n * - Setting and retrieving the email address associated with the user\n * - Retrieving the AMID (Arbitrary Message ID) for the user\n * \n * The overall behavior of this class is to provide methods for managing and accessing the user's information. The setMessageFilter method allows the user to set a filter for messages, which can be used to filter messages based on certain criteria. The setEmail method allows the user to set their email address, with validation to ensure it is in a valid email format. The getAMID method retrieves the AMID associated with the user.\n * \n * Note: It is important to ensure that the email address is not null or empty when setting it, as the previous email address will remain unchanged in such cases.\n */\npublic class User {\n    // class implementation here\n}\n*/\n/**\n * This class represents an object that stores information about a user, including their AMID (Application Module ID), city, and confirm password.\n * It provides methods to get and set the AMID, city, and confirm password for the user.\n * \n * The AMID is a unique identifier associated with the user's application module.\n * The city represents the location of the user.\n * The confirm password is used to verify the user's password during account creation or password change.\n * \n * This class includes getter and setter methods for each of these properties to access and modify the user's information.\n * \n * Overall, this class encapsulates user data and provides functionality to manage and retrieve it.\n */\n**/\n/**\n * The Person class represents a person with a first name, last name, and a unique identifier (MID).\n * This class provides methods to set and retrieve the first name, last name, and full name of the person.\n * It also includes a method to retrieve the MID of the person.\n * \n * The setFirstName method allows setting the first name of the person.\n * The setLastName method allows setting the last name of the person.\n * The getFullName method returns the full name of the person by concatenating the first name and last name.\n * The getFirstName method retrieves the first name of the person.\n * The getLastName method retrieves the last name of the person.\n * The getMID method retrieves the unique identifier (MID) of the person.\n * \n * Note: If the specified first name or last name is null, the corresponding field will be set to null.\n */\n/**\n * The User class represents a user in a system. It stores information such as the user's unique identifier, password, and phone number.\n * \n * This class provides methods to retrieve and set the user's unique identifier, password, and phone number components.\n * \n * Main functionalities include:\n * - Retrieving and setting the unique identifier of the user\n * - Retrieving and setting the password associated with the user\n * - Retrieving the full phone number by concatenating its components\n * \n * Overall behavior:\n * - The User class allows for the management of user information within the system\n * - Users can retrieve and update their unique identifier, password, and phone number\n * - The class ensures data integrity by providing methods to access and modify user information securely\n */\n```\n/**\n * This class represents an object that stores multiple phone numbers for a contact.\n * It provides methods to set and retrieve phone numbers for three different phone fields.\n * \n * The main functionalities of this class include:\n * - Storing and managing phone numbers for three different phone fields (phone1, phone2, phone3)\n * - Providing methods to set and retrieve phone numbers for each phone field\n * \n * The overall behavior of this class is to allow users to store and access multiple phone numbers for a contact.\n * Users can set phone numbers for each phone field and retrieve them as needed.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The User class represents a user in the system with specific roles and security information.\n * This class contains methods to get and set the user's role, security question, and security answer.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the user's role\n * - Retrieving and setting the user's security question and answer\n * \n * The class behavior is as follows:\n * - The user's role can be retrieved using the getRole() method and set using the setRole(Role) method.\n * - The security answer can be retrieved using the getSecurityAnswer() method and set using the setSecurityAnswer(String) method.\n * - The security question can be retrieved using the getSecurityQuestion() method and set using the setSecurityQuestion(String) method.\n * \n * Overall, the User class provides functionality to manage user roles and security information within the system.\n */\n \npublic class User {\n    // class implementation goes here\n}\n/**\n * This class represents a user object with various attributes such as security question, state, and street address.\n * It provides methods to set and retrieve these attributes, as well as perform other operations related to the user.\n * \n * The setSecurityQuestion method allows setting the security question for the user, which is used for authentication\n * purposes and password reset.\n * \n * The getState method retrieves the current state of the object as a String.\n * \n * The setState method sets the state of the object to the specified value.\n * \n * The getStreetAddress1 method retrieves the street address line 1 of the current object.\n * \n * The setStreetAddress1 method sets the first line of the street address for this object.\n * \n * Overall, this class provides functionality to manage user attributes and perform operations related to user information.\n */\n/**\n * This class represents a model for storing address information, including street address lines and ZIP code.\n * It provides methods to retrieve and set the street address lines, as well as to concatenate and retrieve the full ZIP code.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the first and second line of the street address\n * - Concatenating and retrieving the full ZIP code by combining two parts of the ZIP code\n * \n * The behavior of this class is as follows:\n * - The street address lines can be set and retrieved using the appropriate getter and setter methods\n * - The full ZIP code is generated by concatenating the first and second parts of the ZIP code, if the second part is not null or empty\n * - If the second part of the ZIP code is null or empty, only the first part of the ZIP code is returned\n * \n * Overall, this class provides a convenient way to manage and access address information, including street address lines and ZIP code.\n */\n**/\n/**\n * This class represents a PersonnelBean object that stores information about a person, including their address, zip codes, and specialty.\n * \n * The class provides methods to set and retrieve the zip code for the primary and secondary addresses, as well as the specialty of the person.\n * \n * Additionally, the class includes a method to find the index of a PersonnelBean object with the same MID as the current object in a given list.\n * \n * Overall, this class serves as a data structure for storing and managing information about personnel, allowing for easy access and manipulation of the data.\n */\n/**\n * The PersonnelBean class represents objects that store information about personnel in a system.\n * It contains various attributes such as MID, AMID, role, first name, last name, password, security question, security answer, address, phone number, email, specialty, and message filter.\n * \n * This class provides methods to set and get values for each attribute, as well as a method to search for a PersonnelBean object with a specific MID.\n * \n * The main functionalities of this class include:\n * - Storing and managing personnel information\n * - Searching for a specific personnel object based on MID\n * \n * The overall behavior of this class is to serve as a data structure for storing personnel information and providing methods to interact with this data.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

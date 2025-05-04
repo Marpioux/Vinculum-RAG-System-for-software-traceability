@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCap()",
                 "comments": "Optional[/**\r\n * Returns the value of cap\r\n *\r\n * @return value cap.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the capital city associated with this object.\n * \n * @return the capital city as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cap = pCap;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCap(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of cap\r\n *\r\n * @param pCap value cap.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the capacity of the object.\n * \n * @param pCap the new capacity to set\n * \n * This method sets the capacity of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cittaNascita;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCittaNascita()",
                 "comments": "Optional[/**\r\n * Returns the value of cittaNascita\r\n *\r\n * @return value cittaNascita.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the city of birth of the person.\n * \n * @return the city of birth of the person\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cittaNascita = pCittaNascita;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCittaNascita(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of cittaNascita\r\n *\r\n * @param pCittaNascita new cittaNascita.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the city of birth for the person.\n * \n * @param pCittaNascita the city of birth to set\n * \n * This method sets the city of birth for the person to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cittaResidenza;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCittaResidenza()",
                 "comments": "Optional[/**\r\n * Returns the value of cittaResidenza\r\n *\r\n * @return value cittaResidenza.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the city of residence for the person.\n * \n * @return the city of residence for the person\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cittaResidenza = pCittaResidenza;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCittaResidenza(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of cittaResidenza\r\n *\r\n * @param pCittaResidenza new cittaResidenza.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the city of residence for the person.\n * \n * @param pCittaResidenza the city of residence to set\n * \n * This method sets the city of residence for the person to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCognome()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the last name of the person.\n * \n * @return The last name of the person as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.name = pCognome;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCognome(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of name\r\n *\r\n * @param pCognome new value of surname.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the person.\n * \n * @param pCognome the last name to be set\n * @return void\n * \n * This method sets the last name of the person to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return dob;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDataNascita()",
                 "comments": "Optional[/**\r\n * Returns the value of dob\r\n *\r\n * @return value dob.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date of birth of the person.\n * \n * @return the date of birth of the person\n */"
             },
             {
                 "body": "Optional[{\r\n    this.dob = pDataNascita;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDataNascita(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of dob\r\n *\r\n * @param pDataNascita new value of dob.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of birth of the person.\n * \n * @param pDataNascita the date of birth to set\n * \n * This method sets the date of birth of the person to the specified date.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return dataRegistrazione;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDataRegistrazione()",
                 "comments": "Optional[/**\r\n * Returns the value of dataRegistrazione\r\n *\r\n * @return value dataRegistrazione.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date of registration for this object.\n * \n * @return the date of registration\n */"
             },
             {
                 "body": "Optional[{\r\n    this.dataRegistrazione = pDataRegistrazione;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDataRegistrazione(Date)",
                 "comments": "Optional[/**\r\n * Sets the new value of dataRegistrazione\r\n *\r\n * @param pDataRegistrazione new dataRegistrazione.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of registration for this object.\n * \n * @param pDataRegistrazione the date of registration to set\n * \n * This method sets the date of registration for this object to the specified date. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return email;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmail()",
                 "comments": "Optional[/**\r\n * Returns the value of email\r\n *\r\n * @return value of email.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n* This method returns the email address associated with the object.\n* \n* @return the email address as a String\n*/"
             },
             {
                 "body": "Optional[{\r\n    this.email = pEmail;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmail(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of email\r\n *\r\n * @param pEmail new value of email.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the email address of the user.\n * \n * @param pEmail the new email address to be set\n * \n * This method sets the email address of the user to the specified email address.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.name = pNome;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNome(String)",
                 "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param pNome new value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param pNome the new name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return password;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPassword()",
                 "comments": "Optional[/**\r\n * Returns the value of password\r\n *\r\n * @return value of password.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the password associated with this object.\n * \n * @return the password as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.password = pPassword;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPassword(String)",
                 "comments": "Optional[/**\r\n * Sets the new password value\r\n *\r\n * @param pPassword new password value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the password for the user.\n * \n * @param pPassword the new password to set\n * \n * This method sets the password for the user to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return province;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getProvincia()",
                 "comments": "Optional[/**\r\n * Returns the value of the province\r\n *\r\n * @return value of the province.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the province associated with the current object.\n * \n * @return the province as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.province = pProvincia;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setProvincia(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of the province\r\n *\r\n * @param pProvincia new value for the province.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the province of the object.\n * \n * @param pProvincia the new province to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getTelefono()",
                 "comments": "Optional[/**\r\n * Returns the value of telephone\r\n *\r\n * @return value of the phone.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the phone number associated with this object.\n * \n * @return the phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone = pTelefono;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTelefono(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of telephone\r\n *\r\n * @param pTelefono new value of phone.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the telephone number of the object.\n * \n * @param pTelefono the new telephone number to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return street;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getVar()",
                 "comments": "Optional[/**\r\n * Returns the value of street\r\n *\r\n * @return value of street.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value of the variable 'street'.\n * \n * @return the value of the variable 'street'\n */"
             },
             {
                 "body": "Optional[{\r\n    this.street = pVia;\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVar(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of street\r\n *\r\n * @param pVia new value of street.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of the variable \"street\" to the specified String.\n * \n * @param pVia the String value to set the \"street\" variable to\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return username;\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getUserName()",
                 "comments": "Optional[/**\r\n * Returns the value of username\r\n *\r\n * @return value of username.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the username associated with this object.\n * \n * @return the username as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    return active;\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isAttiva()",
                 "comments": "Optional[/**\r\n * Returns whether the tourist is active or not\r\n *\r\n * @return value of activation.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the current status of the object.\n * \n * @return true if the object is active, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    this.active = pAttiva;\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAttiva(boolean)",
                 "comments": "Optional[/**\r\n * Sets the new value of active\r\n *\r\n * @param pAttiva new value for active.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the activation status of the object.\n * \n * @param attiva the boolean value to set the activation status to\n * \n * This method sets the activation status of the object to the specified boolean value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.username = pUsername;\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setUsername(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of username\r\n *\r\n * @param pUsername new value for username.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the username for the object.\n * \n * @param pUsername the new username to set\n * \n * This method sets the username for the object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = pid;\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid new value of id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pid the new ID to set\n * @return void\n */\npublic void setId(int pid) {\n    this.id = pid;\n}\n \nThis method sets the ID of the object to the specified integer value. The parameter pid represents the new ID to be set. This method does not return any value (void)."
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -239,7 +268,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value of id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID of the object.\n * \n * @return the ID of the object as an integer value\n */"
             }
         ],
         "constructors": [
@@ -249,7 +279,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanTurista(int, String, String, String, String, String, String, String, String, String, String, String, Date, Date, boolean)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pid\r\n * @param pUsername\r\n * @param pNome\r\n * @param pCognome\r\n * @param pCittaNascita\r\n * @param pCittaResidenza\r\n * @param pTelefono\r\n * @param pCap\r\n * @param pVia\r\n * @param pProvincia\r\n * @param pEmail\r\n * @param pPassword\r\n * @param pDataNascita\r\n * @param pDataRegistrazione\r\n * @param pAttiva\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanTurista object with the specified parameters.\n * \n * @param pid the ID of the tourist\n * @param pUsername the username of the tourist\n * @param pNome the first name of the tourist\n * @param pCognome the last name of the tourist\n * @param pCittaNascita the city of birth of the tourist\n * @param pCittaResidenza the city of residence of the tourist\n * @param pTelefono the phone number of the tourist\n * @param pCap the postal code of the tourist\n * @param pVia the street address of the tourist\n * @param pProvincia the province of residence of the tourist\n * @param pEmail the email address of the tourist\n * @param pPassword the password of the tourist\n * @param pDataNascita the date of birth of the tourist\n * @param pDataRegistrazione the date of registration of the tourist\n * @param pAttiva the status of the tourist account\n */\npublic BeanTurista(int pid, String pUsername, String pNome, String pCognome, String pCittaNascita, String pCittaResidenza, String pTelefono, String pCap, String pVia, String pProvincia, String pEmail, String pPassword, Date pDataNascita, Date pDataRegistrazione, boolean pAttiva) {\n    setId(pid);\n    setUsername(pUsername);\n    setNome(pNome);\n    setCognome(pCognome);\n    setCittaNascita(pCittaNascita);\n    setCittaResidenza(pCittaResidenza);\n    setTelefono(pTelefono);\n    setCap(pCap);\n    setVar(pVia);\n    setProvincia(pProvincia);\n    setEmail(pEmail);\n    setPassword(pPassword);\n    setDataNascita(pDataNascita);\n    setDataRegistrazione(pDataRegistrazione);\n    setAttiva(pAttiva);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -257,7 +288,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanTurista()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the BeanTurista class. It creates a new instance of BeanTurista with no parameters.\n * \n * @param None\n * @return A new instance of BeanTurista\n */"
             }
         ],
         "signature": "BeanTurista",
@@ -277,6 +309,7 @@
             "private Date dob",
             "private Date dataRegistrazione",
             "private boolean active"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanTurista class represents a tourist object with various attributes such as ID, username, name, city of birth, city of residence, phone number, postal code, street address, province, email, password, date of birth, date of registration, and activation status.\n * \n * This class provides methods to get and set values for each attribute, allowing for easy access and manipulation of tourist information. It also includes constructors for creating new tourist objects with specified parameters or with no parameters.\n * \n * Main functionalities of the BeanTurista class include:\n * - Retrieving and setting values for ID, username, name, city of birth, city of residence, phone number, postal code, street address, province, email, password, date of birth, date of registration, and activation status.\n * - Constructing new tourist objects with specified parameters or with no parameters.\n * \n * Overall behavior of the BeanTurista class:\n * - Allows for the creation, modification, and retrieval of tourist information.\n * - Encapsulates tourist data and provides methods for interacting with this data.\n * - Facilitates the management of tourist objects within a Java application.\n */\n**/"
     }
 ]

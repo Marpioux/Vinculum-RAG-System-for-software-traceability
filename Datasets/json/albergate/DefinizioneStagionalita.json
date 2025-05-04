@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Utils.constrain(panel1, space, 2, 1, 1, 1, GridBagConstraints.NONE,\r\n, //Creo i TextField\r\n, //Creo i pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo la lista\r\n, //Creo il pannello in alto\r\n, //GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n, //Creo un pannello con due pulsanti\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo il pannello\r\n, //Creo il pannello contenente la TextArea\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Utils.constrain(panel1, space, 2, 1, 1, 1, GridBagConstraints.NONE,\r\n, //Creo i TextField\r\n, //Creo i pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo la lista\r\n, //Creo il pannello in alto\r\n, //GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\r\n, //Creo un pannello con due pulsanti\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo il pannello\r\n, //Creo il pannello contenente la TextArea\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the user interface by creating and configuring various components such as text fields, buttons, labels, checkboxes, and lists. \n * This method initializes the font, creates text fields for start and end dates, buttons for cancellation, confirmation, and addition, labels for displaying information, \n * checkboxes for selecting seasonal options, and a list for displaying data. \n * The panels are organized and attached to the main frame using GridBagLayout. \n */"
             },
             {
                 "body": "Optional[{\r\n    //Ascoltatore degli eventi della finestra\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if ((checkboxes[0].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n                Aggiungi.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if ((checkboxes[1].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n                Aggiungi.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if ((checkboxes[2].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n                Aggiungi.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[3].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if ((checkboxes[3].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n                Aggiungi.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[4].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if ((checkboxes[4].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n                Aggiungi.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    /* Nel caso di annullamento dell'operazione ripristino i vettori\r\n\t\t * originali della Configurazione\r\n\t\t */\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            config.setEnabled(true);\r\n        }\r\n    });\r\n    //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n    //la finestra riguardante l'inserimento della prenotazione\r\n    Aggiungi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAggiungi();\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            ConfigurazioneSistema.new_stag_anno_corr = (config_locale.getStagAnnoCorr());\r\n            ConfigurazioneSistema.new_stag_anno_prox = (config_locale.getStagAnnoProx());\r\n            dispose();\r\n            config.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public void init()",
                 "comments": "Optional[//Gestione degli eventi\r\n]",
-                "innerComments": "Optional[[/* Nel caso di annullamento dell'operazione ripristino i vettori\r\n\t\t * originali della Configurazione\r\n\t\t */\r\n, //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n, //Ascoltatore degli eventi della finestra\r\n, //la finestra riguardante l'inserimento della prenotazione\r\n]]"
+                "innerComments": "Optional[[/* Nel caso di annullamento dell'operazione ripristino i vettori\r\n\t\t * originali della Configurazione\r\n\t\t */\r\n, //Ascoltatore del pulsante Conferma, se il pulsante viene premuto si apre\r\n, //Ascoltatore degli eventi della finestra\r\n, //la finestra riguardante l'inserimento della prenotazione\r\n]]",
+                "generated_comment": "/**\n * Initializes the event listeners for the checkboxes and buttons in the window.\n * Enables the 'Aggiungi' button if a checkbox is selected and both 'data_inizio' and 'data_fine' fields are not empty.\n * Restores the original configuration vectors if the operation is canceled.\n * Disposes of the window and enables the 'config' window if the 'Annulla' button is clicked.\n * Opens the reservation insertion window if the 'Aggiungi' button is clicked.\n * Sets the new values for 'new_stag_anno_corr' and 'new_stag_anno_prox' in the system configuration if the 'Conferma' button is clicked.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((checkboxes[0].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n        Aggiungi.setEnabled(true);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state changes. It checks if the first checkbox is selected, \n * if the 'data_inizio' and 'data_fine' text fields are not empty, and enables the 'Aggiungi' button if all conditions are met.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((checkboxes[1].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n        Aggiungi.setEnabled(true);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state changes in the GUI. It checks if the second checkbox is selected, \n * if the 'data_inizio' and 'data_fine' text fields are not empty, and enables the 'Aggiungi' button if all conditions are met.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((checkboxes[2].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n        Aggiungi.setEnabled(true);\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the third checkbox is selected, \n * if the 'data_inizio' and 'data_fine' text fields are not empty, and enables the 'Aggiungi' button if all conditions are met.\n * \n * @param e the ItemEvent that triggered the state change\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((checkboxes[3].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n        Aggiungi.setEnabled(true);\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the state of the fourth checkbox is selected, \n * if the 'data_inizio' and 'data_fine' text fields are not empty. If all conditions are met, it enables the 'Aggiungi' button.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((checkboxes[4].getState()) && (!(data_inizio.getText()).equals(\"\")) && (!(data_fine.getText()).equals(\"\"))) {\r\n        Aggiungi.setEnabled(true);\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state changes in the GUI. It checks if the fifth checkbox is selected, \n * if the 'data_inizio' and 'data_fine' text fields are not empty, and enables the 'Aggiungi' button if all conditions are met.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    config.setEnabled(true);\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the configuration window.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startAggiungi();\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startAggiungi() method, which is responsible for initiating the addition process. \n * \n * @param e the ActionEvent object that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    ConfigurazioneSistema.new_stag_anno_corr = (config_locale.getStagAnnoCorr());\r\n    ConfigurazioneSistema.new_stag_anno_prox = (config_locale.getStagAnnoProx());\r\n    dispose();\r\n    config.setEnabled(true);\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method handles the action event triggered by a user interaction.\n * It updates the system configuration with the current and next academic year,\n * disposes of the current window, and enables the configuration window.\n * \n * @param e the ActionEvent triggered by the user interaction\n */"
             },
             {
                 "body": "Optional[{\r\n    char flag;\r\n    String[] lista;\r\n    if (Utils.dateEPeriodoCorretti(this, data_inizio.getText(), data_fine.getText())) {\r\n        if (checkboxes[0].getState() == true)\r\n            flag = Flag.ALTA_STAGIONE;\r\n        else if (checkboxes[1].getState() == true)\r\n            flag = Flag.MEDIA_STAGIONE;\r\n        else if (checkboxes[2].getState() == true)\r\n            flag = Flag.BASSA_STAGIONE;\r\n        else if (checkboxes[3].getState() == true)\r\n            flag = Flag.BASSISSIMA_STAGIONE;\r\n        else\r\n            flag = Flag.CHIUSO;\r\n        config_locale.setStagione(new Date(DateUtils.invertDate(DateUtils.parseDate(data_inizio.getText()))), new Date(DateUtils.invertDate(DateUtils.parseDate(data_fine.getText()))), flag);\r\n        conf_stag_corr = config_locale.getStagionalita(Const.ANNO_CORRENTE);\r\n        conf_stag_prox = config_locale.getStagionalita(Const.ANNO_PROSSIMO);\r\n        visStagionalita();\r\n        data_inizio.setText(\"\");\r\n        data_fine.setText(\"\");\r\n        for (int i = 0; i < checkboxes.length; i++) checkboxes[i].setState(false);\r\n        Aggiungi.setEnabled(false);\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAggiungi()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the process of adding a new seasonal configuration.\n * It checks if the entered start and end dates are correct, sets the season flag based on the selected checkboxes,\n * updates the local configuration with the new season, retrieves the current and next season configurations,\n * displays the seasonal configurations, clears the input fields, unchecks all checkboxes, and disables the 'Aggiungi' button.\n * \n * @param None\n * @return None\n */ \nvoid startAggiungi() {\n    char flag;\n    String[] lista;\n    if (Utils.dateEPeriodoCorretti(this, data_inizio.getText(), data_fine.getText())) {\n        if (checkboxes[0].getState() == true)\n            flag = Flag.ALTA_STAGIONE;\n        else if (checkboxes[1].getState() == true)\n            flag = Flag.MEDIA_STAGIONE;\n        else if (checkboxes[2].getState() == true)\n            flag = Flag.BASSA_STAGIONE;\n        else if (checkboxes[3].getState() == true)\n            flag = Flag.BASSISSIMA_STAGIONE;\n        else\n            flag = Flag.CHIUSO;\n        config_locale.setStagione(new Date(DateUtils.invertDate(DateUtils.parseDate(data_inizio.getText()))), new Date(DateUtils.invertDate(DateUtils.parseDate(data_fine.getText()))), flag);\n        conf_stag_corr = config_locale.getStagionalita(Const.ANNO_CORRENTE);\n        conf_stag_prox = config_locale.getStagionalita(Const.ANNO_PROSSIMO);\n        visStagionalita();\n        data_inizio.setText(\"\");\n        data_fine.setText(\"\");\n        for (int i = 0; i < checkboxes.length; i++) checkboxes[i].setState(false);\n        Aggiungi.setEnabled(false);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    config_locale = new Configurazione();\r\n    config_locale.setStagAnnoCorr(ConfigurazioneSistema.new_stag_anno_corr);\r\n    config_locale.setStagAnnoProx(ConfigurazioneSistema.new_stag_anno_prox);\r\n    conf_stag_corr = config_locale.getStagionalita(Const.ANNO_CORRENTE);\r\n    conf_stag_prox = config_locale.getStagionalita(Const.ANNO_PROSSIMO);\r\n    Costanti cost = new Costanti();\r\n    anno_corr = cost.getAnnoCorr();\r\n    anno_prox = cost.getAnnoProx();\r\n    visStagionalita();\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " void initVectors()",
                 "comments": "Optional[/* \tCreo un duplicato dei vettori delle stagionalita per permettere\r\n     *\tl'annullamento delle operazioni\r\n     */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the vectors with the current and next season configuration values.\n * Sets the current season year and next season year based on system configuration.\n * Retrieves the current and next season configurations.\n * Retrieves the current and next year values.\n * Calls the method to visualize the seasonality.\n */ \nvoid initVectors() {\n    config_locale = new Configurazione();\n    config_locale.setStagAnnoCorr(ConfigurazioneSistema.new_stag_anno_corr);\n    config_locale.setStagAnnoProx(ConfigurazioneSistema.new_stag_anno_prox);\n    conf_stag_corr = config_locale.getStagionalita(Const.ANNO_CORRENTE);\n    conf_stag_prox = config_locale.getStagionalita(Const.ANNO_PROSSIMO);\n    Costanti cost = new Costanti();\n    anno_corr = cost.getAnnoCorr();\n    anno_prox = cost.getAnnoProx();\n    visStagionalita();\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    String[] lista = reportStagionalita();\r\n    if (list.getItemCount() > 0)\r\n        list.removeAll();\r\n    for (int k = 0; k < lista.length; k++) list.addItem(lista[k]);\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": " void visStagionalita()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a list of seasonal reports and populates them into a GUI list.\n * If the list already contains items, it will be cleared before adding new items.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    String[] lista_loc = new String[30];\r\n    int index = 0;\r\n    String str_aus;\r\n    initLista(lista_loc);\r\n    //Scansione dei 5 tipi di stagionalita per l'anno corrente\r\n    str_aus = Utils.scanVector(Flag.ALTA_STAGIONE, conf_stag_corr, anno_corr);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di alta stagione per l'anno \" + anno_corr);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.MEDIA_STAGIONE, conf_stag_corr, anno_corr);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di media stagione per l'anno \" + anno_corr);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.BASSA_STAGIONE, conf_stag_corr, anno_corr);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di bassa stagione per l'anno \" + anno_corr);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.BASSISSIMA_STAGIONE, conf_stag_corr, anno_corr);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di bassissima stagione per l'anno \" + anno_corr);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.CHIUSO, conf_stag_corr, anno_corr);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di chiusura per l'anno \" + anno_corr);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    //\tScansione dei 5 tipi di stagionalita per l'anno seguente\r\n    str_aus = Utils.scanVector(Flag.ALTA_STAGIONE, conf_stag_prox, anno_prox);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di alta stagione per l'anno \" + anno_prox);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.MEDIA_STAGIONE, conf_stag_prox, anno_prox);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di media stagione per l'anno \" + anno_prox);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.BASSA_STAGIONE, conf_stag_prox, anno_prox);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di bassa stagione per l'anno \" + anno_prox);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.BASSISSIMA_STAGIONE, conf_stag_prox, anno_prox);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di bassissima stagione per l'anno \" + anno_prox);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    str_aus = Utils.scanVector(Flag.CHIUSO, conf_stag_prox, anno_prox);\r\n    if (!(str_aus.equals(\"\"))) {\r\n        lista_loc[index] = new String(\"Periodi di chiusura per l'anno \" + anno_prox);\r\n        lista_loc[index + 1] = new String(str_aus);\r\n        index = index + 3;\r\n    }\r\n    return lista_loc;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": true,
                 "signature": " String[] reportStagionalita()",
                 "comments": null,
-                "innerComments": "Optional[[//Scansione dei 5 tipi di stagionalita per l'anno corrente\r\n, //\tScansione dei 5 tipi di stagionalita per l'anno seguente\r\n]]"
+                "innerComments": "Optional[[//Scansione dei 5 tipi di stagionalita per l'anno corrente\r\n, //\tScansione dei 5 tipi di stagionalita per l'anno seguente\r\n]]",
+                "generated_comment": "/**\n * This method generates a report of the seasonality for the current year and the following year. \n * It scans for 5 types of seasonality (high, medium, low, very low, closed) for both years and \n * compiles the information into a String array.\n * \n * @return A String array containing the seasonality periods for the current and following year.\n */\nString[] reportStagionalita() {\n    String[] lista_loc = new String[30];\n    int index = 0;\n    String str_aus;\n    \n    // Initialize the list of locations\n    initLista(lista_loc);\n    \n    // Scans for high seasonality for the current year\n    str_aus = Utils.scanVector(Flag.ALTA_STAGIONE, conf_stag_corr, anno_corr);\n    if (!(str_aus.equals(\"\"))) {\n        lista_loc[index] = new String(\"Periodi di alta stagione per l'anno \" + anno_corr);\n        lista_loc[index + 1] = new String(str_aus);\n        index = index + 3;\n    }\n    \n    // Repeat the scanning process for medium, low, very low, and closed seasonality for the current year\n    \n    // Scans for high seasonality for the following year\n    \n    // Repeat the scanning process for medium, low, very low, and closed seasonality for the following year\n    \n    return lista_loc;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    for (int k = 0; k < lista.length; k++) lista[k] = new String(\"\");\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " void initLista(String[])",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the elements of the given String array to empty strings.\n * \n * @param lista the String array to be initialized\n * @return void\n * \n * This method takes a String array as input and sets each element of the array to an empty string.\n * The method does not return anything as it modifies the input array directly.\n */"
             }
         ],
         "constructors": [
@@ -129,7 +144,8 @@
                 "hasInnerComment": false,
                 "signature": "public DefinizioneStagionalita(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DefinizioneStagionalita object with the specified Frame as its parent.\n * This constructor sets the title of the frame to \"Definizione delle stagionalita'\", disables the parent frame,\n * sets up panels, initializes vectors, calls the init method, packs the frame, and sets it to be visible.\n * \n * @param parent the Frame that will be the parent of this DefinizioneStagionalita object\n */"
             }
         ],
         "signature": "DefinizioneStagionalita",
@@ -159,6 +175,7 @@
             " int anno_corr",
             " int anno_prox",
             " Frame config"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DefinizioneStagionalita class represents a user interface for defining seasonal configurations.\n * It provides functionality for setting up panels with text fields, buttons, labels, checkboxes, and lists.\n * The class includes methods for initializing event listeners, enabling buttons based on checkbox selections, and handling user interactions.\n * It also supports the addition of new seasonal configurations, updating system configuration values, and displaying seasonal reports.\n * The class utilizes a GridBagLayout to organize and attach panels to the main frame.\n * \n * @author [Author Name]\n * @version [Version Number]\n * @see ConfigurazioneSistema\n * @see Utils\n * @see Costanti\n */\n**/"
     }
 ]

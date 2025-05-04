@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the graphical user interface for selecting a room.\n * This method initializes the text fields, labels, buttons, and panels required for the room selection process.\n * The \"Annulla\" button cancels the selection, the \"Ricerca\" button searches for available rooms, and the \"Conferma\" button confirms the selection.\n * The \"Conferma\" button is initially disabled until a valid room selection is made.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors()) {\r\n                //stanza1.setEditable(false);\r\n                startRicerca();\r\n            }\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": "Optional[[//stanza1.setEditable(false);\r\n]]"
+                "innerComments": "Optional[[//stanza1.setEditable(false);\r\n]]",
+                "generated_comment": "/**\n * Initializes the GUI components and sets up the action listeners for the buttons.\n * The method adds action listeners to the Annulla, Conferma, and Ricerca buttons.\n * \n * Annulla button: Disposes of the current window and enables the parent window.\n * Conferma button: Calls the startConferma method.\n * Ricerca button: Checks for any errors before calling the startRicerca method. If no errors are found, the method is executed.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the method. \n * There is no return value for this method.\n */"
             },
             {
                 "body": "Optional[{\r\n    startConferma();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the confirmation process.\n * \n * @param e the action event that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (noErrors()) {\r\n        //stanza1.setEditable(false);\r\n        startRicerca();\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": true,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": "Optional[[//stanza1.setEditable(false);\r\n]]"
+                "innerComments": "Optional[[//stanza1.setEditable(false);\r\n]]",
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there are no errors present, and if so, it disables the stanza1 component and initiates a search process.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    } else {\r\n        if (ctrlPosti()) {\r\n            int ris;\r\n            if ((ris = (Principale.db).changeStanzaSoggiornanti(stanza1.getText(), stanza2.getText())) > 0) {\r\n                if ((ris = (Principale.db).changeStanzaAddebiti(stanza1.getText(), stanza2.getText())) < 0)\r\n                    msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(ris));\r\n                if ((ris = (Principale.db).changeStanzaTelefonate(stanza1.getText(), stanza2.getText())) < 0)\r\n                    msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(ris));\r\n                Utils.aggiornaDisp(elenco_disp, stanza1.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.DISPONIBILE, Flag.OCCUPATA, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.DISPONIBILE, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.COMMISSIONATA, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.DISPONIBILE, true);\r\n                Utils.aggiornaDisp(elenco_disp, stanza2.getText(), p.getInizioSogg(), p.getFineSogg(), Flag.OCCUPATA, Flag.COMMISSIONATA, true);\r\n                if (p.getTramiteAgenzia() == Const.SI) {\r\n                    Utils.restoreCommissioni(stanza1.getText());\r\n                }\r\n                msg = new AvvisoDialog(this, \"La stanza e' stata cambiata e tutti i dati riferiti ad essa aggiornati\");\r\n                Conferma.setEnabled(false);\r\n            } else if ((ris != 0) && (!(ris == DataBase.DONT_EXISTS_STANZA)))\r\n                msg = new MessageDialog(this, \"Problemi con il database: \" + DataBase.strErrore(ris));\r\n        }\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void startConferma()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the confirmation process for changing a room in the database.\n * It retrieves a list of available rooms from the database and checks if there are any issues with the database connection.\n * If the room change is successful, it updates the room information in the database and updates the room availability status.\n * If the room change involves an agency booking, it also restores the agency commission.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(stanza1.getText(), false);\r\n    Stanza room2 = (Principale.db).readStanza(stanza2.getText());\r\n    if (!(room2 == null) && !(L_sogg == null))\r\n        if (L_sogg.length() > contaPosti(room2)) {\r\n            msg = new AvvisoDialog(this, \"La stanza scelta e' troppo piccola per \" + L_sogg.length() + \" persone\");\r\n            return false;\r\n        } else\r\n            return true;\r\n    else {\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n        return false;\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean ctrlPosti()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the selected room has enough capacity for the number of guests staying in another room.\n * \n * @return true if the room has enough capacity, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    int c = s.getPostiLetto();\r\n    if (s.getDispLettoAgg() == Const.SI)\r\n        c++;\r\n    return c;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " int contaPosti(Stanza)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Counts the total number of available beds in a room.\n * \n * @param s the room for which to count the beds\n * @return the total number of available beds in the room\n */\nint contaPosti(Stanza s) {\n    int c = s.getPostiLetto();\n    if (s.getDispLettoAgg() == Const.SI)\n        c++;\n    return c;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    figlio = new MascheraRicercaStanza(\"Ricerca di stanze disponibili per cambio stanza\", 3);\r\n    Soggiornante sogg = (Principale.db).readSoggiornante(stanza1.getText(), 1);\r\n    p = (Principale.db).readPrenotazione(sogg.getIdPrenotazione());\r\n    if (!(p == null)) {\r\n        figlio.data_inizio.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(new Date())));\r\n        figlio.data_inizio.setEditable(false);\r\n        figlio.data_fine.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(p.getFineSogg())));\r\n        figlio.save_date = p.getFineSogg();\r\n        if (p.getTramiteAgenzia() == Const.SI) {\r\n            figlio.con_ag.setState(true);\r\n            figlio.con_ag.setEnabled(false);\r\n            figlio.nome_ag.setText(p.getNomeAgenzia());\r\n            figlio.nome_ag.setEditable(false);\r\n        }\r\n        figlio.setVisible(true);\r\n        figlio.father = this;\r\n    }\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void startRicerca()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current window and opens a new window for searching available rooms for room change.\n * Retrieves the guest information and reservation details for the current room.\n * If a reservation exists, sets the start date to the current date and end date to the reservation end date.\n * If the reservation was made through an agency, displays the agency name and disables the agency checkbox.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    Disponibilita disp = new Disponibilita();\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return false;\r\n    }\r\n    if ((stanza1.getText().equals(\"\"))) {\r\n        msg = new AvvisoDialog(this, \" Inserire il numero della stanza da cambiare! \");\r\n        return false;\r\n    } else {\r\n        if ((Principale.db).readStanza(stanza1.getText()) == null) {\r\n            msg = new MessageDialog(this, \" La stanza inserita e' inesistente! \");\r\n            return false;\r\n        } else {\r\n            disp = Utils.getDispOfRoom(elenco_disp, stanza1.getText(), true);\r\n            if (disp != null) {\r\n                if (disp.getStatusGiorno(DateUtils.dataTogiorni(new Date()), Const.ANNO_CORRENTE) != Flag.OCCUPATA) {\r\n                    msg = new MessageDialog(this, \" La stanza inserita non e' attualmente occupata! \");\r\n                    return false;\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return true;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean noErrors()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for any errors before proceeding with a room change operation.\n * \n * This method first retrieves a list of room availabilities from the database. If the list is null, \n * it displays an error message and returns false. It then checks if the room number field is empty, \n * and if so, displays an error message and returns false. If the room number entered does not exist \n * in the database, it displays an error message and returns false. If the room is currently occupied, \n * it displays an error message and returns false. Otherwise, it returns true indicating that there \n * are no errors and the room change operation can proceed.\n * \n * @return true if there are no errors, false otherwise\n */\nboolean noErrors() {}"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraCambio(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraCambio object with the specified parent Frame.\n * The constructor sets the title of the frame to \"Cambio di stanza\", disables the parent frame,\n * calls the setup and init methods, packs the frame, and sets it to be visible.\n * \n * @param parent the parent Frame for this MascheraCambio object\n */"
             }
         ],
         "signature": "MascheraCambio",
@@ -107,6 +118,7 @@
             " Prenotazione p",
             " Frame padre",
             " MascheraRicercaStanza figlio"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraCambio class represents a graphical user interface for selecting a room change operation.\n * It provides functionality for selecting a current room and a new room, confirming the room change, and searching for available rooms.\n * The class includes text fields, labels, buttons, and panels for user interaction.\n * The \"Annulla\" button cancels the room selection, the \"Ricerca\" button searches for available rooms, and the \"Conferma\" button confirms the room change.\n * The \"Conferma\" button is initially disabled until a valid room selection is made.\n * \n * The class includes methods for setting up the GUI components, initializing action listeners for the buttons, and handling room change operations.\n * The startConferma method initiates the confirmation process for changing a room in the database, updating room information, and availability status.\n * The ctrlPosti method checks if the selected room has enough capacity for the number of guests staying in another room.\n * The contaPosti method counts the total number of available beds in a room.\n * The startRicerca method disables the current window and opens a new window for searching available rooms for room change.\n * The noErrors method checks for any errors before proceeding with a room change operation.\n * \n * The class constructor constructs a new MascheraCambio object with the specified parent Frame.\n * It sets the title of the frame to \"Cambio di stanza\", disables the parent frame, and initializes the GUI components.\n * \n * Overall, the MascheraCambio class provides a user-friendly interface for selecting and confirming room changes, with error checking and database interaction.\n */\n*/"
     }
 ]

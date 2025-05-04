@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<DrugInteractionBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of DrugInteractionBean objects from a ResultSet.\n * \n * @param rs the ResultSet containing the data to load\n * @return a List of DrugInteractionBean objects loaded from the ResultSet\n */\npublic List<DrugInteractionBean> loadList(ResultSet rs) {\n    ArrayList<DrugInteractionBean> list = new ArrayList<DrugInteractionBean>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    // MedicationBean med = new MedicationBean();\r\n    DrugInteractionBean drugIt = new DrugInteractionBean();\r\n    drugIt.setDescription(rs.getString(\"Description\"));\r\n    drugIt.setFirstDrug(rs.getString(\"FirstDrug\"));\r\n    drugIt.setSecondDrug(rs.getString(\"SecondDrug\"));\r\n    return drugIt;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public DrugInteractionBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": "Optional[[// MedicationBean med = new MedicationBean();\r\n]]"
+                "innerComments": "Optional[[// MedicationBean med = new MedicationBean();\r\n]]",
+                "generated_comment": "/**\n * Loads a single DrugInteractionBean object from a ResultSet.\n * \n * @param rs the ResultSet containing the data for the DrugInteractionBean\n * @return the DrugInteractionBean object loaded from the ResultSet\n */\npublic DrugInteractionBean loadSingle(ResultSet rs) {\n    // MedicationBean med = new MedicationBean();\n    DrugInteractionBean drugIt = new DrugInteractionBean();\n    drugIt.setDescription(rs.getString(\"Description\"));\n    drugIt.setFirstDrug(rs.getString(\"FirstDrug\"));\n    drugIt.setSecondDrug(rs.getString(\"SecondDrug\"));\n    return drugIt;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, DrugInteractionBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of a DrugInteractionBean into a PreparedStatement.\n * \n * @param statement the PreparedStatement to load the parameters into\n * @param drugInteraction the DrugInteractionBean containing the parameters to be loaded\n * @return the PreparedStatement with the parameters loaded\n * \n * @throws IllegalStateException if the method is not implemented\n */"
             }
         ],
         "constructors": [
@@ -33,10 +36,12 @@
                 "hasInnerComment": false,
                 "signature": "public DrugInteractionBeanLoader()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the DrugInteractionBeanLoader class.\n * It initializes a new instance of DrugInteractionBeanLoader with no parameters.\n */"
             }
         ],
         "signature": "DrugInteractionBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a utility for loading DrugInteractionBean objects from a ResultSet.\n * It contains methods for loading a single DrugInteractionBean object and a list of DrugInteractionBean objects.\n * \n * The loadSingle method loads a single DrugInteractionBean object from a ResultSet by setting its description, first drug, and second drug properties.\n * \n * The loadList method loads a list of DrugInteractionBean objects from a ResultSet by iterating through the ResultSet and adding each loaded DrugInteractionBean object to a list.\n * \n * Overall, this class provides functionality for loading DrugInteractionBean objects from a ResultSet efficiently and effectively.\n */\n*/\n/**\n * The DrugInteractionBeanLoader class is responsible for loading parameters of a DrugInteractionBean into a PreparedStatement.\n * It provides methods to load parameters into a PreparedStatement object and handles any exceptions that may occur during the process.\n * \n * This class contains a method loadParameters() that takes a PreparedStatement object and a DrugInteractionBean object as parameters,\n * and loads the parameters from the DrugInteractionBean into the PreparedStatement. If the method is not implemented, it throws an IllegalStateException.\n * \n * The DrugInteractionBeanLoader class also includes a constructor that initializes a new instance of DrugInteractionBeanLoader with no parameters.\n * \n * Overall, the DrugInteractionBeanLoader class facilitates the process of loading parameters from a DrugInteractionBean into a PreparedStatement,\n * providing a convenient and efficient way to handle interactions between data objects and database statements.\n */\n **/"
     }
 ]

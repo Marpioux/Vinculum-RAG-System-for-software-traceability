@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanel()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panel by creating and configuring components such as a message label, two buttons, and two panels.\n * The message label displays a message informing the user that changing the departure date of a guest who came with an agency is required for calculating the bill.\n * The \"Annulla\" button cancels the operation, while the \"Cambia data\" button allows the user to change the date.\n * This method sets the font of the components to the system configuration font for titles.\n * The panels are arranged using a gridbag layout to organize the components.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    button1.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAzione();\r\n        }\r\n    });\r\n    button2.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            padre.startChiudiSingoloConAgenzia();\r\n            startAzione();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the buttons in the GUI by adding ActionListeners to them.\n * When button1 is clicked, it triggers the startAzione() method.\n * When button2 is clicked, it triggers the startChiudiSingoloConAgenzia() method from the parent class\n * and then the startAzione() method.\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the startAzione() method to begin the desired action.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    padre.startChiudiSingoloConAgenzia();\r\n    startAzione();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startChiudiSingoloConAgenzia method on the padre object, followed by the startAzione method. \n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    setVisible(false);\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Hides the current window, disposes of it, and enables the parent window.\n * This method is used to start an action and clean up the current window.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public AskChiudiSingoloConAgenzia(MascheraCalcoloConto)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AskChiudiSingoloConAgenzia object with the specified parent window.\n * \n * @param parent the parent window of the dialog\n * \n * This constructor initializes the dialog with the given parent window, sets the parent window to disabled,\n * sets up the panel, initializes the dialog, packs it, and sets it to be visible.\n */"
             }
         ],
         "signature": "AskChiudiSingoloConAgenzia",
@@ -62,6 +68,7 @@
             " Panel panel2",
             " Label message",
             " GridBagLayout gridbag"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AskChiudiSingoloConAgenzia class represents a dialog window that prompts the user to take action regarding a guest's departure date when they have arrived with a travel agency. \n * The dialog contains message labels informing the user about the necessity of changing the departure date to calculate the guest's bill accurately. \n * It provides two buttons - \"Annulla\" to cancel the operation and \"Cambia data\" to change the date. \n * The class sets up the panel layout, initializes the buttons with ActionListeners, and handles the actions triggered by the buttons. \n * It also manages the visibility of the dialog window and enables/disables the parent window accordingly. \n * \n * The main functionalities of the AskChiudiSingoloConAgenzia class include:\n * - Setting up the panel layout with message labels and buttons\n * - Initializing buttons with ActionListeners to handle user interactions\n * - Managing the visibility of the dialog window and enabling/disabling the parent window\n * \n * The overall behavior of the class involves creating a dialog window with the specified parent window, setting up the panel layout, initializing components, and handling user actions. \n * It provides a user-friendly interface for users to interact with and make decisions regarding the guest's departure date in the system. \n * \n * @author [Author Name]\n * @version [Version Number]\n */"
     }
 ]

@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public abstract Connection getConnection()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a connection to a database.\n * \n * @return an optional containing the connection to the database, or an empty optional if no connection is available\n */"
             }
         ],
         "constructors": [],
         "signature": "IConnectionDriver",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IConnectionDriver interface represents a driver for retrieving connections to a database.\n * It provides a method to obtain a connection to the database.\n * \n * This interface does not provide any constructors as it is meant to be implemented by classes that handle database connections.\n * \n * The main functionality of this interface is to define a method getConnection() that returns an optional containing the connection to the database.\n * If no connection is available, an empty optional is returned.\n * \n * Implementing classes should provide the necessary logic to establish a connection to the database and return it through the getConnection() method.\n * \n * It is recommended to handle exceptions and connection pooling within the implementing classes to ensure efficient and reliable database connections.\n */"
     }
 ]

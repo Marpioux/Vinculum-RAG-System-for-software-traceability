@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void changeSessionTimeout(String)",
                 "comments": "Optional[/**\r\n * Changes the session timeout, the complicated logic of this is somewhat regrettably in the DAO,\r\n * {@link AccessDAO}\r\n *\r\n * @param minuteString\r\n *            Pass the number of minutes in the form of a string, greater than 0.\r\n * @throws FormValidationException\r\n * @throws DBException\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Changes the session timeout for the application.\n * \n * @param minuteString a String representing the new session timeout in minutes\n * @throws FormValidationException if the input is not a valid number or is less than 1\n */\npublic void changeSessionTimeout(String minuteString) {\n    try {\n        Integer minutes = Integer.valueOf(minuteString);\n        if (minutes < 1)\n            throw new FormValidationException(\"Must be a number greater than 0\");\n        accessDAO.setSessionTimeoutMins(minutes);\n    } catch (NumberFormatException e) {\n        throw new FormValidationException(\"That is not a number\");\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return accessDAO.getSessionTimeoutMins();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getSessionTimeout()",
                 "comments": "Optional[/**\r\n * Returns the current session timeout in minutes, as reflected in the database\r\n *\r\n * @return the number of minutes it would take for an inactive session to timeout\r\n * @throws DBException\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the session timeout value in minutes from the data access object.\n * \n * @return the session timeout value in minutes\n */"
             }
         ],
         "constructors": [
@@ -25,12 +27,14 @@
                 "hasInnerComment": false,
                 "signature": "public ChangeSessionTimeoutAction(DAOFactory)",
                 "comments": "Optional[/**\r\n * Sets up defualts.\r\n *\r\n * @param factory\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ChangeSessionTimeoutAction with the specified DAOFactory.\n * This constructor initializes the accessDAO field of the ChangeSessionTimeoutAction\n * with the AccessDAO obtained from the provided DAOFactory.\n *\n * @param factory the DAOFactory used to obtain the AccessDAO\n */"
             }
         ],
         "signature": "ChangeSessionTimeoutAction",
         "variables": [
             "private AccessDAO accessDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a service for managing session timeouts in the application.\n * It provides methods for changing and retrieving the session timeout value.\n * \n * The main functionalities of this class include:\n * - Changing the session timeout value by providing a new value in minutes\n * - Retrieving the current session timeout value from the database\n * \n * The overall behavior of this class is to interact with the AccessDAO to update and retrieve session timeout values.\n * \n * @author Andy Meneely\n */\n*/\n/**\n * The ChangeSessionTimeoutAction class represents an action that allows changing the session timeout value in minutes.\n * This class provides a method to retrieve the current session timeout value from the data access object and a method to update\n * the session timeout value in minutes.\n * \n * The main functionality of this class includes:\n * - Retrieving the current session timeout value in minutes from the data access object.\n * - Updating the session timeout value in minutes through the data access object.\n * \n * This class requires a DAOFactory to be passed in the constructor to obtain the AccessDAO needed for accessing the session timeout value.\n * \n * Example usage:\n * \n * DAOFactory factory = new DAOFactory();\n * ChangeSessionTimeoutAction action = new ChangeSessionTimeoutAction(factory);\n * int currentTimeout = action.getSessionTimeout();\n * System.out.println(\"Current session timeout: \" + currentTimeout + \" minutes\");\n * action.setSessionTimeout(30);\n * System.out.println(\"Session timeout updated to 30 minutes\");\n * \n * @author Andy Meneely\n */\n**/"
     }
 ]

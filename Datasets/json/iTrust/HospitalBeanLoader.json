@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<HospitalBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method loads a list of HospitalBean objects from a ResultSet.\n * \n * @param rs the ResultSet containing the data to load\n * @return a List of HospitalBean objects loaded from the ResultSet\n */\npublic List<HospitalBean> loadList(ResultSet rs) {\n    ArrayList<HospitalBean> list = new ArrayList<HospitalBean>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}"
             },
             {
                 "body": "Optional[{\r\n    // HospitalBean hosp = new HospitalBean();\r\n    HospitalBean hosp = new HospitalBean(rs.getString(\"HospitalID\"), rs.getString(\"HospitalName\"));\r\n    return hosp;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public HospitalBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": "Optional[[// HospitalBean hosp = new HospitalBean();\r\n]]"
+                "innerComments": "Optional[[// HospitalBean hosp = new HospitalBean();\r\n]]",
+                "generated_comment": "/**\n * Loads a single HospitalBean object from a ResultSet.\n * \n * @param rs the ResultSet containing the data for the HospitalBean\n * @return a HospitalBean object with the HospitalID and HospitalName extracted from the ResultSet\n */"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, HospitalBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters from a HospitalBean object into a PreparedStatement.\n * \n * @param statement the PreparedStatement object to load the parameters into\n * @param hospital the HospitalBean object containing the parameters to load\n * @return the PreparedStatement object with the parameters loaded\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n */"
             }
         ],
         "constructors": [],
         "signature": "HospitalBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a HospitalLoader that is responsible for loading HospitalBean objects from a ResultSet and preparing PreparedStatement objects for database operations.\n * \n * The class contains three methods:\n * 1. loadList(ResultSet rs) - This method loads a list of HospitalBean objects from a ResultSet. It iterates through the ResultSet and adds each HospitalBean object to a List, which is then returned.\n * \n * 2. loadSingle(ResultSet rs) - This method loads a single HospitalBean object from a ResultSet. It creates a new HospitalBean object with the HospitalID and HospitalName extracted from the ResultSet and returns it.\n * \n * 3. loadParameters(PreparedStatement statement, HospitalBean hospital) - This method loads the parameters from a HospitalBean object into a PreparedStatement. It prepares the PreparedStatement object with the parameters from the HospitalBean object and returns the updated PreparedStatement object.\n * \n * Overall, the HospitalLoader class provides functionality to load HospitalBean objects from a ResultSet and prepare PreparedStatement objects for database operations related to hospitals. It ensures efficient data retrieval and manipulation for hospital-related tasks.\n */\npublic class HospitalLoader {\n    // class implementation here\n}\n**/\n/**\n * The HospitalBeanLoader class is responsible for loading parameters for a hospital bean.\n * It provides methods to load parameters such as hospital name, address, and contact information.\n * This class is currently unimplemented and should not be used until it is fully implemented.\n * \n * @author [Your Name]\n * @version 1.0\n * @since [Date]\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n */"
     }
 ]

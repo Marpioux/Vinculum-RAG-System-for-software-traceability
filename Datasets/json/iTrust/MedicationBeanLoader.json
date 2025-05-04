@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<MedicationBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of MedicationBean objects from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into MedicationBean objects\n * @return a List of MedicationBean objects loaded from the ResultSet\n * \n * This method iterates through the ResultSet and creates a new MedicationBean object for each row of data.\n * It then adds each MedicationBean object to an ArrayList and returns the list of MedicationBean objects.\n */"
             },
             {
                 "body": "Optional[{\r\n    // MedicationBean med = new MedicationBean();\r\n    MedicationBean med = new MedicationBean(rs.getString(\"Code\"));\r\n    med.setDescription(rs.getString(\"Description\"));\r\n    return med;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public MedicationBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": "Optional[[// MedicationBean med = new MedicationBean();\r\n]]"
+                "innerComments": "Optional[[// MedicationBean med = new MedicationBean();\r\n]]",
+                "generated_comment": "/**\n * Loads a single MedicationBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the MedicationBean\n * @return a MedicationBean object with the code and description retrieved from the ResultSet\n */"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, MedicationBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of a given MedicationBean into a PreparedStatement.\n * \n * @param statement the PreparedStatement to load the parameters into\n * @param medication the MedicationBean containing the parameters to be loaded\n * @return the PreparedStatement with the loaded parameters\n * @throws IllegalStateException if the method is not implemented\n */"
             }
         ],
         "constructors": [
@@ -33,10 +36,12 @@
                 "hasInnerComment": false,
                 "signature": "public MedicationBeanLoader()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for MedicationBeanLoader class.\n * This constructor does not take any parameters.\n * \n * This constructor initializes a new instance of the MedicationBeanLoader class.\n */"
             }
         ],
         "signature": "MedicationBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "This Java class is responsible for loading MedicationBean objects from a ResultSet and preparing the parameters of a MedicationBean object into a PreparedStatement. \n\nThe class contains three methods:\n\n1. public List<MedicationBean> loadList(ResultSet rs): This method loads a list of MedicationBean objects from the given ResultSet. It iterates through the ResultSet, creates a new MedicationBean object for each row of data, adds each MedicationBean object to an ArrayList, and returns the list of MedicationBean objects.\n\n2. public MedicationBean loadSingle(ResultSet rs): This method loads a single MedicationBean object from the given ResultSet. It retrieves the code and description from the ResultSet and returns a MedicationBean object with this data.\n\n3. public PreparedStatement loadParameters(PreparedStatement statement, MedicationBean bean): This method loads the parameters of a given MedicationBean object into a PreparedStatement. \n\nThe class includes JavaDoc comments for each method, describing their purpose and functionality. The loadList method loads a list of MedicationBean objects, the loadSingle method loads a single MedicationBean object, and the loadParameters method prepares the parameters of a MedicationBean object for insertion into a database. \n\nOverall, this class provides functionality for loading and manipulating MedicationBean objects in a database environment.\n/**\n * The MedicationBeanLoader class is responsible for loading parameters into the MedicationBean object.\n * It contains methods to load parameters such as medication name, dosage, and frequency into the MedicationBean.\n * \n * This class provides a PreparedStatement with the loaded parameters for further processing.\n * \n * The main functionalities of the MedicationBeanLoader class include:\n * - Loading medication parameters into a MedicationBean object\n * - Providing a PreparedStatement with the loaded parameters\n * \n * This class is essential for handling medication data and preparing it for database operations.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

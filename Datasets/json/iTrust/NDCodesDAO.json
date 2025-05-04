@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<MedicationBean> getAllNDCodes()",
                 "comments": "Optional[/**\r\n * Returns a list of all ND codes\r\n *\r\n * @return A java.util.List of MedicationBeans.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all NDCodes from the database.\n * \n * @return A list of MedicationBean objects representing all NDCodes in the database, ordered by code.\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM NDCodes WHERE Code = ?\");\r\n        ps.setString(1, code);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return medicationLoader.loadSingle(rs);\r\n        return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public MedicationBean getNDCode(String)",
                 "comments": "Optional[/**\r\n * Returns a particular description for a given code.\r\n *\r\n * @param code The ND code to be looked up.\r\n * @return A bean representing the Medication that was looked up.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a MedicationBean object from the database based on the provided NDC code.\n * \n * @param code the NDC code of the medication to retrieve\n * @return a MedicationBean object representing the medication with the specified NDC code, or null if no matching medication is found\n * @throws DBException if an error occurs while accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO NDCodes (Code, Description) \" + \"VALUES (?,?)\");\r\n        ps.setString(1, med.getNDCode());\r\n        ps.setString(2, med.getDescription());\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: Code already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean addNDCode(MedicationBean)",
                 "comments": "Optional[/**\r\n * Adds a new ND code, returns whether or not the change was made. If the code already exists, an\r\n * iTrustException is thrown.\r\n *\r\n * @param med The medication bean to be added.\r\n * @return A boolean indicating success or failure.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new NDC (National Drug Code) to the database.\n * \n * @param med the MedicationBean object containing the NDC code and description to be added\n * @return true if the NDC code was successfully added, false otherwise\n * @throws iTrustException if the NDC code already exists in the database\n * @throws DBException if there is a database error\n */\npublic boolean addNDCode(MedicationBean med) {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"INSERT INTO NDCodes (Code, Description) \" + \"VALUES (?,?)\");\n        ps.setString(1, med.getNDCode());\n        ps.setString(2, med.getDescription());\n        return (1 == ps.executeUpdate());\n    } catch (SQLException e) {\n        e.printStackTrace();\n        if (1062 == e.getErrorCode())\n            throw new iTrustException(\"Error: Code already exists.\");\n        throw new DBException(e);\n    } finally {\n        DBUtil.closeConnection(conn, ps);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE NDCodes SET Description = ? \" + \"WHERE Code = ?\");\r\n        ps.setString(1, med.getDescription());\r\n        ps.setString(2, med.getNDCode());\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public int updateCode(MedicationBean)",
                 "comments": "Optional[/**\r\n * Updates a particular code's description\r\n *\r\n * @param med A bean representing the particular medication to be updated.\r\n * @return An int representing the number of updated rows.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the description of a medication code in the database.\n * \n * @param med the MedicationBean object containing the new description and NDC code\n * @return the number of rows affected by the update operation\n * @throws DBException if there is an error accessing the database\n */"
             }
         ],
         "constructors": [
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public NDCodesDAO(DAOFactory)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new NDCodesDAO with the specified DAOFactory.\n * \n * @param factory the DAOFactory used to create data access objects\n * \n * Initializes the NDCodesDAO with the given DAOFactory. This allows the NDCodesDAO to create\n * and access data access objects for interacting with the database.\n */"
             }
         ],
         "signature": "NDCodesDAO",
         "variables": [
             "private DAOFactory factory",
             "private MedicationBeanLoader medicationLoader"
-        ]
+        ],
+        "generated_class_comment": "*/\" } ] }]\n/**\n * This class represents a database utility for managing medication information.\n * It provides methods for retrieving medication details based on NDC code,\n * adding new NDC codes to the database, and handling exceptions related to database operations.\n * \n * The main functionalities of this class include:\n * - Retrieving medication details based on NDC code\n * - Adding new NDC codes to the database\n * \n * The behavior of this class is as follows:\n * - When retrieving medication details based on NDC code, it returns a MedicationBean object representing the medication with the specified code,\n *   or null if no matching medication is found.\n * - When adding a new NDC code to the database, it checks if the code already exists and throws an iTrustException if it does.\n *   It returns a boolean indicating whether the addition was successful or not.\n * - It handles database exceptions by throwing a DBException if an error occurs while accessing the database.\n * \n * @param code the NDC code of the medication to retrieve\n * @return a MedicationBean object representing the medication with the specified NDC code, or null if no matching medication is found\n * @throws DBException if an error occurs while accessing the database\n */\n*/\n* \n * The NDCodesDAO class is responsible for interacting with the NDCodes table in the database. It provides methods for retrieving, updating, and inserting medication codes and descriptions. \n * \n * This class contains methods such as getCodes() to retrieve all medication codes and descriptions, insertCode() to add a new medication code and description to the database, and updateCode() to update the description of a specific medication code. \n * \n * The class utilizes a DAOFactory to obtain SQL connections and execute queries. It handles SQLExceptions and DBExceptions that may occur during database operations. \n * \n * Overall, the NDCodesDAO class serves as a bridge between the application and the NDCodes table in the database, providing essential functionality for managing medication codes and descriptions. \n */\"\n/**\n * The NDCodesDAO class is responsible for interacting with the database to retrieve and manipulate medication data.\n * It utilizes a DAOFactory to create data access objects for accessing the database.\n * \n * This class provides functionalities for loading medication data using a MedicationBeanLoader, as well as\n * accessing and updating medication information in the database.\n * \n * The NDCodesDAO class serves as a central component for managing medication data within the application,\n * ensuring that data is consistently retrieved and stored in a reliable manner.\n */"
     }
 ]

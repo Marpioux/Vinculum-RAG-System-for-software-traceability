@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<FamilyMemberBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of FamilyMemberBean objects from a ResultSet.\n * \n * @param rs the ResultSet containing the data to load\n * @return a List of FamilyMemberBean objects loaded from the ResultSet\n * \n * This method iterates through the ResultSet and creates a new FamilyMemberBean object for each row.\n * It then adds each object to an ArrayList and returns the list of FamilyMemberBean objects.\n */"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, FamilyMemberBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of a given FamilyMemberBean into a PreparedStatement.\n * \n * @param preparedStatement the PreparedStatement to load the parameters into\n * @param familyMemberBean the FamilyMemberBean containing the parameters to load\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n * @return the PreparedStatement with the loaded parameters\n */"
             },
             {
                 "body": "Optional[{\r\n    FamilyMemberBean fam = new FamilyMemberBean();\r\n    fam.setRelation(relation);\r\n    fam.setFirstName(rs.getString(\"FirstName\"));\r\n    fam.setLastName(rs.getString(\"LastName\"));\r\n    fam.setMid(rs.getInt(\"MID\"));\r\n    return fam;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public FamilyMemberBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single FamilyMemberBean object from a ResultSet.\n * \n * @param rs the ResultSet containing the data for the FamilyMemberBean\n * @return a FamilyMemberBean object with the data loaded from the ResultSet\n */\npublic FamilyMemberBean loadSingle(ResultSet rs) {\n    FamilyMemberBean fam = new FamilyMemberBean();\n    fam.setRelation(relation);\n    fam.setFirstName(rs.getString(\"FirstName\"));\n    fam.setLastName(rs.getString(\"LastName\"));\n    fam.setMid(rs.getInt(\"MID\"));\n    return fam;\n}\n*/"
             }
         ],
         "constructors": [
@@ -33,12 +36,14 @@
                 "hasInnerComment": false,
                 "signature": "public FamilyBeanLoader(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new FamilyBeanLoader with the specified relation.\n * \n * @param relation the relation of the family member being loaded\n * @throws IllegalArgumentException if the relation is null\n */\npublic FamilyBeanLoader(String relation) {\n    if (relation == null) {\n        throw new IllegalArgumentException(\"Relation cannot be null\");\n    }\n    \n    this.relation = relation;\n}"
             }
         ],
         "signature": "FamilyBeanLoader",
         "variables": [
             "private String relation"
-        ]
+        ],
+        "generated_class_comment": "This Java class contains three methods for loading FamilyMemberBean objects from a ResultSet. \n\n1. The loadList method iterates through the ResultSet and creates a new FamilyMemberBean object for each row. It then adds each object to an ArrayList and returns the list of FamilyMemberBean objects.\n\n2. The loadParameters method is currently unimplemented and throws an IllegalStateException if called. It is intended to load the parameters of a given FamilyMemberBean into a PreparedStatement.\n\n3. The loadSingle method creates a new FamilyMemberBean object, sets its attributes based on the ResultSet data, and returns the object.\n\nOverall, this class provides functionality for loading FamilyMemberBean objects from a database ResultSet and preparing them for use in a Java application.\n/**\n * The FamilyBeanLoader class is responsible for loading data from a ResultSet into a FamilyMemberBean object. \n * It contains methods to load a single FamilyMemberBean object from the ResultSet.\n * \n * The main functionality of this class is to set the relation, first name, last name, and MID (Member ID) of a FamilyMemberBean object \n * based on the data retrieved from the ResultSet.\n * \n * The loadSingle method takes a ResultSet as input and returns a FamilyMemberBean object with the data loaded from the ResultSet.\n * \n * This class also includes a constructor that initializes the FamilyBeanLoader with a specified relation. \n * If the relation provided is null, an IllegalArgumentException is thrown.\n */"
     }
 ]

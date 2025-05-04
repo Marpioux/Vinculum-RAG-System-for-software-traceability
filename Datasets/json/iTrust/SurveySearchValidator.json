@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(SurveyResultBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the survey result bean by checking the format of the zip code.\n * \n * @param bean The SurveyResultBean to validate\n * @throws FormValidationException if the zip code format is invalid\n */\npublic void validate(SurveyResultBean bean) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"Zip Code\", bean.getHCPzip(), ValidationFormat.ZIPCODE, false));\n    \n    if (errorList.hasErrors()) {\n        throw new FormValidationException(errorList);\n    }\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "SurveySearchValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The SurveySearchValidator class is responsible for validating SurveyResultBean objects by checking the format of the zip code.\n * \n * This class contains a public method validate(SurveyResultBean bean) that performs the act of validating the bean in question. \n * If the validation does not succeed, a FormValidationException is thrown.\n * \n * The main functionality of this class is to ensure that the zip code format in the SurveyResultBean is valid according to the ZIPCODE format.\n * \n * This class provides a comprehensive error handling mechanism through the use of ErrorList to track any validation errors that occur during the validation process.\n * \n * Overall, the SurveySearchValidator class plays a crucial role in ensuring the integrity and accuracy of zip code data in SurveyResultBean objects.\n */"
     }
 ]

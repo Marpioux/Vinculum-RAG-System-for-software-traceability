@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param name the new name to be set\n * @return void\n * \n * This method sets the name of the object to the specified name. \n * If the name is null, the name of the object will be set to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the object.\n * \n * @return the name of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the person.\n * \n * @param lastName the last name to be set\n * \n * This method sets the last name of the person to the specified value.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return lastName;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the last name of the person.\n * \n * @return the last name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cityResidenza = cityResidenza;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCityResidenza(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the city of residence for the person.\n * \n * @param cityResidenza the city of residence to set\n * \n * This method sets the city of residence for the person to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cityResidenza;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCityResidenza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the city of residence for the individual.\n * \n * @return the city of residence as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone = phone;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhone(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the phone number for this object.\n * \n * @param phone the new phone number to set\n * @return void\n * \n * This method sets the phone number for this object to the specified value. \n * The phone number is a string representing the phone number of the object.\n * If the phone number is null, it will be set to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the phone number associated with this object.\n * \n * @return the phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.zip = zip;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setZip(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the zip code for the object.\n * \n * @param zip the new zip code to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return zip;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getZip()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the zip code associated with this object.\n * \n * @return the zip code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.address = address;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddress(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the address of the object.\n * \n * @param address a String representing the new address to be set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return address;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddress()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the address associated with this object.\n * \n * @return The address as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.email = email;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmail(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the email address of the user.\n * \n * @param email the new email address to be set\n * @return void\n * \n * This method sets the email address of the user to the specified email address. \n * If the email address is null, it will be set to an empty string. \n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return email;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmail()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the email address associated with this object.\n * \n * @return the email address as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.password = password;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPassword(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the password for the user.\n * \n * @param password the new password to set\n * @return void\n * \n * This method sets the password for the user to the specified value. \n * The password parameter is a String representing the new password to be set.\n * This method does not return any value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return password;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPassword()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the password associated with this object.\n * \n * @return the password as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.username = username;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setUsername(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the username for this object.\n * \n * @param username the new username to set\n * \n * This method sets the username for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return username;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getUsername()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the username associated with this object.\n * \n * @return The username as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.doB = doB;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDoB(Date)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of birth for the object.\n * \n * @param doB the date of birth to set\n * \n * This method sets the date of birth for the object to the specified date. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return doB;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDoB()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date of birth of the object.\n * \n * @return the date of birth as a Date object\n */"
             }
         ],
         "constructors": [
@@ -169,7 +189,8 @@
                 "hasInnerComment": false,
                 "signature": "public OperatoreAgenzia()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the OperatoreAgenzia class.\n * It initializes a new instance of OperatoreAgenzia with no parameters.\n */"
             },
             {
                 "body": "{\r\n    this.name = name;\r\n    this.lastName = lastName;\r\n    this.cityResidenza = city;\r\n    this.phone = phone;\r\n    this.zip = zip;\r\n    this.address = address;\r\n    this.email = email;\r\n    this.password = pass;\r\n    this.username = user;\r\n    this.doB = date;\r\n}",
@@ -177,7 +198,8 @@
                 "hasInnerComment": false,
                 "signature": "public OperatoreAgenzia(String, String, String, String, String, String, String, String, String, Date)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new OperatoreAgenzia object with the specified attributes.\n * \n * @param name the name of the operator\n * @param lastName the last name of the operator\n * @param city the city of residence of the operator\n * @param phone the phone number of the operator\n * @param zip the zip code of the operator's address\n * @param address the address of the operator\n * @param email the email address of the operator\n * @param pass the password of the operator\n * @param user the username of the operator\n * @param date the date of birth of the operator\n */"
             }
         ],
         "signature": "OperatoreAgenzia",
@@ -192,6 +214,7 @@
             "private String password",
             "private String username",
             "private Date doB"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The OperatoreAgenzia class represents an operator of an agency. It stores information about the operator such as their name, last name, city of residence, phone number, address, email, password, username, and date of birth.\n * \n * This class provides methods to set and retrieve the various attributes of the operator including their name, last name, city of residence, phone number, zip code, address, email, password, username, and date of birth.\n * \n * The class also includes constructors to create a new instance of OperatoreAgenzia with default values or with specified attributes.\n * \n * Overall, the OperatoreAgenzia class encapsulates the data and behavior of an operator in an agency, allowing for easy management and manipulation of operator information.\n */"
     }
 ]

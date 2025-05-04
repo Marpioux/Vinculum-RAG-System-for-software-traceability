@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the description of the patient's related diagnoses.\n * \n * @return A String representing the description of the patient's related diagnoses.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hadPriorDiagnoses(patientID, lowerICDCode, upperICDCode);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return false;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a patient has any prior diagnoses within a specified range of ICD codes.\n * \n * @param patientID the unique identifier of the patient\n * @param lowerICDCode the lower bound of the ICD code range to check for prior diagnoses\n * @param upperICDCode the upper bound of the ICD code range to check for prior diagnoses\n * @return true if the patient has prior diagnoses within the specified range, false otherwise\n * @throws DBException if there is an error accessing the database\n */\npublic boolean hasFactor(int patientID, String lowerICDCode, String upperICDCode) {\n    try {\n        return factory.getRiskDAO().hadPriorDiagnoses(patientID, lowerICDCode, upperICDCode);\n    } catch (DBException e) {\n        e.printStackTrace();\n        return false;\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public PriorDiagnosisFactor(DAOFactory, long, double, double)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PriorDiagnosisFactor object with the given parameters.\n * \n * @param factory the DAOFactory used to access the database\n * @param patientID the ID of the patient associated with this PriorDiagnosisFactor\n * @param lowerICDCode the lower bound of the ICD code range for this PriorDiagnosisFactor\n * @param upperICDCode the upper bound of the ICD code range for this PriorDiagnosisFactor\n */"
             }
         ],
         "signature": "PriorDiagnosisFactor",
@@ -34,6 +37,7 @@
             "private DAOFactory factory",
             "private double lowerICDCode",
             "private double upperICDCode"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PriorDiagnosisFactor class represents a factor that checks if a patient has any prior diagnoses within a specified range of ICD codes.\n * \n * This class provides methods to retrieve the description of the patient's related diagnoses and to check if the patient has prior diagnoses within a specified range of ICD codes.\n * \n * The main functionalities of this class include:\n * - Retrieving the description of the patient's related diagnoses\n * - Checking if a patient has any prior diagnoses within a specified range of ICD codes\n * \n * The overall behavior of this class is to interact with a database through a DAOFactory to retrieve information about a patient's prior diagnoses and provide a boolean result based on the presence of prior diagnoses within the specified range of ICD codes.\n * \n * @author [Author Name]\n * @version 1.0\n */\n*/\n/**\n * This class represents a PriorDiagnosisFactor, which is used to store information about a specific range of ICD codes associated with a patient's prior diagnosis.\n * It contains fields for the patient ID, the lower and upper bounds of the ICD code range, and a DAOFactory for accessing the database.\n * \n * @param factory the DAOFactory used to access the database\n * @param patientID the ID of the patient associated with this PriorDiagnosisFactor\n * @param lowerICDCode the lower bound of the ICD code range for this PriorDiagnosisFactor\n * @param upperICDCode the upper bound of the ICD code range for this PriorDiagnosisFactor\n */"
     }
 ]

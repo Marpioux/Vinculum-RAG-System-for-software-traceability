@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean addToList(long)",
                 "comments": "Optional[/**\r\n * Adds a patient to the current HCP's remote monitoring list\r\n *\r\n * @param patientMID the patient\r\n * @return true if added successfully. False if already in list.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Logs a transaction of type TELEMEDICINE_MONITORING and adds a patient to a list.\n * \n * @param patientMID the unique identifier of the patient to be added to the list\n * @return true if the patient was successfully added to the list, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.TELEMEDICINE_MONITORING, loggedInMID, patientMID, \"delete\");\r\n    return rmDAO.removePatientFromList(patientMID, loggedInMID);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean removeFromList(long)",
                 "comments": "Optional[/**\r\n * Removes a patient from the current HCP's remote monitoring list\r\n *\r\n * @param patientMID the patient\r\n * @return true if removed successfully. False if not in list.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes a patient from a list of monitored patients.\n * \n * This method logs a transaction of type TELEMEDICINE_MONITORING with the action \"delete\" for the specified patient.\n * \n * @param patientMID the unique identifier of the patient to be removed from the list\n * @return true if the patient was successfully removed from the list, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    List<RemoteMonitoringDataBean> dataset = rmDAO.getPatientsData(loggedInMID);\r\n    for (RemoteMonitoringDataBean d : dataset) {\r\n        if (d.getPatientMID() == patientMID)\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isPatientInList(long)",
                 "comments": "Optional[/**\r\n * Returns whether a patient is in an HCP's list already\r\n * @param patientMID the patient\r\n * @return true if in DB, false otherwise\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a patient with the given patientMID is in the list of patients' data.\n * \n * @param patientMID the unique identifier of the patient to search for in the list\n * @return true if the patient with the specified patientMID is found in the list, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return authDAO.getUserName(pid);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientName(long)",
                 "comments": "Optional[/**\r\n * returns the patient name\r\n *\r\n * @return patient name\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the patient associated with the given patient ID.\n * \n * @param pid the unique identifier of the patient\n * @return the name of the patient as a String\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public EditMonitoringListAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Constructor\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the HCP editing their monitoring list.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new EditMonitoringListAction with the given DAOFactory and loggedInMID.\n * This constructor initializes the loggedInMID field with the provided value and\n * initializes the rmDAO, transDAO, and authDAO fields by obtaining the corresponding\n * DAO instances from the given DAOFactory.\n * \n * @param factory the DAOFactory used to obtain DAO instances\n * @param loggedInMID the ID of the logged-in member\n */"
             }
         ],
         "signature": "EditMonitoringListAction",
@@ -50,6 +55,7 @@
             "private TransactionDAO transDAO",
             "private AuthDAO authDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a RemoteMonitoringManager that allows a healthcare provider to manage a list of patients for remote monitoring.\n * It provides methods to add and remove patients from the monitoring list, as well as retrieve data for monitored patients.\n * \n * The class includes the following functionalities:\n * - Adding a patient to the current healthcare provider's remote monitoring list\n * - Removing a patient from the current healthcare provider's remote monitoring list\n * - Retrieving data for monitored patients\n * \n * The overall behavior of this class is to facilitate the management of remote monitoring for healthcare providers, allowing them to easily add and remove patients from their monitoring list and access data for monitored patients.\n * \n * Note: This class assumes the existence of TransactionDAO (transDAO) and RemoteMonitoringDAO (rmDAO) for logging transactions and accessing remote monitoring data, respectively.\n */\n/**\n * Constructs a new EditMonitoringListAction with the given DAOFactory and loggedInMID.\n * This class is responsible for handling actions related to editing a monitoring list for a healthcare provider (HCP).\n * It initializes the necessary DAOs for remote monitoring, transactions, and authentication.\n * \n * @param factory The DAOFactory used to create the DAOs used in this action.\n * @param loggedInMID The MID of the HCP editing their monitoring list.\n */\n*/\n/**\n * This class represents an action that initializes the loggedInMID field with the provided value and\n * initializes the rmDAO, transDAO, and authDAO fields by obtaining the corresponding DAO instances from the given DAOFactory.\n * It is used to perform operations related to monitoring lists in the system.\n * \n * @param factory the DAOFactory used to obtain DAO instances\n * @param loggedInMID the ID of the logged-in member\n */ \npublic class EditMonitoringListAction {\n    private RemoteMonitoringDAO rmDAO;\n    private TransactionDAO transDAO;\n    private AuthDAO authDAO;\n    private long loggedInMID;\n}\n*/"
     }
 ]

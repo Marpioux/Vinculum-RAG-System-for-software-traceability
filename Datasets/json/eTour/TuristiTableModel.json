@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getColumnCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of columns in the table.\n * \n * @return the number of columns in the table\n */"
             },
             {
                 "body": "Optional[{\r\n    return data.size();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getRowCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of rows in the data set.\n * \n * @return the number of rows in the data set\n */"
             },
             {
                 "body": "Optional[{\r\n    if (pColumn >= getColumnCount() || pColumn < 0) {\r\n        throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n    }\r\n    return headers[pColumn];\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getColumnName(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the column at the specified index.\n * \n * @param pColumn the index of the column to retrieve the name from\n * @return the name of the column at the specified index\n * @throws IllegalArgumentException if the column index is out of bounds\n */\npublic String getColumnName(int pColumn) {\n    if (pColumn >= getColumnCount() || pColumn < 0) {\n        throw new IllegalArgumentException(\"The column index is not provided in the model.\");\n    }\n    return headers[pColumn];\n}"
             },
             {
                 "body": "Optional[{\r\n    if (pRow >= getRowCount() || pRow < 0) {\r\n        throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n    }\r\n    if (pColumn >= getColumnCount() || pColumn < 0) {\r\n        throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n    }\r\n    return data.get(pRow)[pColumn];\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public Object getValueAt(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the value at the specified row and column in the model.\n * \n * @param pRow the row index of the value to retrieve\n * @param pColumn the column index of the value to retrieve\n * @return the value at the specified row and column\n * @throws IllegalArgumentException if the row index or column index is out of bounds\n */"
             },
             {
                 "body": "Optional[{\r\n    if (pColumn >= getColumnCount() || pColumn < 0) {\r\n        throw new IllegalArgumentException(\"The column index is not provided in the model.\");\r\n    }\r\n    return columnClasses[pColumn];\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Class<?> getColumnClass(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the class type of the specified column in the model.\n * \n * @param pColumn the index of the column to retrieve the class type for\n * @return the class type of the specified column\n * @throws IllegalArgumentException if the specified column index is out of bounds\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isCellEditable(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Determines if a specific cell in a table is editable.\n * \n * @param row the row index of the cell\n * @param column the column index of the cell\n * @return true if the cell is editable, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    // Method intentionally left blank\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": true,
                 "signature": "public void setValueAt(Object, int, int)",
                 "comments": null,
-                "innerComments": "Optional[[// Method intentionally left blank\r\n]]"
+                "innerComments": "Optional[[// Method intentionally left blank\r\n]]",
+                "generated_comment": "/**\n * Sets the value at the specified row and column in the data structure.\n * \n * @param value the object to set at the specified row and column\n * @param row the row index where the value will be set\n * @param column the column index where the value will be set\n * \n * This method sets the value at the specified row and column in the data structure. \n * If the row and column indices are out of bounds, an IndexOutOfBoundsException is thrown.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    data.get(pRow)[0] = isAttivato(pRow) ? false : true;\r\n    fireTableDataChanged();\r\n    return getID(pRow);\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public int attivaTurista(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Activates or deactivates a tourist at the specified row in the data table.\n * If the tourist is currently activated, it deactivates them; if they are deactivated, it activates them.\n * \n * @param pRow the row index of the tourist to be activated or deactivated\n * @return the ID of the tourist at the specified row\n */"
             },
             {
                 "body": "Optional[{\r\n    return (Boolean) getValueAt(pRow, 0);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isAttivato(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the specified row is activated.\n * \n * @param pRow the row index to check for activation\n * @return true if the specified row is activated, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    if (pTurista == null) {\r\n        throw new IllegalArgumentException(\"The bean provided cannot be null.\");\r\n    }\r\n    Object[] aRow = new Object[13];\r\n    aRow[0] = pTurista.isAttiva();\r\n    aRow[1] = pTurista.getNome();\r\n    aRow[2] = pTurista.getCognome();\r\n    aRow[3] = pTurista.getEmail();\r\n    aRow[4] = pTurista.getTelefono();\r\n    aRow[5] = pTurista.getDataNascita();\r\n    aRow[6] = pTurista.getCittaNascita();\r\n    aRow[7] = pTurista.getVia();\r\n    aRow[8] = pTurista.getCittaResidenza();\r\n    aRow[9] = pTurista.getCap();\r\n    aRow[10] = pTurista.getProvincia();\r\n    aRow[11] = pTurista.getDataRegistrazione();\r\n    aRow[12] = pTurista.getId();\r\n    data.add(aRow);\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void insertTurista(BeanTurista)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a new tourist into the data structure.\n * \n * @param pTurista the BeanTurista object representing the tourist to be inserted\n * @throws IllegalArgumentException if the provided BeanTurista object is null\n */\npublic void insertTurista(BeanTurista pTurista) {\n    if (pTurista == null) {\n        throw new IllegalArgumentException(\"The bean provided cannot be null.\");\n    }\n    \n    Object[] aRow = new Object[13];\n    aRow[0] = pTurista.isAttiva();\n    aRow[1] = pTurista.getNome();\n    aRow[2] = pTurista.getCognome();\n    aRow[3] = pTurista.getEmail();\n    aRow[4] = pTurista.getTelefono();\n    aRow[5] = pTurista.getDataNascita();\n    aRow[6] = pTurista.getCittaNascita();\n    aRow[7] = pTurista.getVia();\n    aRow[8] = pTurista.getCittaResidenza();\n    aRow[9] = pTurista.getCap();\n    aRow[10] = pTurista.getProvincia();\n    aRow[11] = pTurista.getDataRegistrazione();\n    aRow[12] = pTurista.getId();\n    \n    data.add(aRow);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (pTurista == null) {\r\n        throw new IllegalArgumentException(\"The bean provided cannot be null.\");\r\n    }\r\n    int i;\r\n    for (i = 0; i < data.size(); i++) {\r\n        int id = (Integer) data.get(i)[12];\r\n        if (id == pTurista.getId()) {\r\n            break;\r\n        }\r\n    }\r\n    if (i < data.size()) {\r\n        Object[] aRow = new Object[13];\r\n        aRow[0] = pTurista.isAttiva();\r\n        aRow[1] = pTurista.getNome();\r\n        aRow[2] = pTurista.getCognome();\r\n        aRow[3] = pTurista.getEmail();\r\n        aRow[4] = pTurista.getTelefono();\r\n        aRow[5] = pTurista.getDataNascita();\r\n        aRow[6] = pTurista.getCittaNascita();\r\n        aRow[7] = pTurista.getVia();\r\n        aRow[8] = pTurista.getCittaResidenza();\r\n        aRow[9] = pTurista.getCap();\r\n        aRow[10] = pTurista.getProvincia();\r\n        aRow[11] = pTurista.getDataRegistrazione();\r\n        aRow[12] = pTurista.getId();\r\n        data.set(i, aRow);\r\n        fireTableDataChanged();\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void updateTurista(BeanTurista)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates a specific row in the data table with the information provided in the BeanTurista object.\n * If the provided BeanTurista object is null, an IllegalArgumentException is thrown.\n * \n * @param pTurista the BeanTurista object containing the updated information\n */\npublic void updateTurista(BeanTurista pTurista) {\n    if (pTurista == null) {\n        throw new IllegalArgumentException(\"The bean provided cannot be null.\");\n    }\n    \n    int i;\n    for (i = 0; i < data.size(); i++) {\n        int id = (Integer) data.get(i)[12];\n        if (id == pTurista.getId()) {\n            break;\n        }\n    }\n    \n    if (i < data.size()) {\n        Object[] aRow = new Object[13];\n        aRow[0] = pTurista.isAttiva();\n        aRow[1] = pTurista.getNome();\n        aRow[2] = pTurista.getCognome();\n        aRow[3] = pTurista.getEmail();\n        aRow[4] = pTurista.getTelefono();\n        aRow[5] = pTurista.getDataNascita();\n        aRow[6] = pTurista.getCittaNascita();\n        aRow[7] = pTurista.getVia();\n        aRow[8] = pTurista.getCittaResidenza();\n        aRow[9] = pTurista.getCap();\n        aRow[10] = pTurista.getProvincia();\n        aRow[11] = pTurista.getDataRegistrazione();\n        aRow[12] = pTurista.getId();\n        \n        data.set(i, aRow);\n        fireTableDataChanged();\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (pRow >= getRowCount() || pRow < 0) {\r\n        throw new IllegalArgumentException(\"The row index is not provided in the model.\");\r\n    }\r\n    return (Integer) data.get(pRow)[12];\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getID(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the specified row in the model.\n * \n * @param pRow the index of the row for which the ID is requested\n * @return the ID of the specified row\n * @throws IllegalArgumentException if the provided row index is out of bounds\n */\npublic int getID(int pRow) {\n    if (pRow >= getRowCount() || pRow < 0) {\n        throw new IllegalArgumentException(\"The row index is not provided in the model.\");\n    }\n    return (Integer) data.get(pRow)[12];\n}"
             },
             {
                 "body": "Optional[{\r\n    int id = getID(pRow);\r\n    data.remove(pRow);\r\n    return id;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public int removeTurista(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes a tourist from the data collection and returns their ID.\n * \n * @param pRow the index of the tourist to be removed\n * @return the ID of the removed tourist\n */"
             }
         ],
         "constructors": [
@@ -113,7 +126,8 @@
                 "hasInnerComment": false,
                 "signature": "public TuristiTableModel()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new TuristiTableModel with an empty data Vector.\n */"
             },
             {
                 "body": "{\r\n    this();\r\n    if (pTuristi == null) {\r\n        return;\r\n    }\r\n    for (int i = 0; i < pTuristi.size(); i++) {\r\n        insertTurista(pTuristi.get(i));\r\n    }\r\n}",
@@ -121,7 +135,8 @@
                 "hasInnerComment": false,
                 "signature": "public TuristiTableModel(ArrayList<BeanTurista>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new TuristiTableModel with the given list of BeanTurista objects.\n * \n * @param pTuristi the list of BeanTurista objects to populate the table model with\n * \n * This constructor initializes the TuristiTableModel by calling the default constructor first.\n * If the input list of BeanTurista objects is null, the constructor returns without populating the table model.\n * Otherwise, it iterates through the list and inserts each BeanTurista object into the table model.\n */"
             }
         ],
         "signature": "TuristiTableModel",
@@ -129,6 +144,7 @@
             "private  static  final String headers",
             "private  static  final Class columnClasses",
             "private Vector<Object[]> data"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The TuristiTableModel class represents a custom table model for managing tourist data.\n * It provides methods for accessing and manipulating the data in the table, as well as handling\n * various operations such as inserting, updating, and removing tourists.\n * \n * This class includes functionalities to retrieve the number of columns and rows in the table,\n * get the name of a column at a specific index, retrieve the value at a given row and column,\n * determine if a cell is editable, activate or deactivate a tourist, check if a row is activated,\n * insert a new tourist into the table, update an existing tourist's information, get the ID of a row,\n * and remove a tourist from the table.\n * \n * The TuristiTableModel class also provides constructors for creating instances of the table model,\n * either with an empty data vector or with a list of BeanTurista objects to populate the table model.\n * \n * Overall, this class serves as a central component for managing tourist data in a table format,\n * offering a range of functionalities for interacting with and manipulating the data set.\n */"
     }
 ]

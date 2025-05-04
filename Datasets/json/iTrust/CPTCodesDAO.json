@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ProcedureBean> getAllCPTCodes()",
                 "comments": "Optional[/**\r\n * Returns a list of all CPT codes.\r\n *\r\n * @return A java.util.List of ProcedureBeans for the CPT codes.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all CPT codes from the database.\n * \n * @return A list of ProcedureBean objects representing all CPT codes in the database, ordered by code.\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"select * from cptcodes where attribute='immunization' order by code\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return procedureBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ProcedureBean> getImmunizationCPTCodes()",
                 "comments": "Optional[/**\r\n * Returns a list of all CPT codes.\r\n *\r\n * @return A java.util.List of all Immunization-related CPT codes.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of ProcedureBeans representing immunization CPT codes from the database.\n *\n * @return A List of ProcedureBeans containing immunization CPT codes\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM CPTCodes WHERE Code = ?\");\r\n        ps.setString(1, code);\r\n        ResultSet rs = ps.executeQuery();\r\n        if (rs.next())\r\n            return procedureBeanLoader.loadSingle(rs);\r\n        return null;\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public ProcedureBean getCPTCode(String)",
                 "comments": "Optional[/**\r\n * Returns a particular procedure description for a code.\r\n *\r\n * @param code The string representation of the code.\r\n * @return The textual description of the code.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a ProcedureBean object for a given CPT code.\n * \n * @param code the CPT code to retrieve\n * @return a ProcedureBean object representing the CPT code, or null if not found\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO CPTCodes (Code, Description, Attribute) \" + \"VALUES (?,?,?)\");\r\n        ps.setString(1, proc.getCPTCode());\r\n        ps.setString(2, proc.getDescription());\r\n        ps.setString(3, proc.getAttribute());\r\n        return (1 == ps.executeUpdate());\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        if (1062 == e.getErrorCode())\r\n            throw new iTrustException(\"Error: Code already exists.\");\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean addCPTCode(ProcedureBean)",
                 "comments": "Optional[/**\r\n * Adds a new CPT code, returns that it was added successfully\r\n *\r\n * @param proc A ProcedureBean representing the new code information.\r\n * @return A boolean for whether the operation was successful.\r\n * @throws DBException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new CPT code to the database.\n * \n * @param proc the ProcedureBean object containing the CPT code, description, and attribute to be added\n * @return true if the CPT code was successfully added, false otherwise\n * @throws iTrustException if the CPT code already exists in the database\n * @throws DBException if a database error occurs\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE CPTCodes SET Description = ?, Attribute = ? WHERE Code = ?\");\r\n        ps.setString(1, proc.getDescription());\r\n        ps.setString(2, proc.getAttribute());\r\n        ps.setString(3, proc.getCPTCode());\r\n        return ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public int updateCode(ProcedureBean)",
                 "comments": "Optional[/**\r\n * Change the procedure description for a particular CPT code\r\n *\r\n * @param proc A ProcedureBean representing the new code information.\r\n * @return A boolean for whether the operation was successful.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the description and attribute of a CPT code in the database.\n * \n * @param proc the ProcedureBean object containing the new description, attribute, and CPT code\n * @return the number of rows affected by the update operation\n * @throws DBException if there is an error accessing the database\n */"
             }
         ],
         "constructors": [
@@ -49,13 +54,15 @@
                 "hasInnerComment": false,
                 "signature": "public CPTCodesDAO(DAOFactory)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new CPTCodesDAO with the specified DAOFactory.\n * \n * @param factory the DAOFactory used to create data access objects\n * @return a new instance of CPTCodesDAO\n */"
             }
         ],
         "signature": "CPTCodesDAO",
         "variables": [
             "private DAOFactory factory",
             "private ProcedureBeanLoader procedureBeanLoader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a data access object for retrieving CPT codes from a database.\n * It provides methods to retrieve all CPT codes and immunization-related CPT codes.\n * The class handles database connections, executes SQL queries, and returns lists of ProcedureBean objects.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of all CPT codes from the database, ordered by code\n * - Retrieving a list of immunization-related CPT codes from the database, ordered by code\n * \n * The overall behavior of this class is to interact with the database to fetch CPT codes and provide them in a structured format.\n * It handles exceptions related to database access and ensures proper resource management by closing connections.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n */\n \npublic class CPTCodeDAO {\n    // Methods for retrieving CPT codes from the database\n}\n**/\n/**\n * This class is responsible for managing immunization CPT codes in the database. It provides methods to retrieve, insert, and update CPT codes.\n * \n * The main functionalities of this class include:\n * - Retrieving a particular procedure description for a given CPT code\n * - Inserting a new CPT code into the database\n * \n * The overall behavior of this class is to interact with the database to perform CRUD operations on CPT codes. It handles database connections, prepares SQL statements, and processes SQL results.\n * \n * @throws DBException if there is an error accessing the database\n */\n/**\n * This class represents a data access object for managing CPT codes in the database.\n * It provides methods to add, update, and retrieve CPT codes.\n * \n * The main functionalities of this class include:\n * - Adding a new CPT code to the database\n * - Updating the description and attribute of an existing CPT code\n * \n * The overall behavior of this class is to interact with the database to perform CRUD operations on CPT codes.\n * \n * @throws iTrustException if there is an issue with adding or updating CPT codes\n * @throws DBException if there is a database error\n */\n**/\n/**\n * The CPTCodesDAO class is responsible for accessing the database and performing operations related to CPT codes.\n * It utilizes a DAOFactory to obtain SQL connections and other resources necessary for database interactions.\n * \n * This class provides methods for retrieving, updating, and deleting CPT code information from the database.\n * It also includes functionality for loading ProcedureBeans associated with CPT codes.\n * \n * The typical constructor initializes the CPTCodesDAO with a specified DAOFactory, which is used for creating data access objects.\n * \n * Overall, the CPTCodesDAO class serves as a data access layer for managing CPT code data in the database.\n */\n **/"
     }
 ]

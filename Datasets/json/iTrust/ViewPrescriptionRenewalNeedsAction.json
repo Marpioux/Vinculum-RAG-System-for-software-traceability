@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public List<PatientBean> getRenewalNeedsPatients()",
                 "comments": "Optional[/**\r\n * Uses PatientDAO as a helper class to return a list of patients with a special-diagnosis-history who\r\n * have the logged in HCP as a DHCP and whose medications are going to\r\n * expire within seven days.\r\n *\r\n * @return A list of PatientBean's\r\n */\r\n]",
-                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]"
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n, //$NON-NLS-1$\r\n]]",
+                "generated_comment": "/**\n * Retrieves a list of patients who are in need of prescription renewals.\n * \n * @return A list of PatientBean objects representing patients who need prescription renewals\n * @throws DBException if there is an error accessing the database\n * \n * @param loggedInMID the MID of the logged-in user\n */"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewPrescriptionRenewalNeedsAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up defaults\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the person viewing the prescription renewals.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewPrescriptionRenewalNeedsAction object with the specified DAOFactory and loggedInMID.\n * \n * @param factory the DAOFactory used to retrieve PatientDAO and TransactionDAO instances\n * @param loggedInMID the MID of the logged in user\n */\npublic ViewPrescriptionRenewalNeedsAction(DAOFactory factory, long loggedInMID) {\n    this.patientDAO = factory.getPatientDAO();\n    this.transDAO = factory.getTransactionDAO();\n    this.loggedInMID = loggedInMID;\n}\n*/"
             }
         ],
         "signature": "ViewPrescriptionRenewalNeedsAction",
@@ -25,6 +27,7 @@
             "private PatientDAO patientDAO",
             "private TransactionDAO transDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "This Java class, ViewPrescriptionRenewalNeedsAction, is responsible for retrieving a list of patients who are in need of prescription renewals. The class contains a method, getRenewalNeedsPatients(), which uses the PatientDAO as a helper class to return a list of patients with a special diagnosis history, who have the logged-in Healthcare Provider (HCP) as their DHCP, and whose medications are going to expire within seven days.\n\nThe constructor of the class initializes the PatientDAO, TransactionDAO, and the logged-in MID. The class also handles any DBException that may occur during the database access.\n\nOverall, the ViewPrescriptionRenewalNeedsAction class provides functionality to retrieve and display a list of patients who require prescription renewals, making it easier for healthcare providers to manage their patients' medication needs.\n/**\n * This class represents an action to view prescription renewal needs for a logged in user.\n * It utilizes a DAOFactory to retrieve instances of PatientDAO and TransactionDAO.\n * The main functionalities include retrieving prescription renewal needs for the logged in user\n * and displaying them in a user-friendly format.\n * \n * @param factory the DAOFactory used to retrieve PatientDAO and TransactionDAO instances\n * @param loggedInMID the MID of the logged in user\n */ \npublic ViewPrescriptionRenewalNeedsAction(DAOFactory factory, long loggedInMID) {\n    this.patientDAO = factory.getPatientDAO();\n    this.transDAO = factory.getTransactionDAO();\n    this.loggedInMID = loggedInMID;\n}\n*/"
     }
 ]

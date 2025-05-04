@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciConvenzione(BeanConvenzione)",
                 "comments": "Optional[/**\r\n * Add a convention in the database\r\n *\r\n * @param pConvenzione Convention to be added\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a new BeanConvenzione object into the system.\n * \n * @param convenzione the BeanConvenzione object to be inserted\n * @return true if the BeanConvenzione object was successfully inserted, false otherwise\n * \n * This method is abstract and must be implemented by subclasses. It is used to add a new BeanConvenzione object\n * to the system. If the insertion is successful, it returns true. If the insertion fails, it returns false.\n * If no BeanConvenzione object is provided, it returns Optional.empty.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaConvenzione(BeanConvenzione)",
                 "comments": "Optional[/**\r\n * Modify a convention in the database\r\n *\r\n * @param pConvenzione Convention to be updated\r\n * @return True if there was a modification, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a convention based on the provided BeanConvenzione object.\n * \n * @param convenzione the BeanConvenzione object containing the information to modify the convention\n * @return true if the convention was successfully modified, false otherwise\n */\nabstract boolean modificaConvenzione(BeanConvenzione convenzione);"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaConvenzione(int)",
                 "comments": "Optional[/**\r\n * Delete a convention from the database\r\n *\r\n * @param pIdConvenzione ID of the convention to be removed\r\n * @return True if deleted, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a specific convention based on the given ID.\n * \n * @param id the ID of the convention to be canceled\n * @return true if the convention was successfully canceled, false otherwise\n * \n * This method cancels a convention with the specified ID. If the convention is found and successfully canceled, it returns true. \n * If the convention does not exist or cannot be canceled, it returns false.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int)",
                 "comments": "Optional[/**\r\n * Returns the historical conventions of a refreshment\r\n *\r\n * @param idPuntoDiRistoro Point identification of the refreshment\r\n * @return List of conventions of the refreshment given as argument\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves the historical list of BeanConvenzione objects associated with a specific identifier.\n * \n * @param id the identifier used to retrieve the historical list of BeanConvenzione objects\n * @return an ArrayList of BeanConvenzione objects representing the historical data, or an empty Optional if no data is found\n */\nabstract ArrayList<BeanConvenzione> ottieniStoricoConvenzione(int id) {\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanConvenzione ottieniConvenzioneAttiva(int)",
                 "comments": "Optional[/**\r\n * Returns the active convention of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro Point identification of the refreshment\r\n * @return Active convention\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves the active convention for a given ID.\n * \n * @param id the ID of the convention to retrieve\n * @return an Optional containing the active convention if found, otherwise Optional.empty\n */\nabstract BeanConvenzione ottieniConvenzioneAttiva(int id);"
             },
             {
                 "body": "Optional.empty",
@@ -47,11 +52,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanPuntoDiRistoro> ottieniListaConvenzioneAttivaPR()",
                 "comments": "Optional[/**\r\n * Returns a list of all the refreshment points that have an active convention\r\n *\r\n * @return List of all the refreshment points with the active convention\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of active concession points.\n * \n * This method returns an ArrayList of BeanPuntoDiRistoro objects representing the concession points that are currently active under a convention.\n * \n * @return an ArrayList of BeanPuntoDiRistoro objects representing the active concession points, or an empty Optional if no active concession points are found\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBConvenzione",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBConvenzione interface represents a contract for managing conventions in a database system.\n * It defines methods for inserting, modifying, and deleting conventions, as well as retrieving historical and active conventions.\n * \n * This interface provides a set of abstract methods that must be implemented by subclasses to interact with the database and perform various operations on conventions.\n * \n * Main functionalities include:\n * - Inserting a new convention into the system\n * - Modifying an existing convention based on the provided information\n * - Deleting a specific convention using its ID\n * - Retrieving the historical list of conventions associated with a specific identifier\n * - Retrieving the active convention for a given ID\n * - Retrieving a list of refreshment points with active conventions\n * \n * Implementing classes must provide concrete implementations for these methods to manage conventions effectively within the database.\n * \n * Note: All methods return Optional.empty by default, indicating that the operation was not successful or no data was found.\n */"
     }
 ]

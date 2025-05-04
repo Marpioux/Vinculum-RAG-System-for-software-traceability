@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels(String, char, char)",
                 "comments": null,
-                "innerComments": "Optional[[//Creo  le etichette\r\n, //Creo i TextField\r\n, //Creo i bottoni\r\n, //Creo i Checkbox ad esclusione\r\n, //Creo il pannello in alto contenente i dati del cliente\r\n, //Creo il pannello centrale con i dati del soggiorno\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo  le etichette\r\n, //Creo i TextField\r\n, //Creo i bottoni\r\n, //Creo i Checkbox ad esclusione\r\n, //Creo il pannello in alto contenente i dati del cliente\r\n, //Creo il pannello centrale con i dati del soggiorno\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for displaying customer and stay information.\n * This method initializes labels, text fields, buttons, and checkboxes for capturing customer and stay details.\n * \n * @param caption the caption for the \"Conferma\" button\n * @param pens the type of pension (SOLO_PERNOTTAMENTO, SOLO_COLAZIONE, MEZZA_PENSIONE, PENSIONE_COMPLETA)\n * @param status the status of the customer (NEONATO, BAMBINO, RAGAZZO, ADULTO)\n */\nvoid setupPanels(String caption, char pens, char status) {\n    // Method body as described above\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the method by adding an ActionListener to the Annulla button. \n * When the Annulla button is clicked, it disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent triggered by clicking the Annulla button\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the method. \n * There is no return value as the method does not return anything.\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    String data_inizio, data_fine;\r\n    Date data1, data2;\r\n    Soggiornante sogg = new Soggiornante();\r\n    sogg.setNumStanza(pren.getNumStanza());\r\n    sogg.setCognome(testo2.getText());\r\n    sogg.setNome(testo3.getText());\r\n    sogg.setLuogoNasc(testo4.getText());\r\n    sogg.setDataNasc(DateUtils.convertDate(testo5.getText()));\r\n    sogg.setNumDoc(testo6.getText());\r\n    sogg.setNumTel(testo7.getText());\r\n    sogg.setIndirizzo(testo8.getText());\r\n    sogg.setCap(testo9.getText());\r\n    sogg.setComune(testo10.getText());\r\n    sogg.setCitta(testo11.getText());\r\n    sogg.setNazione(testo12.getText());\r\n    sogg.setInizioSogg(pren.getInizioSogg());\r\n    sogg.setFineSogg(pren.getFineSogg());\r\n    sogg.setIdPrenotazione(pren.getIdPrenotazione());\r\n    sogg.setIdSoggiornante(cont);\r\n    if (checkboxes[0].getState() == true)\r\n        sogg.setPensionamento(Flag.SOLO_PERNOTTAMENTO);\r\n    else if (checkboxes[1].getState() == true)\r\n        sogg.setPensionamento(Flag.SOLO_COLAZIONE);\r\n    else if (checkboxes[2].getState() == true)\r\n        sogg.setPensionamento(Flag.MEZZA_PENSIONE);\r\n    else if (checkboxes[3].getState() == true)\r\n        sogg.setPensionamento(Flag.PENSIONE_COMPLETA);\r\n    if (checkboxes1[0].getState() == true)\r\n        sogg.setStatus(Flag.NEONATO);\r\n    else if (checkboxes1[1].getState() == true)\r\n        sogg.setStatus(Flag.BAMBINO);\r\n    else if (checkboxes1[2].getState() == true)\r\n        sogg.setStatus(Flag.RAGAZZO);\r\n    else\r\n        sogg.setStatus(Flag.ADULTO);\r\n    return sogg;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public Soggiornante readDatiSogg(Prenotazione, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Reads the data of a guest from a reservation and user input fields and creates a new Soggiornante object with the provided information.\n * \n * @param prenotazione the reservation from which to retrieve the room number and dates of stay\n * @param cont the unique identifier for the guest\n * @return a Soggiornante object with all the guest information set\n */\npublic Soggiornante readDatiSogg(Prenotazione prenotazione, int cont) {\n    Frame msg;\n    String data_inizio, data_fine;\n    Date data1, data2;\n    Soggiornante sogg = new Soggiornante();\n    sogg.setNumStanza(pren.getNumStanza());\n    sogg.setCognome(testo2.getText());\n    sogg.setNome(testo3.getText());\n    sogg.setLuogoNasc(testo4.getText());\n    sogg.setDataNasc(DateUtils.convertDate(testo5.getText()));\n    sogg.setNumDoc(testo6.getText());\n    sogg.setNumTel(testo7.getText());\n    sogg.setIndirizzo(testo8.getText());\n    sogg.setCap(testo9.getText());\n    sogg.setComune(testo10.getText());\n    sogg.setCitta(testo11.getText());\n    sogg.setNazione(testo12.getText());\n    sogg.setInizioSogg(pren.getInizioSogg());\n    sogg.setFineSogg(pren.getFineSogg());\n    sogg.setIdPrenotazione(pren.getIdPrenotazione());\n    sogg.setIdSoggiornante(cont);\n    if (checkboxes[0.getState() == true)\n        sogg.setPensionamento(Flag.SOLO_PERNOTTAMENTO);\n    else if (checkboxes[1.getState() == true)\n        sogg.setPensionamento(Flag.SOLO_COLAZIONE);\n    else if (checkboxes[2.getState() == true)\n        sogg.setPensionamento(Flag.MEZZA_PENSIONE);\n    else if (checkboxes[3.getState() == true)\n        sogg.setPensionamento(Flag.PENSIONE_COMPLETA);\n    if (checkboxes1[0.getState() == true)\n        sogg.setStatus(Flag.NEONATO);\n    else if (checkboxes1[1.getState() == true)\n        sogg.setStatus(Flag.BAMBINO);\n    else if (checkboxes1[2.getState() == true)\n        sogg.setStatus(Flag.RAGAZZO);\n    else\n        sogg.setStatus(Flag.ADULTO);\n    return sogg;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    testo1.setText(sogg.getNumStanza());\r\n    testo2.setText(sogg.getCognome());\r\n    testo3.setText(sogg.getNome());\r\n    testo4.setText(sogg.getLuogoNasc());\r\n    testo5.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(sogg.getDataNasc())));\r\n    testo6.setText(sogg.getNumDoc());\r\n    testo7.setText(sogg.getNumTel());\r\n    testo8.setText(sogg.getIndirizzo());\r\n    testo9.setText(sogg.getCap());\r\n    testo10.setText(sogg.getComune());\r\n    testo11.setText(sogg.getCitta());\r\n    testo12.setText(sogg.getNazione());\r\n    testo13.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(sogg.getInizioSogg())));\r\n    testo14.setText(DateUtils.parseDate(DateUtils.giveStringOfDate(sogg.getFineSogg())));\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void writeDatiSogg(Soggiornante)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes the data of a \"Soggiornante\" object to a set of text fields.\n * \n * @param sogg the Soggiornante object whose data will be displayed\n * \n * This method sets the text of multiple text fields to display the various attributes of the provided Soggiornante object.\n * The text fields are updated with the Soggiornante's room number, last name, first name, place of birth, date of birth, document number, phone number, address, postal code, city, country, start date of stay, and end date of stay.\n * The date values are formatted using the DateUtils class to display them in a user-friendly format.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setTitle(\"Inserimento dei dati del soggiornante  (\" + parz + \"/\" + tot + \")\");\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void changeTitle(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Changes the title of the window to display the progress of data entry for a guest.\n * The title will show the current progress out of the total number of entries.\n * \n * @param parz the current progress of data entry\n * @param tot the total number of entries to be completed\n */\nvoid changeTitle(int parz, int tot) {\n    this.setTitle(\"Inserimento dei dati del soggiornante  (\" + parz + \"/\" + tot + \")\");\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    testo2.setText(\"\");\r\n    testo3.setText(\"\");\r\n    testo4.setText(\"\");\r\n    testo5.setText(\"\");\r\n    testo6.setText(\"\");\r\n    testo7.setText(\"\");\r\n    testo8.setText(\"\");\r\n    testo9.setText(\"\");\r\n    testo10.setText(\"\");\r\n    testo11.setText(\"\");\r\n    testo12.setText(\"\");\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " void cleanFields()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method clears all the text fields in the user interface.\n * \n * @param None\n * @return None\n * \n * This method sets the text of multiple text fields (testo2, testo3, ..., testo12) to an empty string, effectively clearing their contents.\n * This is useful for resetting the input fields after a form submission or any other action that requires clearing the user input.\n */"
             },
             {
                 "body": "Optional[{\r\n    Disponibilita disp_da_cambiare = new Disponibilita();\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        Frame msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    disp_da_cambiare = Utils.getDispOfRoom(elenco_disp, sogg.getNumStanza(), true);\r\n    disp_da_cambiare.setDisponibilita(sogg.getInizioSogg(), sogg.getFineSogg(), tipo, Flag.ASSEGNATA);\r\n    (Principale.db).changeDisponibilita(disp_da_cambiare.getNumStanza(), disp_da_cambiare.getDispAnnoCorr(), disp_da_cambiare.getDispAnnoProx());\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void aggiornaDisp(Soggiornante, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the availability of a room for a given guest.\n * \n * @param sogg the guest for whom the availability needs to be updated\n * @param tipo the type of availability to set (e.g. 'S' for reserved)\n * \n * This method retrieves the availability of the room assigned to the guest, sets the availability\n * for the specified period and type, and updates the availability in the database.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    String data_nasc = new String();\r\n    //Controllo data di nascita\r\n    if ((testo5.getText().equals(\"\"))) {\r\n        msg = new AvvisoDialog(this, \" Inserire la data di nascita! \");\r\n        return true;\r\n    } else\r\n        data_nasc = DateUtils.parseDate(testo5.getText());\r\n    if (data_nasc.equals(Errore.DATA_NON_CORRETTA)) {\r\n        msg = new MessageDialog(this, \" Data Nascita Errata! \");\r\n        return true;\r\n    } else {\r\n        if (!(DateUtils.isDataRight(data_nasc))) {\r\n            msg = new MessageDialog(this, \"Data Nascita Insensata\");\r\n            return true;\r\n        }\r\n    }\r\n    if (!((testo2.getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il cognome deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo3.getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il nome deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo4.getText()).length() <= 32)) {\r\n        msg = new MessageDialog(this, \" Il luogo di nascita deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo6.getText()).length() <= 16)) {\r\n        msg = new MessageDialog(this, \" Il documento di identita' deve essere composto da al piu' 16 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo7.getText()).length() <= 16)) {\r\n        msg = new MessageDialog(this, \" Il numero telefonico deve essere composto da al piu' 16 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo8.getText()).length() <= 32)) {\r\n        msg = new MessageDialog(this, \" L'indirizzo deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo9.getText()).length() <= 5)) {\r\n        msg = new MessageDialog(this, \" Il C.A.P. deve essere composto da al piu' 5 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo10.getText()).length() <= 32)) {\r\n        msg = new MessageDialog(this, \" Il comune deve essere composto da al piu' 32 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo11.getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" La citta deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo12.getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" La nazione deve essere composto da al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": true,
                 "signature": " boolean errori()",
                 "comments": null,
-                "innerComments": "Optional[[//Controllo data di nascita\r\n]]"
+                "innerComments": "Optional[[//Controllo data di nascita\r\n]]",
+                "generated_comment": "/**\n * This method checks for errors in the input fields of a form.\n * It validates the date of birth, length of name, surname, birthplace, ID document, phone number,\n * address, postal code, city, and country fields.\n * If any error is found, a message dialog is displayed and the method returns true.\n * \n * @return true if any error is found in the input fields, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraSoggiorno(String, String, char, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraSoggiorno object with the specified title, caption, pens, and status.\n * \n * @param title the title of the MascheraSoggiorno object\n * @param caption the caption of the MascheraSoggiorno object\n * @param pens the pens of the MascheraSoggiorno object\n * @param status the status of the MascheraSoggiorno object\n */\npublic MascheraSoggiorno(String title, String caption, char pens, char status) {\n    super(title);\n    padre.setEnabled(false);\n    setupPanels(caption, pens, status);\n    init();\n    pack();\n    this.setVisible(true);\n}\n*/"
             }
         ],
         "signature": "MascheraSoggiorno",
@@ -129,6 +139,7 @@
             " Panel panel3",
             " GridBagLayout gridbag",
             " RicercaPrenotazione padre"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraSoggiorno class represents a user interface for entering and displaying guest and stay information.\n * It provides methods for setting up panels with labels, text fields, buttons, and checkboxes to capture customer and stay details.\n * The class includes functionality to initialize the UI, handle button actions, read and write guest data, update room availability, and check for input errors.\n * \n * The class contains constructors to create a new MascheraSoggiorno object with a specified title, caption, pens, and status.\n * It also defines variables for labels, text fields, buttons, checkboxes, panels, layout, and a parent window.\n * \n * Main functionalities include:\n * - Setting up panels for displaying customer and stay information\n * - Initializing UI components and handling button actions\n * - Reading and writing guest data to text fields\n * - Updating room availability based on guest information\n * - Checking for errors in input fields and displaying error messages\n * \n * Overall, the MascheraSoggiorno class provides a user-friendly interface for managing guest and stay information in a hotel reservation system.\n */\n**/"
     }
 ]

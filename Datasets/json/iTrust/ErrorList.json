@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void addIfNotNull(String)",
                 "comments": "Optional[/**\r\n * Adds a message to the list if it's not a Java null or empty string.\r\n *\r\n * @param errorMessage\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds the specified error message to the error list if it is not null or empty.\n * \n * @param errorMessage the error message to be added to the error list\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return errorList;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<String> getMessageList()",
                 "comments": "Optional[/**\r\n * Returns the list of error messages\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a list of error messages.\n * \n * @return a List of Strings containing error messages\n */"
             },
             {
                 "body": "Optional[{\r\n    return errorList.size() != 0;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasErrors()",
                 "comments": "Optional[/**\r\n * Returns true if the list has any errors\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if there are any errors in the error list.\n * \n * @return true if there are errors in the error list, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return errorList.toString();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String toString()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representation of the error list.\n * \n * @return a string containing the elements of the error list\n */"
             },
             {
                 "body": "Optional[{\r\n    return errorList.iterator();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public Iterator<String> iterator()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns an iterator over the elements in the error list. \n * \n * @return an iterator over the elements in the error list\n */"
             }
         ],
         "constructors": [
@@ -49,12 +54,14 @@
                 "hasInnerComment": false,
                 "signature": "public ErrorList()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ErrorList object.\n * \n * This constructor initializes the errorList field with a new ArrayList of Strings.\n * The errorList field will be used to store error messages.\n */"
             }
         ],
         "signature": "ErrorList",
         "variables": [
             "private List<String> errorList"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents an ErrorList that stores error messages in a list.\n * It provides methods to add error messages, retrieve the list of error messages,\n * check if there are any errors, and get a string representation of the error list.\n * \n * The main functionalities of this class include:\n * - Adding an error message to the list if it is not null or empty\n * - Returning the list of error messages\n * - Checking if there are any errors in the list\n * - Getting a string representation of the error list\n * \n * The overall behavior of this class is to manage and handle error messages in a centralized manner,\n * making it easier to track and handle errors in a consistent way.\n */\n**/\n/**\n * The ErrorList class represents a list of error messages that can be used to store and manage error messages in a Java application.\n * \n * This class provides methods to add, remove, and retrieve error messages from the error list. It also provides an iterator to iterate over the elements in the error list.\n * \n * The main data structure used in this class is an ArrayList of Strings to store the error messages. The errorList field is initialized with a new ArrayList of Strings in the constructor.\n * \n * This class is designed to be used in conjunction with other classes that may need to handle and display error messages in a Java application.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

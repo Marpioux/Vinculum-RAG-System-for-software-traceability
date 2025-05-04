@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<RemoteMonitoringDataBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of RemoteMonitoringDataBean objects from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into the list\n * @return a List of RemoteMonitoringDataBean objects populated with data from the ResultSet\n * \n * This method iterates through the ResultSet and calls the loadSingle method to create a RemoteMonitoringDataBean object for each row of data. \n * These objects are then added to a List, which is returned once all rows have been processed.\n */"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, RemoteMonitoringDataBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters from a RemoteMonitoringDataBean into a PreparedStatement.\n * \n * @param preparedStatement the PreparedStatement to load parameters into\n * @param dataBean the RemoteMonitoringDataBean containing the parameters to be loaded\n * @return the PreparedStatement with parameters loaded\n * @throws IllegalStateException if the method is not implemented\n */"
             },
             {
                 "body": "Optional[{\r\n    RemoteMonitoringDataBean d = new RemoteMonitoringDataBean();\r\n    d.setLoggedInMID(rs.getLong(\"PatientID\"));\r\n    d.setSystolicBloodPressure(rs.getInt(\"systolicBloodPressure\"));\r\n    d.setDiastolicBloodPressure(rs.getInt(\"diastolicBloodPressure\"));\r\n    d.setGlucoseLevel(rs.getInt(\"glucoseLevel\"));\r\n    d.setTime(rs.getTimestamp(\"timeLogged\"));\r\n    d.setReporterRole(rs.getString(\"ReporterRole\"));\r\n    d.setReporterMID(rs.getLong(\"ReporterID\"));\r\n    return d;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public RemoteMonitoringDataBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single instance of RemoteMonitoringDataBean from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to load into the RemoteMonitoringDataBean\n * @return a RemoteMonitoringDataBean object with the data loaded from the ResultSet\n */\npublic RemoteMonitoringDataBean loadSingle(ResultSet rs) {\n    RemoteMonitoringDataBean d = new RemoteMonitoringDataBean();\n    d.setLoggedInMID(rs.getLong(\"PatientID\"));\n    d.setSystolicBloodPressure(rs.getInt(\"systolicBloodPressure\"));\n    d.setDiastolicBloodPressure(rs.getInt(\"diastolicBloodPressure\"));\n    d.setGlucoseLevel(rs.getInt(\"glucoseLevel\"));\n    d.setTime(rs.getTimestamp(\"timeLogged\"));\n    d.setReporterRole(rs.getString(\"ReporterRole\"));\n    d.setReporterMID(rs.getLong(\"ReporterID\"));\n    return d;\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "RemoteMonitoringDataBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The RemoteMonitoringDataBeanLoader class is responsible for loading RemoteMonitoringDataBean objects from a ResultSet and preparing parameters for insertion into a PreparedStatement.\n * \n * This class contains three methods:\n * 1. loadList(ResultSet rs) - This method loads a list of RemoteMonitoringDataBean objects from the given ResultSet. It iterates through the ResultSet and calls the loadSingle method to create a RemoteMonitoringDataBean object for each row of data. These objects are then added to a List, which is returned once all rows have been processed.\n * \n * 2. loadParameters(PreparedStatement preparedStatement, RemoteMonitoringDataBean dataBean) - This method loads parameters from a RemoteMonitoringDataBean into a PreparedStatement. It takes a PreparedStatement and a RemoteMonitoringDataBean as input, and returns the PreparedStatement with parameters loaded. If the method is not implemented, it throws an IllegalStateException.\n * \n * 3. loadSingle(ResultSet rs) - This method creates a single RemoteMonitoringDataBean object from a ResultSet row. It sets the properties of the RemoteMonitoringDataBean object based on the data in the ResultSet row and returns the object.\n * \n * Overall, the RemoteMonitoringDataBeanLoader class provides functionality to load RemoteMonitoringDataBean objects from a database ResultSet and prepare parameters for insertion into a PreparedStatement. It encapsulates the logic for loading and preparing data, making it easier to work with RemoteMonitoringDataBean objects in a database context.\n */\n**/\n/**\n * The RemoteMonitoringDataBeanLoader class is responsible for loading instances of RemoteMonitoringDataBean from a ResultSet.\n * It contains a method to load a single instance of RemoteMonitoringDataBean from the given ResultSet.\n * \n * The main functionalities of this class include:\n * - Loading the logged in member ID, systolic and diastolic blood pressure, glucose level, time, reporter role, and reporter ID into a RemoteMonitoringDataBean object.\n * \n * The overall behavior of this class is to provide a convenient way to load data from a ResultSet into a RemoteMonitoringDataBean object.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

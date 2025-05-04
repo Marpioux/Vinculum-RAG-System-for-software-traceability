@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciBeneCulturale(BeanBeneCulturale)",
                 "comments": "Optional[/**\r\n * Method for the insertion of a new cultural\r\n *\r\n * @param pBeneCulturale The raw bean to be included in the database\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a cultural asset into the system.\n * \n * @param beneCulturale the cultural asset to be inserted\n * @return true if the cultural asset was successfully inserted, false otherwise\n */\nabstract boolean inserisciBeneCulturale(BeanBeneCulturale beneCulturale) {\n    // Implementation details are not provided\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaBeneCulturale(int)",
                 "comments": "Optional[/**\r\n * Method for the cancellation of a cultural object by id\r\n *\r\n * @param pBeneCulturaleID the bean to be deleted\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a cultural asset identified by the given ID.\n * \n * @param id the ID of the cultural asset to be deleted\n * @return true if the cultural asset was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanBeneCulturale> ottieniBeniCulturali()",
                 "comments": "Optional[/**\r\n * Method for the return of all cultural property in the\r\n * Database\r\n *\r\n * @return ArrayList all the beans in the database\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to retrieve a list of cultural assets of type BeanBeneCulturale.\n * \n * @return an ArrayList of BeanBeneCulturale objects representing the cultural assets, or Optional.empty if no assets are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaBeneCulturale(BeanBeneCulturale)",
                 "comments": "Optional[/**\r\n * Method for updating (or changing) the data of a cultural\r\n *\r\n * @param pBeneCulturale The bean with the new information of the cultural\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a cultural asset represented by the given BeanBeneCulturale object.\n * \n * @param beneCulturale the BeanBeneCulturale object representing the cultural asset to be modified\n * @return true if the cultural asset was successfully modified, false otherwise\n * \n * This method is abstract and must be implemented by subclasses. It is used to modify the properties of a cultural asset\n * based on the information provided in the BeanBeneCulturale object. If the modification is successful, it returns true,\n * otherwise it returns false. If the implementation does not return a value, Optional.empty is returned.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean aggiungiTagBeneCulturale(int, int)",
                 "comments": "Optional[/**\r\n * Method for setting a tag to a certain cultural\r\n *\r\n * @param pBeneCulturaleID The identifier of the cultural object to which to add a tag\r\n * @param pTagID The ID tag to add to the cultural indicated\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a tag to a cultural asset identified by the given IDs.\n *\n * @param culturalAssetId The ID of the cultural asset to which the tag will be added\n * @param tagId The ID of the tag to be added to the cultural asset\n * @return true if the tag was successfully added to the cultural asset, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -47,11 +52,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean rimuoviTagBeneCulturale(int, int)",
                 "comments": "Optional[/**\r\n * Method for removing a tag from a certain cultural\r\n * To ensure that the operation is successful it is necessary that the cultural property has\r\n * actually set the specified tag\r\n *\r\n * @param pBeneCulturaleID The identifier of the cultural object from which to remove the tag\r\n * @param pTagID The ID tag to be removed from the cultural indicated\r\n * @return boolean The result of the operation; true if successful, false otherwise\r\n * @throws RemoteException Exception flow\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes a tag from a cultural asset identified by the given IDs.\n * \n * @param id1 the ID of the cultural asset\n * @param id2 the ID of the tag to be removed\n * @return true if the tag was successfully removed, false otherwise\n */"
             }
         ],
         "constructors": [],
         "signature": "IGestioneBeniCulturali",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IGestioneBeniCulturali interface represents a set of methods for managing cultural assets in a database.\n * It defines operations for inserting, deleting, retrieving, modifying, adding tags to, and removing tags from cultural assets.\n * Implementing classes must provide concrete implementations for these methods.\n * \n * This interface serves as a contract for classes that need to interact with a database of cultural assets.\n * \n * The main functionalities of this interface include:\n * - inserisciBeneCulturale: Inserts a new cultural asset into the system.\n * - cancellaBeneCulturale: Deletes a cultural asset identified by its ID.\n * - ottieniBeniCulturali: Retrieves a list of all cultural assets in the database.\n * - modificaBeneCulturale: Modifies the data of a cultural asset.\n * - aggiungiTagBeneCulturale: Adds a tag to a cultural asset.\n * - rimuoviTagBeneCulturale: Removes a tag from a cultural asset.\n * \n * Each method has specific parameters and return types, as well as exceptions that may be thrown.\n * \n * Implementing classes must provide detailed implementations for each method to ensure proper functionality.\n */"
     }
 ]

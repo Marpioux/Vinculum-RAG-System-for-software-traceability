@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getRowCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of rows in the table.\n * \n * @return the number of rows in the table\n */"
             },
             {
                 "body": "Optional[{\r\n    return columnNames.length;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getColumnCount()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the number of columns in the data structure.\n * \n * @return the number of columns in the data structure\n */"
             },
             {
                 "body": "Optional[{\r\n    if (c < columnNames.length - 1) {\r\n        return cells[r][c];\r\n    } else {\r\n        double value = myLocation.distanza(posizioneSito);\r\n        return Double.valueOf(value);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public Object getValueAt(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value at the specified row and column index. If the column index is less than the length of columnNames array minus 1,\n * it returns the value from the cells array at the corresponding row and column index. Otherwise, it calculates the distance between\n * myLocation and posizioneSito and returns the distance as a Double object.\n * \n * @param r the row index\n * @param c the column index\n * @return the value at the specified row and column index, or the distance between myLocation and posizioneSito as a Double object\n */"
             },
             {
                 "body": "Optional[{\r\n    return columnNames[c];\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getColumnName(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the column at the specified index.\n * \n * @param index the index of the column whose name is to be retrieved\n * @return the name of the column at the specified index\n * @throws ArrayIndexOutOfBoundsException if the index is out of bounds\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public SitoTableModel(BeanPuntoDiRistoro[], Punto3D)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SitoTableModel with the given array of BeanPuntoDiRistoro objects and Punto3D location.\n * \n * @param pr an array of BeanPuntoDiRistoro objects representing points of interest\n * @param myLocation the location of the SitoTableModel in Punto3D format\n */\npublic SitoTableModel(BeanPuntoDiRistoro[] pr, Punto3D myLocation) {\n    super();\n    this.myLocation = myLocation;\n    cells = new Object[pr.length][3];\n    for (int i = 0; i < pr.length; i++) {\n        cells[i][0] = pr[i].getName();\n        cells[i][1] = pr[i].getCitta();\n    }\n}\n*/"
             },
             {
                 "body": "{\r\n    super();\r\n    this.myLocation = myLocation;\r\n    cells = new Object[bc.length][3];\r\n    for (int i = 0; i < bc.length; i++) {\r\n        cells[i][0] = bc[i].getName();\r\n        cells[i][1] = bc[i].getCitta();\r\n    }\r\n}",
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public SitoTableModel(BeanBeneCulturale[], Punto3D)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SitoTableModel with the given array of BeanBeneCulturale objects and Punto3D location.\n * \n * @param bc an array of BeanBeneCulturale objects representing cultural heritage sites\n * @param myLocation a Punto3D object representing the location of the cultural heritage sites\n */\npublic SitoTableModel(BeanBeneCulturale[] bc, Punto3D myLocation) {\n    super();\n    this.myLocation = myLocation;\n    cells = new Object[bc.length][3];\n    for (int i = 0; i < bc.length; i++) {\n        cells[i][0] = bc[i].getName();\n        cells[i][1] = bc[i].getCitta();\n    }\n}\n*/"
             }
         ],
         "signature": "SitoTableModel",
@@ -58,6 +64,7 @@
             "private Object cells",
             "private Punto3D posizioneSito",
             "private Punto3D myLocation"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SitoTableModel class represents a model for a table structure that displays information about points of interest or cultural heritage sites.\n * It contains methods to retrieve the number of rows and columns in the table, as well as to get the value at a specific row and column index.\n * The class also provides functionality to retrieve the name of a column at a given index.\n * \n * The class has two constructors: one for initializing the model with an array of BeanPuntoDiRistoro objects representing points of interest, and another for initializing it with an array of BeanBeneCulturale objects representing cultural heritage sites.\n * \n * The main variables of the class include an array of column names, an array of cells to store the data, and two Punto3D objects representing the location of the table and a specific site location.\n * \n * Overall, the SitoTableModel class serves as a data model for displaying information about points of interest or cultural heritage sites in a tabular format.\n */"
     }
 ]

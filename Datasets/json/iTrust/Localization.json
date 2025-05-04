@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public Locale getCurrentLocale()",
                 "comments": "Optional[/**\r\n * Returns the current locale\r\n * @return the current locale\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current locale being used in the application.\n * \n * @return the current locale being used\n */"
             },
             {
                 "body": "Optional[{\r\n    if (currentInstance == null) {\r\n        currentInstance = new Localization();\r\n    }\r\n    return currentInstance;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public static Localization instance()",
                 "comments": "Optional[/**\r\n * singleton method, may want to make this thread safe, as far as I know\r\n * iTrust doesn't do any multithreading though...\r\n * @return Localization instance\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the singleton instance of the Localization class.\n * If the current instance is null, a new instance is created and returned.\n * \n * @return the singleton instance of the Localization class\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public Localization()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Localization object with the default locale set to English (US).\n * This constructor initializes the currentLocale field with a new Locale object representing the English language and United States region.\n */"
             }
         ],
         "signature": "Localization",
         "variables": [
             "private Locale currentLocale",
             "static Localization currentInstance"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Localization class represents a utility for managing the localization settings within an application. \n * It provides methods for retrieving the current locale being used and accessing a singleton instance of the Localization class.\n * \n * The class includes a constructor that initializes the currentLocale field with the default locale set to English (US).\n * \n * Main functionalities:\n * - getCurrentLocale(): Returns the current locale being used in the application.\n * - instance(): Returns the singleton instance of the Localization class. If the current instance is null, a new instance is created and returned.\n * \n * Note: The instance() method may need to be made thread-safe for multi-threaded environments.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

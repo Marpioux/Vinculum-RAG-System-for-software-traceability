@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void sendEmail(Email)",
                 "comments": "Optional[// If you want to know how to send emails from Java, just Google it on your own time.\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sends an email using the provided Email object.\n * \n * @param email the Email object containing the email details such as sender, recipient, subject, and message\n * @return void\n * \n * This method sends an email by calling the sendEmailRecord method of the FakeEmailDAO object obtained from the EmailDAOFactory. \n * The email details are passed as a parameter to the sendEmailRecord method for processing and sending the email.\n */"
             }
         ],
         "constructors": [
@@ -17,12 +18,14 @@
                 "hasInnerComment": false,
                 "signature": "public EmailUtil(DAOFactory)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new EmailUtil object with the specified DAOFactory.\n * \n * @param factory the DAOFactory to be used by the EmailUtil\n * \n * This constructor initializes the EmailUtil object with the provided DAOFactory.\n * The DAOFactory will be used to interact with the database for email-related operations.\n */"
             }
         ],
         "signature": "EmailUtil",
         "variables": [
             "private DAOFactory factory"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The EmailUtil class provides utility methods for sending emails using the provided Email object.\n * \n * This class contains a method to send an email by calling the sendEmailRecord method of the FakeEmailDAO object obtained from the EmailDAOFactory.\n * The email details such as sender, recipient, subject, and message are passed as a parameter to the sendEmailRecord method for processing and sending the email.\n * \n * The EmailUtil class also includes a constructor to initialize the EmailUtil object with the specified DAOFactory.\n * The DAOFactory is used to interact with the database for email-related operations.\n * \n * Example Usage:\n * EmailUtil emailUtil = new EmailUtil(new EmailDAOFactory());\n * emailUtil.sendEmail(new Email(\"sender@example.com\", \"recipient@example.com\", \"Subject\", \"Message\"));\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

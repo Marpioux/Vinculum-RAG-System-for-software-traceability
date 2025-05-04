@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ApptBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of appointment beans from a ResultSet.\n * \n * @param rs the ResultSet containing the data to load\n * @return a List of ApptBean objects loaded from the ResultSet\n * \n * This method iterates over the ResultSet and calls loadSingle method to load each row as an ApptBean object.\n * It then adds each ApptBean object to a List and returns the List of loaded ApptBean objects.\n */"
             },
             {
                 "body": "Optional[{\r\n    ps.setString(1, bean.getApptType());\r\n    ps.setLong(2, bean.getPatient());\r\n    ps.setLong(3, bean.getHcp());\r\n    ps.setTimestamp(4, bean.getDate());\r\n    ps.setString(5, bean.getComment());\r\n    return ps;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, ApptBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters of an appointment bean into a prepared statement.\n * \n * @param ps the prepared statement to load the parameters into\n * @param bean the appointment bean containing the parameters to be loaded\n * @return the prepared statement with the parameters loaded\n * \n * The method sets the following parameters in the prepared statement:\n * 1. The appointment type from the bean at index 1\n * 2. The patient ID from the bean at index 2\n * 3. The healthcare provider ID from the bean at index 3\n * 4. The appointment date from the bean at index 4\n * 5. Any additional comments from the bean at index 5\n */"
             },
             {
                 "body": "Optional[{\r\n    ApptBean bean = new ApptBean();\r\n    bean.setApptType(rs.getString(\"appt_type\"));\r\n    bean.setPatient(rs.getLong(\"patient_id\"));\r\n    bean.setHcp(rs.getLong(\"doctor_id\"));\r\n    bean.setDate(rs.getTimestamp(\"sched_date\"));\r\n    bean.setComment(rs.getString(\"comment\"));\r\n    return bean;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public ApptBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single appointment from a ResultSet and creates an ApptBean object with the retrieved data.\n * \n * @param rs the ResultSet containing the appointment data\n * @return an ApptBean object representing the loaded appointment\n */\npublic ApptBean loadSingle(ResultSet rs) {\n    ApptBean bean = new ApptBean();\n    bean.setApptType(rs.getString(\"appt_type\"));\n    bean.setPatient(rs.getLong(\"patient_id\"));\n    bean.setHcp(rs.getLong(\"doctor_id\"));\n    bean.setDate(rs.getTimestamp(\"sched_date\"));\n    bean.setComment(rs.getString(\"comment\"));\n    return bean;\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "ApptBeanLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ApptBeanLoader class is responsible for loading and processing appointment data from a ResultSet.\n * It provides methods to load a list of appointment beans, load parameters of an appointment bean into a prepared statement,\n * and load a single appointment from a ResultSet and create an ApptBean object with the retrieved data.\n * \n * This class encapsulates the logic for handling appointment data retrieval and manipulation,\n * making it easier to interact with appointment data in a structured and organized manner.\n * \n * The main functionalities of this class include:\n * - Loading a list of appointment beans from a ResultSet\n * - Loading the parameters of an appointment bean into a prepared statement\n * - Loading a single appointment from a ResultSet and creating an ApptBean object\n * \n * The behavior of this class is to iterate over the ResultSet and extract the necessary data to create and populate\n * ApptBean objects. It provides a convenient way to work with appointment data in a database context,\n * facilitating the loading and processing of appointment information for further use in the application.\n */"
     }
 ]

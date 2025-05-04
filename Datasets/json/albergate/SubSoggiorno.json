@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the initial configuration of the user interface by setting the font, creating panels, buttons, and images.\n * Randomly selects an image file for display. Adds buttons for various functions like client arrival, room change, billing, etc.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Arrivo.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            insSoggiornante();\r\n        }\r\n    });\r\n    Calcolo.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            calcoloConto();\r\n        }\r\n    });\r\n    Addebito.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            addebitaBeneServizio();\r\n        }\r\n    });\r\n    BeniServizi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            visitaBeneServizio();\r\n        }\r\n    });\r\n    Telefonate.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            ricercaTelefonate();\r\n        }\r\n    });\r\n    Cambio.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            cambiaStanza();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startRicerca();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up action listeners for various buttons.\n * The method sets up action listeners for buttons such as Annulla, Arrivo, Calcolo, Addebito, BeniServizi, Telefonate, Cambio, and Ricerca.\n * When the Annulla button is clicked, the method disposes of the current window and enables the parent window.\n * When the Arrivo button is clicked, the method calls the insSoggiornante() method.\n * When the Calcolo button is clicked, the method calls the calcoloConto() method.\n * When the Addebito button is clicked, the method calls the addebitaBeneServizio() method.\n * When the BeniServizi button is clicked, the method calls the visitaBeneServizio() method.\n * When the Telefonate button is clicked, the method calls the ricercaTelefonate() method.\n * When the Cambio button is clicked, the method calls the cambiaStanza() method.\n * When the Ricerca button is clicked, the method calls the startRicerca() method.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables a specified component.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the specified component 'p'.\n * It is typically used in response to an action event, such as a button click, to close the current window and enable another component.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    insSoggiornante();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the insSoggiornante() method to insert a new guest into the system.\n * \n * @param e the ActionEvent object representing the event that occurred\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    calcoloConto();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calculates the total bill amount by calling the calcoloConto() method.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    addebitaBeneServizio();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It debits the service for the action event.\n * \n * @param e the action event that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    visitaBeneServizio();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the method visitaBeneServizio() to visit a service provider.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    ricercaTelefonate();\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It triggers the method ricercaTelefonate() to search for phone calls.\n * \n * @param e the ActionEvent that triggered the method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    cambiaStanza();\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It calls the cambiaStanza() method to change the current room in the application.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startRicerca();\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It triggers the startRicerca() method to begin the search process.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    ric_pren = new RicercaPrenotazione(\"Arrivo clienti\", 3);\r\n    ric_pren.setVisible(true);\r\n    ric_pren.padre = this;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void insSoggiornante()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and opens a new window for searching reservations.\n * The new window is set to be visible and its parent component is set to be this component.\n */ \npublic void insSoggiornante() {\n    this.setEnabled(false);\n    ric_pren = new RicercaPrenotazione(\"Arrivo clienti\", 3);\n    ric_pren.setVisible(true);\n    ric_pren.padre = this;\n}"
             },
             {
                 "body": "Optional[{\r\n    figlio = new MascheraAddebiti(this);\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " void addebitaBeneServizio()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a new instance of MascheraAddebiti and assigns it to the variable figlio.\n * This method is used to addebita a bene servizio, initializing the MascheraAddebiti with the current instance.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new RicercaAddebiti(this);\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": " void visitaBeneServizio()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method initiates a search for addebiti (charges) related to the current bene servizio (service benefit).\n * It creates a new instance of the RicercaAddebiti class, passing the current object as a parameter.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new RicercaTelefonate(this);\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": " void ricercaTelefonate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method initiates a search for phone calls by creating a new instance of the RicercaTelefonate class.\n * The RicercaTelefonate class is initialized with the current object as a parameter.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new MascheraCalcoloConto(this);\r\n    figlio.setVisible(true);\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " void calcoloConto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Opens a new window for calculating the account balance.\n * \n * This method creates a new instance of MascheraCalcoloConto, a GUI window for calculating the account balance, \n * and sets its visibility to true. The new window is initialized with the current object as a reference.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new MascheraCambio(this);\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": " void cambiaStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Changes the current room by creating a new instance of MascheraCambio and assigning it to the figlio variable.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new MascheraRicercaSoggiornante(this);\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": " void startRicerca()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the search functionality by creating a new instance of MascheraRicercaSoggiornante \n * with the current object as a parameter.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -145,7 +162,8 @@
                 "hasInnerComment": false,
                 "signature": "public SubSoggiorno()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SubSoggiorno object with the default title \"Soggiorno\".\n * This constructor calls the superclass constructor with the specified title,\n * then sets up the SubSoggiorno object by calling the setup() method,\n * initializes it by calling the init() method, and finally packs the components\n * within the SubSoggiorno object.\n */"
             }
         ],
         "signature": "SubSoggiorno",
@@ -165,6 +183,7 @@
             " Frame p",
             " RicercaPrenotazione ric_pren",
             " Frame figlio"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubSoggiorno class represents a user interface for managing hotel operations.\n * It provides functionalities for handling guest arrivals, room changes, billing, phone calls, account calculations,\n * service visits, and search operations. The class contains various GUI components such as panels, buttons, and labels\n * that are initialized and configured in the setup() method. Action listeners are set up for each button in the init() method\n * to perform specific actions when clicked.\n * \n * The class also includes methods for disposing of the current window, inserting new guests, calculating account balances,\n * debiting services, visiting service providers, searching for phone calls, changing rooms, and starting search operations.\n * Each method is triggered by an action event and performs the corresponding operation.\n * \n * The SubSoggiorno class has a constructor that initializes the user interface with the title \"Soggiorno\" and sets up the components\n * by calling the setup() and init() methods. The components are then packed within the window for display.\n * \n * The class maintains variables for labels, panels, buttons, layouts, frames, and instances of other classes for managing\n * hotel operations. It provides a comprehensive set of functionalities for hotel management and guest services.\n */\n **/"
     }
 ]

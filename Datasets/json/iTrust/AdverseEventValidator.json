@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(AdverseEventBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param d A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the given AdverseEventBean by checking the format of its description field.\n * \n * @param bean the AdverseEventBean to validate\n * @throws FormValidationException if the description field does not match the specified format\n */\npublic void validate(AdverseEventBean bean) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"comment\", bean.getDescription(), ValidationFormat.ADVERSE_EVENT_COMMENTS, false));\n    \n    if (errorList.hasErrors()) {\n        throw new FormValidationException(errorList);\n    }\n}"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public AdverseEventValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the AdverseEventValidator class.\n * It initializes a new instance of the AdverseEventValidator class.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * Creates a new AdverseEventValidator object with default values.\n */"
             }
         ],
         "signature": "AdverseEventValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The AdverseEventValidator class is responsible for validating AdverseEventBean objects by checking the format of their description field.\n * It provides a method to perform validation on a given AdverseEventBean and throws a FormValidationException if the description field does not match the specified format.\n * \n * Main functionalities include:\n * - Validating AdverseEventBean objects by checking the format of their description field\n * - Throwing a FormValidationException if the validation does not succeed\n * \n * Overall behavior:\n * - The class contains a constructor to initialize a new instance of AdverseEventValidator with default values\n * - The validate method performs the act of validating the bean in question and throws a FormValidationException if the validation fails\n * \n * @see AdverseEventBean\n * @see FormValidationException\n */\npublic class AdverseEventValidator {\n    // Class implementation\n}\n**/"
     }
 ]

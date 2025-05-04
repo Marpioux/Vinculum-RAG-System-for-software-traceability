@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a description of the patient's smoking status.\n * \n * @return a String indicating whether the patient is or was a smoker\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hasSmoked(patientID);\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return false;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a patient has a smoking factor.\n * \n * This method queries the RiskDAO to determine if the specified patient has a smoking factor recorded.\n * \n * @param patientID the ID of the patient to check for smoking factor\n * @return true if the patient has a smoking factor, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public SmokingFactor(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SmokingFactor object with the specified DAOFactory and patient ID.\n * \n * @param factory the DAOFactory used to access the database\n * @param patientID the ID of the patient associated with this SmokingFactor\n */"
             }
         ],
         "signature": "SmokingFactor",
         "variables": [
             "private long patientID",
             "private DAOFactory factory"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SmokingFactor class represents a utility class for managing and retrieving smoking-related information about a patient.\n * \n * This class provides methods to determine the smoking status of a patient, check if the patient has a smoking factor recorded,\n * and retrieve a description of the patient's smoking status.\n * \n * The main functionalities of this class include:\n * - Checking if a patient has a smoking factor recorded\n * - Retrieving a description of the patient's smoking status\n * \n * The class requires a DAOFactory object for database access and the patient ID associated with the smoking information.\n * \n * Overall, the SmokingFactor class encapsulates the logic for handling smoking-related data for a patient and provides\n * convenient methods for querying and retrieving this information.\n */"
     }
 ]

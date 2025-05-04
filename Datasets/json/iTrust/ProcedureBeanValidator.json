@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(ProcedureBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates a ProcedureBean by checking the format of its CPT Code and Description fields.\n * \n * @param p the ProcedureBean to validate\n * @throws FormValidationException if any errors are found during validation\n */\npublic void validate(ProcedureBean p) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"CPT Code\", p.getCPTCode(), ValidationFormat.CPT, false));\n    errorList.addIfNotNull(checkFormat(\"Description\", p.getDescription(), ValidationFormat.CPT_CODE_DESCRIPTION, false));\n    \n    if (errorList.hasErrors()) {\n        throw new FormValidationException(errorList);\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public ProcedureBeanValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor creates a new instance of ProcedureBeanValidator.\n * It does not take any parameters.\n * \n * @param None\n * @return A new ProcedureBeanValidator object\n */"
             }
         ],
         "signature": "ProcedureBeanValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The ProcedureBeanValidator class is responsible for validating ProcedureBean objects by checking the format of their CPT Code and Description fields.\n * \n * This class contains a public method, validate(ProcedureBean p), which performs the validation process. If any errors are found during validation, a FormValidationException is thrown.\n * \n * Additionally, the class includes a default constructor, public ProcedureBeanValidator(), which creates a new instance of ProcedureBeanValidator without taking any parameters.\n * \n * Overall, the ProcedureBeanValidator class ensures that ProcedureBean objects meet the required format criteria for their CPT Code and Description fields, providing a reliable validation mechanism for these objects.\n */"
     }
 ]

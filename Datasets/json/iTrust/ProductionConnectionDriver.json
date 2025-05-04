@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public Connection getConnection()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a connection to the database using a DataSource object.\n * \n * @return a Connection object representing a connection to the database\n * @throws SQLException if an error occurs while attempting to retrieve the connection\n */"
             }
         ],
         "constructors": [],
         "signature": "ProductionConnectionDriver",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * ProductionConnectionDriver class represents a utility class that provides methods for retrieving a connection to the database using a DataSource object.\n * This class contains a single method, getConnection(), which is responsible for obtaining a connection to the database.\n * \n * The getConnection() method attempts to retrieve a connection by looking up the DataSource object in the JNDI context under the name \"jdbc/itrust\".\n * If successful, it returns a Connection object representing the connection to the database.\n * If an error occurs during the lookup process, a SQLException is thrown with a descriptive error message.\n * \n * This class is designed to be used in a production environment where database connections are required for performing various operations.\n * It encapsulates the logic for obtaining a database connection, making it easy to reuse and maintain.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

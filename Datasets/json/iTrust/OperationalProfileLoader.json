@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<OperationalProfile> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of OperationalProfile objects from the given ResultSet.\n * \n * @param resultSet the ResultSet containing the data to load into OperationalProfile objects\n * @return a List of OperationalProfile objects loaded from the ResultSet\n * @throws IllegalStateException if the method is called as it is not yet implemented\n */\npublic List<OperationalProfile> loadList(ResultSet resultSet) {\n    throw new IllegalStateException(\"unimplemented!\");\n}"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, OperationalProfile)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters into a PreparedStatement based on the given OperationalProfile.\n * \n * @param preparedStatement the PreparedStatement to load parameters into\n * @param operationalProfile the OperationalProfile containing the parameters to be loaded\n * @return the PreparedStatement with parameters loaded\n * @throws IllegalStateException if the method is not implemented\n */"
             },
             {
                 "body": "Optional[{\r\n    OperationalProfile op = new OperationalProfile();\r\n    int grandTotal = 0;\r\n    int grandPatient = 0;\r\n    int grandPersonnel = 0;\r\n    while (rs.next()) {\r\n        TransactionType type = TransactionType.parse(rs.getInt(\"TransactionCode\"));\r\n        int totalCount = rs.getInt(\"TotalCount\");\r\n        int patientCount = rs.getInt(\"PatientCount\");\r\n        int personnelCount = rs.getInt(\"PersonnelCount\");\r\n        op.getTotalCount().put(type, totalCount);\r\n        op.getPatientCount().put(type, patientCount);\r\n        op.getPersonnelCount().put(type, personnelCount);\r\n        grandTotal += totalCount;\r\n        grandPatient += patientCount;\r\n        grandPersonnel += personnelCount;\r\n    }\r\n    op.setNumTotalTransactions(grandTotal);\r\n    op.setNumPatientTransactions(grandPatient);\r\n    op.setNumPersonnelTransactions(grandPersonnel);\r\n    return op;\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public OperationalProfile loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads data from a ResultSet into an OperationalProfile object.\n * \n * @param rs the ResultSet containing the data to be loaded\n * @return an OperationalProfile object populated with the data from the ResultSet\n */\npublic OperationalProfile loadSingle(ResultSet rs) {\n    OperationalProfile op = new OperationalProfile();\n    int grandTotal = 0;\n    int grandPatient = 0;\n    int grandPersonnel = 0;\n    \n    // Iterate through the ResultSet and populate the OperationalProfile object\n    while (rs.next()) {\n        TransactionType type = TransactionType.parse(rs.getInt(\"TransactionCode\"));\n        int totalCount = rs.getInt(\"TotalCount\");\n        int patientCount = rs.getInt(\"PatientCount\");\n        int personnelCount = rs.getInt(\"PersonnelCount\");\n        \n        op.getTotalCount().put(type, totalCount);\n        op.getPatientCount().put(type, patientCount);\n        op.getPersonnelCount().put(type, personnelCount);\n        \n        grandTotal += totalCount;\n        grandPatient += patientCount;\n        grandPersonnel += personnelCount;\n    }\n    \n    // Set the total transaction counts in the OperationalProfile object\n    op.setNumTotalTransactions(grandTotal);\n    op.setNumPatientTransactions(grandPatient);\n    op.setNumPersonnelTransactions(grandPersonnel);\n    \n    return op;\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "OperationalProfileLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class represents a utility for loading and manipulating OperationalProfile objects from a database ResultSet.\n * It provides methods for loading a list of OperationalProfile objects, loading parameters into a PreparedStatement based on an OperationalProfile,\n * and processing data from a ResultSet to populate an OperationalProfile object.\n * \n * The loadList method loads a list of OperationalProfile objects from the given ResultSet.\n * \n * The loadParameters method loads parameters into a PreparedStatement based on the given OperationalProfile.\n * \n * The processResultSet method processes data from a ResultSet to populate an OperationalProfile object with transaction type, total count, patient count, and personnel count information.\n * \n * This class is designed to handle the loading and manipulation of OperationalProfile objects in a database context.\n */\npublic class OperationalProfileLoader {\n    // Class implementation goes here\n}\n*/\n/**\n * The OperationalProfileLoader class is responsible for loading data from a ResultSet into an OperationalProfile object.\n * It provides a method to populate the OperationalProfile object with transaction data from the ResultSet.\n * \n * This class contains a single method, loadSingle, which iterates through the ResultSet and populates the OperationalProfile object\n * with transaction counts for different types of transactions. It calculates the total transaction counts and sets them in the \n * OperationalProfile object.\n * \n * The loadSingle method takes a ResultSet as input and returns an OperationalProfile object populated with the data from the ResultSet.\n * \n * Example usage:\n * OperationalProfileLoader loader = new OperationalProfileLoader();\n * ResultSet rs = // obtain ResultSet from database query\n * OperationalProfile op = loader.loadSingle(rs);\n * \n * The OperationalProfileLoader class is essential for retrieving transaction data and generating operational profiles based on that data.\n */\n**/"
     }
 ]

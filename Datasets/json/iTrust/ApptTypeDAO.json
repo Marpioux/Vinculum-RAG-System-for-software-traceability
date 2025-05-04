@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ApptTypeBean> getApptTypes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of appointment types from the database.\n * \n * @return List of ApptTypeBean objects representing the appointment types\n * @throws SQLException if a database access error occurs\n */\npublic List<ApptTypeBean> getApptTypes() throws SQLException {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    \n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"SELECT * FROM appointmenttype\");\n        ResultSet rs = ps.executeQuery();\n        List<ApptTypeBean> atList = this.atLoader.loadList(rs);\n        return atList;\n    } finally {\n        DBUtil.closeConnection(conn, ps);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"INSERT INTO appointmenttype (appt_type, duration) \" + \"VALUES (?, ?)\");\r\n    this.atLoader.loadParameters(ps, apptType);\r\n    int x = ps.executeUpdate();\r\n    DBUtil.closeConnection(conn, ps);\r\n    if (x > 0)\r\n        return true;\r\n    else\r\n        return false;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean addApptType(ApptTypeBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new appointment type to the database.\n * \n * @param apptType the ApptTypeBean object containing the details of the appointment type to be added\n * @return true if the appointment type was successfully added, false otherwise\n * @throws SQLException if an error occurs while interacting with the database\n */\npublic boolean addApptType(ApptTypeBean apptType) {\n    // Method body implementation\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    conn = factory.getConnection();\r\n    ps = conn.prepareStatement(\"UPDATE appointmenttype SET duration=? WHERE appt_type=?\");\r\n    ps.setInt(1, apptType.getDuration());\r\n    ps.setString(2, apptType.getName());\r\n    int x = ps.executeUpdate();\r\n    DBUtil.closeConnection(conn, ps);\r\n    if (x > 0)\r\n        return true;\r\n    else\r\n        return false;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean editApptType(ApptTypeBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the duration of an appointment type in the database.\n * \n * @param apptType the ApptTypeBean object containing the new duration and name of the appointment type\n * @return true if the update was successful, false otherwise\n * @throws SQLException if an error occurs while updating the database\n */\npublic boolean editApptType(ApptTypeBean apptType) {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    \n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"UPDATE appointmenttype SET duration=? WHERE appt_type=?\");\n        ps.setInt(1, apptType.getDuration());\n        ps.setString(2, apptType.getName());\n        int x = ps.executeUpdate();\n        DBUtil.closeConnection(conn, ps);\n        \n        if (x > 0) {\n            return true;\n        } else {\n            return false;\n        }\n    } catch (SQLException e) {\n        // Handle any SQL exceptions that may occur\n        e.printStackTrace();\n        return false;\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -33,13 +36,15 @@
                 "hasInnerComment": false,
                 "signature": "public ApptTypeDAO(DAOFactory)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ApptTypeDAO object with the given DAOFactory.\n * This constructor initializes the DAO with the provided factory and creates a new ApptTypeBeanLoader.\n * \n * @param factory the DAOFactory to be used for database operations\n */"
             }
         ],
         "signature": "ApptTypeDAO",
         "variables": [
             "private DAOFactory factory",
             "private ApptTypeBeanLoader atLoader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ApptTypeDAO class represents a Data Access Object (DAO) for managing appointment types in the database.\n * It provides methods for retrieving, adding, and editing appointment types.\n * This class works in conjunction with the DAOFactory and ApptTypeBeanLoader classes to interact with the database.\n * \n * The main functionalities of this class include:\n * - Retrieving a list of appointment types from the database\n * - Adding a new appointment type to the database\n * - Updating the duration of an existing appointment type in the database\n * \n * The behavior of this class is as follows:\n * - When retrieving appointment types, a list of ApptTypeBean objects representing the appointment types is returned.\n * - When adding a new appointment type, the method returns true if the addition was successful, false otherwise.\n * - When editing an existing appointment type, the method returns true if the update was successful, false otherwise.\n * \n * This class requires a DAOFactory object to perform database operations and initializes an ApptTypeBeanLoader for loading and processing ApptTypeBean objects.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components for the program.\n * Sets the editability of certain text fields and adds action listeners to buttons.\n * When a selection is made in the list, retrieves the corresponding commission and displays its data.\n * Enables the 'Azione' button after a selection is made.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    commissione = L.getCommissionamento((lista.getSelectedIndexes())[0] + 1);\r\n    writeDatiComm(commissione);\r\n    Azione.setEnabled(true);\r\n    pack();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It retrieves the commission data from the selected index in the list, writes the commission data, enables a specific action, and packs the components. \n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a new list by calling the creaLista() method.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a new list by calling the creaLista() method.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -41,12 +45,14 @@
                 "hasInnerComment": false,
                 "signature": "public VediCommissione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new VediCommissione object with default values for title, header, button text, and number of columns.\n * Initializes the object by calling the init() method.\n */"
             }
         ],
         "signature": "VediCommissione",
         "variables": [
             " Commissionamento commissione"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The VediCommissione class represents a GUI component for viewing commission data. \n * It provides functionality for initializing the GUI components, setting editability of text fields, \n * adding action listeners to buttons, and displaying commission data when a selection is is made in the list. \n * The class also enables a specific action button after a selection is made. \n * \n * This class contains methods for handling action events, such as retrieving commission data from the selected index in the list, \n * writing commission data, enabling a specific action, and packing the components. \n * \n * Additionally, the class includes a method for creating a new list when an action event occurs. \n * \n * The VediCommissione class has a constructor that initializes the object with default values for title, header, button text, \n * and number of columns, and calls the init() method to set up the GUI components. \n * \n * Overall, the VediCommissione class provides a user-friendly interface for viewing commission data and interacting with the application. \n */"
     }
 ]

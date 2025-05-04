@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getMessageFilter()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the message filter currently set for this object.\n * \n * @return the message filter as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.messageFilter = messageFilter;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMessageFilter(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the message filter for this object.\n * \n * @param messageFilter the message filter to be set\n */\npublic void setMessageFilter(String messageFilter) {\n    this.messageFilter = messageFilter;\n}\n \n/**\n * Sets the message filter for this object.\n * \n * @param messageFilter the message filter to be set\n */"
             },
             {
                 "body": "Optional[{\r\n    return bloodType;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public BloodType getBloodType()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the blood type of the object.\n * \n * @return the blood type of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.bloodType = BloodType.parse(bloodType);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodTypeStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the blood type of the object using a string representation.\n * \n * @param bloodType the string representation of the blood type to set\n * @throws IllegalArgumentException if the provided blood type string is invalid\n */\npublic void setBloodTypeStr(String bloodType) {\n    this.bloodType = BloodType.parse(bloodType);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    this.bloodType = bloodType;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodType(BloodType)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the blood type of the object.\n * \n * @param bloodType the new blood type to set\n */\npublic void setBloodType(BloodType bloodType) {\n    this.bloodType = bloodType;\n}\n \n/**\n * Sets the blood type of the object to the specified value.\n * \n * @param bloodType the new blood type to set\n */"
             },
             {
                 "body": "Optional[{\r\n    return causeOfDeath;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCauseOfDeath()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the cause of death for a specific instance of a character.\n * \n * @return a String representing the cause of death for the character\n */"
             },
             {
                 "body": "Optional[{\r\n    this.causeOfDeath = causeOfDeath;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCauseOfDeath(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the cause of death for the object.\n * \n * @param causeOfDeath a String representing the cause of death\n * \n * This method sets the cause of death for the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return city;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCity()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the city associated with this object.\n * \n * @return the city as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.city = city;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCity(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the city for this object.\n * \n * @param city the new city to set\n */\npublic void setCity(String city) {\n    this.city = city;\n}\n \n/**\n * Sets the city for this object.\n * \n * @param city the new city to set\n */\npublic void setCity(String city) {\n    this.city = city;\n}\n \n/**\n * Sets the city for this object.\n * \n * @param city the new city to set\n */\npublic void setCity(String city) {\n    this.city = city;\n}\n \n/**\n * Sets the city for this object.\n * \n * @param city the new city to set\n */\npublic void setCity(String city) {\n    this.city = city;\n}"
             },
             {
                 "body": "Optional[{\r\n    return dateOfBirthStr;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDateOfBirthStr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the date of birth as a string representation.\n * \n * @return The date of birth as a string.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr);\r\n    } catch (ParseException e) {\r\n        e.printStackTrace();\r\n        return null;\r\n    }\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDateOfBirth()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the date of birth of the person.\n * \n * @return the date of birth as a Date object\n * @throws ParseException if the date of birth string cannot be parsed\n */\npublic Date getDateOfBirth() {\n    try {\n        return new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr);\n    } catch (ParseException e) {\n        e.printStackTrace();\n        return null;\n    }\n}"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfDeathStr);\r\n    } catch (ParseException e) {\r\n        e.printStackTrace();\r\n        return null;\r\n    }\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDateOfDeath()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the date of death of the person.\n * \n * @return the date of death as a Date object, or null if the date string is not in the correct format\n */"
             },
             {
                 "body": "Optional[{\r\n    this.dateOfBirthStr = dateOfBirthStr;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDateOfBirthStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of birth as a string representation.\n * \n * @param dateOfBirthStr the string representation of the date of birth to set\n * \n * This method sets the date of birth of the object to the specified string representation.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        long ageInMs = System.currentTimeMillis() - new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr).getTime();\r\n        long age = ageInMs / (1000L * 60L * 60L * 24L * 365L);\r\n        return (int) age;\r\n    } catch (ParseException e) {\r\n        e.printStackTrace();\r\n        return -1;\r\n    }\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getAge()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Calculates the age of a person based on their date of birth.\n * \n * @param dateOfBirthStr a String representing the date of birth in the format \"MM/dd/yyyy\"\n * @return the age of the person in years, or -1 if the date of birth is invalid\n */\npublic int getAge() {\n    try {\n        long ageInMs = System.currentTimeMillis() - new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr).getTime();\n        long age = ageInMs / (1000L * 60L * 60L * 24L * 365L);\n        return (int) age;\n    } catch (ParseException e) {\n        e.printStackTrace();\n        return -1;\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    long age;\r\n    long ageInMs;\r\n    try {\r\n        ageInMs = System.currentTimeMillis() - new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr).getTime();\r\n        age = ageInMs / (1000L * 60L * 60L * 24L);\r\n    } catch (ParseException e) {\r\n        e.printStackTrace();\r\n        return -1;\r\n    }\r\n    return age;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getAgeInDays()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Calculates the age in days based on the date of birth provided.\n * \n * @return the age in days as a long value, or -1 if the date of birth is invalid\n * \n * @param dateOfBirthStr a String representing the date of birth in the format \"MM/dd/yyyy\"\n * \n * @throws ParseException if the date of birth string cannot be parsed\n */\npublic long getAgeInDays() {\n    long age;\n    long ageInMs;\n    try {\n        ageInMs = System.currentTimeMillis() - new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr).getTime();\n        age = ageInMs / (1000L * 60L * 60L * 24L);\n    } catch (ParseException e) {\n        e.printStackTrace();\n        return -1;\n    }\n    return age;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    long age;\r\n    long ageInMs;\r\n    try {\r\n        ageInMs = System.currentTimeMillis() - new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr).getTime();\r\n        age = ageInMs / (1000L * 60L * 60L * 24L * 7L);\r\n    } catch (ParseException e) {\r\n        e.printStackTrace();\r\n        return -1;\r\n    }\r\n    return age;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getAgeInWeeks()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Calculates the age of a person in weeks based on their date of birth.\n * \n * @return the age of the person in weeks, or -1 if the date of birth is invalid\n * @param dateOfBirthStr a string representing the date of birth in the format \"MM/dd/yyyy\"\n */"
             },
             {
                 "body": "Optional[{\r\n    return dateOfDeathStr;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDateOfDeathStr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the date of death as a string representation.\n * \n * @return the date of death as a string\n */"
             },
             {
                 "body": "Optional[{\r\n    this.dateOfDeathStr = dateOfDeathStr;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDateOfDeathStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date of death as a string representation.\n * \n * @param dateOfDeathStr the string representation of the date of death\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return email;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmail()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the email address associated with this object.\n * \n * @return the email address as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.email = email;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmail(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the email address of the user.\n * \n * @param email the new email address to be set\n * @return void\n * \n * This method sets the email address of the user to the specified email address. \n * If the email address is null, the user's email address will be set to null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return emergencyName;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmergencyName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the emergency contact.\n * \n * @return the name of the emergency contact as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.emergencyName = emergencyName;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmergencyName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the emergency contact name.\n * \n * This method sets the emergency contact name to the specified value.\n * \n * @param emergencyName the name of the emergency contact to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return ethnicity;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public Ethnicity getEthnicity()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ethnicity of the person.\n * \n * @return the ethnicity of the person\n */"
             },
             {
                 "body": "Optional[{\r\n    this.ethnicity = Ethnicity.parse(ethnicity);\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEthnicityStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ethnicity of the person using a string representation.\n * The ethnicity is parsed from the provided string and set as the new ethnicity.\n * \n * @param ethnicityStr the string representation of the ethnicity to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.ethnicity = ethnicity;\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEthnicity(Ethnicity)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ethnicity of the person.\n * \n * @param ethnicity the ethnicity to be set\n * \n * This method sets the ethnicity of the person to the specified ethnicity.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return fatherMID;\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFatherMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the father's member ID.\n * \n * @return The father's member ID as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.fatherMID = fatherMID;\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFatherMID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the father's member ID for this person.\n * \n * @param fatherMID the father's member ID to set\n * @return void\n */\npublic void setFatherMID(String fatherMID) {\n    this.fatherMID = fatherMID;\n}"
             },
             {
                 "body": "Optional[{\r\n    return getFirstName() + \" \" + getLastName();\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFullName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the full name of the person by concatenating their first name and last name.\n * \n * @return the full name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    return firstName;\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFirstName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the first name of the person.\n * \n * @return The first name of the person as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.firstName = firstName;\r\n}]",
@@ -239,7 +268,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFirstName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the first name of the person.\n * \n * @param firstName the new first name to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return gender;\r\n}]",
@@ -247,7 +277,8 @@
                 "hasInnerComment": false,
                 "signature": "public Gender getGender()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the gender of the person.\n * \n * @return the gender of the person\n */"
             },
             {
                 "body": "Optional[{\r\n    this.gender = Gender.parse(gender);\r\n}]",
@@ -255,7 +286,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setGenderStr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the gender of the object using a string representation.\n * \n * @param genderStr the string representation of the gender to set\n * @throws IllegalArgumentException if the provided gender string is invalid\n */\npublic void setGenderStr(String genderStr) {\n    this.gender = Gender.parse(genderStr);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    this.gender = gender;\r\n}]",
@@ -263,7 +295,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setGender(Gender)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the gender of the object.\n * \n * @param gender the gender to set\n */\npublic void setGender(Gender gender) {\n    this.gender = gender;\n}\n \n/**\n * Sets the gender of the object to the specified gender.\n * \n * @param gender the gender to set\n */\n \n/**\n * Sets the gender of the object to the specified gender.\n * \n * @param gender the gender to set\n */"
             },
             {
                 "body": "Optional[{\r\n    return icAddress1;\r\n}]",
@@ -271,7 +304,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcAddress1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the first line of the IC address.\n * \n * @return the first line of the IC address as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icAddress1 = icAddress1;\r\n}]",
@@ -279,7 +313,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcAddress1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC address line 1 for this object.\n * \n * @param icAddress1 the IC address line 1 to set\n */\npublic void setIcAddress1(String icAddress1) {\n    this.icAddress1 = icAddress1;\n}\n \n/**\n * Sets the IC address line 1 for this object.\n * \n * @param icAddress1 the IC address line 1 to set\n */"
             },
             {
                 "body": "Optional[{\r\n    return icAddress2;\r\n}]",
@@ -287,7 +322,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcAddress2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the second line of the address for the IC (Identification Card) holder.\n * \n * @return the second line of the IC address\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icAddress2 = icAddress2;\r\n}]",
@@ -295,7 +331,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcAddress2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC address line 2 for this object.\n * \n * @param icAddress2 the IC address line 2 to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return getIcCity() + \", \" + getIcState() + \" \" + getIcZip();\r\n}]",
@@ -303,7 +340,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcAddress3()",
                 "comments": "Optional[// Composition of city, state, and zip\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the full address of the IC (Intermediary Company) including city, state, and zip code.\n * \n * @return The concatenated string of IC city, state, and zip code separated by commas and spaces.\n */"
             },
             {
                 "body": "Optional[{\r\n    return icCity;\r\n}]",
@@ -311,7 +349,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcCity()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the city associated with the IC (Interchange City) code.\n * \n * @return the city name as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icCity = icCity;\r\n}]",
@@ -319,7 +358,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcCity(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC City for this object.\n * \n * @param icCity the IC City to set\n * \n * This method sets the IC City for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return icID;\r\n}]",
@@ -327,7 +367,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the IC ID associated with this object.\n * \n * @return the IC ID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icID = icID;\r\n}]",
@@ -335,7 +376,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC ID for this object.\n * \n * @param icID the IC ID to set\n * @return void\n */\npublic void setIcID(String icID) {\n    this.icID = icID;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return creditCardType;\r\n}]",
@@ -343,7 +385,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCreditCardType()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the type of credit card associated with this object.\n * \n * @return the type of credit card as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.creditCardType = creditCardType;\r\n}]",
@@ -351,7 +394,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCreditCardType(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the credit card type for this object.\n * \n * @param creditCardType the type of credit card to set\n * @return void\n * \n * This method sets the credit card type for this object to the specified value.\n * The credit card type is a string representing the type of credit card being used.\n * \n * Example usage:\n * \n * CreditCard card = new CreditCard();\n * card.setCreditCardType(\"Visa\");\n */"
             },
             {
                 "body": "Optional[{\r\n    return creditCardNumber;\r\n}]",
@@ -359,7 +403,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCreditCardNumber()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the credit card number associated with this object.\n * \n * @return The credit card number as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.creditCardNumber = creditCardNumber;\r\n}]",
@@ -367,7 +412,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCreditCardNumber(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the credit card number for the customer.\n * \n * @param creditCardNumber the new credit card number to set\n * @return void\n * \n * This method sets the credit card number for the customer to the specified value. \n * The credit card number must be a string value. \n * If a non-string value is provided, an exception may be thrown. \n */"
             },
             {
                 "body": "Optional[{\r\n    return icName;\r\n}]",
@@ -375,7 +421,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the IC (Integrated Circuit).\n * \n * @return the name of the IC as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icName = icName;\r\n}]",
@@ -383,7 +430,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the IC (Integrated Circuit).\n * \n * @param icName the name of the IC to be set\n * @return void\n * \n * This method sets the name of the IC to the specified value. \n * The IC name is used to uniquely identify the IC within the system.\n */"
             },
             {
                 "body": "Optional[{\r\n    if (getIcZip2() != null && !\"\".equals(getIcZip2()))\r\n        return getIcZip1() + \"-\" + getIcZip2();\r\n    else\r\n        return getIcZip1();\r\n}]",
@@ -391,7 +439,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcZip()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the complete IC zip code by concatenating two parts of the zip code.\n * If the second part of the zip code is not null or empty, it combines the two parts with a hyphen.\n * If the second part is null or empty, it returns the first part of the zip code only.\n * \n * @return The complete IC zip code, or the first part of the zip code if the second part is null or empty.\n */"
             },
             {
                 "body": "Optional[{\r\n    return icZip1;\r\n}]",
@@ -399,7 +448,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcZip1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the IC Zip 1 value.\n * \n * @return the IC Zip 1 value as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icZip1 = icZip1;\r\n}]",
@@ -407,7 +457,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcZip1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC Zip 1 value.\n * \n * @param icZip1 the IC Zip 1 value to set\n * @return void\n */\npublic void setIcZip1(String icZip1) {\n    this.icZip1 = icZip1;\n}"
             },
             {
                 "body": "Optional[{\r\n    return icZip2;\r\n}]",
@@ -415,7 +466,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcZip2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the IC Zip 2 value.\n * \n * @return the IC Zip 2 value as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icZip2 = icZip2;\r\n}]",
@@ -423,7 +475,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcZip2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of the icZip2 field.\n * \n * @param icZip2 the new value for the icZip2 field\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return icState;\r\n}]",
@@ -431,7 +484,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcState()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current state of the IC (Integrated Circuit).\n * \n * @return the current state of the IC as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icState = icState;\r\n}]",
@@ -439,7 +493,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcState(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC state to the specified value.\n * \n * @param icState the new IC state to set\n * @return void\n */\npublic void setIcState(String icState) {\n    this.icState = icState;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return lastName;\r\n}]",
@@ -447,7 +502,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLastName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the last name of the person.\n * \n * @return the last name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.lastName = lastName;\r\n}]",
@@ -455,7 +511,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLastName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the person.\n * \n * @param lastName the new last name to set\n * @return void\n * \n * This method sets the last name of the person to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return MID;\r\n}]",
@@ -463,7 +520,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the MID (Machine Identification Number) associated with this object.\n * \n * @return the MID of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    MID = mid;\r\n}]",
@@ -471,7 +529,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param mid the ID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return motherMID;\r\n}]",
@@ -479,7 +538,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getMotherMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the mother's medical record ID.\n * \n * @return a String representing the mother's medical record ID\n */"
             },
             {
                 "body": "Optional[{\r\n    this.motherMID = motherMID;\r\n}]",
@@ -487,7 +547,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMotherMID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the mother's medical record number (MID).\n * \n * @param motherMID the medical record number (MID) of the mother to set\n * @return void\n */\npublic void setMotherMID(String motherMID) {\n    this.motherMID = motherMID;\n}"
             },
             {
                 "body": "Optional[{\r\n    return getPhone1() + \"-\" + getPhone2() + \"-\" + getPhone3();\r\n}]",
@@ -495,7 +556,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone()",
                 "comments": "Optional[// Note that there is no setter for this - it's stored in the database as 3 separate columns\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the full phone number by concatenating three separate parts of the phone number.\n * \n * @return The full phone number in the format of \"phone1-phone2-phone3\"\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone1;\r\n}]",
@@ -503,7 +565,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the phone number associated with this object.\n * \n * @return the phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone2;\r\n}]",
@@ -511,7 +574,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the second phone number associated with this object.\n * \n * @return the second phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    return phone3;\r\n}]",
@@ -519,7 +583,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPhone3()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the phone number of the third contact associated with this object.\n * \n * @return the phone number of the third contact\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone1 = phone1;\r\n}]",
@@ -527,7 +592,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhone1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the phone number for the first phone field.\n * \n * @param phone1 the phone number to set for the first phone field\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone2 = phone2;\r\n}]",
@@ -535,7 +601,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhone2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second phone number of the object.\n * \n * @param phone2 the second phone number to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.phone3 = phone3;\r\n}]",
@@ -543,7 +610,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPhone3(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the third phone number of the object.\n * \n * @param phone3 the new third phone number to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return securityAnswer;\r\n}]",
@@ -551,7 +619,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSecurityAnswer()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the security answer associated with this user.\n * \n * @return the security answer as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.securityAnswer = securityAnswer;\r\n}]",
@@ -559,7 +628,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSecurityAnswer(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the security answer for the user.\n * \n * @param securityAnswer the security answer to set\n */\npublic void setSecurityAnswer(String securityAnswer) {\n    this.securityAnswer = securityAnswer;\n}\n \n/**\n * Sets the security answer for the user.\n * \n * @param securityAnswer the security answer to set\n */\npublic void setSecurityAnswer(String securityAnswer) {\n    this.securityAnswer = securityAnswer;\n}\n \n/**\n * Sets the security answer for the user.\n * \n * @param securityAnswer the security answer to set\n */\npublic void setSecurityAnswer(String securityAnswer) {\n    this.securityAnswer = securityAnswer;\n}"
             },
             {
                 "body": "Optional[{\r\n    return securityQuestion;\r\n}]",
@@ -567,7 +637,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSecurityQuestion()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the security question associated with the user.\n * \n * @return the security question as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.securityQuestion = securityQuestion;\r\n}]",
@@ -575,7 +646,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSecurityQuestion(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the security question for the user.\n * \n * @param securityQuestion the security question to be set\n * \n * This method sets the security question for the user by assigning the provided security question to the \n * instance variable 'securityQuestion'. The security question is used for authentication and account recovery purposes.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return state;\r\n}]",
@@ -583,7 +655,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getState()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current state of the object.\n * \n * @return a String representing the current state of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.state = state;\r\n}]",
@@ -591,7 +664,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setState(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the state of the object to the specified value.\n * \n * @param state the new state to set for the object\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return streetAddress1;\r\n}]",
@@ -599,7 +673,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStreetAddress1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the street address line 1 of the current address.\n * \n * @return the street address line 1 as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.streetAddress1 = streetAddress1;\r\n}]",
@@ -607,7 +682,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStreetAddress1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the street address line 1 for this object.\n * \n * @param streetAddress1 the new street address line 1 to set\n * \n * This method sets the street address line 1 for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return streetAddress2;\r\n}]",
@@ -615,7 +691,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStreetAddress2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the second line of the street address.\n * \n * @return the second line of the street address\n */"
             },
             {
                 "body": "Optional[{\r\n    this.streetAddress2 = streetAddress2;\r\n}]",
@@ -623,7 +700,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStreetAddress2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second line of the street address for this object.\n * \n * @param streetAddress2 the second line of the street address to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return getCity() + \", \" + getState() + \" \" + getZip();\r\n}]",
@@ -631,7 +709,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStreetAddress3()",
                 "comments": "Optional[// Composition of the city, state, zip\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the full address including city, state, and zip code.\n * \n * @return the street address including city, state, and zip code\n */"
             },
             {
                 "body": "Optional[{\r\n    return topicalNotes;\r\n}]",
@@ -639,7 +718,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getTopicalNotes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the topical notes associated with this object.\n * \n * @return the topical notes as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.topicalNotes = topicalNotes;\r\n}]",
@@ -647,7 +727,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTopicalNotes(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the topical notes for this object.\n * \n * @param topicalNotes the new topical notes to set\n * \n * This method sets the topical notes for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (getZip2() != null && !\"\".equals(getZip2()))\r\n        return getZip1() + \"-\" + getZip2();\r\n    else\r\n        return getZip1();\r\n}]",
@@ -655,7 +736,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getZip()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the full ZIP code by concatenating the primary ZIP code with the secondary ZIP code, if available.\n * If the secondary ZIP code is not provided, only the primary ZIP code is returned.\n * \n * @return the full ZIP code in the format \"zip1-zip2\" if both zip1 and zip2 are not empty, otherwise returns zip1\n */"
             },
             {
                 "body": "Optional[{\r\n    return zip1;\r\n}]",
@@ -663,7 +745,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getZip1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the zip code associated with this object.\n * \n * @return the zip code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.zip1 = zip1;\r\n}]",
@@ -671,7 +754,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setZip1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the zip code for the address.\n * \n * @param zip1 the new zip code to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return zip2;\r\n}]",
@@ -679,7 +763,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getZip2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the zip code associated with this object.\n * \n * @return the zip code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.zip2 = zip2;\r\n}]",
@@ -687,7 +772,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setZip2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the zip code for the second address line.\n * \n * @param zip2 the zip code to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return getEmergencyPhone1() + \"-\" + getEmergencyPhone2() + \"-\" + getEmergencyPhone3();\r\n}]",
@@ -695,7 +781,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmergencyPhone()",
                 "comments": "Optional[// Same idea as \"phone\"\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the emergency phone number by concatenating three separate parts of the phone number.\n * \n * @return the emergency phone number in the format of \"XXX-XXX-XXX\"\n */"
             },
             {
                 "body": "Optional[{\r\n    return emergencyPhone1;\r\n}]",
@@ -703,7 +790,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmergencyPhone1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the emergency phone number 1.\n * \n * @return the emergency phone number 1 as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.emergencyPhone1 = emergencyPhone1;\r\n}]",
@@ -711,7 +799,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmergencyPhone1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the emergency contact phone number 1 for this object.\n * \n * @param emergencyPhone1 the new emergency contact phone number 1 to set\n */\npublic void setEmergencyPhone1(String emergencyPhone1) {\n    this.emergencyPhone1 = emergencyPhone1;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return emergencyPhone2;\r\n}]",
@@ -719,7 +808,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmergencyPhone2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the second emergency phone number associated with this object.\n * \n * @return the second emergency phone number as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.emergencyPhone2 = emergencyPhone2;\r\n}]",
@@ -727,7 +817,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmergencyPhone2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second emergency phone number for the user.\n * \n * @param emergencyPhone2 the second emergency phone number to set\n * \n * This method sets the second emergency phone number for the user to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return emergencyPhone3;\r\n}]",
@@ -735,7 +826,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmergencyPhone3()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the emergency phone number 3.\n * \n * @return the emergency phone number 3 as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.emergencyPhone3 = emergencyPhone3;\r\n}]",
@@ -743,7 +835,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmergencyPhone3(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the emergency phone number 3 for the user.\n * \n * @param emergencyPhone3 the new emergency phone number 3 to set\n * \n * This method sets the emergency phone number 3 for the user to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return getIcPhone1() + \"-\" + getIcPhone2() + \"-\" + getIcPhone3();\r\n}]",
@@ -751,7 +844,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcPhone()",
                 "comments": "Optional[// Same idea as \"phone\"\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the concatenated string of the three parts of the IC phone number.\n * \n * @return the IC phone number in the format of \"ICPhone1-ICPhone2-ICPhone3\"\n */"
             },
             {
                 "body": "Optional[{\r\n    return icPhone1;\r\n}]",
@@ -759,7 +853,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcPhone1()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the IC phone number 1.\n * \n * @return the IC phone number 1 as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icPhone1 = icPhone1;\r\n}]",
@@ -767,7 +862,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcPhone1(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC phone number 1 for the object.\n * \n * @param icPhone1 the IC phone number 1 to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return icPhone2;\r\n}]",
@@ -775,7 +871,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcPhone2()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the second phone number of the individual contact.\n * \n * @return the second phone number of the individual contact as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icPhone2 = icPhone2;\r\n}]",
@@ -783,7 +880,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcPhone2(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the second phone number of the IC card holder.\n * \n * @param icPhone2 the second phone number to set\n * @return void\n */\npublic void setIcPhone2(String icPhone2) {\n    this.icPhone2 = icPhone2;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return icPhone3;\r\n}]",
@@ -791,7 +889,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIcPhone3()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the IC phone number 3.\n * \n * @return the IC phone number 3\n */"
             },
             {
                 "body": "Optional[{\r\n    this.icPhone3 = icPhone3;\r\n}]",
@@ -799,7 +898,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIcPhone3(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the IC phone 3 number for this object.\n * \n * @param icPhone3 the IC phone 3 number to set\n */\npublic void setIcPhone3(String icPhone3) {\n    this.icPhone3 = icPhone3;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return confirmPassword;\r\n}]",
@@ -807,7 +907,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getConfirmPassword()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the confirmed password entered by the user.\n * \n * @return the confirmed password as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.confirmPassword = confirmPassword;\r\n}]",
@@ -815,7 +916,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setConfirmPassword(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the confirmation password for the user.\n * \n * @param confirmPassword the confirmation password to be set\n * @return void\n * \n * This method sets the confirmation password for the user. The confirmation password is used to verify that the user has entered their password correctly. \n * The confirmation password is stored in the instance variable confirmPassword.\n */"
             },
             {
                 "body": "Optional[{\r\n    return password;\r\n}]",
@@ -823,7 +925,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPassword()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the password associated with this object.\n * \n * @return the password as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.password = password;\r\n}]",
@@ -831,7 +934,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPassword(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the password for the user.\n * \n * @param password the new password to set\n * \n * This method sets the password for the user to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [],
@@ -882,6 +986,7 @@
             "private Gender gender",
             "private String topicalNotes",
             "private String messageFilter"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents an object that stores information about a person, including their message filter and blood type.\n * It provides methods to retrieve and set the message filter and blood type of the object.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the message filter as a String\n * - Retrieving and setting the blood type of the object using either a String representation or a BloodType object\n * \n * The overall behavior of this class is to allow users to manage the message filter and blood type information of a person object.\n * \n * Note: The blood type is stored as a BloodType enum object, and the setBloodTypeStr method will parse the provided string representation\n * to set the blood type. An IllegalArgumentException will be thrown if the provided blood type string is invalid.\n */\n**/\n/**\n * This class represents a character in a story or narrative. It contains information about the character's attributes such as name, age, blood type, cause of death, and city. The class provides methods to set and retrieve these attributes.\n * \n * The main functionalities of this class include:\n * - Setting and getting the character's name, age, blood type, cause of death, and city\n * \n * Overall behavior:\n * - The class allows for the creation and manipulation of character objects with various attributes\n * - Users can set and retrieve the character's information using the provided methods\n * - The class ensures data encapsulation by providing private fields and public accessor methods\n * - Users can easily interact with character objects to access and modify their attributes\n */\n/**\n * The Person class represents a person with attributes such as name, date of birth, city, and date of death.\n * It provides methods to set and retrieve these attributes, as well as convert date of birth and date of death strings to Date objects.\n * \n * The main functionalities of this class include:\n * - Setting and getting the person's name\n * - Setting and getting the person's date of birth as a string and as a Date object\n * - Setting and getting the person's city\n * - Getting the person's date of death as a Date object\n * \n * This class ensures that the date of birth and date of death strings are correctly formatted and can be parsed into Date objects.\n * If the date strings are not in the correct format, null is returned.\n * \n * Note: The date format used for parsing date strings is \"MM/dd/yyyy\".\n */\npublic class Person {\n    private String name;\n    private String dateOfBirthStr;\n    private String city;\n    private String dateOfDeathStr;\n    \n    /**\n     * Retrieves the name of the person.\n     * \n     * @return The name of the person.\n     */\n    public String getName() {\n        return name;\n    }\n    \n    /**\n     * Sets the name of the person.\n     * \n     * @param name the new name to set\n     */\n    public void setName(String name) {\n        this.name = name;\n    }\n    \n    /**\n     * Retrieves the date of birth as a string representation.\n     * \n     * @return The date of birth as a string.\n     */\n    public String getDateOfBirthStr() {\n        return dateOfBirthStr;\n    }\n    \n    /**\n     * Retrieves the date of birth of the person.\n     * \n     * @return the date of birth as a Date object\n     * @throws ParseException if the date of birth string cannot be parsed\n     */\n    public Date getDateOfBirth() {\n        try {\n            return new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfBirthStr);\n        } catch (ParseException e) {\n            e.printStackTrace();\n            return null;\n        }\n    }\n    \n    /**\n     * Retrieves the city where the person resides.\n     * \n     * @return The city where the person resides.\n     */\n    public String getCity() {\n        return city;\n    }\n    \n    /**\n     * Sets the city where the person resides.\n     * \n     * @param city the new city to set\n     */\n    public void setCity(String city) {\n        this.city = city;\n    }\n    \n    /**\n     * Retrieves the date of death of the person.\n     * \n     * @return the date of death as a Date object, or null if the date string is not in the correct format\n     */\n    public Date getDateOfDeath() {\n        try {\n            return new SimpleDateFormat(\"MM/dd/yyyy\").parse(dateOfDeathStr);\n        } catch (ParseException e) {\n            e.printStackTrace();\n            return null;\n        }\n    }\n    \n    /**\n     * Sets the date of birth of the person as a string.\n     * \n     * @param dateOfBirthStr the new date of birth string to set\n     */\n    public void setDateOfBirthStr(String dateOfBirthStr) {\n        this.dateOfBirthStr = dateOfBirthStr;\n    }\n    \n    /**\n     * Sets the date of death of the person as a string.\n     * \n     * @param dateOfDeathStr the new date of death string to set\n     */\n    public void setDateOfDeathStr(String dateOfDeathStr) {\n        this.dateOfDeathStr = dateOfDeathStr;\n    }\n}\n*/\n/**\n * This class represents a Person object with a date of birth attribute. It provides methods to calculate the age of the person based on their date of birth in years and days.\n * \n * The setDateOfBirthStr method sets the date of birth of the Person object using a string representation in the format \"MM/dd/yyyy\".\n * \n * The getAge method calculates the age of the person in years by subtracting the date of birth from the current date and converting the result to years. It returns -1 if the date of birth is invalid.\n * \n * The getAgeInDays method calculates the age of the person in days by subtracting the date of birth from the current date and converting the result to days. It returns -1 if the date of birth is invalid.\n * \n * @author [Your Name]\n * @version 1.0\n */\n*/\n/**\n * This class represents a Person object with attributes such as date of birth and date of death.\n * It provides methods to calculate the age of the person in days and weeks based on their date of birth,\n * as well as retrieve and set the date of death as a string representation.\n * \n * The getAgeInDays() method calculates the age of the person in days by subtracting the current time from the\n * date of birth, and returns the result as a long value. If the date of birth is invalid, it returns -1.\n * \n * The getAgeInWeeks() method calculates the age of the person in weeks by dividing the age in days by 7,\n * and returns the result as a long value. If the date of birth is invalid, it returns -1.\n * \n * The getDateOfDeathStr() method retrieves the date of death as a string representation.\n * \n * The setDateOfDeathStr() method sets the date of death as a string representation.\n * \n * Note: The date format for dateOfBirthStr and dateOfDeathStr is expected to be \"MM/dd/yyyy\".\n */\n*/\nSure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a User Profile with various personal information fields such as name, date of birth, date of death, email address, emergency contact name, and ethnicity.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the user's personal information such as name, date of birth, date of death, email address, emergency contact name, and ethnicity.\n * - Providing methods to set and get each of these personal information fields.\n * \n * The overall behavior of this class is to serve as a data structure for storing and managing user profile information. It allows for easy access and manipulation of the user's personal details.\n * \n * Note: This class does not handle any business logic or validation of the user's personal information. It is solely responsible for storing and providing access to the data.\n */\n \nI hope this helps! Let me know if you need any more assistance.\n/**\n * The Person class represents an individual with personal information such as name, age, gender, ethnicity, and father's member ID.\n * It provides methods to set and retrieve this information, as well as a method to get the person's full name by concatenating their first and last name.\n * \n * This class includes the following functionalities:\n * - Setting and getting the person's first name, last name, age, gender, ethnicity, and father's member ID\n * - Parsing and setting the ethnicity from a string representation\n * - Retrieving the person's full name by concatenating first and last name\n * \n * Overall, the Person class encapsulates the basic attributes and behaviors of an individual in a structured manner for easy access and manipulation.\n */\npublic class Person {\n    private String firstName;\n    private String lastName;\n    private int age;\n    private Gender gender;\n    private Ethnicity ethnicity;\n    private String fatherMID;\n\n    /**\n     * Sets the ethnicity of the person using a string representation.\n     * The ethnicity is parsed from the provided string and set as the new ethnicity.\n     * \n     * @param ethnicityStr the string representation of the ethnicity to set\n     * @return void\n     */\n    public void setEthnicityStr(String ethnicity) {\n        this.ethnicity = Ethnicity.parse(ethnicity);\n    }\n\n    /**\n     * Sets the ethnicity of the person.\n     * \n     * @param ethnicity the ethnicity to be set\n     * \n     * This method sets the ethnicity of the person to the specified ethnicity.\n     * \n     * @return void\n     */\n    public void setEthnicity(Ethnicity ethnicity) {\n        this.ethnicity = ethnicity;\n    }\n\n    /**\n     * Retrieves the father's member ID.\n     * \n     * @return The father's member ID as a String.\n     */\n    public String getFatherMID() {\n        return fatherMID;\n    }\n\n    /**\n     * Sets the father's member ID for this person.\n     * \n     * @param fatherMID the father's member ID to set\n     * @return void\n     */\n    public void setFatherMID(String fatherMID) {\n        this.fatherMID = fatherMID;\n    }\n\n    /**\n     * Returns the full name of the person by concatenating their first name and last name.\n     * \n     * @return the full name of the person\n     */\n    public String getFullName() {\n        return firstName + \" \" + lastName;\n    }\n}\n*/\n/**\n * This class represents a person with a first name and gender.\n * It provides methods to get and set the first name and gender of the person.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the first name of the person\n * - Storing and retrieving the gender of the person\n * \n * The overall behavior of this class is to encapsulate the data related to a person's first name and gender,\n * and provide methods to interact with this data in a controlled manner.\n * \n * @author [Your Name]\n * @version 1.0\n */\n*/\n/**\n * The ICAddress class represents an object that holds information about an Identification Card (IC) address.\n * It includes fields for the first and second line of the IC address, as well as the city, state, and zip code.\n * \n * This class provides methods to get and set the IC address lines, as well as a method to get a formatted\n * string representing the full address. It also includes methods to get and set the city, state, and zip code\n * individually.\n * \n * The ICAddress class encapsulates the details of an IC address and allows for easy manipulation of its components.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * This class represents an Intermediary Company (IC) object that stores information about an IC, including its city, state, zip code, IC ID, and credit card type.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the full address of the IC, including city, state, and zip code\n * - Setting and getting the IC city associated with the IC code\n * - Setting and getting the IC ID associated with the IC object\n * - Retrieving the type of credit card associated with the IC object\n * \n * This class provides methods to set and retrieve the IC city, IC ID, and credit card type, as well as a method to retrieve the full address of the IC.\n * \n * Overall, this class encapsulates the data related to an Intermediary Company and provides methods to interact with and retrieve this information.\n */\n \npublic class IntermediaryCompany {\n    private String icCity;\n    private String icID;\n    private String creditCardType;\n    \n    /**\n     * Returns the full address of the IC (Intermediary Company) including city, state, and zip code.\n     * \n     * @return The concatenated string of IC city, state, and zip code separated by commas and spaces.\n     */\n    public String getFullAddress() {\n        return icCity + \", \" + icState + \", \" + zipCode;\n    }\n    \n    /**\n     * Returns the city associated with the IC (Interchange City) code.\n     * \n     * @return the city name as a String\n     */\n    public String getIcCity() {\n        return icCity;\n    }\n    \n    /**\n     * Sets the IC City for this object.\n     * \n     * @param icCity the IC City to set\n     * \n     * This method sets the IC City for this object to the specified value.\n     */\n    public void setIcCity(String icCity) {\n        this.icCity = icCity;\n    }\n    \n    /**\n     * Retrieves the IC ID associated with this object.\n     * \n     * @return the IC ID as a String\n     */\n    public String getIcID() {\n        return icID;\n    }\n    \n    /**\n     * Sets the IC ID for this object.\n     * \n     * @param icID the IC ID to set\n     */\n    public void setIcID(String icID) {\n        this.icID = icID;\n    }\n    \n    /**\n     * Returns the type of credit card associated with this object.\n     * \n     * @return the type of credit card as a String\n     */\n    public String getCreditCardType() {\n        return creditCardType;\n    }\n}\n*/\"\n/**\n * The CreditCard class represents a credit card object with attributes such as credit card type and number.\n * This class provides methods to set and retrieve the credit card type and number.\n * \n * Main functionalities include:\n * - Setting and retrieving the credit card type\n * - Setting and retrieving the credit card number\n * - Retrieving the name of the Integrated Circuit (IC)\n * \n * The class ensures that the credit card type and number are stored as strings.\n * \n * Example usage:\n * \n * CreditCard card = new CreditCard();\n * card.setCreditCardType(\"Visa\");\n * card.setCreditCardNumber(\"1234 5678 9012 3456\");\n * String cardType = card.getCreditCardType();\n * String cardNumber = card.getCreditCardNumber();\n * \n * @author [Your Name]\n * @version 1.0\n */\n**/\n/**\n * This class represents an Integrated Circuit (IC) entity in the system.\n * It provides methods to set and retrieve the name of the IC, as well as the zip code associated with it.\n * The IC name is used to uniquely identify the IC within the system.\n * The zip code consists of two parts, and this class allows for retrieving the complete zip code by concatenating the two parts with a hyphen.\n * If the second part of the zip code is null or empty, it returns the first part of the zip code only.\n * \n * The main functionalities of this class include:\n * - Setting and getting the name of the IC\n * - Concatenating and retrieving the complete zip code\n * - Setting and getting the individual parts of the zip code\n * \n * Overall, this class encapsulates the data and behavior related to an IC entity, providing methods to interact with its attributes.\n */\n**/\nSure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a person with integrated circuit (IC) information.\n * It stores details such as IC Zip 2 value, IC state, and last name of the person.\n * \n * The main functionalities of this class include:\n * - Setting and getting the IC Zip 2 value\n * - Setting and getting the IC state\n * - Setting and getting the last name of the person\n * \n * The class provides methods to interact with and manipulate the IC information of a person.\n * \n * Overall behavior:\n * - The class allows for the storage and retrieval of IC information for a person.\n * - It ensures data encapsulation by providing setter and getter methods for accessing the fields.\n * - The class promotes code reusability and maintainability by encapsulating related functionalities.\n */\n/**\n * The MID class represents a medical record identification number associated with a patient.\n * It provides methods to retrieve and set the MID, as well as the mother's medical record ID.\n * Additionally, it includes a method to concatenate three separate phone number parts into a full phone number.\n * \n * This class ensures data integrity by storing and retrieving the necessary information for medical records and contact details.\n * \n * @author [Your Name]\n * @version 1.0\n */\npublic class MID {\n    /**\n     * Retrieves the MID (Machine Identification Number) associated with this object.\n     * \n     * @return the MID of this object\n     */\n    public long getMID() {\n        return MID;\n    }\n\n    /**\n     * Sets the ID of the object.\n     * \n     * @param mid the ID to set\n     */\n    public void setMID(long mid) {\n        this.MID = mid;\n    }\n\n    /**\n     * Retrieves the mother's medical record ID.\n     * \n     * @return a String representing the mother's medical record ID\n     */\n    public String getMotherMID() {\n        return motherMID;\n    }\n\n    /**\n     * Sets the mother's medical record number (MID).\n     * \n     * @param motherMID the medical record number (MID) of the mother to set\n     */\n    public void setMotherMID(String motherMID) {\n        this.motherMID = motherMID;\n    }\n\n    /**\n     * This method returns the full phone number by concatenating three separate parts of the phone number.\n     * Note that there is no setter for this - it's stored in the database as 3 separate columns.\n     * \n     * @return The full phone number in the format of \"phone1-phone2-phone3\"\n     */\n    public String getPhone() {\n        return getPhone1() + \"-\" + getPhone2() + \"-\" + getPhone3();\n    }\n}\n*/\n/**\n * This class represents a contact object with multiple phone numbers.\n * It provides methods to retrieve and set phone numbers for the contact.\n * \n * The main functionalities of this class include:\n * - Retrieving the phone number associated with the contact using getPhone1()\n * - Retrieving the second phone number associated with the contact using getPhone2()\n * - Retrieving the phone number of the third contact associated with the object using getPhone3()\n * - Setting the phone number for the first phone field using setPhone1()\n * - Setting the second phone number of the object using setPhone2()\n * - Setting the third phone number of the object using setPhone3()\n * \n * Overall, this class allows for easy management of multiple phone numbers for a contact object.\n */\n/**\n * This class represents a User object with security-related information.\n * It provides methods to get and set the security question and answer for the user.\n * \n * The main functionalities of this class include:\n * - Retrieving the security answer associated with the user\n * - Setting the security answer for the user\n * - Retrieving the security question associated with the user\n * - Setting the security question for the user\n * \n * The overall behavior of this class is to store and manage the security information for a user.\n * It allows for the retrieval and modification of the security question and answer.\n * \n * Note: It is important to handle sensitive security information securely and follow best practices for data protection.\n */\npublic class UserSecurityInfo {\n    private String securityAnswer;\n    private String securityQuestion;\n    \n    /**\n     * Retrieves the security answer associated with this user.\n     * \n     * @return the security answer as a String\n     */\n    public String getSecurityAnswer() {\n        return securityAnswer;\n    }\n    \n    /**\n     * Sets the security answer for the user.\n     * \n     * @param securityAnswer the security answer to set\n     */\n    public void setSecurityAnswer(String securityAnswer) {\n        this.securityAnswer = securityAnswer;\n    }\n    \n    /**\n     * Retrieves the security question associated with the user.\n     * \n     * @return the security question as a String\n     */\n    public String getSecurityQuestion() {\n        return securityQuestion;\n    }\n    \n    /**\n     * Sets the security question for the user.\n     * \n     * @param securityQuestion the security question to be set\n     */\n    public void setSecurityQuestion(String securityQuestion) {\n        this.securityQuestion = securityQuestion;\n    }\n}\n```\n/**\n * The User class represents a user in the system. It contains information about the user such as their name, email, security question, address, and state.\n * \n * The main functionalities of the User class include setting and retrieving user information such as name, email, security question, address, and state. The security question is used for authentication and account recovery purposes. Users can also update their information by setting new values for their name, email, security question, address, and state.\n * \n * The overall behavior of the User class is to store and manage user information within the system. It provides methods to access and modify user data, ensuring that the information is accurate and up-to-date. Additionally, the class includes JavaDoc comments for each method to provide clear documentation and understanding of its functionality.\n */\n```\nSure, here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents an address object with various properties such as street address, city, state, zip code, and topical notes.\n * It provides methods to get and set these properties, as well as to generate a full address string and format the zip code.\n * \n * The street address can be set with two lines, and the city, state, and zip code can be retrieved as a single string.\n * Topical notes can also be associated with the address object.\n * \n * This class aims to provide a convenient way to manage and access address information in a structured manner.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * This class represents a ZIP code object that combines a primary ZIP code with a secondary ZIP code, if available.\n * If the secondary ZIP code is not provided, the primary ZIP code is returned on its own.\n * \n * The class provides methods to get and set the primary and secondary ZIP codes, as well as a method to retrieve the full ZIP code by concatenating both codes.\n * \n * Additionally, there is a method to retrieve the emergency phone number by concatenating three separate phone number components.\n * \n * Overall, this class encapsulates functionality related to ZIP codes and emergency phone numbers, providing a convenient way to work with and manipulate this information.\n */\n/**\n * This class represents a phone number with multiple parts for emergency contacts.\n * It provides methods to retrieve and set the emergency phone numbers for the user.\n * The emergency phone numbers are stored in the format of \"XXX-XXX-XXX\".\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the first, second, and third emergency phone numbers\n * - Setting new emergency phone numbers for the user\n * \n * Overall, this class allows for easy management of multiple emergency contact phone numbers\n * for a user, ensuring that important contact information is readily available in case of emergencies.\n */\n/**\n * This class represents a UserPhoneNumber object that stores various phone numbers for a user.\n * It provides methods to retrieve and set emergency phone numbers and IC phone numbers.\n * \n * The main functionalities of this class include:\n * - Storing emergency phone numbers for a user\n * - Storing IC phone numbers for a user\n * - Retrieving and setting emergency phone numbers\n * - Retrieving and setting IC phone numbers\n * - Concatenating IC phone numbers into a single string\n * \n * Overall behavior:\n * - Users can store and retrieve emergency phone numbers\n * - Users can store and retrieve IC phone numbers\n * - IC phone numbers can be concatenated into a single string for display\n * \n * Note: IC phone numbers refer to specific phone numbers related to an IC (Identification Card) in some regions.\n */\n```\nSure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents an individual contact with additional information such as phone numbers and passwords.\n * It provides methods to get and set various attributes of the contact, including the first and second phone numbers,\n * as well as the confirmation password entered by the user.\n * \n * The main functionalities of this class include storing and retrieving contact information, such as phone numbers,\n * and managing password confirmation for the user.\n * \n * Overall, this class encapsulates the data and behavior related to individual contacts, allowing for easy access\n * and manipulation of contact details within a Java application.\n */\n/**\n * The PatientBean class represents a bean that holds information about a patient in a healthcare system.\n * It stores various attributes such as first name, last name, email, address, phone numbers, emergency contact details, etc.\n * This class provides getters and setters for accessing and updating these attributes.\n * \n * Main functionalities include:\n * - Storing and retrieving patient information such as name, contact details, and emergency contacts.\n * - Setting and verifying passwords for user authentication.\n * - Storing security question and answer for password recovery.\n * \n * Overall behavior:\n * The PatientBean class serves as a data container for patient information within the healthcare system.\n * It allows for easy access and manipulation of patient details, ensuring data integrity and security.\n * Users can set and retrieve passwords, update contact information, and manage emergency contact details through this class.\n */\n*/\n/**\n * The CreditCard class represents a credit card entity with various attributes such as credit card type, number, date of birth, date of death, cause of death, mother's MID, father's MID, blood type, ethnicity, gender, topical notes, and message filter.\n * This class provides methods to set and get the values of these attributes, as well as perform operations related to credit card information.\n * \n * Main functionalities include:\n * - Setting and getting credit card type\n * - Setting and getting credit card number\n * - Setting and getting date of birth\n * - Setting and getting date of death\n * - Setting and getting cause of death\n * - Setting and getting mother's MID\n * - Setting and getting father's MID\n * - Setting and getting blood type\n * - Setting and getting ethnicity\n * - Setting and getting gender\n * - Setting and getting topical notes\n * - Setting and getting message filter\n * \n * Overall behavior:\n * The CreditCard class encapsulates credit card information and provides methods to manipulate and access this information. It allows for storing and retrieving credit card details, as well as performing operations related to credit card data.\n */"
     }
 ]

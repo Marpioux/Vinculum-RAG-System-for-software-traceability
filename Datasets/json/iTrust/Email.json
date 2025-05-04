@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<String> getToList()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the list of strings stored in the instance variable toList.\n * \n * @return the list of strings stored in the instance variable toList\n */"
             },
             {
                 "body": "Optional[{\r\n    this.toList = toList;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setToList(List<String>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the list of strings to the specified list.\n * \n * @param toList the list of strings to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    String str = \"\";\r\n    for (String addr : toList) {\r\n        str += addr + \",\";\r\n    }\r\n    return str.substring(0, str.length() - 1);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getToListStr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a comma-separated string representation of the email addresses in the 'toList' list.\n * \n * @return A string containing all email addresses in the 'toList' list separated by commas.\n */"
             },
             {
                 "body": "Optional[{\r\n    return from;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFrom()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value of the 'from' field.\n * \n * @return the value of the 'from' field as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.from = from;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFrom(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of the 'from' field in the object.\n * \n * @param from a String representing the value to set for the 'from' field\n * \n * This method sets the value of the 'from' field in the object to the specified String parameter.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return subject;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSubject()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the subject of this object.\n * \n * @return the subject of this object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.subject = subject;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSubject(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the subject of the object.\n * \n * @param subject the new subject to set\n * \n * This method sets the subject of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return body;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getBody()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the body of the object.\n * \n * @return the body of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.body = body;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBody(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the body of the object.\n * \n * @param body the new body to set\n * \n * This method sets the body of the object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return timeAdded;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public Timestamp getTimeAdded()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the timestamp representing the time when this object was added.\n * \n * @return the timestamp representing the time when this object was added\n */"
             },
             {
                 "body": "Optional[{\r\n    this.timeAdded = timeAdded;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTimeAdded(Timestamp)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the time that the object was added.\n * \n * @param timeAdded the timestamp representing the time the object was added\n * \n * This method sets the time that the object was added to the specified timestamp.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return obj != null && obj.getClass().equals(this.getClass()) && this.equals((Email) obj);\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean equals(Object)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this Email object with the specified object for equality.\n * Returns true if the specified object is also an Email object and has the same content as this Email object.\n * \n * @param obj the object to compare this Email object with\n * @return true if the specified object is an Email object with the same content, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": true,
                 "signature": "public int hashCode()",
                 "comments": null,
-                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]",
+                "generated_comment": "/**\n * Returns a hash code value for the object. This method overrides the default {@code Object.hashCode()} method.\n * \n * This method is not designed to provide a meaningful hash code value and will always return the constant value 42. \n * \n * @return the constant hash code value of 42\n */"
             },
             {
                 "body": "Optional[{\r\n    return from.equals(other.from) && subject.equals(other.subject) && body.equals(other.body) && listEquals(toList, other.toList);\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "private boolean equals(Email)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this Email object with another Email object for equality.\n * Two Email objects are considered equal if their 'from', 'subject', 'body', and 'toList' fields are equal.\n * \n * @param other the Email object to compare with\n * @return true if the two Email objects are equal, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    if (toList.size() != otherToList.size())\r\n        return false;\r\n    for (int i = 0; i < toList.size(); i++) {\r\n        if (!toList.get(i).equals(otherToList.get(i)))\r\n            return false;\r\n    }\r\n    return true;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "private boolean listEquals(List<String>, List<String>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares two lists of strings for equality.\n * \n * @param toList the first list of strings to compare\n * @param otherToList the second list of strings to compare\n * @return true if the two lists are equal in size and contain the same elements in the same order, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return \"FROM: \" + from + \" TO: \" + toList.toString() + \" SUBJECT: \" + subject + \" BODY: \" + body;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public String toString()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representation of the email message.\n * \n * @return a string containing the email's sender, recipients, subject, and body\n */"
             }
         ],
         "constructors": [],
@@ -138,6 +154,7 @@
             "private String subject",
             "private String body",
             "private Timestamp timeAdded"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents an email message with a 'from' field and a 'toList' list of email addresses.\n * It provides methods to retrieve and set the 'from' field value, as well as to retrieve and set the 'toList' list.\n * Additionally, it offers a method to generate a comma-separated string representation of the email addresses in the 'toList' list.\n * \n * The 'from' field stores the email address of the sender, while the 'toList' list stores the email addresses of the recipients.\n * \n * Main functionalities:\n * - Retrieve and set the 'from' field value\n * - Retrieve and set the 'toList' list of email addresses\n * - Generate a comma-separated string representation of the email addresses in the 'toList' list\n * \n * Overall behavior:\n * - The 'from' field can be set with a String representing the email address of the sender\n * - The 'toList' list can be set with a List of Strings representing the email addresses of the recipients\n * - The 'getToListStr' method returns a comma-separated string of all email addresses in the 'toList' list\n * - The 'getToList' method returns the 'toList' list of email addresses\n * - The 'getFrom' method returns the value of the 'from' field\n * - The 'setToList' method sets the 'toList' list of email addresses\n * - The 'setFrom' method sets the value of the 'from' field\n */\npublic class EmailMessage {\n    // class implementation here\n}\n**/\n/**\n * This class represents an email message with a subject, body, and timestamp.\n * It provides methods to get and set the subject, body, and timestamp of the email.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the subject of the email message\n * - Storing and retrieving the body of the email message\n * - Storing and retrieving the timestamp representing when the email was added\n * \n * The overall behavior of this class is to encapsulate the data of an email message\n * and provide methods to interact with that data. Users can create an EmailMessage\n * object, set the subject, body, and timestamp, and retrieve this information as needed.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The Email class represents an email message with sender, recipient, subject, and body content.\n * This class provides methods to set and get the sender, recipient, subject, and body of the email message.\n * It also allows comparison of two Email objects for equality based on their content.\n * \n * Main functionalities include:\n * - Setting and getting sender, recipient, subject, and body of the email\n * - Comparing two Email objects for equality\n * \n * Overall behavior:\n * - The Email class encapsulates the data of an email message and provides methods to work with that data.\n * - It ensures that the email content can be compared for equality with another Email object.\n * - The class also overrides the hashCode method to return a constant value.\n * \n * @author [Your Name]\n * @version 1.0\n */\n**/\n/**\n * The Email class represents an email message with fields for the sender, recipients, subject, body, and timestamp.\n * Two Email objects are considered equal if their 'from', 'subject', 'body', and 'toList' fields are equal.\n * \n * This class provides methods to compare two Email objects for equality based on their fields, and to generate a string representation of the email message.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n */\n*/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciTag(BeanTag)",
                 "comments": "Optional[/**\r\n * Add a tag\r\n *\r\n * @param ptagi Tag to add\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a tag into the system.\n * \n * @param tag the tag to be inserted into the system\n * @return true if the tag was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaTag(BeanTag)",
                 "comments": "Optional[/**\r\n * Modify the data in a tag\r\n *\r\n * @param ptagi Tag to modify\r\n * @throws SQLException\r\n * @return True if changed, otherwise false\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a BeanTag object.\n * \n * This method takes a BeanTag object as a parameter and modifies it. The specific modifications made to the BeanTag object are implementation-dependent. \n * \n * @param tag the BeanTag object to be modified\n * @return an Optional object containing the modified BeanTag object, or an empty Optional if the modification was unsuccessful\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaTag(int)",
                 "comments": "Optional[/**\r\n * Delete a tag from the database\r\n *\r\n * @param pIdTag ID Tag to be deleted\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is used to cancel a specific tag based on the given tag ID.\n * \n * @param tagId the ID of the tag to be cancelled\n * @return true if the tag is successfully cancelled, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanTag> ottieniListaTag()",
                 "comments": "Optional[/**\r\n * Returns the list of tags in the database\r\n *\r\n * @throws SQLException\r\n * @return List containing the tags\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of BeanTag objects.\n * \n * This method is abstract and must be implemented by subclasses.\n * \n * @return an ArrayList of BeanTag objects, or an empty Optional if no tags are available\n */"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanTag ottieniTag(int)",
                 "comments": "Optional[/**\r\n * Returns a single tag\r\n *\r\n * @param pid ID tag\r\n * @throws SQLException\r\n * @return Tag\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the BeanTag associated with the given integer value.\n * \n * @param value the integer value used to retrieve the BeanTag\n * @return an Optional containing the BeanTag if found, or an empty Optional if not found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean aggiungeTagBeneCulturale(int, int)",
                 "comments": "Optional[/**\r\n * Tag with immovable cultural\r\n *\r\n * @param pIdBeneCulturale ID of Cultural Heritage\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a tag to a cultural asset identified by the given IDs.\n * \n * @param culturalAssetId the ID of the cultural asset to which the tag will be added\n * @param tagId the ID of the tag to be added\n * @return true if the tag was successfully added, false otherwise\n * \n * @throws IllegalArgumentException if the culturalAssetId or tagId is invalid\n * @throws UnsupportedOperationException if the operation is not supported by the implementation\n */\nabstract boolean aggiungeTagBeneCulturale(int culturalAssetId, int tagId) {\n    // Implementation details omitted\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean aggiungeTagPuntoDiRistoro(int, int)",
                 "comments": "Optional[/**\r\n * Tag to a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro Point identification Refreshments\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a tag to a specific point of interest representing a restaurant.\n * \n * @param x the x-coordinate of the point of interest\n * @param y the y-coordinate of the point of interest\n * @return true if the tag was successfully added, false otherwise\n */\nabstract boolean aggiungeTagPuntoDiRistoro(int x, int y) {\n    // Implementation details omitted\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanTag> ottieniTagBeneCulturale(int)",
                 "comments": "Optional[/**\r\n * Returns the list of tags of a cultural\r\n *\r\n * @param pIdBeneCulturale ID of Cultural Heritage\r\n * @throws SQLException\r\n * @return List of tags\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a list of BeanTag objects associated with a specific cultural asset.\n * \n * @param id the unique identifier of the cultural asset\n * @return an ArrayList of BeanTag objects representing the tags associated with the cultural asset,\n *         or an empty Optional if no tags are found\n */\nabstract ArrayList<BeanTag> ottieniTagBeneCulturale(int id) {\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Returns a list of tags of a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro Point identification Refreshments\r\n * @throws SQLException\r\n * @return List of tags\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of BeanTag objects associated with a specific point of interest.\n * \n * @param id the unique identifier of the point of interest\n * @return an ArrayList of BeanTag objects representing the tags associated with the point of interest,\n *         or an empty Optional if no tags are found\n */\nabstract ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int id) {\n    // implementation details omitted\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaTagBeneCulturale(int, int)",
                 "comments": "Optional[/**\r\n * Delete a tag from a cultural\r\n *\r\n * @param pIdBeneCulturale ID of Cultural Heritage\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a tag associated with a cultural asset.\n * \n * @param id The unique identifier of the cultural asset.\n * @param tagId The unique identifier of the tag to be cancelled.\n * @return true if the tag was successfully cancelled, false otherwise.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -87,11 +97,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaTagPuntoDiRistoro(int, int)",
                 "comments": "Optional[/**\r\n * Delete a tag from a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro ID\r\n * @param pIdTag ID tag\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a tag associated with a specific point of interest in a restaurant.\n * \n * @param id the unique identifier of the point of interest\n * @param tagId the unique identifier of the tag to be deleted\n * @return true if the tag was successfully deleted, false otherwise\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBTag",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBTag interface represents a contract for classes that handle operations related to tags in a database.\n * \n * This interface defines methods for inserting, modifying, and deleting tags, as well as retrieving lists of tags\n * associated with cultural assets and points of interest. It also includes methods for adding tags to cultural assets\n * and points of interest, as well as canceling tags associated with them.\n * \n * The main functionalities of this interface include:\n * - Inserting a new tag into the system\n * - Modifying existing tags\n * - Deleting tags from the database\n * - Retrieving lists of tags for cultural assets and points of interest\n * - Adding tags to cultural assets and points of interest\n * - Canceling tags associated with cultural assets and points of interest\n * \n * Implementing classes must provide concrete implementations for the abstract methods defined in this interface.\n * \n * @see BeanTag\n * @see SQLException\n * @see Optional\n */"
     }
 ]

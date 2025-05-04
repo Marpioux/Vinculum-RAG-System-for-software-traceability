@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a description of the patient's body mass index based on a predefined threshold.\n * \n * @return a String representing the patient's body mass index being over a specified threshold\n */"
             },
             {
                 "body": "Optional[{\r\n    double bmi = currentHealthRecord.getBodyMassIndex();\r\n    return bmi > bmiThreshold && !Double.isInfinite(bmi);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the current health record has a factor based on the body mass index.\n * \n * @return true if the body mass index is greater than the threshold and not infinite, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -25,13 +27,15 @@
                 "hasInnerComment": false,
                 "signature": "public WeightFactor(HealthRecord, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new WeightFactor object with the given HealthRecord and BMI threshold.\n * The WeightFactor object represents a factor used to calculate weight-related health risks based on the BMI of the individual.\n * \n * @param currentHealthRecord the HealthRecord object containing the individual's health information\n * @param bmiThreshold the BMI threshold used to determine weight-related health risks\n */"
             }
         ],
         "signature": "WeightFactor",
         "variables": [
             "private HealthRecord currentHealthRecord",
             "private int bmiThreshold"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The WeightFactor class represents a factor used to calculate weight-related health risks based on the body mass index (BMI) of an individual.\n * \n * This class contains methods to provide a description of the patient's BMI based on a predefined threshold and to check if the current health record has a factor based on the BMI.\n * \n * The constructor initializes a new WeightFactor object with a given HealthRecord and BMI threshold. The WeightFactor object stores the current health record and the BMI threshold used to determine weight-related health risks.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n * \n * @see HealthRecord\n */\n \npublic class WeightFactor {\n    \n    private HealthRecord currentHealthRecord;\n    private int bmiThreshold;\n    \n    /**\n     * Constructs a new WeightFactor object with the given HealthRecord and BMI threshold.\n     * The WeightFactor object represents a factor used to calculate weight-related health risks based on the BMI of the individual.\n     * \n     * @param currentHealthRecord the HealthRecord object containing the individual's health information\n     * @param bmiThreshold the BMI threshold used to determine weight-related health risks\n     */\n    public WeightFactor(HealthRecord currentHealthRecord, int bmiThreshold) {\n        this.currentHealthRecord = currentHealthRecord;\n        this.bmiThreshold = bmiThreshold;\n    }\n    \n    /**\n     * Returns a description of the patient's body mass index based on a predefined threshold.\n     * \n     * @return a String representing the patient's body mass index being over a specified threshold\n     */\n    public String getDescription() {\n        return \"Patient's body mass index is over \" + bmiThreshold;\n    }\n    \n    /**\n     * Checks if the current health record has a factor based on the body mass index.\n     * \n     * @return true if the body mass index is greater than the threshold and not infinite, false otherwise\n     */\n    public boolean hasFactor() {\n        double bmi = currentHealthRecord.getBodyMassIndex();\n        return bmi > bmiThreshold && !Double.isInfinite(bmi);\n    }\n}\n**/"
     }
 ]

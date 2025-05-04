@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanPuntoDiRistoro ottieniPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Method to return a particular Refreshment\r\n *\r\n * @param pPuntoDiRistoroID to identify the Refreshment\r\n * @return Bean contains the data of Refreshment concerned\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a specific BeanPuntoDiRistoro object based on the given integer ID.\n * If a BeanPuntoDiRistoro object with the specified ID is found, it is returned.\n * If no BeanPuntoDiRistoro object is found with the given ID, an empty Optional object is returned.\n * \n * @param id the integer ID used to search for the BeanPuntoDiRistoro object\n * @return an Optional object containing the BeanPuntoDiRistoro object if found, or an empty Optional if not found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Method which returns the tags to some refreshment\r\n *\r\n * @param pPuntoDiRistoroID point identification Refreshment\r\n * @return structure containing all BeanTag associated with the point Refreshments passed as parameter\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of BeanTag objects associated with a specific point of interest.\n * \n * @param id the unique identifier of the point of interest\n * @return an ArrayList of BeanTag objects representing the tags associated with the point of interest,\n *         or an empty Optional if no tags are found\n */\nabstract ArrayList<BeanTag> ottieniTagPuntoDiRistoro(int id) {\n    // implementation details omitted\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract String[] ottieniUltimiCommenti(int)",
                 "comments": "Optional[/**\r\n * Method which returns the last 10 comments made for a Refreshment\r\n *\r\n * @param pPuntoDiRistoroID ID for the point of rest in Question\r\n * @return Array of strings containing 10 items\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves the last comments posted on a specific item.\n * \n * @param itemId the unique identifier of the item for which to retrieve the last comments\n * @return an array of Strings containing the last comments posted on the specified item, \n *         or an empty Optional if no comments are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<Integer> ottieniStatistichePuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Returns for the Refreshment specified, an array where each Location contains the number of ratings corresponding to the value\r\n * Index of the array more 'one. The calculation and 'made in the period 30 days and today.\r\n *\r\n * @param pPuntoDiRistoroID unique identifier of Refreshment\r\n * @return ArrayList containing the counters as explained above\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves statistics for a specific point of refreshment.\n * \n * @param id the unique identifier of the point of refreshment\n * @return an ArrayList of Integers containing the statistics for the specified point of refreshment, \n *         or an empty Optional if no statistics are available\n */\n \nabstract ArrayList<Integer> ottieniStatistichePuntoDiRistoro(int id) {\n    return Optional.empty();\n}"
             },
             {
                 "body": "Optional.empty",
@@ -39,11 +43,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaFeedbackPuntoDiRistoro(int, BeanVisitaPR)",
                 "comments": "Optional[/**\r\n * Method which allows you to change the comment issued for a Refreshment\r\n *\r\n * @param pPuntoDiRistoroId unique identifier of Refreshment\r\n * @param nuovaVisita Bean containing new comment\r\n * @return Boolean value-true if the operation went successfully, false otherwise\r\n * @throws RemoteException Exception Remote\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies the feedback of a specific point of refreshment in a visit.\n * \n * @param id the id of the point of refreshment to modify\n * @param visitaPR the BeanVisitaPR object containing the updated feedback information\n * @return true if the feedback was successfully modified, false otherwise\n */\nabstract boolean modificaFeedbackPuntoDiRistoro(int id, BeanVisitaPR visitaPR) {\n    // implementation details\n    return Optional.empty;\n}"
             }
         ],
         "constructors": [],
         "signature": "IGestionePuntiDiRistoroComune",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IGestionePuntiDiRistoroComune interface defines a set of methods for managing points of refreshment.\n * It provides functionality to retrieve specific information about refreshments, such as details, tags, comments, and statistics.\n * This interface allows for the modification of feedback for a particular refreshment visit.\n * \n * The methods in this interface include:\n * - ottieniPuntoDiRistoro(int id): Retrieves a specific BeanPuntoDiRistoro object based on the given integer ID.\n * - ottieniTagPuntoDiRistoro(int id): Retrieves a list of BeanTag objects associated with a specific point of interest.\n * - ottieniUltimiCommenti(int id): Retrieves the last comments posted on a specific item.\n * - ottieniStatistichePuntoDiRistoro(int id): Retrieves statistics for a specific point of refreshment.\n * - modificaFeedbackPuntoDiRistoro(int id, BeanVisitaPR visitaPR): Modifies the feedback of a specific point of refreshment in a visit.\n * \n * This interface is designed to provide a comprehensive set of functionalities for managing points of refreshment in a common system.\n */"
     }
 ]

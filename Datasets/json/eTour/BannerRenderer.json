@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public Component getTreeCellRendererComponent(JTree, Object, boolean, boolean, boolean, int, boolean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a component that displays the specified value in a tree cell.\n * \n * @param tree the JTree that is asking the renderer to return a component\n * @param value the value to be rendered\n * @param isSelected true if the cell is selected\n * @param isExpanded true if the node is expanded\n * @param isLeaf true if the node is a leaf\n * @param row the row index of the node being rendered\n * @param hasFocus true if the node has the focus\n * @return a JLabel component displaying the specified value as an ImageIcon\n * @throws IllegalArgumentException if the value is not an instance of ImageIcon\n */\npublic Component getTreeCellRendererComponent(JTree tree, Object value, boolean isSelected, boolean isExpanded, boolean isLeaf, int row, boolean hasFocus) {\n    Object obj = ((DefaultMutableTreeNode) value).getUserObject();\n    if (!(obj instanceof ImageIcon)) {\n        throw new IllegalArgumentException(\"Value cell unexpected.\");\n    }\n    ImageIcon image = (ImageIcon) obj;\n    JLabel aLabel = new JLabel();\n    aLabel.setIcon(image);\n    aLabel.setSize(image.getIconWidth() + 10, image.getIconHeight() + 10);\n    if (isSelected) {\n        aLabel.setBorder(BorderFactory.createLineBorder(Color.red, 2));\n    }\n    return aLabel;\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "BannerRenderer",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The BannerRenderer class is responsible for rendering a component that displays an ImageIcon value in a tree cell.\n * This class implements the TreeCellRenderer interface to customize the appearance of tree nodes in a JTree component.\n * \n * The getTreeCellRendererComponent method in this class takes in the necessary parameters to render the specified value in a tree cell.\n * It checks if the value is an instance of ImageIcon and throws an IllegalArgumentException if it is not.\n * The method then creates a JLabel component with the ImageIcon value and sets its size accordingly.\n * If the cell is selected, it adds a red border to the JLabel component.\n * \n * This class ensures that the rendered component displays the specified value as an ImageIcon in a visually appealing manner.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

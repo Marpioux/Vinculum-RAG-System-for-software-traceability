@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getLabProcedureCode()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the lab procedure code associated with this object.\n * \n * @return the lab procedure code as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    labProcedureCode = aLabProcedureCode;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLabProcedureCode(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the lab procedure code for this object.\n * \n * @param aLabProcedureCode the lab procedure code to be set\n * \n * This method sets the lab procedure code for this object to the specified value.\n */\npublic void setLabProcedureCode(String aLabProcedureCode) {\n    labProcedureCode = aLabProcedureCode;\n}"
             },
             {
                 "body": "Optional[{\r\n    return component;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getComponent()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the component of this object.\n * \n * @return the component of this object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    component = aComponent;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setComponent(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the component of this object to the specified value.\n * \n * @param aComponent the new component to set\n * \n * This method sets the component of this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return kindOfProperty;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getKindOfProperty()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the kind of property for this object.\n * \n * @return the kind of property as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    kindOfProperty = aKindOfProperty;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setKindOfProperty(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the kind of property for this object.\n * \n * @param aKindOfProperty the kind of property to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return timeAspect;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getTimeAspect()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the time aspect of the object.\n * \n * @return the time aspect of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    timeAspect = aTimeAspect;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTimeAspect(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the time aspect for this object.\n * \n * @param aTimeAspect the time aspect to set\n * \n * This method sets the time aspect for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return system;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSystem()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the system information.\n * \n * @return the system information as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    system = aSystem;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSystem(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the system for this object.\n * \n * @param aSystem the system to set\n */\npublic void setSystem(String aSystem) {\n    system = aSystem;\n}\n \n/**\n * Sets the system for this object to the specified value.\n * \n * @param aSystem the system to set\n */\n \n/**\n * Sets the system for this object.\n * \n * @param aSystem the system to set\n */"
             },
             {
                 "body": "Optional[{\r\n    return scaleType;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getScaleType()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the scale type of the object.\n * \n * @return the scale type of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    scaleType = aScaleType;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setScaleType(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the scale type for this object.\n * \n * @param aScaleType the scale type to set for this object\n * @return void\n */\npublic void setScaleType(String aScaleType) {\n    scaleType = aScaleType;\n}"
             },
             {
                 "body": "Optional[{\r\n    return methodType;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getMethodType()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the type of the method.\n * \n * @return the type of the method as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    methodType = aMethodType;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setMethodType(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the type of the method.\n * \n * @param aMethodType the new type of the method\n * \n * This method sets the type of the method to the specified value. \n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -121,7 +135,8 @@
                 "hasInnerComment": false,
                 "signature": "public LOINCbean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of the LOINCbean class.\n * This constructor does not accept any parameters.\n * \n * @param None\n * @return A new instance of the LOINCbean class\n */"
             }
         ],
         "signature": "LOINCbean",
@@ -133,6 +148,7 @@
             "private String system",
             "private String scaleType",
             "private String methodType"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a LabProcedure object that stores information about a lab procedure, including the lab procedure code, component, and kind of property.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the lab procedure code associated with the object\n * - Retrieving and setting the component of the object\n * - Retrieving the kind of property for the object\n * \n * The overall behavior of this class is to provide methods for accessing and modifying the lab procedure code, component, and kind of property of a LabProcedure object.\n * \n * This class follows the JavaBean convention by providing getter and setter methods for each attribute, allowing for easy manipulation of the object's state.\n */\nSure, here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents an object that contains information about a property, including its kind, time aspect, and system.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the kind of property as a String\n * - Storing and retrieving the time aspect of the property as a String\n * - Storing and retrieving system information as a String\n * \n * The overall behavior of this class is to provide a way to manage and access information about a property in a structured manner. Users can set and get the kind of property, time aspect, and system information using the provided methods.\n * \n * This class also includes setter methods for each property to allow for easy modification of the object's state.\n * \n * Note: It is recommended to use the setter methods to update the properties of the object to ensure data consistency.\n */\n/**\n * The LOINCbean class represents an object that stores information related to LOINC codes for lab procedures.\n * It contains methods to retrieve and set the scale type and method type for the object.\n * \n * Main functionalities:\n * - Retrieve and set the scale type for the object\n * - Retrieve and set the method type for the object\n * \n * Overall behavior:\n * This class provides a way to store and manage LOINC codes for lab procedures. It allows users to access and modify the scale type and method type associated with each code.\n * \n * Note: This class does not have any specific business logic or data validation. It is mainly used for storing and accessing LOINC code information.\n */\n/**\n * The String component class represents a component that is used to store various properties related to a string in a system. \n * It contains information such as the kind of property, time aspect, system, scale type, and method type.\n * \n * This class provides methods to set and get the values of these properties, allowing for easy manipulation and retrieval of information related to the string component.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the kind of property associated with the string component\n * - Storing and retrieving the time aspect of the string component\n * - Storing and retrieving the system in which the string component is used\n * - Storing and retrieving the scale type of the string component\n * - Storing and retrieving the method type of the string component\n * \n * Overall, the String component class serves as a convenient way to manage and access information about a string component within a system.\n */\npublic class StringComponent {\n    private String kindOfProperty;\n    private String timeAspect;\n    private String system;\n    private String scaleType;\n    private String methodType;\n    \n    // Constructor, getters, and setters methods would be implemented here\n}\n**/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //creo il pannello con i filtri per la ricerca\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //creo il pannello con i filtri per la ricerca\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for managing hotel reservations.\n * This method initializes various GUI components such as buttons, labels, text fields, and checkboxes,\n * and arranges them within panels to create a user-friendly interface for searching and managing reservations.\n * \n * This method does not take any parameters.\n * \n * The behavior of this method includes:\n * - Setting the font for the GUI components based on the system configuration.\n * - Creating buttons for actions such as canceling, searching, choosing, and adding to a room, and enabling/disabling them as needed.\n * - Creating labels for displaying information and instructions.\n * - Creating text fields for user input, some of which are non-editable.\n * - Creating checkboxes for filtering search results.\n * - Arranging the components within panels using a gridbag layout.\n * - Attaching the panels to the main frame to display the interface.\n * \n * @return void\n */\nvoid setupPanels() {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n            switch(to_call) {\r\n                case 1:\r\n                    startModifica(prenotazione);\r\n                    break;\r\n                case 2:\r\n                    startCancella(prenotazione);\r\n                    break;\r\n                case 3:\r\n                    if (!chbx2.getState())\r\n                        startInsSoggiornante(prenotazione);\r\n                    else\r\n                        startAggiungi();\r\n                    break;\r\n                case 4:\r\n                    startVediPrenotazione(prenotazione);\r\n                    break;\r\n            }\r\n        }\r\n    });\r\n    Scegli.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!noSelection()) {\r\n                prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n                switch(to_call) {\r\n                    case 1:\r\n                        startModifica(prenotazione);\r\n                        break;\r\n                    case 2:\r\n                        startCancella(prenotazione);\r\n                        break;\r\n                    case 3:\r\n                        startInsSoggiornante(prenotazione);\r\n                        break;\r\n                    case 4:\r\n                        startVediPrenotazione(prenotazione);\r\n                        break;\r\n                }\r\n            }\r\n        }\r\n    });\r\n    Aggiungi.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startAggiungi();\r\n        }\r\n    });\r\n    t_nome.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista(0);\r\n        }\r\n    });\r\n    t_cognome.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista(0);\r\n        }\r\n    });\r\n    Cerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            creaLista(0);\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    chbx1.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (!first_time)\r\n                creaLista(0);\r\n        }\r\n    });\r\n    chbx2.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (!first_time)\r\n                creaLista(0);\r\n        }\r\n    });\r\n    chbx3.addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (!first_time)\r\n                creaLista(0);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up the action listeners for the buttons and text fields.\n * This method handles the actions performed when the user interacts with the GUI elements.\n * \n * @param No parameters\n * @return No return value\n * \n * The method sets up action listeners for various buttons and text fields such as lista, Scegli, Aggiungi, t_nome, t_cognome, Cerca, Annulla, chbx1, chbx2, and chbx3.\n * When an action is performed on the lista or Scegli button, it retrieves the selected prenotazione and performs a specific action based on the value of 'to_call'.\n * If no selection is made, the method prompts the user to make a selection.\n * The Aggiungi button triggers the startAggiungi method.\n * The text fields t_nome, t_cognome, and Cerca trigger the creaLista method to update the displayed list based on the input.\n * The Annulla button disposes of the current window and enables the parent window.\n * The check boxes chbx1, chbx2, and chbx3 trigger the creaLista method to update the displayed list based on the checkbox selections.\n */"
             },
             {
                 "body": "Optional[{\r\n    prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n    switch(to_call) {\r\n        case 1:\r\n            startModifica(prenotazione);\r\n            break;\r\n        case 2:\r\n            startCancella(prenotazione);\r\n            break;\r\n        case 3:\r\n            if (!chbx2.getState())\r\n                startInsSoggiornante(prenotazione);\r\n            else\r\n                startAggiungi();\r\n            break;\r\n        case 4:\r\n            startVediPrenotazione(prenotazione);\r\n            break;\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is performed. It retrieves the selected prenotazione from a visual component, \n * based on the selected indexes. It then performs different actions based on the value of 'to_call':\n * \n * 1. If 'to_call' is 1, it starts the modification process for the selected prenotazione.\n * 2. If 'to_call' is 2, it starts the cancellation process for the selected prenotazione.\n * 3. If 'to_call' is 3 and a checkbox is not selected, it starts the process of adding a new soggiornante to the selected prenotazione. \n *    If the checkbox is selected, it starts the process of adding a new prenotazione.\n * 4. If 'to_call' is 4, it starts the process of viewing the details of the selected prenotazione.\n * \n * @param e the ActionEvent that triggered this method\n */\npublic void actionPerformed(ActionEvent e) {\n    prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0 + 1);\n    switch(to_call) {\n        case 1:\n            startModifica(prenotazione);\n            break;\n        case 2:\n            startCancella(prenotazione);\n            break;\n        case 3:\n            if (!chbx2.getState())\n                startInsSoggiornante(prenotazione);\n            else\n                startAggiungi();\n            break;\n        case 4:\n            startVediPrenotazione(prenotazione);\n            break;\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (!noSelection()) {\r\n        prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n        switch(to_call) {\r\n            case 1:\r\n                startModifica(prenotazione);\r\n                break;\r\n            case 2:\r\n                startCancella(prenotazione);\r\n                break;\r\n            case 3:\r\n                startInsSoggiornante(prenotazione);\r\n                break;\r\n            case 4:\r\n                startVediPrenotazione(prenotazione);\r\n                break;\r\n        }\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is performed. It checks if there is a selection in the list, retrieves the selected prenotazione object, and then based on the value of to_call, it calls one of the following methods: startModifica, startCancella, startInsSoggiornante, or startVediPrenotazione passing the selected prenotazione object as a parameter.\n * \n * @param e the ActionEvent object representing the action event that occurred\n */"
             },
             {
                 "body": "Optional[{\r\n    startAggiungi();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startAggiungi() method.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista(0);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a new list with a starting index of 0.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista(0);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a new list starting from index 0.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    creaLista(0);\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It creates a list starting from index 0.\n * \n * @param e the action event that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It is typically used as an ActionListener for a button or menu item to close a window \n * and return control to the parent window. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!first_time)\r\n        creaLista(0);\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if it is the first time the method is being called, and if not, it calls the creaLista method with a parameter of 0. \n * \n * @param e the ItemEvent object that triggered the state change\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!first_time)\r\n        creaLista(0);\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if it is not the first time the method is called and then calls the creaLista method with a parameter of 0.\n * \n * @param e the ItemEvent that triggered the state change\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!first_time)\r\n        creaLista(0);\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state has changed. It checks if it is not the first time the method is being called and then calls the creaLista method with a parameter of 0. \n * \n * @param e the ItemEvent that triggered the state change\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!noSelection()) {\r\n        this.setEnabled(false);\r\n        prenotazione = L_visual.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n        startAddSoggiornante(prenotazione);\r\n    }\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAggiungi()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and retrieves the selected prenotazione from a visual list.\n * If there is a selection, it disables the current component, retrieves the prenotazione object\n * corresponding to the selected index from a visual list, and starts the process of adding a soggiornante\n * to the prenotazione.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\r\n    ModificaPrenotazione modify = new ModificaPrenotazione(pren, stanza, this);\r\n    modify.setVisible(true);\r\n    modify.padre = this;\r\n    notifyRoomBlocked(pren, modify, null);\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": " void startModifica(Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current window and opens a new window for modifying a booking.\n * \n * @param pren the booking to be modified\n * @return void\n */\nvoid startModifica(Prenotazione pren) {\n    this.setEnabled(false);\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\n    ModificaPrenotazione modify = new ModificaPrenotazione(pren, stanza, this);\n    modify.setVisible(true);\n    modify.padre = this;\n    notifyRoomBlocked(pren, modify, null);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\r\n    CancellaPrenotazione cancel = new CancellaPrenotazione(pren, stanza, this);\r\n    cancel.setVisible(true);\r\n    cancel.padre = this;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": " void startCancella(Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current frame and opens a new window for canceling a reservation.\n * \n * @param pren the reservation to be canceled\n */\nvoid startCancella(Prenotazione pren) {\n    this.setEnabled(false);\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\n    CancellaPrenotazione cancel = new CancellaPrenotazione(pren, stanza, this);\n    cancel.setVisible(true);\n    cancel.padre = this;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\r\n    VediPrenotazione visual = new VediPrenotazione(pren, stanza, this);\r\n    visual.setVisible(true);\r\n    visual.padre = this;\r\n    notifyRoomBlocked(pren, null, visual);\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": " void startVediPrenotazione(Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component and opens a new window to view a specific reservation.\n * \n * @param pren the reservation to be viewed\n * \n * @return void\n */\nvoid startVediPrenotazione(Prenotazione pren) {\n    this.setEnabled(false);\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\n    VediPrenotazione visual = new VediPrenotazione(pren, stanza, this);\n    visual.setVisible(true);\n    visual.padre = this;\n    notifyRoomBlocked(pren, null, visual);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Disponibilita disp;\r\n    Frame msg;\r\n    disp = (Principale.db).readDisponibilita(pren.getNumStanza());\r\n    if (disp == null)\r\n        msg = new MessageDialog(this, \" Inconsistenze sul database! \");\r\n    else {\r\n        if (disp.getStatusGiorno(DateUtils.dataTogiorni(pren.getInizioSogg()), Const.ANNO_CORRENTE) == Flag.BLOCCATA)\r\n            msg = new AvvisoDialog(this, \" La stanza \" + pren.getNumStanza() + \" non e' assegnata a tale prenotazione. Modificare la prenotazione. \");\r\n        else\r\n            figlio = new InserisciSoggiornante(this, pren);\r\n    }\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": " void startInsSoggiornante(Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the process of inserting a guest for a given reservation.\n * \n * @param prenotazione the reservation for which a guest is being inserted\n * @return void\n * \n * This method retrieves the availability status of the room associated with the reservation.\n * If the availability status is null, it displays a message indicating inconsistencies in the database.\n * If the room is not assigned to the reservation, it displays a warning message.\n * Otherwise, it opens a dialog for inserting a guest for the reservation.\n */"
             },
             {
                 "body": "Optional[{\r\n    char flag;\r\n    Frame msg;\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    Disponibilita disp = Utils.getDispOfRoom(elenco_disp, pren.getNumStanza(), false);\r\n    Costanti cost = new Costanti();\r\n    if ((((pren.getInizioSogg()).getYear()) + 1900) == cost.getAnnoCorr())\r\n        flag = Const.ANNO_CORRENTE;\r\n    else\r\n        flag = Const.ANNO_PROSSIMO;\r\n    if (father2 == null)\r\n        if (disp.getStatusGiorno(DateUtils.dataTogiorni(pren.getInizioSogg()), flag) == Flag.BLOCCATA)\r\n            msg = new AvvisoDialog(father1, \" ATTENZIONE: per questa prenotazione non e' ancora stata assegnata la stanza!!\");\r\n        else\r\n            (father1.Assegna).setEnabled(false);\r\n    else if (disp.getStatusGiorno(DateUtils.dataTogiorni(pren.getInizioSogg()), flag) == Flag.BLOCCATA)\r\n        msg = new AvvisoDialog(father2, \" ATTENZIONE: per questa prenotazione non e' ancora stata assegnata la stanza!!\");\r\n    else\r\n        (father2.Assegna).setEnabled(false);\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": " void notifyRoomBlocked(Prenotazione, ModificaPrenotazione, VediPrenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Notifies the user if a room is blocked for a specific reservation.\n * \n * @param prenotazione The reservation for which to check if the room is blocked.\n * @param modificaPrenotazione The modification of the reservation.\n * @param vediPrenotazione The view of the reservation.\n * \n * This method checks the availability of a room for a given reservation and notifies the user if the room is blocked. \n * It retrieves the availability list from the database, checks the status of the room for the reservation's start date, \n * and sets a flag based on the current year. If the room is blocked, it displays a warning message to the user. \n * If the room is not blocked, it disables the room assignment option. \n * \n * @return void\n */\nvoid notifyRoomBlocked(Prenotazione prenotazione, ModificaPrenotazione modificaPrenotazione, VediPrenotazione vediPrenotazione) {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    Prenotazione p;\r\n    Date today = new Date();\r\n    L_visual = new ListaPrenotazioni();\r\n    L = (Principale.db).foundPrenotazioni(t_cognome.getText(), t_nome.getText());\r\n    if (L != null) {\r\n        if (!L.isEmpty()) {\r\n            if (lista.getItemCount() > 0)\r\n                lista.removeAll();\r\n            for (int i = 1; i <= L.length(); i++) {\r\n                p = L.getPrenotazione(i);\r\n                ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(p.getIdPrenotazione());\r\n                if (chbx3.getState()) {\r\n                    if (Utils.data1MaggioreData2(p.getInizioSogg(), today)) {\r\n                        lista.addItem(p.toString());\r\n                        L_visual.addPrenotazione(p);\r\n                    }\r\n                } else {\r\n                    if (chbx1.getState()) {\r\n                        if (L_sogg.isEmpty()) {\r\n                            if (((p.getInizioSogg()).getDate() == today.getDate()) && ((p.getInizioSogg()).getMonth() == today.getMonth()) && ((p.getInizioSogg()).getYear() == today.getYear())) {\r\n                                lista.addItem(p.toString());\r\n                                L_visual.addPrenotazione(p);\r\n                            }\r\n                        }\r\n                    } else {\r\n                        if (!(Utils.data1MaggioreData2(p.getInizioSogg(), today)) && !(Utils.data1MinoreData2(p.getFineSogg(), today))) {\r\n                            //controllo che sia un soggiornante gia registrato\r\n                            if (!L_sogg.isEmpty()) {\r\n                                lista.addItem(p.toString());\r\n                                L_visual.addPrenotazione(p);\r\n                            }\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            if (lista.getItemCount() == 0) {\r\n                if (back == 0)\r\n                    msg = new AvvisoDialog(this, \" Nessuna prenotazione trovata! \");\r\n                Scegli.setEnabled(false);\r\n                Aggiungi.setEnabled(false);\r\n                panel3.setVisible(false);\r\n                pack();\r\n                if (to_call == 3)\r\n                    Aggiungi.setEnabled(false);\r\n            } else {\r\n                if (chbx1.getState()) {\r\n                    Aggiungi.setEnabled(false);\r\n                    Scegli.setEnabled(true);\r\n                }\r\n                if (chbx2.getState()) {\r\n                    Aggiungi.setEnabled(true);\r\n                    if (to_call == 3)\r\n                        Scegli.setEnabled(false);\r\n                    else\r\n                        Scegli.setEnabled(true);\r\n                }\r\n                if (chbx3.getState()) {\r\n                    Scegli.setEnabled(true);\r\n                }\r\n                panel3.setVisible(true);\r\n                pack();\r\n            }\r\n            if (first_time)\r\n                first_time = false;\r\n        } else {\r\n            if (back == 0)\r\n                msg = new AvvisoDialog(this, \" Prenotazione non trovata! \");\r\n            else {\r\n                if (back == 1) {\r\n                    if (lista.getItemCount() > 0)\r\n                        lista.removeAll();\r\n                    panel3.setVisible(false);\r\n                    pack();\r\n                }\r\n            }\r\n        }\r\n    } else\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": true,
                 "signature": "public void creaLista(int)",
                 "comments": null,
-                "innerComments": "Optional[[//controllo che sia un soggiornante gia registrato\r\n]]"
+                "innerComments": "Optional[[//controllo che sia un soggiornante gia registrato\r\n]]",
+                "generated_comment": "/**\n * Creates a list of reservations based on the provided last name and first name input fields. \n * The method retrieves reservations from the database and filters them based on the selected criteria \n * (e.g., future reservations, current day reservations, registered guests). \n * The filtered reservations are displayed in the GUI list component. \n * \n * @param int - the integer parameter is not used in this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (lista.getSelectedIndex() == -1) {\r\n        msg = new AvvisoDialog(this, \" Selezionare una prenotazione dalla lista e ripremere il tasto\");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean noSelection()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if no item is selected in the list.\n * \n * @return true if no item is selected, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(pren.getIdPrenotazione());\r\n    if (L_sogg != null)\r\n        if (L_sogg.length() > 0) {\r\n            Soggiornante sogg = L_sogg.getSoggiornante(1);\r\n            Stanza room = (Principale.db).readStanza(sogg.getNumStanza());\r\n            if ((room.getPostiLetto() > L_sogg.length()) || ((room.getPostiLetto() == L_sogg.length()) && (room.getDispLettoAgg() == Const.SI)))\r\n                figlio = new AggiungiSoggiornante(this, pren, room, L_sogg.length());\r\n            else\r\n                figlio = new AvvisoDialog(this, \" Nessun posto disponibile nella stanza n. \" + room.getNumStanza());\r\n        } else\r\n            figlio = new AvvisoDialog(this, \" La prenotazione non e' adempiuta. Premere 'Scegli' per gestire l'arrivo clienti\");\r\n    else\r\n        figlio = new MessageDialog(this, \" Problemi con il database!\");\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAddSoggiornante(Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the process of adding a guest to a reservation by checking the availability of rooms and creating a dialog window accordingly.\n * \n * @param pren the reservation for which a guest is being added\n */\nvoid startAddSoggiornante(Prenotazione pren) {\n    ListaSoggiornanti L_sogg = (Principale.db).foundSoggiornanti(pren.getIdPrenotazione());\n    if (L_sogg != null) {\n        if (L_sogg.length() > 0) {\n            Soggiornante sogg = L_sogg.getSoggiornante(1);\n            Stanza room = (Principale.db).readStanza(sogg.getNumStanza());\n            if ((room.getPostiLetto() > L_sogg.length()) || ((room.getPostiLetto() == L_sogg.length()) && (room.getDispLettoAgg() == Const.SI))) {\n                figlio = new AggiungiSoggiornante(this, pren, room, L_sogg.length());\n            } else {\n                figlio = new AvvisoDialog(this, \" Nessun posto disponibile nella stanza n. \" + room.getNumStanza());\n            }\n        } else {\n            figlio = new AvvisoDialog(this, \" La prenotazione non e' adempiuta. Premere 'Scegli' per gestire l'arrivo clienti\");\n        }\n    } else {\n        figlio = new MessageDialog(this, \" Problemi con il database!\");\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -177,7 +198,8 @@
                 "hasInnerComment": false,
                 "signature": "public RicercaPrenotazione(String, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new RicercaPrenotazione object with the specified title and number of calls.\n * \n * @param titolo the title of the RicercaPrenotazione object\n * @param k the number of calls to be set for the RicercaPrenotazione object\n * \n * The constructor initializes the RicercaPrenotazione object with the given title, sets the number of calls to the specified value,\n * sets up the panels, initializes the object, and packs it.\n */"
             }
         ],
         "signature": "RicercaPrenotazione",
@@ -210,6 +232,7 @@
             " Frame figlio",
             " int to_call",
             " boolean first_time"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The RicercaPrenotazione class represents a user interface for managing hotel reservations.\n * It provides functionalities for searching, modifying, canceling, and adding reservations, as well as viewing reservation details.\n * The class contains GUI components such as buttons, labels, text fields, checkboxes, and panels to create an interactive interface for users.\n * \n * This class includes methods for setting up the panels, initializing GUI components, handling action events, and checking room availability for reservations.\n * The main functionalities of the class include:\n * - Setting up panels with buttons, labels, text fields, and checkboxes for managing reservations.\n * - Initializing GUI components and setting up action listeners for user interactions.\n * - Performing actions based on user inputs, such as modifying, canceling, adding guests, or viewing reservations.\n * - Checking room availability and notifying users if a room is blocked for a specific reservation.\n * - Creating a list of reservations based on user input criteria and displaying them in a list component.\n * \n * The class constructor initializes a new RicercaPrenotazione object with a specified title and number of calls.\n * \n * Overall, the RicercaPrenotazione class provides a user-friendly interface for managing hotel reservations and offers essential functionalities for reservation management.\n */\n*/"
     }
 ]

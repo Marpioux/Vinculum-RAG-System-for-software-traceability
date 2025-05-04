@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public void updateInformation(PatientBean)",
                 "comments": "Optional[/**\r\n * Takes the information out of the PatientBean param and updates the patient's information\r\n *\r\n * @param p\r\n *            the new patient information\r\n * @throws iTrustException\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": "Optional[[// for security reasons\r\n]]"
+                "innerComments": "Optional[[// for security reasons\r\n]]",
+                "generated_comment": "/**\n * Updates the information of a patient in the system.\n * \n * @param p the PatientBean object containing the updated information of the patient\n * \n * This method updates the information of a patient by setting the MID, validating the information, editing the patient in the database,\n * logging the transaction, and sending an email notification. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    transDAO.logTransaction(TransactionType.ENTER_EDIT_DEMOGRAPHICS, loggedInMID, pid, \"EditPatient - View Patient\");\r\n    return patientDAO.getPatient(this.getPid());\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public PatientBean getPatient()",
                 "comments": "Optional[/**\r\n * Returns a PatientBean for the patient\r\n *\r\n * @return the PatientBean\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a PatientBean object representing a patient with the given patient ID.\n * Logs the transaction of entering the edit demographics page for the patient.\n * \n * @return PatientBean object representing the patient\n */"
             },
             {
                 "body": "Optional[{\r\n    Email email = new Email();\r\n    List<PatientBean> reps = patientDAO.getRepresenting(pid);\r\n    PatientBean pb = patientDAO.getPatient(pid);\r\n    List<String> toAddrs = new ArrayList<String>();\r\n    toAddrs.add(pb.getEmail());\r\n    for (PatientBean r : reps) {\r\n        toAddrs.add(r.getEmail());\r\n    }\r\n    email.setFrom(\"no-reply@itrust.com\");\r\n    // patient and personal representative\r\n    email.setToList(toAddrs);\r\n    email.setSubject(String.format(\"Patient Information Updated\"));\r\n    email.setBody(\"Dear \" + pb.getFullName() + \",\\n\\tYour patient record information has been updated. \" + \"Please login to iTrust to see who has viewed your records.\");\r\n    return email;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "private Email makeEmail()",
                 "comments": "Optional[/**\r\n *  Creates and e-mail to inform the patient that their information has been updated.\r\n *\r\n * @return the email with the notice\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": "Optional[[// patient and personal representative\r\n]]"
+                "innerComments": "Optional[[// patient and personal representative\r\n]]",
+                "generated_comment": "/**\n * Creates an email notification to be sent to a patient and their personal representatives\n * when the patient's information has been updated.\n * \n * @return the Email object containing the notification details\n */"
             },
             {
                 "body": "Optional[{\r\n    PatientBean b = this.getPatient();\r\n    b.setMessageFilter(filter);\r\n    this.updateInformation(b);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void editMessageFilter(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the message filter for the patient.\n * \n * @param filter the new message filter to be set\n * \n * This method updates the message filter for the patient by setting the provided filter.\n * It retrieves the patient information, sets the message filter to the provided filter,\n * and then updates the patient information with the new filter.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public EditPatientAction(DAOFactory, long, String)",
                 "comments": "Optional[/**\r\n * The super class validates the patient id\r\n *\r\n * @param factory The DAOFactory used to create the DAOs for this action.\r\n * @param loggedInMID The MID of the user who is authorizing this action.\r\n * @param pidString The MID of the patient being edited.\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new EditPatientAction object with the specified DAOFactory, patient ID, and logged in MID.\n * \n * @param factory the DAOFactory used to retrieve the PatientDAO and TransactionDAO\n * @param pidString the patient ID as a String\n * @param loggedInMID the logged in MID of the user performing the action\n */\npublic EditPatientAction(DAOFactory factory, long pidString, String loggedInMID) {\n    super(factory, pidString);\n    this.patientDAO = factory.getPatientDAO();\n    this.transDAO = factory.getTransactionDAO();\n    this.loggedInMID = loggedInMID;\n    emailutil = new EmailUtil(factory);\n}\n*/"
             }
         ],
         "signature": "EditPatientAction",
@@ -51,6 +56,7 @@
             "private PatientDAO patientDAO",
             "private long loggedInMID",
             "private EmailUtil emailutil"
-        ]
+        ],
+        "generated_class_comment": "Sure, here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a utility for managing patient information in the system.\n * It contains methods for updating patient information, retrieving patient information,\n * and sending email notifications for patient updates.\n * \n * The main functionalities of this class include:\n * - Updating patient information by setting the MID, validating the information, editing the patient in the database,\n *   logging the transaction, and sending an email notification.\n * - Retrieving a PatientBean object representing a patient with a given patient ID.\n * - Sending email notifications for patient updates.\n * \n * Overall, this class provides essential functionality for managing patient information in the system,\n * ensuring data accuracy, security, and proper logging of transactions.\n */\n**/\n/**\n * This class represents a service for managing patient information and notifications in a healthcare system.\n * It provides methods for creating and sending email notifications to patients and their personal representatives\n * when the patient's information has been updated. It also allows for editing the message filter for a patient.\n * \n * The main functionalities of this class include:\n * - Creating email notifications to inform patients and their representatives about updated information\n * - Editing the message filter for a patient to manage incoming messages\n * \n * The overall behavior of this class is to interact with the patient data access object (DAO) to retrieve and update\n * patient information, generate email notifications with relevant details, and handle message filter updates.\n * \n * @author [Your Name]\n * @version 1.0\n */\npublic class PatientNotificationService extends BaseService {\n    private PatientDAO patientDAO;\n\n    /**\n     * Constructs a new PatientNotificationService with the specified factory and patient ID.\n     * \n     * @param factory the factory for accessing data access objects\n     * @param pidString the patient ID as a string\n     */\n    public PatientNotificationService(Factory factory, String pidString) {\n        super(factory, pidString);\n        this.patientDAO = factory.getPatientDAO();\n    }\n\n    /**\n     * Creates an email notification to be sent to a patient and their personal representatives\n     * when the patient's information has been updated.\n     * \n     * @return the Email object containing the notification details\n     */\n    private Email makeEmail() {\n        PatientBean pb = patientDAO.getPatient(pid);\n        List<String> toAddrs = new ArrayList<String>();\n        toAddrs.add(pb.getEmail());\n        for (PatientBean r : reps) {\n            toAddrs.add(r.getEmail());\n        }\n        Email email = new Email();\n        email.setFrom(\"no-reply@itrust.com\");\n        email.setToList(toAddrs);\n        email.setSubject(String.format(\"Patient Information Updated\"));\n        email.setBody(\"Dear \" + pb.getFullName() + \",\\n\\tYour patient record information has been updated. \"\n                + \"Please login to iTrust to see who has viewed your records.\");\n        return email;\n    }\n\n    /**\n     * Updates the message filter for the patient.\n     * \n     * @param filter the new message filter to be set\n     * \n     * This method updates the message filter for the patient by setting the provided filter.\n     * It retrieves the patient information, sets the message filter to the provided filter,\n     * and then updates the patient information with the new filter.\n     */\n    public void editMessageFilter(String filter) {\n        PatientBean b = this.getPatient();\n        b.setMessageFilter(filter);\n        this.updateInformation(b);\n    }\n}\n*/\n/**\n * The EditPatientAction class represents an action that allows a user to edit patient information in the system.\n * It extends the EditPatientBaseAction class, which validates the patient ID before performing any actions.\n * \n * This class provides functionalities to retrieve patient information from the database, update patient details,\n * and log transactions related to patient edits. It also includes email notification functionality using the EmailUtil class.\n * \n * The main attributes of this class include TransactionDAO for handling transaction data, PatientValidator for validating patient information,\n * PatientDAO for accessing patient data, loggedInMID for storing the MID of the logged-in user, and EmailUtil for sending email notifications.\n * \n * The EditPatientAction constructor initializes the class with the specified DAOFactory, patient ID, and logged-in MID.\n * \n * @param factory the DAOFactory used to retrieve the PatientDAO and TransactionDAO\n * @param pidString the patient ID as a String\n * @param loggedInMID the logged-in MID of the user performing the action\n */\npublic EditPatientAction(DAOFactory factory, long pidString, String loggedInMID) {\n    super(factory, pidString);\n    this.patientDAO = factory.getPatientDAO();\n    this.transDAO = factory.getTransactionDAO();\n    this.loggedInMID = loggedInMID;\n    emailutil = new EmailUtil(factory);\n}\n*/"
     }
 ]

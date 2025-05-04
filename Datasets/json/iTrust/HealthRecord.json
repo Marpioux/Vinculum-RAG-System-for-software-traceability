@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getBloodPressureD()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the diastolic blood pressure reading.\n * \n * @return The diastolic blood pressure reading as an integer value.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.bloodPressureD = bloodPressureD;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodPressureD(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the diastolic blood pressure of the patient.\n * \n * @param bloodPressureD the diastolic blood pressure to set\n * \n * This method sets the diastolic blood pressure of the patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.bloodPressureN = bloodPressure;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodPressureSystolic(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the systolic blood pressure reading for a patient.\n * \n * @param bloodPressure the systolic blood pressure reading to set\n * \n * This method sets the systolic blood pressure reading for a patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.bloodPressureD = bloodPressure;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodPressureDiastolic(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the diastolic blood pressure reading for a patient.\n * \n * @param bloodPressure the diastolic blood pressure reading to set\n * @return void\n * \n * This method sets the diastolic blood pressure reading for a patient. \n * The parameter 'bloodPressure' represents the diastolic blood pressure reading \n * to be set for the patient. \n * \n * Example usage:\n * Patient patient = new Patient();\n * patient.setBloodPressureDiastolic(80);\n */"
             },
             {
                 "body": "Optional[{\r\n    return bloodPressureN;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getBloodPressureN()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the blood pressure measurement for the systolic value.\n * \n * @return the blood pressure measurement for the systolic value as an integer\n */"
             },
             {
                 "body": "Optional[{\r\n    return bloodPressureN;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getBloodPressureSystolic()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the systolic blood pressure measurement.\n * \n * @return the systolic blood pressure measurement as an integer\n */"
             },
             {
                 "body": "Optional[{\r\n    return bloodPressureD;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getBloodPressureDiastolic()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the diastolic blood pressure reading.\n * \n * @return the diastolic blood pressure reading as an integer value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.bloodPressureN = bloodPressureN;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodPressureN(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the blood pressure measurement for the patient.\n * \n * @param bloodPressureN the integer value representing the blood pressure measurement\n * @return void\n * \n * This method sets the blood pressure measurement for the patient to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return getBloodPressureN() + \"/\" + getBloodPressureD();\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getBloodPressure()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the blood pressure reading as a string in the format of \"systolic/diastolic\".\n * \n * @return A string representing the blood pressure reading in the format of \"systolic/diastolic\".\n */"
             },
             {
                 "body": "Optional[{\r\n    return cholesterolHDL;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getCholesterolHDL()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the HDL cholesterol level.\n * \n * This method returns the HDL cholesterol level stored in the variable cholesterolHDL.\n * \n * @return the HDL cholesterol level\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cholesterolHDL = cholesterolHDL;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCholesterolHDL(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HDL cholesterol level for the patient.\n * \n * @param cholesterolHDL the HDL cholesterol level to set\n * \n * This method sets the HDL cholesterol level for the patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cholesterolLDL;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getCholesterolLDL()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the LDL cholesterol level of the patient.\n * \n * @return the LDL cholesterol level as an integer\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cholesterolLDL = cholesterolLDL;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCholesterolLDL(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the LDL cholesterol level for the individual.\n * \n * @param cholesterolLDL the LDL cholesterol level to set\n * \n * This method sets the LDL cholesterol level for the individual to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cholesterolTri;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getCholesterolTri()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the cholesterol triglyceride level.\n * \n * @return the cholesterol triglyceride level as an integer\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cholesterolTri = cholesterolTri;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCholesterolTri(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the cholesterol triglyceride level.\n * \n * @param cholesterolTri the new cholesterol triglyceride level to set\n * \n * This method sets the cholesterol triglyceride level to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return getCholesterolHDL() + getCholesterolLDL() + getCholesterolTri();\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getTotalCholesterol()",
                 "comments": "Optional[/**\r\n * Note that this is a simplistic view. See the Wikipedia article on cholesterol.\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method calculates the total cholesterol level by adding the values of HDL cholesterol, LDL cholesterol, and triglycerides cholesterol.\n * \n * @return the total cholesterol level as an integer\n */"
             },
             {
                 "body": "Optional[{\r\n    return dateRecorded;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getDateRecorded()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date when the record was recorded.\n * \n * @return the date recorded as a Date object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.dateRecorded = dateRecorded;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDateRecorded(Timestamp)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date recorded for this object.\n * \n * @param dateRecorded the timestamp representing the date recorded\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return Math.round(height * 10000) / 10000D;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getHeight()",
                 "comments": "Optional[// Rounds the height off here because MySQL won't return the *exact* value you put in it\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the height of the object.\n * \n * @return the height of the object rounded to four decimal places\n */"
             },
             {
                 "body": "Optional[{\r\n    this.height = height;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHeight(double)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the height of the object to the specified value.\n * \n * @param height the new height to set\n * \n * This method sets the height of the object to the specified value. \n * The height parameter must be a double value representing the new height of the object.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientID;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatientID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the patient.\n * \n * @return the patient's ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient ID for this object.\n * \n * @param patientID the new patient ID to set\n * @return void\n * \n * This method sets the patient ID for this object to the specified value. \n * The patient ID is a unique identifier for each patient. \n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return personnelID;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPersonnelID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier for the personnel.\n * \n * @return the personnel ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.personnelID = personnelID;\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPersonnelID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the personnel ID for this object.\n * \n * @param personnelID the new personnel ID to set\n * \n * This method sets the personnel ID for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return isSmoker;\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isSmoker()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks if a person is a smoker.\n * \n * @return true if the person is a smoker, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    this.isSmoker = smoker;\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSmoker(boolean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the smoker status of the person.\n * \n * @param smoker a boolean value representing whether the person is a smoker or not\n * \n * This method sets the smoker status of the person to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return Math.round(weight * 10000) / 10000D;\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getWeight()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the weight of the object, rounded to four decimal places.\n * \n * @return the weight of the object rounded to four decimal places\n */"
             },
             {
                 "body": "Optional[{\r\n    this.weight = weight;\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setWeight(double)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the weight of the object.\n * \n * @param weight the new weight to set\n * @return void\n */\npublic void setWeight(double weight) {\n    this.weight = weight;\n}"
             },
             {
                 "body": "Optional[{\r\n    return 703 * (weight / (height * height));\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getBodyMassIndex()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Calculates the body mass index (BMI) based on the weight and height of the person.\n * \n * @return the body mass index (BMI) calculated using the formula: 703 * (weight / (height * height))\n */"
             }
         ],
         "constructors": [
@@ -241,7 +270,8 @@
                 "hasInnerComment": false,
                 "signature": "public HealthRecord()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new HealthRecord object with no parameters.\n * This constructor initializes a new instance of the HealthRecord class with default values.\n */"
             }
         ],
         "signature": "HealthRecord",
@@ -257,6 +287,7 @@
             "private int cholesterolTri",
             "private long personnelID",
             "private Timestamp dateRecorded"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a Patient object that stores information about the blood pressure readings of a patient.\n * The class provides methods to retrieve and set the systolic and diastolic blood pressure readings of the patient.\n * \n * The main functionalities of this class include:\n * - Retrieving the diastolic blood pressure reading of the patient\n * - Setting the diastolic blood pressure of the patient\n * - Setting the systolic blood pressure reading for a patient\n * - Setting the diastolic blood pressure reading for a patient\n * \n * The overall behavior of this class is to store and manage the blood pressure readings of a patient. \n * It allows for easy access to the blood pressure readings and provides methods to update the readings as needed.\n * \n * Example usage:\n * Patient patient = new Patient();\n * patient.setBloodPressureSystolic(120);\n * patient.setBloodPressureDiastolic(80);\n * int systolic = patient.getBloodPressureSystolic();\n * int diastolic = patient.getBloodPressureDiastolic();\n */\npublic class Patient {\n    private int bloodPressureS;\n    private int bloodPressureD;\n    \n    public int getBloodPressureD() {\n        return bloodPressureD;\n    }\n    \n    /**\n     * Retrieves the diastolic blood pressure reading.\n     * \n     * @return The diastolic blood pressure reading as an integer value.\n     */\n    \n    public void setBloodPressureD(int bloodPressureD) {\n        this.bloodPressureD = bloodPressureD;\n    }\n    \n    /**\n     * Sets the diastolic blood pressure of the patient.\n     * \n     * @param bloodPressureD the diastolic blood pressure to set\n     * \n     * This method sets the diastolic blood pressure of the patient to the specified value.\n     * \n     * @return void\n     */\n    \n    public void setBloodPressureSystolic(int bloodPressureS) {\n        this.bloodPressureS = bloodPressureS;\n    }\n    \n    /**\n     * Sets the systolic blood pressure reading for a patient.\n     * \n     * @param bloodPressureS the systolic blood pressure reading to set\n     * \n     * This method sets the systolic blood pressure reading for a patient to the specified value.\n     * \n     * @return void\n     */\n    \n    public void setBloodPressureDiastolic(int bloodPressureD) {\n        this.bloodPressureD = bloodPressureD;\n    }\n    \n    /**\n     * Sets the diastolic blood pressure reading for a patient.\n     * \n     * @param bloodPressureD the diastolic blood pressure reading to set\n     * @return void\n     * \n     * This method sets the diastolic blood pressure reading for a patient. \n     * The parameter 'bloodPressureD' represents the diastolic blood pressure reading \n     * to be set for the patient. \n     * \n     * Example usage:\n     * Patient patient = new Patient();\n     * patient.setBloodPressureDiastolic(80);\n     */\n}\n```\n/**\n * The Patient class represents a patient's blood pressure measurements.\n * It provides methods to set and retrieve the systolic and diastolic blood pressure values.\n * \n * Main functionalities include:\n * - Setting and retrieving the systolic and diastolic blood pressure values\n * - Calculating the overall blood pressure reading as a string\n * \n * Overall behavior:\n * The class allows for the management of a patient's blood pressure data by storing and providing access to the systolic and diastolic measurements.\n * It also offers a method to calculate and retrieve the overall blood pressure reading as a formatted string.\n */\n*/\n/**\n * The \"systolic/diastolic\" class represents a blood pressure reading in the format of \"systolic/diastolic\".\n * \n * This class provides methods to retrieve and set the HDL cholesterol level, LDL cholesterol level, and triglyceride level for a patient.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the HDL cholesterol level\n * - Retrieving and setting the LDL cholesterol level\n * - Retrieving the triglyceride level\n * \n * The overall behavior of this class is to store and manage cholesterol and triglyceride levels for a patient, allowing for easy access and modification of these values.\n * \n * @return A string representing the blood pressure reading in the format of \"systolic/diastolic\".\n */\n**/\n/**\n * This class represents a CholesterolRecord object that stores information about a person's cholesterol levels.\n * It provides methods to retrieve and set the HDL cholesterol level, LDL cholesterol level, triglyceride cholesterol level,\n * calculate the total cholesterol level, and record the date when the information was recorded.\n * \n * The CholesterolRecord class allows users to manage and track their cholesterol levels over time.\n * It encapsulates the data related to cholesterol levels and provides convenient methods to access and update this information.\n * \n * Users can retrieve individual cholesterol levels, calculate the total cholesterol level by adding the values of HDL, LDL, and triglycerides,\n * and record the date when the information was recorded.\n * \n * Note that the total cholesterol calculation provided by the getTotalCholesterol() method is a simplistic view and may not reflect the complete picture.\n * For more detailed information on cholesterol, refer to external sources such as the Wikipedia article on cholesterol.\n */\n/**\n * This class represents a medical record for a patient. It stores information such as the patient's height, patient ID, and personnel ID.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the height of the patient, rounded to four decimal places\n * - Storing and retrieving the unique identifier of the patient\n * - Storing and retrieving the unique identifier of the personnel associated with the medical record\n * \n * The class provides methods to set and get the height, patient ID, and personnel ID. The height is rounded off to four decimal places because MySQL may not return the exact value that was input.\n * \n * Overall behavior:\n * - The class ensures that the height, patient ID, and personnel ID are stored and retrieved accurately.\n * - It provides methods to set and get these values, ensuring data integrity and consistency.\n * \n * Note: It is important to handle and validate the input values for the height, patient ID, and personnel ID to prevent any data inconsistencies or errors.\n */\n**/\n/**\n * This class represents a personnel object with unique identifier for the personnel.\n * It contains methods to get and set personnel ID, check if a person is a smoker,\n * get and set the weight of the person.\n * \n * The personnel ID is a unique identifier for the personnel object and can be set using the setPersonnelID method.\n * The isSmoker method checks if the person is a smoker or not.\n * The setSmoker method sets the smoker status of the person.\n * The getWeight method returns the weight of the person rounded to four decimal places.\n * The setWeight method sets the weight of the person.\n * \n * This class provides basic functionalities to manage personnel information.\n */\n **/\n/**\n * The HealthRecord class represents a record of health information for a patient.\n * This class stores various health-related data such as patient ID, height, weight, smoking status, blood pressure,\n * cholesterol levels, personnel ID, and date recorded.\n * \n * The class provides methods to set and get the values of these attributes, as well as calculate the Body Mass Index (BMI)\n * based on the weight and height of the person.\n * \n * The HealthRecord class also includes a constructor to initialize a new instance with default values.\n * \n * Overall, this class serves as a data structure to store and manage health information for individuals.\n */\n \npublic class HealthRecord {\n    // Variables\n    private long patientID;\n    private double height;\n    private double weight;\n    private boolean isSmoker;\n    private int bloodPressureN;\n    private int bloodPressureD;\n    private int cholesterolHDL;\n    private int cholesterolLDL;\n    private int cholesterolTri;\n    private long personnelID;\n    private Timestamp dateRecorded;\n\n    // Constructor\n    /**\n     * Constructs a new HealthRecord object with no parameters.\n     * This constructor initializes a new instance of the HealthRecord class with default values.\n     */\n    public HealthRecord() {\n    }\n\n    // Getters and Setters\n    /**\n     * Sets the patient's weight in the health record.\n     * \n     * @param weight the weight to set\n     * @return void\n     */\n    public void setWeight(double weight) {\n        this.weight = weight;\n    }\n\n    /**\n     * Gets the body mass index (BMI) calculated based on the weight and height of the person.\n     * \n     * @return the body mass index (BMI) calculated using the formula: 703 * (weight / (height * height))\n     */\n    public double getBodyMassIndex() {\n        return 703 * (weight / (height * height));\n    }\n}\n*/"
     }
 ]

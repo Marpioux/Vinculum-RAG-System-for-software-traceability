@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(PersonnelBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the fields of a PersonnelBean object.\n * \n * @param p the PersonnelBean object to validate\n * @throws FormValidationException if any of the fields fail validation\n */\npublic void validate(PersonnelBean p) {\n    ErrorList errorList = new ErrorList();\n    errorList.addIfNotNull(checkFormat(\"First name\", p.getFirstName(), ValidationFormat.NAME, false));\n    errorList.addIfNotNull(checkFormat(\"Last name\", p.getLastName(), ValidationFormat.NAME, false));\n    errorList.addIfNotNull(checkFormat(\"Street Address 1\", p.getStreetAddress1(), ValidationFormat.ADDRESS, false));\n    errorList.addIfNotNull(checkFormat(\"Street Address 2\", p.getStreetAddress2(), ValidationFormat.ADDRESS, true));\n    errorList.addIfNotNull(checkFormat(\"City\", p.getCity(), ValidationFormat.CITY, false));\n    errorList.addIfNotNull(checkFormat(\"State\", p.getState(), ValidationFormat.STATE, false));\n    errorList.addIfNotNull(checkFormat(\"Zip Code\", p.getZip(), ValidationFormat.ZIPCODE, false));\n    errorList.addIfNotNull(checkFormat(\"Phone Number\", p.getPhone(), ValidationFormat.PHONE_NUMBER, false));\n    errorList.addIfNotNull(checkFormat(\"Email\", p.getEmail(), ValidationFormat.EMAIL, true));\n    \n    if (errorList.hasErrors()) {\n        throw new FormValidationException(errorList);\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public PersonnelValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the PersonnelValidator class.\n * It initializes a new instance of the PersonnelValidator class.\n * This constructor does not take any parameters.\n */"
             }
         ],
         "signature": "PersonnelValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The PersonnelValidator class is responsible for validating the fields of a PersonnelBean object.\n * It provides a method, validate, that performs validation on the various fields of the PersonnelBean.\n * If any of the fields fail validation, a FormValidationException is thrown.\n * \n * The validate method checks the format of the first name, last name, street addresses, city, state, zip code,\n * phone number, and email address of the PersonnelBean object using predefined ValidationFormat constants.\n * It creates an ErrorList to store any validation errors and throws a FormValidationException if any errors are found.\n * \n * The class also includes a Javadoc comment for the validate method, explaining its purpose and parameters.\n * \n * Overall, the PersonnelValidator class ensures that a PersonnelBean object meets the required format and standards\n * for its fields, providing a reliable way to validate personnel information.\n */\npublic class PersonnelValidator {\n    // class implementation goes here\n}\n**/\n/**\n * The PersonnelValidator class is responsible for validating personnel information.\n * It provides methods to validate various fields such as name, address, city, state, zip code, phone number, and email.\n * The class ensures that the provided personnel information meets specific format requirements.\n * If any of the fields fail validation, a FormValidationException is thrown with a list of errors.\n * \n * Main functionalities include:\n * - Validating name using the NAME format\n * - Validating street address 1 and 2 using the ADDRESS format\n * - Validating city using the CITY format\n * - Validating state using the STATE format\n * - Validating zip code using the ZIPCODE format\n * - Validating phone number using the PHONE_NUMBER format\n * - Validating email using the EMAIL format\n * \n * Overall behavior:\n * The PersonnelValidator class checks each field of personnel information against specific format requirements.\n * If any field fails validation, an error list is generated with details of the errors.\n * The class provides a constructor to initialize a new instance of the PersonnelValidator.\n */\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getBloodPressureD()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the diastolic blood pressure reading.\n * \n * @return the diastolic blood pressure reading as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.bloodPressureD = bloodPressureD;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodPressureD(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the diastolic blood pressure reading.\n * \n * @param bloodPressureD the diastolic blood pressure reading to set\n * \n * This method sets the diastolic blood pressure reading to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return bloodPressureN;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getBloodPressureN()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the blood pressure measurement for patient N.\n * \n * @return the blood pressure measurement for patient N as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.bloodPressureN = bloodPressureN;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setBloodPressureN(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the blood pressure measurement for the patient's diastolic pressure.\n * \n * @param bloodPressureN the new diastolic blood pressure measurement to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cholesterolHDL;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCholesterolHDL()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the HDL cholesterol value.\n * \n * @return the HDL cholesterol value as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cholesterolHDL = cholesterolHDL;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCholesterolHDL(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HDL cholesterol level for the patient.\n * \n * @param cholesterolHDL a String representing the HDL cholesterol level to be set\n * \n * This method sets the HDL cholesterol level for the patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cholesterolLDL;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCholesterolLDL()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the LDL cholesterol level.\n * \n * This method returns the LDL cholesterol level as a String.\n * \n * @return the LDL cholesterol level as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cholesterolLDL = cholesterolLDL;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCholesterolLDL(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the LDL cholesterol level for the patient.\n * \n * @param cholesterolLDL the LDL cholesterol level to be set\n * \n * This method sets the LDL cholesterol level for the patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return cholesterolTri;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCholesterolTri()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the cholesterol triglyceride level.\n * \n * This method returns the cholesterol triglyceride level as a String.\n * \n * @return the cholesterol triglyceride level as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cholesterolTri = cholesterolTri;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCholesterolTri(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the cholesterol triglyceride level of the patient.\n * \n * @param cholesterolTri the new cholesterol triglyceride level to set\n * \n * This method sets the cholesterol triglyceride level of the patient to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return height;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHeight()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the height of the object.\n * \n * @return the height of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.height = height;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHeight(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the height of the object.\n * \n * @param height a String representing the height of the object\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return isSmoker;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getIsSmoker()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the smoking status of the individual.\n * \n * @return a String representing whether the individual is a smoker or not\n */"
             },
             {
                 "body": "Optional[{\r\n    this.isSmoker = isSmoker;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIsSmoker(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the smoker status of a person.\n * \n * @param isSmoker a String representing the smoker status of the person\n * \n * This method sets the smoker status of a person based on the input String. \n * If the person is a smoker, the input should be \"Yes\", otherwise it should be \"No\".\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return weight;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getWeight()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the weight of the object.\n * \n * @return the weight of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.weight = weight;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setWeight(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the weight of the object.\n * \n * @param weight a String representing the weight to set\n * @return void\n */"
             }
         ],
         "constructors": [
@@ -137,7 +153,8 @@
                 "hasInnerComment": false,
                 "signature": "public HealthRecordForm()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new HealthRecordForm object.\n * This constructor does not take any parameters.\n * \n * @param None\n * @return A new HealthRecordForm object\n */"
             }
         ],
         "signature": "HealthRecordForm",
@@ -150,6 +167,7 @@
             "private String cholesterolHDL",
             "private String cholesterolLDL",
             "private String cholesterolTri"
-        ]
+        ],
+        "generated_class_comment": "Sure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a medical record that stores various health measurements for a patient.\n * It includes functionalities to retrieve and set diastolic blood pressure readings, blood pressure measurements for patient N,\n * and HDL cholesterol values. The class provides methods to get and set these values as Strings.\n * \n * The class ensures that the data is accurately stored and accessed for medical purposes.\n * It is designed to maintain the integrity of the health measurements and provide a reliable source of information for healthcare professionals.\n * \n * Overall, this class serves as a vital component in managing and monitoring the health status of a patient.\n */\n**/\n/**\n * The CholesterolLevels class represents the cholesterol levels of a patient.\n * It provides methods to set and retrieve the HDL cholesterol level, LDL cholesterol level, and cholesterol triglyceride level.\n * \n * The main functionalities of this class include:\n * - Setting and getting the HDL cholesterol level\n * - Setting and getting the LDL cholesterol level\n * - Setting and getting the cholesterol triglyceride level\n * \n * This class ensures that the cholesterol levels of the patient are accurately stored and retrieved.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * This class represents a Patient object that stores information about a patient's health metrics such as cholesterol triglyceride level, height, weight, and smoking status.\n * \n * The main functionalities of this class include:\n * - Setting and retrieving the cholesterol triglyceride level of the patient\n * - Setting and retrieving the height of the patient\n * - Setting and retrieving the smoking status of the patient\n * - Setting and retrieving the weight of the patient\n * \n * The class provides methods to set and get these health metrics, allowing for easy access and manipulation of the patient's health data.\n * \n * Additionally, the class includes validation checks for certain inputs, such as ensuring the smoker status is either \"Yes\" or \"No\".\n * \n * Overall, this class provides a convenient way to manage and track the health metrics of a patient.\n */\n/**\n * The HealthRecordForm class represents a form used to collect and store health record information for individuals.\n * This class contains variables to store data such as height, weight, smoking status, blood pressure, and cholesterol levels.\n * It provides methods to set and retrieve these data fields, allowing for easy access and manipulation of health record information.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving height, weight, smoking status, blood pressure, and cholesterol levels for an individual.\n * - Providing methods to set and get these health record data fields.\n * \n * Overall, the HealthRecordForm class serves as a convenient way to manage and track health information for individuals, \n * making it easier to monitor and maintain a healthy lifestyle.\n */"
     }
 ]

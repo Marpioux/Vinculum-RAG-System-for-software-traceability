@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public Dimension getPreferredScrollableViewportSize()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the preferred size of the viewport for this component. This method is typically used by scroll panes to determine the size of the viewport when the component is added to the scroll pane.\n * \n * @return a Dimension object representing the preferred size of the viewport\n */"
             },
             {
                 "body": "Optional[{\r\n    int posCorrente;\r\n    if (orientation == SwingConstants.HORIZONTAL) {\r\n        posCorrente = visibleRect.x;\r\n    } else {\r\n        posCorrente = visibleRect.y;\r\n    }\r\n    if (direction < 0) {\r\n        int newPos = posCorrente - (posCorrente / maxUnitIncrement) * maxUnitIncrement;\r\n        return (newPos == 0) ? maxUnitIncrement : newPos;\r\n    } else {\r\n        return ((posCorrente / maxUnitIncrement) + 1) * maxUnitIncrement - posCorrente;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getScrollableUnitIncrement(Rectangle, int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the scrollable unit increment for the given orientation, direction, and visible rectangle.\n * \n * @param visibleRect the visible rectangle within the scrollable viewport\n * @param orientation the orientation of the scroll bar (SwingConstants.HORIZONTAL or SwingConstants.VERTICAL)\n * @param direction the direction of the scroll (negative for scrolling up/left, positive for scrolling down/right)\n * @return the scrollable unit increment based on the current position within the visible rectangle\n */"
             },
             {
                 "body": "Optional[{\r\n    if (orientation == SwingConstants.HORIZONTAL) {\r\n        return visibleRect.width - maxUnitIncrement;\r\n    } else {\r\n        return visibleRect.height - maxUnitIncrement;\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getScrollableBlockIncrement(Rectangle, int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the block increment for scrolling in the specified direction.\n * \n * This method calculates the block increment based on the orientation of the scrollable component.\n * If the orientation is horizontal, the block increment is calculated as the difference between the width of the visible rectangle and the maximum unit increment.\n * If the orientation is vertical, the block increment is calculated as the difference between the height of the visible rectangle and the maximum unit increment.\n * \n * @param visibleRect the visible rectangle of the scrollable component\n * @param orientation the orientation of the scrollable component (SwingConstants.HORIZONTAL or SwingConstants.VERTICAL)\n * @param maxUnitIncrement the maximum unit increment for scrolling\n * @return the block increment for scrolling in the specified direction\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean getScrollableTracksViewportWidth()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns whether this component should be allowed to scroll horizontally to fill the viewport width.\n * \n * @return true if this component should be allowed to scroll horizontally to fill the viewport width, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean getScrollableTracksViewportHeight()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns whether this component should always be made large enough to fill its parent's viewport height.\n * \n * @return true if this component should always be made large enough to fill its parent's viewport height, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -49,7 +54,8 @@
                 "hasInnerComment": false,
                 "signature": "public ScrollableTable()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ScrollableTable object.\n * This constructor initializes the ScrollableTable by calling the constructor of its superclass.\n */"
             },
             {
                 "body": "{\r\n    super(tm);\r\n    setGridColor(Color.LIGHT_GRAY);\r\n    setIntercellSpacing(new Dimension(5, 0));\r\n}",
@@ -57,12 +63,14 @@
                 "hasInnerComment": false,
                 "signature": "public ScrollableTable(TableModel)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ScrollableTable with the specified TableModel.\n * \n * @param tm the TableModel to be used for the table\n * \n * This constructor initializes the ScrollableTable with the given TableModel, sets the grid color to LIGHT_GRAY,\n * and sets the intercell spacing to a Dimension of 5 pixels horizontally and 0 pixels vertically.\n */"
             }
         ],
         "signature": "ScrollableTable",
         "variables": [
             "private  static  final int maxUnitIncrement"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ScrollableTable class represents a custom table component that implements the Scrollable interface.\n * This class provides methods to handle scrolling behavior for the table component.\n * \n * The main functionalities of the ScrollableTable class include:\n * - Providing the preferred size of the viewport for the component\n * - Calculating the scrollable unit increment based on orientation, direction, and visible rectangle\n * - Calculating the block increment for scrolling in a specified direction\n * - Determining whether the component should track the viewport width and height for scrolling\n * \n * The ScrollableTable class also includes constructors to initialize the table with or without a specified TableModel.\n * \n * Overall, the ScrollableTable class allows for customized scrolling behavior for table components, making it suitable for use in scroll panes and other scrollable containers.\n */"
     }
 ]

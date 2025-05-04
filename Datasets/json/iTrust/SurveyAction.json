@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public void addSurvey(SurveyBean, long)",
                 "comments": "Optional[/**\r\n * Pass the OfficeVistBean along with SurveyBean\r\n * @param surveyBean contains data to be added to database\r\n * @param visitID The Office Visit ID corresponding to this Survey.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": "Optional[[//now set visit ID in the survey bean\r\n, //add to transaction log\r\n]]"
+                "innerComments": "Optional[[//now set visit ID in the survey bean\r\n, //add to transaction log\r\n]]",
+                "generated_comment": "/**\n * Adds a completed survey to the database with the specified visit ID.\n * \n * @param surveyBean the SurveyBean object containing the survey data\n * @param visitID the ID of the office visit associated with the completed survey\n * \n * @return void\n * \n * This method sets the visit ID in the SurveyBean object, adds the completed survey to the database using the SurveyDAO, \n * and logs the transaction in the transaction log using the TransDAO. The transaction type is set to ADD_PATIENT_SURVEY,\n * the logged-in MID is used as the user ID, and the office visit ID for the completed survey is included in the log message.\n */"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public SurveyAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Sets up defaults\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the user taking the survey.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SurveyAction object with the given DAOFactory and loggedInMID.\n * This constructor initializes the transDAO and surveyDAO fields using the provided DAOFactory.\n * \n * @param factory the DAOFactory used to retrieve TransactionDAO and SurveyDAO instances\n * @param loggedInMID the ID of the logged-in member\n */"
             }
         ],
         "signature": "SurveyAction",
@@ -25,6 +27,7 @@
             "private TransactionDAO transDAO",
             "private SurveyDAO surveyDAO",
             " long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SurveyAction class represents an action that allows users to add completed surveys to the database.\n * \n * This class contains methods for adding a completed survey with a specified visit ID, as well as a constructor\n * for setting up defaults and initializing the necessary DAO objects.\n * \n * The addSurvey method takes a SurveyBean object containing the survey data and a visit ID corresponding to the\n * office visit associated with the completed survey. It sets the visit ID in the SurveyBean object, adds the completed\n * survey to the database using the SurveyDAO, and logs the transaction in the transaction log using the TransDAO.\n * The transaction type is set to ADD_PATIENT_SURVEY, the logged-in MID is used as the user ID, and the office visit ID\n * for the completed survey is included in the log message.\n * \n * The SurveyAction constructor takes a DAOFactory object and the MID of the user taking the survey. It sets up defaults\n * by initializing the TransactionDAO and SurveyDAO objects, as well as setting the logged-in MID.\n */\n**/\n/**\n * The SurveyAction class represents an action that can be performed on surveys within the system. \n * It provides methods for retrieving and updating survey data, as well as handling transactions related to surveys.\n * \n * This class requires a DAOFactory and the ID of the logged-in member to be instantiated. The DAOFactory is used to \n * retrieve instances of TransactionDAO and SurveyDAO, which are used to interact with the database.\n * \n * The main functionalities of this class include:\n * - Retrieving survey data from the database\n * - Updating survey data in the database\n * - Handling transactions related to surveys\n * \n * The overall behavior of this class is to facilitate interactions with surveys, allowing users to view, modify, and \n * submit survey responses. It serves as a bridge between the application logic and the database, ensuring that survey \n * data is managed accurately and efficiently.\n */"
     }
 ]

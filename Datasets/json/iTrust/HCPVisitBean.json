@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCPMID (Health Care Provider Member ID) for this object.\n * \n * @param mid the HCPMID to set\n */\npublic void setHCPMID(long mid) {\n    hcpMID = mid;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return hcpMID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getHCPMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the HCPMID (Health Care Provider Master Identifier) associated with this object.\n * \n * @return the HCPMID of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    return HCPName;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n* This method returns the name of the healthcare provider (HCP).\n* \n* @return The name of the healthcare provider as a String.\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (null != name) {\r\n        HCPName = name;\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the HCP (Health Care Provider).\n * \n * This method sets the name of the HCP to the specified name parameter, \n * if the name parameter is not null. If the name parameter is null, \n * the HCP name remains unchanged.\n * \n * @param name the new name for the HCP\n */"
             },
             {
                 "body": "Optional[{\r\n    return HCPSpecialty;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPSpecialty()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the specialty of a healthcare provider.\n * \n * @return the specialty of the healthcare provider as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null != specialty) {\r\n        HCPSpecialty = specialty;\r\n    } else {\r\n        HCPSpecialty = \"none\";\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPSpecialty(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the specialty of the healthcare provider.\n * If the given specialty is not null, sets the HCPSpecialty attribute to the provided specialty.\n * If the given specialty is null, sets the HCPSpecialty attribute to \"none\".\n * \n * @param specialty the specialty to set for the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    return HCPAddr;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHCPAddr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the address of the healthcare provider.\n * \n * @return a String representing the address of the healthcare provider\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null != addr) {\r\n        HCPAddr = addr;\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHCPAddr(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCP address to the specified value.\n * \n * @param addr the new HCP address to set\n * \n * This method sets the HCP address to the specified value only if the input address is not null.\n * If the input address is null, the HCP address remains unchanged.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return OVDate;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getOVDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the OVDate value.\n * \n * @return the OVDate value as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null != date) {\r\n        OVDate = date;\r\n    }\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOVDate(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the OVDate with the provided date string.\n * \n * @param date a string representing the date to set for OVDate\n * @return void\n * \n * This method sets the OVDate with the provided date string only if the date string is not null.\n */"
             },
             {
                 "body": "Optional[{\r\n    return designated;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean isDesignated()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the object is designated.\n * \n * @return true if the object is designated, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    designated = val;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDesignated(boolean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the designated status of the object.\n * \n * @param val the boolean value to set as the designated status\n * @return void\n */\npublic void setDesignated(boolean val) {\n    designated = val;\n}"
             }
         ],
         "constructors": [
@@ -105,7 +117,8 @@
                 "hasInnerComment": false,
                 "signature": "public HCPVisitBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This constructor creates a new instance of the HCPVisitBean class with default values for its attributes.\n * The HCPName, HCPSpecialty, HCPAddr, and OVDate attributes are initialized to empty strings.\n */"
             }
         ],
         "signature": "HCPVisitBean",
@@ -116,6 +129,7 @@
             "private String OVDate",
             "private boolean designated",
             "private long hcpMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The HealthCareProvider class represents a healthcare provider entity in a medical system.\n * This class stores information about a healthcare provider, including their unique identifier (HCPMID),\n * name, and specialty.\n * \n * The main functionalities of this class include setting and retrieving the HCPMID, name, and specialty\n * of a healthcare provider. The setHCPMID method allows setting the HCPMID, getHCPMID method retrieves\n * the HCPMID, setHCPName method sets the name of the healthcare provider, getHCPName method retrieves\n * the name, setHCPSpecialty method sets the specialty of the healthcare provider, and getHCPSpecialty\n * method retrieves the specialty.\n * \n * The overall behavior of this class is to provide a way to manage and access information about healthcare\n * providers in the system. It allows for easy retrieval and modification of the HCPMID, name, and specialty\n * of a healthcare provider object.\n */\n/**\n * This class represents a healthcare provider and provides methods to set and retrieve information about the provider.\n * It includes attributes such as specialty, address, and appointment date.\n * \n * The class includes methods to set and get the specialty of the healthcare provider, set and get the address of the provider,\n * as well as set and get the appointment date.\n * \n * The setHCPSpecialty method sets the specialty of the healthcare provider. If the given specialty is not null, \n * it sets the HCPSpecialty attribute to the provided specialty. If the given specialty is null, it sets the HCPSpecialty \n * attribute to \"none\".\n * \n * The getHCPAddr method retrieves the address of the healthcare provider.\n * \n * The setHCPAddr method sets the HCP address to the specified value. This method sets the HCP address to the specified \n * value only if the input address is not null. If the input address is null, the HCP address remains unchanged.\n * \n * The getOVDate method retrieves the OVDate value.\n * \n * The setOVDate method sets the OVDate value to the specified date. This method sets the OVDate value only if the input \n * date is not null. If the input date is null, the OVDate value remains unchanged.\n * \n * Overall, this class provides functionality to manage and retrieve information about a healthcare provider, including \n * their specialty, address, and appointment date.\n */\n **/\n/**\n * The HCPVisitBean class represents a bean object that stores information related to a healthcare provider visit.\n * It contains attributes such as HCPName, HCPSpecialty, HCPAddr, OVDate, designated, and hcpMID.\n * \n * This class provides methods to set and retrieve values for these attributes, as well as check the designated status of the object.\n * \n * The HCPVisitBean class includes a constructor that initializes its attributes to default values.\n * \n * Additionally, it has methods to set the OVDate with a provided date string, check if the object is designated, and set the designated status of the object.\n * \n * Overall, the HCPVisitBean class encapsulates the data related to a healthcare provider visit and provides functionality to manipulate and access this data.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels(String)",
                 "comments": null,
-                "innerComments": "Optional[[//Creo  le etichette\r\n, //Creo i TextField\r\n, //Creo i bottoni\r\n, //Creo il pannello in alto contenente i dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo  le etichette\r\n, //Creo i TextField\r\n, //Creo i bottoni\r\n, //Creo il pannello in alto contenente i dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for displaying room information.\n * \n * @param caption the caption for the action button\n * \n * This method sets the font, creates labels, text fields, buttons, and checkboxes for displaying room information.\n * It creates two panels - one for displaying room details and another for containing buttons.\n * The method also attaches the panels to the frame for display.\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            stanze.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the Annulla button by adding an ActionListener that disposes of the current window and enables the stanze component when the button is clicked.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    stanze.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the specified component.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Stanza room = new Stanza();\r\n    room.setNumStanza(testo1.getText());\r\n    room.setPostiLetto(Integer.parseInt(testo2.getText()));\r\n    Float f = Float.valueOf(testo3.getText());\r\n    room.setPxBase(f.floatValue());\r\n    room.setDescrizione(testo4.getText());\r\n    if (mycheckboxes.getState())\r\n        room.setDispLettoAgg(Const.SI);\r\n    return room;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "protected Stanza readDatiStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Reads data from input fields and creates a new Stanza object with the provided information.\n * \n * @return A new Stanza object with the room number, number of beds, base price, description, and additional bed availability.\n */\nprotected Stanza readDatiStanza() {\n    Stanza room = new Stanza();\n    room.setNumStanza(testo1.getText());\n    room.setPostiLetto(Integer.parseInt(testo2.getText()));\n    Float f = Float.valueOf(testo3.getText());\n    room.setPxBase(f.floatValue());\n    room.setDescrizione(testo4.getText());\n    if (mycheckboxes.getState())\n        room.setDispLettoAgg(Const.SI);\n    return room;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    testo1.setText(room.getNumStanza());\r\n    testo2.setText(\"\" + room.getPostiLetto());\r\n    testo3.setText(\"\" + room.getPxBase());\r\n    testo4.setText(room.getDescrizione());\r\n    if (room.getDispLettoAgg() == Const.SI)\r\n        mycheckboxes.setState(true);\r\n    else\r\n        mycheckboxes.setState(false);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "protected void writeDatiStanza(Stanza)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes the data of a given room to the corresponding text fields and checkboxes.\n * \n * @param room the room object containing the data to be displayed\n * \n * This method sets the text of testo1 to the room number, testo2 to the number of beds, \n * testo3 to the base price, and testo4 to the description of the room. \n * It also checks the availability of additional beds and sets the state of mycheckboxes accordingly.\n */"
             },
             {
                 "body": "Optional[{\r\n    testo1.setText(\"\");\r\n    testo2.setText(\"\");\r\n    testo3.setText(\"\");\r\n    testo4.setText(\"\");\r\n    mycheckboxes.setState(false);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "protected void cleanFields()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method cleans the fields in the user interface by setting the text of testo1, testo2, testo3, and testo4 to an empty string and unchecking the state of mycheckboxes.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (!((testo1.getText()).length() <= 4)) {\r\n        msg = new MessageDialog(this, \" Il numero della stanza deve essere composto da al piu' 4 caratteri! \");\r\n        return true;\r\n    }\r\n    if (((testo1.getText()).equals(\"\"))) {\r\n        msg = new MessageDialog(this, \" Manca il numero della stanza! \");\r\n        return true;\r\n    }\r\n    if (((testo2.getText()).equals(\"\"))) {\r\n        msg = new MessageDialog(this, \" Manca il numero di posti letto! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isIntPos(testo2.getText())) {\r\n        msg = new MessageDialog(this, \" Il numero di posti deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (((testo3.getText()).equals(\"\"))) {\r\n        msg = new MessageDialog(this, \" Manca il prezzo della stanza! \");\r\n        return true;\r\n    }\r\n    if (!Utils.isFloatPos(testo3.getText())) {\r\n        msg = new MessageDialog(this, \" Il prezzo della stanza deve essere un numero positivo! \");\r\n        return true;\r\n    }\r\n    if (!((testo4.getText()).length() <= 52)) {\r\n        msg = new MessageDialog(this, \" La descrizione deve essere composta da al piu' 52 caratteri! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "protected boolean errori()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if the input fields for a room are valid.\n * \n * @return true if there are any errors in the input fields, false otherwise\n */\n*/"
             }
         ],
         "constructors": [
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public DescrittoreStanze(String, String, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DescrittoreStanze object with the specified title, caller, and caption.\n * \n * @param title the title of the DescrittoreStanze object\n * @param caller the caller of the DescrittoreStanze object\n * @param caption the caption of the DescrittoreStanze object\n */\npublic DescrittoreStanze(String title, String caller, int caption) {\n    super(title);\n    this.caller = caller;\n    setupPanels(caption);\n    inizializza();\n    pack();\n} \n*/"
             }
         ],
         "signature": "DescrittoreStanze",
@@ -88,6 +96,7 @@
             " Checkbox mycheckboxes",
             " SubStanze stanze",
             " int caller"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DescrittoreStanze class represents a user interface for displaying room information.\n * It contains methods for setting up panels, initializing components, reading and writing room data,\n * cleaning user input fields, and checking for errors in the input data.\n * The class also includes a constructor for creating a new DescrittoreStanze object with a specified title, caller, and caption.\n * \n * Main functionalities:\n * - Setting up panels for displaying room information\n * - Initializing components such as buttons and text fields\n * - Reading data from input fields and creating a new Stanza object\n * - Writing room data to text fields and checkboxes\n * - Cleaning user input fields\n * - Checking for errors in the input data\n * \n * Overall behavior:\n * The DescrittoreStanze class provides a user-friendly interface for managing room information.\n * It allows users to input and display details about rooms, such as room number, number of beds, base price, and description.\n * The class ensures that the input data is valid and provides feedback to the user in case of errors.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

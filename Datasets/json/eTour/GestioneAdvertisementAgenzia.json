@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean cancellaNews(int)",
                 "comments": "Optional[/**\r\n * Method which removes news from the database. Uses the\r\n * {@link Boolean unisa.gps.etour.repository.IDBNews#cancellaNews(int)}\r\n *\r\n * @param pNewsID news to be erased.\r\n * @return true if the cancellation was successful or false otherwise.\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": "Optional[[/* Check that the ID is valid */\r\n]]"
+                "innerComments": "Optional[[/* Check that the ID is valid */\r\n]]",
+                "generated_comment": "/**\n * Cancels a news entry in the database based on the provided news ID.\n * \n * @param pNewsID the ID of the news entry to be cancelled\n * @return true if the news entry was successfully cancelled, false if the news ID is invalid\n * @throws RemoteException if there is an error connecting to the database\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        /* Check the data of the news */\r\n        if (!ControlloDati.checkBeanNews(pNews)) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        /* Check that has not been exceeded the no. Max news presets */\r\n        int numNews = dbNews.ottieniNews().size();\r\n        if (numNews < CostantiGlobali.MAX_NEWS_ATTIVE) {\r\n            /* Possible inclusion */\r\n            return (dbNews.inserisciNews(pNews));\r\n        } else {\r\n            /* Insertion is not possible */\r\n            return false;\r\n        }\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean inserisciNews(BeanNews)",
                 "comments": "Optional[/**\r\n * Insert a new news in the database.\r\n * Use the method {@link unisa.gps.etour.repository.IDBNews#inserisciNews(BeanNews)}\r\n * to insert the news and the method {@link unisa.gps.etour.repository.IDBNews#ottieniNews()}\r\n * to count the number of news in the system.\r\n *\r\n * @param pNews bean containing data news.\r\n * @return true if the insertion is successful, false if it was\r\n *         reached the maximum number of news stored or if the insertion fails.\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": "Optional[[/* Check the data of the news */\r\n, /* Check that has not been exceeded the no. Max news presets */\r\n, /* Possible inclusion */\r\n, /* Insertion is not possible */\r\n]]"
+                "innerComments": "Optional[[/* Check the data of the news */\r\n, /* Check that has not been exceeded the no. Max news presets */\r\n, /* Possible inclusion */\r\n, /* Insertion is not possible */\r\n]]",
+                "generated_comment": "/**\n * Inserts a new news item into the database.\n * \n * @param pNews the BeanNews object representing the news item to be inserted\n * @return true if the news item was successfully inserted, false if insertion is not possible due to exceeding the maximum number of news items\n * @throws RemoteException if there is an error with the data of the news item or a database connection error occurs\n */\npublic boolean inserisciNews(BeanNews pNews) {\n    try {\n        /* Check the data of the news */\n        if (!ControlloDati.checkBeanNews(pNews)) {\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n        }\n        /* Check that has not been exceeded the no. Max news presets */\n        int numNews = dbNews.ottieniNews().size();\n        if (numNews < CostantiGlobali.MAX_NEWS_ATTIVE) {\n            /* Possible inclusion */\n            return (dbNews.inserisciNews(pNews));\n        } else {\n            /* Insertion is not possible */\n            return false;\n        }\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        /* Check the data of the news */\r\n        if (!ControlloDati.checkBeanNews(pNews)) {\r\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\r\n        }\r\n        return (dbNews.modificaNews(pNews));\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "public boolean modificaNews(BeanNews)",
                 "comments": "Optional[/**\r\n * Method to change data of a news.\r\n * Use the method {@link unisa.gps.etour.repository.IDBNews#modificaNews(BeanNews)}.\r\n *\r\n * @param pNews bean containing the data of news changed.\r\n * @return true if the change goes through.\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": "Optional[[/* Check the data of the news */\r\n]]"
+                "innerComments": "Optional[[/* Check the data of the news */\r\n]]",
+                "generated_comment": "/**\n * Modifies a news in the database.\n * \n * @param pNews the BeanNews object representing the news to be modified\n * @return true if the news was successfully modified, false otherwise\n * @throws RemoteException if there is an error with the data of the news or with the database connection\n */\npublic boolean modificaNews(BeanNews pNews) {\n    try {\n        /* Check the data of the news */\n        if (!ControlloDati.checkBeanNews(pNews)) {\n            throw new RemoteException(MessaggiErrore.ERRORE_DATI);\n        }\n        return (dbNews.modificaNews(pNews));\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return (dbNews.ottieniNews());\r\n    } catch (SQLException e) {\r\n        throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanNews> ottieniAllNews()",
                 "comments": "Optional[/**\r\n * Method that returns an array containing all the news stored in the system.\r\n * Use the method {@link unisa.gps.etour.repository.IDBNews#ottieniNews()}.\r\n *\r\n * @return ArrayList containing beans of news.\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves all news from the database.\n * \n * This method queries the database to retrieve a list of all news items.\n * \n * @return An ArrayList of BeanNews objects representing all news items in the database.\n * \n * @throws RemoteException if there is an error connecting to the database.\n */\npublic ArrayList<BeanNews> ottieniAllNews() {\n    try {\n        return (dbNews.ottieniNews());\n    } catch (SQLException e) {\n        throw new RemoteException(MessaggiErrore.ERRORE_CONNESSIONE_DBMS);\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public GestioneAdvertisementAgenzia()",
                 "comments": "Optional[/**\r\n * Constructor. Instantiates an object of type {@link unisa.gps.etour.repository.DBNews}.\r\n *\r\n * @throws RemoteException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new GestioneAdvertisementAgenzia object.\n * This constructor initializes the GestioneAdvertisementAgenzia object by calling the constructor of its superclass.\n * It also creates a new DBNews object and assigns it to the dbNews instance variable.\n */"
             }
         ],
         "signature": "GestioneAdvertisementAgenzia",
         "variables": [
             "private  static  final long serialVersionUID",
             "private IDBNews dbNews"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The GestioneAdvertisementAgenzia class is responsible for managing news items in the database for an advertising agency.\n * It provides methods for inserting, modifying, deleting, and retrieving news items from the database.\n * \n * The class includes the following functionalities:\n * - Inserting a new news item into the database using the inserisciNews method.\n * - Modifying an existing news item in the database using the modificaNews method.\n * - Deleting a news item from the database using the cancellaNews method.\n * - Retrieving all news items stored in the database using the ottieniAllNews method.\n * \n * This class also includes a constructor that instantiates a DBNews object for database operations.\n * \n * Overall, the GestioneAdvertisementAgenzia class provides a comprehensive set of functionalities for managing news items\n * in the database, ensuring data integrity and proper error handling through RemoteExceptions.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void editPrescription(PrescriptionBean)",
                 "comments": "Optional[/**\r\n * Edits an existing prescription in the database.\r\n *\r\n * @param pres The prescription bean that has been changed.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Edits a prescription in the database.\n * \n * @param pres the PrescriptionBean object representing the prescription to be edited\n * \n * This method updates the prescription information in the database using the PrescriptionBean object provided as a parameter.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -17,12 +18,14 @@
                 "hasInnerComment": false,
                 "signature": "public EditPrescriptionAction(DAOFactory)",
                 "comments": "Optional[/**\r\n * Creates a new action by initializing the office visit\r\n * database access object.\r\n *\r\n * @param factory\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new EditPrescriptionAction object with the given DAOFactory.\n * This constructor initializes the EditPrescriptionAction object with the OfficeVisitDAO\n * obtained from the provided DAOFactory.\n * \n * @param factory the DAOFactory used to retrieve the OfficeVisitDAO\n */"
             }
         ],
         "signature": "EditPrescriptionAction",
         "variables": [
             "private OfficeVisitDAO ovDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The EditPrescriptionAction class represents an action that allows for editing prescriptions in the database.\n * This class contains methods for editing existing prescriptions and a constructor for initializing the necessary database access object.\n * \n * The main functionality of this class includes editing prescription information in the database using a PrescriptionBean object.\n * The editPrescription method updates an existing prescription in the database based on the changes made to the PrescriptionBean object.\n * \n * This class requires a DAOFactory object to be passed to the constructor, which is used to retrieve the OfficeVisitDAO for database access.\n * \n * Overall, the EditPrescriptionAction class provides functionality for editing prescriptions in the database and is essential for managing prescription information within the system.\n */"
     }
 ]

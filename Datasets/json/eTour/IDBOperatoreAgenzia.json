@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract BeanOperatoreAgenzia ottieniOperatoreAgenzia(String)",
                 "comments": "Optional[/**\r\n * Returns the data Operator Agency with ID equal to that given in\r\n * input\r\n *\r\n * @param pUsername Username dell'OperatoreAgenzia to find\r\n * @return OperatoreAgenzia with id equal to the input, null if there is\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves an operator agency bean based on the provided string identifier.\n * \n * @param identifier the unique string identifier of the operator agency to retrieve\n * @return an Optional containing the operator agency bean if found, or empty if not found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -15,11 +16,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean modificaPassword(BeanOperatoreAgenzia)",
                 "comments": "Optional[/**\r\n * Returns the data Operator Agency with ID equal to that given in\r\n * input\r\n *\r\n * @param poa OperatoreAgenzia to modify\r\n * @return true if the password was modified, false otherwise\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies the password of the specified operator agency.\n * \n * @param operatoreAgenzia the operator agency whose password needs to be modified\n * @return true if the password was successfully modified, false otherwise\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBOperatoreAgenzia",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBOperatoreAgenzia interface represents a data access object for retrieving and modifying Operator Agency data.\n * It provides methods for obtaining an Operator Agency based on a username and modifying the password of an Operator Agency.\n * \n * This interface defines the following main functionalities:\n * - Retrieving an Operator Agency based on a username\n * - Modifying the password of an Operator Agency\n * \n * The behavior of this interface is as follows:\n * - The ottieniOperatoreAgenzia method retrieves an Operator Agency based on the provided username. It returns an Optional containing the Operator Agency bean if found, or empty if not found.\n * - The modificaPassword method modifies the password of the specified Operator Agency. It returns true if the password was successfully modified, false otherwise.\n * \n * Implementations of this interface should handle database interactions and exception handling related to Operator Agency data.\n */"
     }
 ]

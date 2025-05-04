@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getQuestion()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the question associated with this object.\n * \n * @return the question as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.question = question;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setQuestion(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the question for this object.\n * \n * @param question the question to be set\n * \n * This method sets the question for this object by assigning the provided question parameter to the question field.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return answer;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAnswer()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the answer stored in this object.\n * \n * @return the answer as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.answer = answer;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAnswer(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the answer for this object.\n * \n * @param answer the answer to be set\n * \n * This method sets the answer for this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return confirmAnswer;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getConfirmAnswer()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the confirmation answer.\n * \n * @return The confirmation answer as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.confirmAnswer = confirmAnswer;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setConfirmAnswer(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the confirm answer for the user. This method updates the confirmAnswer instance variable with the provided value.\n * \n * @param confirmAnswer the new confirm answer to be set\n * @return void\n */"
             }
         ],
         "constructors": [],
@@ -56,6 +62,7 @@
             " String question",
             " String answer",
             " String confirmAnswer"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a QuestionAnswer object that stores a question, answer, and confirmation answer.\n * It provides methods to retrieve and set the question, answer, and confirmation answer.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving a question as a String\n * - Storing and retrieving an answer as a String\n * - Storing and retrieving a confirmation answer as a String\n * \n * The behavior of this class is as follows:\n * - The question, answer, and confirmation answer can be set using the respective setter methods\n * - The question, answer, and confirmation answer can be retrieved using the respective getter methods\n * \n * This class is designed to facilitate the storage and retrieval of question-answer pairs, along with a confirmation answer.\n */\n **/\n/**\n * The SecurityQA class represents a security question and answer system for user authentication.\n * It stores a security question, its corresponding answer, and a confirm answer for the user.\n * \n * This class provides methods to set and retrieve the security question, answer, and confirm answer.\n * Users can set the security question, answer it, and confirm their answer for verification purposes.\n * \n * The confirmAnswer instance variable is updated with the provided value using the setConfirmAnswer method.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

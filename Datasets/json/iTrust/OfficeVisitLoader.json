@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<OfficeVisitBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a list of OfficeVisitBean objects from the given ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into OfficeVisitBean objects\n * @return a List of OfficeVisitBean objects populated with data from the ResultSet\n * \n * This method iterates through the ResultSet and creates a new OfficeVisitBean object for each row of data.\n * It then adds each OfficeVisitBean object to a List and returns the populated List.\n */"
             },
             {
                 "body": "Optional[{\r\n    OfficeVisitBean ov = new OfficeVisitBean(rs.getInt(\"ID\"));\r\n    ov.setHcpID(rs.getLong(\"HCPID\"));\r\n    ov.setNotes(rs.getString(\"Notes\"));\r\n    ov.setPatientID(rs.getLong(\"PatientID\"));\r\n    ov.setHospitalID(rs.getString(\"HospitalID\"));\r\n    ov.setVisitDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(rs.getDate(\"VisitDate\").getTime())));\r\n    return ov;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public OfficeVisitBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads a single OfficeVisitBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the OfficeVisitBean\n * @return the loaded OfficeVisitBean object\n */\npublic OfficeVisitBean loadSingle(ResultSet rs) {\n    OfficeVisitBean ov = new OfficeVisitBean(rs.getInt(\"ID\"));\n    ov.setHcpID(rs.getLong(\"HCPID\"));\n    ov.setNotes(rs.getString(\"Notes\"));\n    ov.setPatientID(rs.getLong(\"PatientID\"));\n    ov.setHospitalID(rs.getString(\"HospitalID\"));\n    ov.setVisitDateStr(new SimpleDateFormat(\"MM/dd/yyyy\").format(new Date(rs.getDate(\"VisitDate\").getTime())));\n    return ov;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,11 +25,13 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, OfficeVisitBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads the parameters from the given OfficeVisitBean into the provided PreparedStatement.\n * \n * @param statement the PreparedStatement to load parameters into\n * @param visitBean the OfficeVisitBean containing the parameters to be loaded\n * @return the PreparedStatement with parameters loaded\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n */\npublic PreparedStatement loadParameters(PreparedStatement statement, OfficeVisitBean visitBean) {\n    throw new IllegalStateException(\"unimplemented!\");\n}\n*/"
             }
         ],
         "constructors": [],
         "signature": "OfficeVisitLoader",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * This class provides methods for loading OfficeVisitBean objects from a ResultSet.\n * It contains two main methods: loadList and loadSingle.\n * \n * The loadList method takes a ResultSet as input and returns a List of OfficeVisitBean objects.\n * It iterates through the ResultSet and creates a new OfficeVisitBean object for each row of data.\n * It then adds each OfficeVisitBean object to a List and returns the populated List.\n * \n * The loadSingle method takes a ResultSet as input and returns a single OfficeVisitBean object.\n * It extracts data from the ResultSet and sets the attributes of the OfficeVisitBean object accordingly.\n * \n * Overall, this class provides functionality for loading OfficeVisitBean objects from a ResultSet and is useful for data retrieval operations.\n */\n/**\n * The OfficeVisitLoader class is responsible for loading OfficeVisitBean objects from a ResultSet and preparing the necessary parameters to be inserted into a PreparedStatement. It provides methods for loading OfficeVisitBean objects from a ResultSet, as well as for loading parameters from an OfficeVisitBean into a PreparedStatement.\n * \n * This class acts as a utility for handling database operations related to OfficeVisitBean objects. It ensures that data is properly retrieved from the database and prepared for insertion or update operations.\n * \n * The main functionalities of this class include:\n * - Loading OfficeVisitBean objects from a ResultSet\n * - Loading parameters from an OfficeVisitBean into a PreparedStatement\n * \n * The behavior of this class is to throw an IllegalStateException if any of its methods are called while they are currently unimplemented. This serves as a placeholder for future implementation and ensures that the class is not used in an incomplete state.\n */"
     }
 ]

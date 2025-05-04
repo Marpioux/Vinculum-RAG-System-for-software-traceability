@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCognome()",
                 "comments": "Optional[/**\r\n * Returns the value of cognome\r\n *\r\n * @return value of cognome.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the last name of the person.\n * \n * @return the last name of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.cognome = pCognome;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCognome(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of cognome\r\n *\r\n * @param pCognome New surname.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the last name of the person.\n * \n * @param pCognome the last name to be set\n * \n * This method sets the last name of the person to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.name = pNome;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNome(String)",
                 "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param pNome New value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param pNome the new name to be set\n * \n * This method sets the name of the object to the specified name.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return password;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPassword()",
                 "comments": "Optional[/**\r\n * Returns the value of password\r\n *\r\n * @return value of password.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the password associated with this object.\n * \n * @return the password as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.password = pPassword;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPassword(String)",
                 "comments": "Optional[/**\r\n * Sets the new password value\r\n *\r\n * @param pPassword new password value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the password for the user.\n * \n * @param pPassword the new password to set\n * @return void\n * \n * This method sets the password for the user to the specified value. \n * The password must be a string value. \n * If the password is successfully set, no return value is provided.\n */"
             },
             {
                 "body": "Optional[{\r\n    return username;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getUserName()",
                 "comments": "Optional[/**\r\n * Returns the value of username\r\n *\r\n * @return value of username.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the username associated with this object.\n * \n * @return the username as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.username = pUsername;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setUsername(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of username\r\n *\r\n * @param pUsername New value for username.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the username for the object.\n * \n * @param pUsername the new username to set\n * \n * This method sets the username for the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = pid;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid new value of id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pid the new ID to set\n * @return void\n */\npublic void setId(int pid) {\n    this.id = pid;\n}"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier associated with this object.\n * \n * @return the integer value representing the ID of this object\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanOperatoreAgenzia(int, String, String, String, String)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pid\r\n * @param pUsername\r\n * @param pNome\r\n * @param pCognome\r\n * @param pPassword\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanOperatoreAgenzia object with the specified parameters.\n * \n * @param pid the unique identifier of the operator\n * @param pUsername the username of the operator\n * @param pNome the first name of the operator\n * @param pCognome the last name of the operator\n * @param pPassword the password of the operator\n * \n * This constructor initializes the BeanOperatoreAgenzia object with the given parameters by calling the corresponding setter methods.\n */"
             },
             {
                 "body": "{\r\n}",
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanOperatoreAgenzia()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for creating a new instance of BeanOperatoreAgenzia.\n * This constructor does not take any parameters.\n * \n * @param None\n * @return A new instance of BeanOperatoreAgenzia\n */"
             }
         ],
         "signature": "BeanOperatoreAgenzia",
@@ -108,6 +120,7 @@
             "private String name",
             "private String cognome",
             "private String password"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanOperatoreAgenzia class represents an operator in an agency. \n * This class encapsulates the information related to an operator, including their unique identifier, username, first name, last name, and password.\n * \n * This class provides methods to retrieve and set the values of the operator's attributes such as ID, username, name, cognome, and password.\n * Additionally, it includes constructors to create a new instance of the BeanOperatoreAgenzia class with specified parameters or without any parameters.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the ID of the operator\n * - Retrieving and setting the username of the operator\n * - Retrieving and setting the first name of the operator\n * - Retrieving and setting the last name of the operator\n * - Retrieving and setting the password of the operator\n * \n * This class follows the JavaBean convention by providing getter and setter methods for its attributes.\n * \n * Note: It is recommended to use the parameterized constructor to initialize a new instance of the BeanOperatoreAgenzia class with the required parameters.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

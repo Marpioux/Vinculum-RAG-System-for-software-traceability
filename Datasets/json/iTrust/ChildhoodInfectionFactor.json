@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the description of the patient's medical history.\n * This method returns a String that describes a viral infection the patient had during their childhood,\n * which increases the risk for a specific disease.\n * \n * @return a String representing the patient's medical history description\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return factory.getRiskDAO().hadChildhoodInfection(patientID, icdCodes);\r\n    } catch (DBException e) {\r\n        System.err.println(\"DBException on Childhood Infection Risk, giving no risk\");\r\n        return false;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasFactor()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a patient has a factor related to childhood infection risk.\n * \n * @param patientID the ID of the patient to check for childhood infection risk\n * @param icdCodes the list of ICD codes related to childhood infections\n * @return true if the patient has a factor related to childhood infection risk, false otherwise\n * @throws DBException if there is an issue with the database connection\n */"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public ChildhoodInfectionFactor(DAOFactory, long, double)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ChildhoodInfectionFactor with the specified DAOFactory, patient ID, and array of ICD codes.\n * \n * @param factory the DAOFactory used to access the database\n * @param patientID the unique identifier of the patient\n * @param icdCodes the array of ICD codes representing childhood infections\n * \n * The constructor initializes the ChildhoodInfectionFactor with the given DAOFactory, patient ID, and array of ICD codes.\n * The ICD codes array is cloned to ensure that the original array remains unchanged.\n */"
             }
         ],
         "signature": "ChildhoodInfectionFactor",
@@ -33,6 +36,7 @@
             "private  final double icdCodes",
             "private  final long patientID",
             "private  final DAOFactory factory"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The ChildhoodInfectionFactor class represents a factor related to childhood infection risk for a patient.\n * This class provides methods to retrieve the description of the patient's medical history and check if the patient has a factor related to childhood infection risk.\n * \n * The getDescription method returns a String that describes a viral infection the patient had during their childhood, which increases the risk for a specific disease.\n * \n * The hasFactor method checks if a patient has a factor related to childhood infection risk by querying the database using the specified patient ID and list of ICD codes.\n * \n * The constructor initializes a new ChildhoodInfectionFactor with the specified DAOFactory, patient ID, and array of ICD codes.\n * \n * Overall, this class helps in assessing the risk of a specific disease based on a patient's childhood infection history.\n */\npublic class ChildhoodInfectionFactor {\n    // Class implementation here\n}\n*/\n/**\n * The ChildhoodInfectionFactor class represents a factor that calculates the likelihood of childhood infections for a given patient.\n * It stores the patient's identifier, an array of ICD codes representing childhood infections, and a DAOFactory for data access.\n * \n * The constructor initializes the ChildhoodInfectionFactor with the given DAOFactory, patient ID, and array of ICD codes.\n * The ICD codes array is cloned to ensure that the original array remains unchanged.\n * \n * This class provides methods to calculate the infection factor based on the patient's medical history and ICD codes.\n * It also allows for retrieving and updating the patient's identifier and ICD codes.\n */"
     }
 ]

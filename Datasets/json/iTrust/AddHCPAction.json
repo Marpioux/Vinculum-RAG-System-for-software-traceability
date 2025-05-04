@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public long add(PersonnelBean)",
                 "comments": "Optional[/**\r\n * Adds the new user.   Event is logged.\r\n *\r\n * @param p bean containing the information for the new user\r\n * @return MID of the new user.\r\n * @throws FormValidationException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": "Optional[[//transDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID);\r\n]]"
+                "innerComments": "Optional[[//transDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID);\r\n]]",
+                "generated_comment": "/**\n * Adds a new healthcare personnel (HCP) to the system with the provided PersonnelBean.\n * Validates the PersonnelBean using AddPersonnelValidator, adds an empty personnel entry to the database with Role.HCP,\n * sets the generated MID to the PersonnelBean, edits the personnel information in the database, adds a new user with Role.HCP\n * to the authentication database with a random password, logs the transaction of creating a new HCP, and returns the generated MID.\n * \n * @param p the PersonnelBean representing the new healthcare personnel to be added\n * @return the generated MID for the new healthcare personnel\n */"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public AddHCPAction(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AddHCPAction object with the specified DAOFactory and loggedInMID.\n * This constructor initializes the AddHCPAction object by setting the personnelDAO, authDAO, and transDAO\n * using the provided DAOFactory. It also sets the loggedInMID to the specified value.\n * \n * @param factory the DAOFactory used to retrieve DAO objects for personnel, authentication, and transactions\n * @param loggedInMID the ID of the currently logged in user\n */"
             }
         ],
         "signature": "AddHCPAction",
@@ -26,6 +28,7 @@
             "private AuthDAO authDAO",
             "private TransactionDAO transDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AddHCPAction class represents an action that adds a new healthcare personnel (HCP) to the system.\n * This class contains methods for adding a new HCP with the provided PersonnelBean, validating the input using AddPersonnelValidator,\n * adding an empty personnel entry to the database with Role.HCP, setting the generated MID to the PersonnelBean,\n * editing the personnel information in the database, adding a new user with Role.HCP to the authentication database with a random password,\n * logging the transaction of creating a new HCP, and returning the generated MID.\n * \n * The class also includes a constructor that initializes the AddHCPAction object with the specified DAOFactory and loggedInMID.\n * This constructor sets the personnelDAO, authDAO, and transDAO using the provided DAOFactory and sets the loggedInMID to the specified value.\n * \n * Main functionalities of the AddHCPAction class include:\n * - Adding a new healthcare personnel to the system\n * - Validating the input using AddPersonnelValidator\n * - Adding an empty personnel entry to the database with Role.HCP\n * - Editing the personnel information in the database\n * - Adding a new user with Role.HCP to the authentication database with a random password\n * - Logging the transaction of creating a new HCP\n * \n * @author [Author Name]\n * @version [Version Number]\n */"
     }
 ]

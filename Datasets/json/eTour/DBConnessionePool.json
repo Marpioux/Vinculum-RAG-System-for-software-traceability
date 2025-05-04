@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public static synchronized Connection ottieniConnessione()",
                 "comments": "Optional[/**\r\n * Method to get the connection to the server.\r\n *\r\n * @return Returns the database connection\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": "Optional[[// Extract a connection from the free db connection queue\r\n, // If the connection is not valid, a new connection will be\r\n, // created\r\n, // The free db connection queue is empty, so a new connection will\r\n, // be created\r\n]]"
+                "innerComments": "Optional[[// Extract a connection from the free db connection queue\r\n, // If the connection is not valid, a new connection will be\r\n, // created\r\n, // The free db connection queue is empty, so a new connection will\r\n, // be created\r\n]]",
+                "generated_comment": "/**\n * Retrieves a database connection from the connection pool. If there are free connections available, \n * it returns the first one in the queue. If the connection is closed or not valid, a new connection \n * will be created and returned. If there are no free connections available, a new connection will be \n * created and returned. This method is thread-safe and synchronized to ensure that only one thread \n * can access the connection pool at a time.\n * \n * @return a database connection from the connection pool\n */"
             },
             {
                 "body": "Optional[{\r\n    // Add the connection to the free db connection queue\r\n    DBConnessionePool.connessioniLibere.add(pReleasedConnection);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public static void rilasciaConnessione(Connection)",
                 "comments": null,
-                "innerComments": "Optional[[// Add the connection to the free db connection queue\r\n]]"
+                "innerComments": "Optional[[// Add the connection to the free db connection queue\r\n]]",
+                "generated_comment": "/**\n * Releases a database connection back to the connection pool.\n * \n * @param pReleasedConnection the connection to be released\n * @return void\n * \n * This method adds the specified connection to the queue of free database connections in the DBConnessionePool.\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection nuovaConnessione = null;\r\n    // Create a new db connection using the db properties\r\n    nuovaConnessione = DriverManager.getConnection(urlConnessione);\r\n    nuovaConnessione.setAutoCommit(true);\r\n    return nuovaConnessione;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": true,
                 "signature": "private static Connection creaDBConnessione()",
                 "comments": null,
-                "innerComments": "Optional[[// Create a new db connection using the db properties\r\n]]"
+                "innerComments": "Optional[[// Create a new db connection using the db properties\r\n]]",
+                "generated_comment": "/**\n * Creates a new database connection using the specified database properties.\n * \n * @return a Connection object representing the newly created database connection\n * \n * @throws SQLException if a database access error occurs\n */"
             }
         ],
         "constructors": [],
@@ -32,6 +35,7 @@
             "private  final  static String driver",
             "private  final  static String urlConnessione",
             "private  static List<Connection> connessioniLibere"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DBConnessionePool class represents a connection pool for managing database connections.\n * It provides methods for obtaining, releasing, and creating database connections in a thread-safe manner.\n * \n * This class maintains a queue of free database connections and ensures that only one thread can access\n * the connection pool at a time. It also handles the creation of new connections when needed and\n * reuses existing connections whenever possible to improve performance.\n * \n * The main functionalities of this class include:\n * - Obtaining a database connection from the pool\n * - Releasing a database connection back to the pool\n * - Creating a new database connection using the specified database properties\n * \n * The class variables include:\n * - driver: a constant String representing the database driver\n * - urlConnessione: a constant String representing the database connection URL\n * - connessioniLibere: a list of free database connections\n * \n * This class is designed to be used in multi-threaded environments where multiple threads may need\n * to access the database connections concurrently. It ensures that connections are managed efficiently\n * and safely to prevent resource leaks and improve application performance.\n */"
     }
 ]

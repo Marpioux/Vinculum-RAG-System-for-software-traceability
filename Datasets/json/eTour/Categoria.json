@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public Hashtable<String, float[]> getTermini()",
                 "comments": "Optional[/**\r\n * Returns the output Hashtable containing the terms\r\n * with the respective values of frequency, relevance and distance\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the termini stored in this object.\n * \n * @return a Hashtable containing termini as keys and corresponding float arrays as values\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the name of the output category\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    if (esisteTermine(pTermine)) {\r\n        return terms.get(pTermine);\r\n    }\r\n    return null;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public float[] getVal(String)",
                 "comments": "Optional[/**\r\n * Get the string as a parameter representing the term\r\n * of which you want to pick the values of frequency, range and bearing\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the value associated with the given term.\n * \n * @param pTermine the term for which to retrieve the value\n * @return an array of floats representing the value associated with the term, or null if the term does not exist\n */"
             },
             {
                 "body": "Optional[{\r\n    terms.put(pTermine, new float[3]);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void addTermine(String)",
                 "comments": "Optional[/**\r\n * Adds a term to the category dictionary\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new termine to the terms map with an empty float array of size 3.\n * \n * @param pTermine the termine to be added to the map\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((pVal == null) || (pTermine.equals(\"\"))) {\r\n        return false;\r\n    }\r\n    terms.put(pTermine, pVal);\r\n    return true;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean addTermine(String, float[])",
                 "comments": "Optional[/**\r\n * Adds a term to the category dictionary\r\n * with the values of frequency, distance and relevance\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a termine with its corresponding value to the terms map.\n * \n * @param pTermine the termine to add (must not be null or empty)\n * @param pVal the value associated with the termine\n * @return true if the termine was successfully added to the map, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    if (esisteTermine(pTermine)) {\r\n        terms.put(pTermine, pVal);\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean setValTermine(String, float[])",
                 "comments": "Optional[/**\r\n * Sets the values for the term pTermine\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the value of a specified term in the terms map if the term exists.\n * \n * @param pTermine the term to set the value for\n * @param pVal the value to set for the term\n * @return true if the value was successfully set, false if the term does not exist\n */"
             },
             {
                 "body": "Optional[{\r\n    terms = pTermini;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTermini(Hashtable<String, float[]>)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the terms of this object using the specified Hashtable.\n * \n * @param pTermini a Hashtable containing String keys and float array values representing the terms to be set\n * @return void\n * \n * This method sets the terms of this object to the specified Hashtable. The keys in the Hashtable represent the terms, \n * while the corresponding float arrays represent additional information related to each term. \n * \n * Example usage:\n * Hashtable<String, float[]> terms = new Hashtable<>();\n * terms.put(\"term1\", new float[]{1.0f, 2.0f});\n * terms.put(\"term2\", new float[]{3.0f, 4.0f});\n * setTermini(terms);\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        float[] ret = terms.get(pTermine);\r\n        if (ret != null) {\r\n            return true;\r\n        }\r\n    } catch (NullPointerException e) {\r\n        return false;\r\n    }\r\n    return false;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean esisteTermine(String)",
                 "comments": "Optional[/**\r\n * Returns true if the term is present in\r\n * the dictionary of Category, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a given term exists in the terms collection.\n * \n * @param pTermine the term to check for existence\n * @return true if the term exists in the collection, false otherwise\n */\npublic boolean esisteTermine(String pTermine) {\n    try {\n        float[] ret = terms.get(pTermine);\n        if (ret != null) {\n            return true;\n        }\n    } catch (NullPointerException e) {\n        return false;\n    }\n    return false;\n}"
             }
         ],
         "constructors": [
@@ -73,7 +81,8 @@
                 "hasInnerComment": false,
                 "signature": "public Category(String)",
                 "comments": "Optional[/**\r\n * Constructor: Get the category name as a parameter to create\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Category object with the specified name.\n * Initializes the terms Hashtable for storing terms related to the category.\n * \n * @param pNom the name of the category\n */"
             }
         ],
         "signature": "Category",
@@ -81,6 +90,7 @@
             "private  static  final long serialVersionUID",
             "private String name",
             "private Hashtable<String,float[]> terms"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Category class represents a category object that stores terms along with their corresponding values of frequency, relevance, and distance.\n * This class provides methods to manipulate and retrieve information about the terms stored in the category.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving terms along with their values\n * - Checking the existence of a term in the category\n * - Adding, setting, and getting values for terms\n * \n * The behavior of the Category class is as follows:\n * - It maintains a Hashtable to store terms as keys and float arrays as values\n * - Terms can be added, retrieved, and updated with their corresponding values\n * - The class provides methods to check if a term exists in the category\n * \n * Example usage:\n * Category category = new Category(\"exampleCategory\");\n * category.addTermine(\"term1\");\n * category.addTermine(\"term2\", new float[]{1.0f, 2.0f, 3.0f});\n * category.setValTermine(\"term1\", new float[]{2.0f, 3.0f, 4.0f});\n * category.getVal(\"term1\");\n * category.esisteTermine(\"term2\");\n * \n * Note: This class is serializable with a static final serialVersionUID field.\n */"
     }
 ]

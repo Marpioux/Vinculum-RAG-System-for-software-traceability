@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaBeneCulturalePreferito(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a preferred cultural asset.\n * \n * This method cancels a preferred cultural asset identified by the given parameters.\n * \n * @param id1 the first identifier of the cultural asset\n * @param id2 the second identifier of the cultural asset\n * @return false if the cancellation was unsuccessful, true otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaPuntoDiRistoroPreferito(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a preferred point of refreshment.\n * \n * @param id The ID of the user\n * @param pointId The ID of the preferred point of refreshment to be cancelled\n * @return true if the preferred point of refreshment was successfully cancelled, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean delete(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes an item with the specified ID.\n * \n * @param id the ID of the item to be deleted\n * @return true if the item was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciBeneCulturalePreferito(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preferred cultural asset into the system for a user.\n * \n * @param userId the unique identifier of the user\n * @param culturalAssetId the unique identifier of the cultural asset to be inserted\n * @return true if the cultural asset was successfully inserted as preferred, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciPuntoDiRistoroPreferito(int, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preferred point of refreshment at the specified coordinates.\n * \n * @param x the x-coordinate of the point of refreshment\n * @param y the y-coordinate of the point of refreshment\n * @return true if the point of refreshment was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciTurista(BeanTurista)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a tourist into the system.\n * \n * @param turista the tourist to be inserted\n * @return true if the tourist was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return false;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean modificaTurista(BeanTurista)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a tourist object.\n * \n * @param turista the tourist object to be modified\n * @return true if the tourist object was successfully modified, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return null;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanTurista ottieniTurista(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a tourist bean based on the specified ID.\n * \n * @param id the ID of the tourist to retrieve\n * @return the tourist bean associated with the specified ID, or null if no tourist is found\n */"
             },
             {
                 "body": "Optional[{\r\n    return new BeanTurista(1, \"username\", \"Astrubale\", \"Silberschatz\", \"Naples\", \"Naples\", \"0111111\", \"80100th\", \"Way of the systems, 1\", \"NA\", \"trapano@solitario.it\", \"passwordsolomia\", new Date(), new Date(), true);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanTurista ottieniTurista(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a tourist bean by their ID.\n * \n * @param id the ID of the tourist to retrieve\n * @return a BeanTurista object representing the tourist with the specified ID\n */\npublic BeanTurista ottieniTurista(int id) {\n    // This method returns a new BeanTurista object with the given ID and predefined information\n    return new BeanTurista(1, \"username\", \"Astrubale\", \"Silberschatz\", \"Naples\", \"Naples\", \"0111111\", \"80100th\", \"Way of the systems, 1\", \"NA\", \"trapano@solitario.it\", \"passwordsolomia\", new Date(), new Date(), true);\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return null;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanTurista> ottieniTuristi(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves a list of tourist beans based on a given search criteria.\n * \n * @param searchCriteria a String representing the search criteria to filter the list of tourist beans\n * @return an ArrayList of BeanTurista objects that match the search criteria, or null if no matching objects are found\n */"
             },
             {
                 "body": "Optional[{\r\n    return null;\r\n}]",
@@ -87,11 +97,13 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanTurista> ottieniTuristi(boolean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a list of tourist beans based on the specified boolean parameter.\n * \n * @param boolean flag indicating whether to retrieve active or inactive tourists\n * @return an ArrayList of BeanTurista objects representing the tourists that match the specified criteria,\n *         or null if no tourists are found\n */"
             }
         ],
         "constructors": [],
         "signature": "DBTurista",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The DBTurista class represents a database manager for tourist-related operations.\n * \n * This class provides methods for managing tourist data, including inserting, modifying, and retrieving tourist information.\n * It also includes functionality for canceling preferred cultural assets and points of refreshment, as well as deleting items from the database.\n * \n * The class offers methods for inserting and modifying tourist objects, as well as retrieving tourist beans based on various search criteria.\n * It also includes methods for retrieving tourist beans by ID and for retrieving lists of tourists based on boolean parameters.\n * \n * Overall, the DBTurista class serves as a central hub for managing tourist data within the system, providing essential functionalities for interacting with tourist information stored in the database.\n */"
     }
 ]

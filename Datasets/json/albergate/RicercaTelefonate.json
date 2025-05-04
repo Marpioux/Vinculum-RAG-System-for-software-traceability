@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo due pulsanti\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo due pulsanti\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the user interface, including creating buttons, labels, text fields, and lists.\n * Sets the font for the panels and components based on the system configuration.\n * Attaches the panels to the frame using a gridbag layout.\n */\nvoid setupPanels() {\n    this.setFont(ConfigurazioneSistema.font_base);\n    \n    // Create two buttons\n    Annulla = new Button(\" Fine  \");\n    Cerca = new Button(\" Cerca \");\n    \n    // Create labels\n    etichetta1 = new Label(\"Inserire la stanza addebitata                         \");\n    etichetta1.setFont(ConfigurazioneSistema.font_titolo);\n    label1 = new Label(\"Numero Stanza\");\n    label3 = new Label(\"Risultato della ricerca\");\n    label3.setFont(ConfigurazioneSistema.font_titolo);\n    \n    // Create text fields and make some non-editable\n    stanza = new TextField(\"\", 4);\n    \n    // Create panel for entering customer data\n    panel1 = new Panel();\n    panel1.setLayout(gridbag);\n    Utils.constrain(panel1, etichetta1, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\n    Utils.constrain(panel1, label1, 0, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\n    Utils.constrain(panel1, stanza, 1, 1, 1, 1, GridBagConstraints.NONE, GridBagConstraints.NORTHWEST, 0.0, 0.0, 0, 0, 0, 0);\n    \n    // Create panel with buttons\n    panel2 = new Panel();\n    panel2.setLayout(gridbag);\n    Utils.constrain(panel2, Annulla, 0, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\n    Utils.constrain(panel2, Cerca, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.CENTER, 0.0, 0.0, 5, 5, 5, 5);\n    \n    // Create panel with list of search results\n    lista = new List(10, false);\n    lista.setFont(ConfigurazioneSistema.font_allineato);\n    panel3 = new Panel();\n    panel3.setLayout(gridbag);\n    Utils.constrain(panel3, label3, 0, 0, 2, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 0, 0, 0, 0);\n    Utils.constrain(panel3, lista, 0, 1, 4, 3, GridBagConstraints.BOTH, GridBagConstraints.CENTER, 3.0, 3.0, 0, 0, 0, 0);\n    \n    // Attach panels to the frame\n    this.setLayout(gridbag);\n    Utils.constrain(this, panel1, 0, 1, 4, 2, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\n    Utils.constrain(this, panel2, 0, 14, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\n    Utils.constrain(this, panel3, 0, 15, 4, 1, GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\n    \n    panel3.setVisible(false);\n    pack();\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            tel = L.getTelefonata((lista.getSelectedIndexes())[0] + 1);\r\n            startVediTelefonata(tel);\r\n        }\r\n    });\r\n    stanza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors())\r\n                creaLista();\r\n        }\r\n    });\r\n    Cerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors())\r\n                creaLista();\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the user interface by setting up action listeners for various components.\n * When the \"lista\" component is selected, it retrieves a telephone call from the list and starts viewing it.\n * When the \"stanza\" or \"Cerca\" components are selected, it checks for errors and creates a new list if no errors are found.\n * When the \"Annulla\" component is selected, it disposes of the current window and enables the parent window.\n */"
             },
             {
                 "body": "Optional[{\r\n    tel = L.getTelefonata((lista.getSelectedIndexes())[0] + 1);\r\n    startVediTelefonata(tel);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It retrieves a selected telefonata from the list and starts a new view telefonata window.\n * \n * @param e the action event that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (noErrors())\r\n        creaLista();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there are no errors present and then proceeds to create a list. \n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (noErrors())\r\n        creaLista();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there are no errors present and then creates a list. \n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the action. \n * There is no return value as the method does not return anything.\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new MascheraTelefonate(this, tel, tot_scatti);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " void startVediTelefonata(Telefonata)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initiates a new phone call by creating a new instance of MascheraTelefonate with the given parameters.\n * \n * @param telefonata the Telefonata object representing the phone call to be initiated\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    tot_scatti = 0;\r\n    L = (Principale.db).foundTelefonate(stanza.getText());\r\n    if (L != null) {\r\n        if (!L.isEmpty()) {\r\n            if (lista.getItemCount() > 0)\r\n                lista.removeAll();\r\n            panel3.setVisible(true);\r\n            pack();\r\n            for (int i = 1; i <= L.length(); i++) {\r\n                lista.addItem(L.getTelefonata(i).toString());\r\n                tot_scatti += L.getTelefonata(i).getNumScatti();\r\n            }\r\n        } else\r\n            msg = new AvvisoDialog(this, \" Nessuna telefonata addebitata \");\r\n    } else\r\n        msg = new MessageDialog(this, \"Problemi con il DataBase!\");\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void creaLista()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a list of phone calls based on the room number entered by the user. \n * Retrieves phone call data from the database and populates a list with the phone call details. \n * Updates the total number of charges for the phone calls displayed. \n * If no phone calls are found for the specified room number, a message dialog is displayed. \n * If there are any issues with the database connection, an error message dialog is shown. \n */\npublic void creaLista() {\n    Frame msg;\n    tot_scatti = 0;\n    L = (Principale.db).foundTelefonate(stanza.getText());\n    if (L != null) {\n        if (!L.isEmpty()) {\n            if (lista.getItemCount() > 0)\n                lista.removeAll();\n            panel3.setVisible(true);\n            pack();\n            for (int i = 1; i <= L.length(); i++) {\n                lista.addItem(L.getTelefonata(i).toString());\n                tot_scatti += L.getTelefonata(i).getNumScatti();\n            }\n        } else\n            msg = new AvvisoDialog(this, \" Nessuna telefonata addebitata \");\n    } else\n        msg = new MessageDialog(this, \"Problemi con il DataBase!\");\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    //Disponibilita disp = new Disponibilita();\r\n    if ((stanza.getText().equals(\"\"))) {\r\n        msg = new AvvisoDialog(this, \"Inserire il numero della stanza\");\r\n        return false;\r\n    } else if ((Principale.db).readStanza(stanza.getText()) == null) {\r\n        msg = new MessageDialog(this, \"La stanza inserita e' inesistente!\");\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": true,
                 "signature": " boolean noErrors()",
                 "comments": null,
-                "innerComments": "Optional[[//Disponibilita disp = new Disponibilita();\r\n]]"
+                "innerComments": "Optional[[//Disponibilita disp = new Disponibilita();\r\n]]",
+                "generated_comment": "/**\n * Checks if there are any errors in the input data for a room.\n * \n * This method verifies if the room number field is empty or if the room number does not exist in the database.\n * If any of these conditions are met, an appropriate error message is displayed.\n * \n * @return true if there are no errors in the input data, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public RicercaTelefonate(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new RicercaTelefonate object with the specified Frame as its parent.\n * The constructor initializes the frame with the title \"Ricerca delle telefonate\", \n * disables the parent frame, sets up the necessary panels, initializes the components,\n * packs the frame, and sets it to be visible.\n * \n * @param p the parent Frame for the RicercaTelefonate object\n */"
             }
         ],
         "signature": "RicercaTelefonate",
@@ -103,6 +113,7 @@
             " ListaTelefonate L",
             " Telefonata tel",
             " int tot_scatti"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The RicercaTelefonate class represents a user interface for searching phone calls.\n * It provides functionality for creating panels with buttons, labels, text fields, and lists.\n * The class sets the font for the panels and components based on the system configuration.\n * It attaches the panels to the frame using a gridbag layout.\n * \n * The class includes methods for initializing the user interface, setting up action listeners for components,\n * retrieving selected phone calls from a list, creating a new list of phone calls based on user input,\n * checking for errors in the input data, and initiating a new phone call view.\n * \n * The RicercaTelefonate class consists of the following variables:\n * - Prenotazione prenotazione\n * - Panel panel1, panel2, panel3\n * - Label etichetta1, label1, label3\n * - List lista\n * - Button Annulla, Cerca\n * - TextField stanza\n * - GridBagLayout gridbag\n * - Frame padre, figlio\n * - ListaTelefonate L\n * - Telefonata tel\n * - int tot_scatti\n * \n * The class includes a constructor that takes a Frame as a parameter to set it as the parent frame.\n * The constructor initializes the frame with the title \"Ricerca delle telefonate\", disables the parent frame,\n * sets up the necessary panels, initializes the components, packs the frame, and sets it to be visible.\n */\n**/"
     }
 ]

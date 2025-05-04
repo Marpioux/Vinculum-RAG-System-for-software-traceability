@@ -3,6 +3,7 @@
         "methods": [],
         "constructors": [],
         "signature": "IGestioneAdvertisement",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IGestioneAdvertisement interface represents a contract for classes that handle advertisement management.\n * This interface does not contain any methods or constructors, as it serves as a blueprint for implementing classes to adhere to.\n * Implementing classes are expected to provide functionality for creating, updating, deleting, and retrieving advertisements.\n * The IGestioneAdvertisement interface enforces a standard for managing advertisement-related operations in a consistent manner.\n */"
     }
 ]

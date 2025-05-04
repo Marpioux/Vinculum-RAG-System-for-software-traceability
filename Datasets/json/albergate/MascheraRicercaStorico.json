@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo i TextField e li rendo non editabili\r\n, //creo una TextArea\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello ricerca per stanza\r\n, //Creo il pannello ricerca per nome e cognome\r\n, //Creo il pannnello ricerca per data\r\n, //Creo il pannello dei pulsanti\r\n, //Creo il pannello contenente la list_clienti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo i TextField e li rendo non editabili\r\n, //creo una TextArea\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello ricerca per stanza\r\n, //Creo il pannello ricerca per nome e cognome\r\n, //Creo il pannnello ricerca per data\r\n, //Creo il pannello dei pulsanti\r\n, //Creo il pannello contenente la list_clienti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the user interface by creating buttons, labels, checkboxes, text fields, and a list.\n * Sets the font for the panels and components based on the system configuration.\n * Initializes various components such as buttons, labels, checkboxes, text fields, and a list.\n * Organizes the components into panels and arranges them within the main frame using GridBagLayout.\n * \n * This method does not have any parameters.\n * \n * This method does not return any value.\n */"
             },
             {
                 "body": "Optional[{\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                if (list_clienti.getItemCount() > 0)\r\n                    list_clienti.removeAll();\r\n                testo[0].setEditable(true);\r\n                for (int i = 1; i <= 3; ++i) testo[i].setEditable(false);\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                if (list_clienti.getItemCount() > 0)\r\n                    list_clienti.removeAll();\r\n                for (int i = 1; i < 3; ++i) testo[i].setEditable(true);\r\n                testo[0].setEditable(false);\r\n                testo[3].setEditable(false);\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[2].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[2].getState()) {\r\n                if (list_clienti.getItemCount() > 0)\r\n                    list_clienti.removeAll();\r\n                testo[3].setEditable(true);\r\n                for (int i = 0; i < 3; ++i) testo[i].setEditable(false);\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    list_clienti.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startVediCliente();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and event listeners for the application.\n * This method sets up checkboxes and their corresponding item listeners to handle user selections.\n * It also configures text fields for user input and enables/disables buttons based on user actions.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        if (list_clienti.getItemCount() > 0)\r\n            list_clienti.removeAll();\r\n        testo[0].setEditable(true);\r\n        for (int i = 1; i <= 3; ++i) testo[i].setEditable(false);\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state is changed in the GUI. \n * It checks the state of the first checkbox and performs the following actions:\n * - If the first checkbox is selected, it clears the list of clients if it is not empty, enables editing on the first text field, disables editing on the other three text fields, and enables the \"Conferma\" button.\n * \n * @param e the ItemEvent object that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        if (list_clienti.getItemCount() > 0)\r\n            list_clienti.removeAll();\r\n        for (int i = 1; i < 3; ++i) testo[i].setEditable(true);\r\n        testo[0].setEditable(false);\r\n        testo[3].setEditable(false);\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state is changed in the GUI. \n * It checks if the second checkbox is selected, clears the client list if it's not empty, \n * enables editing for certain text fields, disables editing for others, and enables a confirmation button.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[2].getState()) {\r\n        if (list_clienti.getItemCount() > 0)\r\n            list_clienti.removeAll();\r\n        testo[3].setEditable(true);\r\n        for (int i = 0; i < 3; ++i) testo[i].setEditable(false);\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item's state is changed. It checks if the third checkbox is selected,\n * clears the client list if it is not empty, enables editing for the fourth text field, disables editing\n * for the first three text fields, and enables the \"Conferma\" button.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    startConferma();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startConferma() method to begin the confirmation process.\n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the action. \n * There is no return value as the method is void.\n */"
             },
             {
                 "body": "Optional[{\r\n    startVediCliente();\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the process of viewing a client's information.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    int i;\r\n    Frame msg;\r\n    Conferma.setEnabled(false);\r\n    if (!errori()) {\r\n        if (checkboxes[0].getState())\r\n            elenco_clienti = (Principale.db).foundStorico(testo[0].getText());\r\n        else if (checkboxes[1].getState())\r\n            elenco_clienti = (Principale.db).foundStorico(testo[1].getText(), testo[2].getText());\r\n        else if (checkboxes[2].getState())\r\n            elenco_clienti = (Principale.db).foundStorico(DateUtils.convertDate(testo[3].getText()));\r\n        else\r\n            elenco_clienti = new ListaClienti();\r\n        if (elenco_clienti != null) {\r\n            if (list_clienti.getItemCount() > 0)\r\n                list_clienti.removeAll();\r\n            for (i = 1; i <= elenco_clienti.length(); i++) list_clienti.addItem((elenco_clienti.getCliente(i)).toString());\r\n            if (list_clienti.getItemCount() == 0)\r\n                msg = new AvvisoDialog(this, \"Trovata nessuna corrispondenza!\");\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database!\");\r\n    } else\r\n        msg = new MessageDialog(this, \"Errore nei parametri!\");\r\n    for (i = 0; i < testo.length; i++) {\r\n        testo[i].setText(\"\");\r\n        testo[i].setEditable(false);\r\n    }\r\n    for (i = 0; i < checkboxes.length; i++) checkboxes[i].setEnabled(true);\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void startConferma()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the confirmation process by retrieving client information based on user input.\n * It disables the confirmation button, checks for errors in the input parameters, and retrieves client data\n * based on the selected search criteria. It then populates the client list with the retrieved information\n * and displays a message dialog if no matches are found or if there are database issues.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[0].getState())\r\n        return ((testo[0].getText()).length() > 4);\r\n    else if (checkboxes[1].getState())\r\n        return ((testo[1].getText()).length() > 20 || (testo[2].getText()).length() > 20);\r\n    else if (checkboxes[2].getState())\r\n        return (!DateUtils.dataCorretta(testo[3].getText()));\r\n    else\r\n        return true;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean errori()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for errors based on the state of checkboxes and the length of text inputs.\n * \n * @return true if there are errors based on the conditions specified for each checkbox, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    cliente = elenco_clienti.getCliente((list_clienti.getSelectedIndexes())[0] + 1);\r\n    figlio = new VediCliente(this, cliente);\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void startVediCliente()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the process of viewing a selected client from the list of clients.\n * Retrieves the selected client from the list of clients and creates a new instance of the VediCliente class to display the client details.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "constructors": [
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraRicercaStorico(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of MascheraRicercaStorico with the specified parent Frame.\n * The constructor sets the title of the frame to \"Ricerca nello storico\", disables the parent frame,\n * sets up the panels, packs the frame, initializes the frame, and makes it visible.\n * \n * @param parent the parent Frame to which this frame belongs\n */"
             }
         ],
         "signature": "MascheraRicercaStorico",
@@ -123,6 +135,7 @@
             " VediCliente figlio",
             " Cliente cliente",
             " ListaClienti elenco_clienti"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraRicercaStorico class represents a user interface for searching historical data.\n * It provides functionality for searching clients based on different criteria such as room number, name, and date.\n * The class includes methods for setting up panels with buttons, labels, checkboxes, text fields, and a client list.\n * It also handles user interactions by enabling/disabling components, processing user input, and displaying client information.\n * \n * The class contains the following main functionalities:\n * - Setting up panels with components for user interaction\n * - Initializing GUI components and event listeners\n * - Handling item state changes for checkboxes\n * - Starting the confirmation process to retrieve client information\n * - Checking for errors in user input parameters\n * - Viewing detailed information about a selected client\n * \n * The class includes constructors for creating instances with a specified parent frame and methods for handling user actions.\n * It uses GridBagLayout to organize components within the main frame and provide a user-friendly interface.\n * \n * Overall, the MascheraRicercaStorico class facilitates searching and viewing historical client data in a structured and efficient manner.\n */"
     }
 ]

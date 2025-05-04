@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<DiagnosisBean> loadList(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of DiagnosisBean objects from the provided ResultSet.\n * \n * @param rs the ResultSet containing the data to be loaded into DiagnosisBean objects\n * @return a List of DiagnosisBean objects populated with data from the ResultSet\n * @throws SQLException if an error occurs while accessing the ResultSet\n */\npublic List<DiagnosisBean> loadList(ResultSet rs) throws SQLException {\n    ArrayList<DiagnosisBean> list = new ArrayList<DiagnosisBean>();\n    while (rs.next()) {\n        list.add(loadSingle(rs));\n    }\n    return list;\n}"
             },
             {
                 "body": "Optional[{\r\n    DiagnosisBean diag = new DiagnosisBean(rs.getString(\"Code\"), rs.getString(\"Description\"), rs.getString(\"Chronic\"));\r\n    if (loadOVDiagnosisID) {\r\n        diag.setOvDiagnosisID(rs.getInt(\"ID\"));\r\n        diag.setVisitID(rs.getLong(\"VisitID\"));\r\n    }\r\n    return diag;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public DiagnosisBean loadSingle(ResultSet)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a single DiagnosisBean object from the given ResultSet.\n * \n * @param rs the ResultSet containing the data for the DiagnosisBean\n * @return a DiagnosisBean object with the code, description, and chronic status\n *         retrieved from the ResultSet. If loadOVDiagnosisID is true, it also\n *         sets the ovDiagnosisID and visitID fields.\n */"
             },
             {
                 "body": "Optional[{\r\n    throw new IllegalStateException(\"unimplemented!\");\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public PreparedStatement loadParameters(PreparedStatement, DiagnosisBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Loads parameters from a DiagnosisBean object into a PreparedStatement.\n * \n * @param preparedStatement the PreparedStatement object to load parameters into\n * @param diagnosisBean the DiagnosisBean object containing the parameters to be loaded\n * @return the PreparedStatement object with parameters loaded\n * @throws IllegalStateException if the method is called as it is currently unimplemented\n */"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public DiagnosisBeanLoader()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DiagnosisBeanLoader object.\n * This constructor initializes the loadOVDiagnosisID variable to false.\n */"
             },
             {
                 "body": "{\r\n    this.loadOVDiagnosisID = loadOVDiagnosisID;\r\n}",
@@ -41,12 +45,14 @@
                 "hasInnerComment": false,
                 "signature": "public DiagnosisBeanLoader(boolean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DiagnosisBeanLoader with the specified boolean value for loading OVDiagnosisID.\n * \n * @param loadOVDiagnosisID a boolean value indicating whether to load OVDiagnosisID\n * \n * This constructor initializes the DiagnosisBeanLoader with the specified boolean value for loading OVDiagnosisID.\n */"
             }
         ],
         "signature": "DiagnosisBeanLoader",
         "variables": [
             "private boolean loadOVDiagnosisID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class provides methods for loading DiagnosisBean objects from a ResultSet and preparing PreparedStatement objects for database operations.\n * \n * The main functionalities of this class include:\n * - Loading a list of DiagnosisBean objects from a ResultSet using the loadList method\n * - Loading a single DiagnosisBean object from a ResultSet using the loadSingle method\n * - Generating PreparedStatement objects for database operations using the loadParameters method (currently unimplemented)\n * \n * The behavior of this class is as follows:\n * - The loadList method retrieves a list of DiagnosisBean objects from the provided ResultSet\n * - The loadSingle method retrieves a single DiagnosisBean object from the given ResultSet\n * - The loadParameters method is currently unimplemented and throws an IllegalStateException\n * \n * @author [Author Name]\n * @version 1.0\n */\n/**\n * The DiagnosisBeanLoader class is responsible for loading parameters from a DiagnosisBean object into a PreparedStatement.\n * It provides methods to load parameters into a PreparedStatement object based on the parameters stored in a DiagnosisBean object.\n * \n * This class contains two constructors:\n * 1. public DiagnosisBeanLoader(): Constructs a new DiagnosisBeanLoader object with the loadOVDiagnosisID variable initialized to false.\n * 2. public DiagnosisBeanLoader(boolean loadOVDiagnosisID): Constructs a new DiagnosisBeanLoader with the specified boolean value for loading OVDiagnosisID.\n * \n * The main functionalities of this class include:\n * - Loading parameters from a DiagnosisBean object into a PreparedStatement object.\n * - Providing flexibility to specify whether to load OVDiagnosisID or not through the constructor.\n * \n * Overall, the DiagnosisBeanLoader class facilitates the process of transferring parameters from a DiagnosisBean object to a PreparedStatement object, enhancing the efficiency and reusability of code.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "public long add(PersonnelBean)",
                 "comments": "Optional[/**\r\n * Adds the new user.   Event is logged.\r\n *\r\n * @param p bean containing the information for the new user\r\n * @return MID of the new user.\r\n * @throws FormValidationException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": "Optional[[//transDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID);\r\n]]"
+                "innerComments": "Optional[[//transDAO.logTransaction(TransactionType.CREATE_DISABLE_PATIENT_HCP, loggedInMID);\r\n]]",
+                "generated_comment": "/**\n * Adds a new PersonnelBean representing a Public Health Administrator (PHA) to the system.\n * Validates the input PersonnelBean, adds an empty Personnel entry to the database with the role of PHA,\n * sets the generated MID to the PersonnelBean, edits the PersonnelBean in the database, adds a user with a random password,\n * logs the transaction, and returns the generated MID.\n * \n * @param p The PersonnelBean representing the PHA to be added\n * @return The generated MID for the new PHA\n */"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public AddPHAAction(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AddPHAAction object with the given DAOFactory and logged in member ID.\n * Initializes the personnelDAO, authDAO, and transDAO fields with the corresponding DAOs from the factory.\n * Sets the loggedInMID field to the provided logged in member ID.\n * \n * @param factory the DAOFactory to be used for accessing data access objects\n * @param loggedInMID the ID of the member currently logged in\n */"
             }
         ],
         "signature": "AddPHAAction",
@@ -26,6 +28,7 @@
             "private AuthDAO authDAO",
             "private TransactionDAO transDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AddPHAAction class represents an action that adds a new Public Health Administrator (PHA) to the system.\n * It contains methods for adding a new PHA user, validating the input data, logging the event, and returning the generated MID.\n * \n * This class has the following main functionalities:\n * - Adding a new PHA user to the system\n * - Validating the input data for the new PHA\n * - Logging the event of adding a new PHA\n * - Returning the generated MID for the new PHA\n * \n * The AddPHAAction class has the following behavior:\n * - Upon instantiation, it initializes the personnelDAO, authDAO, and transDAO fields with the corresponding DAOs from the factory.\n * - It sets the loggedInMID field to the provided logged in member ID.\n * - The add method adds a new PersonnelBean representing a PHA to the system, sets the generated MID to the PersonnelBean, adds a user with a random password,\n *   logs the transaction, and returns the generated MID for the new PHA.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

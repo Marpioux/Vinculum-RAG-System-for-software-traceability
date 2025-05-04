@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<Email> getAllEmails()",
                 "comments": "Optional[/**\r\n * Return all emails that have been \"sent\" (inserted into the database)\r\n *\r\n * @return A java.util.List of Email objects representing fake e-mails.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves all emails from the database in descending order of their added date.\n * \n * @return A list of Email objects representing all emails in the database\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM FakeEmail WHERE ToAddr LIKE ? ORDER BY AddedDate DESC\");\r\n        ps.setString(1, \"%\" + email + \"%\");\r\n        ResultSet rs = ps.executeQuery();\r\n        return emailBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<Email> getEmailsByPerson(String)",
                 "comments": "Optional[/**\r\n * Return all emails that a person has sent\r\n *\r\n * @param email The \"From\" email address as a string.\r\n * @return A java.util.List of fake emails.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of emails sent to a specific person based on the email address.\n * \n * @param email the email address of the person to retrieve emails for\n * @return a list of Email objects containing the emails sent to the specified person\n * @throws DBException if there is an error accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"INSERT INTO FakeEmail (ToAddr, FromAddr, Subject, Body) \" + \"VALUES (?,?,?,?)\");\r\n        emailBeanLoader.loadParameters(ps, email);\r\n        ps.executeUpdate();\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void sendEmailRecord(Email)",
                 "comments": "Optional[/**\r\n * \"Send\" an email, which just inserts it into the database.\r\n *\r\n * @param email The Email object to insert.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sends an email record to the database.\n * \n * @param email the Email object containing the email details to be saved\n * @throws DBException if there is an error accessing the database\n */\npublic void sendEmailRecord(Email email) {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"INSERT INTO FakeEmail (ToAddr, FromAddr, Subject, Body) \" + \"VALUES (?,?,?,?)\");\n        emailBeanLoader.loadParameters(ps, email);\n        ps.executeUpdate();\n    } catch (SQLException e) {\n        e.printStackTrace();\n        throw new DBException(e);\n    } finally {\n        DBUtil.closeConnection(conn, ps);\n    }\n}\n```"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"SELECT * FROM FakeEmail WHERE Instr(Body,?)>0 ORDER BY AddedDate DESC\");\r\n        ps.setString(1, bodySubstring);\r\n        ResultSet rs = ps.executeQuery();\r\n        return emailBeanLoader.loadList(rs);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<Email> getEmailWithBody(String)",
                 "comments": "Optional[/**\r\n * Returns a list of emails that have the given string as a substring of the body\r\n * @param string The string to search within the body.\r\n * @return A java.util.List of fake emails.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of Email objects from the database that contain a specific substring in their body.\n * \n * @param bodySubstring the substring to search for in the email body\n * @return a List of Email objects that contain the specified substring in their body, ordered by added date in descending order\n * @throws DBException if there is an error accessing the database\n */"
             }
         ],
         "constructors": [
@@ -41,13 +45,15 @@
                 "hasInnerComment": false,
                 "signature": "public FakeEmailDAO(DAOFactory)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new FakeEmailDAO with the specified DAOFactory.\n * \n * @param factory the DAOFactory used to create instances of FakeEmailDAO\n * @throws IllegalArgumentException if factory is null\n */\npublic FakeEmailDAO(DAOFactory factory) {\n    if (factory == null) {\n        throw new IllegalArgumentException(\"DAOFactory cannot be null\");\n    }\n    \n    this.factory = factory;\n}"
             }
         ],
         "signature": "FakeEmailDAO",
         "variables": [
             "private DAOFactory factory",
             "private EmailBeanLoader emailBeanLoader"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The EmailDAO class provides methods to interact with the database to retrieve fake email data.\n * It contains methods to retrieve all emails that have been \"sent\" and emails sent by a specific person.\n * The class utilizes a connection factory to establish a connection to the database and a utility class to handle closing connections.\n * \n * The main functionalities of this class include:\n * - Retrieving all emails from the database in descending order of their added date\n * - Retrieving emails sent by a specific person based on their email address\n * \n * Overall behavior:\n * - The getAllEmails method retrieves all emails from the database and returns a list of Email objects representing fake emails.\n * - The getEmailsByPerson method retrieves emails sent by a specific person and returns a list of Email objects.\n * - Both methods handle database exceptions by throwing a DBException and printing the stack trace.\n * \n * @author [Author Name]\n * @version 1.0\n */\n*/\nSure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class is responsible for managing email records in a database. It provides methods for retrieving emails sent to a specific person based on their email address, as well as sending email records to the database.\n * \n * The main functionalities of this class include:\n * - Retrieving emails sent to a specific person based on their email address\n * - Sending email records to the database by inserting them into the FakeEmail table\n * \n * The behavior of this class is as follows:\n * - When retrieving emails for a specific person, the getEmailsForPerson() method is called with the person's email address as a parameter. This method returns a list of Email objects containing the emails sent to that person.\n * - When sending an email record to the database, the sendEmailRecord() method is called with the Email object to be saved as a parameter. This method inserts the email record into the FakeEmail table in the database.\n * \n * @param email the email address of the person to retrieve emails for\n * @return a list of Email objects containing the emails sent to the specified person\n * @throws DBException if there is an error accessing the database\n */\n \nI hope this helps clarify the purpose and functionality of the class! Let me know if you need any further assistance.\n/**\n * The FakeEmailDAO class is responsible for interacting with the database to retrieve and manipulate fake email data.\n * It provides methods for retrieving fake emails based on specific criteria, such as searching for a substring in the email body.\n * This class utilizes a DAOFactory for obtaining SQL connections and other resources necessary for database operations.\n * \n * The main functionalities of the FakeEmailDAO class include:\n * - Retrieving a list of emails that contain a specific substring in their body\n * - Loading and parsing email data from the database using an EmailBeanLoader\n * \n * The behavior of the FakeEmailDAO class is as follows:\n * - It connects to the database using the provided DAOFactory\n * - It executes SQL queries to retrieve fake email data based on the specified criteria\n * - It returns a list of Email objects that meet the search criteria, ordered by added date in descending order\n * - It handles exceptions by throwing a DBException if there is an error accessing the database\n * \n * Note: It is important to ensure that the DAOFactory provided to the FakeEmailDAO constructor is not null to avoid IllegalArgumentExceptions.\n */\n**/"
     }
 ]

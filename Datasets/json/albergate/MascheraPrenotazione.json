@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels(String, String, String, char)",
                 "comments": null,
-                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo due Checkbox a se' stanti\r\n, //Creo un Choice\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo due Checkbox a se' stanti\r\n, //Creo un Choice\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for data entry and interaction in the GUI.\n * This method initializes various components such as buttons, labels, text fields, checkboxes, and choice menus.\n * It also configures the layout of these components within panels and attaches them to the main frame.\n * \n * @param caption the caption for the main action button\n * @param pens the type of pension selected\n * @param stanza the room object for which the data is being entered\n * @param caller the caller identifier for differentiating actions\n */\nvoid setupPanels(String caption, String pens, String stanza, char caller) {\n    // Method body as described above\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the object by adding an ActionListener to the \"Annulla\" button. When the button is clicked, \n * it disposes of the current window and enables the parent window. \n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It is typically used as an ActionListener for a button click event. \n * There is no return value as the method does not return anything.\n */"
             },
             {
                 "body": "Optional[{\r\n    Prenotazione pren = new Prenotazione();\r\n    pren.setNumStanza(testo[0].getText());\r\n    pren.setCognome(testo[1].getText());\r\n    pren.setNome(testo[2].getText());\r\n    pren.setNumTel(testo[3].getText());\r\n    if (caller == 1)\r\n        //Conversione String -> Int\r\n        pren.setNumPers(Integer.parseInt(mychoice.getSelectedItem()));\r\n    else\r\n        pren.setNumPers(Integer.parseInt(testo[10].getText()));\r\n    pren.setInizioSogg(DateUtils.convertDate(testo[4].getText()));\r\n    pren.setFineSogg(DateUtils.convertDate(testo[5].getText()));\r\n    if ((testo[6].getText().equals(\"\")))\r\n        pren.setCaparra(0);\r\n    else\r\n        // Conversione String -> Float\r\n        pren.setCaparra((Float.valueOf(testo[6].getText())).floatValue());\r\n    pren.setRichParticolari(testo[7].getText());\r\n    if (myCheckbox.getState() == true)\r\n        pren.setRichLettoAgg(Const.SI);\r\n    if (myCheckbox1.getState() == true) {\r\n        pren.setTramiteAgenzia(Const.SI);\r\n        pren.setNomeAgenzia(testo[8].getText());\r\n    }\r\n    if (checkboxes[0].getState() == true)\r\n        pren.setPensionamento(Flag.SOLO_PERNOTTAMENTO);\r\n    else if (checkboxes[1].getState() == true)\r\n        pren.setPensionamento(Flag.SOLO_COLAZIONE);\r\n    else if (checkboxes[2].getState() == true)\r\n        pren.setPensionamento(Flag.MEZZA_PENSIONE);\r\n    else\r\n        pren.setPensionamento(Flag.PENSIONE_COMPLETA);\r\n    pren.setIdPrenotazione(Principale.config.getIdPrenotazione());\r\n    return pren;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": true,
                 "signature": "public Prenotazione readDatiPren()",
                 "comments": null,
-                "innerComments": "Optional[[//Conversione String -> Int\r\n, // Conversione String -> Float\r\n]]"
+                "innerComments": "Optional[[//Conversione String -> Int\r\n, // Conversione String -> Float\r\n]]",
+                "generated_comment": "/**\n * Reads input data from a form and creates a new Prenotazione object with the provided information.\n * \n * @return a Prenotazione object with the data read from the form\n */\npublic Prenotazione readDatiPren() {\n    Prenotazione pren = new Prenotazione();\n    pren.setNumStanza(testo[0.getText());\n    pren.setCognome(testo[1.getText());\n    pren.setNome(testo[2.getText());\n    pren.setNumTel(testo[3.getText());\n    if (caller == 1)\n        pren.setNumPers(Integer.parseInt(mychoice.getSelectedItem()));\n    else\n        pren.setNumPers(Integer.parseInt(testo[10.getText()));\n    pren.setInizioSogg(DateUtils.convertDate(testo[4.getText());\n    pren.setFineSogg(DateUtils.convertDate(testo[5.getText());\n    if (testo[6.getText().equals(\"\"))\n        pren.setCaparra(0);\n    else\n        pren.setCaparra(Float.valueOf(testo[6.getText()).floatValue());\n    pren.setRichParticolari(testo[7.getText());\n    if (myCheckbox.getState() == true)\n        pren.setRichLettoAgg(Const.SI);\n    if (myCheckbox1.getState() == true) {\n        pren.setTramiteAgenzia(Const.SI);\n        pren.setNomeAgenzia(testo[8.getText());\n    }\n    if (checkboxes[0.getState() == true)\n        pren.setPensionamento(Flag.SOLO_PERNOTTAMENTO);\n    else if (checkboxes[1.getState() == true)\n        pren.setPensionamento(Flag.SOLO_COLAZIONE);\n    else if (checkboxes[2.getState() == true)\n        pren.setPensionamento(Flag.MEZZA_PENSIONE);\n    else\n        pren.setPensionamento(Flag.PENSIONE_COMPLETA);\n    pren.setIdPrenotazione(Principale.config.getIdPrenotazione());\n    return pren;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    myCheckbox.setState(false);\r\n    myCheckbox1.setState(false);\r\n    testo[8].setText(\"\");\r\n    testo[0].setText(pren.getNumStanza());\r\n    testo[1].setText(pren.getCognome());\r\n    testo[2].setText(pren.getNome());\r\n    testo[3].setText(pren.getNumTel());\r\n    testo[4].setText(DateUtils.giveStringOfDate(pren.getInizioSogg()));\r\n    testo[5].setText(DateUtils.giveStringOfDate(pren.getFineSogg()));\r\n    testo[6].setText(\"\" + pren.getCaparra());\r\n    testo[7].setText(pren.getRichParticolari());\r\n    testo[8].setText(pren.getNomeAgenzia());\r\n    testo[9].setText(DateUtils.giveStringOfDate(pren.getDataPren()));\r\n    if (caller != 1) {\r\n        testo[10].setText(\"\" + pren.getNumPers());\r\n    }\r\n    if (pren.getTramiteAgenzia() == Const.SI) {\r\n        myCheckbox1.setState(true);\r\n        testo[8].setText(pren.getNomeAgenzia());\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void writeDatiPren(Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes the data of a booking into the text fields of a form.\n * \n * @param pren the booking object containing the data to be displayed\n * \n * This method populates the text fields with the data from the provided booking object. \n * It sets the state of two checkboxes based on the booking information. \n * If the caller is not equal to 1, it displays the number of persons. \n * If the booking was made through an agency, it displays the agency name and sets the state of a checkbox.\n */"
             },
             {
                 "body": "Optional[{\r\n    boolean numeri_corretti;\r\n    Frame msg;\r\n    if (caller != 1) {\r\n        if (Utils.isIntPos(testo[10].getText())) {\r\n            int num = Integer.parseInt(testo[10].getText());\r\n            if ((num > stanza.getPostiLetto()) || (num <= 0)) {\r\n                msg = new MessageDialog(this, \" La stanza non puo' contenere \" + num + \" persone! \");\r\n                return true;\r\n            }\r\n        } else {\r\n            msg = new MessageDialog(this, \" Inserire correttamente il numero di persone \");\r\n            return true;\r\n        }\r\n    }\r\n    if (!((testo[0].getText()).length() <= 4)) {\r\n        msg = new MessageDialog(this, \" Il numero di stanza deve avere al piu' 4 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo[1].getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il cognome deve avere al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo[2].getText()).length() <= 20)) {\r\n        msg = new MessageDialog(this, \" Il nome deve avere al piu' 20 caratteri! \");\r\n        return true;\r\n    }\r\n    if (!((testo[3].getText()).length() <= 16)) {\r\n        msg = new MessageDialog(this, \" Il numero di telefono deve avere al piu' 16 caratteri! \");\r\n        return true;\r\n    }\r\n    if ((testo[1].getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il cognome! \");\r\n        return true;\r\n    }\r\n    if ((testo[2].getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il nome! \");\r\n        return true;\r\n    }\r\n    if ((testo[3].getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \" Manca il numero di telefono! \");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "protected boolean errori()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method checks for errors in the input fields of a form.\n * It verifies if the number of people in a room is valid, if the length of the room number, last name, first name, and phone number are within limits,\n * and if the last name, first name, and phone number fields are not empty.\n * \n * @return true if there are errors in the input fields, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    testo[0].setText(\"\");\r\n    testo[1].setText(\"\");\r\n    testo[2].setText(\"\");\r\n    testo[3].setText(\"\");\r\n    testo[4].setText(\"\");\r\n    testo[5].setText(\"\");\r\n    testo[6].setText(\"\");\r\n    testo[7].setText(\"\");\r\n    testo[8].setText(\"\");\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void cleanFields()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method clears all the text fields in the testo array.\n * \n * @param none\n * @return void\n * \n * The cleanFields method sets the text of each text field in the testo array to an empty string.\n * This effectively clears all the text fields, making them ready for new input.\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    Prenotazione p;\r\n    L = (Principale.db).foundPrenotazioni(testo[1].getText(), testo[2].getText());\r\n    if (L != null) {\r\n        if (!L.isEmpty()) {\r\n            if (lista.getItemCount() > 0)\r\n                lista.removeAll();\r\n            panel3.setVisible(true);\r\n            pack();\r\n            for (int i = 1; i <= L.length(); i++) lista.addItem(L.getPrenotazione(i).toString());\r\n        } else\r\n            msg = new AvvisoDialog(this, \"Prenotazione non trovata!\");\r\n    } else\r\n        msg = new MessageDialog(this, \"Problemi con il DataBase\");\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void creaLista()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a list of reservations based on the input provided by the user.\n * Retrieves reservations from the database using the specified parameters and populates a list with the results.\n * If reservations are found, the list is displayed on the screen. If no reservations are found, a message dialog is shown.\n * If there are any issues with the database connection, an error message is displayed.\n * \n * @param testo1 the first parameter used to search for reservations in the database\n * @param testo2 the second parameter used to search for reservations in the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Disponibilita disp_da_cambiare = new Disponibilita();\r\n    ListaDisponibilita elenco_disp = (Principale.db).elencoDisponibilita();\r\n    if (elenco_disp == null) {\r\n        Frame msg = new MessageDialog(this, \" Problemi con il database nella lettura delle disponibilita'! \");\r\n        return;\r\n    }\r\n    disp_da_cambiare = Utils.getDispOfRoom(elenco_disp, pren.getNumStanza(), true);\r\n    if (//cancellazione della prenotazione\r\n    tipo == Flag.DISPONIBILE) {\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.ASSEGNATA);\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.BLOCCATA);\r\n    } else {\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.DISPONIBILE);\r\n        disp_da_cambiare.setDisponibilita(pren.getInizioSogg(), pren.getFineSogg(), tipo, Flag.COMMISSIONATA);\r\n    }\r\n    (Principale.db).changeDisponibilita(disp_da_cambiare.getNumStanza(), disp_da_cambiare.getDispAnnoCorr(), disp_da_cambiare.getDispAnnoProx());\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": true,
                 "signature": " void aggiornaDisp(Prenotazione, char)",
                 "comments": null,
-                "innerComments": "Optional[[//cancellazione della prenotazione\r\n]]"
+                "innerComments": "Optional[[//cancellazione della prenotazione\r\n]]",
+                "generated_comment": "/**\n * Updates the availability of a room based on a booking status.\n * \n * @param prenotazione The booking to be updated\n * @param tipo The type of availability change (DISPONIBILE for available, ASSEGNATA for assigned, BLOCCATA for blocked, COMMISSIONATA for commissioned)\n * \n * This method retrieves the availability of a room from the database, updates it according to the booking status, and then saves the changes back to the database.\n * If there are any issues with reading the availability from the database, a message dialog will be displayed.\n */"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraPrenotazione(Stanza, String, String, String, String, int, char)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of MascheraPrenotazione with the specified parameters.\n * \n * @param s the Stanza object representing the room for the reservation\n * @param title the title of the window\n * @param data_i the start date of the reservation\n * @param data_f the end date of the reservation\n * @param caption the caption for the reservation\n * @param pens the price for the reservation\n * @param c the caller object\n * @param char the character representing the reservation\n * \n * The constructor initializes the MascheraPrenotazione with the given parameters, sets up the panels for the reservation data, \n * initializes the window, and packs it to display.\n */\npublic MascheraPrenotazione(Stanza s, String title, String data_i, String data_f, String caption, int pens, char c) {\n    super(title);\n    caller = c;\n    stanza = s;\n    setupPanels(data_i, data_f, caption, pens);\n    inizializza();\n    pack();\n}\n*/"
             }
         ],
         "signature": "MascheraPrenotazione",
@@ -119,6 +129,7 @@
             " ListaPrenotazioni L",
             " Stanza stanza",
             " int caller"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraPrenotazione class represents a graphical user interface for managing reservations.\n * It provides methods for setting up panels with data entry fields, buttons, labels, checkboxes, and choice menus.\n * The class includes functionality for reading reservation data, writing data to form fields, checking for input errors,\n * clearing text fields, creating a list of reservations based on user input, and updating room availability based on booking status.\n * \n * This class contains constructors for initializing the reservation window with specific parameters and setting up the panels for data entry.\n * It also includes methods for handling button actions, reading and writing reservation data, and updating room availability.\n * \n * The main functionalities of this class are:\n * - Setting up panels for data entry and interaction in the GUI\n * - Initializing the object and enabling/disabling windows\n * - Reading input data from a form and creating a new reservation object\n * - Writing reservation data into form fields and checkboxes\n * - Checking for errors in input fields and displaying error messages\n * - Clearing all text fields in the form\n * - Creating a list of reservations based on user input and displaying the results\n * - Updating room availability based on booking status\n * \n * This class encapsulates the functionality required for managing reservations in a hotel booking system.\n */\n**/"
     }
 ]

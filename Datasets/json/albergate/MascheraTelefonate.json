@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Disabilita i TextField\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Disabilita i TextField\r\n, //Creo i pulsanti\r\n, //Creo il pannello\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for displaying phone call data.\n * This method sets the font for the panels and creates labels, text fields, and buttons for displaying and interacting with phone call information.\n * The method also disables some text fields to prevent user input.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    writeDatiTel();\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void inizializza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the object by writing telephone data and setting up a listener for the \"Annulla\" button.\n * \n * This method calls the writeDatiTel() method to write telephone data and sets up an ActionListener for the \"Annulla\" button. \n * When the \"Annulla\" button is clicked, it disposes of the current window and enables the parent window.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the method. \n * There is no return value for this method.\n */"
             },
             {
                 "body": "Optional[{\r\n    data_tel.setText(DateUtils.giveStringOfDate(phone.getDataTel()));\r\n    num_stanza.setText(phone.getNumStanza());\r\n    ora_i.setText(\"\" + phone.getInizioTel());\r\n    ora_f.setText(\"\" + phone.getFineTel());\r\n    durata.setText(\"\" + phone.getDurataTel());\r\n    scatti.setText(\"\" + phone.getNumScatti());\r\n    numero.setText(phone.getNumChiamato());\r\n    costo.setText(\"\" + ((Principale.config).getCostoXScatto()) * phone.getNumScatti());\r\n    tot_scatti.setText(\"\" + scatti_totali);\r\n    tot_costo.setText(\"\" + ((Principale.config).getCostoXScatto()) * scatti_totali);\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " void writeDatiTel()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the GUI components with the data from the Phone object.\n * Sets the text of various JLabels with information such as the date of the call, room number, start and end times of the call,\n * call duration, number of call charges, called number, call cost, total call charges, and total call cost.\n * \n * @param phone the Phone object containing the call data to be displayed\n */ \nvoid writeDatiTel() {\n    data_tel.setText(DateUtils.giveStringOfDate(phone.getDataTel()));\n    num_stanza.setText(phone.getNumStanza());\n    ora_i.setText(\"\" + phone.getInizioTel());\n    ora_f.setText(\"\" + phone.getFineTel());\n    durata.setText(\"\" + phone.getDurataTel());\n    scatti.setText(\"\" + phone.getNumScatti());\n    numero.setText(phone.getNumChiamato());\n    costo.setText(\"\" + ((Principale.config).getCostoXScatto()) * phone.getNumScatti());\n    tot_scatti.setText(\"\" + scatti_totali);\n    tot_costo.setText(\"\" + ((Principale.config).getCostoXScatto()) * scatti_totali);\n}\n*/"
             }
         ],
         "constructors": [
@@ -41,7 +45,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraTelefonate(Frame, Telefonata, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraTelefonate object with the specified Frame, Telefonata, and int parameters.\n * This constructor initializes the title of the frame to \"Visualizzazione dei dati delle telefonate\",\n * sets the parent frame, phone, and total scatti values based on the provided parameters,\n * disables the parent frame, sets up the panels, initializes the components, packs the frame,\n * and sets it to be visible.\n * \n * @param p the parent Frame for the MascheraTelefonate\n * @param t the Telefonata object containing the phone data\n * @param tot the total number of scatti for the Telefonata\n */"
             }
         ],
         "signature": "MascheraTelefonate",
@@ -75,6 +80,7 @@
             " Frame padre",
             " Telefonata phone",
             " int scatti_totali"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraTelefonate class represents a GUI window for displaying phone call data.\n * This class contains methods for setting up panels, initializing components, handling user actions, and updating GUI components with phone call information.\n * The class includes text fields, labels, buttons, and panels for displaying and interacting with phone call data.\n * \n * The main functionalities of the MascheraTelefonate class include:\n * - Setting up panels with labels, text fields, and buttons for displaying phone call data\n * - Initializing the object by writing telephone data and setting up event listeners\n * - Disposing of the current window and enabling the parent window\n * - Updating the GUI components with data from the Phone object\n * \n * The class constructor takes a Frame, Telefonata, and an integer parameter to initialize the title of the frame, set the parent frame, phone object, and total scatti values, disable the parent frame, set up panels, initialize components, pack the frame, and make it visible.\n * \n * Overall, the MascheraTelefonate class provides a user-friendly interface for viewing and interacting with phone call data in a structured and organized manner.\n */\n**/"
     }
 ]

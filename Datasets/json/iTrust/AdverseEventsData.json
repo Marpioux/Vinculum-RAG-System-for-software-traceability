@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAdverseEventsList(List<AdverseEventBean>, String)",
                 "comments": "Optional[/**\r\n * Called from the JSP page to initialize the list of Adverse Events needed to\r\n * produce the desired chart.\r\n *\r\n * @param adEvents\r\n * @param name\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the list of adverse events and the code name associated with them.\n * \n * @param adEvents the list of adverse events to set\n * @param name the code name to set\n */\npublic void setAdverseEventsList(List<AdverseEventBean> adEvents, String name) {\n    adverseEvents = adEvents;\n    this.codeName = name;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    // The DefaultCategoryDataset is used for bar charts.\r\n    // This dataset class may change based on the type of chart you wish to produce.\r\n    DefaultCategoryDataset dataset = new DefaultCategoryDataset() {\r\n\r\n        /**\r\n         * The generated serializable ID.\r\n         */\r\n        private static final long serialVersionUID = -8238489914590553747L;\r\n\r\n        /**\r\n         * @see java.lang.Object#finalize()\r\n         */\r\n        protected void finalize() throws Throwable {\r\n            super.finalize();\r\n        }\r\n    };\r\n    SimpleDateFormat sdf = new SimpleDateFormat(\"yyyy-MM-dd hh:mm:ss\");\r\n    // For each Adverse Event in the list,\r\n    // parse the string repreentation of the report date\r\n    // to a Java Date object. Then, get the month of the\r\n    // Date object and increment the value count for that month.\r\n    for (AdverseEventBean event : adverseEvents) {\r\n        Calendar cal = Calendar.getInstance();\r\n        try {\r\n            cal.setTime(sdf.parse(event.getDate()));\r\n        } catch (ParseException e) {\r\n            e.printStackTrace();\r\n            throw new DatasetProduceException(e.getMessage());\r\n        }\r\n        int monthOfReport = cal.get(Calendar.MONTH);\r\n        values[monthOfReport]++;\r\n    }\r\n    // For each month, add the monthly values to the dataset for\r\n    // producing the chart.\r\n    for (int i = 0; i < 12; i++) {\r\n        // values[i] represents the number of adverse events for month i\r\n        // codeName represents the given prescription/immunization being analyzed\r\n        // month[i] is the static array of month names, to be used as labels on the chart\r\n        dataset.addValue(values[i], codeName, months[i]);\r\n    }\r\n    return dataset;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public Object produceDataset(Map)",
                 "comments": "Optional[/**\r\n * This method parses the list of Adverse Event Beans to initialize the chart dataset.\r\n */\r\n]",
-                "innerComments": "Optional[[// The DefaultCategoryDataset is used for bar charts.\r\n, // For each Adverse Event in the list,\r\n, // parse the string repreentation of the report date\r\n, // to a Java Date object. Then, get the month of the\r\n, // For each month, add the monthly values to the dataset for\r\n, // This dataset class may change based on the type of chart you wish to produce.\r\n, /**\r\n * The generated serializable ID.\r\n */\r\n, /**\r\n * @see java.lang.Object#finalize()\r\n */\r\n, // Date object and increment the value count for that month.\r\n, // producing the chart.\r\n, // values[i] represents the number of adverse events for month i\r\n, // codeName represents the given prescription/immunization being analyzed\r\n, // month[i] is the static array of month names, to be used as labels on the chart\r\n]]"
+                "innerComments": "Optional[[// The DefaultCategoryDataset is used for bar charts.\r\n, // For each Adverse Event in the list,\r\n, // parse the string repreentation of the report date\r\n, // to a Java Date object. Then, get the month of the\r\n, // For each month, add the monthly values to the dataset for\r\n, // This dataset class may change based on the type of chart you wish to produce.\r\n, /**\r\n * The generated serializable ID.\r\n */\r\n, /**\r\n * @see java.lang.Object#finalize()\r\n */\r\n, // Date object and increment the value count for that month.\r\n, // producing the chart.\r\n, // values[i] represents the number of adverse events for month i\r\n, // codeName represents the given prescription/immunization being analyzed\r\n, // month[i] is the static array of month names, to be used as labels on the chart\r\n]]",
+                "generated_comment": "/**\n * Produces a dataset for a bar chart based on the given list of AdverseEventBeans.\n * The dataset is populated with the number of adverse events reported for each month.\n * \n * @param adverseEvents a list of AdverseEventBeans containing information about adverse events\n * @return a DefaultCategoryDataset object populated with the number of adverse events for each month\n * @throws DatasetProduceException if there is an error parsing the date string in the AdverseEventBeans\n */\npublic Object produceDataset(Map<String, List<AdverseEventBean>> adverseEvents) {\n    // The DefaultCategoryDataset is used for bar charts.\n    // This dataset class may change based on the type of chart you wish to produce.\n    DefaultCategoryDataset dataset = new DefaultCategoryDataset() {\n        // Inner class with generated serializable ID and finalize method\n    };\n    \n    SimpleDateFormat sdf = new SimpleDateFormat(\"yyyy-MM-dd hh:mm:ss\");\n    \n    // For each Adverse Event in the list,\n    // parse the string representation of the report date\n    // to a Java Date object. Then, get the month of the\n    // Date object and increment the value count for that month.\n    for (AdverseEventBean event : adverseEvents) {\n        Calendar cal = Calendar.getInstance();\n        try {\n            cal.setTime(sdf.parse(event.getDate()));\n        } catch (ParseException e) {\n            e.printStackTrace();\n            throw new DatasetProduceException(e.getMessage());\n        }\n        int monthOfReport = cal.get(Calendar.MONTH);\n        values[monthOfReport++;\n    }\n    \n    // For each month, add the monthly values to the dataset for\n    // producing the chart.\n    for (int i = 0; i < 12; i++) {\n        // values[i represents the number of adverse events for month i\n        // codeName represents the given prescription/immunization being analyzed\n        // month[i is the static array of month names, to be used as labels on the chart\n        dataset.addValue(values[i], codeName, months[i]);\n    }\n    \n    return dataset;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    super.finalize();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "protected void finalize()",
                 "comments": "Optional[/**\r\n * @see java.lang.Object#finalize()\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called by the garbage collector on an object when garbage collection determines that there are no more references to the object. \n * It is used to perform cleanup operations before the object is reclaimed by the garbage collector. \n * \n * @throws Throwable - an exception that may be thrown by the finalize method\n * \n * @return void - this method does not return any value\n */"
             },
             {
                 "body": "Optional[{\r\n    return (System.currentTimeMillis() - since.getTime()) > 5000;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean hasExpired(Map, Date)",
                 "comments": "Optional[/**\r\n * This producer's data is invalidated after 5 seconds. By this method the\r\n * producer can influence Cewolf's caching behaviour the way it wants to.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a given date has expired based on a specified time threshold.\n * \n * @param dateMap a Map containing the date to be checked\n * @param since the Date object representing the starting point for comparison\n * @return true if the time elapsed since the specified starting point is greater than 5000 milliseconds, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return \"AdverseEventsData DatasetProducer\";\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getProducerId()",
                 "comments": "Optional[/**\r\n * Returns a unique ID for this DatasetProducer\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the producer ID of the dataset.\n * \n * @return the producer ID as a String, which is \"AdverseEventsData DatasetProducer\"\n */"
             },
             {
                 "body": "Optional[{\r\n    return months[series];\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public String generateLink(Object, int, Object)",
                 "comments": "Optional[/**\r\n * Returns a link target for a special data item.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Generates a link based on the given parameters.\n * \n * @param obj1 the first object used to generate the link\n * @param num the integer value used in the link generation process\n * @param obj2 the second object used to generate the link\n * @return a String representing the generated link\n * \n * The method generates a link using the elements of the 'months' array at the index specified by the 'series' parameter.\n */"
             },
             {
                 "body": "Optional[{\r\n    super.finalize();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "protected void finalize()",
                 "comments": "Optional[/**\r\n * @see java.lang.Object#finalize()\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called by the garbage collector on an object when garbage collection determines that there are no more references to the object. \n * It is used to perform any cleanup actions before the object is discarded. \n * \n * @throws Throwable if an exception occurs during finalization\n */ \nprotected void finalize() {\n    super.finalize();\n}"
             },
             {
                 "body": "Optional[{\r\n    return months[series];\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public String generateToolTip(CategoryDataset, int, int)",
                 "comments": "Optional[/**\r\n * @see org.jfree.chart.tooltips.CategoryToolTipGenerator#generateToolTip(CategoryDataset, int, int)\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Generates a tooltip for a specific data point in the CategoryDataset.\n * \n * @param dataset the CategoryDataset containing the data points\n * @param series the series index of the data point\n * @param category the category index of the data point\n * @return a String representing the tooltip for the specified data point\n */"
             }
         ],
         "constructors": [],
@@ -75,6 +83,7 @@
             "private List<AdverseEventBean> adverseEvents",
             "private String codeName",
             "private  static  final long serialVersionUID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AdverseEventsData class is responsible for handling and processing data related to adverse events.\n * It provides methods for setting the list of adverse events, producing datasets for charts based on the adverse events,\n * checking if a given date has expired, generating a unique producer ID, generating links for special data items,\n * and generating tooltips for specific data points in a dataset.\n * \n * This class contains variables to store the list of adverse events, the code name associated with them,\n * an array of month names, and values representing the number of adverse events for each month.\n * \n * The setAdverseEventsList method initializes the list of adverse events needed to produce a chart,\n * while the produceDataset method parses the list of adverse event beans to populate a dataset for a bar chart.\n * The hasExpired method checks if a given date has expired based on a specified time threshold.\n * The getProducerId method returns a unique ID for this DatasetProducer.\n * The generateLink method generates a link target for a special data item.\n * The generateToolTip method generates a tooltip for a specific data point in a CategoryDataset.\n * \n * Overall, the AdverseEventsData class provides essential functionalities for handling adverse event data\n * and generating visual representations of this data through charts and tooltips.\n */"
     }
 ]

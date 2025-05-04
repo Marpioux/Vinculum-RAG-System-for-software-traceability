@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean cancellaBeneCulturale(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Removes a cultural asset from the list of cultural assets based on its ID.\n * \n * @param pIdBene the ID of the cultural asset to be removed\n * @return true if the cultural asset with the specified ID was successfully removed, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    return b.add(pBene);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean inserisciBeneCulturale(BeanBeneCulturale)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a cultural asset into the collection of cultural assets.\n * \n * @param pBene the cultural asset to be inserted\n * @return true if the cultural asset was successfully added to the collection, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    boolean res = false;\r\n    for (int i = 0; i < b.size(); i++) {\r\n        if (b.get(i).getId() == pBene.getId()) {\r\n            b.set(i, pBene);\r\n            return true;\r\n        }\r\n    }\r\n    return res;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean modificaBeneCulturale(BeanBeneCulturale)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Modifies a cultural asset in the list of cultural assets.\n * \n * This method takes a BeanBeneCulturale object as a parameter and searches for a cultural asset in the list of cultural assets with the same ID. If a match is found, the cultural asset is replaced with the provided cultural asset. \n * \n * @param pBene the cultural asset to be modified\n * @return true if the cultural asset was successfully modified, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    BeanBeneCulturale res = null;\r\n    for (int i = 0; i < b.size(); i++) {\r\n        if (b.get(i).getId() == pid) {\r\n            res = b.get(i);\r\n        }\r\n    }\r\n    return res;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanBeneCulturale ottieniBeneCulturale(int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a cultural asset based on its ID.\n * \n * @param pid the ID of the cultural asset to retrieve\n * @return the cultural asset with the specified ID, or null if not found\n */"
             },
             {
                 "body": "Optional[{\r\n    return b;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public ArrayList<BeanBeneCulturale> ottieniListaBC()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Ottiene la lista di oggetti BeanBeneCulturale.\n * \n * @return una lista di oggetti BeanBeneCulturale\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return 0;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": true,
                 "signature": "public int ottieniNumeroElementiRicerca(String, ArrayList<BeanTag>, Punto3D, double)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * This method retrieves the number of elements in a search based on the provided parameters.\n * \n * @param searchString a String representing the search query\n * @param tagsList an ArrayList of BeanTag objects containing tags associated with the search\n * @param startPoint a Punto3D object representing the starting point of the search\n * @param radius a double value representing the search radius\n * @return an integer value representing the number of elements found in the search\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return 0;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": true,
                 "signature": "public int ottieniNumeroElementiRicercaAvanzata(int, String, ArrayList<BeanTag>, Punto3D, double)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * This method returns the number of elements found in an advanced search.\n * \n * @param numeroRicerca the search number\n * @param testoRicerca the search text\n * @param listaTag the list of tags to search for\n * @param punto the 3D point to search around\n * @param valore the value to compare against\n * @return the number of elements found in the advanced search\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": true,
                 "signature": "public ArrayList<BeanBeneCulturale> search(String, ArrayList<BeanTag>, int, int, Punto3D, double)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Searches for cultural assets based on the given parameters.\n * \n * @param keyword the keyword to search for in the cultural assets\n * @param tags the list of tags to filter the search results\n * @param minYear the minimum year of creation for the cultural assets\n * @param maxYear the maximum year of creation for the cultural assets\n * @param location the location to search around\n * @param radius the radius in which to search around the location\n * @return a list of cultural assets that match the search criteria\n */"
             },
             {
                 "body": "Optional[{\r\n    // TODO Auto-generated method stub\r\n    return null;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": true,
                 "signature": "public ArrayList<BeanBeneCulturale> ricercaAvanzata(int, String, ArrayList<BeanTag>, int, int, Punto3D, double)",
                 "comments": null,
-                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]"
+                "innerComments": "Optional[[// TODO Auto-generated method stub\r\n]]",
+                "generated_comment": "/**\n * Performs an advanced search for cultural assets based on various criteria.\n * \n * @param id the unique identifier of the search\n * @param keyword the keyword to search for in the cultural assets\n * @param tags the list of tags to filter the search results\n * @param minYear the minimum year of creation for the cultural assets\n * @param maxYear the maximum year of creation for the cultural assets\n * @param location the location to search for cultural assets near\n * @param radius the radius in kilometers within which to search for cultural assets\n * @return a list of BeanBeneCulturale objects that match the search criteria\n */\npublic ArrayList<BeanBeneCulturale> ricercaAvanzata(int id, String keyword, ArrayList<BeanTag> tags, int minYear, int maxYear, Punto3D location, double radius) {\n    // TODO Auto-generated method stub\n    return null;\n}"
             }
         ],
         "constructors": [
@@ -81,12 +90,14 @@
                 "hasInnerComment": false,
                 "signature": "public DBBeneCulturale()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DBBeneCulturale object.\n * This constructor initializes the DBBeneCulturale object by creating a new ArrayList of BeanBeneCulturale objects with an initial capacity of 0.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "signature": "DBBeneCulturale",
         "variables": [
             "private ArrayList<BeanBeneCulturale> b"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DBBeneCulturale class represents a database of cultural assets.\n * \n * This class provides methods for managing a collection of cultural assets, including inserting, modifying, and retrieving individual assets. \n * It also allows for searching and filtering cultural assets based on various criteria.\n * \n * The class contains a private ArrayList<BeanBeneCulturale> b to store the cultural assets.\n * \n * Main functionalities include:\n * - Inserting a cultural asset into the collection\n * - Modifying a cultural asset in the collection\n * - Removing a cultural asset from the collection\n * - Retrieving a cultural asset based on its ID\n * - Searching for cultural assets based on keywords, tags, year of creation, location, and radius\n * - Performing advanced searches with additional criteria\n * \n * The class constructor initializes the DBBeneCulturale object by creating a new ArrayList of BeanBeneCulturale objects with an initial capacity of 0.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

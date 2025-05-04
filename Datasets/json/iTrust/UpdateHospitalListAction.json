@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String addHospital(HospitalBean)",
                 "comments": "Optional[/**\r\n * Adds a hosptial using the HospitalBean passed as a param\r\n *\r\n * @param hosp\r\n *            the new hospital listing\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new hospital to the system.\n * \n * @param hosp the HospitalBean object representing the hospital to be added\n * @return a message indicating the success or failure of the operation\n * \n * This method validates the HospitalBean object using HospitalBeanValidator, then attempts to add the hospital to the database using hospDAO. \n * If successful, it logs the transaction and returns a success message with the hospital ID and name. \n * If the database operation fails, it returns an error message. \n * If an exception is caught, it prints the stack trace and returns the exception message.\n */\npublic String addHospital(HospitalBean hosp) {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    new HospitalBeanValidator().validate(hosp);\r\n    try {\r\n        int rows = 0;\r\n        return ((0 == (rows = updateHospital(hosp))) ? \"Error: Hospital not found.\" : \"Success: \" + rows + \" row(s) updated\");\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String updateInformation(HospitalBean)",
                 "comments": "Optional[/**\r\n * Updates a hospital (based on the hospital id) using new information from the HospitalBean passed as a\r\n * param\r\n *\r\n * @param hosp\r\n *            the new hospital information with the same hospital id\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the information of a hospital in the database.\n * \n * @param hosp the HospitalBean object containing the information to be updated\n * @return a String indicating the outcome of the update operation:\n *         - \"Error: Hospital not found.\" if the hospital does not exist in the database\n *         - \"Success: [number] row(s) updated\" if the update operation is successful\n *         - the error message if an exception occurs during the update operation\n */\npublic String updateInformation(HospitalBean hosp) {\n    new HospitalBeanValidator().validate(hosp);\n    try {\n        int rows = 0;\n        return ((0 == (rows = updateHospital(hosp))) ? \"Error: Hospital not found.\" : \"Success: \" + rows + \" row(s) updated\");\n    } catch (DBException e) {\n        e.printStackTrace();\n        return e.getMessage();\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return hospDAO.updateHospital(hosp);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "private int updateHospital(HospitalBean)",
                 "comments": "Optional[/**\r\n * Updates hospital\r\n *\r\n * @param hosp new information\r\n * @return id for the updated hospital\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the information of a hospital in the database.\n * \n * @param hosp the HospitalBean object containing the updated information of the hospital\n * @return an integer value representing the number of rows affected in the database after updating the hospital information\n */"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public UpdateHospitalListAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Set up\r\n *\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param performerID The MID of the person updating the hospitals.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new UpdateHospitalListAction object with the given DAOFactory and performer ID.\n * This constructor initializes the hospitalsDAO and transactionDAO fields of the UpdateHospitalListAction object\n * using the provided DAOFactory. It also sets the performerID field to the specified performer ID.\n * \n * @param factory the DAOFactory used to retrieve the HospitalsDAO and TransactionDAO instances\n * @param performerID the ID of the performer initiating the update action\n */"
             }
         ],
         "signature": "UpdateHospitalListAction",
@@ -41,6 +45,7 @@
             "private long performerID",
             "private HospitalsDAO hospDAO",
             "private TransactionDAO transDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The HospitalManager class is responsible for managing hospital data in the system.\n * It provides methods for adding and updating hospital information.\n * \n * This class contains the following main functionalities:\n * - Adding a new hospital to the system\n * - Updating existing hospital information\n * \n * The behavior of this class is as follows:\n * - When adding a hospital, the addHospital method validates the HospitalBean object using HospitalBeanValidator,\n *   then attempts to add the hospital to the database using hospDAO.\n *   If successful, it logs the transaction and returns a success message with the hospital ID and name.\n *   If the database operation fails, it returns an error message.\n *   If an exception is caught, it prints the stack trace and returns the exception message.\n * \n * When updating hospital information, the updateHospital method validates the HospitalBean object using HospitalBeanValidator,\n * then attempts to update the hospital in the database.\n * If the hospital is not found, it returns an error message.\n * If the update is successful, it returns a success message with the number of rows updated.\n * If an exception is caught, it prints the stack trace and returns the exception message.\n * \n * @author [Author Name]\n * @version 1.0\n */\npublic class HospitalManager {\n    // class implementation\n}\n*/\n/**\n * This class represents a HospitalService that is responsible for updating hospital information in the database.\n * It contains methods to update hospital information based on the hospital id and new information provided in a HospitalBean object.\n * \n * The main functionalities of this class include:\n * - Updating hospital information in the database using new information from a HospitalBean object\n * - Handling exceptions such as FormValidationException and DBException during the update operation\n * \n * The updateInformation method takes a HospitalBean object as a parameter, validates the object using HospitalBeanValidator,\n * and then updates the hospital information in the database by calling the updateHospital method. It returns a status message\n * indicating the outcome of the update operation, such as \"Error: Hospital not found.\" or \"Success: [number] row(s) updated\".\n * \n * The updateHospital method is a private method that actually performs the update operation by calling the updateHospital method\n * of the HospitalDAO class. It returns an integer value representing the number of rows affected in the database after updating\n * the hospital information.\n * \n * This class provides a comprehensive solution for updating hospital information in the database and handles various scenarios\n * that may occur during the update operation.\n */\npublic class HospitalService {\n    // Class implementation goes here\n}\n*/\n/**\n * The UpdateHospitalListAction class represents an action that updates the list of hospitals in the system.\n * This class is responsible for retrieving the necessary data from the database using the provided DAOFactory,\n * updating the hospitals list, and recording the transaction in the system.\n * \n * The main functionalities of this class include:\n * - Initializing the hospitalsDAO and transactionDAO fields using the provided DAOFactory\n * - Setting the performerID field to the specified performer ID\n * - Updating the list of hospitals in the system\n * - Recording the transaction initiated by the performer\n * \n * This class provides a constructor that takes a DAOFactory and performer ID as parameters to initialize the necessary fields.\n * \n * Example usage:\n * \n * DAOFactory factory = new DAOFactory();\n * long performerID = 12345;\n * UpdateHospitalListAction updateAction = new UpdateHospitalListAction(factory, performerID);\n * \n * updateAction.execute(); // Perform the update action\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

@@ -10,6 +10,7 @@
             "public  static  final String SERVER_IMAGE_PATH",
             "public  static  final String SERVER_URL",
             "public  static  final long TRENTA_GIORNI"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The CostantiGlobali class contains global constants used throughout the application.\n * These constants define maximum and minimum priority levels for news, maximum number of active news,\n * server image path, server URL, and a constant representing thirty days in milliseconds.\n * \n * This class serves as a central repository for global constants that are used across different parts of the application.\n * By defining these constants in one place, it ensures consistency and makes it easier to update them in the future.\n * \n * The constants in this class are meant to be accessed statically, as they are shared across different classes and components.\n * They provide a convenient way to access important values that are used frequently in the application.\n * \n * It is important to note that the values of these constants should not be modified at runtime, as they are intended to be constant.\n * Any changes to these constants should be done at the source code level and recompiled to reflect the new values.\n */"
     }
 ]

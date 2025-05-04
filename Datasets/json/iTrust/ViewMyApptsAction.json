@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ApptBean> getMyAppointments()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of appointments for the currently logged in user.\n * \n * @return A list of ApptBean objects representing the appointments for the logged in user.\n */"
             },
             {
                 "body": "Optional[{\r\n    if (mid < 7000000000L)\r\n        return patientDAO.getName(mid);\r\n    else\r\n        return personnelDAO.getName(mid);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName(long)",
                 "comments": "Optional[/**\r\n * Gets a users's name from their MID\r\n *\r\n * @param mid the MID of the user\r\n * @return the user's name\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name associated with the given ID.\n * If the ID is less than 7000000000, the name is fetched from the patient data access object (DAO).\n * Otherwise, the name is fetched from the personnel data access object (DAO).\n * \n * @param mid the unique identifier of the individual\n * @return the name associated with the given ID\n */"
             },
             {
                 "body": "Optional[{\r\n    return apptDAO.getAllAppts();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<ApptBean> getAllAppts()",
                 "comments": "Optional[/**\r\n * Get All Appointments for the admins use... may need to change!\r\n * @return\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of all appointments from the database.\n * \n * @return A List of ApptBean objects representing all appointments in the database.\n */"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public ViewMyApptsAction(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ViewMyApptsAction object with the specified DAOFactory and logged in member ID.\n * This constructor initializes the ViewMyApptsAction object with the given DAOFactory to access appointment, patient, and personnel data.\n *\n * @param factory the DAOFactory object used to retrieve DAO instances for appointment, patient, and personnel data\n * @param loggedInMID the ID of the logged in member\n */"
             }
         ],
         "signature": "ViewMyApptsAction",
@@ -42,6 +46,7 @@
             "private ApptDAO apptDAO",
             "private PatientDAO patientDAO",
             "private PersonnelDAO personnelDAO"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AppointmentService class provides functionality for managing appointments in the system.\n * It allows users to retrieve their appointments, get names associated with user IDs, and retrieve all appointments.\n * \n * This class contains methods for retrieving appointments for the currently logged in user, getting a user's name based on their ID,\n * and retrieving a list of all appointments in the database.\n * \n * The class constructor initializes the necessary data access objects for interacting with the database.\n * \n * Note: This class may need to be updated for admin-specific functionality in the future.\n */\n**/\n/**\n * The ViewMyApptsAction class represents an action that allows a logged-in member to view their appointments.\n * This class provides functionality to retrieve appointment, patient, and personnel data using the specified DAOFactory.\n * \n * The main functionalities of this class include:\n * - Constructing a new ViewMyApptsAction object with the specified DAOFactory and logged in member ID.\n * - Retrieving appointment, patient, and personnel data for the logged-in member.\n * \n * The overall behavior of this class is to facilitate the viewing of appointments for a specific member by accessing the necessary data through the DAOFactory.\n * \n * @param factory the DAOFactory object used to retrieve DAO instances for appointment, patient, and personnel data\n * @param loggedInMID the ID of the logged in member\n */"
     }
 ]

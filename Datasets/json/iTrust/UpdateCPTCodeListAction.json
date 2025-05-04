@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String addCPTCode(ProcedureBean)",
                 "comments": "Optional[/**\r\n * Adds a new cpt code (med procedure)\r\n *\r\n * @param proc\r\n *            ProcedureBean that holds the new cpt code\r\n * @return status message\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a CPT code to the database.\n * \n * @param proc the ProcedureBean object containing the CPT code to be added\n * @return a message indicating the success or failure of the operation\n * \n * This method validates the ProcedureBean object, then attempts to add the CPT code to the database using the CPTDAO. \n * If successful, it logs the transaction and returns a success message with the CPT code and description. \n * If the database operation fails, it returns an error message. \n * \n * @throws DBException if there is an issue with the database operation\n * @throws iTrustException if there is an issue with the iTrust system\n */\npublic String addCPTCode(ProcedureBean proc) {\n    validator.validate(proc);\n    try {\n        if (cptDAO.addCPTCode(proc)) {\n            transDAO.logTransaction(TransactionType.MANAGE_PROCEDURE_CODE, loggedInMID, 0L, \"added CPT code \" + proc.getCPTCode());\n            return \"Success: \" + proc.getCPTCode() + \" - \" + proc.getDescription() + \" added\";\n        } else\n            return \"The database has become corrupt. Please contact the system administrator for assistance.\";\n    } catch (DBException e) {\n        e.printStackTrace();\n        return e.getMessage();\n    } catch (iTrustException e) {\n        return e.getMessage();\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    validator.validate(proc);\r\n    try {\r\n        int rows = updateCode(proc);\r\n        if (0 == rows) {\r\n            return \"Error: Code not found. To edit an actual code, \" + \"change the description and add a new code with the old description\";\r\n        } else {\r\n            transDAO.logTransaction(TransactionType.MANAGE_PROCEDURE_CODE, loggedInMID, 0L, \"updated CPT code \" + proc.getCPTCode());\r\n            return \"Success: \" + rows + \" row(s) updated\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        return e.getMessage();\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String updateInformation(ProcedureBean)",
                 "comments": "Optional[/**\r\n * Updates a procedure with new information from the ProcedureBean\r\n *\r\n * @param proc\r\n *            ProcedureBean with new information (but same CPT code)\r\n * @return Status message\r\n * @throws FormValidationException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates information for a given ProcedureBean.\n * \n * This method validates the ProcedureBean using a validator, then attempts to update the code in the database.\n * If the code is not found, it returns an error message instructing the user to add a new code with the old description.\n * If the code is successfully updated, it logs the transaction and returns a success message with the number of rows updated.\n * \n * @param proc the ProcedureBean to update\n * @return a message indicating the success or failure of the update operation\n */"
             },
             {
                 "body": "Optional[{\r\n    return cptDAO.updateCode(proc);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "private int updateCode(ProcedureBean)",
                 "comments": "Optional[/**\r\n * Updates the cpt code\r\n *\r\n * @param proc the code to be updated\r\n * @return updated code\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Updates the code of a procedure in the database.\n * \n * @param proc the ProcedureBean object containing the updated code\n * @return an integer representing the number of rows affected in the database\n */"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public UpdateCPTCodeListAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * @param factory The DAOFactory used to create the DAOs used in this action.\r\n * @param loggedInMID The MID of the administrator who is updating the CPTs.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new UpdateCPTCodeListAction object with the specified DAOFactory and loggedInMID.\n * This constructor initializes the loggedInMID field with the provided value and\n * initializes the transDAO and cptDAO fields with the corresponding DAO objects from the factory.\n * \n * @param factory the DAOFactory used to retrieve TransactionDAO and CPTCodesDAO objects\n * @param loggedInMID the ID of the logged-in user\n */"
             }
         ],
         "signature": "UpdateCPTCodeListAction",
@@ -42,6 +46,7 @@
             "private TransactionDAO transDAO",
             "private CPTCodesDAO cptDAO",
             "private ProcedureBeanValidator validator"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a service for managing CPT codes (medical procedures) in the system.\n * It provides methods for adding, updating, and deleting CPT codes, as well as retrieving information about them.\n * \n * The main functionality of this class is to interact with the database to perform CRUD operations on CPT codes.\n * It includes methods for adding a new CPT code, updating an existing CPT code, deleting a CPT code, and retrieving CPT code information.\n * \n * The addCPTCode method adds a new CPT code to the database. It validates the input ProcedureBean object, then attempts to add the CPT code using the CPTDAO.\n * If the operation is successful, it logs the transaction and returns a success message with the CPT code and description.\n * If the database operation fails, it returns an error message.\n * \n * This class also handles exceptions such as DBException and iTrustException that may occur during database operations.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n */\n**/\n/**\n * This class represents a corrupt Java class that needs to be fixed by the system administrator.\n * It contains methods for updating procedure information and handling exceptions.\n * \n * The main functionalities of this class include updating procedure information with new data from a ProcedureBean,\n * validating the ProcedureBean, and updating the code in the database. If the code is not found, it provides an error message.\n * \n * The class also logs transactions and returns success messages with the number of rows updated.\n * \n * Overall, this class is designed to manage procedure codes and handle exceptions that may occur during the process.\n */\n*/\n/**\n * The UpdateCPTCodeListAction class represents an action that allows an administrator to update CPT codes in the database.\n * This class provides methods for updating the code of a procedure in the database and initializing the necessary DAO objects.\n * \n * The main functionalities of this class include:\n * - Updating the code of a procedure in the database\n * - Initializing the necessary DAO objects for database operations\n * \n * This class requires a DAOFactory object to create the DAOs used in this action and the ID of the administrator who is updating the CPT codes.\n * \n * Example usage:\n * ```java\n * DAOFactory factory = new DAOFactory();\n * long loggedInMID = 12345;\n * UpdateCPTCodeListAction action = new UpdateCPTCodeListAction(factory, loggedInMID);\n * ```\n * \n * @author [Your Name]\n * @version 1.0\n * @see DAOFactory\n * @see TransactionDAO\n * @see CPTCodesDAO\n * @see ProcedureBeanValidator\n */\n */"
     }
 ]

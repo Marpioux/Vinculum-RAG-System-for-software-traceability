@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String addAppt(ApptBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new appointment to the system.\n * \n * @param appt The appointment to be added\n * @return A message indicating the success or failure of the operation\n */\npublic String addAppt(ApptBean appt) {\n    // Validate the appointment\n    validator.validate(appt);\n    \n    // Check if the scheduled date has already passed\n    if (appt.getDate().before(new Timestamp(System.currentTimeMillis()))) {\n        return \"The scheduled date of this Appointment (\" + appt.getDate() + \") has already passed.\";\n    }\n    \n    try {\n        // Schedule the appointment\n        apptDAO.scheduleAppt(appt);\n        \n        // Log the transaction\n        transDAO.logTransaction(TransactionType.ADD_APPT, loggedInMID, 0L, \"Added Appointment \" + appt.getApptType());\n        \n        return \"Success: \" + appt.getApptType() + \" for \" + appt.getDate() + \" added\";\n    } catch (DBException e) {\n        // Handle any database exceptions\n        e.printStackTrace();\n        return e.getMessage();\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (mid < 7000000000L)\r\n        return patientDAO.getName(mid);\r\n    else\r\n        return personnelDAO.getName(mid);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName(long)",
                 "comments": "Optional[/**\r\n * Gets a users's name from their MID\r\n *\r\n * @param mid the MID of the user\r\n * @return the user's name\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves the name of a person based on their unique identifier.\n * If the unique identifier is less than 7000000000, it retrieves the name from the patient data access object (DAO).\n * If the unique identifier is greater than or equal to 7000000000, it retrieves the name from the personnel data access object (DAO).\n * \n * @param mid the unique identifier of the person\n * @return the name of the person associated with the given unique identifier\n */"
             }
         ],
         "constructors": [
@@ -25,7 +27,8 @@
                 "hasInnerComment": false,
                 "signature": "public AddApptAction(DAOFactory, long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AddApptAction object with the specified DAOFactory and loggedInMID.\n * This constructor initializes the loggedInMID field with the given value and initializes\n * the apptDAO, transDAO, patientDAO, and personnelDAO fields by retrieving the corresponding\n * DAO objects from the provided DAOFactory.\n * \n * @param factory the DAOFactory object used to retrieve DAO objects\n * @param loggedInMID the ID of the logged-in user\n */"
             }
         ],
         "signature": "AddApptAction",
@@ -36,6 +39,7 @@
             "private PatientDAO patientDAO",
             "private PersonnelDAO personnelDAO",
             "private ApptBeanValidator validator"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AddApptAction class represents an action that allows users to add new appointments to the system.\n * This class provides methods for adding appointments, retrieving user names based on their unique identifier,\n * and initializing the necessary data access objects for performing these operations.\n * \n * Main functionalities:\n * - Adding a new appointment to the system\n * - Retrieving user names based on their unique identifier\n * \n * Overall behavior:\n * The AddApptAction class contains methods for adding appointments by validating the appointment details,\n * checking if the scheduled date has already passed, scheduling the appointment in the database, and logging\n * the transaction. It also provides a method for retrieving user names based on their unique identifier,\n * fetching the name from either the patient data access object or the personnel data access object based on\n * the value of the unique identifier. The class initializes the necessary data access objects using the provided\n * DAOFactory and the ID of the logged-in user.\n */"
     }
 ]

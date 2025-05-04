@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDescription()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the description of the object.\n * \n * @return the description of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.description = description;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDescription(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the description of the object.\n * \n * @param description the new description to set\n * \n * This method sets the description of the object to the specified string. \n * If the input description is null, the description will be set to an empty string.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return (Date) firstFound.clone();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getFirstFound()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a copy of the Date object representing the first time this object was found.\n * \n * @return a Date object representing the first time this object was found\n */"
             },
             {
                 "body": "Optional[{\r\n    if (null != firstFound)\r\n        this.firstFound = (Date) firstFound.clone();\r\n    else\r\n        this.firstFound = null;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFirstFound(Date)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the date when the item was first found.\n * If the input date is not null, a deep copy of the input date is stored in the firstFound field.\n * If the input date is null, the firstFound field is set to null.\n * \n * @param date the date when the item was first found\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getId()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier associated with this object.\n * \n * @return the unique identifier of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = id;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param id the new ID to set\n * \n * This method sets the ID of the object to the specified value.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return this.description;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String toString()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representation of the object.\n * \n * @return the description of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientID;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatientID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier assigned to the patient.\n * \n * @return the patient's ID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient ID for this object.\n * \n * @param patientID the unique identifier for the patient\n * \n * This method sets the patient ID to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return new SimpleDateFormat(\"MM/dd/yyyy\").format(getFirstFound());\r\n    } catch (Exception e) {\r\n        e.printStackTrace();\r\n        return \"\";\r\n    }\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFirstFoundStr()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the first found date as a formatted string in the format \"MM/dd/yyyy\".\n * \n * @return A string representation of the first found date in the format \"MM/dd/yyyy\", or an empty string if an error occurs.\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public AllergyBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of the AllergyBean class with no parameters.\n * This constructor initializes a new AllergyBean object with default values.\n */"
             }
         ],
         "signature": "AllergyBean",
@@ -98,6 +109,7 @@
             "private long patientID",
             "private String description",
             "private Date firstFound"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AllergyBean class represents an object that stores information about a patient's allergy.\n * This class includes methods to retrieve and set the unique identifier, patient ID, description, and first found date of the allergy.\n * The class also provides a method to convert the first found date into a formatted string.\n * \n * The main functionalities of the AllergyBean class include:\n * - Retrieving and setting the unique identifier associated with the allergy\n * - Retrieving and setting the patient's unique identifier\n * - Retrieving and setting the description of the allergy\n * - Retrieving and setting the date when the allergy was first found\n * - Converting the first found date into a formatted string in the format \"MM/dd/yyyy\"\n * \n * The behavior of the AllergyBean class is as follows:\n * - The constructor initializes a new instance of the AllergyBean class with default values.\n * - The getDescription and setDescription methods allow for retrieving and setting the description of the allergy.\n * - The getFirstFound and setFirstFound methods enable the retrieval and setting of the first found date of the allergy.\n * - The getId and setId methods facilitate the retrieval and setting of the unique identifier associated with the allergy.\n * - The getPatientID and setPatientID methods allow for retrieving and setting the patient's unique identifier.\n * - The getFirstFoundStr method converts the first found date into a formatted string.\n * \n * This class provides a comprehensive set of functionalities for managing allergy information and interacting with allergy data.\n */"
     }
 ]

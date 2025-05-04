@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public long add(PersonnelBean)",
                 "comments": "Optional[/**\r\n * Adds the new user.  Event is logged.\r\n *\r\n * @param p bean containing the information for the new user\r\n * @return MID of the new user.\r\n * @throws FormValidationException\r\n * @throws iTrustException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Adds a new User Access Personnel (UAP) to the system.\n * \n * This method adds a new User Access Personnel (UAP) to the system by first validating the personnel bean,\n * then adding an empty personnel record to the database with the role of UAP. The method sets the new personnel's\n * member ID (MID), edits the personnel information, adds a new user with a random password, logs the transaction,\n * and returns the new member ID.\n * \n * @param p the personnel bean to be added\n * @return the new member ID of the added UAP\n */"
             }
         ],
         "constructors": [
@@ -17,7 +18,8 @@
                 "hasInnerComment": false,
                 "signature": "public AddUAPAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Sets up the defaults for the class\r\n *\r\n * @param factory factory for creating the defaults.\r\n * @param loggedInMID person currently logged in\r\n * @author Andy Meneely\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AddUAPAction object with the specified DAOFactory and loggedInMID.\n * This constructor initializes the personnelDAO, authDAO, and transDAO fields with the corresponding DAO objects obtained from the factory.\n * \n * @param factory the DAOFactory used to obtain DAO objects for personnel, authentication, and transactions\n * @param loggedInMID the ID of the currently logged in personnel\n */"
             }
         ],
         "signature": "AddUAPAction",
@@ -26,6 +28,7 @@
             "private AuthDAO authDAO",
             "private TransactionDAO transDAO",
             "private long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AddUAPAction class represents an action that adds a new User Access Personnel (UAP) to the system.\n * \n * This class contains methods for adding a new UAP by validating the personnel bean, adding an empty personnel record\n * with the role of UAP to the database, setting the new personnel's member ID (MID), editing the personnel information,\n * adding a new user with a random password, and logging the transaction. The class also includes a constructor that\n * initializes the necessary DAO objects and the ID of the currently logged in personnel.\n * \n * The main functionalities of this class include:\n * - Adding a new UAP to the system\n * - Validating the personnel bean\n * - Adding an empty personnel record with the role of UAP\n * - Setting the new personnel's member ID (MID)\n * - Editing the personnel information\n * - Adding a new user with a random password\n * - Logging the transaction\n * \n * This class provides a comprehensive solution for adding new User Access Personnel to the system while maintaining\n * data integrity and security. It encapsulates the logic for adding a new UAP and ensures that all necessary steps\n * are taken to successfully add the new personnel.\n */"
     }
 ]

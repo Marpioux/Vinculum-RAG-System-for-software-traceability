@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": "protected int ottieniNumeroElementiRicercaSpecializzato()",
                 "comments": null,
-                "innerComments": "Optional[[// Check the type of site and gets the number of results\r\n]]"
+                "innerComments": "Optional[[// Check the type of site and gets the number of results\r\n]]",
+                "generated_comment": "/**\n * This method returns the number of search results based on the type of site.\n * \n * @return the number of search results for the specified site type, or -1 if the site type is not recognized\n * @param pTipologiaSito the type of site for which to retrieve the search results\n * @param pParoleChiave the keywords used for the search\n * @param pTags the tags associated with the search\n * @param pPosizioneUtente the user's location for proximity search\n * @param pRaggioMax the maximum radius for proximity search\n */"
             },
             {
                 "body": "Optional[{\r\n    // Check the type of site and search\r\n    switch(pTipologiaSito) {\r\n        case BENE_CULTURALE:\r\n            return BeneCulturale.ricerca(pParoleChiave, pTags, pNumeroPagina, numeroElementiPerPagina, pPosizioneUtente, pRaggioMax);\r\n        case PUNTO_DI_RISTORO:\r\n            return PuntoDiRistoro.ricerca(pParoleChiave, pTags, pNumeroPagina, numeroElementiPerPagina, pPosizioneUtente, pRaggioMax);\r\n        default:\r\n            return null;\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "protected ArrayList<?> ricercaSpecializzataPerPagina(int)",
                 "comments": null,
-                "innerComments": "Optional[[// Check the type of site and search\r\n]]"
+                "innerComments": "Optional[[// Check the type of site and search\r\n]]",
+                "generated_comment": "/**\n * This method performs a specialized search for cultural heritage sites or dining establishments based on the type of site specified.\n * It takes in the type of site (BENE_CULTURALE or PUNTO_DI_RISTORO), search keywords, tags, page number, number of elements per page, user position, and maximum search radius as parameters.\n * Depending on the type of site, it delegates the search to the corresponding class (BeneCulturale or PuntoDiRistoro) and returns the search results as an ArrayList.\n * \n * @param pTipologiaSito the type of site to search for (BENE_CULTURALE or PUNTO_DI_RISTORO)\n * @param pParoleChiave the search keywords\n * @param pTags the tags associated with the search\n * @param pNumeroPagina the page number to retrieve\n * @param numeroElementiPerPagina the number of elements to display per page\n * @param pPosizioneUtente the user's position for location-based search\n * @param pRaggioMax the maximum search radius from the user's position\n * @return an ArrayList of search results based on the specified type of site, or null if the type is not recognized\n */\nprotected ArrayList<?> ricercaSpecializzataPerPagina(int pTipologiaSito) {\n    // Check the type of site and search\n    switch(pTipologiaSito) {\n        case BENE_CULTURALE:\n            return BeneCulturale.ricerca(pParoleChiave, pTags, pNumeroPagina, numeroElementiPerPagina, pPosizioneUtente, pRaggioMax);\n        case PUNTO_DI_RISTORO:\n            return PuntoDiRistoro.ricerca(pParoleChiave, pTags, pNumeroPagina, numeroElementiPerPagina, pPosizioneUtente, pRaggioMax);\n        default:\n            return null;\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -25,10 +27,12 @@
                 "hasInnerComment": false,
                 "signature": "public Search()",
                 "comments": "Optional[/**\r\n * Constructor of the class\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the Search class.\n * It does not take any parameters.\n * \n * This constructor initializes a new instance of the Search class.\n * \n * @param None\n * @return None\n */"
             }
         ],
         "signature": "Search",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The Search class provides methods for conducting specialized searches based on the type of site specified.\n * It includes functionality for retrieving the number of search results and performing searches for cultural heritage sites or dining establishments.\n * \n * The class contains a constructor that initializes a new instance of the Search class.\n * \n * The main functionalities of the Search class include:\n * - Retrieving the number of search results based on the type of site\n * - Performing specialized searches for cultural heritage sites or dining establishments\n * \n * The behavior of the Search class is as follows:\n * - The ottieniNumeroElementiRicercaSpecializzato method returns the number of search results for the specified site type, or -1 if the site type is not recognized.\n * - The ricercaSpecializzataPerPagina method performs a specialized search for cultural heritage sites or dining establishments based on the type of site specified.\n * \n * @author [Author Name]\n * @version [Version Number]\n * @since [Date]\n */"
     }
 ]

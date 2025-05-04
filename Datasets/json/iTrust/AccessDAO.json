@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getSessionTimeoutMins()",
                 "comments": "Optional[/**\r\n * Returns the number of minutes it would take for a session to time out. This is done by effectively\r\n * using the database table as a hash table. If a row in GlobalVariables does not exist, one is inserted\r\n * with the default value '20'.\r\n *\r\n * @return An int for the number of minutes.\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the session timeout value in minutes from the database. If the value is not found, a default timeout value of 20 minutes is inserted into the database and returned.\n * \n * @return the session timeout value in minutes\n * @throws DBException if there is a problem accessing the database\n */"
             },
             {
                 "body": "Optional[{\r\n    Connection conn = null;\r\n    PreparedStatement ps = null;\r\n    try {\r\n        conn = factory.getConnection();\r\n        ps = conn.prepareStatement(\"UPDATE GlobalVariables SET Value=? WHERE Name='Timeout'\");\r\n        ps.setInt(1, mins);\r\n        int numUpdated = ps.executeUpdate();\r\n        if (// no value in the table\r\n        numUpdated == 0)\r\n            insertDefaultTimeout(conn, mins);\r\n    } catch (SQLException e) {\r\n        e.printStackTrace();\r\n        throw new DBException(e);\r\n    } finally {\r\n        DBUtil.closeConnection(conn, ps);\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": "public void setSessionTimeoutMins(int)",
                 "comments": "Optional[/**\r\n * Sets the number of minutes it would take for a session to timeout.\r\n *\r\n * @param mins An int specifying the number of minutes\r\n * @throws DBException\r\n */\r\n]",
-                "innerComments": "Optional[[// no value in the table\r\n]]"
+                "innerComments": "Optional[[// no value in the table\r\n]]",
+                "generated_comment": "/**\n * Sets the session timeout value in minutes in the database.\n * \n * @param mins the new session timeout value in minutes\n * @throws DBException if there is an error updating the database\n */\npublic void setSessionTimeoutMins(int mins) {\n    Connection conn = null;\n    PreparedStatement ps = null;\n    try {\n        conn = factory.getConnection();\n        ps = conn.prepareStatement(\"UPDATE GlobalVariables SET Value=? WHERE Name='Timeout'\");\n        ps.setInt(1, mins);\n        int numUpdated = ps.executeUpdate();\n        if (numUpdated == 0) {\n            insertDefaultTimeout(conn, mins);\n        }\n    } catch (SQLException e) {\n        e.printStackTrace();\n        throw new DBException(e);\n    } finally {\n        DBUtil.closeConnection(conn, ps);\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    PreparedStatement ps = null;\r\n    ps = conn.prepareStatement(\"INSERT INTO GlobalVariables(Name,Value) VALUES ('Timeout', ?)\");\r\n    ps.setInt(1, mins);\r\n    ps.executeUpdate();\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "private void insertDefaultTimeout(Connection, int)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a default timeout value into the database.\n * \n * @param conn the connection to the database\n * @param mins the default timeout value in minutes\n * @throws SQLException if an error occurs while executing the SQL statement\n */\nprivate void insertDefaultTimeout(Connection conn, int mins) {\n    try {\n        PreparedStatement ps = conn.prepareStatement(\"INSERT INTO GlobalVariables(Name,Value) VALUES ('Timeout', ?)\");\n        ps.setInt(1, mins);\n        ps.executeUpdate();\n    } catch (SQLException e) {\n        // Handle any SQL exceptions that may occur\n        e.printStackTrace();\n    }\n}"
             }
         ],
         "constructors": [
@@ -33,12 +36,14 @@
                 "hasInnerComment": false,
                 "signature": "public AccessDAO(DAOFactory)",
                 "comments": "Optional[/**\r\n * The typical constructor.\r\n * @param factory The {@link DAOFactory} associated with this DAO, which is used for obtaining SQL connections, etc.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new AccessDAO with the specified DAOFactory.\n * \n * @param factory the DAOFactory used to create data access objects\n * @throws IllegalArgumentException if factory is null\n */\npublic AccessDAO(DAOFactory factory) {\n    if (factory == null) {\n        throw new IllegalArgumentException(\"DAOFactory cannot be null\");\n    }\n    \n    this.factory = factory;\n}"
             }
         ],
         "signature": "AccessDAO",
         "variables": [
             "private DAOFactory factory"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The AccessDAO class is responsible for managing access-related data in the database. It provides methods for retrieving and setting the session timeout value, as well as inserting a default timeout value if none exists in the database.\n * \n * This class contains the following main functionalities:\n * - Retrieving the session timeout value in minutes from the database\n * - Setting the session timeout value in minutes in the database\n * - Inserting a default timeout value into the database if none exists\n * \n * The behavior of this class is as follows:\n * - When retrieving the session timeout value, if a row in the GlobalVariables table does not exist, a default value of '20' is inserted and returned\n * - When setting the session timeout value, if no value is found in the table, a default timeout value is inserted\n * \n * This class requires a DAOFactory to create data access objects and manage SQL connections. It contains a private variable 'factory' of type DAOFactory to store the associated factory.\n */\n**/"
     }
 ]

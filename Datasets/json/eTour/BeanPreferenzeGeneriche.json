@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getDimensioneFont()",
                 "comments": "Optional[/**\r\n * Returns the value of dimensioneFont\r\n *\r\n * @return value dimensioneFont.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the dimension of the font used in the application.\n * \n * @return the dimension of the font\n */"
             },
             {
                 "body": "Optional[{\r\n    dimensioneFont = pDimensioneFont;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDimensioneFont(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of dimensioneFont\r\n *\r\n * @param pDimensioneFont New dimensioneFont.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the font size to the specified dimension.\n * \n * @param pDimensioneFont the new font size to set\n * @return void\n * \n * This method sets the font size of the text to the specified dimension. \n * The font size is updated to the value passed in the parameter pDimensioneFont.\n */"
             },
             {
                 "body": "Optional[{\r\n    return font;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getFont()",
                 "comments": "Optional[/**\r\n * Returns the value of font\r\n *\r\n * @return Value of font.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the font used for displaying text in this component.\n * \n * @return the font used for displaying text\n */"
             },
             {
                 "body": "Optional[{\r\n    font = pFont;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setFont(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of font\r\n *\r\n * @param pFont New value of font.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the font of the object to the specified font.\n * \n * @param pFont the font to set\n * \n * This method sets the font of the object to the specified font. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return tema;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getTema()",
                 "comments": "Optional[/**\r\n * Returns the value of the tema\r\n *\r\n * @return value tema.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the tema of this object.\n * \n * @return the tema of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    tema = pTema;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setTema(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of the tema\r\n *\r\n * @param pTema New value for tema.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the tema of the object.\n * \n * @param pTema the new tema to set\n * \n * This method sets the tema of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID of the object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    return idTurista;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdTurista()",
                 "comments": "Optional[/**\r\n * Returns the value of idTurista\r\n *\r\n * @return value idTurista.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the tourist.\n * \n * @return the ID of the tourist\n */"
             },
             {
                 "body": "Optional[{\r\n    idTurista = pIdTurista;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdTurista(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idTurista\r\n *\r\n * @param pIdTurista New value for idTurista.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the tourist.\n * \n * @param pIdTurista the ID of the tourist to be set\n * \n * This method sets the ID of the tourist to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pId;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pId the new ID to set\n * \n * This method sets the ID of the object to the specified value. \n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPreferenzeGeneriche(int, int, String, String, int)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pDimensioneFont\r\n * @param pFont\r\n * @param pTema\r\n * @param pIdTurista\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanPreferenzeGeneriche object with the specified parameters.\n * \n * @param pId the ID of the preferences\n * @param pDimensioneFont the font size for the preferences\n * @param pFont the font style for the preferences\n * @param pTema the theme for the preferences\n * @param pIdTurista the ID of the tourist associated with the preferences\n * \n * This constructor initializes the BeanPreferenzeGeneriche object with the given parameters by setting the ID, font size, font style, theme, and tourist ID accordingly.\n */\npublic BeanPreferenzeGeneriche(int pId, int pDimensioneFont, String pFont, String pTema, int pIdTurista) {\n    setId(pId);\n    setDimensioneFont(pDimensioneFont);\n    setFont(pFont);\n    setTema(pTema);\n    setIdTurista(pIdTurista);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanPreferenzeGeneriche()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of BeanPreferenzeGeneriche with default values.\n */"
             }
         ],
         "signature": "BeanPreferenzeGeneriche",
@@ -108,6 +120,7 @@
             "private String font",
             "private String tema",
             "private int idTurista"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanPreferenzeGeneriche class represents a bean object that encapsulates preferences related to font size, font style, theme, and tourist ID.\n * \n * This class provides methods to get and set the values of these preferences, such as the font size, font style, theme, ID, and tourist ID. It also includes constructors to initialize these preferences with specified values.\n * \n * The main functionalities of this class include:\n * - Getting and setting the font size used in the application\n * - Getting and setting the font style used for displaying text\n * - Getting and setting the theme of the object\n * - Getting and setting the ID of the object\n * - Getting and setting the ID of the tourist associated with the preferences\n * \n * Additionally, this class includes constructors to create instances of BeanPreferenzeGeneriche with specified parameters or default values.\n * \n * Overall, the BeanPreferenzeGeneriche class serves as a data structure to store and manage preferences related to font size, font style, theme, and tourist ID in a Java application.\n */"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void inizExtra()",
                 "comments": "Optional[// Travaso dati degli extra nelle strutture dati apposite\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the extra items in the menu by populating the extra dropdown list with items from the restaurant menu.\n * \n * @param none\n * @return void\n * \n * The method retrieves the list of extra items from the restaurant menu database and adds them to the extra dropdown list.\n * If the extra dropdown list is not empty, it clears the existing items before adding new ones.\n * Each extra item is retrieved from the database and converted to a string before being added to the dropdown list.\n */\nvoid inizExtra() {\n    MessageDialog msg;\n    elenco_extra = (Principale.db).menuRistorante();\n    if (elenco_extra != null) {\n        if (extra.getItemCount() > 0)\n            extra.removeAll();\n        int i = 1;\n        while (i <= elenco_extra.length()) {\n            extra.addItem((elenco_extra.getBeneServizio(i)).toString());\n            i++;\n        }\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    num_coperti = new TextField(\"\", 4);\r\n    num_coperti.setEditable(true);\r\n    // creo le label\r\n    etich1 = new Label(\"Gestione degli addebiti              \");\r\n    etich1.setFont(ConfigurazioneSistema.font_titolo);\r\n    etich2 = new Label(\"Scegliere l'extra da addebitare \");\r\n    etich3 = new Label(\"Numero di coperti \");\r\n    // creo pannello di sinistra\r\n    this.remove(panel1);\r\n    panel1 = new Panel();\r\n    panel1.setLayout(gridbag);\r\n    Utils.constrain(panel1, etich1, 0, 0, 6, 1);\r\n    Utils.constrain(panel1, etich2, 0, 1, 6, 1, 10, 0, 0, 0);\r\n    Utils.constrain(panel1, extra, 0, 2, 6, 4, GridBagConstraints.BOTH, GridBagConstraints.WEST, 1.0, 1.0, 0, 20, 0, 20);\r\n    // creo pannello per coperti\r\n    this.remove(panel4);\r\n    panel4 = new Panel();\r\n    panel4.setLayout(gridbag);\r\n    Utils.constrain(panel4, etich3, 0, 0, 1, 1, 5, 5, 5, 5);\r\n    Utils.constrain(panel4, num_coperti, 1, 0, 1, 1, GridBagConstraints.NONE, GridBagConstraints.WEST, 1.0, 0.0, 5, 5, 5, 5);\r\n    // aggiungo il pannello appena creato al resto\r\n    Utils.constrain(this, panel1, 0, 0, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n    Utils.constrain(this, panel4, 0, 2, 1, 1, GridBagConstraints.VERTICAL, GridBagConstraints.WEST, 0.5, 0.5, 5, 5, 5, 5);\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanello()",
                 "comments": "Optional[// Creazione della finestra\r\n]",
-                "innerComments": "Optional[[// creo le label\r\n, // creo pannello di sinistra\r\n, // creo pannello per coperti\r\n, // aggiungo il pannello appena creato al resto\r\n]]"
+                "innerComments": "Optional[[// creo le label\r\n, // creo pannello di sinistra\r\n, // creo pannello per coperti\r\n, // aggiungo il pannello appena creato al resto\r\n]]",
+                "generated_comment": "/**\n * Sets up the panel for managing charges and choosing extras to be billed.\n * This method creates labels and text fields for selecting extras and entering the number of covers.\n * The panel layout is adjusted to display the labels and input fields accordingly.\n * \n * @param none\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            stampaConto();\r\n        }\r\n    });\r\n    addebita.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                aggiornaAvideo(true);\r\n            }\r\n        }\r\n    });\r\n    deaddebita.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                aggiornaAvideo(false);\r\n            }\r\n        }\r\n    });\r\n    extra.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!errore()) {\r\n                aggiornaAvideo(true);\r\n            }\r\n        }\r\n    });\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " void inizializza()",
                 "comments": "Optional[// Per la gestione degli eventi della finestra\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by adding action listeners to the buttons.\n * When the \"conferma\" button is clicked, it calls the method stampaConto().\n * When the \"addebita\" button is clicked and there are no errors, it updates the display to show the addebita status as true.\n * When the \"deaddebita\" button is clicked and there are no errors, it updates the display to show the addebita status as false.\n * When the \"extra\" button is clicked and there are no errors, it updates the display to show the addebita status as true.\n */"
             },
             {
                 "body": "Optional[{\r\n    stampaConto();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It prints the account balance.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        aggiornaAvideo(true);\r\n    }\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there is an error present, and if not, it updates the video display.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        aggiornaAvideo(false);\r\n    }\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there is an error present, and if not, it updates the video display.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        aggiornaAvideo(true);\r\n    }\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there is an error present, \n * and if not, it updates the video accordingly.\n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if ((num_coperti.getText()).equals(\"\")) {\r\n        msg = new MessageDialog(this, \"Inserire il numero di coperti!\");\r\n        return true;\r\n    } else if (!Utils.isIntPos(num_coperti.getText())) {\r\n        msg = new MessageDialog(this, \"Il numero dei coperti deve essere un numero intero!\");\r\n        return true;\r\n    } else if (extra.getSelectedIndex() == -1) {\r\n        msg = new MessageDialog(this, \"Manca selezione!\");\r\n        return true;\r\n    } else\r\n        return false;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean errore()",
                 "comments": "Optional[// mancanza dei dati necessari per l'addebito: coperti e extra.\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for errors in the input fields of the form.\n * \n * @return true if there are errors in the input fields, false otherwise\n */\nboolean errore() {\n    Frame msg;\n    if ((num_coperti.getText()).equals(\"\")) {\n        msg = new MessageDialog(this, \"Inserire il numero di coperti!\");\n        return true;\n    } else if (!Utils.isIntPos(num_coperti.getText())) {\n        msg = new MessageDialog(this, \"Il numero dei coperti deve essere un numero intero!\");\n        return true;\n    } else if (extra.getSelectedIndex() == -1) {\n        msg = new MessageDialog(this, \"Manca selezione!\");\n        return true;\n    } else\n        return false;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    for (int i = 1; i <= elenco_addebiti.length(); i++) if (((elenco_addebiti.getAddebito(i)).getCodExtra()).equals(b.getCodExtra()))\r\n        return i;\r\n    return -1;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " int posExtraInAddebiti(BeneServizio)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the position of an extra charge in the list of charges.\n * \n * @param b the BeneServizio object representing the extra charge to search for\n * @return the position of the extra charge in the list of charges, or -1 if the extra charge is not found\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    int[] supp;\r\n    BeneServizio extra_scelto = elenco_extra.getBeneServizio(extra.getSelectedIndex() + 1);\r\n    int pos;\r\n    if ((pos = posExtraInAddebiti(extra_scelto)) < 0 && addebito) {\r\n        Addebito a = new Addebito(\"RIST\", extra_scelto.getCodExtra(), 0, 0);\r\n        elenco_addebiti.addAddebito(a);\r\n        elenco_extra_addebitati.addBeneServizio(extra_scelto);\r\n        // allungo l'array delle quantita' modificate\r\n        supp = new int[elenco_addebiti.length()];\r\n        for (int i = 0; i < quantita_mod.length; i++) supp[i] = quantita_mod[i];\r\n        supp[supp.length - 1] = 1;\r\n        quantita_mod = supp;\r\n        pos = quantita_mod.length;\r\n        extra_add.setText(extra.getSelectedItem());\r\n        continuaAggiornamento();\r\n    } else {\r\n        if (pos < 0) {\r\n            // sto cercando di togliere da un addebito inesistente\r\n            msg = new AvvisoDialog(this, \"Stai cercando di togliere da un addebito ormai inesistente!\");\r\n        } else {\r\n            // aggiorno tale array per contenere l'addebito appena effettuato\r\n            if (addebito) {\r\n                quantita_mod[pos - 1]++;\r\n                extra_add.setText(extra.getSelectedItem());\r\n                continuaAggiornamento();\r\n            } else if (quantita_mod[pos - 1] > 0) {\r\n                quantita_mod[pos - 1]--;\r\n                extra_add.setText(extra.getSelectedItem());\r\n                continuaAggiornamento();\r\n            } else\r\n                msg = new AvvisoDialog(this, \"Stai cercando di togliere da un addebito ormai inesistente!\");\r\n        }\r\n    }\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": true,
                 "signature": " void aggiornaAvideo(boolean)",
                 "comments": null,
-                "innerComments": "Optional[[// allungo l'array delle quantita' modificate\r\n, // sto cercando di togliere da un addebito inesistente\r\n, // aggiorno tale array per contenere l'addebito appena effettuato\r\n]]"
+                "innerComments": "Optional[[// allungo l'array delle quantita' modificate\r\n, // sto cercando di togliere da un addebito inesistente\r\n, // aggiorno tale array per contenere l'addebito appena effettuato\r\n]]",
+                "generated_comment": "/**\n * Updates the video rental with the selected extra service.\n * If the extra service is not already added to the rental, it adds a new charge.\n * If the extra service is already added, it updates the quantity of the service.\n * If the quantity is reduced to 0, the extra service is removed from the rental.\n * \n * @param addebito a boolean value indicating whether to add or remove the extra service\n */ \nvoid aggiornaAvideo(boolean addebito) {\n    // method body implementation\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    int i = 1;\r\n    BeneServizio e;\r\n    float conto = 0;\r\n    float conto_di_questo_extra;\r\n    if (addebiti.getItemCount() > 0)\r\n        addebiti.removeAll();\r\n    while (i <= elenco_addebiti.length()) {\r\n        if (quantita_mod[i - 1] != 0) {\r\n            e = elenco_extra_addebitati.getBeneServizio(i);\r\n            conto_di_questo_extra = quantita_mod[i - 1] * e.getPxUnitario();\r\n            if (Integer.parseInt(e.getCodExtra()) >= 40000000 && Integer.parseInt(e.getCodExtra()) < 50000000)\r\n                addebiti.addItem(\"S \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\r\n            else if (Integer.parseInt(e.getCodExtra()) >= 50000000)\r\n                addebiti.addItem(\"R \" + Utils.completaStringa(e.getDescrizione(), 32) + \" \" + (Principale.config).getValuta() + \".\" + (elenco_addebiti.getAddebito(i)).getTotAddebito());\r\n            else\r\n                addebiti.addItem(Utils.completaStringa(e.getDescrizione(), 10) + Utils.completaStringa(\" x \" + quantita_mod[i - 1], 5) + (Principale.config).getValuta() + \".\" + conto_di_questo_extra);\r\n            conto = conto + conto_di_questo_extra;\r\n        }\r\n        i++;\r\n    }\r\n    totale.setText((Principale.config).getValuta() + \".\" + conto);\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void continuaAggiornamento()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Continues the update process by adding new items to the list of charges and updating the total amount.\n * \n * This method iterates through the list of extra charges, calculates the total cost for each item based on the quantity modified,\n * and adds the formatted description of the item along with its total cost to the list of charges. \n * If the item falls under specific categories (40000000 to 49999999 or 50000000 and above), it is categorized accordingly.\n * The total amount is updated accordingly and displayed in the designated text field.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!errore()) {\r\n        writeFile();\r\n        dispose();\r\n        padre.setEnabled(true);\r\n    }\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": " void stampaConto()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Prints the account information to a file if no errors are present.\n * If there are no errors, this method writes the account information to a file,\n * disposes of any resources used, and enables the parent component.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    float costo_coperti;\r\n    DataOutputStream outStream;\r\n    try {\r\n        outStream = new DataOutputStream(new FileOutputStream(\"conto.abg\"));\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \"Errore nell'apertura del file del conto\");\r\n        return;\r\n    }\r\n    try {\r\n        outStream.writeBytes((Principale.config).getNomeAlbergo() + \"\\n\");\r\n        outStream.writeBytes(\"\\n\");\r\n        outStream.writeBytes((Principale.config).getRagSoc() + \"\\n\");\r\n        outStream.writeBytes((Principale.config).getIndirizzoAlb() + \"\\n\");\r\n        outStream.writeBytes((Principale.config).getComuneAlb() + \"\\n\");\r\n        outStream.writeBytes((Principale.config).getCittaAlb() + \"\\n\");\r\n        outStream.writeBytes(\"\\n\");\r\n        BeneServizio extra;\r\n        Addebito a;\r\n        int num;\r\n        String supporto;\r\n        float conto_totale;\r\n        for (int i = 1; i <= elenco_addebiti.length(); i++) {\r\n            if (quantita_mod[i - 1] != 0) {\r\n                a = elenco_addebiti.getAddebito(i);\r\n                extra = elenco_extra_addebitati.getBeneServizio(i);\r\n                num = quantita_mod[i - 1];\r\n                if ((extra.getCodExtra()).compareTo(\"40000000\") < 0)\r\n                    supporto = new String(extra.getDescrizione() + \" x \" + num + \" \");\r\n                else if ((extra.getCodExtra()).compareTo(\"50000000\") < 0)\r\n                    supporto = new String(\"Supplemento per \" + extra.getDescrizione() + \" \");\r\n                else\r\n                    supporto = new String(\"Riduzione per \" + extra.getDescrizione() + \" \");\r\n                while (supporto.length() < 52) supporto = new String(supporto + \" \");\r\n                outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + num * extra.getPxUnitario() + \"\\n\");\r\n            }\r\n        }\r\n        supporto = new String(\"Coperto x \" + num_coperti.getText());\r\n        while (supporto.length() < 52) supporto = new String(supporto + \" \");\r\n        costo_coperti = Integer.parseInt(num_coperti.getText()) * (Principale.config).getCoperto();\r\n        outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + costo_coperti + \"\\n\");\r\n        outStream.writeBytes(\"\\n\");\r\n        supporto = new String(\"Totale\");\r\n        while (supporto.length() < 52) supporto = new String(supporto + \" \");\r\n        conto_totale = (Float.valueOf(new String((totale.getText()).substring(2)))).floatValue() + costo_coperti;\r\n        outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + conto_totale);\r\n        outStream.close();\r\n    } catch (IOException ex) {\r\n        msg = new MessageDialog(this, \"Errore nella scrittura del file del conto\");\r\n        return;\r\n    }\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "private void writeFile()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Writes the contents of the bill to a file named \"conto.abg\".\n * The bill includes information about the hotel, additional services, and total cost.\n * \n * @param None\n * @return None\n * \n * @throws IOException if there is an error opening or writing to the file\n */\nprivate void writeFile() {\n    Frame msg;\n    float costo_coperti;\n    DataOutputStream outStream;\n    \n    try {\n        outStream = new DataOutputStream(new FileOutputStream(\"conto.abg\"));\n    } catch (IOException ex) {\n        msg = new MessageDialog(this, \"Errore nell'apertura del file del conto\");\n        return;\n    }\n    \n    try {\n        // Write hotel information to the file\n        outStream.writeBytes((Principale.config).getNomeAlbergo() + \"\\n\");\n        outStream.writeBytes(\"\\n\");\n        outStream.writeBytes((Principale.config).getRagSoc() + \"\\n\");\n        outStream.writeBytes((Principale.config).getIndirizzoAlb() + \"\\n\");\n        outStream.writeBytes((Principale.config).getComuneAlb() + \"\\n\");\n        outStream.writeBytes((Principale.config).getCittaAlb() + \"\\n\");\n        outStream.writeBytes(\"\\n\");\n        \n        // Write additional services and their costs to the file\n        BeneServizio extra;\n        Addebito a;\n        int num;\n        String supporto;\n        float conto_totale;\n        for (int i = 1; i <= elenco_addebiti.length(); i++) {\n            if (quantita_mod[i - 1] != 0) {\n                a = elenco_addebiti.getAddebito(i);\n                extra = elenco_extra_addebitati.getBeneServizio(i);\n                num = quantita_mod[i - 1];\n                if ((extra.getCodExtra()).compareTo(\"40000000\") < 0)\n                    supporto = new String(extra.getDescrizione() + \" x \" + num + \" \");\n                else if ((extra.getCodExtra()).compareTo(\"50000000\") < 0)\n                    supporto = new String(\"Supplemento per \" + extra.getDescrizione() + \" \");\n                else\n                    supporto = new String(\"Riduzione per \" + extra.getDescrizione() + \" \");\n                while (supporto.length() < 52) supporto = new String(supporto + \" \");\n                outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + num * extra.getPxUnitario() + \"\\n\");\n            }\n        }\n        \n        // Write the cost of covered services to the file\n        supporto = new String(\"Coperto x \" + num_coperti.getText());\n        while (supporto.length() < 52) supporto = new String(supporto + \" \");\n        costo_coperti = Integer.parseInt(num_coperti.getText()) * (Principale.config).getCoperto();\n        outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + costo_coperti + \"\\n\");\n        outStream.writeBytes(\"\\n\");\n        \n        // Write the total cost to the file\n        supporto = new String(\"Totale\");\n        while (supporto.length() < 52) supporto = new String(supporto + \" \");\n        conto_totale = (Float.valueOf(new String((totale.getText()).substring(2)))).floatValue() + costo_coperti;\n        outStream.writeBytes(supporto + (Principale.config).getValuta() + \".\" + conto_totale);\n        \n        outStream.close();\n    } catch (IOException ex) {\n        msg = new MessageDialog(this, \"Errore nella scrittura del file del conto\");\n        return;\n    }\n}\n*/"
             }
         ],
         "constructors": [
@@ -113,7 +126,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraContoRistorazione(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new MascheraContoRistorazione object with the specified parent Frame.\n * This constructor initializes the frame with the title \"Servizio ristorazione\" and sets the default close operation to \"Stampa del conto\".\n * It disables the parent frame, initializes extra components, sets up the panel, initializes the frame, packs it, and sets it visible.\n * \n * @param parent the parent Frame to which this frame belongs\n */"
             }
         ],
         "signature": "MascheraContoRistorazione",
@@ -122,6 +136,7 @@
             " Label etich2",
             " Label etich3",
             " TextField num_coperti"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraContoRistorazione class represents a GUI window for managing charges and printing the account balance for a restaurant service.\n * This class contains methods for initializing extra items in the menu, setting up the panel layout, and handling event listeners for various actions.\n * It also includes methods for updating the video display with selected extra services, checking for errors in input fields, and printing the account information to a file.\n * \n * The class includes a constructor that creates a new instance of the GUI window with a specified parent Frame.\n * \n * The main functionalities of this class are:\n * - Initializing extra items in the menu by populating the dropdown list with items from the restaurant menu\n * - Setting up the panel layout for managing charges and selecting extras to be billed\n * - Adding action listeners to buttons for confirming, billing, debiting, and updating the display with selected extra services\n * - Checking for errors in input fields and updating the video display accordingly\n * - Printing the account information to a file if no errors are present\n * \n * Overall, the class provides a user-friendly interface for managing charges and printing the account balance for a restaurant service.\n */\n**/"
     }
 ]

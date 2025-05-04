@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPreferenzaDiRicerca(BeanPreferenzaDiRicerca)",
                 "comments": "Optional[/**\r\n * Add a preference of Search\r\n *\r\n * @param pPreferenza Search Preferences\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preference of search into the system.\n * \n * @param preferenzaDiRicerca the preference of search to be inserted\n * @return true if the preference of search was successfully inserted, false otherwise\n */\nabstract boolean inserisciPreferenzaDiRicerca(BeanPreferenzaDiRicerca preferenzaDiRicerca) {\n    // Implementation details omitted\n    return Optional.empty;\n}"
             },
             {
                 "body": "Optional.empty",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaPreferenzaDiRicerca(int)",
                 "comments": "Optional[/**\r\n * Delete a preference for research\r\n *\r\n * @param pIdPreferenza preference to eliminate\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a preference of a specific search by its ID.\n * \n * @param preferenceId the ID of the preference to be deleted\n * @return true if the preference was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelTurista(int)",
                 "comments": "Optional[/**\r\n * Returns the list of preferences to find a tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @throws SQLException\r\n * @return List of Search Preferences\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the preferences of a tourist based on their ID.\n * \n * @param touristId the ID of the tourist whose preferences are to be retrieved\n * @return an ArrayList of BeanPreferenzaDiRicerca objects representing the preferences of the tourist,\n *         or an empty Optional if no preferences are found for the given ID\n */\nabstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelTurista(int touristId) {\n    return Optional.empty();\n}\n*/"
             },
             {
                 "body": "Optional.empty",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelBC(int)",
                 "comments": "Optional[/**\r\n * Returns the list of preferences for research of a cultural\r\n *\r\n * @param pIdBeneCulturale ID of the cultural\r\n * @throws SQLException\r\n * @return list of search preferences.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves the preferences of a specific BeanPreferenzaDiRicerca for a given Business Center.\n * \n * @param id the id of the Business Center for which preferences are to be retrieved\n * @return an ArrayList of BeanPreferenzaDiRicerca objects representing the preferences of the Business Center, \n *         or an empty Optional if no preferences are found\n */"
             },
             {
                 "body": "Optional.empty",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicercaDelPR(int)",
                 "comments": "Optional[/**\r\n * Returns the list of preferences to find a resting spot\r\n *\r\n * @param pIdPuntoDiRistoro a refreshment\r\n * @throws SQLException\r\n * @return list of search preferences.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method retrieves the preferences of a specific user based on their ID.\n *\n * @param userId the ID of the user whose preferences are to be retrieved\n * @return an ArrayList of BeanPreferenzaDiRicerca objects representing the user's preferences, \n *         or an empty Optional if no preferences are found for the specified user\n */"
             },
             {
                 "body": "Optional.empty",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPreferenzaDiRicercaDelBC(int, int)",
                 "comments": "Optional[/**\r\n * Add a preference for a cultural\r\n *\r\n * @param pIdBeneCulturale ID of the cultural\r\n * @param pIdPreferenzaDiRicerca ID PreferenzaDiRicerca\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preference of search for a specific Business Contact.\n *\n * @param idBC the ID of the Business Contact\n * @param preference the preference to be inserted\n * @return true if the preference was successfully inserted, false otherwise\n */\nabstract boolean inserisciPreferenzaDiRicercaDelBC(int idBC, int preference);"
             },
             {
                 "body": "Optional.empty",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPreferenzaDiRicercaDelTurista(int, int)",
                 "comments": "Optional[/**\r\n * Add a search preference to a tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @param pIdPreferenzaDiRicerca ID PreferenzeDiRicerca\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts the preference of a tourist for a specific search criteria.\n * \n * @param touristId the ID of the tourist for whom the preference is being inserted\n * @param preferenceId the ID of the preference being inserted\n * @return true if the preference was successfully inserted, false otherwise\n * \n * This method inserts the preference of a tourist for a specific search criteria identified by the preference ID.\n * If the insertion is successful, it returns true. If the tourist ID or preference ID is invalid, it returns false.\n * If an error occurs during the insertion process, it returns Optional.empty.\n */"
             },
             {
                 "body": "Optional.empty",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean inserisciPreferenzaDiRicercaDelPR(int, int)",
                 "comments": "Optional[/**\r\n * Add a preference research to a refreshment\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @param pIdPreferenzaDiRicerca ID PreferenzaDiRicerca\r\n * @throws SQLException\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Inserts a preference of research for the Public Relations (PR) with the specified ID.\n * \n * @param idPR the ID of the Public Relations\n * @param preference the preference value to be inserted\n * @return true if the preference was successfully inserted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaPreferenzaDiRicercaTurista(int, int)",
                 "comments": "Optional[/**\r\n * Deletes a preference to find a Tourist\r\n *\r\n * @param pIdTurista tourists\r\n * @param pIdPreferenza Search Preferences\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a tourist's search preference based on the specified tourist ID and preference ID.\n *\n * @param touristId the ID of the tourist whose search preference is to be deleted\n * @param preferenceId the ID of the search preference to be deleted\n * @return true if the search preference was successfully deleted, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaPreferenzaDiRicercaBC(int, int)",
                 "comments": "Optional[/**\r\n * Deletes a preference for research of a cultural\r\n *\r\n * @param pIdBeneCulturale ID of the cultural\r\n * @param pIdPreferenzaDiRicerca Search Preferences\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a search preference for a specific user and category.\n * \n * @param userId the ID of the user whose preference is being cancelled\n * @param categoryId the ID of the category for which the preference is being cancelled\n * @return true if the preference was successfully cancelled, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " abstract boolean cancellaPreferenzaDiRicercaPR(int, int)",
                 "comments": "Optional[/**\r\n * Deletes a preference to find a resting spot\r\n *\r\n * @param pIdPuntoDiRistoro point identification Refreshments\r\n * @param pIdPreferenza Search Preferences\r\n * @throws SQLException\r\n * @return True if deleted, false otherwise\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Cancels a search preference for a specific user.\n * \n * @param userId the ID of the user whose search preference is being cancelled\n * @param preferenceId the ID of the search preference to be cancelled\n * @return true if the search preference was successfully cancelled, false otherwise\n */"
             },
             {
                 "body": "Optional.empty",
@@ -95,11 +106,13 @@
                 "hasInnerComment": false,
                 "signature": " abstract ArrayList<BeanPreferenzaDiRicerca> ottieniPreferenzeDiRicerca()",
                 "comments": "Optional[/**\r\n * Returns a list of all search preferences in the DB\r\n *\r\n * @throws SQLException\r\n * @return List of search preferences in the DB\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns a list of preferences for search, represented by instances of BeanPreferenzaDiRicerca.\n * If no preferences are found, an empty Optional is returned.\n * \n * @return an ArrayList of BeanPreferenzaDiRicerca representing the preferences for search, or an empty Optional if no preferences are found\n */"
             }
         ],
         "constructors": [],
         "signature": "IDBPreferenzeDiRicerca",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The IDBPreferenzeDiRicerca interface represents a data access object (DAO) for managing search preferences in the system.\n * It provides methods for inserting, deleting, and retrieving search preferences for various entities such as tourists, cultural sites, \n * business centers, and public relations. The interface defines abstract methods for performing these operations, \n * allowing concrete implementations to interact with the underlying data storage.\n * \n * The main functionalities of this interface include:\n * - Inserting a preference of search for different entities such as tourists, cultural sites, business centers, and public relations\n * - Deleting a preference of search for specific entities based on their IDs\n * - Retrieving the list of search preferences for tourists, cultural sites, business centers, and public relations\n * - Cancelling a search preference for specific users and categories\n * \n * The behavior of this interface is designed to provide a flexible and extensible way to manage search preferences in the system. \n * Concrete implementations of this interface can interact with different data sources such as databases or external APIs to \n * perform the required operations. The methods defined in this interface are abstract and need to be implemented by concrete classes \n * that provide the actual logic for interacting with the data storage.\n * \n * Overall, the IDBPreferenzeDiRicerca interface serves as a contract for managing search preferences in the system, \n * allowing for consistent and standardized access to these functionalities across different parts of the application.\n */"
     }
 ]

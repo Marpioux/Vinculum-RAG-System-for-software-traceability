@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddDiagID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the additional diagnosis ID associated with this object.\n * \n * @return the additional diagnosis ID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.addDiagID = addDiagID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddDiagID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the additional diagnosis ID for the object.\n * \n * @param addDiagID the additional diagnosis ID to set\n * @return void\n * \n * This method sets the additional diagnosis ID for the object to the specified value.\n * The additional diagnosis ID is used to provide additional information about the diagnosis.\n */"
             },
             {
                 "body": "Optional[{\r\n    return addLabProcID;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddLabProcID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the additional laboratory procedure ID associated with this object.\n * \n * @return The additional laboratory procedure ID as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.addLabProcID = addLabProcID;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddLabProcID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the additional laboratory procedure ID for this object.\n * \n * @param addLabProcID the additional laboratory procedure ID to set\n * @return void\n * \n * This method sets the additional laboratory procedure ID for this object to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return addMedID;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddMedID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the additional medication ID associated with this object.\n * \n * @return the additional medication ID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.addMedID = addMedID;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddMedID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the additional medication ID for a patient.\n * \n * @param addMedID the additional medication ID to set\n * \n * This method sets the additional medication ID for a patient. \n * The provided addMedID parameter is assigned to the addMedID instance variable of the class.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return addProcID;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddProcID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the additional process ID associated with this object.\n * \n * @return the additional process ID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.addProcID = addProcID;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddProcID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the additional procedure ID for this object.\n * \n * @param addProcID the additional procedure ID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return addImmunizationID;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getAddImmunizationID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the additional immunization ID associated with this object.\n * \n * @return the additional immunization ID\n */"
             },
             {
                 "body": "Optional[{\r\n    this.addImmunizationID = addImmunizationID;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAddImmunizationID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the immunization to be added.\n * \n * @param addImmunizationID the ID of the immunization to be added\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return notes;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getNotes()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the notes associated with this object.\n * \n * @return a String representing the notes\n */"
             },
             {
                 "body": "Optional[{\r\n    this.notes = notes;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setNotes(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the notes for this object.\n * \n * @param notes the notes to be set\n * \n * This method sets the notes for the object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return ovID;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getOvID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the OvID associated with this object.\n * \n * @return the OvID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.ovID = ovID;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setOvID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param ovID the ID to set for the object\n * @return void\n * \n * This method sets the ID of the object to the specified value. \n * The ID is a unique identifier for the object within the system.\n */"
             },
             {
                 "body": "Optional[{\r\n    return removeLabProcID;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getRemoveLabProcID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID of the laboratory procedure that has been removed.\n * \n * @return the ID of the removed laboratory procedure\n */"
             },
             {
                 "body": "Optional[{\r\n    this.removeLabProcID = removeLabProcID;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRemoveLabProcID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the removeLabProcID for this object.\n * \n * @param removeLabProcID the new removeLabProcID to set\n */\npublic void setRemoveLabProcID(String removeLabProcID) {\n    this.removeLabProcID = removeLabProcID;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return removeDiagID;\r\n}]",
@@ -135,7 +151,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getRemoveDiagID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the removeDiagID attribute.\n * \n * @return The removeDiagID attribute as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.removeDiagID = removeDiagID;\r\n}]",
@@ -143,7 +160,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRemoveDiagID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the removeDiagID for this object.\n * \n * @param removeDiagID the new removeDiagID to set\n * \n * This method sets the removeDiagID for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return removeMedID;\r\n}]",
@@ -151,7 +169,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getRemoveMedID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the removeMedID attribute of this object.\n * \n * @return the removeMedID attribute of this object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.removeMedID = removeMedID;\r\n}]",
@@ -159,7 +178,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRemoveMedID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the removeMedID for the object.\n * \n * @param removeMedID the new removeMedID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return removeProcID;\r\n}]",
@@ -167,7 +187,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getRemoveProcID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the removeProcID associated with this object.\n * \n * @return the removeProcID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.removeProcID = removeProcID;\r\n}]",
@@ -175,7 +196,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRemoveProcID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the removeProcID for this object.\n * \n * @param removeProcID the new removeProcID to set\n */\npublic void setRemoveProcID(String removeProcID) {\n    this.removeProcID = removeProcID;\n}\n/**\n * Sets the removeProcID for this object.\n * \n * @param removeProcID the new removeProcID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return removeImmunizationID;\r\n}]",
@@ -183,7 +205,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getRemoveImmunizationID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ID of the immunization that needs to be removed.\n * \n * @return the ID of the immunization to be removed\n */"
             },
             {
                 "body": "Optional[{\r\n    this.removeImmunizationID = removeImmunizationID;\r\n}]",
@@ -191,7 +214,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRemoveImmunizationID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the immunization to be removed.\n * \n * @param removeImmunizationID the ID of the immunization to be removed\n * \n * This method sets the ID of the immunization that is to be removed from the system. \n * The specified ID is then assigned to the instance variable removeImmunizationID.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return visitDate;\r\n}]",
@@ -199,7 +223,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getVisitDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the visit date associated with this object.\n * \n * @return The visit date as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.visitDate = visitDate;\r\n}]",
@@ -207,7 +232,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setVisitDate(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the visit date for the object.\n * \n * @param visitDate a String representing the visit date to be set\n * @return void\n * \n * This method sets the visit date for the object to the specified date. \n * The visit date is a String value that represents the date of the visit. \n * If the visit date is null, the method will not set the visit date.\n */"
             },
             {
                 "body": "Optional[{\r\n    return hcpID;\r\n}]",
@@ -215,7 +241,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHcpID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the HCP ID associated with this object.\n * \n * @return the HCP ID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hcpID = hcpID;\r\n}]",
@@ -223,7 +250,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHcpID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the HCP ID for this object.\n * \n * @param hcpID the new HCP ID to set\n * \n * This method sets the HCP ID for this object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientID;\r\n}]",
@@ -231,7 +259,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPatientID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the patient ID associated with this object.\n * \n * @return the patient ID as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientID = patientID;\r\n}]",
@@ -239,7 +268,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient ID for this object.\n * \n * @param patientID the new patient ID to set\n * @return void\n * \n * This method sets the patient ID for this object to the specified value. \n * The patient ID is a unique identifier for each patient. \n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return hospitalID;\r\n}]",
@@ -247,7 +277,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHospitalID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the hospital ID associated with this object.\n * \n * @return The hospital ID as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hospitalID = hospitalID;\r\n}]",
@@ -255,7 +286,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHospitalID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the hospital ID for this object.\n * \n * @param hospitalID the new hospital ID to set\n * @return void\n * \n * This method sets the hospital ID for this object to the specified value. \n * The hospital ID is a unique identifier for a hospital and is used for reference purposes.\n */"
             },
             {
                 "body": "Optional[{\r\n    return dosage;\r\n}]",
@@ -263,7 +295,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getDosage()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the dosage of the medication.\n * \n * @return the dosage of the medication as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.dosage = dosage;\r\n}]",
@@ -271,7 +304,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setDosage(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the dosage of the medication.\n * \n * @param dosage the dosage of the medication to set\n * \n * This method sets the dosage of the medication to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return endDate;\r\n}]",
@@ -279,7 +313,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEndDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the end date of the current object.\n * \n * @return a String representing the end date of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.endDate = endDate;\r\n}]",
@@ -287,7 +322,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEndDate(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the end date of the object.\n * \n * @param endDate a String representing the end date to be set\n * @return void\n * \n * This method sets the end date of the object to the specified value. \n * The end date is used to determine the end point of a certain period or duration.\n */"
             },
             {
                 "body": "Optional[{\r\n    return instructions;\r\n}]",
@@ -295,7 +331,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getInstructions()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the instructions for this object.\n * \n * @return a String representing the instructions for this object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.instructions = instructions;\r\n}]",
@@ -303,7 +340,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setInstructions(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the instructions for this object.\n * \n * @param instructions the instructions to be set\n * \n * This method sets the instructions for this object to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return startDate;\r\n}]",
@@ -311,7 +349,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStartDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the start date of the event.\n * \n * @return the start date of the event as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.startDate = startDate;\r\n}]",
@@ -319,7 +358,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStartDate(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the start date of the object.\n * \n * @param startDate a String representing the start date to be set\n * @return void\n * \n * This method sets the start date of the object to the specified date. \n * The start date is used to determine the beginning of a period or interval.\n */"
             },
             {
                 "body": "Optional[{\r\n    return causeOfDeath;\r\n}]",
@@ -327,7 +367,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getCauseOfDeath()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method returns the cause of death for a specific entity.\n * \n * @return a String representing the cause of death for the entity\n */"
             },
             {
                 "body": "Optional[{\r\n    this.causeOfDeath = causeOfDeath;\r\n}]",
@@ -335,7 +376,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setCauseOfDeath(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the cause of death for a person.\n * \n * @param causeOfDeath the cause of death to set\n * \n * This method sets the cause of death for a person based on the provided string input.\n * \n * @return void\n */"
             }
         ],
         "constructors": [],
@@ -362,6 +404,7 @@
             "private String dosage",
             "private String instructions",
             "private String causeOfDeath"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents an object that stores additional information related to medical records.\n * It provides methods to retrieve and set additional diagnosis IDs, additional laboratory procedure IDs,\n * and additional medication IDs associated with the object.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the additional diagnosis ID for the object\n * - Retrieving and setting the additional laboratory procedure ID for the object\n * - Retrieving and setting the additional medication ID for the object\n * \n * The overall behavior of this class is to store and manage additional information that can be used\n * to provide more detailed insights into medical records. It allows for easy access and manipulation\n * of the additional IDs associated with the object.\n */\n/**\n * This class represents an object that stores additional medical information for a patient.\n * It includes methods to retrieve and set additional medication ID, additional process ID, and additional immunization ID.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the additional medication ID associated with the patient\n * - Retrieving and setting the additional process ID for this object\n * - Retrieving and setting the additional immunization ID for this object\n * \n * The class provides getter and setter methods for each of these additional IDs, allowing for easy access and modification of the data.\n * \n * Overall, this class serves as a container for storing and managing additional medical information related to a patient.\n */\n/**\n * This class represents an object that stores information about immunizations, notes, OvID, and removed laboratory procedures.\n * It provides methods to set and retrieve the ID of the immunization, notes, OvID, and removed laboratory procedure.\n * \n * The main functionalities of this class include:\n * - Setting and retrieving the ID of the immunization to be added\n * - Setting and retrieving notes associated with the object\n * - Setting and retrieving the OvID associated with the object\n * - Setting and retrieving the ID of the removed laboratory procedure\n * \n * The overall behavior of this class is to provide a convenient way to manage and access information related to immunizations, notes, OvID, and removed laboratory procedures.\n * \n * Note: Please refer to the individual method JavaDoc comments for more detailed information on each specific functionality.\n */\nSure! Here is a comprehensive JavaDoc comment for the class:\n\n/**\n * This class represents a medical record management system that allows users to manage various medical procedures, diagnoses, and medications.\n * \n * The class includes methods to set and retrieve information related to lab procedure IDs, diagnosis IDs, and medication IDs. Users can add, remove, and update these IDs as needed.\n * \n * The class also provides functionality to interact with the medical records database, including retrieving and updating information, as well as generating reports based on the stored data.\n * \n * Overall, this class serves as a central hub for managing medical records and ensuring accurate and up-to-date information for healthcare professionals and patients.\n */\n \nThis JavaDoc comment provides a clear description of the class, its main functionalities, and its overall behavior.\n/**\n * The RemoveImmunizationRequest class represents a request to remove an immunization from the system.\n * It contains methods to retrieve and set the removeProcID, removeImmunizationID, and visitDate associated with the request.\n * \n * This class provides functionality to manage the removal of an immunization by specifying the procedure ID, immunization ID,\n * and visit date. Users can retrieve and set these values using the provided getter and setter methods.\n * \n * The main functionalities of this class include:\n * - Retrieving the procedure ID associated with the removal request\n * - Setting a new procedure ID for the removal request\n * - Retrieving the immunization ID to be removed\n * - Setting a new immunization ID to be removed\n * - Retrieving the visit date associated with the removal request\n * \n * Overall, the RemoveImmunizationRequest class facilitates the management of immunization removal requests by providing\n * methods to interact with the necessary data fields and perform the required operations.\n */\n```\n/**\n * This class represents a Visit object that stores information about a visit to a healthcare provider.\n * It contains attributes such as visit date, HCP ID, and patient ID.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the visit date associated with the visit\n * - Retrieving and setting the HCP ID associated with the visit\n * - Retrieving and setting the patient ID associated with the visit\n * \n * The visit date is represented as a String value, and it can be retrieved and set using the corresponding methods.\n * The HCP ID and patient ID are also represented as String values and can be accessed and modified using the appropriate methods.\n * \n * Overall behavior of this class:\n * - Allows for the storage and manipulation of visit information\n * - Provides methods to retrieve and update visit date, HCP ID, and patient ID\n * - Ensures that visit date, HCP ID, and patient ID are stored and accessed accurately\n * \n * Note: It is important to ensure that valid String values are provided for setting the visit date, HCP ID, and patient ID.\n */\n**/\n/**\n * The MedicationPrescription class represents a medication prescription for a patient in a hospital.\n * It contains information such as the patient ID, hospital ID, dosage, start date, and end date of the medication.\n * \n * The patient ID is a unique identifier for each patient.\n * The hospital ID is a unique identifier for a hospital and is used for reference purposes.\n * The dosage represents the amount of medication to be taken.\n * The start date is the date when the medication prescription starts.\n * The end date is the date when the medication prescription ends.\n * \n * This class provides methods to retrieve and set the patient ID, hospital ID, dosage, start date, and end date of the medication prescription.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The Event class represents an event with a start date, end date, and instructions.\n * This class provides methods to retrieve and set the start date, end date, and instructions for the event.\n * \n * The start date and end date are represented as Strings, and the instructions are also stored as a String.\n * \n * This class allows for the retrieval and setting of the start date, end date, and instructions for the event.\n * \n * The start date represents the beginning date of the event, while the end date represents the end date of the event.\n * The instructions provide additional information or guidelines for the event.\n * \n * This class encapsulates the data related to an event and provides methods to interact with this data.\n * \n * @author [Your Name]\n * @version 1.0\n */\n/**\n * The EditOfficeVisitForm class represents a form used for editing office visit information.\n * This class contains various variables that store information related to an office visit, such as IDs, dates, notes, and medical details.\n * \n * The main functionalities of this class include setting and getting various attributes of an office visit, such as patient ID, hospital ID, visit date, start date, end date, dosage, instructions, cause of death, and more.\n * \n * This class provides methods for adding and removing laboratory procedures, diagnoses, procedures, immunizations, and medications to an office visit.\n * \n * The EditOfficeVisitForm class also includes methods for setting and getting the cause of death for a person, as well as setting the start date of the object.\n * \n * Overall, this class serves as a data structure for managing and editing office visit information, allowing users to update and modify details related to patient visits in a medical setting.\n */"
     }
 ]

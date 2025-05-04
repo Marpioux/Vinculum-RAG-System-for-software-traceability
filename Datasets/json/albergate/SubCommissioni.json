@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the graphical user interface for the application.\n * This method sets the font, creates panels, adds components to the panels, and sets the layout.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            p.setEnabled(true);\r\n        }\r\n    });\r\n    Inserimento.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startRic();\r\n        }\r\n    });\r\n    Modifica.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startMod();\r\n        }\r\n    });\r\n    Cancellazione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startCanc();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startVis();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by adding action listeners to various buttons.\n * The Annulla button disposes the current window and enables the parent window.\n * The Inserimento button calls the startRic() method.\n * The Modifica button calls the startMod() method.\n * The Cancellazione button calls the startCanc() method.\n * The Ricerca button calls the startVis() method.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    p.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It disposes of the current window and enables a specified component.\n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startRic();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the Ric program.\n * \n * @param e the action event that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startMod();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It starts the mod functionality.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startCanc();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the cancellation process.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    startVis();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It triggers the startVis() method to begin the visualization process.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_ric = new MascheraRicercaStanza(\"Ricerca stanze per commissioni\", 1);\r\n    mask_ric.setVisible(true);\r\n    mask_ric.padre = this;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void startRic()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object, creates a new instance of MascheraRicercaStanza with the specified title and mode,\n * sets it as visible, and assigns the current object as its parent.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_mod = new ModificaCommissioni();\r\n    mask_mod.setVisible(true);\r\n    mask_mod.padre = this;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void startMod()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component, creates a new instance of ModificaCommissioni, sets it as visible, and assigns the current component as its parent.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_canc = new CancellaCommissioni();\r\n    mask_canc.setVisible(true);\r\n    mask_canc.padre = this;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void startCanc()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component, creates a new instance of CancellaCommissioni,\n * sets it as visible, and assigns the current component as its parent.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    mask_vis = new VediCommissione();\r\n    mask_vis.setVisible(true);\r\n    mask_vis.padre = this;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void startVis()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current component, creates a new instance of VediCommissione, and sets it to be visible.\n * The parent component of the new instance is set to be the current component.\n */\nvoid startVis() {\n    this.setEnabled(false);\n    mask_vis = new VediCommissione();\n    mask_vis.setVisible(true);\n    mask_vis.padre = this;\n}\n \n/**\n * This method disables the current component, creates a new instance of VediCommissione, and sets it to be visible.\n * The parent component of the new instance is set to be the current component.\n */\nvoid startVis() {\n    this.setEnabled(false);\n    mask_vis = new VediCommissione();\n    mask_vis.setVisible(true);\n    mask_vis.padre = this;\n}\n \n/**\n * Disables the current component, creates a new instance of VediCommissione, and sets it to be visible.\n * The parent component of the new instance is set to be the current component.\n */\nvoid startVis() {\n    this.setEnabled(false);\n    mask_vis = new VediCommissione();\n    mask_vis.setVisible(true);\n    mask_vis.padre = this;\n}"
             }
         ],
         "constructors": [
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public SubCommissioni()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SubCommissioni object with the title \"Commissioni\".\n * This constructor calls the superclass constructor with the specified title,\n * then sets up the object, initializes it, and packs it.\n */"
             }
         ],
         "signature": "SubCommissioni",
@@ -116,6 +128,7 @@
             " ModificaCommissioni mask_mod",
             " CancellaCommissioni mask_canc",
             " VediCommissione mask_vis"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubCommissioni class represents a graphical user interface for managing commissions.\n * It provides buttons for insertion, modification, deletion, and searching of commission data.\n * The class also allows for visualization of commission details.\n * \n * This class contains methods for setting up the GUI components, initializing action listeners for buttons,\n * and handling various actions such as starting the insertion, modification, cancellation, and visualization processes.\n * \n * The class includes a constructor that constructs a new SubCommissioni object with the title \"Commissioni\".\n * The constructor sets up the object, initializes it, and packs it for display.\n * \n * Class Variables:\n * - Label label\n * - Panel panel0\n * - Panel panel1\n * - Button Inserimento\n * - Button Modifica\n * - Button Cancellazione\n * - Button Ricerca\n * - Button Annulla\n * - GridBagLayout gridbag\n * - Frame p\n * - MascheraRicercaStanza mask_ric\n * - ModificaCommissioni mask_mod\n * - CancellaCommissioni mask_canc\n * - VediCommissione mask_vis\n * \n * Main Functionalities:\n * - Setting up the graphical user interface\n * - Initializing action listeners for buttons\n * - Starting the insertion process\n * - Starting the modification process\n * - Starting the cancellation process\n * - Starting the visualization process\n * \n * Overall Behavior:\n * The SubCommissioni class provides a user-friendly interface for managing commission data.\n * Users can easily perform operations such as adding, modifying, deleting, and searching for commissions.\n * The class ensures a smooth user experience by handling actions efficiently and providing visual feedback.\n */\n**/"
     }
 ]

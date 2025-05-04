@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo due pulsanti\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo due pulsanti\r\n, //Creo le etichette\r\n, //Creo i TextField e ne rendo  alcuni non editabili\r\n, //Creo il pannello in alto per inserimento dei dati del cliente\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the user interface.\n * This method sets the font for the panels, creates buttons, labels, text fields, and lists,\n * and arranges them in the frame using GridBagLayout.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (lista.getSelectedIndex() < (lista.getItemCount() - 1)) {\r\n                add = L.getAddebito((lista.getSelectedIndexes())[0] + 1);\r\n                startVediAddebito(add);\r\n            }\r\n        }\r\n    });\r\n    stanza.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors())\r\n                creaLista();\r\n        }\r\n    });\r\n    Cerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (noErrors())\r\n                creaLista();\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and adds action listeners to the buttons.\n * When the 'lista' button is clicked, it checks if the selected index is less than the total item count\n * and retrieves an 'Addebito' object from the list at the next index, then starts the 'VediAddebito' process.\n * When the 'stanza' or 'Cerca' buttons are clicked, it checks for any errors and creates a new list.\n * When the 'Annulla' button is clicked, it disposes of the current window and enables the parent window.\n */"
             },
             {
                 "body": "Optional[{\r\n    if (lista.getSelectedIndex() < (lista.getItemCount() - 1)) {\r\n        add = L.getAddebito((lista.getSelectedIndexes())[0] + 1);\r\n        startVediAddebito(add);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It retrieves the selected index from a list component and checks if it is less than the total number of items in the list. If true, it retrieves the next item from a custom list object and initiates a new view to display the details of the selected item.\n * \n * @param e the ActionEvent object that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (noErrors())\r\n        creaLista();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there are no errors present and then creates a list. \n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (noErrors())\r\n        creaLista();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It checks if there are no errors present and then creates a list. \n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the method. \n * There is no return value as the method does not return anything.\n */"
             },
             {
                 "body": "Optional[{\r\n    figlio = new VediAddebito(this, add, totale_add);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " void startVediAddebito(Addebito)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes a new VediAddebito object with the given parameters and assigns it to the instance variable 'figlio'.\n * \n * @param addebito the Addebito object to be passed to the VediAddebito constructor\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    BeneServizio extra;\r\n    Addebito addebito;\r\n    String desc = new String();\r\n    totale_add = 0;\r\n    L = (Principale.db).foundAddebiti(stanza.getText());\r\n    if (L != null) {\r\n        if (!L.isEmpty()) {\r\n            if (lista.getItemCount() > 0)\r\n                lista.removeAll();\r\n            panel3.setVisible(true);\r\n            pack();\r\n            for (int i = 1; i <= L.length(); i++) {\r\n                addebito = L.getAddebito(i);\r\n                extra = (Principale.db).readBeneServizio(addebito.getCodExtra());\r\n                if (extra != null)\r\n                    lista.addItem(\"DESCRIZIONE:\" + Utils.completaStringa(extra.getDescrizione(), 10) + \" QUANTITA':\" + Utils.completaStringa((\"\" + addebito.getQuantita()), 2) + \" TOTALE ADDEBITO:\" + (Principale.config).getValuta() + \".\" + addebito.getTotAddebito());\r\n                totale_add += addebito.getTotAddebito();\r\n            }\r\n            lista.addItem(\"L'ADDEBITO TOTALE DELLA STANZA \" + stanza.getText() + \" E' DI \" + (Principale.config).getValuta() + \".\" + totale_add);\r\n        } else\r\n            msg = new AvvisoDialog(this, \" Nessun addebitato trovato. \");\r\n    } else\r\n        msg = new MessageDialog(this, \" Problemi con il database! \");\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void creaLista()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Creates a list of charges for a specific room by retrieving the charges from the database and displaying them in a list.\n * If charges are found, they are added to the list along with the total charge for the room.\n * If no charges are found, a message is displayed indicating that no charges were found.\n * If there are any issues with the database, an error message is displayed.\n * \n * @param None\n * \n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    //Disponibilita disp = new Disponibilita();\r\n    if ((stanza.getText().equals(\"\"))) {\r\n        msg = new AvvisoDialog(this, \"Inserire il numero della stanza\");\r\n        return false;\r\n    } else if ((Principale.db).readStanza(stanza.getText()) == null) {\r\n        msg = new MessageDialog(this, \"La stanza inserita e' inesistente!\");\r\n        return false;\r\n    }\r\n    return true;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": true,
                 "signature": " boolean noErrors()",
                 "comments": null,
-                "innerComments": "Optional[[//Disponibilita disp = new Disponibilita();\r\n]]"
+                "innerComments": "Optional[[//Disponibilita disp = new Disponibilita();\r\n]]",
+                "generated_comment": "/**\n * Checks if there are any errors in the input data.\n * \n * This method validates the input data by checking if the room number is empty or if the room does not exist in the database.\n * \n * @return true if there are no errors in the input data, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public RicercaAddebiti(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the RicercaAddebiti class.\n * \n * @param p the Frame object representing the parent frame\n * \n * This constructor initializes a new instance of RicercaAddebiti with the specified parent frame.\n * It sets the title of the frame to \"Ricerca degli addebiti\", disables the parent frame, sets up the panels,\n * initializes the components, packs the frame, and makes it visible.\n */"
             }
         ],
         "signature": "RicercaAddebiti",
@@ -102,6 +112,7 @@
             " ListaAddebiti L",
             " Addebito add",
             " float totale_add"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The RicercaAddebiti class represents a user interface for searching charges related to a specific room.\n * This class contains methods for setting up the panels, initializing the GUI components, creating a list of charges,\n * checking for errors in the input data, and starting the process to view detailed information about a charge.\n * The class includes buttons, labels, text fields, and lists arranged using GridBagLayout.\n * \n * @author [Author Name]\n * @version 1.0\n * \n * Variables:\n * - Panel panel1: Panel for data input\n * - Panel panel2: Panel for buttons\n * - Panel panel3: Panel for displaying search results\n * - Label etichetta1: Label for room input\n * - Label label1: Label for room number\n * - Label label3: Label for search result\n * - List lista: List for displaying search results\n * - Button Annulla: Button for canceling operation\n * - Button Cerca: Button for searching charges\n * - TextField stanza: Text field for room number input\n * - GridBagLayout gridbag: Layout manager for panels\n * - Frame padre: Parent frame\n * - Frame figlio: Child frame for detailed charge view\n * - ListaAddebiti L: List of charges\n * - Addebito add: Charge object\n * - float totale_add: Total charge amount\n * \n * Constructors:\n * - public RicercaAddebiti(Frame p): Initializes a new instance of RicercaAddebiti with the specified parent frame.\n *   It sets up the panels, initializes the components, and makes the frame visible.\n * \n * Methods:\n * - void setupPanels(): Sets up the panels for the user interface by creating buttons, labels, text fields, and lists.\n * - public void init(): Initializes the GUI components and adds action listeners to the buttons.\n * - public void actionPerformed(ActionEvent): Handles action events for various buttons.\n * - public void creaLista(): Creates a list of charges for a specific room by retrieving the charges from the database.\n * - boolean noErrors(): Checks for errors in the input data before proceeding with the search process.\n * - void startVediAddebito(Addebito): Initializes a new VediAddebito object with the given parameters.\n * \n * Overall Behavior:\n * The RicercaAddebiti class provides a user-friendly interface for searching and viewing charges related to a specific room.\n * Users can input the room number, search for charges, view detailed information about a charge, and cancel the operation.\n * The class ensures data validation and error handling to provide a smooth user experience.\n */\n*/"
     }
 ]

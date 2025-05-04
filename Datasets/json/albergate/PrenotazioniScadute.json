@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Creo dei pulsanti e ne disabilito due\r\n, //Creo le etichette\r\n, //Creo il pannello in basso con due pulsanti\r\n, //Creo il pannello con la lista dei risultati della ricerca\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the current frame by configuring the font, creating buttons and labels, \n * and attaching them to the frame. Two buttons are disabled by default. \n * \n * @param None\n * @return None\n * \n * This method sets the font of the frame to a base font specified in the system configuration. \n * It creates two buttons \"Fine\" and \"Visualizza\", a label for displaying a list of unconfirmed reservations,\n * and attaches them to panels within the frame. The method also creates a list for displaying search results\n * and attaches it to a separate panel. Finally, it lays out the panels within the frame using a gridbag layout\n * and packs the frame to ensure proper display.\n */\nvoid setupPanels() \n{\n    // Method body here\n}\n**/"
             },
             {
                 "body": "Optional[{\r\n    if (lista.getItemCount() != 0)\r\n        lista.removeAll();\r\n    for (int i = 1; i <= L_pren.length(); i++) lista.addItem((L_pren.getPrenotazione(i)).toString());\r\n    lista.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            prenotazione = L_pren.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n            startControllaPren(prenotazione);\r\n        }\r\n    });\r\n    Scegli.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            if (!noSelection()) {\r\n                prenotazione = L_pren.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n                startControllaPren(prenotazione);\r\n            }\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            if ((SubPrenotazione.ric_stanza == null) && (SubPrenotazione.ric_stanza == null))\r\n                padre.setEnabled(true);\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components for displaying a list of reservations.\n * If the list is not empty, it clears the list and populates it with reservation details.\n * Adds action listeners to the list, \"Scegli\" button, and \"Annulla\" button.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    prenotazione = L_pren.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n    startControllaPren(prenotazione);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It retrieves the selected index from a list, \n * gets the corresponding prenotazione object from a list of prenotazioni, and then calls the \n * startControllaPren method with the retrieved prenotazione object as a parameter.\n * \n * @param e the ActionEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (!noSelection()) {\r\n        prenotazione = L_pren.getPrenotazione((lista.getSelectedIndexes())[0] + 1);\r\n        startControllaPren(prenotazione);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It checks if there is a selection in the list, \n * retrieves the selected reservation from the list of reservations, and then starts the process of checking the reservation.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    if ((SubPrenotazione.ric_stanza == null) && (SubPrenotazione.ric_stanza == null))\r\n        padre.setEnabled(true);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It disposes of the current window and enables the parent window if certain conditions are met.\n * \n * @param e the ActionEvent that triggered the method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\r\n    ControllaPrenotazione ctrl = new ControllaPrenotazione(pren, stanza, this);\r\n    ctrl.setVisible(true);\r\n    ctrl.padre = this;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": " void startControllaPren(Prenotazione)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current window and opens a new window to control a booking.\n * \n * @param pren the booking to be controlled\n * \n * @return void\n */\nvoid startControllaPren(Prenotazione pren) {\n    this.setEnabled(false);\n    Stanza stanza = (Principale.db).readStanza(pren.getNumStanza());\n    ControllaPrenotazione ctrl = new ControllaPrenotazione(pren, stanza, this);\n    ctrl.setVisible(true);\n    ctrl.padre = this;\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    if (lista.getSelectedIndex() == -1) {\r\n        msg = new AvvisoDialog(this, \" Selezionare una prenotazione dalla lista e ripremere il tasto\");\r\n        return true;\r\n    }\r\n    return false;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean noSelection()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if there is no selection in the list.\n * \n * @return true if there is no selection in the list, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public PrenotazioniScadute(SubPrenotazione, ListaPrenotazioni)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PrenotazioniScadute object with the given SubPrenotazione and ListaPrenotazioni.\n * \n * @param p the SubPrenotazione object to be used as the parent\n * @param L the ListaPrenotazioni object containing the list of prenotazioni\n * \n * This constructor initializes the PrenotazioniScadute object with the title \"Prenotazioni in scadenza\",\n * sets the parent SubPrenotazione object, assigns the ListaPrenotazioni object containing the list of prenotazioni,\n * sets up the necessary panels, initializes the components, and packs the frame.\n */"
             }
         ],
         "signature": "PrenotazioniScadute",
@@ -83,6 +91,7 @@
             " Frame figlio",
             " int to_call",
             " boolean first_time"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The PrenotazioniScadute class represents a GUI component for displaying a list of expiring reservations.\n * It contains methods for setting up panels, initializing GUI components, handling action events, and controlling bookings.\n * The class includes buttons, labels, lists, and panels for managing reservation details.\n * \n * @author [Author Name]\n * @version 1.0\n * \n * This class provides functionality for managing expiring reservations within a booking system.\n * It allows users to view a list of unconfirmed reservations, select a reservation for further processing,\n * and cancel a reservation if needed. The class also enables the user to control a booking by opening a new window\n * with detailed information about the selected reservation.\n * \n * The PrenotazioniScadute class is designed to work in conjunction with the SubPrenotazione and ListaPrenotazioni classes.\n * It initializes the frame with the title \"Prenotazioni in scadenza\" and sets up the necessary panels for displaying reservation details.\n * \n * Overall, this class provides a user-friendly interface for managing expiring reservations and ensures smooth interaction\n * with the booking system.\n */\n**/"
     }
 ]

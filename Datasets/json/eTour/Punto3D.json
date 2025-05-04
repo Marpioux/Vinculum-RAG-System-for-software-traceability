@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getLatitudine()",
                 "comments": "Optional[/**\r\n * Returns the latitude\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the latitude value of the location.\n * \n * @return the latitude value of the location as a double\n */"
             },
             {
                 "body": "Optional[{\r\n    this.latitude = pLatitudine;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLatitudine(double)",
                 "comments": "Optional[/**\r\n * Sets the latitude\r\n *\r\n * @param pLatitudine\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the latitude of the object.\n * \n * @param pLatitudine the latitude to set\n */\npublic void setLatitudine(double pLatitudine) {\n    this.latitude = pLatitudine;\n}\n \n/**\n * Sets the latitude of the object to the specified value.\n * \n * @param pLatitudine the latitude to set\n */\npublic void setLatitudine(double pLatitudine) {\n    this.latitude = pLatitudine;\n}\n \n/**\n * Sets the latitude of the object to the specified value.\n * \n * @param pLatitudine the latitude to set\n */\npublic void setLatitudine(double pLatitudine) {\n    this.latitude = pLatitudine;\n}"
             },
             {
                 "body": "Optional[{\r\n    return longitude;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getLongitudine()",
                 "comments": "Optional[/**\r\n * Returns the longitude\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the longitude value of the current object.\n * \n * @return the longitude value of the current object as a double\n */"
             },
             {
                 "body": "Optional[{\r\n    this.longitude = pLongitudine;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setLongitudine(double)",
                 "comments": "Optional[/**\r\n * Sets the longitude\r\n *\r\n * @param pLongitudine\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the longitude value for the object.\n * \n * @param pLongitudine the new longitude value to set\n * \n * This method sets the longitude value of the object to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return altitude;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public double getAltitudine()",
                 "comments": "Optional[/**\r\n * Returns the altitude\r\n *\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the altitude of the object.\n * \n * @return the altitude of the object as a double value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.altitude = pAltitudine;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setAltitudine(double)",
                 "comments": "Optional[/**\r\n * Sets the altitude\r\n *\r\n * @param pAltitudine\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the altitude of the object to the specified value.\n * \n * @param altitude the new altitude to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    double differenzaLongitudine = this.longitude - p.longitude;\r\n    double p1 = Math.pow(Math.cos(p.latitude) * Math.sin(differenzaLongitudine), 2);\r\n    double p2 = Math.pow(Math.cos(latitude) * Math.sin(p.latitude) - Math.sin(latitude) * Math.cos(p.latitude) * Math.cos(differenzaLongitudine), 2);\r\n    double p3 = Math.sin(latitude) * Math.sin(p.latitude) + Math.cos(latitude) * Math.cos(p.latitude) * Math.cos(differenzaLongitudine);\r\n    return (Math.atan(Math.sqrt(p1 + p2) / p3) * EARTH_RADIUS);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public double distance(Punto3D)",
                 "comments": "Optional[/**\r\n * Calculate the distance between the point and another point given as argument\r\n *\r\n * @param p\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Calculates the distance between two points in 3D space using the Haversine formula.\n * \n * @param p the other 3D point to calculate the distance to\n * @return the distance between this point and the specified point in meters\n */"
             },
             {
                 "body": "Optional[{\r\n    Punto3D point = new Punto3D();\r\n    point.setLatitudine(pLatitudine * Math.PI / 180);\r\n    point.setLongitudine(pLongitudine * Math.PI / 180);\r\n    point.setAltitudine(pAltitudine);\r\n    return point;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public static Punto3D gradiRadianti(double, double, double)",
                 "comments": "Optional[/**\r\n * Method which creates a 3D point from coordinates measured in degrees. The\r\n * 3D point instead represents the coordinates in radians\r\n *\r\n * @param pLatitudine latitude in degrees\r\n * @param pLongitudine Longitude in degrees\r\n * @param pAltitudine\r\n * @return Punto3D with the coordinates in radians\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Converts the latitude and longitude coordinates from degrees to radians and creates a new 3D point with the given altitude.\n * \n * @param pLatitudine the latitude coordinate in degrees\n * @param pLongitudine the longitude coordinate in degrees\n * @param pAltitudine the altitude coordinate\n * @return a new Punto3D object with the converted latitude and longitude coordinates in radians and the given altitude\n */"
             }
         ],
         "constructors": [
@@ -73,7 +81,8 @@
                 "hasInnerComment": false,
                 "signature": "public Punto3D()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Punto3D object with default values for latitude, longitude, and altitude.\n * The latitude, longitude, and altitude are set to 0.\n */"
             },
             {
                 "body": "{\r\n    latitude = pLatitudine;\r\n    longitude = pLongitudine;\r\n    altitude = pAltitudine;\r\n}",
@@ -81,7 +90,8 @@
                 "hasInnerComment": false,
                 "signature": "public Punto3D(double, double, double)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Punto3D object with the specified latitude, longitude, and altitude.\n * \n * @param pLatitudine the latitude of the point\n * @param pLongitudine the longitude of the point\n * @param pAltitudine the altitude of the point\n */\npublic Punto3D(double pLatitudine, double pLongitudine, double pAltitudine) {\n    latitude = pLatitudine;\n    longitude = pLongitudine;\n    altitude = pAltitudine;\n}\n*/"
             }
         ],
         "signature": "Punto3D",
@@ -90,6 +100,7 @@
             "private double latitude",
             "private double longitude",
             "private double altitude"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The Punto3D class represents a point in 3D space with latitude, longitude, and altitude coordinates.\n * It provides methods to retrieve and set the latitude, longitude, and altitude values of the point,\n * calculate the distance between two points using the Haversine formula, and convert coordinates\n * from degrees to radians. The class also includes constructors to create new points with default\n * or specified coordinates.\n *\n * This class is designed to be used in applications that require handling 3D spatial data and\n * performing calculations based on geographic coordinates. It encapsulates the logic for working\n * with 3D points and provides a convenient interface for accessing and manipulating the point's\n * properties.\n *\n * The latitude, longitude, and altitude values are stored as double precision floating-point numbers,\n * and the distance calculation method uses the Earth's radius as a constant. The class ensures\n * consistency and accuracy in representing and working with 3D spatial data.\n */"
     }
 ]

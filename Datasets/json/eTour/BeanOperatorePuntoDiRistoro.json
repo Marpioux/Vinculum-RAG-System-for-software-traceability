@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getSurname()",
                 "comments": "Optional[/**\r\n * Returns the value of surname\r\n *\r\n * @return value of surname.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the surname of the person.\n * \n * @return the surname of the person as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.surname = pSurname;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setSurname(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of surname\r\n *\r\n * @param pSurname New surname.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the surname of the person.\n * \n * @param pSurname the new surname to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return email;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getEmail()",
                 "comments": "Optional[/**\r\n * Returns the value of email\r\n *\r\n * @return value of email.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the email address associated with this object.\n * \n * @return the email address as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.email = pEmail;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setEmail(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of email\r\n *\r\n * @param pEmail New value of email.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the email address of the user.\n * \n * @param pEmail the email address to be set\n * \n * This method sets the email address of the user to the specified email address.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return name;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getName()",
                 "comments": "Optional[/**\r\n * Returns the value of name\r\n *\r\n * @return value of name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the object.\n * \n * @return the name of the object as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.name = pName;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setName(String)",
                 "comments": "Optional[/**\r\n * Sets the new name value\r\n *\r\n * @param pName New value name.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the object.\n * \n * @param pName the new name to set for the object\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return password;\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPassword()",
                 "comments": "Optional[/**\r\n * Returns the value of password\r\n *\r\n * @return value of password.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the password associated with this object.\n * \n * @return the password as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.password = pPassword;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPassword(String)",
                 "comments": "Optional[/**\r\n * Sets the new password value\r\n *\r\n * @param pPassword new password value.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the password for the user.\n * \n * @param pPassword the new password to set\n * \n * This method sets the password for the user to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return username;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getUsername()",
                 "comments": "Optional[/**\r\n * Returns the value of username\r\n *\r\n * @return value of username.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the username associated with this object.\n * \n * @return the username as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.username = pUsername;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setUsername(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of username\r\n *\r\n * @param pUsername New value for username.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the username for the user.\n * \n * @param pUsername the new username to set\n * \n * This method sets the username for the user to the specified value. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdPuntoDiRistoro()",
                 "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value of idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the food point.\n * \n * @return the ID of the food point\n */"
             },
             {
                 "body": "Optional[{\r\n    this.idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro New idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the restaurant point.\n * \n * @param idPuntoDiRistoro the ID of the restaurant point to set\n * \n * This method sets the ID of the restaurant point to the specified value.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the ID of the object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.id = pId;\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pId New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pId the new ID to set\n * \n * This method sets the ID of the object to the specified value.\n */"
             }
         ],
         "constructors": [
@@ -121,7 +135,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanOperatorePuntoDiRistoro(int, String, String, String, String, String, int)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pId\r\n * @param pName\r\n * @param pSurname\r\n * @param pUsername\r\n * @param pPassword\r\n * @param pEmail\r\n * @param pIdPuntoDiRistoro\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanOperatorePuntoDiRistoro object with the specified parameters.\n * \n * @param pId the ID of the operator\n * @param pName the name of the operator\n * @param pSurname the surname of the operator\n * @param pUsername the username of the operator\n * @param pPassword the password of the operator\n * @param pEmail the email of the operator\n * @param pIdPuntoDiRistoro the ID of the restaurant point associated with the operator\n * \n * This constructor initializes the BeanOperatorePuntoDiRistoro object with the provided parameters by calling the corresponding setter methods.\n */\npublic BeanOperatorePuntoDiRistoro(int pId, String pName, String pSurname, String pUsername, String pPassword, String pEmail, int pIdPuntoDiRistoro) {\n    setId(pId);\n    setName(pName);\n    setSurname(pSurname);\n    setUsername(pUsername);\n    setPassword(pPassword);\n    setEmail(pEmail);\n    setIdPuntoDiRistoro(pIdPuntoDiRistoro);\n}\n*/"
             },
             {
                 "body": "{\r\n}",
@@ -129,7 +144,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanOperatorePuntoDiRistoro()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new instance of BeanOperatorePuntoDiRistoro.\n * This constructor does not take any parameters.\n * \n * @param None\n * @return A new instance of BeanOperatorePuntoDiRistoro\n */"
             }
         ],
         "signature": "BeanOperatorePuntoDiRistoro",
@@ -142,6 +158,7 @@
             "private String email",
             "private int idPuntoDiRistoro",
             "private  static  final long serialVersionUID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanOperatorePuntoDiRistoro class represents an operator associated with a restaurant point.\n * This class encapsulates the information of the operator including their ID, name, surname, username, password, email, and the ID of the restaurant point they are associated with.\n * \n * The main functionalities of this class include:\n * - Retrieving and setting the ID of the operator\n * - Retrieving and setting the name of the operator\n * - Retrieving and setting the surname of the operator\n * - Retrieving and setting the username of the operator\n * - Retrieving and setting the password of the operator\n * - Retrieving and setting the email of the operator\n * - Retrieving and setting the ID of the restaurant point associated with the operator\n * \n * This class provides constructors to create instances of BeanOperatorePuntoDiRistoro with specified parameters or without any parameters.\n * \n * The overall behavior of this class is to store and manage the information of an operator associated with a restaurant point.\n * It allows for the manipulation of the operator's details and provides methods to access and modify the stored information.\n */"
     }
 ]

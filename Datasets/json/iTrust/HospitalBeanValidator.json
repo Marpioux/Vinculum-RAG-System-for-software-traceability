@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void validate(HospitalBean)",
                 "comments": "Optional[/**\r\n * Performs the act of validating the bean in question, which varies depending on the\r\n * type of validator.  If the validation does not succeed, a {@link FormValidationException} is thrown.\r\n *\r\n * @param p A bean of the type to be validated.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Validates the fields of a HospitalBean object.\n * \n * This method checks the format of the Hospital ID and Hospital Name fields in the provided HospitalBean object.\n * If any errors are found during validation, a FormValidationException is thrown with a list of errors.\n * \n * @param h the HospitalBean object to validate\n * @throws FormValidationException if any errors are found during validation\n */"
             }
         ],
         "constructors": [
@@ -17,10 +18,12 @@
                 "hasInnerComment": false,
                 "signature": "public HospitalBeanValidator()",
                 "comments": "Optional[/**\r\n * The default constructor.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the constructor for the HospitalBeanValidator class.\n * It creates a new instance of the HospitalBeanValidator class.\n * \n * Parameters:\n * None\n * \n * Behavior:\n * Initializes a new HospitalBeanValidator object with default values.\n */"
             }
         ],
         "signature": "HospitalBeanValidator",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The HospitalBeanValidator class is responsible for validating the fields of a HospitalBean object.\n * \n * This class contains methods to check the format of the Hospital ID and Hospital Name fields in the provided HospitalBean object.\n * If any errors are found during validation, a FormValidationException is thrown with a list of errors.\n * \n * Main functionalities:\n * - validate(HospitalBean h): Performs the act of validating the HospitalBean object by checking the format of Hospital ID and Hospital Name fields.\n * \n * Overall behavior:\n * - The HospitalBeanValidator class ensures that the HospitalBean object meets the required format for Hospital ID and Hospital Name fields.\n * - If any errors are detected during validation, a FormValidationException is thrown to indicate the validation failure.\n * \n * @author [Author Name]\n * @version 1.0\n * @since [Date]\n */"
     }
 ]

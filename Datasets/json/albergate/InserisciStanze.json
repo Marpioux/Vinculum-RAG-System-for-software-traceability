@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the method by setting the Cerca button to be disabled and adding an ActionListener to the Azione button.\n * When the Azione button is clicked, it will call the startAzione method.\n */"
             },
             {
                 "body": "Optional[{\r\n    startAzione();\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startAzione() method to begin the action associated with the event.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    Frame msg;\r\n    ListaStanze L_st = (Principale.db).elencoStanze();\r\n    if (L_st.length() < (Principale.config).getNumStanze()) {\r\n        if (!errori()) {\r\n            Stanza room = readDatiStanza();\r\n            int j;\r\n            if ((j = (Principale.db).writeStanza(room)) == DataBase.OK) {\r\n                cleanFields();\r\n            } else\r\n                msg = new MessageDialog(this, \"Problemi con il data base: \" + DataBase.strErrore(j));\r\n        }\r\n    } else\r\n        msg = new AvvisoDialog(this, \"Impossibile inserire la stanza: e' stato raggiunto il numero massimo di stanze gestibile\");\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": " void startAzione()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the action of inserting a new room into the database.\n * It retrieves a list of rooms from the database and checks if the number of rooms is less than the maximum allowed.\n * If there are no errors and the number of rooms is below the maximum, it prompts the user to enter room data.\n * The method then writes the room data to the database and clears the input fields if successful.\n * If there are any issues with writing to the database, an error message is displayed.\n * If the maximum number of rooms has been reached, a warning message is displayed.\n */"
             }
         ],
         "constructors": [
@@ -33,10 +36,12 @@
                 "hasInnerComment": false,
                 "signature": "public InserisciStanze()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the InserisciStanze class.\n * Creates a new instance of InserisciStanze with a specified title, button label, and number of columns.\n * \n * @param title the title of the window\n * @param buttonLabel the label for the button\n * @param numColumns the number of columns in the window\n */\npublic InserisciStanze(String title, String buttonLabel, int numColumns) {\n    super(title, buttonLabel, numColumns);\n    init();\n}\n \n/**\n * Initializes the InserisciStanze object by setting up the window with the specified title, button label, and number of columns.\n */\nprivate void init() {\n    // implementation details\n}\n*/"
             }
         ],
         "signature": "InserisciStanze",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The InserisciStanze class represents a window for inserting room data into a database.\n * It provides functionality for adding new rooms, checking for database constraints, and displaying error messages.\n * \n * This class contains methods for initializing the window, handling user actions, and starting the process of adding a new room.\n * The init() method sets up the window by disabling the Cerca button and adding an ActionListener to the Azione button.\n * The actionPerformed(ActionEvent) method is called when an action event occurs and invokes the startAzione() method to begin the room insertion process.\n * The startAzione() method retrieves a list of rooms from the database, checks for constraints, prompts the user to enter room data, and writes the data to the database.\n * If any errors occur during the insertion process, appropriate error messages are displayed to the user.\n * \n * The InserisciStanze class also includes a constructor for creating instances of the window with customizable title, button label, and number of columns.\n * \n * @author [Author Name]\n * @version 1.0\n */"
     }
 ]

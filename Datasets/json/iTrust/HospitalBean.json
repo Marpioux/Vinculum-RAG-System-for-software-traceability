@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHospitalID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the hospital ID associated with this object.\n * \n * @return The hospital ID as a String.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hospitalID = hospitalID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHospitalID(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the hospital ID for this object.\n * \n * @param hospitalID the new hospital ID to set\n * @return void\n */\npublic void setHospitalID(String hospitalID) {\n    this.hospitalID = hospitalID;\n}"
             },
             {
                 "body": "Optional[{\r\n    return hospitalName;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getHospitalName()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the hospital.\n * \n * @return the name of the hospital as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    this.hospitalName = hospitalName;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setHospitalName(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the name of the hospital.\n * \n * @param hospitalName the new name of the hospital\n * @return void\n * \n * This method sets the name of the hospital to the specified value. \n * The hospitalName parameter is the new name that will be assigned to the hospital.\n */"
             },
             {
                 "body": "Optional[{\r\n    return obj != null && obj.getClass().equals(this.getClass()) && this.equals((HospitalBean) obj);\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public boolean equals(Object)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this HospitalBean object with the specified object for equality.\n * Returns true if the specified object is also a HospitalBean object and has the same properties as this object.\n * \n * @param obj the object to be compared for equality with this HospitalBean object\n * @return true if the specified object is equal to this HospitalBean object, false otherwise\n */"
             },
             {
                 "body": "Optional[{\r\n    assert false : \"hashCode not designed\";\r\n    // any arbitrary constant will do\r\n    return 42;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": true,
                 "signature": "public int hashCode()",
                 "comments": null,
-                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]"
+                "innerComments": "Optional[[// any arbitrary constant will do\r\n]]",
+                "generated_comment": "/**\n * Returns a constant hash code value for this object.\n * \n * This method is not designed to provide a meaningful hash code implementation and should not be used for hashing purposes.\n * \n * @return The constant hash code value of 42.\n */\npublic int hashCode() {\n    assert false : \"hashCode not designed\";\n    return 42;\n}"
             },
             {
                 "body": "Optional[{\r\n    return hospitalID.equals(other.hospitalID) && hospitalName.equals(other.hospitalName);\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "private boolean equals(HospitalBean)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Compares this HospitalBean object with another HospitalBean object for equality.\n * Two HospitalBean objects are considered equal if they have the same hospitalID and hospitalName.\n * \n * @param other the HospitalBean object to compare with\n * @return true if the two HospitalBean objects are equal, false otherwise\n */"
             }
         ],
         "constructors": [
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public HospitalBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This is the default constructor for the HospitalBean class.\n * It initializes a new instance of HospitalBean with no parameters.\n * \n * @param None\n * @return A new instance of HospitalBean\n */"
             },
             {
                 "body": "{\r\n    hospitalID = id;\r\n}",
@@ -73,7 +81,8 @@
                 "hasInnerComment": false,
                 "signature": "public HospitalBean(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new HospitalBean object with the specified hospital ID.\n * \n * @param id the unique identifier for the hospital\n * @return a new HospitalBean object with the specified hospital ID\n */"
             },
             {
                 "body": "{\r\n    hospitalID = id;\r\n    hospitalName = name;\r\n}",
@@ -81,13 +90,15 @@
                 "hasInnerComment": false,
                 "signature": "public HospitalBean(String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new HospitalBean object with the specified hospital ID and name.\n * \n * @param id the unique identifier for the hospital\n * @param name the name of the hospital\n */\npublic HospitalBean(String id, String name) {\n    hospitalID = id;\n    hospitalName = name;\n}\n \nThis constructor initializes a new HospitalBean object with the given hospital ID and name."
             }
         ],
         "signature": "HospitalBean",
         "variables": [
             " String hospitalID",
             " String hospitalName"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The HospitalBean class represents a hospital object with attributes such as hospital ID and hospital name.\n * This class provides methods to get and set the hospital ID and hospital name.\n * It also includes a method to compare two HospitalBean objects for equality.\n * \n * Main functionalities:\n * - Get and set the hospital ID\n * - Get and set the hospital name\n * - Compare two HospitalBean objects for equality\n * \n * Overall behavior:\n * The HospitalBean class encapsulates the data related to a hospital entity and provides methods to manipulate this data.\n * Users can create instances of HospitalBean, set the hospital ID and name, and compare two HospitalBean objects for equality.\n * This class is designed to be used in applications that require modeling hospital entities and performing operations on them.\n */\npublic class HospitalBean {\n    private String hospitalID;\n    private String hospitalName;\n    \n    /**\n     * Retrieves the hospital ID associated with this object.\n     * \n     * @return The hospital ID as a String.\n     */\n    public String getHospitalID() {\n        return hospitalID;\n    }\n    \n    /**\n     * Sets the hospital ID for this object.\n     * \n     * @param hospitalID the new hospital ID to set\n     * @return void\n     */\n    public void setHospitalID(String hospitalID) {\n        this.hospitalID = hospitalID;\n    }\n    \n    /**\n     * Returns the name of the hospital.\n     * \n     * @return the name of the hospital as a String\n     */\n    public String getHospitalName() {\n        return hospitalName;\n    }\n    \n    /**\n     * Sets the name of the hospital.\n     * \n     * @param hospitalName the new name of the hospital\n     * @return void\n     * \n     * This method sets the name of the hospital to the specified value. \n     * The hospitalName parameter is the new name that will be assigned to the hospital.\n     */\n    public void setHospitalName(String hospitalName) {\n        this.hospitalName = hospitalName;\n    }\n    \n    /**\n     * Compares this HospitalBean object with the specified object for equality.\n     * Returns true if the objects are equal, false otherwise.\n     * \n     * @param obj the object to compare with\n     * @return true if the objects are equal, false otherwise\n     */\n    public boolean equals(Object obj) {\n        return obj != null && obj.getClass().equals(this.getClass()) && this.equals((HospitalBean) obj);\n    }\n}\n**/\n\", \"hasComment\": false, \"hasInnerComment\": false, \"signature\": \"public HospitalBean(String hospitalID, String hospitalName)\", \"comments\": null, \"innerComments\": null, \"generated_comment\": \"/**\\n * This constructor creates a new instance of HospitalBean with the specified hospitalID and hospitalName.\\n * \\n * @param hospitalID the unique identifier of the hospital\\n * @param hospitalName the name of the hospital\\n * @return A new instance of HospitalBean with the specified hospitalID and hospitalName\\n */\" } ], \"fields\": [ { \"body\": \"private String hospitalID;\", \"hasComment\": false, \"hasInnerComment\": false, \"signature\": \"private String hospitalID\", \"comments\": null, \"innerComments\": null, \"generated_comment\": \"/**\\n * The unique identifier of the hospital.\\n */\\nprivate String hospitalID;\" }, { \"body\": \"private String hospitalName;\", \"hasComment\": false, \"hasInnerComment\": false, \"signature\": \"private String hospitalName\", \"comments\": null, \"innerComments\": null, \"generated_comment\": \"/**\\n * The name of the hospital.\\n */\\nprivate String hospitalName;\" } ]}\n/**\n * The HospitalBean class represents a bean object that stores information about a hospital.\n * It contains two variables: hospitalID and hospitalName, which store the unique identifier and name of the hospital, respectively.\n * This class provides two constructors to create a new HospitalBean object with the specified hospital ID and name.\n * \n * The main functionalities of this class include:\n * - Storing and retrieving the unique identifier and name of a hospital\n * - Creating new HospitalBean objects with the specified hospital ID and name\n * \n * This class is designed to be used in applications that require managing hospital information.\n * \n * Example usage:\n * \n * // Create a new HospitalBean object with ID \"123\" and name \"Example Hospital\"\n * HospitalBean hospital = new HospitalBean(\"123\", \"Example Hospital\");\n * \n * // Retrieve the ID and name of the hospital\n * String id = hospital.getHospitalID();\n * String name = hospital.getHospitalName();\n */\n \npublic class HospitalBean {\n    private String hospitalID;\n    private String hospitalName;\n    \n    /**\n     * Constructs a new HospitalBean object with the specified hospital ID.\n     * \n     * @param id the unique identifier for the hospital\n     * @return a new HospitalBean object with the specified hospital ID\n     */\n    public HospitalBean(String id) {\n        hospitalID = id;\n    }\n    \n    /**\n     * Constructs a new HospitalBean object with the specified hospital ID and name.\n     * \n     * @param id the unique identifier for the hospital\n     * @param name the name of the hospital\n     */\n    public HospitalBean(String id, String name) {\n        hospitalID = id;\n        hospitalName = name;\n    }\n    \n    /**\n     * Retrieves the unique identifier of the hospital.\n     * \n     * @return the unique identifier of the hospital\n     */\n    public String getHospitalID() {\n        return hospitalID;\n    }\n    \n    /**\n     * Retrieves the name of the hospital.\n     * \n     * @return the name of the hospital\n     */\n    public String getHospitalName() {\n        return hospitalName;\n    }\n}\n**/"
     }
 ]

@@ -7,7 +7,8 @@
                 "hasInnerComment": true,
                 "signature": " void setupPanels()",
                 "comments": null,
-                "innerComments": "Optional[[//Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo i TextField e li rendo non editabili\r\n, //creo una TextArea\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello ricerca per stanza\r\n, //Creo il pannello ricerca per nome e cognome\r\n, //Creo il pannello dei pulsanti\r\n, //Creo il pannello contenente la list_soggiornanti\r\n, //Attacco i pannelli al frame\r\n]]"
+                "innerComments": "Optional[[//Conferma.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo i pulsanti\r\n, //Annulla.setFont(new Font(\"Courier\", Font.PLAIN, 12));\r\n, //Creo le etichette\r\n, //Creo un Checkbox ad esclusione\r\n, //Creo i TextField e li rendo non editabili\r\n, //creo una TextArea\r\n, //Creo il pannello in alto a sinistra\r\n, //Creo il pannello ricerca per stanza\r\n, //Creo il pannello ricerca per nome e cognome\r\n, //Creo il pannello dei pulsanti\r\n, //Creo il pannello contenente la list_soggiornanti\r\n, //Attacco i pannelli al frame\r\n]]",
+                "generated_comment": "/**\n * Sets up the panels for the user interface by creating buttons, labels, checkboxes, text fields, and a list.\n * The method sets the font for the panels and components, creates buttons for \"Annulla\" and \"Conferma\" with specific fonts,\n * creates labels for different search types, creates checkboxes for selecting the search type, creates text fields for input,\n * creates a list for displaying search results, and organizes all components within panels using GridBagLayout.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    checkboxes[0].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[0].getState()) {\r\n                if (list_soggiornanti.getItemCount() > 0)\r\n                    list_soggiornanti.removeAll();\r\n                testo[0].setEditable(true);\r\n                for (int i = 1; i < testo.length; ++i) {\r\n                    testo[i].setText(\"\");\r\n                    testo[i].setEditable(false);\r\n                }\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    checkboxes[1].addItemListener(new ItemListener() {\r\n\r\n        public void itemStateChanged(ItemEvent e) {\r\n            if (checkboxes[1].getState()) {\r\n                if (list_soggiornanti.getItemCount() > 0)\r\n                    list_soggiornanti.removeAll();\r\n                for (int i = 1; i < 3; ++i) testo[i].setEditable(true);\r\n                testo[0].setText(\"\");\r\n                testo[0].setEditable(false);\r\n                Conferma.setEnabled(true);\r\n            }\r\n        }\r\n    });\r\n    Conferma.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startConferma();\r\n        }\r\n    });\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            padre.setEnabled(true);\r\n        }\r\n    });\r\n    list_soggiornanti.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            startVediSogg();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components and sets up event listeners for checkboxes, buttons, and list_soggiornanti.\n * \n * This method adds ItemListeners to checkboxes[0] and checkboxes[1] to handle item state changes. \n * If checkbox[0] is selected, it clears list_soggiornanti, sets testo[0] editable, clears and disables other testo fields, and enables the Conferma button.\n * If checkbox[1] is selected, it clears list_soggiornanti, sets testo[1] and testo[2] editable, clears and disables testo[0], and enables the Conferma button.\n * \n * Additionally, this method adds ActionListeners to the Conferma and Annulla buttons to handle button clicks. \n * When Conferma button is clicked, it calls the startConferma() method. \n * When Annulla button is clicked, it disposes the current window and enables the parent window.\n * \n * Lastly, an ActionListener is added to list_soggiornanti to handle selection changes, which calls the startVediSogg() method.\n */\npublic void init() {\n    // method body\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[0].getState()) {\r\n        if (list_soggiornanti.getItemCount() > 0)\r\n            list_soggiornanti.removeAll();\r\n        testo[0].setEditable(true);\r\n        for (int i = 1; i < testo.length; ++i) {\r\n            testo[i].setText(\"\");\r\n            testo[i].setEditable(false);\r\n        }\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state is changed in a checkbox. \n * If the first checkbox is selected, it clears a list of guests, enables editing on a text field,\n * clears and disables other text fields, and enables a confirmation button.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[1].getState()) {\r\n        if (list_soggiornanti.getItemCount() > 0)\r\n            list_soggiornanti.removeAll();\r\n        for (int i = 1; i < 3; ++i) testo[i].setEditable(true);\r\n        testo[0].setText(\"\");\r\n        testo[0].setEditable(false);\r\n        Conferma.setEnabled(true);\r\n    }\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void itemStateChanged(ItemEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an item state has changed in the GUI. \n * It checks if the second checkbox is selected and if so, clears the list of guests, \n * enables editing for text fields 1 and 2, clears the first text field, \n * disables editing for the first text field, and enables the \"Conferma\" button.\n * \n * @param e the ItemEvent that triggered the method\n */"
             },
             {
                 "body": "Optional[{\r\n    startConferma();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the startConferma() method to handle the event.\n * \n * @param e the ActionEvent that triggered this method\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    padre.setEnabled(true);\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disposes of the current window and enables the parent window.\n * \n * @param e the ActionEvent that triggered the method\n * \n * This method disposes of the current window and enables the parent window. \n * It takes an ActionEvent as a parameter to handle the event that triggered the method. \n * There is no return value as the method is void.\n */"
             },
             {
                 "body": "Optional[{\r\n    startVediSogg();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It starts the process of viewing a list of subjects.\n * \n * @param e the action event that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    int i;\r\n    Frame msg;\r\n    if (!errori()) {\r\n        if (checkboxes[0].getState())\r\n            elenco_soggiornanti = (Principale.db).foundSoggiornanti(testo[0].getText(), true);\r\n        else if (checkboxes[1].getState())\r\n            elenco_soggiornanti = (Principale.db).foundSoggiornanti(testo[1].getText(), testo[2].getText());\r\n        else\r\n            elenco_soggiornanti = new ListaSoggiornanti();\r\n        if (elenco_soggiornanti != null) {\r\n            if (list_soggiornanti.getItemCount() > 0)\r\n                list_soggiornanti.removeAll();\r\n            for (i = 1; i <= elenco_soggiornanti.length(); i++) list_soggiornanti.addItem((elenco_soggiornanti.getSoggiornante(i)).toString());\r\n            if (list_soggiornanti.getItemCount() == 0)\r\n                msg = new AvvisoDialog(this, \"Trovata nessuna corrispondenza!\");\r\n        } else\r\n            msg = new MessageDialog(this, \"Problemi con il database!\");\r\n    } else\r\n        msg = new MessageDialog(this, \"Errore nei parametri!\");\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void startConferma()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method starts the confirmation process by retrieving a list of guests based on user input.\n * If there are no errors in the input parameters, it checks the state of checkboxes to determine the search criteria.\n * It then retrieves the list of guests from the database based on the selected criteria.\n * If guests are found, it populates a list with their names.\n * If no guests are found, it displays a message indicating no matches were found.\n * If there are errors in the input parameters, it displays an error message.\n * If there are issues with the database, it displays a message indicating database problems.\n * \n * @param none\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    if (checkboxes[0].getState())\r\n        return ((testo[0].getText()).length() > 4);\r\n    else if (checkboxes[1].getState())\r\n        return ((testo[1].getText()).length() > 20 || (testo[2].getText()).length() > 20);\r\n    else\r\n        return true;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " boolean errori()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks for errors based on the state of checkboxes and the length of text inputs.\n * \n * This method evaluates the state of checkboxes and the length of text inputs to determine if there are any errors present. \n * If the first checkbox is selected, it checks if the length of the first text input is greater than 4 characters.\n * If the second checkbox is selected, it checks if the length of the second or third text input is greater than 20 characters.\n * If neither checkbox is selected, it returns true indicating no errors.\n * \n * @return true if there are no errors, false if there are errors based on the criteria mentioned above\n */"
             },
             {
                 "body": "Optional[{\r\n    if ((elenco_soggiornanti != null) && (elenco_soggiornanti.length() > 0))\r\n        figlio = new VediSoggiornante(this, elenco_soggiornanti.getSoggiornante(list_soggiornanti.getSelectedIndex() + 1));\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void startVediSogg()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Starts the process of viewing a specific guest in the list of guests.\n * If the list of guests is not empty and there is a selected guest, \n * it creates a new instance of VediSoggiornante with the selected guest.\n * \n * @param None\n * \n * @return None\n */"
             }
         ],
         "constructors": [
@@ -89,7 +99,8 @@
                 "hasInnerComment": false,
                 "signature": "public MascheraRicercaSoggiornante(Frame)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructor for the MascheraRicercaSoggiornante class.\n * Creates a new instance of MascheraRicercaSoggiornante with the specified parent Frame.\n * \n * @param parent the parent Frame for the MascheraRicercaSoggiornante\n * \n * The constructor initializes the title of the frame to \"Ricerca soggiornante\",\n * disables the parent frame, sets up the panels, packs the components, initializes the frame,\n * and sets it to be visible.\n */"
             }
         ],
         "signature": "MascheraRicercaSoggiornante",
@@ -114,6 +125,7 @@
             " Frame padre",
             " Frame figlio",
             " ListaSoggiornanti elenco_soggiornanti"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The MascheraRicercaSoggiornante class represents a user interface for searching guests in a hotel system.\n * It provides functionality for selecting the type of search (by room or by name), entering search criteria,\n * viewing search results, and interacting with the search process.\n * \n * This class includes methods for setting up the panels with buttons, labels, checkboxes, text fields, and a list,\n * initializing the GUI components, handling item state changes in checkboxes, processing search confirmation,\n * checking for errors in input parameters, and viewing details of selected guests.\n * \n * The class also contains a constructor to create a new instance of MascheraRicercaSoggiornante with a specified parent Frame.\n * \n * Overall, the class facilitates the search process for guests in the hotel system by providing a user-friendly interface\n * with various functionalities to input search criteria, display search results, and interact with the search process.\n */\n**/"
     }
 ]

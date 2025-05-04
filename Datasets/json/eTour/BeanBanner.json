@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getPercorsoFile()",
                 "comments": "Optional[/**\r\n * Returns the value of FilePath\r\n *\r\n * @return value of FilePath.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the file path of the current file.\n * \n * @return the file path of the current file as a String\n */"
             },
             {
                 "body": "Optional[{\r\n    filepath = pPercorsoFile;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPercorsoFile(String)",
                 "comments": "Optional[/**\r\n * Sets the new value of filepath\r\n *\r\n * @param pPercorsoFile New value filepath.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the file path for the specified file.\n * \n * @param pPercorsoFile the file path to be set\n * @return void\n * \n * This method sets the file path for the specified file by assigning the value of pPercorsoFile to the filepath variable.\n */"
             },
             {
                 "body": "Optional[{\r\n    return id;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getId()",
                 "comments": "Optional[/**\r\n * Returns the value of id\r\n *\r\n * @return value id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the unique identifier of this object.\n * \n * @return the integer value representing the identifier of this object\n */"
             },
             {
                 "body": "Optional[{\r\n    return idPuntoDiRistoro;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public int getIdPuntoDiRistoro()",
                 "comments": "Optional[/**\r\n * Returns the value of idPuntoDiRistoro\r\n *\r\n * @return value idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier of the point of refreshment.\n * \n * @return the integer value representing the ID of the point of refreshment\n */"
             },
             {
                 "body": "Optional[{\r\n    id = pid;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setId(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of id\r\n *\r\n * @param pid New value for id.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param pid the new ID to set\n * @return void\n */\npublic void setId(int pid) {\n    id = pid;\n}\n*/\n\nThis JavaDoc comment accurately describes the method setId(int), its parameter, behavior, and return value."
             },
             {
                 "body": "Optional[{\r\n    idPuntoDiRistoro = pIdPuntoDiRistoro;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setIdPuntoDiRistoro(int)",
                 "comments": "Optional[/**\r\n * Sets the new value of idPuntoDiRistoro\r\n *\r\n * @param pIdPuntoDiRistoro New idPuntoDiRistoro.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the restaurant point.\n * \n * @param pIdPuntoDiRistoro the ID of the restaurant point to set\n * \n * This method sets the ID of the restaurant point to the specified value.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -57,7 +63,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanBanner(int, String, int)",
                 "comments": "Optional[/**\r\n * Parameterized constructor\r\n *\r\n * @param pid\r\n * @param pPercorsoFile\r\n * @param pidPuntoDiRistoro\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanBanner with the specified id, file path, and restaurant point id.\n * \n * @param pid the id of the banner\n * @param pPercorsoFile the file path of the banner\n * @param pidPuntoDiRistoro the id of the restaurant point associated with the banner\n */"
             },
             {
                 "body": "{\r\n}",
@@ -65,7 +72,8 @@
                 "hasInnerComment": false,
                 "signature": "public BeanBanner()",
                 "comments": "Optional[/**\r\n * Empty Constructor\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BeanBanner object with no parameters.\n * This constructor creates a new instance of the BeanBanner class.\n */"
             }
         ],
         "signature": "BeanBanner",
@@ -74,6 +82,7 @@
             "private int id",
             "private int idPuntoDiRistoro",
             "private String filepath"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The BeanBanner class represents a bean object that encapsulates information about a banner, including its unique identifier, file path, and associated restaurant point ID.\n * This class provides methods to retrieve and set the values of these attributes, as well as constructors to initialize a BeanBanner object with specified values.\n * \n * The main functionalities of the BeanBanner class include:\n * - Retrieving and setting the unique identifier of the banner\n * - Retrieving and setting the file path of the banner\n * - Retrieving and setting the ID of the restaurant point associated with the banner\n * \n * The class also includes constructors to create new instances of BeanBanner objects, with or without parameters.\n * \n * Overall, the BeanBanner class serves as a data structure for storing information about banners in a system, allowing for easy access and manipulation of banner data.\n */"
     }
 ]

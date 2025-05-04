@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public String reportInteraction(String, String, String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Records a drug interaction between two different drugs.\n * \n * @param firstDrug The first drug involved in the interaction\n * @param secondDrug The second drug involved in the interaction\n * @param description A description of the interaction\n * @return A message indicating the success or failure of recording the interaction\n */"
             },
             {
                 "body": "Optional[{\r\n    DrugInteractionBean drugInt = new DrugInteractionBean();\r\n    drugInt.setFirstDrug(firstDrug);\r\n    drugInt.setSecondDrug(secondDrug);\r\n    drugInt.setDescription(\"blank\");\r\n    try {\r\n        validator.validate(drugInt);\r\n        if (drugDAO.deleteInteraction(firstDrug, secondDrug)) {\r\n            tranDAO.logTransaction(TransactionType.DRUG_INTERACTION, loggedInMID);\r\n            return \"Interaction deleted successfully\";\r\n        } else {\r\n            return \"Interaction could not be deleted\";\r\n        }\r\n    } catch (DBException e) {\r\n        e.printStackTrace();\r\n        throw new iTrustException(e.getMessage());\r\n    }\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public String deleteInteraction(String, String)",
                 "comments": "Optional[/**\r\n * Method to delete an interaction\r\n * @param firstDrug\r\n * @param secondDrug\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Deletes a drug interaction between two drugs in the database.\n * \n * @param firstDrug The name of the first drug involved in the interaction.\n * @param secondDrug The name of the second drug involved in the interaction.\n * @return A message indicating whether the interaction was successfully deleted or not.\n * @throws iTrustException If an error occurs during the deletion process.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        return drugDAO.getInteractions(drugCode);\r\n    } catch (DBException e) {\r\n        throw new iTrustException(e.getMessage());\r\n    }\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public List<DrugInteractionBean> getInteractions(String)",
                 "comments": "Optional[/**\r\n * Method to return a list of drug interactions for a given drug\r\n * @param drugCode - The ND Code of the drug\r\n * @return\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves a list of drug interactions for a given drug code.\n * \n * @param drugCode the code of the drug for which interactions are being retrieved\n * @return a list of DrugInteractionBean objects representing the interactions of the drug\n * @throws iTrustException if an error occurs while retrieving the interactions\n */\npublic List<DrugInteractionBean> getInteractions(String drugCode) {\n    try {\n        return drugDAO.getInteractions(drugCode);\n    } catch (DBException e) {\n        throw new iTrustException(e.getMessage());\n    }\n}"
             }
         ],
         "constructors": [
@@ -33,7 +36,8 @@
                 "hasInnerComment": false,
                 "signature": "public DrugInteractionAction(DAOFactory, long)",
                 "comments": "Optional[/**\r\n * Sets up defaults\r\n *\r\n * @param factory The DAO factory to be used for generating the DAOs for this action.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new DrugInteractionAction object with the given DAOFactory and loggedInMID.\n * This constructor initializes the drugDAO and tranDAO using the DrugInteractionDAO and TransactionDAO from the provided DAOFactory.\n * It also creates a new DrugInteractionValidator and sets the loggedInMID to the specified value.\n * \n * @param factory the DAOFactory used to retrieve the DrugInteractionDAO and TransactionDAO\n * @param loggedInMID the ID of the logged in user\n */"
             }
         ],
         "signature": "DrugInteractionAction",
@@ -42,6 +46,7 @@
             "private TransactionDAO tranDAO",
             "private DrugInteractionValidator validator",
             " long loggedInMID"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The DrugInteractionService class provides methods for recording and deleting drug interactions between two different drugs.\n * \n * This class allows users to record a drug interaction by providing the names of the two drugs involved and a description of the interaction.\n * The recordInteraction method validates the input data, logs the transaction, and returns a message indicating the success or failure of recording the interaction.\n * \n * Users can also delete a previously recorded drug interaction by providing the names of the two drugs involved.\n * The deleteInteraction method validates the input data, logs the transaction, and returns a message indicating the success or failure of deleting the interaction.\n * \n * This class handles exceptions by catching DBException and logging the error message.\n * \n * @author [Author Name]\n * @version 1.0\n */\n/**\n * The DrugInteractionAction class is responsible for managing drug interactions in the database. \n * It provides methods to delete interactions between two drugs, retrieve a list of interactions for a given drug code,\n * and handle any errors that may occur during these processes.\n * \n * This class initializes the DrugInteractionDAO, TransactionDAO, and DrugInteractionValidator objects, as well as \n * stores the logged-in MID for authentication purposes.\n * \n * Main functionalities include:\n * - Deleting a drug interaction between two drugs\n * - Retrieving a list of drug interactions for a given drug code\n * \n * Overall behavior:\n * - The class interacts with the database to perform CRUD operations on drug interactions\n * - It ensures data integrity and validation through the DrugInteractionValidator\n * - Handles exceptions and errors by throwing iTrustException when necessary\n */\npublic class DrugInteractionAction {\n    private DrugInteractionDAO drugDAO;\n    private TransactionDAO tranDAO;\n    private DrugInteractionValidator validator;\n    private long loggedInMID;\n    \n    /**\n     * Constructor for DrugInteractionAction class.\n     * Initializes the DrugInteractionDAO, TransactionDAO, DrugInteractionValidator objects, and sets the logged-in MID.\n     * \n     * @param factory the DAOFactory object used to create DAO instances\n     * @param loggedInMID the MID of the logged-in user for authentication\n     */\n    public DrugInteractionAction(DAOFactory factory, long loggedInMID) {\n        this.drugDAO = factory.getDrugInteractionDAO();\n        this.tranDAO = factory.getTransactionDAO();\n        this.validator = new DrugInteractionValidator();\n        this.loggedInMID = loggedInMID;\n    }\n}\n*/\n/**\n * The DrugInteractionAction class represents an action that handles drug interactions in the system. \n * It is responsible for managing interactions between drugs, validating drug interactions, and performing transactions related to drug interactions.\n * \n * This class requires a DAOFactory to generate the necessary DAOs for drug interactions. \n * The DrugInteractionAction object initializes the drugDAO and tranDAO using the DrugInteractionDAO and TransactionDAO from the provided DAOFactory. \n * It also creates a DrugInteractionValidator to validate drug interactions and sets the loggedInMID to the specified user ID.\n * \n * The main functionalities of this class include:\n * - Managing drug interactions\n * - Validating drug interactions\n * - Performing transactions related to drug interactions\n * \n * This class ensures that drug interactions are handled accurately and efficiently within the system.\n */"
     }
 ]

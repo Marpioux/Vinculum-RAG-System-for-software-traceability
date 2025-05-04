@@ -7,11 +7,13 @@
                 "hasInnerComment": false,
                 "signature": "public Component getTableCellRendererComponent(JTable, Object, boolean, boolean, int, int)",
                 "comments": "Optional[/**\r\n * Method that returns the custom component for the\r\n * display of the data contained in the cell of a table.\r\n *\r\n * @param pTable JTable - the table.\r\n * @param Object pValue - the data.\r\n * @param boolean pSelected --\r\n * <ul>\r\n * <li><i>True</i> if the cell is selected.\r\n * <li><i>False</i> otherwise.\r\n * </ul>\r\n * @param boolean pHasFocus --\r\n * <ul>\r\n * <li><i>True</i> if the cell has the focus.\r\n * <li><i>False</i> otherwise.\r\n * </ul>\r\n * @param int pRow - the row number.\r\n * @param int pColumn - the column number.\r\n * @return Component - the component that customizes render the cell.\r\n * @throws IllegalArgumentException - if the value of the cell cannot\r\n * be rendered by this renderer.\r\n */\r\n]",
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a component that renders a Punto3D object as a JLabel with the point's latitude, longitude, and altitude displayed in a specific format.\n * \n * @param pTable the JTable that is requesting the renderer\n * @param pValue the value to assign to the cell being rendered\n * @param pSelected true if the cell is selected\n * @param pHasFocus true if the cell has focus\n * @param pRow the row index of the cell being rendered\n * @param pColumn the column index of the cell being rendered\n * @return a JLabel component displaying the point's latitude, longitude, and altitude\n * @throws IllegalArgumentException if the value is not a Punto3D object\n */"
             }
         ],
         "constructors": [],
         "signature": "Punto3DRenderer",
-        "variables": []
+        "variables": [],
+        "generated_class_comment": "/**\n * The Punto3DRenderer class is responsible for rendering Punto3D objects as JLabel components in a specific format for display in a JTable.\n * \n * This class provides a custom cell renderer for JTables that displays the latitude, longitude, and altitude of a Punto3D object in a JLabel component.\n * \n * The main functionality of this class is the getTableCellRendererComponent method, which takes in a JTable, a Punto3D object, and information about the cell's selection and focus status, and returns a JLabel component with the point's coordinates displayed in a specific format.\n * \n * The getTableCellRendererComponent method ensures that the input value is a Punto3D object, extracts the point's coordinates, creates a JLabel component with the coordinates displayed, and customizes the component's appearance based on the cell's selection status.\n * \n * If the input value is not a Punto3D object, an IllegalArgumentException is thrown to indicate that the value cannot be rendered by this renderer.\n */"
     }
 ]

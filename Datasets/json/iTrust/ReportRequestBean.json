@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the ID of the object.\n * \n * @param id the new ID to set\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return ID;\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique identifier associated with this object.\n * \n * @return the ID of the object\n */"
             },
             {
                 "body": "Optional[{\r\n    this.requesterMID = requesterMID;\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRequesterMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the requester's member ID.\n * \n * @param requesterMID the member ID of the requester\n * \n * This method sets the member ID of the requester to the specified value.\n * \n */"
             },
             {
                 "body": "Optional[{\r\n    return requesterMID;\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getRequesterMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the requester's MID (Member ID) associated with this request.\n * \n * @return the requester's MID\n */"
             },
             {
                 "body": "Optional[{\r\n    this.patientMID = patientMID;\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setPatientMID(long)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the patient's medical record number (MID).\n * \n * @param patientMID the unique identifier for the patient's medical record\n * @return void\n * \n * This method sets the patient's medical record number to the specified value.\n */"
             },
             {
                 "body": "Optional[{\r\n    return patientMID;\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public long getPatientMID()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the unique medical record number (MID) of the patient.\n * \n * @return the patient's MID as a long value\n */"
             },
             {
                 "body": "Optional[{\r\n    this.requestedDate = (requestedDate == null ? null : (Date) requestedDate.clone());\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRequestedDate(Date)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the requested date for this object.\n * \n * @param requestedDate the date to be set as the requested date\n * @return void\n * \n * This method sets the requested date for this object. If the input requested date is null, the requested date for this object will also be set to null. \n * Otherwise, a clone of the input requested date is created and set as the requested date for this object.\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        setRequestedDate(new SimpleDateFormat(dateFormat).parse(s));\r\n    } catch (ParseException ex) {\r\n        System.out.println(ex.getMessage());\r\n    }\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setRequestedDateString(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the requested date string using the provided date format.\n * \n * @param s the requested date string to be parsed\n * @throws ParseException if the requested date string cannot be parsed using the specified date format\n * \n * This method attempts to parse the provided date string using the specified date format and sets the requested date accordingly. \n * If the parsing is successful, the requested date is set. If an exception occurs during parsing, the error message is printed to the console.\n */"
             },
             {
                 "body": "Optional[{\r\n    return (requestedDate == null ? null : (Date) requestedDate.clone());\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getRequestedDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the requested date for this object.\n * If the requested date is null, returns null.\n * Otherwise, returns a clone of the requested date to prevent modification of the original date.\n * \n * @return a Date object representing the requested date, or null if the requested date is null\n */"
             },
             {
                 "body": "Optional[{\r\n    if (requestedDate == null)\r\n        //$NON-NLS-1$\r\n        return \"\";\r\n    return new SimpleDateFormat(dateFormat).format(requestedDate);\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": true,
                 "signature": "public String getRequestedDateString()",
                 "comments": null,
-                "innerComments": "Optional[[//$NON-NLS-1$\r\n]]"
+                "innerComments": "Optional[[//$NON-NLS-1$\r\n]]",
+                "generated_comment": "/**\n * Returns a formatted date string based on the requested date and the specified date format.\n * If the requested date is null, an empty string is returned.\n * \n * @return a formatted date string or an empty string if the requested date is null\n */"
             },
             {
                 "body": "Optional[{\r\n    this.viewedDate = (viewedDate == null ? null : (Date) viewedDate.clone());\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setViewedDate(Date)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the viewed date of this object to the specified date.\n * If the specified date is null, the viewed date will be set to null.\n * Otherwise, a clone of the specified date will be set as the viewed date.\n * \n * @param viewedDate the date to set as the viewed date (can be null)\n */"
             },
             {
                 "body": "Optional[{\r\n    try {\r\n        setViewedDate(new SimpleDateFormat(dateFormat).parse(s));\r\n    } catch (ParseException ex) {\r\n        System.out.println(ex.getMessage());\r\n    }\r\n}]",
@@ -95,7 +106,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setViewedDateString(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the viewed date of the object using the provided date string.\n * \n * @param dateString the string representing the date in the specified format\n * @throws ParseException if the date string cannot be parsed\n */\npublic void setViewedDateString(String dateString) {\n    try {\n        setViewedDate(new SimpleDateFormat(dateFormat).parse(dateString));\n    } catch (ParseException ex) {\n        System.out.println(ex.getMessage());\n    }\n}\n*/"
             },
             {
                 "body": "Optional[{\r\n    return (viewedDate == null ? null : (Date) viewedDate.clone());\r\n}]",
@@ -103,7 +115,8 @@
                 "hasInnerComment": false,
                 "signature": "public Date getViewedDate()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the date when the object was last viewed.\n * \n * @return the date when the object was last viewed, or null if the object has never been viewed\n */"
             },
             {
                 "body": "Optional[{\r\n    if (viewedDate == null)\r\n        //$NON-NLS-1$\r\n        return \"\";\r\n    //DateFormat dateFormatter = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,Localization.instance().getCurrentLocale());\r\n    //return dateFormatter.format(viewedDate);\r\n    return new SimpleDateFormat(dateFormat).format(viewedDate);\r\n}]",
@@ -111,7 +124,8 @@
                 "hasInnerComment": true,
                 "signature": "public String getViewedDateString()",
                 "comments": null,
-                "innerComments": "Optional[[//DateFormat dateFormatter = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,Localization.instance().getCurrentLocale());\r\n, //$NON-NLS-1$\r\n, //return dateFormatter.format(viewedDate);\r\n]]"
+                "innerComments": "Optional[[//DateFormat dateFormatter = DateFormat.getDateTimeInstance(DateFormat.SHORT,DateFormat.SHORT,Localization.instance().getCurrentLocale());\r\n, //$NON-NLS-1$\r\n, //return dateFormatter.format(viewedDate);\r\n]]",
+                "generated_comment": "/**\n * Returns a string representation of the date when the item was last viewed.\n * If the viewed date is null, an empty string is returned.\n * The date format used for the string representation is specified by the dateFormat parameter.\n * \n * @return A string representation of the viewed date in the specified format.\n */"
             },
             {
                 "body": "Optional[{\r\n    this.status = status;\r\n}]",
@@ -119,7 +133,8 @@
                 "hasInnerComment": false,
                 "signature": "public void setStatus(String)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets the status of the object.\n * \n * @param status the new status to set\n * \n * This method sets the status of the object to the specified status. \n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    return status;\r\n}]",
@@ -127,7 +142,8 @@
                 "hasInnerComment": false,
                 "signature": "public String getStatus()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the current status of the object.\n * \n * @return a String representing the current status of the object\n */"
             }
         ],
         "constructors": [
@@ -137,7 +153,8 @@
                 "hasInnerComment": false,
                 "signature": "public ReportRequestBean()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new ReportRequestBean object with no parameters.\n * This constructor creates a new instance of the ReportRequestBean class.\n * It does not take any parameters and initializes the object with default values.\n */"
             }
         ],
         "signature": "ReportRequestBean",
@@ -151,6 +168,7 @@
             "public  final  static String dateFormat",
             "public  final  static String Requested",
             "public  final  static String Viewed"
-        ]
+        ],
+        "generated_class_comment": "/**\n * This class represents a Request object that contains information about a medical request.\n * It provides methods to set and retrieve the unique identifiers associated with the request,\n * including the ID of the request, the member ID of the requester, and the medical record number\n * of the patient.\n * \n * The main functionalities of this class include setting and getting the ID, requester's member ID,\n * and patient's medical record number. These methods allow for easy access to and manipulation of\n * the request information.\n * \n * Overall, this class encapsulates the data related to a medical request and provides convenient\n * methods to interact with this data.\n */\n/**\n * This class represents a Patient object in a medical system. It stores information about a patient, including their name, medical record number (MID), and requested date for a medical procedure.\n * \n * The main functionalities of this class include setting and retrieving the patient's name, MID, and requested date. The setRequestedDate method allows for setting the requested date either as a Date object or as a String using a specified date format. The getRequestedDate method returns the requested date as a Date object.\n * \n * Overall, this class provides essential functionality for managing patient information within the medical system. It ensures proper handling of requested dates and allows for easy access to the patient's MID. \n */\n/**\n * This class represents an object that manages date-related operations.\n * It provides methods to get and set requested and viewed dates, as well as converting date strings to date objects.\n * \n * The main functionalities of this class include:\n * - Returning a formatted date string based on the requested date and a specified date format\n * - Setting the viewed date of the object to a specified date, handling null values appropriately\n * - Setting the viewed date of the object using a provided date string, with error handling for parsing exceptions\n * \n * The behavior of this class is as follows:\n * - If the requested date is null, methods will return null or an empty string as appropriate\n * - When setting the viewed date, a clone of the specified date will be used to prevent modification of the original date\n * - Date strings provided for setting the viewed date will be parsed using the specified date format\n * \n * Overall, this class provides convenient methods for managing date-related data and operations in a Java application.\n */\n```\n/**\n * The DateViewer class represents an object that tracks the date when it was last viewed.\n * It provides methods to set and retrieve the viewed date in both Date and String formats.\n * \n * This class includes the following functionalities:\n * - Setting the viewed date from a Date object\n * - Setting the viewed date from a String representation\n * - Retrieving the viewed date as a Date object\n * - Retrieving the viewed date as a String representation\n * - Setting the status of the object\n * \n * The date format used for the String representation can be specified by the dateFormat parameter.\n * \n * Note: If the viewed date is null, the methods will return null or an empty string accordingly.\n * \n * @author [Your Name]\n * @version 1.0\n * @since [Date]\n */\n*/\n/**\n * The ReportRequestBean class represents a bean object used to store information related to a report request.\n * It contains various attributes such as ID, requesterMID, patientMID, requestedDate, viewedDate, and status.\n * This class provides methods to set and retrieve these attributes, as well as a constructor to create a new instance of ReportRequestBean.\n * The status attribute can be set to indicate the current status of the report request.\n * \n * Main functionalities include:\n * - Setting and retrieving the ID of the report request\n * - Setting and retrieving the MID of the requester\n * - Setting and retrieving the MID of the patient\n * - Setting and retrieving the requested date of the report\n * - Setting and retrieving the viewed date of the report\n * - Setting and retrieving the status of the report request\n * \n * The class also includes constants for date format, requested status, and viewed status.\n * \n * @author [Your Name]\n * @version 1.0\n */"
     }
 ]

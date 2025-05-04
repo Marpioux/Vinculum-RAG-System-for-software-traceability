@@ -7,7 +7,8 @@
                 "hasInnerComment": false,
                 "signature": " void setup()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Sets up the initial configuration of the GUI components.\n * This method sets the font, creates panels, buttons, and adds them to the layout.\n * \n * @param None\n * @return None\n */"
             },
             {
                 "body": "Optional[{\r\n    Annulla.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            dispose();\r\n            s.setEnabled(true);\r\n        }\r\n    });\r\n    Inserimento.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            insStanza();\r\n        }\r\n    });\r\n    Modifica.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            modStanza();\r\n        }\r\n    });\r\n    Cancellazione.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            cancStanza();\r\n        }\r\n    });\r\n    Ricerca.addActionListener(new ActionListener() {\r\n\r\n        public void actionPerformed(ActionEvent e) {\r\n            vediStanza();\r\n        }\r\n    });\r\n}]",
@@ -15,7 +16,8 @@
                 "hasInnerComment": false,
                 "signature": " void init()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Initializes the GUI components by adding ActionListeners to the buttons.\n * When the \"Annulla\" button is clicked, the current window is disposed and the parent window is enabled.\n * When the \"Inserimento\" button is clicked, the method insStanza() is called.\n * When the \"Modifica\" button is clicked, the method modStanza() is called.\n * When the \"Cancellazione\" button is clicked, the method cancStanza() is called.\n * When the \"Ricerca\" button is clicked, the method vediStanza() is called.\n */"
             },
             {
                 "body": "Optional[{\r\n    dispose();\r\n    s.setEnabled(true);\r\n}]",
@@ -23,7 +25,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It disposes of the current window and enables the specified component.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    insStanza();\r\n}]",
@@ -31,7 +34,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It invokes the insStanza() method to insert a new stanza.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    modStanza();\r\n}]",
@@ -39,7 +43,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It modifies the current stanza in the application.\n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    cancStanza();\r\n}]",
@@ -47,7 +52,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event occurs. It cancels the current stanza being processed.\n * \n * @param e the ActionEvent that triggered this method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    vediStanza();\r\n}]",
@@ -55,7 +61,8 @@
                 "hasInnerComment": false,
                 "signature": "public void actionPerformed(ActionEvent)",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * This method is called when an action event is triggered. It calls the method vediStanza() to display the current room. \n * \n * @param e the ActionEvent that triggered the method\n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_1 = new InserisciStanze();\r\n    call_1.setVisible(true);\r\n    call_1.stanze = this;\r\n}]",
@@ -63,7 +70,8 @@
                 "hasInnerComment": false,
                 "signature": " void insStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current frame, creates a new InserisciStanze frame, sets it to visible, and assigns the current frame as a reference to the new frame.\n * This method does not have any parameters.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_2 = new ModificaStanze();\r\n    call_2.setVisible(true);\r\n    call_2.stanze = this;\r\n}]",
@@ -71,7 +79,8 @@
                 "hasInnerComment": false,
                 "signature": " void modStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current stanza and opens a new window for modifying rooms.\n * The current stanza is passed to the new window for modification.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_3 = new CancellaStanze();\r\n    call_3.setVisible(true);\r\n    call_3.stanze = this;\r\n}]",
@@ -79,7 +88,8 @@
                 "hasInnerComment": false,
                 "signature": " void cancStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current stanza and opens a new window to delete rooms.\n * \n * This method sets the current stanza as disabled, creates a new instance of CancellaStanze window,\n * sets it as visible, and assigns the current stanza to the new window.\n * \n * @return void\n */"
             },
             {
                 "body": "Optional[{\r\n    this.setEnabled(false);\r\n    call_4 = new VediStanza();\r\n    call_4.setVisible(true);\r\n    call_4.stanze = this;\r\n}]",
@@ -87,7 +97,8 @@
                 "hasInnerComment": false,
                 "signature": " void vediStanza()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Disables the current object, creates a new VediStanza object, sets it to visible, and assigns the current object as its 'stanze' attribute.\n * This method does not take any parameters.\n * \n * @return void\n */"
             }
         ],
         "constructors": [
@@ -97,7 +108,8 @@
                 "hasInnerComment": false,
                 "signature": "public SubStanze()",
                 "comments": null,
-                "innerComments": null
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new SubStanze object with the title \"Gestione delle stanze\".\n * This constructor calls the superclass constructor with the specified title,\n * then proceeds to set up the SubStanze object by calling the setup() method,\n * initializing it with the init() method, and finally packing the components\n * with the pack() method. This constructor does not take any parameters.\n */"
             }
         ],
         "signature": "SubStanze",
@@ -116,6 +128,7 @@
             " ModificaStanze call_2",
             " CancellaStanze call_3",
             " VediStanza call_4"
-        ]
+        ],
+        "generated_class_comment": "/**\n * The SubStanze class represents a GUI component for managing rooms. \n * It provides functionalities for inserting, modifying, deleting, and viewing rooms.\n * This class contains methods to set up the initial configuration of the GUI components,\n * initialize the components by adding ActionListeners to the buttons, and handle various \n * actions such as inserting, modifying, canceling, and viewing rooms.\n * \n * The class includes a constructor that constructs a new SubStanze object with the title \n * \"Gestione delle stanze\". The constructor sets up the SubStanze object by calling the \n * setup() method, initializing it with the init() method, and packing the components.\n * \n * The class also defines variables for labels, panels, buttons, layout, and other components \n * required for managing rooms. Additionally, it maintains references to other classes such \n * as SubGestione, InserisciStanze, ModificaStanze, CancellaStanze, and VediStanza for \n * performing specific operations related to room management.\n * \n * Overall, the SubStanze class encapsulates the functionality for managing rooms in a \n * graphical user interface, providing a user-friendly interface for users to interact \n * with room management operations.\n */\n **/"
     }
 ]
