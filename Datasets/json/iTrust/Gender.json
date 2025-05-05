@@ -1,1 +1,54 @@
-[]
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the name of the gender.\r\n *\r\n * @return the name of the gender.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object as a String\n */"
+            },
+            {
+                "body": "Optional[{\r\n    return getName();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String toString()",
+                "comments": "Optional[/**\r\n * Returns the string representation of the gender.\r\n *\r\n * @return the string representation of the gender.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representation of the object. This method calls the getName() method to retrieve the name of the object.\n * \n * @return the name of the object as a string\n */"
+            },
+            {
+                "body": "Optional[{\r\n    for (Gender gender : Gender.values()) {\r\n        if (gender.name.equals(input))\r\n            return gender;\r\n    }\r\n    return NotSpecified;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static Gender parse(String input)",
+                "comments": "Optional[/**\r\n * Parses the input string and returns the corresponding Gender enum value.\r\n *\r\n * @param input the string to parse.\r\n * @return the corresponding Gender enum value, or NotSpecified if the input does not match any gender.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Parses the given input string to determine the corresponding Gender enum value.\n * \n * @param input the string representation of the Gender enum value to be parsed\n * @return the Gender enum value that matches the input string, or NotSpecified if no match is found\n */"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "Optional[{\r\n    this.name = name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private Gender(String name)",
+                "comments": "Optional[/**\r\n * Constructs a Gender enum with the specified name.\r\n *\r\n * @param name the name of the gender.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Gender object with the specified name.\n * \n * @param name the name of the gender\n * @throws IllegalArgumentException if the name is null\n */\nprivate Gender(String name) {\n    if (name == null) {\n        throw new IllegalArgumentException(\"Name cannot be null\");\n    }\n    \n    this.name = name;\n}"
+            }
+        ],
+        "signature": "Gender",
+        "variables": [
+            "private String name"
+        ],
+        "enumConstants": [
+            "Male(\"Male\")",
+            "Female(\"Female\")",
+            "NotSpecified(\"Not Specified\")"
+        ],
+        "generated_class_comment": "/**\n * The Gender class represents different genders such as Male, Female, and Not Specified.\n * It provides methods for retrieving the name of a gender, getting a string representation of a gender,\n * and parsing a string input to determine the corresponding Gender enum value.\n * \n * The class includes the following enums:\n * - Male: Represents the Male gender.\n * - Female: Represents the Female gender.\n * - NotSpecified: Represents a gender that is not specified.\n * \n * The main functionalities of the Gender class include:\n * - Retrieving the name of a gender using the getName() method.\n * - Getting a string representation of a gender using the toString() method.\n * - Parsing a string input to determine the corresponding Gender enum value using the parse() method.\n * \n * The class behavior is as follows:\n * - The getName() method returns the name of the gender.\n * - The toString() method returns a string representation of the gender by calling the getName() method.\n * - The parse() method parses the input string and returns the corresponding Gender enum value, or NotSpecified if no match is found.\n * \n * @author [Author Name]\n * @version 1.0\n */\n**/\n/**\n * The Gender enum represents different genders such as Male, Female, and Not Specified.\n * \n * This enum provides a way to categorize individuals based on their gender identity.\n * \n * The main functionalities of this enum include:\n * - Constructing a Gender object with a specified name\n * - Checking if the name of the gender is not null\n * \n * The overall behavior of this enum is to provide a set of predefined gender options for use in applications.\n * \n * Enum Constants:\n * - Male: Represents the Male gender\n * - Female: Represents the Female gender\n * - NotSpecified: Represents a gender that is not specified\n */"
+    }
+]

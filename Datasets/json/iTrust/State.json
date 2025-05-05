@@ -1,1 +1,111 @@
-[]
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the name of the state.\r\n *\r\n * @return the name of the state.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object as a String\n */"
+            },
+            {
+                "body": "Optional[{\r\n    return toString();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getAbbrev()",
+                "comments": "Optional[/**\r\n * Returns the abbreviation of the state.\r\n *\r\n * @return the abbreviation of the state.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the abbreviation of the current object as a String.\n * This method simply returns the result of calling the toString() method on the object.\n * \n * @return the abbreviation of the current object as a String\n */"
+            },
+            {
+                "body": "Optional[{\r\n    return super.toString();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String toString()",
+                "comments": "Optional[/**\r\n * Returns the string representation of the state.\r\n *\r\n * @return the string representation of the state.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representation of the object. \n * This method overrides the default implementation of the toString() method in the Object class. \n * \n * @return a string representation of the object\n */"
+            },
+            {
+                "body": "Optional[{\r\n    State[] values = State.values();\r\n    for (State myState : values) {\r\n        if (myState.getName().equals(state) || myState.getAbbrev().equals(state))\r\n            return myState;\r\n    }\r\n    return State.NC;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static State parse(String state)",
+                "comments": "Optional[/**\r\n * Parses the input string and returns the corresponding State enum value.\r\n *\r\n * @param state the string to parse.\r\n * @return the corresponding State enum value, or NC if the input does not match any state.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Parses a given string representation of a state into a State enum value.\n * \n * @param state the string representation of a state to parse\n * @return the State enum value corresponding to the input string, or State.NC if no match is found\n */\npublic static State parse(String state) {\n    State[] values = State.values();\n    for (State myState : values) {\n        if (myState.getName().equals(state) || myState.getAbbrev().equals(state))\n            return myState;\n    }\n    return State.NC;\n}"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "Optional[{\r\n    this.name = name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private State(String name)",
+                "comments": "Optional[/**\r\n * Constructs a State enum with the specified name.\r\n *\r\n * @param name the name of the state.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new State object with the given name.\n * \n * @param name the name of the state\n * \n * This constructor initializes a new State object with the specified name.\n */"
+            }
+        ],
+        "signature": "State",
+        "variables": [
+            "private String name"
+        ],
+        "enumConstants": [
+            "AL(\"Alabama\")",
+            "AK(\"Alaska\")",
+            "AZ(\"Arizona\")",
+            "AR(\"Arkansas\")",
+            "CA(\"California\")",
+            "CO(\"Colorado\")",
+            "CT(\"Connecticut\")",
+            "DE(\"Delaware\")",
+            "DC(\"District of Columbia\")",
+            "FL(\"Florida\")",
+            "GA(\"Georgia\")",
+            "HI(\"Hawaii\")",
+            "ID(\"Idaho\")",
+            "IL(\"Illinois\")",
+            "IN(\"Indiana\")",
+            "IA(\"Iowa\")",
+            "KS(\"Kansas\")",
+            "KY(\"Kentucky\")",
+            "LA(\"Louisiana\")",
+            "ME(\"Maine\")",
+            "MD(\"Maryland\")",
+            "MA(\"Massachusetts\")",
+            "MI(\"Michigan\")",
+            "MN(\"Minnesota\")",
+            "MS(\"Mississippi\")",
+            "MO(\"Missouri\")",
+            "MT(\"Montana\")",
+            "NE(\"Nebraska\")",
+            "NV(\"Nevada\")",
+            "NH(\"New Hampshire\")",
+            "NJ(\"New Jersey\")",
+            "NM(\"New Mexico\")",
+            "NY(\"New York\")",
+            "NC(\"North Carolina\")",
+            "ND(\"North Dakota\")",
+            "OH(\"Ohio\")",
+            "OK(\"Oklahoma\")",
+            "OR(\"Oregon\")",
+            "PA(\"Pennsylvania\")",
+            "RI(\"Rhode Island\")",
+            "SC(\"South Carolina\")",
+            "SD(\"South Dakota\")",
+            "TN(\"Tennessee\")",
+            "TX(\"Texas\")",
+            "UT(\"Utah\")",
+            "VT(\"Vermont\")",
+            "VA(\"Virginia\")",
+            "WA(\"Washington\")",
+            "WV(\"West Virginia\")",
+            "WI(\"Wisconsin\")",
+            "WY(\"Wyoming\")"
+        ],
+        "generated_class_comment": "/**\n * This class represents a State enum with various functionalities to work with state abbreviations and names.\n * It provides methods to retrieve the name and abbreviation of a state, as well as to parse a string input\n * and return the corresponding State enum value.\n * \n * The class includes enums for all 50 states in the United States, each with a unique abbreviation and name.\n * \n * The main functionalities of this class include:\n * - Retrieving the name of a state using the getName() method\n * - Retrieving the abbreviation of a state using the getAbbrev() method\n * - Returning a string representation of a state using the toString() method\n * - Parsing a string input to return the corresponding State enum value using the parse() method\n * \n * The behavior of the class ensures that the parse() method correctly matches the input string with the\n * appropriate State enum value. If no match is found, the method returns the default State.NC value.\n * \n * Enums available in this class:\n * - AL(\"Alabama\")\n * - AK(\"Alaska\")\n * - AZ(\"Arizona\")\n * - AR(\"Arkansas\")\n * - CA(\"California\")\n * - ... (and so on for all 50 states)\n */\n**/\n/**\n * The State class represents a set of US states as an enum type. Each enum constant represents a specific state with its name and abbreviation.\n * This class provides methods to parse a string representation of a state into the corresponding State enum value.\n * It also includes a constructor to initialize a State object with a specified name.\n * \n * The main functionalities of this class include:\n * - Parsing a string representation of a state into a State enum value\n * - Initializing a State object with a given name\n * \n * The behavior of this class is to match the input string with the names and abbreviations of the enum constants to find a corresponding State enum value.\n * If no match is found, it returns the State.NC enum constant.\n * \n * The enum constants in this class represent the following US states:\n * - Alabama (AL)\n * - Alaska (AK)\n * - Arizona (AZ)\n * - Arkansas (AR)\n * - California (CA)\n * - Colorado (CO)\n * - Connecticut (CT)\n * - Delaware (DE)\n * - District of Columbia (DC)\n * - Florida (FL)\n * - Georgia (GA)\n * - Hawaii (HI)\n * - Idaho (ID)\n * - Illinois (IL)\n * - Indiana (IN)\n * - Iowa (IA)\n * - Kansas (KS)\n * - Kentucky (KY)\n * - Louisiana (LA)\n * - Maine (ME)\n * - Maryland (MD)\n * - Massachusetts (MA)\n * - Michigan (MI)\n * - Minnesota (MN)\n * - Mississippi (MS)\n * - Missouri (MO)\n * - Montana (MT)\n * - Nebraska (NE)\n * - Nevada (NV)\n * - New Hampshire (NH)\n * - New Jersey (NJ)\n * - New Mexico (NM)\n * - New York (NY)\n * - North Carolina (NC)\n * - North Dakota (ND)\n * - Ohio (OH)\n * - Oklahoma (OK)\n * - Oregon (OR)\n * - Pennsylvania (PA)\n * - Rhode Island (RI)\n * - South Carolina (SC)\n * - South Dakota (SD)\n * - Tennessee (TN)\n * - Texas (TX)\n * - Utah (UT)\n * - Vermont (VT)\n * - Virginia (VA)\n * - Washington (WA)\n * - West Virginia (WV)\n * - Wisconsin (WI)\n * - Wyoming (WY)\n */\n**/\n/**\n * This class represents a list of all 50 states in the United States.\n * It provides a set of enums for each state with their corresponding full names.\n * The main purpose of this class is to provide a convenient way to access and work with state information in Java applications.\n * \n * The class contains a single enum State with constants for each state, where each constant has a two-letter abbreviation and a full name.\n * The State enum provides a way to easily reference a specific state by its abbreviation or full name.\n * \n * Example usage:\n * State state = State.CA;\n * System.out.println(\"Abbreviation: \" + state.name()); // Output: CA\n * System.out.println(\"Full Name: \" + state.getFullName()); // Output: California\n * \n * The class also provides a static method getStateByFullName(String fullName) to retrieve a State enum constant by its full name.\n * This method can be useful when working with state data that is represented by full names instead of abbreviations.\n * \n * Example usage:\n * State state = State.getStateByFullName(\"California\");\n * System.out.println(\"Abbreviation: \" + state.name()); // Output: CA\n * \n * Overall, this class serves as a convenient reference for working with state information in Java applications.\n */\npublic class StateList {\n    // Enum constants for all 50 states\n    public enum State {\n        AL(\"Alabama\"), AK(\"Alaska\"), AZ(\"Arizona\"), AR(\"Arkansas\"), CA(\"California\"), CO(\"Colorado\"), CT(\"Connecticut\"), DE(\"Delaware\"), DC(\"District of Columbia\"), FL(\"Florida\"), GA(\"Georgia\"), HI(\"Hawaii\"), ID(\"Idaho\"), IL(\"Illinois\"), IN(\"Indiana\"), IA(\"Iowa\"), KS(\"Kansas\"), KY(\"Kentucky\"), LA(\"Louisiana\"), ME(\"Maine\"), MD(\"Maryland\"), MA(\"Massachusetts\"), MI(\"Michigan\"), MN(\"Minnesota\"), MS(\"Mississippi\"), MO(\"Missouri\"), MT(\"Montana\"), NE(\"Nebraska\"), NV(\"Nevada\"), NH(\"New Hampshire\"), NJ(\"New Jersey\"), NM(\"New Mexico\"), NY(\"New York\"), NC(\"North Carolina\"), ND(\"North Dakota\"), OH(\"Ohio\"), OK(\"Oklahoma\"), OR(\"Oregon\"), PA(\"Pennsylvania\"), RI(\"Rhode Island\"), SC(\"South Carolina\"), SD(\"South Dakota\"), TN(\"Tennessee\"), TX(\"Texas\"), UT(\"Utah\"), VT(\"Vermont\"), VA(\"Virginia\"), WA(\"Washington\"), WV(\"West Virginia\"), WI(\"Wisconsin\"), WY(\"Wyoming\");\n\n        private String fullName;\n\n        State(String fullName) {\n            this.fullName = fullName;\n        }\n\n        public String getFullName() {\n            return fullName;\n        }\n\n        /**\n         * Retrieves a State enum constant by its full name.\n         * \n         * @param fullName The full name of the state\n         * @return The State enum constant corresponding to the full name, or null if not found\n         */\n        public static State getStateByFullName(String fullName) {\n            for (State state : State.values()) {\n                if (state.getFullName().equalsIgnoreCase(fullName)) {\n                    return state;\n                }\n            }\n            return null;\n        }\n    }\n}\n*/"
+    }
+]

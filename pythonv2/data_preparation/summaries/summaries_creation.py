@@ -27,7 +27,7 @@ def enrich_json_with_gpt_comments(json_folder_path: str, model_temperature: floa
     )
 
     class_prompt_template = ChatPromptTemplate.from_template(
-        "Here is the entire Java class: {class_content} Can you generate a comprehensive JavaDoc comment that describes the purpose of the class, its main functionalities, and its overall behavior?"
+        "Here is the entire Java class: {class_content} And its enums: {enum_constants} Can you generate a comprehensive JavaDoc comment that describes the purpose of the class, its main functionalities, its overall behavior, and its enums?"
     )
 
     def split_class_content(class_content, max_tokens=2000):
@@ -108,13 +108,16 @@ def enrich_json_with_gpt_comments(json_folder_path: str, model_temperature: floa
             # Generate a global comment for the class
             if "generated_class_comment" not in data_entry:
                 class_content = json.dumps(data, indent=4)
+                enum_constants = data_entry.get("enumConstants", [])
+                enum_constants_str = ", ".join(enum_constants)
                 class_chunks = split_class_content(class_content)
                 generated_class_comment = ""
 
                 for chunk in class_chunks:
                     try:
                         prompt = class_prompt_template.format_messages(
-                            class_content=chunk
+                            class_content=chunk,
+                            enum_constants=enum_constants_str
                         )
                         response = llm(prompt)
                         generated_class_comment += response.content.strip() + "\n"

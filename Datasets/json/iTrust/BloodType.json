@@ -1,1 +1,60 @@
-[]
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the name of the blood type.\r\n *\r\n * @return the name of the blood type.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object as a String\n */"
+            },
+            {
+                "body": "Optional[{\r\n    return getName();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String toString()",
+                "comments": "Optional[/**\r\n * Returns the string representation of the blood type.\r\n *\r\n * @return the string representation of the blood type.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representation of the object. This method calls the getName() method to get the name of the object and returns it as a string.\n * \n * @return the name of the object as a string\n */"
+            },
+            {
+                "body": "Optional[{\r\n    for (BloodType type : BloodType.values()) {\r\n        if (type.getName().equals(bloodTypeStr)) {\r\n            return type;\r\n        }\r\n    }\r\n    return NS;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static BloodType parse(String bloodTypeStr)",
+                "comments": "Optional[/**\r\n * Parses the input string and returns the corresponding BloodType enum value.\r\n *\r\n * @param bloodTypeStr the string to parse.\r\n * @return the corresponding BloodType enum value, or NS if the input does not match any blood type.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Parses a string representation of a blood type and returns the corresponding BloodType enum value.\n * \n * @param bloodTypeStr the string representation of the blood type to parse\n * @return the BloodType enum value corresponding to the input string, or BloodType.NS if no match is found\n */\npublic static BloodType parse(String bloodTypeStr) {\n    for (BloodType type : BloodType.values()) {\n        if (type.getName().equals(bloodTypeStr)) {\n            return type;\n        }\n    }\n    return BloodType.NS;\n}"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "Optional[{\r\n    this.name = name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private BloodType(String name)",
+                "comments": "Optional[/**\r\n * Constructs a BloodType enum with the specified name.\r\n *\r\n * @param name the name of the blood type.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new BloodType with the given name.\n * \n * @param name the name of the blood type\n * @return a new BloodType object with the specified name\n */"
+            }
+        ],
+        "signature": "BloodType",
+        "variables": [
+            "private String name"
+        ],
+        "enumConstants": [
+            "APos(\"A+\")",
+            "ANeg(\"A-\")",
+            "BPos(\"B+\")",
+            "BNeg(\"B-\")",
+            "ABPos(\"AB+\")",
+            "ABNeg(\"AB-\")",
+            "OPos(\"O+\")",
+            "ONeg(\"O-\")",
+            "NS(\"N/S\")"
+        ],
+        "generated_class_comment": "/**\n * This class represents a BloodType enum with various blood types and provides methods to work with them.\n * It contains enums for blood types APos(\"A+\"), ANeg(\"A-\"), BPos(\"B+\"), BNeg(\"B-\"), ABPos(\"AB+\"), ABNeg(\"AB-\"), OPos(\"O+\"), ONeg(\"O-\"), NS(\"N/S\").\n * The class includes methods to get the name of a blood type, convert a blood type to a string representation, and parse a string to get the corresponding BloodType enum value.\n * The main functionalities of this class include retrieving the name of a blood type, converting a blood type to a string, and parsing a string to get the corresponding BloodType enum value.\n * The behavior of this class is to provide easy access to blood type information and facilitate conversions between string representations and enum values.\n */\n \npublic enum BloodType {\n    APos(\"A+\"),\n    ANeg(\"A-\"),\n    BPos(\"B+\"),\n    BNeg(\"B-\"),\n    ABPos(\"AB+\"),\n    ABNeg(\"AB-\"),\n    OPos(\"O+\"),\n    ONeg(\"O-\"),\n    NS(\"N/S\");\n    \n    private String name;\n    \n    /**\n     * Constructor for BloodType enum.\n     * @param name the name of the blood type\n     */\n    BloodType(String name) {\n        this.name = name;\n    }\n    \n    /**\n     * Returns the name of the blood type.\n     * \n     * @return the name of the blood type\n     */\n    public String getName() {\n        return name;\n    }\n    \n    /**\n     * Returns a string representation of the blood type.\n     * \n     * @return the string representation of the blood type\n     */\n    public String toString() {\n        return getName();\n    }\n    \n    /**\n     * Parses a string representation of a blood type and returns the corresponding BloodType enum value.\n     * \n     * @param bloodTypeStr the string representation of the blood type to parse\n     * @return the BloodType enum value corresponding to the input string, or BloodType.NS if no match is found\n     */\n    public static BloodType parse(String bloodTypeStr) {\n        for (BloodType type : BloodType.values()) {\n            if (type.getName().equals(bloodTypeStr)) {\n                return type;\n            }\n        }\n        return NS;\n    }\n}\n*/\n/**\n * The BloodType class represents different blood types that can be assigned to individuals.\n * It provides a set of predefined blood types as enums and allows for easy identification and comparison of blood types.\n * \n * The class includes a private constructor that initializes each BloodType enum with a specified name.\n * \n * The main functionality of this class is to provide a way to represent and work with different blood types in a Java program.\n * It allows for easy retrieval of a specific blood type based on its name and provides a default value if the specified name is not found.\n * \n * The enums included in this class are:\n * - APos: A positive blood type\n * - ANeg: A negative blood type\n * - BPos: B positive blood type\n * - BNeg: B negative blood type\n * - ABPos: AB positive blood type\n * - ABNeg: AB negative blood type\n * - OPos: O positive blood type\n * - ONeg: O negative blood type\n * - NS: Not specified blood type\n * \n * This class is useful for applications that require the representation and handling of different blood types in a structured manner.\n * \n * @author [Your Name]\n * @version 1.0\n */"
+    }
+]

@@ -1,1 +1,57 @@
-[]
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the name of the ethnicity.\r\n *\r\n * @return the name of the ethnicity.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the object.\n * \n * @return the name of the object as a String\n */"
+            },
+            {
+                "body": "Optional[{\r\n    return getName();\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String toString()",
+                "comments": "Optional[/**\r\n * Returns the string representation of the ethnicity.\r\n *\r\n * @return the string representation of the ethnicity.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns a string representation of the object. \n * This method calls the getName() method to retrieve the name of the object and returns it as a string.\n * \n * @return the name of the object as a string\n */"
+            },
+            {
+                "body": "Optional[{\r\n    for (Ethnicity ethnicity : Ethnicity.values()) {\r\n        if (ethnicity.name.equals(input))\r\n            return ethnicity;\r\n    }\r\n    return NotSpecified;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static Ethnicity parse(String input)",
+                "comments": "Optional[/**\r\n * Parses the input string and returns the corresponding Ethnicity enum value.\r\n *\r\n * @param input the string to parse.\r\n * @return the corresponding Ethnicity enum value, or NotSpecified if the input does not match any ethnicity.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Parses a string input to determine the corresponding Ethnicity enum value.\n * \n * @param input the string representing the ethnicity to parse\n * @return the Ethnicity enum value corresponding to the input string, or NotSpecified if no match is found\n */"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "Optional[{\r\n    this.name = name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private Ethnicity(String name)",
+                "comments": "Optional[/**\r\n * Constructs an Ethnicity enum with the specified name.\r\n *\r\n * @param name the name of the ethnicity.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Ethnicity object with the specified name.\n * \n * @param name the name of the ethnicity\n * @return a new Ethnicity object with the specified name\n */"
+            }
+        ],
+        "signature": "Ethnicity",
+        "variables": [
+            "private String name"
+        ],
+        "enumConstants": [
+            "Caucasian(\"Caucasian\")",
+            "AfricanAmerican(\"African American\")",
+            "Hispanic(\"Hispanic\")",
+            "AmericanIndian(\"American Indian\")",
+            "Asian(\"Asian\")",
+            "NotSpecified(\"Not Specified\")"
+        ],
+        "generated_class_comment": "/**\n * The Ethnicity class represents different ethnicities and provides methods to interact with them.\n * \n * This class includes methods to retrieve the name of an ethnicity, get a string representation of an ethnicity,\n * and parse a string input to determine the corresponding Ethnicity enum value.\n * \n * The main functionalities of this class include:\n * - Retrieving the name of an ethnicity\n * - Getting a string representation of an ethnicity\n * - Parsing a string input to determine the corresponding Ethnicity enum value\n * \n * The class behavior is as follows:\n * - The getName() method returns the name of the ethnicity.\n * - The toString() method returns a string representation of the ethnicity by calling the getName() method.\n * - The parse(String input) method parses a string input to determine the corresponding Ethnicity enum value.\n * \n * The Ethnicity enum values include:\n * - Caucasian\n * - African American\n * - Hispanic\n * - American Indian\n * - Asian\n * - Not Specified\n * \n * @author [Your Name]\n * @version 1.0\n */\n**/\n/**\n * The Ethnicity class represents different ethnicities that can be assigned to individuals.\n * It provides a way to categorize individuals based on their ethnicity.\n * \n * The class has a private constructor that takes a name parameter to create a new Ethnicity object.\n * \n * The main functionalities of the Ethnicity class include:\n * - Creating new Ethnicity objects with specified names\n * - Providing a list of predefined ethnicities as enums\n * \n * The overall behavior of the Ethnicity class is to allow users to assign ethnicities to individuals and retrieve information about them.\n * \n * Enums available in the Ethnicity class:\n * - Caucasian: Represents the Caucasian ethnicity\n * - AfricanAmerican: Represents the African American ethnicity\n * - Hispanic: Represents the Hispanic ethnicity\n * - AmericanIndian: Represents the American Indian ethnicity\n * - Asian: Represents the Asian ethnicity\n * - NotSpecified: Represents an ethnicity that is not specified\n */"
+    }
+]

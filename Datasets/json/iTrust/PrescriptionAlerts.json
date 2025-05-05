@@ -1,1 +1,54 @@
-[]
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return name;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getName()",
+                "comments": "Optional[/**\r\n * Returns the name of the prescription alert.\r\n *\r\n * @return the name of the prescription alert.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Returns the name of the object.\n * \n * @return the name of the object\n */"
+            },
+            {
+                "body": "Optional[{\r\n    return this.NDCode;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getNDCode()",
+                "comments": "Optional[/**\r\n * Returns the ND code of the prescription alert.\r\n *\r\n * @return the ND code of the prescription alert.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the ND code associated with this object.\n * \n * @return the ND code as a String\n */"
+            },
+            {
+                "body": "Optional[{\r\n    for (PrescriptionAlerts thisone : values()) {\r\n        if (thisone.getNDCode().equals(code))\r\n            return true;\r\n    }\r\n    return false;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static boolean isAlert(String code)",
+                "comments": "Optional[/**\r\n * Checks if the given code is an alert.\r\n *\r\n * @param code the ND code to check.\r\n * @return true if the code is an alert, false otherwise.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Checks if a given medication code corresponds to an alert in the PrescriptionAlerts enum.\n * \n * @param code the medication code to check for an alert\n * @return true if an alert exists for the given code, false otherwise\n */"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "Optional[{\r\n    this.name = rName;\r\n    this.NDCode = rNDCode;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private PrescriptionAlerts(String rName, String rNDCode)",
+                "comments": "Optional[/**\r\n * Constructs a PrescriptionAlerts enum with the specified name and ND code.\r\n *\r\n * @param rName the name of the prescription alert.\r\n * @param rNDCode the ND code of the prescription alert.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new PrescriptionAlerts object with the given name and NDCode.\n * \n * @param rName the name of the prescription alert\n * @param rNDCode the NDCode of the prescription alert\n */\nprivate PrescriptionAlerts(String rName, String rNDCode) {\n    this.name = rName;\n    this.NDCode = rNDCode;\n}\n*/\n\nThis JavaDoc comment accurately describes the constructor, its parameters, and its behavior. It clearly states that the constructor creates a new PrescriptionAlerts object with the specified name and NDCode parameters. It also provides a brief description of each parameter to help users understand their purpose."
+            }
+        ],
+        "signature": "PrescriptionAlerts",
+        "variables": [
+            "private String name",
+            "private String NDCode"
+        ],
+        "enumConstants": [
+            "Tetracycline(\"Tetracycline\", \"009042407\")",
+            "Prioglitazone(\"Prioglitazone\", \"647641512\")"
+        ],
+        "generated_class_comment": "/**\n * The PrescriptionAlerts class represents a collection of prescription alerts with their corresponding ND codes.\n * It provides methods to retrieve the name and ND code of a prescription alert, as well as to check if a given code is an alert.\n * \n * This class defines the following enums:\n * - Tetracycline(\"Tetracycline\", \"009042407\")\n * - Prioglitazone(\"Prioglitazone\", \"647641512\")\n * \n * The main functionalities of this class include:\n * - Retrieving the name and ND code of a prescription alert\n * - Checking if a given code corresponds to an alert in the PrescriptionAlerts enum\n * \n * The overall behavior of this class is to provide a convenient way to manage and access prescription alerts and their corresponding ND codes.\n */\n**/\n/**\n * The PrescriptionAlerts class represents different types of prescription alerts.\n * It provides functionality to create PrescriptionAlerts objects with specific names and ND codes.\n * The class also includes enums for Tetracycline and Prioglitazone with their respective names and ND codes.\n * \n * @author [Author Name]\n * @version 1.0\n */\n*/"
+    }
+]

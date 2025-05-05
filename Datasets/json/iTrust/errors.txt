@@ -1,8 +1,0 @@
-Skipping BloodType.json due to invalid structure.
-Skipping Ethnicity.json due to invalid structure.
-Skipping Gender.json due to invalid structure.
-Skipping PrescriptionAlerts.json due to invalid structure.
-Skipping Role.json due to invalid structure.
-Skipping State.json due to invalid structure.
-Skipping TransactionType.json due to invalid structure.
-Skipping ValidationFormat.json due to invalid structure.

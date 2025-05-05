@@ -1,1 +1,59 @@
-[]
+[
+    {
+        "methods": [
+            {
+                "body": "Optional[{\r\n    return dbTable;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getDBTable()",
+                "comments": "Optional[/**\r\n * Returns the database table associated with the role.\r\n *\r\n * @return the database table associated with the role.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the name of the database table associated with this object.\n * \n * @return the name of the database table\n */"
+            },
+            {
+                "body": "Optional[{\r\n    return userRolesString;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public String getUserRolesString()",
+                "comments": "Optional[/**\r\n * Returns the string representation of the user role.\r\n *\r\n * @return the string representation of the user role.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Retrieves the user roles as a string.\n * \n * @return the user roles as a string\n */"
+            },
+            {
+                "body": "Optional[{\r\n    for (Role role : values()) {\r\n        if (role.userRolesString.equals(str))\r\n            return role;\r\n    }\r\n    throw new IllegalArgumentException(\"Role \" + str + \" does not exist\");\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "public static Role parse(String str)",
+                "comments": "Optional[/**\r\n * Parses the input string and returns the corresponding Role enum value.\r\n *\r\n * @param str the string to parse.\r\n * @return the corresponding Role enum value.\r\n * @throws IllegalArgumentException if the role does not exist.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Parses a string representation of a Role enum value and returns the corresponding Role object.\n * \n * @param str the string representation of the Role enum value to parse\n * @return the Role object corresponding to the input string\n * @throws IllegalArgumentException if the input string does not match any existing Role enum value\n */\npublic static Role parse(String str) {\n    for (Role role : values()) {\n        if (role.userRolesString.equals(str))\n            return role;\n    }\n    throw new IllegalArgumentException(\"Role \" + str + \" does not exist\");\n}"
+            }
+        ],
+        "constructors": [
+            {
+                "body": "Optional[{\r\n    this.userRolesString = userRolesString;\r\n    this.dbTable = dbTable;\r\n}]",
+                "hasComment": true,
+                "hasInnerComment": false,
+                "signature": "private Role(String userRolesString, String dbTable)",
+                "comments": "Optional[/**\r\n * Constructs a Role enum with the specified user role string and database table.\r\n *\r\n * @param userRolesString the string representation of the user role.\r\n * @param dbTable the database table associated with the role.\r\n */\r\n]",
+                "innerComments": null,
+                "generated_comment": "/**\n * Constructs a new Role object with the specified user roles string and database table name.\n * \n * @param userRolesString the string representing the roles assigned to the user\n * @param dbTable the name of the database table associated with the role\n */\nprivate Role(String userRolesString, String dbTable) {\n    this.userRolesString = userRolesString;\n    this.dbTable = dbTable;\n}\n*/"
+            }
+        ],
+        "signature": "Role",
+        "variables": [
+            "private String userRolesString",
+            "private String dbTable"
+        ],
+        "enumConstants": [
+            "PATIENT(\"patient\", \"Patients\")",
+            "ER(\"er\", \"Personnel\")",
+            "HCP(\"hcp\", \"Personnel\")",
+            "UAP(\"uap\", \"Personnel\")",
+            "ADMIN(\"admin\", \"Personnel\")",
+            "PHA(\"pha\", \"Personnel\")",
+            "TESTER(\"tester\", \"\")"
+        ],
+        "generated_class_comment": "/**\n * The Role class represents different roles that users can have within the system.\n * It contains enums for various roles such as PATIENT, ER, HCP, UAP, ADMIN, PHA, and TESTER.\n * Each role has a string representation and a description associated with it.\n * \n * This class provides methods to retrieve the database table associated with a role,\n * the string representation of a user role, and to parse a string and return the corresponding Role enum value.\n * \n * The getDBTable() method returns the database table associated with the role.\n * The getUserRolesString() method returns the string representation of the user role.\n * The parse(String str) method parses the input string and returns the corresponding Role enum value.\n * \n * The class ensures that the input string matches an existing Role enum value, \n * and throws an IllegalArgumentException if the role does not exist.\n */\n/**\n * The Role class represents different roles that can be assigned to users in the system.\n * Each role has a string representation and is associated with a specific database table.\n * \n * The class provides a set of predefined enums for different roles, including:\n * - PATIENT: Represents a patient role associated with the \"Patients\" table.\n * - ER: Represents an emergency room role associated with the \"Personnel\" table.\n * - HCP: Represents a healthcare provider role associated with the \"Personnel\" table.\n * - UAP: Represents a user access provider role associated with the \"Personnel\" table.\n * - ADMIN: Represents an admin role associated with the \"Personnel\" table.\n * - PHA: Represents a pharmacy role associated with the \"Personnel\" table.\n * - TESTER: Represents a tester role with no specific database table association.\n * \n * The class provides methods to retrieve a Role enum based on its string representation and to handle cases where the enum does not exist.\n * \n * This class is used to manage user roles and their corresponding database tables in the system.\n */\n*/"
+    }
+]
