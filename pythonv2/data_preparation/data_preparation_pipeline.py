@@ -1,6 +1,6 @@
 import os
-from summaries.extract_comments import exctract_comments
-from summaries.summaries_creation import enrich_json_with_gpt_comments
+"""from summaries.extract_comments import exctract_comments
+from summaries.summaries_creation import enrich_json_with_gpt_comments"""
 from embedings.embedding_process import create_embedding_from_folder
 
 #paths for folders
@@ -20,9 +20,9 @@ requirements_folders = [
 "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/requirements/iTrust"]
 
 index_names = [
-"eTour",
-"Albergate",
-"iTrust"]
+"eTourv1",
+"Albergatev1",
+"iTrustv1"]
 
 for element in code_folders:
     # First step 

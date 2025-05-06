@@ -4,7 +4,7 @@ import redis
 import getpass
 import json
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from langchain_community.vectorstores import Redis as RedisVectorStore
+from langchain_redis import RedisConfig, RedisVectorStore
 
 def log(msg, level="INFO"):
     print(f"[{level}] {msg}")
@@ -58,7 +58,7 @@ def initialize_system(index_name: str):
     # Vector store
     vector_store = RedisVectorStore(
         index_name=index_name,
-        embedding=embeddings,
+        embeddings=embeddings,
         redis_url="redis://localhost:6379",
     )
 
@@ -79,3 +79,12 @@ def lire_lignes_du_fichier(chemin_fichier):
         lignes = [ligne.strip() for ligne in fichier]
     return lignes
 
+def clean_links(input_file):
+    # Read and filter the lines
+    with open(input_file, "r") as file:
+        lines = file.readlines()
+    filtered_lines = [line for line in lines if not line.strip().endswith("-> None")]
+    with open(input_file, "w") as file:
+        file.writelines(filtered_lines)
+
+    print("Filtered file saved.")

@@ -1,24 +1,24 @@
-from ..linking.utilities.utilities import lire_lignes_du_fichier
+from utilities.utilities import lire_lignes_du_fichier
 
-results_files = [
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/",
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/",
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/"
-]
+def count_correct_predictions(datasets, results_files, rigth_files):
+    """
+    Counts the number of correct predictions (exact matches) for each dataset.
 
-rigth_files = ["C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/rigth_matrix/eTOUR.txt",
-               "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/rigth_matrix/Albergate.txt",
-               "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/rigth_matrix/iTrust.txt"]
+    Parameters:
+        datasets (list): List of dataset names.
+        results_files (list): List of file paths with predicted results.
+        rigth_files (list): List of file paths with true labels.
+    """
+    for dataset, result_file, rigth_file in zip(datasets, results_files, rigth_files):
+        list_datasets = lire_lignes_du_fichier(rigth_file)
+        list_predicted = lire_lignes_du_fichier(result_file)
+        
+        count = 0
+        for element in list_datasets:
+            element_clean = element.strip().lower()
+            for element2 in list_predicted:
+                element2_clean = element2.strip().lower()
+                if element_clean == element2_clean:
+                    count += 1
 
-datasets = ["eTOUR", "Albergate", "iTrust"]
-
-for dataset, result_file, rigth_file in zip(datasets, results_files, rigth_files):
-    list_datasets = lire_lignes_du_fichier(rigth_file)
-    list_predicted = lire_lignes_du_fichier(result_file)
-    count = 0
-    for element in list_datasets :
-        for element2 in list_predicted :
-            if element==element2:
-                count+=1
-
-    print(f'Number of rigth answers : {count} for {dataset}')
+        print(f'Number of correct answers: {count} for {dataset}')
