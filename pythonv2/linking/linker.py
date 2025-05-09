@@ -10,7 +10,7 @@ from langchain_community.vectorstores import Redis as RedisVectorStore
 from utilities.utilities import (
     log, clean_llm_output, save_response, initialize_system, find_name_by_page_content, retrieve_previous_results
 )
-from prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2
+from prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3
 
 def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     """
@@ -242,6 +242,103 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
         save_response(links, output_file)
     except Exception as e:
         log(f"❌ Error saving results: {str(e)}", level="ERROR")
+
+def with_generated_comments_methods_class(code_folder: str, output_file: str, index_name: str):
+    try:
+        model, embeddings, redis_client, vector_store = initialize_system(index_name)
+        log("linking_with_only_code", level="INFO")
+    except Exception as e:
+        log(f"❌ Error initializing system: {str(e)}", level="ERROR")
+        return
+
+    prompt_method = "{method_name} comment: {method_comment}\n"
+    prompt_constructor = "{constructor_name} comment: {constructor_comment}\n"
+    prompt_class = "Class: {class_name} comment: {class_comment}\n"
+
+    links = []
+
+    for root, _, files in os.walk(code_folder):
+        for file in files:
+            if not file.endswith(".json"):
+                continue
+
+            file_path = os.path.join(root, file)
+
+            try:
+                with open(file_path, 'r', encoding="utf-8") as f:
+                    data = json.load(f)
+            except Exception as e:
+                log(f"❌ Error loading JSON file {file_path}: {str(e)}", level="ERROR")
+                continue
+
+            try:
+                if not isinstance(data, list):
+                    continue
+
+                for entry in data:
+                    # Get class comment
+                    class_comment = entry.get("generated_class_comment", "")
+                    final_prompt_vector = prompt_class.format(
+                        class_name=entry.get("signature", "UnknownClass"),
+                        class_comment=class_comment
+                    )
+
+                    final_prompt_vector += "Methods:\n"
+                    for method in entry.get("methods", []):
+                        # Get method generated comment
+                        method_comment = method.get("generated_comment", "")
+                        final_prompt_vector += prompt_method.format(
+                            method_name=method.get("signature", "UnknownMethod"),
+                            method_comment=method_comment
+                        )
+
+                    final_prompt_vector += "Constructors:\n"
+                    for constructor in entry.get("constructors", []):
+                        # Get constructor generated comment
+                        constructor_comment = constructor.get("generated_comment", "")
+                        final_prompt_vector += prompt_constructor.format(
+                            constructor_name=constructor.get("signature", "UnknownConstructor"),
+                            constructor_comment=constructor_comment
+                        )
+
+                    try:
+                        results = vector_store.similarity_search(
+                            query=final_prompt_vector, k=4, with_distance=False
+                        )
+                        reqs = []
+                        for req in results:
+                            document_name = find_name_by_page_content(
+                                req.page_content, redis_client, index_name
+                            )
+                            reqs.append({"name": document_name, "content": req.page_content})
+
+                        prompt = final_prompt_RQ1_H3(
+                            reqs=reqs,
+                            prompt_code=final_prompt_vector,
+                            class_name=entry.get("signature", "UnknownClass")
+                        )
+                        response = model.invoke(prompt)
+                        cleaned = clean_llm_output(response.content)
+                        for line in cleaned.splitlines():
+                            if line.strip():
+                                links.append(line.strip())
+
+                    except Exception as e:
+                        log(f"❌ Vector store error in {file_path}: {str(e)}", level="ERROR")
+                        continue
+
+            except Exception as e:
+                log(f"❌ Error processing data in {file_path}: {str(e)}", level="ERROR")
+
+    try:
+        links = "\n".join(links)
+        output_dir = os.path.dirname(output_file)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        save_response(links, output_file)
+    except Exception as e:
+        log(f"❌ Error saving results: {str(e)}", level="ERROR")
+
 
 
 
