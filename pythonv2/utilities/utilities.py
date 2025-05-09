@@ -88,3 +88,9 @@ def clean_links(input_file):
         file.writelines(filtered_lines)
 
     print("Filtered file saved.")
+
+def retrieve_previous_results(class_name: str, file_result: str):
+    with open(file_result, 'r', encoding="utf-8") as f:
+        lines = f.readlines()
+    filtered_lines = [line for line in lines if class_name.lower() in line.lower()]
+    return filtered_lines

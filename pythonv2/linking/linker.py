@@ -8,9 +8,9 @@ from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Redis as RedisVectorStore
 
 from utilities.utilities import (
-    log, clean_llm_output, save_response, initialize_system, find_name_by_page_content
+    log, clean_llm_output, save_response, initialize_system, find_name_by_page_content, retrieve_previous_results
 )
-from prompts.prompt_builder import prompt_rewriter_with_only_code
+from prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2
 
 def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     """
@@ -95,7 +95,7 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
                             )
                             reqs.append({"name": document_name, "content": req.page_content})
 
-                        prompt = prompt_rewriter_with_only_code(
+                        prompt = final_prompt_RQ1_H1(
                             reqs=reqs,
                             prompt_code=final_prompt_vector,
                             class_name=entry.get("signature", "UnknownClass")
@@ -121,3 +121,129 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
         save_response(links, output_file)
     except Exception as e:
         log(f"❌ Error saving results: {str(e)}", level="ERROR")
+
+def with_code_comments(code_folder: str, output_file: str, index_name: str, file_result: str):
+    """RQ1/Hypothesis 2 : Use the comments found in code,
+    if not retrieve the same requirements as the previous Hypothesis (with_only_code)"""
+
+    try:
+        model, embeddings, redis_client, vector_store = initialize_system(index_name)
+        log("linking_with_code_comments", level="INFO")
+    except Exception as e:
+        log(f"❌ Error initializing system: {str(e)}", level="ERROR")
+        return
+
+    prompt_method = "{method_name}:\n{method_comment}\n"
+    prompt_constructor = "{constructor_name}:\n{constructor_comment}\n"
+
+    links = []
+
+    for root, _, files in os.walk(code_folder):
+        for file in files:
+            if not file.endswith(".json"):
+                continue
+
+            file_path = os.path.join(root, file)
+
+            try:
+                with open(file_path, 'r', encoding="utf-8") as f:
+                    data = json.load(f)
+            except Exception as e:
+                log(f"❌ Error loading JSON file {file_path}: {str(e)}", level="ERROR")
+                continue
+
+            try:
+                if not isinstance(data, list):
+                    continue
+
+                for entry in data:
+                    final_prompt_vector = f"Class: {entry.get('signature', 'UnknownClass')}\n"
+                    methods_with_comments = False
+                    constructors_with_comments = False
+
+                    final_prompt_vector += "Methods:\n"
+                    for method in entry.get("methods", []):
+                        method_comment = ""
+                        if method.get("hasInnerComment", False):
+                            inner_comments = method.get("innerComments", "Optional[[]]")
+                            if inner_comments != "Optional[[]]":
+                                method_comment += "\n".join(inner_comments.replace("Optional[[", "").replace("]]", "").split(", "))
+                                methods_with_comments = True
+
+                        if method.get("hasComment", False):
+                            comments = method.get("comments", "")
+                            if comments:
+                                if method_comment:
+                                    method_comment += "\n"
+                                method_comment += comments
+                                methods_with_comments = True
+
+                        final_prompt_vector += prompt_method.format(
+                            method_name=method.get("signature", "UnknownMethod"),
+                            method_comment=method_comment
+                        )
+
+                    final_prompt_vector += "Constructors:\n"
+                    for constructor in entry.get("constructors", []):
+                        constructor_comment = ""
+                        if constructor.get("hasInnerComment", False):
+                            inner_comments = constructor.get("innerComments", "Optional[[]]")
+                            if inner_comments != "Optional[[]]":
+                                constructor_comment += "\n".join(inner_comments.replace("Optional[[", "").replace("]]", "").split(", "))
+                                constructors_with_comments = True
+
+                        if constructor.get("hasComment", False):
+                            comments = constructor.get("comments", "")
+                            if comments:
+                                if constructor_comment:
+                                    constructor_comment += "\n"
+                                constructor_comment += comments
+                                constructors_with_comments = True
+
+                        final_prompt_vector += prompt_constructor.format(
+                            constructor_name=constructor.get("signature", "UnknownConstructor"),
+                            constructor_comment=constructor_comment
+                        )
+
+                    if not methods_with_comments and not constructors_with_comments:
+                        class_name = entry.get("signature", "UnknownClass"), ".java"
+                        previous_results = retrieve_previous_results(class_name, file_result)
+                        for link in previous_results:
+                            links.append(link.strip())
+                    else:
+                        results = vector_store.similarity_search(
+                            query=final_prompt_vector, k=4, with_distance=False
+                        )
+                        reqs = []
+                        for req in results:
+                            document_name = find_name_by_page_content(
+                                req.page_content, redis_client, index_name
+                            )
+                            reqs.append({"name": document_name, "content": req.page_content})
+
+                        prompt = final_prompt_RQ1_H2(
+                            reqs=reqs,
+                            prompt_code=final_prompt_vector,
+                            class_name=entry.get("signature", "UnknownClass")
+                        )
+                        response = model.invoke(prompt)
+                        cleaned = clean_llm_output(response.content)
+                        for line in cleaned.splitlines():
+                            if line.strip():
+                                links.append(line.strip())
+            except Exception as e:
+                log(f"❌ Error processing data in {file_path}: {str(e)}", level="ERROR")
+
+    try:
+        links = "\n".join(links)
+        output_dir = os.path.dirname(output_file)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        save_response(links, output_file)
+    except Exception as e:
+        log(f"❌ Error saving results: {str(e)}", level="ERROR")
+
+
+
+
+
