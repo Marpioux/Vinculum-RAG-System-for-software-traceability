@@ -93,7 +93,7 @@ def final_prompt_RQ1_H3(reqs, prompt_code, class_name):
         f"Each Java class may be linked to zero, one, two, or three requirements.\n"
         f"Please analyze the class and the requirements, and determine if there is a relevant link.\n"
         f"Respond strictly using the following format:\n"
-        f"{class_name}.java -> RequirementName.txt\n"
+        f"{class_name}.java -> RequirementID.txt\n"
         f"or, if there is no match:\n"
         f"{class_name}.java -> None\n"
         f"\nReturn only the links in the required format. Do not include explanations."

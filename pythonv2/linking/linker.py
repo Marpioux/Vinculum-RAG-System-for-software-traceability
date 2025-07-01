@@ -8,9 +8,9 @@ from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_community.vectorstores import Redis as RedisVectorStore
 
 from utilities.utilities import (
-    log, clean_llm_output, save_response, initialize_system, find_name_by_page_content, retrieve_previous_results
+    log, clean_llm_output, save_response, initialize_system, find_name_by_page_content, retrieve_previous_results, clean_java_comment
 )
-from prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3
+from linking.prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3
 
 def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     """
@@ -135,7 +135,6 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
 
     prompt_method = "{method_name}:\n{method_comment}\n"
     prompt_constructor = "{constructor_name}:\n{constructor_comment}\n"
-
     links = []
 
     for root, _, files in os.walk(code_folder):
@@ -164,10 +163,12 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                     final_prompt_vector += "Methods:\n"
                     for method in entry.get("methods", []):
                         method_comment = ""
+
                         if method.get("hasInnerComment", False):
-                            inner_comments = method.get("innerComments", "Optional[[]]")
-                            if inner_comments != "Optional[[]]":
-                                method_comment += "\n".join(inner_comments.replace("Optional[[", "").replace("]]", "").split(", "))
+                            inner_comments = method.get("innerComments", "")
+                            if inner_comments and inner_comments != "Optional[[]]":
+                                inner_comments = inner_comments.replace("Optional[[", "").replace("]]", "")
+                                method_comment += clean_java_comment("\n".join(inner_comments.split(", ")))
                                 methods_with_comments = True
 
                         if method.get("hasComment", False):
@@ -175,7 +176,7 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                             if comments:
                                 if method_comment:
                                     method_comment += "\n"
-                                method_comment += comments
+                                method_comment += clean_java_comment(comments)
                                 methods_with_comments = True
 
                         final_prompt_vector += prompt_method.format(
@@ -186,10 +187,12 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                     final_prompt_vector += "Constructors:\n"
                     for constructor in entry.get("constructors", []):
                         constructor_comment = ""
+
                         if constructor.get("hasInnerComment", False):
-                            inner_comments = constructor.get("innerComments", "Optional[[]]")
-                            if inner_comments != "Optional[[]]":
-                                constructor_comment += "\n".join(inner_comments.replace("Optional[[", "").replace("]]", "").split(", "))
+                            inner_comments = constructor.get("innerComments", "")
+                            if inner_comments and inner_comments != "Optional[[]]":
+                                inner_comments = inner_comments.replace("Optional[[", "").replace("]]", "")
+                                constructor_comment += clean_java_comment("\n".join(inner_comments.split(", ")))
                                 constructors_with_comments = True
 
                         if constructor.get("hasComment", False):
@@ -197,7 +200,7 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                             if comments:
                                 if constructor_comment:
                                     constructor_comment += "\n"
-                                constructor_comment += comments
+                                constructor_comment += clean_java_comment(comments)
                                 constructors_with_comments = True
 
                         final_prompt_vector += prompt_constructor.format(
@@ -206,20 +209,17 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                         )
 
                     if not methods_with_comments and not constructors_with_comments:
-                        class_name = entry.get("signature", "UnknownClass"), ".java"
+                        class_name = entry.get("signature", "UnknownClass")+ ".java"
                         previous_results = retrieve_previous_results(class_name, file_result)
                         for link in previous_results:
                             links.append(link.strip())
                     else:
-                        results = vector_store.similarity_search(
-                            query=final_prompt_vector, k=4, with_distance=False
-                        )
+                        retriever = vector_store.as_retriever()
+                        results = retriever.invoke(final_prompt_vector)
+                        print("\n\n\n\nRESULTS:", results)
                         reqs = []
                         for req in results:
-                            document_name = find_name_by_page_content(
-                                req.page_content, redis_client, index_name
-                            )
-                            reqs.append({"name": document_name, "content": req.page_content})
+                            reqs.append({"name": req.metadata["name"], "content": req.page_content})
 
                         prompt = final_prompt_RQ1_H2(
                             reqs=reqs,
@@ -233,7 +233,6 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                                 links.append(line.strip())
             except Exception as e:
                 log(f"❌ Error processing data in {file_path}: {str(e)}", level="ERROR")
-
     try:
         links = "\n".join(links)
         output_dir = os.path.dirname(output_file)
@@ -243,7 +242,7 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
     except Exception as e:
         log(f"❌ Error saving results: {str(e)}", level="ERROR")
 
-def with_generated_comments_methods_class(code_folder: str, output_file: str, index_name: str):
+def with_generated_comments_methods_class(code_folder: str, output_file: str, index_name: str, file_result: str):
     try:
         model, embeddings, redis_client, vector_store = initialize_system(index_name)
         log("linking_with_only_code", level="INFO")
@@ -312,16 +311,22 @@ def with_generated_comments_methods_class(code_folder: str, output_file: str, in
                             )
                             reqs.append({"name": document_name, "content": req.page_content})
 
-                        prompt = final_prompt_RQ1_H3(
-                            reqs=reqs,
-                            prompt_code=final_prompt_vector,
-                            class_name=entry.get("signature", "UnknownClass")
-                        )
-                        response = model.invoke(prompt)
-                        cleaned = clean_llm_output(response.content)
-                        for line in cleaned.splitlines():
-                            if line.strip():
-                                links.append(line.strip())
+                        if reqs : 
+                            prompt = final_prompt_RQ1_H3(
+                                reqs=reqs,
+                                prompt_code=final_prompt_vector,
+                                class_name=entry.get("signature", "UnknownClass")
+                            )
+                            response = model.invoke(prompt)
+                            cleaned = clean_llm_output(response.content)
+                            for line in cleaned.splitlines():
+                                if line.strip():
+                                    links.append(line.strip())
+                        else : 
+                            class_name = entry.get("signature", "UnknownClass")+ ".java"
+                            previous_results = retrieve_previous_results(class_name, file_result)
+                            for link in previous_results:
+                                links.append(link.strip())
 
                     except Exception as e:
                         log(f"❌ Vector store error in {file_path}: {str(e)}", level="ERROR")
@@ -338,9 +343,3 @@ def with_generated_comments_methods_class(code_folder: str, output_file: str, in
         save_response(links, output_file)
     except Exception as e:
         log(f"❌ Error saving results: {str(e)}", level="ERROR")
-
-
-
-
-
-

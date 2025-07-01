@@ -3,8 +3,9 @@ from dotenv import load_dotenv
 import redis
 import getpass
 import json
+import re
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from langchain_redis import RedisConfig, RedisVectorStore
+from langchain_redis import RedisVectorStore
 
 def log(msg, level="INFO"):
     print(f"[{level}] {msg}")
@@ -94,3 +95,12 @@ def retrieve_previous_results(class_name: str, file_result: str):
         lines = f.readlines()
     filtered_lines = [line for line in lines if class_name.lower() in line.lower()]
     return filtered_lines
+
+def clean_java_comment(comment: str) -> str:
+    comment = comment.replace("Optional[[", "").replace("]]", "")
+    comment_lines = comment.splitlines()
+    cleaned_lines = []
+    for line in comment_lines:
+        line = re.sub(r"^\s*/?\**\s?", "", line)  # Supprime /**, *, //, etc.
+        cleaned_lines.append(line.strip())
+    return "\n".join(cleaned_lines).strip()

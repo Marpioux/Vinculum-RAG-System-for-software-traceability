@@ -1,7 +1,7 @@
 import os
 """from summaries.extract_comments import exctract_comments
 from summaries.summaries_creation import enrich_json_with_gpt_comments"""
-from embedings.embedding_process import create_embedding_from_folder
+from data_preparation.embedings.embedding_process import embed_and_store
 
 #paths for folders
 code_folders = [
@@ -34,5 +34,5 @@ for element in code_folders:
 
     # Third step
     # take all requirements and embed them with the LLM and save them in a redis database
-    create_embedding_from_folder(folder_path=requirements_folders[code_folders.index(element)],
+    embed_and_store(folder_path=requirements_folders[code_folders.index(element)],
                                 index_name=index_names[code_folders.index(element)])

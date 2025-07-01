@@ -1,100 +1,80 @@
-import getpass
 import os
 import redis
+import getpass
+from langchain_redis import RedisVectorStore
 from langchain_openai import OpenAIEmbeddings
-from langchain_redis import RedisConfig, RedisVectorStore
 from langchain_core.documents import Document
 
-def create_embedding_from_folder(folder_path: str, index_name: str):
+def embed_and_store(folder_path: str, index_name: str):
     """
-    Crée des embeddings OpenAI à partir des fichiers texte dans un dossier donné
-    et les stocke dans Redis sous un index donné.
+    Vectorise tous les fichiers texte dans le dossier donné
+    et stocke dans Redis avec le nom d'index fourni.
+    """
 
-    :param folder_path: Chemin du dossier contenant les fichiers.
-    :param index_name: Nom de l'index Redis pour stocker les embeddings.
-    """
-    # Validation des paramètres
+    # --- Vérifications ---
     if not os.path.isdir(folder_path):
-        print(f"[ERROR] The folder path '{folder_path}' is not a valid directory.")
+        print(f"[❌] Le dossier '{folder_path}' n'existe pas.")
         return
 
-    # Authentification OpenAI
     if not os.environ.get("OPENAI_API_KEY"):
-        os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter API key for OpenAI: ")
+        os.environ["OPENAI_API_KEY"] = getpass.getpass("🔐 Entrez votre clé API OpenAI: ")
     os.environ["PYDANTIC_V2"] = "1"
 
-    # Connexion Redis
+    # --- Connexion Redis ---
     try:
-        redis_client = redis.StrictRedis(host='localhost', port=6379, decode_responses=True)
-        redis_client.ping()  # Vérifie la connexion à Redis
-    except redis.ConnectionError as e:
-        print(f"[ERROR] Failed to connect to Redis: {e}")
-        return
-
-    # Nettoyage de l'index existant
-    try:
-        keys = redis_client.keys(f"{index_name}:*")
-        if keys:
-            redis_client.delete(*keys)
-            print(f"[INFO] Deleted existing keys: {keys}")
-        else:
-            print("[INFO] No existing keys to delete.")
+        redis_client = redis.StrictRedis(host="localhost", port=6379, decode_responses=True)
+        redis_client.ping()
     except Exception as e:
-        print(f"[ERROR] Failed to clean existing keys: {e}")
+        print(f"[❌] Erreur de connexion à Redis : {e}")
         return
 
-    # Chargement du modèle d'embedding
+    # --- Chargement du modèle ---
     try:
-        embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+        embeddings = OpenAIEmbeddings(
+            model="text-embedding-3-large",
+        )
     except Exception as e:
-        print(f"[ERROR] Failed to load OpenAI embeddings: {e}")
+        print(f"[❌] Erreur de chargement des embeddings : {e}")
         return
 
-    # Initialisation du Vector Store
+    # --- Initialisation du vector store ---
     try:
         vector_store = RedisVectorStore(
             index_name=index_name,
-            embeddings=embeddings,
             redis_url="redis://localhost:6379",
+            embeddings=embeddings
         )
     except Exception as e:
-        print(f"[ERROR] Failed to initialize RedisVectorStore: {e}")
+        print(f"[❌] Erreur d'initialisation du RedisVectorStore : {e}")
         return
 
-    # Lecture des documents
+    # --- Parcours des fichiers ---
     documents = []
     for root, _, files in os.walk(folder_path):
-        for filename in files:
-            file_path = os.path.join(root, filename)
+        for file in files:
+            if not file.endswith((".txt", ".md", ".java", ".py")):
+                continue
+            path = os.path.join(root, file)
             try:
-                with open(file_path, "r", encoding="iso-8859-1") as f:
-                    content = f.read()
-                    document = Document(
+                with open(path, "r", encoding="utf-8") as f:
+                    content = f.read().strip()
+                    if not content:
+                        continue
+                    doc = Document(
                         page_content=content,
-                        metadata={"name": filename}
+                        metadata={"name": file}
                     )
-                    documents.append(document)
-
-                    doc_key = f"{index_name}:{filename}"
-                    redis_client.hset(doc_key, "page_content", content)
-                    redis_client.hset(doc_key, "name", filename)
+                    documents.append(doc)
+                    print(f"[📄] Préparé : {file}")
             except Exception as e:
-                print(f"[ERROR] Failed to process file {file_path}: {e}")
+                print(f"[⚠️] Erreur lecture fichier {file} : {e}")
 
-    # Ajout dans le vector store
+    # --- Embedding & Stockage ---
     try:
         if documents:
-            vector_store.add_documents(documents=documents)
-            print(f"[INFO] {len(documents)} documents indexed under '{index_name}'.")
+            vector_store.add_documents(documents)
+            print(f"[✅] {len(documents)} documents indexés sous '{index_name}'")
         else:
-            print("[WARNING] No documents found or added.")
+            print("[⚠️] Aucun document trouvé à indexer.")
     except Exception as e:
-        print(f"[ERROR] Failed to add documents to vector store: {e}")
-
-    return vector_store
-
-# Example usage
-# create_embedding_from_folder(
-#     folder_path="C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/requirements/eTOUR",
-#     index_name="eTour"
-# )
+        print(f"[❌] Erreur d'indexation : {e}")
