@@ -2,26 +2,39 @@ from evaluation.f1_metric import evaluate_datasets_f1
 from evaluation.correct_matches import count_correct_predictions
 from utilities.utilities import clean_links
 
-results_files = [
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_only_code/eTourv1.txt",
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_only_code/iTrustv1.txt",
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_only_code/Albergatev1.txt",
+# Définition des chemins vers les fichiers de résultats
+results_with_only_code = [
+    "./results/RQ1/with_only_code/eTourv1.txt",
+    "./results/RQ1/with_only_code/iTrustv1.txt",
+    "./results/RQ1/with_only_code/Albergatev1.txt",
 ]
 
-results_files_2 = [
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_code_comment/eTourv1.txt",
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_code_comment/iTrustv1.txt",
-    "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_code_comment/Albergatev1.txt",
+results_with_code_comment = [
+    "./results/RQ1/with_code_comment/eTourv1.txt",
+    "./results/RQ1/with_code_comment/iTrustv1.txt",
+    "./results/RQ1/with_code_comment/Albergatev1.txt",
 ]
 
-rigth_files = ["C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/rigth_matrix/eTOUR.txt",
-               "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/rigth_matrix/iTrust.txt",
-               "C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/rigth_matrix/Albergate.txt"]
+results_with_all_generated_comments = [
+    "./results/RQ1/with_all_generated_comment/eTourv1.txt",
+]
 
+results_with_one_comment = [
+    "./results/RQ1/with_one_comment/chroma_eTOUR.txt",
+    "./results/RQ1/with_one_comment/chroma_iTrust.txt",
+    "./results/RQ1/with_one_comment/chroma_Albergate.txt",
+]
+
+# Chemins vers les fichiers de vérité terrain
+ground_truth_files = [
+    "./results/rigth_matrix/eTOUR.txt",
+    "./results/rigth_matrix/iTrust.txt",
+    "./results/rigth_matrix/Albergate.txt",
+]
+
+# Noms des jeux de données
 datasets = ["eTOUR", "iTrust", "Albergate"]
 
-for element in results_files_2:
-    clean_links(element)
-
-evaluate_datasets_f1(datasets, results_files_2, rigth_files)
-count_correct_predictions(datasets, results_files_2, rigth_files)
+# Exécution des évaluations
+evaluate_datasets_f1(datasets, results_with_one_comment, ground_truth_files)
+count_correct_predictions(datasets, results_with_one_comment, ground_truth_files)

@@ -1,14 +1,14 @@
-from linking.linker import with_generated_comments_methods_class 
+from linking.linker import with_class_comment 
 
 index_names = [
-#"eTourv1",
-"Albergatev1",
-"iTrustv1"]
+#"chroma_eTOUR",
+"chroma_Albergate",]
+#"chroma_iTrust" $]
 
 json_folders = [
 #"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/json/eTour",
-"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/json/albergate",
-"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/json/iTrust"]
+"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/json/albergate",]
+#"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/Datasets/json/iTrust"]
 
 
 for element in json_folders:
@@ -24,9 +24,15 @@ for element in json_folders:
     #    file_result=f"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_only_code/{index_names[json_folders.index(element)]}.txt"
     #)
 
-    with_generated_comments_methods_class(
+    #with_generated_comments_methods_class(
+    #    code_folder=element,
+    #    output_file=f"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_all_generated_comment/{index_names[json_folders.index(element)]}.txt", 
+    #    index_name=index_names[json_folders.index(element)],
+    #    file_result=f"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_only_code/{index_names[json_folders.index(element)]}.txt")
+    
+    with_class_comment(
         code_folder=element,
-        output_file=f"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_all_generated_comment/{index_names[json_folders.index(element)]}.txt", 
-        index_name=index_names[json_folders.index(element)],
-        file_result=f"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_only_code/{index_names[json_folders.index(element)]}.txt")
+        output_file=f"C:/Users/marius.pingaud/OneDrive - BERGER-LEVRAULT/Bureau/Sorbonne/M2/Master thesis/Requirement Engineering/master_thesis_xp/pythonv2/results/RQ1/with_one_comment/{index_names[json_folders.index(element)]}.txt", 
+        index_name=index_names[json_folders.index(element)]
+    )
 

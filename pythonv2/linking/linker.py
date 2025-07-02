@@ -2,6 +2,7 @@ import os
 import json
 import redis
 from dotenv import load_dotenv
+from linking.chroma_retriever import retrieve_doc
 
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
@@ -10,7 +11,7 @@ from langchain_community.vectorstores import Redis as RedisVectorStore
 from utilities.utilities import (
     log, clean_llm_output, save_response, initialize_system, find_name_by_page_content, retrieve_previous_results, clean_java_comment
 )
-from linking.prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3
+from linking.prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3, final_prompt_RQ1_H4
 
 def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     """
@@ -301,16 +302,12 @@ def with_generated_comments_methods_class(code_folder: str, output_file: str, in
                         )
 
                     try:
-                        results = vector_store.similarity_search(
-                            query=final_prompt_vector, k=4, with_distance=False
-                        )
+                        retriever = vector_store.as_retriever()
+                        results = retriever.invoke(final_prompt_vector)
                         reqs = []
+                        print("Results :", results)
                         for req in results:
-                            document_name = find_name_by_page_content(
-                                req.page_content, redis_client, index_name
-                            )
-                            reqs.append({"name": document_name, "content": req.page_content})
-
+                            reqs.append({"name": req.metadata["name"], "content": req.page_content})
                         if reqs : 
                             prompt = final_prompt_RQ1_H3(
                                 reqs=reqs,
@@ -322,12 +319,80 @@ def with_generated_comments_methods_class(code_folder: str, output_file: str, in
                             for line in cleaned.splitlines():
                                 if line.strip():
                                     links.append(line.strip())
-                        else : 
-                            class_name = entry.get("signature", "UnknownClass")+ ".java"
-                            previous_results = retrieve_previous_results(class_name, file_result)
-                            for link in previous_results:
-                                links.append(link.strip())
+                    except Exception as e:
+                        log(f"❌ Vector store error in {file_path}: {str(e)}", level="ERROR")
+                        continue
 
+            except Exception as e:
+                log(f"❌ Error processing data in {file_path}: {str(e)}", level="ERROR")
+
+    try:
+        links = "\n".join(links)
+        output_dir = os.path.dirname(output_file)
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        save_response(links, output_file)
+    except Exception as e:
+        log(f"❌ Error saving results: {str(e)}", level="ERROR")
+
+def with_class_comment(code_folder: str, output_file: str, index_name: str):
+    try:
+        model, embeddings, redis_client, vector_store = initialize_system(index_name)
+        log("linking_with_only_code", level="INFO")
+    except Exception as e:
+        log(f"❌ Error initializing system: {str(e)}", level="ERROR")
+        return
+    
+    prompt_class = "Class: {class_name}: {class_comment}\n"
+
+    links = []
+
+    for root, _, files in os.walk(code_folder):
+        for file in files:
+            if not file.endswith(".json"):
+                continue
+
+            file_path = os.path.join(root, file)
+
+            try:
+                with open(file_path, 'r', encoding="utf-8") as f:
+                    data = json.load(f)
+            except Exception as e:
+                log(f"❌ Error loading JSON file {file_path}: {str(e)}", level="ERROR")
+                continue
+
+            try:
+                if not isinstance(data, list):
+                    continue
+
+                for entry in data:
+                    # Get class comment
+                    class_comment = entry.get("generated_class_comment", "")
+                    final_prompt_vector = prompt_class.format(
+                        class_name=entry.get("signature", "UnknownClass"),
+                        class_comment=class_comment
+                    )
+                    try:
+                        results = retrieve_doc(index_name,final_prompt_vector)
+                        reqs = []
+                        for req in results:
+                            filename = os.path.basename(req.metadata.get("source", "unknown.txt"))
+                            reqs.append({
+                                "name": filename,
+                                "content": req.page_content
+                            })
+                        if reqs : 
+                            prompt = final_prompt_RQ1_H4(
+                                reqs=reqs,
+                                prompt_code=final_prompt_vector,
+                                class_name=entry.get("signature", "UnknownClass")
+                            )
+                            print("\n\n PROMPT :", prompt,"\n\n\n")
+                            response = model.invoke(prompt)
+                            cleaned = clean_llm_output(response.content)
+                            for line in cleaned.splitlines():
+                                if line.strip():
+                                    links.append(line.strip())
                     except Exception as e:
                         log(f"❌ Vector store error in {file_path}: {str(e)}", level="ERROR")
                         continue

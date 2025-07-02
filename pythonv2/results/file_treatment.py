@@ -20,9 +20,9 @@ def process_file_in_place(file_path):
         right = parts[1].strip()
 
         # Mettre le REQ.TXT (UCxx.TXT) à gauche
-        if right.startswith('UC') and right.endswith('.txt'):
+        if right.startswith('F') and right.endswith('.txt'):
             processed_lines.append(f'{right} -> {left}')
-        elif left.startswith('UC') and left.endswith('.txt'):
+        elif left.startswith('F') and left.endswith('.txt'):
             processed_lines.append(f'{left} -> {right}')
         # Sinon, ligne ignorée
 
@@ -32,4 +32,4 @@ def process_file_in_place(file_path):
             f.write(line + '\n')
 
 # Utilisation : remplace "chemin/vers/fichier.txt" par ton chemin
-process_file_in_place('./RQ1/with_code_comment/iTrustv1.txt')
+process_file_in_place('./RQ1/with_one_comment/chroma_Albergate.txt')
