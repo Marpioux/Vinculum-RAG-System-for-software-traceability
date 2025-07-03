@@ -20,9 +20,9 @@ results_with_all_generated_comments = [
 ]
 
 results_with_one_comment = [
-    "./results/RQ1/with_one_comment/chroma_eTOUR.txt",
-    "./results/RQ1/with_one_comment/chroma_iTrust.txt",
-    "./results/RQ1/with_one_comment/chroma_Albergate.txt",
+    "./results/RQ1/with_all_generated_comment/chroma_eTOUR.txt",
+    "./results/RQ1/with_all_generated_comment/chroma_iTrust.txt",
+    "./results/RQ1/with_all_generated_comment/chroma_Albergate.txt",
 ]
 
 # Chemins vers les fichiers de vérité terrain

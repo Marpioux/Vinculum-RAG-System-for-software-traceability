@@ -302,13 +302,15 @@ def with_generated_comments_methods_class(code_folder: str, output_file: str, in
                         )
 
                     try:
-                        retriever = vector_store.as_retriever()
-                        results = retriever.invoke(final_prompt_vector)
+                        results = retrieve_doc(index_name,final_prompt_vector)
                         reqs = []
-                        print("Results :", results)
                         for req in results:
-                            reqs.append({"name": req.metadata["name"], "content": req.page_content})
-                        if reqs : 
+                            filename = os.path.basename(req.metadata.get("source", "unknown.txt"))
+                            reqs.append({
+                                "name": filename,
+                                "content": req.page_content
+                            })
+                        if reqs :
                             prompt = final_prompt_RQ1_H3(
                                 reqs=reqs,
                                 prompt_code=final_prompt_vector,
