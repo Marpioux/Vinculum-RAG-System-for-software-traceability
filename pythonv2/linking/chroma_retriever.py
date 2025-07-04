@@ -3,6 +3,9 @@ from dotenv import load_dotenv
 import cohere
 from langchain_community.embeddings import OpenAIEmbeddings
 from langchain_chroma import Chroma
+from langchain.retrievers import ParentDocumentRetriever, BM25Retriever, EnsembleRetriever
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.storage import InMemoryStore
 
 def retrieve_doc(index_name, query):
     load_dotenv()

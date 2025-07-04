@@ -3,7 +3,7 @@ import json
 import time
 import redis
 from dotenv import load_dotenv
-from linking.chroma_retriever import retrieve_doc_rerank
+from linking.chroma_retriever import retrieve_doc_parent
 
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
@@ -89,11 +89,11 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
 
                     try:
                         # Gestion rate limit : pause 6s entre appels Cohere après le premier
-                        if calls_count > 0:
-                            time.sleep(6)
+                        #if calls_count > 0:
+                        #    time.sleep(6)
 
-                        results = retrieve_doc_rerank(index_name, final_prompt_vector)
-                        calls_count += 1
+                        results = retrieve_doc_parent(index_name, final_prompt_vector)
+                        #calls_count += 1
 
                         reqs = []
                         for req in results:
@@ -102,16 +102,17 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
                                 "name": filename,
                                 "content": req.page_content
                             })
-                        prompt = final_prompt_RQ1_H1(
-                            reqs=reqs,
-                            prompt_code=final_prompt_vector,
-                            class_name=entry.get("signature", "UnknownClass")
-                        )
-                        response = model.invoke(prompt)
-                        cleaned = clean_llm_output(response.content)
-                        for line in cleaned.splitlines():
-                            if line.strip():
-                                links.append(line.strip())
+                        if reqs:
+                            prompt = final_prompt_RQ1_H1(
+                                reqs=reqs,
+                                prompt_code=final_prompt_vector,
+                                class_name=entry.get("signature", "UnknownClass")
+                            )
+                            response = model.invoke(prompt)
+                            cleaned = clean_llm_output(response.content)
+                            for line in cleaned.splitlines():
+                                if line.strip():
+                                    links.append(line.strip())
 
                     except Exception as e:
                         log(f"❌ Vector store error in {file_path}: {str(e)}", level="ERROR")
@@ -143,6 +144,7 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
     prompt_method = "{method_name}:\n{method_comment}\n"
     prompt_constructor = "{constructor_name}:\n{constructor_comment}\n"
     links = []
+    calls_count = 0
 
     for root, _, files in os.walk(code_folder):
         for file in files:
@@ -158,181 +160,90 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                 log(f"❌ Error loading JSON file {file_path}: {str(e)}", level="ERROR")
                 continue
 
-            try:
-                if not isinstance(data, list):
-                    continue
-
-                for entry in data:
-                    final_prompt_vector = f"Class: {entry.get('signature', 'UnknownClass')}\n"
-                    methods_with_comments = False
-                    constructors_with_comments = False
-
-                    final_prompt_vector += "Methods:\n"
-                    for method in entry.get("methods", []):
-                        method_comment = ""
-
-                        if method.get("hasInnerComment", False):
-                            inner_comments = method.get("innerComments", "")
-                            if inner_comments and inner_comments != "Optional[[]]":
-                                inner_comments = inner_comments.replace("Optional[[", "").replace("]]", "")
-                                method_comment += clean_java_comment("\n".join(inner_comments.split(", ")))
-                                methods_with_comments = True
-
-                        if method.get("hasComment", False):
-                            comments = method.get("comments", "")
-                            if comments:
-                                if method_comment:
-                                    method_comment += "\n"
-                                method_comment += clean_java_comment(comments)
-                                methods_with_comments = True
-
-                        final_prompt_vector += prompt_method.format(
-                            method_name=method.get("signature", "UnknownMethod"),
-                            method_comment=method_comment
-                        )
-
-                    final_prompt_vector += "Constructors:\n"
-                    for constructor in entry.get("constructors", []):
-                        constructor_comment = ""
-
-                        if constructor.get("hasInnerComment", False):
-                            inner_comments = constructor.get("innerComments", "")
-                            if inner_comments and inner_comments != "Optional[[]]":
-                                inner_comments = inner_comments.replace("Optional[[", "").replace("]]", "")
-                                constructor_comment += clean_java_comment("\n".join(inner_comments.split(", ")))
-                                constructors_with_comments = True
-
-                        if constructor.get("hasComment", False):
-                            comments = constructor.get("comments", "")
-                            if comments:
-                                if constructor_comment:
-                                    constructor_comment += "\n"
-                                constructor_comment += clean_java_comment(comments)
-                                constructors_with_comments = True
-
-                        final_prompt_vector += prompt_constructor.format(
-                            constructor_name=constructor.get("signature", "UnknownConstructor"),
-                            constructor_comment=constructor_comment
-                        )
-
-                    if not methods_with_comments and not constructors_with_comments:
-                        class_name = entry.get("signature", "UnknownClass")+ ".java"
-                        previous_results = retrieve_previous_results(class_name, file_result)
-                        for link in previous_results:
-                            links.append(link.strip())
-                    else:
-                        retriever = vector_store.as_retriever()
-                        results = retriever.invoke(final_prompt_vector)
-                        print("\n\n\n\nRESULTS:", results)
-                        reqs = []
-                        for req in results:
-                            reqs.append({"name": req.metadata["name"], "content": req.page_content})
-
-                        prompt = final_prompt_RQ1_H2(
-                            reqs=reqs,
-                            prompt_code=final_prompt_vector,
-                            class_name=entry.get("signature", "UnknownClass")
-                        )
-                        response = model.invoke(prompt)
-                        cleaned = clean_llm_output(response.content)
-                        for line in cleaned.splitlines():
-                            if line.strip():
-                                links.append(line.strip())
-            except Exception as e:
-                log(f"❌ Error processing data in {file_path}: {str(e)}", level="ERROR")
-    try:
-        links = "\n".join(links)
-        output_dir = os.path.dirname(output_file)
-        if not os.path.exists(output_dir):
-            os.makedirs(output_dir)
-        save_response(links, output_file)
-    except Exception as e:
-        log(f"❌ Error saving results: {str(e)}", level="ERROR")
-
-def with_generated_comments_methods_class(code_folder: str, output_file: str, index_name: str, file_result: str):
-    try:
-        model, embeddings, redis_client, vector_store = initialize_system(index_name)
-        log("linking_with_only_code", level="INFO")
-    except Exception as e:
-        log(f"❌ Error initializing system: {str(e)}", level="ERROR")
-        return
-
-    prompt_method = "{method_name} comment: {method_comment}\n"
-    prompt_constructor = "{constructor_name} comment: {constructor_comment}\n"
-    prompt_class = "Class: {class_name} comment: {class_comment}\n"
-
-    links = []
-
-    for root, _, files in os.walk(code_folder):
-        for file in files:
-            if not file.endswith(".json"):
+            if not isinstance(data, list):
                 continue
 
-            file_path = os.path.join(root, file)
+            for entry in data:
+                final_prompt_vector = f"Class: {entry.get('signature', 'UnknownClass')}\n"
+                methods_with_comments = False
+                constructors_with_comments = False
 
-            try:
-                with open(file_path, 'r', encoding="utf-8") as f:
-                    data = json.load(f)
-            except Exception as e:
-                log(f"❌ Error loading JSON file {file_path}: {str(e)}", level="ERROR")
-                continue
+                final_prompt_vector += "Methods:\n"
+                for method in entry.get("methods", []):
+                    method_comment = ""
 
-            try:
-                if not isinstance(data, list):
-                    continue
+                    if method.get("hasInnerComment", False):
+                        inner_comments = method.get("innerComments", "")
+                        if inner_comments and inner_comments != "Optional[[]]":
+                            inner_comments = inner_comments.replace("Optional[[", "").replace("]]", "")
+                            method_comment += clean_java_comment("\n".join(inner_comments.split(", ")))
+                            methods_with_comments = True
 
-                for entry in data:
-                    # Get class comment
-                    class_comment = entry.get("generated_class_comment", "")
-                    final_prompt_vector = prompt_class.format(
-                        class_name=entry.get("signature", "UnknownClass"),
-                        class_comment=class_comment
+                    if method.get("hasComment", False):
+                        comments = method.get("comments", "")
+                        if comments:
+                            if method_comment:
+                                method_comment += "\n"
+                            method_comment += clean_java_comment(comments)
+                            methods_with_comments = True
+
+                    final_prompt_vector += prompt_method.format(
+                        method_name=method.get("signature", "UnknownMethod"),
+                        method_comment=method_comment
                     )
 
-                    final_prompt_vector += "Methods:\n"
-                    for method in entry.get("methods", []):
-                        # Get method generated comment
-                        method_comment = method.get("generated_comment", "")
-                        final_prompt_vector += prompt_method.format(
-                            method_name=method.get("signature", "UnknownMethod"),
-                            method_comment=method_comment
-                        )
+                final_prompt_vector += "Constructors:\n"
+                for constructor in entry.get("constructors", []):
+                    constructor_comment = ""
 
-                    final_prompt_vector += "Constructors:\n"
-                    for constructor in entry.get("constructors", []):
-                        # Get constructor generated comment
-                        constructor_comment = constructor.get("generated_comment", "")
-                        final_prompt_vector += prompt_constructor.format(
-                            constructor_name=constructor.get("signature", "UnknownConstructor"),
-                            constructor_comment=constructor_comment
-                        )
+                    if constructor.get("hasInnerComment", False):
+                        inner_comments = constructor.get("innerComments", "")
+                        if inner_comments and inner_comments != "Optional[[]]":
+                            inner_comments = inner_comments.replace("Optional[[", "").replace("]]", "")
+                            constructor_comment += clean_java_comment("\n".join(inner_comments.split(", ")))
+                            constructors_with_comments = True
 
-                    try:
-                        results = retrieve_doc(index_name,final_prompt_vector)
-                        reqs = []
-                        for req in results:
-                            filename = os.path.basename(req.metadata.get("source", "unknown.txt"))
-                            reqs.append({
-                                "name": filename,
-                                "content": req.page_content
-                            })
-                        if reqs :
-                            prompt = final_prompt_RQ1_H3(
-                                reqs=reqs,
-                                prompt_code=final_prompt_vector,
-                                class_name=entry.get("signature", "UnknownClass")
-                            )
-                            response = model.invoke(prompt)
-                            cleaned = clean_llm_output(response.content)
-                            for line in cleaned.splitlines():
-                                if line.strip():
-                                    links.append(line.strip())
-                    except Exception as e:
-                        log(f"❌ Vector store error in {file_path}: {str(e)}", level="ERROR")
-                        continue
+                    if constructor.get("hasComment", False):
+                        comments = constructor.get("comments", "")
+                        if comments:
+                            if constructor_comment:
+                                constructor_comment += "\n"
+                            constructor_comment += clean_java_comment(comments)
+                            constructors_with_comments = True
 
-            except Exception as e:
-                log(f"❌ Error processing data in {file_path}: {str(e)}", level="ERROR")
+                    final_prompt_vector += prompt_constructor.format(
+                        constructor_name=constructor.get("signature", "UnknownConstructor"),
+                        constructor_comment=constructor_comment
+                    )
+
+                try:
+                    # Gestion rate limit : pause 6s entre appels Cohere après le premier
+                        #if calls_count > 0:
+                        #    time.sleep(6)
+
+                    results = retrieve_doc_parent(index_name, final_prompt_vector)
+                        #calls_count += 1
+
+                    reqs = []
+                    for req in results:
+                        filename = os.path.basename(req.metadata.get("source", "unknown.txt"))
+                        reqs.append({
+                            "name": filename,
+                            "content": req.page_content
+                        })
+
+                    prompt = final_prompt_RQ1_H2(
+                        reqs=reqs,
+                        prompt_code=final_prompt_vector,
+                        class_name=entry.get("signature", "UnknownClass")
+                    )
+                    response = model.invoke(prompt)
+                    cleaned = clean_llm_output(response.content)
+                    for line in cleaned.splitlines():
+                        if line.strip():
+                            links.append(line.strip())
+                except Exception as e:
+                    log(f"❌ Error retrieving or processing LLM for {file_path}: {str(e)}", level="ERROR")
 
     try:
         links = "\n".join(links)
@@ -354,6 +265,7 @@ def with_class_comment(code_folder: str, output_file: str, index_name: str):
     prompt_class = "Class: {class_name}: {class_comment}\n"
 
     links = []
+    calls_count = 0
 
     for root, _, files in os.walk(code_folder):
         for file in files:
@@ -381,7 +293,12 @@ def with_class_comment(code_folder: str, output_file: str, index_name: str):
                         class_comment=class_comment
                     )
                     try:
-                        results = retrieve_doc(index_name,final_prompt_vector)
+                        #if calls_count > 0:
+                        #    time.sleep(6)
+
+                        results = retrieve_doc_parent(index_name, final_prompt_vector)
+                        #calls_count += 1
+
                         reqs = []
                         for req in results:
                             filename = os.path.basename(req.metadata.get("source", "unknown.txt"))
