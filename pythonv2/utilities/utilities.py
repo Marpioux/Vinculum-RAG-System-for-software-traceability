@@ -50,18 +50,8 @@ def initialize_system(index_name: str):
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
     # Redis client
-    redis_client = redis.StrictRedis(
-        host='localhost',
-        port=6379,
-        decode_responses=True
-    )
-
-    # Vector store
-    vector_store = RedisVectorStore(
-        index_name=index_name,
-        embeddings=embeddings,
-        redis_url="redis://localhost:6379",
-    )
+    redis_client = True,
+    vector_store = True,
 
     return model, embeddings, redis_client, vector_store
 

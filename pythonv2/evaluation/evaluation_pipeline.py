@@ -32,9 +32,15 @@ ground_truth_files = [
     "./results/rigth_matrix/Albergate.txt",
 ]
 
+results_RQ2_code = [
+    "./results/RQ2/with_code/chroma_eTOUR.txt",
+    "./results/RQ2/with_code/chroma_iTrust.txt",
+    "./results/RQ2/with_code/chroma_Albergate.txt",
+]
+
 # Noms des jeux de données
 datasets = ["eTOUR", "iTrust", "Albergate"]
 
 # Exécution des évaluations
-evaluate_datasets_f1(datasets, results_with_one_comment, ground_truth_files)
-count_correct_predictions(datasets, results_with_one_comment, ground_truth_files)
+evaluate_datasets_f1(datasets, results_RQ2_code, ground_truth_files)
+count_correct_predictions(datasets, results_RQ2_code, ground_truth_files)
