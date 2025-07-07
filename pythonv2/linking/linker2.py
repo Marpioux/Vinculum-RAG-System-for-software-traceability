@@ -3,7 +3,7 @@ import json
 import time
 import redis
 from dotenv import load_dotenv
-from linking.chroma_retriever import retrieve_doc_hybrid
+from linking.chroma_retriever import retrieve_doc_mmr
 
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
@@ -92,7 +92,7 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str, 
                         #if calls_count > 0:
                         #    time.sleep(6)
 
-                        results = retrieve_doc_hybrid(index_name, final_prompt_vector, bm25_corpus_path)
+                        results = retrieve_doc_mmr(index_name, final_prompt_vector)
                         #calls_count += 1
 
                         reqs = []
@@ -221,7 +221,7 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, bm25
                         #if calls_count > 0:
                         #    time.sleep(6)
 
-                    results = retrieve_doc_hybrid(index_name, final_prompt_vector, bm25_corpus_path)
+                    results = retrieve_doc_mmr(index_name, final_prompt_vector)
                         #calls_count += 1
 
                     reqs = []
@@ -296,7 +296,7 @@ def with_class_comment(code_folder: str, output_file: str, index_name: str, bm25
                         #if calls_count > 0:
                         #    time.sleep(6)
 
-                        results = retrieve_doc_hybrid(index_name, final_prompt_vector, bm25_corpus_path)
+                        results = retrieve_doc_mmr(index_name, final_prompt_vector)
                         #calls_count += 1
 
                         reqs = []
