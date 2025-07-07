@@ -6,6 +6,7 @@ from langchain_chroma import Chroma
 from langchain.retrievers import ParentDocumentRetriever, BM25Retriever, EnsembleRetriever
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.storage import InMemoryStore
+import pickle
 
 def retrieve_doc(index_name, query):
     load_dotenv()
@@ -53,16 +54,19 @@ def retrieve_doc_parent(index_name, query):
     )
     return retriever.invoke(query)
 
-def retrieve_doc_hybrid(index_name, query, bm25_corpus):
+def retrieve_doc_hybrid(index_name, query, bm25_corpus_path):
     load_dotenv()
     embedding = OpenAIEmbeddings()
     vectorstore = Chroma(persist_directory=index_name, embedding_function=embedding)
+    with open(bm25_corpus_path, "rb") as f:
+        bm25_corpus = pickle.load(f)
+
 
     bm25 = BM25Retriever.from_documents(bm25_corpus)
     bm25.k = 3
 
     dense = vectorstore.as_retriever(search_kwargs={"k": 3})
-    hybrid = EnsembleRetriever(retrievers=[bm25, dense], weights=[0.5, 0.5])
+    hybrid = EnsembleRetriever(retrievers=[bm25, dense], weights=[0.2, 0.8])
     return hybrid.invoke(query)
 
 def retrieve_doc_mmr(index_name, query):

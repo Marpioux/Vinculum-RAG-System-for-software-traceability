@@ -44,7 +44,7 @@ def initialize_system(index_name: str):
     openai_key = os.getenv("OPENAI_API_KEY")
 
     # LLM
-    model = ChatOpenAI(model="gpt-4o-mini")
+    model = ChatOpenAI(model_name="gpt-4.1-nano-2025-04-14", temperature=0)
 
     # Embeddings
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")

@@ -3,7 +3,7 @@ import json
 import time
 import redis
 from dotenv import load_dotenv
-from linking.chroma_retriever import retrieve_doc_parent
+from linking.chroma_retriever import retrieve_doc_hybrid
 
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
@@ -14,7 +14,7 @@ from utilities.utilities import (
 )
 from linking.prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3, final_prompt_RQ1_H4
 
-def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
+def linking_with_only_code(code_folder: str, output_file: str, index_name: str, bm25_corpus_path: str):
     """
     Extracts class structure from code JSON files and retrieves the most similar requirements
     using vector search. This can then be used to construct a traceability matrix.
@@ -92,7 +92,7 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
                         #if calls_count > 0:
                         #    time.sleep(6)
 
-                        results = retrieve_doc_parent(index_name, final_prompt_vector)
+                        results = retrieve_doc_hybrid(index_name, final_prompt_vector, bm25_corpus_path)
                         #calls_count += 1
 
                         reqs = []
@@ -130,7 +130,7 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     except Exception as e:
         log(f"❌ Error saving results: {str(e)}", level="ERROR")
 
-def with_code_comments(code_folder: str, output_file: str, index_name: str, file_result: str):
+def with_code_comments(code_folder: str, output_file: str, index_name: str, bm25_corpus_path: str):
     """RQ1/Hypothesis 2 : Use the comments found in code,
     if not retrieve the same requirements as the previous Hypothesis (with_only_code)"""
 
@@ -221,7 +221,7 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
                         #if calls_count > 0:
                         #    time.sleep(6)
 
-                    results = retrieve_doc_parent(index_name, final_prompt_vector)
+                    results = retrieve_doc_hybrid(index_name, final_prompt_vector, bm25_corpus_path)
                         #calls_count += 1
 
                     reqs = []
@@ -254,7 +254,7 @@ def with_code_comments(code_folder: str, output_file: str, index_name: str, file
     except Exception as e:
         log(f"❌ Error saving results: {str(e)}", level="ERROR")
 
-def with_class_comment(code_folder: str, output_file: str, index_name: str):
+def with_class_comment(code_folder: str, output_file: str, index_name: str, bm25_corpus_path: str):
     try:
         model, embeddings, redis_client, vector_store = initialize_system(index_name)
         log("linking_with_only_code", level="INFO")
@@ -296,7 +296,7 @@ def with_class_comment(code_folder: str, output_file: str, index_name: str):
                         #if calls_count > 0:
                         #    time.sleep(6)
 
-                        results = retrieve_doc_parent(index_name, final_prompt_vector)
+                        results = retrieve_doc_hybrid(index_name, final_prompt_vector, bm25_corpus_path)
                         #calls_count += 1
 
                         reqs = []
