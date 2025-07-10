@@ -3,7 +3,7 @@ import json
 import time
 import redis
 from dotenv import load_dotenv
-from linking.chroma_retriever import retrieve_doc_mmr
+from linking.chroma_retriever import retrieve_doc_rerank, retrieve_doc_rerank_free
 
 from langchain_community.chat_models import ChatOpenAI
 from langchain_community.embeddings import OpenAIEmbeddings
@@ -12,9 +12,9 @@ from langchain_community.vectorstores import Redis as RedisVectorStore
 from utilities.utilities import (
     log, clean_llm_output, save_response, initialize_system, find_name_by_page_content, retrieve_previous_results, clean_java_comment
 )
-from linking.prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3, final_prompt_RQ1_H4
+from linking.prompts.prompt_builder_RQ3 import cot_prompt
 
-def linking_with_only_code(code_folder: str, output_file: str, index_name: str, bm25_corpus_path: str):
+def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     """
     Extracts class structure from code JSON files and retrieves the most similar requirements
     using vector search. This can then be used to construct a traceability matrix.
@@ -89,11 +89,11 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str, 
 
                     try:
                         # Gestion rate limit : pause 6s entre appels Cohere après le premier
-                        #if calls_count > 0:
-                        #    time.sleep(6)
+                        if calls_count > 0:
+                            time.sleep(6)
 
-                        results = retrieve_doc_mmr(index_name, final_prompt_vector)
-                        #calls_count += 1
+                        results = retrieve_doc_rerank(index_name, final_prompt_vector)
+                        calls_count += 1
 
                         reqs = []
                         for req in results:
@@ -103,10 +103,11 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str, 
                                 "content": req.page_content
                             })
                         if reqs:
-                            prompt = final_prompt_RQ1_H1(
+                            prompt = cot_prompt(
                                 reqs=reqs,
-                                prompt_code=final_prompt_vector,
-                                class_name=entry.get("signature", "UnknownClass")
+                                class_content=final_prompt_vector,
+                                class_name=entry.get("signature", "UnknownClass"),
+                                is_code=True
                             )
                             response = model.invoke(prompt)
                             cleaned = clean_llm_output(response.content)
@@ -295,9 +296,10 @@ def with_class_comment(code_folder: str, output_file: str, index_name: str, bm25
                     try:
                         #if calls_count > 0:
                         #    time.sleep(6)
+                        
 
-                        results = retrieve_doc_mmr(index_name, final_prompt_vector)
-                        #calls_count += 1
+                        results = retrieve_doc_rerank_free(index_name, final_prompt_vector)
+                        calls_count += 1
 
                         reqs = []
                         for req in results:
@@ -307,10 +309,11 @@ def with_class_comment(code_folder: str, output_file: str, index_name: str, bm25
                                 "content": req.page_content
                             })
                         if reqs : 
-                            prompt = final_prompt_RQ1_H4(
+                            prompt = cot_prompt(
                                 reqs=reqs,
-                                prompt_code=final_prompt_vector,
-                                class_name=entry.get("signature", "UnknownClass")
+                                class_content=final_prompt_vector,
+                                class_name=entry.get("signature", "UnknownClass"),
+                                is_code=False
                             )
                             print("\n\n PROMPT :", prompt,"\n\n\n")
                             response = model.invoke(prompt)

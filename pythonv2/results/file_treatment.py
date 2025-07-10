@@ -32,4 +32,4 @@ def process_file_in_place(file_path):
             f.write(line + '\n')
 
 # Utilisation : remplace "chemin/vers/fichier.txt" par ton chemin
-process_file_in_place('./RQ2/with_gen_comment/chroma_Albergate.txt')
+process_file_in_place('./RQ3/with_gen_comment_cot/chroma_Albergate.txt')

@@ -46,7 +46,7 @@ F-SOG-02.txt -> MascheraPerAddebitare.java
 F-SOG-03.txt -> RicercaTelefonate.java
 F-SOG-03.txt -> MascheraTelefonate.java
 F-SOG-04.txt -> MascheraCalcoloConto.java
-F-SOG-04.txt MascheraVisualizzazioneConto.java
+F-SOG-04.txt -> MascheraVisualizzazioneConto.java
 F-SOG-04.txt -> RicercaAddebiti.java
 F-SOG-04.txt -> AskChiudiConto.java
 F-SOG-06.txt -> MascheraCambio.java

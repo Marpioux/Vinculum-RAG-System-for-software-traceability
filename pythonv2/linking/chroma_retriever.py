@@ -7,6 +7,39 @@ from langchain.retrievers import ParentDocumentRetriever, BM25Retriever, Ensembl
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.storage import InMemoryStore
 import pickle
+import os
+from dotenv import load_dotenv
+from langchain.embeddings import HuggingFaceEmbeddings
+from sentence_transformers import CrossEncoder
+
+def retrieve_doc_rerank_free(index_name, query):
+    # Charger l'environnement (si besoin)
+    load_dotenv()
+
+    # Utiliser un modèle d'embedding local
+    embedding = OpenAIEmbeddings()
+    vectorstore = Chroma(persist_directory=index_name, embedding_function=embedding)
+
+    # Obtenir les documents candidats (top 10 par similarité vectorielle)
+    docs = vectorstore.similarity_search(query, k=10)
+
+    # Texte brut à scorer
+    documents = [doc.page_content for doc in docs]
+
+    # Charger un modèle de re-ranking local (CrossEncoder)
+    reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+
+    # Créer les paires (query, doc) pour scoring
+    pairs = [[query, doc] for doc in documents]
+    scores = reranker.predict(pairs)
+
+    # Trier les documents selon les scores (du plus pertinent au moins pertinent)
+    scored_docs = sorted(zip(scores, docs), key=lambda x: x[0], reverse=True)
+
+    # Garder les 3 meilleurs
+    reranked_docs = [doc for _, doc in scored_docs[:3]]
+
+    return reranked_docs
 
 def retrieve_doc(index_name, query):
     load_dotenv()

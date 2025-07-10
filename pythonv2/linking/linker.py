@@ -11,7 +11,7 @@ from langchain_community.vectorstores import Redis as RedisVectorStore
 from utilities.utilities import (
     log, clean_llm_output, save_response, initialize_system, find_name_by_page_content, retrieve_previous_results, clean_java_comment
 )
-from linking.prompts.prompt_builder import final_prompt_RQ1_H1, final_prompt_RQ1_H2, final_prompt_RQ1_H3, final_prompt_RQ1_H4
+from linking.prompts.prompt_builder_RQ3 import few_shot_prompt_code
 
 def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
     """
@@ -86,21 +86,23 @@ def linking_with_only_code(code_folder: str, output_file: str, index_name: str):
                             log(f"⚠️ Malformed enum in {file_path}: {enum}", level="WARNING")
 
                     try:
-                        results = vector_store.similarity_search(
-                            query=final_prompt_vector, k=4, with_distance=False
-                        )
+                        results = retrieve_doc(index_name,final_prompt_vector)
                         reqs = []
                         for req in results:
-                            document_name = find_name_by_page_content(
-                                req.page_content, redis_client, index_name
-                            )
-                            reqs.append({"name": document_name, "content": req.page_content})
+                            filename = os.path.basename(req.metadata.get("source", "unknown.txt"))
+                            reqs.append({
+                                "name": filename,
+                                "content": req.page_content
+                            })
 
-                        prompt = final_prompt_RQ1_H1(
+                        prompt = few_shot_prompt_code(
                             reqs=reqs,
-                            prompt_code=final_prompt_vector,
+                            class_content=final_prompt_vector,
                             class_name=entry.get("signature", "UnknownClass")
                         )
+
+                        print(f"Prompt for class {entry.get("signature", "UnknownClass")}:\n{prompt}\n")
+
                         response = model.invoke(prompt)
                         cleaned = clean_llm_output(response.content)
                         for line in cleaned.splitlines():
