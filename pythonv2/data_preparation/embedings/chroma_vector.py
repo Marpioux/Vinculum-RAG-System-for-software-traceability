@@ -11,13 +11,11 @@ import chardet
 chromadb.config.Settings.enable_telemetry = False
 
 def safe_load_text(path):
-    # Détection automatique d'encodage
     with open(path, 'rb') as f:
         raw_data = f.read()
         result = chardet.detect(raw_data)
         detected_encoding = result['encoding'] or 'utf-8'
     
-    # Lecture avec l'encodage détecté
     try:
         loader = TextLoader(path, encoding=detected_encoding)
         return loader.load()
@@ -28,17 +26,13 @@ def safe_load_text(path):
 load_dotenv()
 openai_key = os.getenv("OPENAI_API_KEY")
 
-# ✅ Dossiers contenant les .txt
 folders = {
     "eTOUR": r"../Datasets/requirements/eTOUR",
     "Albergate": r"../Datasets/requirements/Albergate",
     "iTrust": r"../Datasets/requirements/iTrust",
 }
-
-# ✅ Initialisation des embeddings
 embedding = OpenAIEmbeddings()
 
-# ✅ Chargement + découpage de documents
 def load_documents_from_folder(folder_path):
     docs = []
     for file in os.listdir(folder_path):
@@ -49,7 +43,6 @@ def load_documents_from_folder(folder_path):
     splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     return splitter.split_documents(docs)
 
-# ✅ Création des vectorstores
 for index_name, folder_path in folders.items():
     print(f"\n📁 Traitement de {index_name} ({folder_path})...")
 
